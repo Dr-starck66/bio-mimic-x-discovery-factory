@@ -231,8 +231,8 @@
       "output_ref": "human_bridge_result",
       "stage": "TRANSLATE",
       "status": "PARTIAL",
-      "time": "2026-09-23T16:08:28.237866+00:00",
-      "value": 0.0
+      "time": "2026-09-23T16:08:56.182293+00:00",
+      "value": 0
     },
     {
       "brick_id": "experiment-forge",
@@ -307,11 +307,11 @@
   ],
   "bridge_refresh": {
     "bridged_candidates": 0,
-    "coverage_ratio": 0.0,
-    "previous_cycle_sha256": "c3dbba3327d5dc9f6bca7d551d03cbf6e4231ac230547527c037e73c967890ed",
+    "coverage_ratio": 0,
+    "previous_cycle_sha256": "251c9e1f110820dd705facd19049b287470606d1adc1a544ade7bf06f791fadf",
     "status": "PARTIAL",
     "supported_claims": 9,
-    "time": "2026-09-23T16:08:28.237866+00:00"
+    "time": "2026-09-23T16:08:56.182293+00:00"
   },
   "causal_plans": [
     {
@@ -934,94 +934,17 @@
     }
   ],
   "human_bridge_result": {
-    "attempted_candidates": 9,
+    "attempted_candidates": 0,
     "bridged_candidates": 0,
     "bridges": [],
-    "candidate_status": [
-      {
-        "bridges": 0,
-        "candidate": "Somniosus microcephalus",
-        "ensembl_species": null,
-        "gene_candidates": 0,
-        "status": "NO_ENSEMBL_SPECIES",
-        "validated_gene_candidates": []
-      },
-      {
-        "bridges": 0,
-        "candidate": "Acomys cahirinus",
-        "ensembl_species": null,
-        "gene_candidates": 0,
-        "status": "NO_ENSEMBL_SPECIES",
-        "validated_gene_candidates": []
-      },
-      {
-        "bridges": 0,
-        "candidate": "Danio rerio",
-        "ensembl_species": "danio_rerio",
-        "gene_candidates": 10,
-        "status": "NO_ENSEMBL_GENE_MATCH",
-        "validated_gene_candidates": []
-      },
-      {
-        "bridges": 0,
-        "candidate": "Cynops pyrrhogaster",
-        "ensembl_species": null,
-        "gene_candidates": 0,
-        "status": "NO_ENSEMBL_SPECIES",
-        "validated_gene_candidates": []
-      },
-      {
-        "bridges": 0,
-        "candidate": "Eublepharis macularius",
-        "ensembl_species": null,
-        "gene_candidates": 0,
-        "status": "NO_ENSEMBL_SPECIES",
-        "validated_gene_candidates": []
-      },
-      {
-        "bridges": 0,
-        "candidate": "Drosophila melanogaster",
-        "ensembl_species": null,
-        "gene_candidates": 0,
-        "status": "NO_ENSEMBL_SPECIES",
-        "validated_gene_candidates": []
-      },
-      {
-        "bridges": 0,
-        "candidate": "Paracentrotus lividus",
-        "ensembl_species": null,
-        "gene_candidates": 0,
-        "status": "NO_ENSEMBL_SPECIES",
-        "validated_gene_candidates": []
-      },
-      {
-        "bridges": 0,
-        "candidate": "Caenorhabditis elegans",
-        "ensembl_species": null,
-        "gene_candidates": 0,
-        "status": "NO_ENSEMBL_SPECIES",
-        "validated_gene_candidates": []
-      },
-      {
-        "bridges": 0,
-        "candidate": "Nothobranchius furzeri",
-        "ensembl_species": "nothobranchius_furzeri",
-        "gene_candidates": 10,
-        "status": "NO_ENSEMBL_GENE_MATCH",
-        "validated_gene_candidates": []
-      }
-    ],
-    "coverage_ratio": 0.0,
-    "errors": [],
+    "candidate_status": [],
+    "coverage_ratio": 0,
     "open_targets_hits": 0,
     "orthologue_hits": 0,
     "provider_status": {
-      "Ensembl homology": "PARTIAL",
-      "Ensembl species": "PASS",
-      "Europe PMC annotations": "PASS",
-      "Open Targets": "PARTIAL"
+      "Ensembl species": "FAIL: HTTP Error 500: Internal Server Error"
     },
-    "resolved_species": 2,
+    "resolved_species": 0,
     "status": "PARTIAL"
   },
   "human_translation": [
@@ -2483,7 +2406,7 @@
       "taxon_verified": true
     }
   ],
-  "sha256": "251c9e1f110820dd705facd19049b287470606d1adc1a544ade7bf06f791fadf",
+  "sha256": "c0161495e428f847831177d713e9bbc9db386d744c2ed6797c09d153f4439163",
   "status": "PASS",
   "telemetry": {
     "brick_observability_ratio": 1.0,
