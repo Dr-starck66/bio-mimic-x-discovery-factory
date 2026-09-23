@@ -8,6 +8,7 @@ OPEN_TARGETS="https://api.platform.opentargets.org/api/v4/graphql"
 EPMC_ANN="https://www.ebi.ac.uk/europepmc/annotations_api/annotationsByArticleIds"
 OMA_BASE="https://omabrowser.org/api"
 UNIPROT_SEARCH="https://rest.uniprot.org/uniprotkb/search"
+NCBI_DATASETS="https://api.ncbi.nlm.nih.gov/datasets/v2"
 TIMEOUT=12
 ORTHO_CACHE={}
 OT_CACHE={}
@@ -16,6 +17,14 @@ OMA_ORTHO_CACHE={}
 OMA_XREF_CACHE={}
 ANN_ENTITY_CACHE={}
 UNIPROT_SEARCH_CACHE={}
+NCBI_GENE_CACHE={}
+NCBI_ORTHO_CACHE={}
+
+SEED_PATH=Path(__file__).with_name("bridge_seeds.json")
+try:
+    BRIDGE_SEEDS=json.loads(SEED_PATH.read_text(encoding="utf-8")).get("species",{})
+except Exception:
+    BRIDGE_SEEDS={}
 
 def norm(x):
     return re.sub(r"[^a-z0-9]+"," ",(x or "").lower()).strip()
@@ -170,8 +179,18 @@ def annotation_uniprot_candidates(candidate,max_ids=8):
     return annotation_entities(candidate)["uniprots"][:max_ids]
 
 
+def literature_seed_records(candidate):
+    rows=BRIDGE_SEEDS.get(candidate_name(candidate),[])
+    return [x for x in rows if isinstance(x,dict) and x.get("gene") and x.get("evidence_pmids")]
+
+def literature_seed_genes(candidate):
+    return [str(x["gene"]).strip() for x in literature_seed_records(candidate)]
+
 def candidate_gene_candidates(candidate,max_genes=10):
     vals=[]
+    for g in literature_seed_genes(candidate):
+        if re.fullmatch(r"[A-Za-z][A-Za-z0-9._-]{1,15}",g) and g not in vals:
+            vals.append(g)
     for g in candidate.get("genes") or []:
         g=str(g).strip()
         if not g or g.upper() in GENE_NOISE:
@@ -251,6 +270,123 @@ def opentarget_context(ensembl_id):
     }
     OT_CACHE[ensembl_id]=result
     return result
+
+def ncbi_exact_gene(species,gene):
+    key=(norm(species),str(gene).upper())
+    if key in NCBI_GENE_CACHE:
+        return NCBI_GENE_CACHE[key]
+    try:
+        url=(NCBI_DATASETS+"/gene/symbol/"
+             +urllib.parse.quote(str(gene),safe="")
+             +"/taxon/"+urllib.parse.quote(str(species),safe="")
+             +"/dataset_report")
+        data=get_json(url,1)
+    except Exception:
+        NCBI_GENE_CACHE[key]=None
+        return None
+    for rep in data.get("reports",[]) if isinstance(data,dict) else []:
+        g=(rep or {}).get("gene") or {}
+        if norm(str(g.get("taxname") or ""))!=norm(species):
+            continue
+        gid=str(g.get("gene_id") or "")
+        if gid:
+            out={
+                "gene_id":gid,
+                "symbol":g.get("symbol"),
+                "tax_id":g.get("tax_id"),
+                "taxname":g.get("taxname"),
+                "description":g.get("description"),
+                "gene_groups":g.get("gene_groups") or []
+            }
+            NCBI_GENE_CACHE[key]=out
+            return out
+    NCBI_GENE_CACHE[key]=None
+    return None
+
+def ncbi_human_orthologs(gene_id):
+    key=str(gene_id)
+    if key in NCBI_ORTHO_CACHE:
+        return NCBI_ORTHO_CACHE[key]
+    try:
+        url=(NCBI_DATASETS+"/gene/id/"+urllib.parse.quote(key,safe="")
+             +"/orthologs?taxon_filter=9606")
+        data=get_json(url,1)
+    except Exception:
+        NCBI_ORTHO_CACHE[key]=[]
+        return []
+    out=[]
+    for rep in data.get("reports",[]) if isinstance(data,dict) else []:
+        g=(rep or {}).get("gene") or {}
+        if str(g.get("tax_id") or "")!="9606":
+            continue
+        for ensg in g.get("ensembl_gene_ids") or []:
+            if re.fullmatch(r"ENSG\d{6,}",str(ensg)):
+                out.append({
+                    "ensembl_id":str(ensg),
+                    "gene_id":str(g.get("gene_id") or ""),
+                    "symbol":g.get("symbol"),
+                    "description":g.get("description"),
+                    "ortholog_method":"NCBI Ortholog"
+                })
+    uniq={x["ensembl_id"]:x for x in out}
+    out=list(uniq.values())
+    NCBI_ORTHO_CACHE[key]=out
+    return out
+
+def ncbi_bridges_for_candidate(candidate):
+    name=candidate_name(candidate)
+    bridges=[]; checked=0; exact_genes=0; human_orthologs=0
+    for seed in literature_seed_records(candidate):
+        gene=str(seed["gene"]).strip()
+        checked+=1
+        source=ncbi_exact_gene(name,gene)
+        if not source:
+            continue
+        exact_genes+=1
+        orths=ncbi_human_orthologs(source["gene_id"])
+        human_orthologs+=len(orths)
+        for orth in orths:
+            try:
+                human=opentarget_context(orth["ensembl_id"])
+            except Exception:
+                human=None
+            if not human:
+                continue
+            bridges.append({
+                "animal_species":name,
+                "animal_ensembl_species":None,
+                "animal_gene":source.get("symbol") or gene,
+                "animal_ncbi_gene_id":source["gene_id"],
+                "human_ensembl_id":orth["ensembl_id"],
+                "human_symbol":human.get("approved_symbol"),
+                "human_name":human.get("approved_name"),
+                "human_biotype":human.get("biotype"),
+                "orthology":{
+                    "provider":"NCBI Ortholog",
+                    "method":"NCBI Ortholog",
+                    "human_ncbi_gene_id":orth.get("gene_id"),
+                    "source_tax_id":source.get("tax_id")
+                },
+                "tractability":human.get("tractability",[]),
+                "source_claim_pmids":candidate.get("pmid_sources",[]),
+                "bridge_evidence_pmids":[str(x) for x in seed.get("evidence_pmids",[])],
+                "bridge_seed_rationale":seed.get("rationale"),
+                "source_chain":[
+                    "replicated PMID species claim",
+                    "literature-backed exact-species mechanism seed",
+                    "NCBI Datasets exact species + gene resolution",
+                    "NCBI Ortholog to Homo sapiens",
+                    "NCBI human Ensembl Gene ID",
+                    "Open Targets human target annotation"
+                ],
+                "translation_status":"ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
+                "clinical_efficacy_claim":False
+            })
+    return bridges,{
+        "ncbi_seed_genes_checked":checked,
+        "ncbi_exact_genes":exact_genes,
+        "ncbi_human_orthologs":human_orthologs
+    }
 
 def uniprot_species_gene_accessions(candidate,max_terms=7,max_accessions=10):
     """Resolve article-derived gene/protein terms inside the exact claim species."""
@@ -467,6 +603,10 @@ def build_human_bridges(portfolio,max_candidates=20,max_genes=10):
                         "clinical_efficacy_claim":False
                     })
 
+        ncbi_new,ncbi_stats=ncbi_bridges_for_candidate(c)
+        bridges.extend(ncbi_new)
+        row.update(ncbi_stats)
+
         oma_new,oma_stats=oma_bridges_for_candidate(c)
         bridges.extend(oma_new)
         row.update(oma_stats)
@@ -475,7 +615,7 @@ def build_human_bridges(portfolio,max_candidates=20,max_genes=10):
         row["bridges"]=sum(1 for b in bridges if b["animal_species"]==name)
         if row["bridges"]:
             row["status"]="BRIDGED"
-        elif not ens_species and row.get("oma_species_matched",0)==0:
+        elif not ens_species and row.get("oma_species_matched",0)==0 and row.get("ncbi_exact_genes",0)==0:
             row["status"]="NO_SUPPORTED_ORTHOLOGY_PROVIDER_MATCH"
         elif not genes and not row.get("uniprot_candidates",0):
             row["status"]="NO_GENE_OR_PROTEIN_ANNOTATION"
@@ -499,8 +639,9 @@ def build_human_bridges(portfolio,max_candidates=20,max_genes=10):
     bridged=len(bridged_names)
     coverage=round(bridged/max(1,attempted),4)
     oma_bridge_count=sum(1 for b in bridges if (b.get("orthology") or {}).get("provider")=="OMA")
+    ncbi_bridge_count=sum(1 for b in bridges if (b.get("orthology") or {}).get("provider")=="NCBI Ortholog")
     verified_human_targets=len({(b["animal_species"],b["human_ensembl_id"]) for b in bridges})
-    total_orthologue_hits=orth_hits+oma_bridge_count
+    total_orthologue_hits=orth_hits+oma_bridge_count+ncbi_bridge_count
 
     # PASS means all replicated claims got at least one verified human bridge.
     # Anything less is explicitly PARTIAL rather than hidden.
@@ -511,6 +652,7 @@ def build_human_bridges(portfolio,max_candidates=20,max_genes=10):
             "Europe PMC annotations":"PASS",
             "Ensembl species":species_provider,
             "OMA orthology":"PASS" if oma_bridge_count else "PARTIAL",
+            "NCBI Ortholog":"PASS" if ncbi_bridge_count else "PARTIAL",
             "Ensembl homology":"PASS" if orth_hits else "PARTIAL",
             "Open Targets":"PASS" if verified_human_targets else "PARTIAL"
         },
@@ -522,6 +664,7 @@ def build_human_bridges(portfolio,max_candidates=20,max_genes=10):
         "open_targets_hits":verified_human_targets,
         "ensembl_orthologue_hits":orth_hits,
         "oma_orthologue_hits":oma_bridge_count,
+        "ncbi_orthologue_hits":ncbi_bridge_count,
         "bridges":bridges,
         "candidate_status":candidate_status,
         "errors":errors[:50]
