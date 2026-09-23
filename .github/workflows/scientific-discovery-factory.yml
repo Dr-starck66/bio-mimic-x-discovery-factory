@@ -42,7 +42,7 @@ jobs:
 
   committee-and-factory:
     needs: specialist-labs
-    if: ${{ always() }}
+    if: ${{ always() && !cancelled() }}
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
