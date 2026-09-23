@@ -1,8 +1,8 @@
 # BIO-MIMIC X — Human Bridge Refresh
 
-Time: 2026-09-23T19:37:04.505093+00:00
+Time: 2026-09-23T20:08:53.014368+00:00
 Supported claims: 9
-Strict orthology: 6/9 (66.7%)
+Strict orthology: 7/9 (77.8%)
 Verified human translation: 9/9 (100.0%)
 Translation status: PASS
 
@@ -10,7 +10,7 @@ Translation status: PASS
 - Somniosus microcephalus: VERIFIED · STRICT_ORTHOLOGY_TARGET
 - Acomys cahirinus: VERIFIED · STRICT_ORTHOLOGY_TARGET
 - Danio rerio: VERIFIED · STRICT_ORTHOLOGY_TARGET
-- Cynops pyrrhogaster: VERIFIED · CURATED_PROTEIN_HOMOLOGY
+- Cynops pyrrhogaster: VERIFIED · STRICT_ORTHOLOGY_TARGET
 - Eublepharis macularius: VERIFIED · STRICT_ORTHOLOGY_TARGET
 - Drosophila melanogaster: VERIFIED · STRICT_ORTHOLOGY_TARGET
 - Paracentrotus lividus: VERIFIED · FUNCTIONAL_CRYOPRESERVATION_INTERVENTION
