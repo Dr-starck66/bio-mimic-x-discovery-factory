@@ -1,0 +1,202 @@
+[
+  {
+    "brick_id": "omega-os",
+    "metric": "planned_stages_completed",
+    "name": "Ω-OS Control Plane",
+    "output_ref": "cycle_plan",
+    "stage": "CONTROL",
+    "status": "PASS",
+    "time": "2026-09-23T14:26:33.916656+00:00",
+    "value": 14
+  },
+  {
+    "brick_id": "research-director",
+    "metric": "programs_with_testable_milestones",
+    "name": "Research Director + Scientific Planner",
+    "output_ref": "state/factory/programs.json",
+    "stage": "PLAN",
+    "status": "PASS",
+    "time": "2026-09-23T14:26:33.917394+00:00",
+    "value": 6
+  },
+  {
+    "brick_id": "aion-nexus",
+    "metric": "missions_with_no_unresolved_dependency",
+    "name": "AION-NEXUS Mission Graph",
+    "output_ref": "mission_graphs",
+    "stage": "PLAN",
+    "status": "PASS",
+    "time": "2026-09-23T14:26:33.917477+00:00",
+    "value": 6
+  },
+  {
+    "brick_id": "data-fusion",
+    "metric": "valid_artifact_ratio",
+    "name": "DEVOPS-X Data Fusion Engine",
+    "output_ref": "normalized_bundle",
+    "stage": "OBSERVE",
+    "status": "PASS",
+    "time": "2026-09-23T14:26:33.917491+00:00",
+    "value": 1.0
+  },
+  {
+    "brick_id": "agentshield",
+    "metric": "rejected_untrusted_records",
+    "name": "AgentShield Trust Gateway",
+    "output_ref": "trusted_bundle",
+    "stage": "OBSERVE",
+    "status": "PASS",
+    "time": "2026-09-23T14:26:33.917502+00:00",
+    "value": 0
+  },
+  {
+    "brick_id": "novel-species-hunter",
+    "metric": "novel_candidate_yield",
+    "name": "Novel Species Hunter",
+    "output_ref": "committee.portfolio",
+    "stage": "DISCOVER",
+    "status": "PASS",
+    "time": "2026-09-23T14:26:33.917504+00:00",
+    "value": 50
+  },
+  {
+    "brick_id": "decision-engine",
+    "metric": "credits_sum_to_100",
+    "name": "Deterministic Decision Engine / Scientific Investment Committee",
+    "output_ref": "committee.allocations",
+    "stage": "DECIDE",
+    "status": "PASS",
+    "time": "2026-09-23T14:26:33.917510+00:00",
+    "value": 100
+  },
+  {
+    "brick_id": "evidence-network",
+    "metric": "claims_with_provenance_ratio",
+    "name": "Evidence Network / Claim Ledger",
+    "output_ref": "claim_ledger",
+    "stage": "VERIFY",
+    "status": "PASS",
+    "time": "2026-09-23T14:26:33.917551+00:00",
+    "value": 1.0
+  },
+  {
+    "brick_id": "duality-x",
+    "metric": "mean_disagreement",
+    "name": "DUALITY-X + Arbiter",
+    "output_ref": "committee.portfolio",
+    "stage": "EVALUATE",
+    "status": "PASS",
+    "time": "2026-09-23T14:26:33.917565+00:00",
+    "value": 6.485
+  },
+  {
+    "brick_id": "morpheus",
+    "metric": "falsifiable_failure_modes_per_program",
+    "name": "Morpheus Adversarial Engine",
+    "output_ref": "morpheus_audits",
+    "stage": "FALSIFY",
+    "status": "PASS",
+    "time": "2026-09-23T14:26:33.917798+00:00",
+    "value": 4.167
+  },
+  {
+    "brick_id": "omega-causal",
+    "metric": "claims_with_counterfactual_test",
+    "name": "Ω-CAUSAL + Uncertainty Engine",
+    "output_ref": "causal_plans",
+    "stage": "FALSIFY",
+    "status": "PASS",
+    "time": "2026-09-23T14:26:33.917803+00:00",
+    "value": 6
+  },
+  {
+    "brick_id": "negative-kg",
+    "metric": "repeated_dead_ends_prevented",
+    "name": "Negative Knowledge Graph",
+    "output_ref": "negative_filter",
+    "stage": "MEMORY",
+    "status": "PASS",
+    "time": "2026-09-23T14:26:33.917807+00:00",
+    "value": 0
+  },
+  {
+    "brick_id": "human-bridge",
+    "metric": "candidates_with_human_bridge",
+    "name": "Human Bridge",
+    "output_ref": "human_translation",
+    "stage": "TRANSLATE",
+    "status": "PASS",
+    "time": "2026-09-23T14:26:33.917811+00:00",
+    "value": 0
+  },
+  {
+    "brick_id": "experiment-forge",
+    "metric": "programs_with_explicit_kill_criteria",
+    "name": "Experiment Designer + Ω-EXPERIMENT",
+    "output_ref": "experiments",
+    "stage": "EXPERIMENT",
+    "status": "PASS",
+    "time": "2026-09-23T14:26:33.917815+00:00",
+    "value": 6
+  },
+  {
+    "brick_id": "benchmark-x10",
+    "metric": "delta_vs_baseline",
+    "name": "BENCHMARK-X10",
+    "output_ref": "benchmark",
+    "stage": "BENCHMARK",
+    "status": "PASS",
+    "time": "2026-09-23T14:26:33.917842+00:00",
+    "value": 1.9208
+  },
+  {
+    "brick_id": "omega-foundry",
+    "metric": "policy_variant_diversity",
+    "name": "Ω-FOUNDRY + MAP-Elites/Novelty",
+    "output_ref": "policy_variants",
+    "stage": "IMPROVE",
+    "status": "PASS",
+    "time": "2026-09-23T14:26:33.917971+00:00",
+    "value": 8
+  },
+  {
+    "brick_id": "immune-gate",
+    "metric": "unsafe_policy_changes_blocked",
+    "name": "Model Immune System / Self-Improvement Gate",
+    "output_ref": "policy_gate",
+    "stage": "IMPROVE",
+    "status": "PASS",
+    "time": "2026-09-23T14:26:33.917996+00:00",
+    "value": 1
+  },
+  {
+    "brick_id": "omega-memory",
+    "metric": "new_provenance_edges",
+    "name": "Ω-MEMORY / Knowledge Graph",
+    "output_ref": "state/factory/long_term_memory.json",
+    "stage": "MEMORY",
+    "status": "PASS",
+    "time": "2026-09-23T14:26:33.919576+00:00",
+    "value": 56
+  },
+  {
+    "brick_id": "omega-telemetry",
+    "metric": "brick_observability_ratio",
+    "name": "Ω-TELEMETRY",
+    "output_ref": "telemetry",
+    "stage": "OBSERVE",
+    "status": "PASS",
+    "time": "2026-09-23T14:26:33.919617+00:00",
+    "value": 0.95
+  },
+  {
+    "brick_id": "devops-x",
+    "metric": "successful_daily_cycle_ratio",
+    "name": "DEVOPS-X Reliability Layer",
+    "output_ref": "validated_state",
+    "stage": "OPERATE",
+    "status": "PASS",
+    "time": "2026-09-23T14:26:33.919620+00:00",
+    "value": 1.0
+  }
+]
