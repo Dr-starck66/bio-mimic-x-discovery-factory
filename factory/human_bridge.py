@@ -6,7 +6,9 @@ from pathlib import Path
 ENSEMBL_BASE="https://rest.ensembl.org"
 OPEN_TARGETS="https://api.platform.opentargets.org/api/v4/graphql"
 EPMC_ANN="https://www.ebi.ac.uk/europepmc/annotations_api/annotationsByArticleIds"
-TIMEOUT=18
+TIMEOUT=12
+ORTHO_CACHE={}
+OT_CACHE={}
 
 def norm(x):
     return re.sub(r"[^a-z0-9]+"," ",(x or "").lower()).strip()
@@ -127,16 +129,18 @@ def annotation_gene_candidates(candidate):
             continue
     return sorted(out)
 
-def candidate_gene_candidates(candidate,max_genes=24):
+def candidate_gene_candidates(candidate,max_genes=10):
     vals=[]
     for g in candidate.get("genes") or []:
         g=str(g).strip()
         if not g or g.upper() in GENE_NOISE:
             continue
-        if re.fullmatch(r"[A-Za-z][A-Za-z0-9._-]{1,20}",g) and g not in vals:
+        if re.fullmatch(r"[A-Za-z][A-Za-z0-9._-]{1,15}",g) and g not in vals:
             vals.append(g)
     for g in annotation_gene_candidates(candidate):
-        if g not in vals:
+        # Prefer compact symbols/accession-like labels. Full protein names create
+        # many low-value Ensembl calls and are kept out of the online bridge path.
+        if re.fullmatch(r"[A-Za-z][A-Za-z0-9._-]{1,15}",g) and g not in vals:
             vals.append(g)
     return vals[:max_genes]
 
@@ -164,12 +168,22 @@ def collect_human_orthologues(obj):
     return list(found.values())
 
 def orthologues_for_symbol(species,gene):
+    key=(species,gene)
+    if key in ORTHO_CACHE:
+        return ORTHO_CACHE[key]
     params="target_species=human;type=orthologues;sequence=none;content-type=application/json"
     url=f"{ENSEMBL_BASE}/homology/symbol/{urllib.parse.quote(species)}/{urllib.parse.quote(gene)}?{params}"
-    data=get_json(url,2)
-    return collect_human_orthologues(data)
+    try:
+        data=get_json(url,1)
+        out=collect_human_orthologues(data)
+    except Exception:
+        out=[]
+    ORTHO_CACHE[key]=out
+    return out
 
 def opentarget_context(ensembl_id):
+    if ensembl_id in OT_CACHE:
+        return OT_CACHE[ensembl_id]
     query="""
     query targetInfo($ensemblId: String!) {
       target(ensemblId: $ensemblId) {
@@ -184,17 +198,20 @@ def opentarget_context(ensembl_id):
     data=post_json(OPEN_TARGETS,{"query":query,"variables":{"ensemblId":ensembl_id}},1)
     target=((data.get("data") or {}).get("target"))
     if not target:
+        OT_CACHE[ensembl_id]=None
         return None
     tr=[x for x in (target.get("tractability") or []) if x.get("value")]
-    return {
+    result={
         "id":target.get("id"),
         "approved_symbol":target.get("approvedSymbol"),
         "approved_name":target.get("approvedName"),
         "biotype":target.get("biotype"),
         "tractability":[{"label":x.get("label"),"modality":x.get("modality")} for x in tr[:12]]
     }
+    OT_CACHE[ensembl_id]=result
+    return result
 
-def build_human_bridges(portfolio,max_candidates=20,max_genes=24):
+def build_human_bridges(portfolio,max_candidates=20,max_genes=10):
     try:
         species_index=ensembl_species_index()
         species_provider="PASS"
