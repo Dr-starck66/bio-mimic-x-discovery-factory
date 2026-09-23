@@ -231,8 +231,8 @@
       "output_ref": "human_bridge_result",
       "stage": "TRANSLATE",
       "status": "PARTIAL",
-      "time": "2026-09-23T16:14:03.277819+00:00",
-      "value": 0.1111
+      "time": "2026-09-23T16:17:56.619046+00:00",
+      "value": 0.0
     },
     {
       "brick_id": "experiment-forge",
@@ -306,12 +306,12 @@
     }
   ],
   "bridge_refresh": {
-    "bridged_candidates": 1,
-    "coverage_ratio": 0.1111,
-    "previous_cycle_sha256": "6496eff935ff2c98ddebec6a0abe437467555d0a81c90abd3bfe6bdfa4afb6dc",
+    "bridged_candidates": 0,
+    "coverage_ratio": 0.0,
+    "previous_cycle_sha256": "6f3a8ae3a3be7ea5b61b02e5c6c5d7686a06e8a072eabac749cfc99d2030c15a",
     "status": "PARTIAL",
     "supported_claims": 9,
-    "time": "2026-09-23T16:14:03.277819+00:00"
+    "time": "2026-09-23T16:17:56.619046+00:00"
   },
   "causal_plans": [
     {
@@ -935,76 +935,8 @@
   ],
   "human_bridge_result": {
     "attempted_candidates": 9,
-    "bridged_candidates": 1,
-    "bridges": [
-      {
-        "animal_ensembl_species": "danio_rerio",
-        "animal_gene": "VEGF",
-        "animal_species": "Danio rerio",
-        "clinical_efficacy_claim": false,
-        "human_biotype": "protein_coding",
-        "human_ensembl_id": "ENSG00000112715",
-        "human_name": "vascular endothelial growth factor A",
-        "human_symbol": "VEGFA",
-        "orthology": {
-          "ensembl_id": "ENSG00000112715",
-          "perc_id": 27.0886,
-          "perc_pos": 34.6835,
-          "protein_id": "ENSP00000500082",
-          "taxon_id": 9606
-        },
-        "source_chain": [
-          "replicated PMID claim",
-          "Europe PMC gene/protein annotation or claim gene",
-          "Ensembl Compara orthology",
-          "Open Targets human target annotation"
-        ],
-        "source_claim_pmids": [
-          "PMID:42314834",
-          "PMID:42690612",
-          "PMID:42755729"
-        ],
-        "tractability": [
-          {
-            "label": "Structure with Ligand",
-            "modality": "SM"
-          },
-          {
-            "label": "High-Quality Ligand",
-            "modality": "SM"
-          },
-          {
-            "label": "Med-Quality Pocket",
-            "modality": "SM"
-          },
-          {
-            "label": "Approved Drug",
-            "modality": "AB"
-          },
-          {
-            "label": "UniProt loc high conf",
-            "modality": "AB"
-          },
-          {
-            "label": "GO CC high conf",
-            "modality": "AB"
-          },
-          {
-            "label": "UniProt loc med conf",
-            "modality": "AB"
-          },
-          {
-            "label": "Small Molecule Binder",
-            "modality": "PR"
-          },
-          {
-            "label": "Approved Drug",
-            "modality": "OC"
-          }
-        ],
-        "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
-      }
-    ],
+    "bridged_candidates": 0,
+    "bridges": [],
     "candidate_status": [
       {
         "bridges": 0,
@@ -1012,9 +944,9 @@
         "ensembl_species": null,
         "gene_candidates": 10,
         "oma_species_matched": 0,
-        "oma_uniprots_checked": 0,
+        "oma_uniprots_checked": 8,
         "status": "NO_SUPPORTED_ORTHOLOGY_PROVIDER_MATCH",
-        "uniprot_candidates": 0,
+        "uniprot_candidates": 8,
         "validated_gene_candidates": []
       },
       {
@@ -1023,23 +955,21 @@
         "ensembl_species": null,
         "gene_candidates": 10,
         "oma_species_matched": 0,
-        "oma_uniprots_checked": 0,
+        "oma_uniprots_checked": 8,
         "status": "NO_SUPPORTED_ORTHOLOGY_PROVIDER_MATCH",
-        "uniprot_candidates": 0,
+        "uniprot_candidates": 8,
         "validated_gene_candidates": []
       },
       {
-        "bridges": 1,
+        "bridges": 0,
         "candidate": "Danio rerio",
-        "ensembl_species": "danio_rerio",
+        "ensembl_species": null,
         "gene_candidates": 10,
         "oma_species_matched": 0,
-        "oma_uniprots_checked": 0,
-        "status": "BRIDGED",
-        "uniprot_candidates": 0,
-        "validated_gene_candidates": [
-          "VEGF"
-        ]
+        "oma_uniprots_checked": 8,
+        "status": "NO_SUPPORTED_ORTHOLOGY_PROVIDER_MATCH",
+        "uniprot_candidates": 8,
+        "validated_gene_candidates": []
       },
       {
         "bridges": 0,
@@ -1047,9 +977,9 @@
         "ensembl_species": null,
         "gene_candidates": 10,
         "oma_species_matched": 0,
-        "oma_uniprots_checked": 0,
+        "oma_uniprots_checked": 8,
         "status": "NO_SUPPORTED_ORTHOLOGY_PROVIDER_MATCH",
-        "uniprot_candidates": 0,
+        "uniprot_candidates": 8,
         "validated_gene_candidates": []
       },
       {
@@ -1058,9 +988,9 @@
         "ensembl_species": null,
         "gene_candidates": 3,
         "oma_species_matched": 0,
-        "oma_uniprots_checked": 0,
+        "oma_uniprots_checked": 3,
         "status": "NO_SUPPORTED_ORTHOLOGY_PROVIDER_MATCH",
-        "uniprot_candidates": 0,
+        "uniprot_candidates": 3,
         "validated_gene_candidates": []
       },
       {
@@ -1068,10 +998,10 @@
         "candidate": "Drosophila melanogaster",
         "ensembl_species": null,
         "gene_candidates": 10,
-        "oma_species_matched": 0,
-        "oma_uniprots_checked": 0,
-        "status": "NO_SUPPORTED_ORTHOLOGY_PROVIDER_MATCH",
-        "uniprot_candidates": 0,
+        "oma_species_matched": 1,
+        "oma_uniprots_checked": 8,
+        "status": "NO_VALIDATED_ORTHOLOGUE",
+        "uniprot_candidates": 8,
         "validated_gene_candidates": []
       },
       {
@@ -1080,9 +1010,9 @@
         "ensembl_species": null,
         "gene_candidates": 10,
         "oma_species_matched": 0,
-        "oma_uniprots_checked": 0,
+        "oma_uniprots_checked": 8,
         "status": "NO_SUPPORTED_ORTHOLOGY_PROVIDER_MATCH",
-        "uniprot_candidates": 0,
+        "uniprot_candidates": 8,
         "validated_gene_candidates": []
       },
       {
@@ -1091,37 +1021,37 @@
         "ensembl_species": null,
         "gene_candidates": 10,
         "oma_species_matched": 0,
-        "oma_uniprots_checked": 0,
+        "oma_uniprots_checked": 8,
         "status": "NO_SUPPORTED_ORTHOLOGY_PROVIDER_MATCH",
-        "uniprot_candidates": 0,
+        "uniprot_candidates": 8,
         "validated_gene_candidates": []
       },
       {
         "bridges": 0,
         "candidate": "Nothobranchius furzeri",
-        "ensembl_species": "nothobranchius_furzeri",
+        "ensembl_species": null,
         "gene_candidates": 10,
         "oma_species_matched": 0,
-        "oma_uniprots_checked": 0,
-        "status": "NO_VALIDATED_ORTHOLOGUE",
-        "uniprot_candidates": 0,
+        "oma_uniprots_checked": 8,
+        "status": "NO_SUPPORTED_ORTHOLOGY_PROVIDER_MATCH",
+        "uniprot_candidates": 8,
         "validated_gene_candidates": []
       }
     ],
-    "coverage_ratio": 0.1111,
-    "ensembl_orthologue_hits": 1,
+    "coverage_ratio": 0.0,
+    "ensembl_orthologue_hits": 0,
     "errors": [],
     "oma_orthologue_hits": 0,
-    "open_targets_hits": 1,
-    "orthologue_hits": 1,
+    "open_targets_hits": 0,
+    "orthologue_hits": 0,
     "provider_status": {
-      "Ensembl homology": "PASS",
-      "Ensembl species": "PASS",
+      "Ensembl homology": "PARTIAL",
+      "Ensembl species": "FAIL: HTTP Error 500: Internal Server Error",
       "Europe PMC annotations": "PASS",
       "OMA orthology": "PARTIAL",
-      "Open Targets": "PASS"
+      "Open Targets": "PARTIAL"
     },
-    "resolved_species": 2,
+    "resolved_species": 0,
     "status": "PARTIAL"
   },
   "human_translation": [
@@ -1159,82 +1089,18 @@
     },
     {
       "animal_claim_not_promoted_to_human_efficacy": true,
-      "bridges": [
-        {
-          "animal_ensembl_species": "danio_rerio",
-          "animal_gene": "VEGF",
-          "animal_species": "Danio rerio",
-          "clinical_efficacy_claim": false,
-          "human_biotype": "protein_coding",
-          "human_ensembl_id": "ENSG00000112715",
-          "human_name": "vascular endothelial growth factor A",
-          "human_symbol": "VEGFA",
-          "orthology": {
-            "ensembl_id": "ENSG00000112715",
-            "perc_id": 27.0886,
-            "perc_pos": 34.6835,
-            "protein_id": "ENSP00000500082",
-            "taxon_id": 9606
-          },
-          "source_chain": [
-            "replicated PMID claim",
-            "Europe PMC gene/protein annotation or claim gene",
-            "Ensembl Compara orthology",
-            "Open Targets human target annotation"
-          ],
-          "source_claim_pmids": [
-            "PMID:42314834",
-            "PMID:42690612",
-            "PMID:42755729"
-          ],
-          "tractability": [
-            {
-              "label": "Structure with Ligand",
-              "modality": "SM"
-            },
-            {
-              "label": "High-Quality Ligand",
-              "modality": "SM"
-            },
-            {
-              "label": "Med-Quality Pocket",
-              "modality": "SM"
-            },
-            {
-              "label": "Approved Drug",
-              "modality": "AB"
-            },
-            {
-              "label": "UniProt loc high conf",
-              "modality": "AB"
-            },
-            {
-              "label": "GO CC high conf",
-              "modality": "AB"
-            },
-            {
-              "label": "UniProt loc med conf",
-              "modality": "AB"
-            },
-            {
-              "label": "Small Molecule Binder",
-              "modality": "PR"
-            },
-            {
-              "label": "Approved Drug",
-              "modality": "OC"
-            }
-          ],
-          "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
-        }
-      ],
+      "bridges": [],
       "claim_pmids": [
         "PMID:42314834",
         "PMID:42690612",
         "PMID:42755729"
       ],
-      "remaining": [],
-      "status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
+      "remaining": [
+        "supported species in orthology provider",
+        "gene/protein annotation with validated orthologue",
+        "Open Targets human target context"
+      ],
+      "status": "UNVERIFIED_HUMAN_BRIDGE",
       "subject": "Danio rerio"
     },
     {
@@ -2647,7 +2513,7 @@
       "taxon_verified": true
     }
   ],
-  "sha256": "6f3a8ae3a3be7ea5b61b02e5c6c5d7686a06e8a072eabac749cfc99d2030c15a",
+  "sha256": "8336c136da5205589a3b684f850b7f93204219dff9f2bb7280826c3b6b7c06a1",
   "status": "PASS",
   "telemetry": {
     "brick_observability_ratio": 1.0,
