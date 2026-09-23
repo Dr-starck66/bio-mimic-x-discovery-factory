@@ -1,0 +1,67 @@
+name: BIO-MIMIC X V9 Full Cycle Smoke
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/v9-full-cycle-smoke.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: biomimic-v9-full-cycle-smoke
+  cancel-in-progress: true
+
+jobs:
+  smoke:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Unit and registry gates
+        run: |
+          python -m unittest discover -s tests -v
+          python factory/brick_audit.py
+
+      - name: Execute V9 factory cycle against committed organization state
+        run: python factory/control_plane.py --committee state/org/latest.json
+
+      - name: Validate V9 runtime outputs
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          root=pathlib.Path(".")
+          x=json.loads((root/"state/factory/latest.json").read_text(encoding="utf-8"))
+          reg=json.loads((root/"factory/brick_registry.json").read_text(encoding="utf-8"))
+          reasoning=x.get("scientific_reasoning",[])
+          assert reasoning, "scientific_reasoning empty"
+          assert all(d.get("hypotheses") for d in reasoning)
+          assert all(d.get("debate",{}).get("ranked") for d in reasoning)
+          assert all(d.get("experiment_plans") for d in reasoning)
+          assert all(d.get("clinical_efficacy_claim") is False for d in reasoning)
+          assert all(d.get("experiments_executed") is False for d in reasoning)
+          usage=x.get("brick_usage",[])
+          used={e["brick_id"] for e in usage}
+          active={b["id"] for b in reg["active"]}
+          assert used==active, {"missing":sorted(active-used),"unexpected":sorted(used-active)}
+          mem=root/"state/factory/scientific_reasoning_memory.json"
+          assert mem.exists()
+          m=json.loads(mem.read_text(encoding="utf-8"))
+          assert m.get("hypotheses")
+          print({
+            "status":"PASS",
+            "factory_status":x.get("status"),
+            "programs":len(x.get("programs",[])),
+            "reasoning_dossiers":len(reasoning),
+            "hypotheses":sum(len(d.get("hypotheses",[])) for d in reasoning),
+            "experiment_plans":sum(len(d.get("experiment_plans",[])) for d in reasoning),
+            "active_bricks":len(active),
+            "used_bricks":len(used),
+            "memory_hypotheses":len(m.get("hypotheses",{}))
+          })
+          PY
