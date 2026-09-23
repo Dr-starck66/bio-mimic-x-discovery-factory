@@ -16,13 +16,17 @@ class TestV6Organization(unittest.TestCase):
         self.assertNotEqual(e,s)
 
     def test_committee_cross_lab_boost(self):
-        outs=[
+        one=[
+            {"lab_id":"a","candidates":[{"name":"Species alpha","sources":["P1"],"mechanisms":["DNA repair"],"genes":[],"arbiter":60,"priority":60,"challenge_flags":[],"annotation_support":True}]}
+        ]
+        two=[
             {"lab_id":"a","candidates":[{"name":"Species alpha","sources":["P1"],"mechanisms":["DNA repair"],"genes":[],"arbiter":60,"priority":60,"challenge_flags":[],"annotation_support":True}]},
             {"lab_id":"b","candidates":[{"name":"Species alpha","sources":["P2"],"mechanisms":["DNA repair"],"genes":[],"arbiter":60,"priority":60,"challenge_flags":[],"annotation_support":True}]}
         ]
-        p=committee.cross_lab_portfolio(outs)
-        self.assertEqual(p[0]["lab_count"],2)
-        self.assertGreater(p[0]["committee_score"],50)
+        p1=committee.cross_lab_portfolio(one)
+        p2=committee.cross_lab_portfolio(two)
+        self.assertEqual(p2[0]["lab_count"],2)
+        self.assertGreater(p2[0]["committee_score"],p1[0]["committee_score"])
 
     def test_credit_allocation_sums_100(self):
         p=[
