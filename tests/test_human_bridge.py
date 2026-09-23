@@ -47,8 +47,9 @@ class TestHumanBridge(unittest.TestCase):
     def test_gene_noise_is_not_sent_to_ensembl(self):
         c={"genes":["VEGF","NF-","PCNA-","TP53"]}
         got=human_bridge.candidate_gene_candidates(c)
-        self.assertNotIn("VEGF",got)
+        self.assertIn("VEGF",got)
         self.assertNotIn("NF-",got)
+        self.assertNotIn("PCNA-",got)
         self.assertIn("TP53",got)
 
     def test_bridge_pass_requires_full_claim_coverage_shape(self):
