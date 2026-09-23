@@ -64,19 +64,29 @@ def trust_gate(bundle):
             rejected.append({"candidate":c,"reason":"missing provenance/name/taxon proof"})
     return {"accepted":accepted,"rejected":rejected}
 
-def build_claim_ledger(trusted):
-    claims=[]
+def build_evidence_ledgers(trusted):
+    """Separate exploratory observations from replicated claims.
+    A single paper can nominate a SCOUT observation, but cannot create a claim.
+    """
+    claims=[]; scouts=[]
     for c in trusted["accepted"]:
-        status="PLAUSIBLE"
-        if c.get("taxon_verified") and c.get("source_count",0)>=2: status="SUPPORTED"
-        claims.append({
-            "subject":c["name"],"status":status,"sources":c.get("sources",[]),
+        record={
+            "subject":c["name"],"sources":c.get("sources",[]),
             "mechanisms":c.get("mechanisms",[]),"labs":c.get("labs",[]),
             "genes":c.get("genes",[]),"taxon_verified":bool(c.get("taxon_verified")),
             "taxon_proofs":c.get("taxon_proofs",[]),
-            "claim":f"{c['name']} is a cross-species research candidate; this is not a human efficacy claim."
-        })
-    return claims
+            "source_count":c.get("source_count",len(c.get("sources",[])))
+        }
+        if record["source_count"] >= 2:
+            record["status"]="SUPPORTED"
+            record["claim"]=f"{c['name']} is a replicated cross-species research candidate; this is not a human efficacy claim."
+            claims.append(record)
+        else:
+            record["status"]="SCOUT"
+            record["observation"]=f"{c['name']} is a single-source observation awaiting independent replication."
+            record["replication_needed"]=max(0,2-record["source_count"])
+            scouts.append(record)
+    return claims,scouts
 
 def morpheus_audit(program,claim):
     flags=[]
@@ -171,12 +181,18 @@ def update_memory(cycle):
 
 def telemetry_from(cycle,bundle,trusted,claims,usage):
     verified=sum(1 for x in claims if x["status"]=="SUPPORTED")
-    fp_proxy=sum(1 for x in claims if len(x.get("sources",[]))<2)/max(1,len(claims))
+    fragile=sum(1 for x in claims if len(x.get("sources",[]))<2)/max(1,len(claims))
+    scouts=cycle.get("scout_observations",[])
     labs=set()
     for c in claims: labs.update(c.get("labs",[]))
     return {
         "verified_ratio":verified/max(1,len(claims)),
-        "false_positive_rate":round(fp_proxy,4),
+        # Backward-compatible field for the existing Control Center.
+        # It now measures fragility among actual claims, not among scout observations.
+        "false_positive_rate":round(fragile,4),
+        "fragile_claim_rate":round(fragile,4),
+        "scout_count":len(scouts),
+        "replication_backlog":sum(x.get("replication_needed",0) for x in scouts),
         "cross_lab_diversity":min(1.0,len(labs)/7),
         "provider_success_ratio":bundle.get("valid_ratio",0),
         "brick_observability_ratio":len({e["brick_id"] for e in usage.events})/len(ACTIVE),
@@ -203,13 +219,14 @@ def run_cycle(committee_path):
     usage.use("novel-species-hunter","committee.portfolio","novel_candidate_yield",len(committee.get("portfolio",[])))
     usage.use("decision-engine","committee.allocations","credits_sum_to_100",sum(x.get("research_credits",0) for x in committee.get("allocations",[])))
 
-    claims=build_claim_ledger(trusted)
+    claims,scouts=build_evidence_ledgers(trusted)
     prov=sum(1 for c in claims if c.get("sources"))/max(1,len(claims))
     human_bridge_result=build_human_bridges(trusted["accepted"])
     bridge_index={}
     for b in human_bridge_result.get("bridges",[]):
         bridge_index.setdefault(b["animal_species"],[]).append(b)
-    usage.use("evidence-network","claim_ledger","claims_with_provenance_ratio",round(prov,4))
+    usage.use("evidence-network","claim_ledger","replicated_claims_with_provenance_ratio",round(prov,4),
+              "PASS" if claims else "PARTIAL")
 
     # DUALITY is represented by the upstream committee's mean arbiter values.
     disagreements=[abs(float(c.get("mean_arbiter",0))-float(c.get("committee_score",0))) for c in committee.get("portfolio",[])[:20]]
@@ -247,10 +264,13 @@ def run_cycle(committee_path):
         "exploration_rate":0.20,"minimum_sources":2,"morpheus_penalty":0.20,"novelty_weight":0.30
     })
     # Temporary telemetry prior to policy proposal.
-    temp_cycle={"claims":claims}
+    temp_cycle={"claims":claims,"scout_observations":scouts}
     telemetry={
         "verified_ratio":sum(1 for x in claims if x["status"]=="SUPPORTED")/max(1,len(claims)),
         "false_positive_rate":sum(1 for x in claims if len(x.get("sources",[]))<2)/max(1,len(claims)),
+        "fragile_claim_rate":sum(1 for x in claims if len(x.get("sources",[]))<2)/max(1,len(claims)),
+        "scout_count":len(scouts),
+        "replication_backlog":sum(x.get("replication_needed",0) for x in scouts),
         "cross_lab_diversity":metrics["cross_lab_diversity"],
         "provider_success_ratio":bundle.get("valid_ratio",0)
     }
@@ -263,7 +283,7 @@ def run_cycle(committee_path):
 
     cycle={
         "schema":"biomimic-v7-factory-cycle-v1","time":now(),
-        "programs":programs,"mission_graphs":mission_graphs,"claims":claims,
+        "programs":programs,"mission_graphs":mission_graphs,"claims":claims,"scout_observations":scouts,
         "audits":audits,"causal_plans":causal_plans,"human_translation":human,
         "human_bridge_result":human_bridge_result,
         "experiments":experiments,"benchmark":bench,"policy_gate":gate
@@ -271,7 +291,7 @@ def run_cycle(committee_path):
     cycle["sha256"]=hashlib.sha256(json.dumps(cycle,sort_keys=True,ensure_ascii=False).encode()).hexdigest()
 
     mem=update_memory(cycle)
-    usage.use("omega-memory","state/factory/long_term_memory.json","new_provenance_edges",len(claims)+len(experiments))
+    usage.use("omega-memory","state/factory/long_term_memory.json","new_provenance_edges",len(claims)+len(scouts)+len(experiments))
     telemetry=telemetry_from(cycle,bundle,trusted,claims,usage)
     usage.use("omega-telemetry","telemetry","brick_observability_ratio",0.0)
     reliability_ratio=round(bundle.get("valid_ratio",0),4)
