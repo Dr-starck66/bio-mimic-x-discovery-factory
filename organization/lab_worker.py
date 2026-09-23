@@ -90,39 +90,51 @@ def validate_gbif_match(name):
     TAX_CACHE[key]=proof
     return proof
 
-def find_replication_sources(lab,c,max_results=12):
-    """Seek independent literature for the same species + mechanism context.
-    This is deliberately conservative: a second generic mention of the species
-    is not enough to count as replication.
-    """
+def find_replication_sources(lab,c,max_results=16):
+    """Seek independent PMID literature for the same exact species + context."""
     existing=set(c.get("sources",[]))
     specific=[m for m in (c.get("mechanisms") or []) if m]
     domain=[m for m in (lab.get("replication_terms") or []) if m]
-    terms=(specific[:3] if specific else domain[:6])
+    terms=(specific[:4] if specific else domain[:8])
     if not terms:
         return []
-    mech=" OR ".join(f'"{m}"' for m in terms)
-    query=f'"{c["name"]}" AND ({mech})'
-    params={"format":"json","resultType":"core","pageSize":str(max_results),"query":query}
-    try:
-        data=get_json(EPMC+"?"+urllib.parse.urlencode(params),1)
-    except Exception:
-        return []
-    additions=[]
-    for p in data.get("resultList",{}).get("result",[]):
-        sid=source_id(p)
-        if sid in existing or sid in additions:
-            continue
-        text=(p.get("title") or "")+" "+(p.get("abstractText") or "")
-        h=norm(text)
-        # Require exact binomial plus at least one same-context mechanism.
-        if norm(c["name"]) not in h:
-            continue
-        if not any(norm(m) in h for m in terms):
-            continue
-        additions.append(sid)
-        if len(additions)>=2:
-            break
+
+    def collect(query,terms_for_match,limit=2):
+        additions=[]
+        try:
+            params={"format":"json","resultType":"core","pageSize":str(max_results),"query":query}
+            data=get_json(EPMC+"?"+urllib.parse.urlencode(params),1)
+        except Exception:
+            return additions
+        for p in data.get("resultList",{}).get("result",[]):
+            sid=source_id(p)
+            # For a replicated CLAIM we only add records with a PubMed identifier.
+            if not sid.startswith("PMID:") or sid in existing or sid in additions:
+                continue
+            text=(p.get("title") or "")+" "+(p.get("abstractText") or "")
+            h=norm(text)
+            if norm(c["name"]) not in h:
+                continue
+            if not any(norm(m) in h for m in terms_for_match):
+                continue
+            additions.append(sid)
+            if len(additions)>=limit:
+                break
+        return additions
+
+    expr=" OR ".join(f'"{m}"' for m in terms)
+    additions=collect(f'"{c["name"]}" AND ({expr})',terms,2)
+
+    # Some Europe PMC searches rank a broad OR poorly. Retry each domain term
+    # independently so an old but highly relevant replication is not buried.
+    if len(additions)<2:
+        for term in terms:
+            more=collect(f'"{c["name"]}" AND "{term}"',[term],2-len(additions))
+            for sid in more:
+                if sid not in additions:
+                    additions.append(sid)
+            if len(additions)>=2:
+                break
     return additions
 
 def evidence_score(c):
