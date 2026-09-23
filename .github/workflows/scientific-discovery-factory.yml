@@ -25,16 +25,16 @@ jobs:
       fail-fast: false
       matrix:
         lab: [cancer, regeneration, neuro, immunology, longevity, metabolism, preservation]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 18
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
       - name: Run specialist lab
         run: python organization/lab_worker.py --lab "${{ matrix.lab }}" --out "organization/output/labs/${{ matrix.lab }}.json"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         with:
           name: lab-${{ matrix.lab }}
           path: organization/output/labs/${{ matrix.lab }}.json
@@ -43,14 +43,14 @@ jobs:
   committee-and-factory:
     needs: specialist-labs
     if: ${{ always() }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v7
         with:
           pattern: lab-*
           path: downloaded-labs
