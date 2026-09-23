@@ -57,7 +57,7 @@ def fuse_sources(committee):
 def trust_gate(bundle):
     accepted=[];rejected=[]
     for c in bundle.get("portfolio",[]):
-        has_taxon_proof=bool(c.get("taxon_verified") or c.get("annotation_support"))
+        has_taxon_proof=bool(c.get("taxon_verified"))
         if c.get("sources") and c.get("name") and has_taxon_proof:
             accepted.append(c)
         else:
@@ -68,7 +68,7 @@ def build_claim_ledger(trusted):
     claims=[]
     for c in trusted["accepted"]:
         status="PLAUSIBLE"
-        if c.get("annotation_support") and c.get("source_count",0)>=2: status="SUPPORTED"
+        if c.get("taxon_verified") and c.get("source_count",0)>=2: status="SUPPORTED"
         claims.append({
             "subject":c["name"],"status":status,"sources":c.get("sources",[]),
             "mechanisms":c.get("mechanisms",[]),"labs":c.get("labs",[]),
