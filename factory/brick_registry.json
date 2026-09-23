@@ -304,6 +304,95 @@
         "validated committed state"
       ],
       "metric": "successful_daily_cycle_ratio"
+    },
+    {
+      "id": "scientific-reasoning",
+      "name": "Ω Scientific Reasoning Engine",
+      "stage": "REASON",
+      "purpose": "Construit pour chaque programme un dossier reproductible séparant preuves, hypothèses, contradictions, débat et plans de falsification.",
+      "entrypoint": "factory/reasoning_engine.py::reason_program",
+      "inputs": [
+        "supported claim",
+        "Morpheus audit",
+        "causal plan",
+        "verified human bridges"
+      ],
+      "outputs": [
+        "scientific reasoning dossier",
+        "reasoning SHA-256"
+      ],
+      "metric": "reasoning_dossiers_generated"
+    },
+    {
+      "id": "hypothesis-engine",
+      "name": "Ω Hypothesis Engine",
+      "stage": "REASON",
+      "purpose": "Génère plusieurs hypothèses explicitement falsifiables sans les présenter comme des faits établis.",
+      "entrypoint": "factory/hypothesis_engine.py::generate_hypotheses",
+      "inputs": [
+        "supported claim",
+        "causal plan",
+        "human bridge context"
+      ],
+      "outputs": [
+        "primary hypothesis",
+        "alternative hypotheses",
+        "predictions",
+        "falsifiers"
+      ],
+      "metric": "falsifiable_hypotheses_generated"
+    },
+    {
+      "id": "debate-engine",
+      "name": "Ω Debate / Contradiction Engine",
+      "stage": "FALSIFY",
+      "purpose": "Soumet chaque hypothèse à une revue contradictoire, conserve objections et contre-tests et produit un ordre de priorité non probabiliste.",
+      "entrypoint": "factory/debate_engine.py::debate_hypotheses",
+      "inputs": [
+        "hypotheses",
+        "Morpheus flags",
+        "causal counter-tests"
+      ],
+      "outputs": [
+        "adversarial review",
+        "surviving hypothesis ids",
+        "contradiction ledger"
+      ],
+      "metric": "hypotheses_surviving_adversarial_review"
+    },
+    {
+      "id": "experiment-planner",
+      "name": "Ω Experiment Planner",
+      "stage": "EXPERIMENT",
+      "purpose": "Transforme les hypothèses survivantes en plans conceptuels falsifiables avec hypothèse nulle, contrôles et critères d'arrêt; ne simule aucune expérience exécutée.",
+      "entrypoint": "factory/experiment_planner.py::plan_experiments",
+      "inputs": [
+        "ranked hypotheses",
+        "claim",
+        "causal plan"
+      ],
+      "outputs": [
+        "conceptual experiment plans",
+        "kill criteria",
+        "replay SHA-256"
+      ],
+      "metric": "conceptual_experiment_plans_generated"
+    },
+    {
+      "id": "scientific-memory",
+      "name": "Ω Scientific Discovery Memory",
+      "stage": "MEMORY",
+      "purpose": "Conserve la lignée des hypothèses et dossiers de raisonnement entre cycles sans transformer une hypothèse en fait.",
+      "entrypoint": "factory/scientific_memory.py::update_scientific_memory",
+      "inputs": [
+        "scientific reasoning dossiers",
+        "previous reasoning memory"
+      ],
+      "outputs": [
+        "hypothesis lineage memory",
+        "reasoning change events"
+      ],
+      "metric": "reasoning_hypotheses_retained"
     }
   ],
   "excluded": [
