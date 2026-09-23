@@ -22,12 +22,107 @@ def save(path,obj):
     tmp.write_text(json.dumps(obj,ensure_ascii=False,indent=2,sort_keys=True),encoding="utf-8")
     tmp.replace(path)
 
+STRICT_PROVIDERS={
+    "NCBI Ortholog",
+    "OMA",
+    "OrthoDB v12",
+    "Peer-reviewed phylogenetic orthology",
+}
+
+def _parse_time(x):
+    if not x:
+        return None
+    try:
+        return datetime.fromisoformat(str(x).replace("Z","+00:00"))
+    except Exception:
+        return None
+
+def retain_last_known_good_strict(cycle,result,claims,max_misses=2,max_age_days=7):
+    """Prevent one transient provider outage from deleting a previously verified bridge."""
+    previous=cycle.get("human_bridge_result") or {}
+    previous_bridges=previous.get("bridges") or []
+    if not previous_bridges:
+        result["live_bridged_candidates"]=result.get("bridged_candidates",0)
+        result["cached_bridged_candidates"]=0
+        return result
+
+    claim_names={x.get("subject") for x in claims}
+    live_names={b.get("animal_species") for b in result.get("bridges",[])}
+    previous_time=_parse_time((cycle.get("bridge_refresh") or {}).get("time"))
+    now_dt=datetime.now(timezone.utc)
+
+    by_subject={}
+    for b in previous_bridges:
+        if b.get("animal_species") not in claim_names:
+            continue
+        if b.get("translation_status")!="ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED":
+            continue
+        provider=(b.get("orthology") or {}).get("provider")
+        # Older Ensembl bridges do not carry an explicit provider field.
+        if not provider and b.get("animal_ensembl_species"):
+            provider="Ensembl Compara"
+        if provider not in STRICT_PROVIDERS and provider!="Ensembl Compara":
+            continue
+        by_subject.setdefault(b.get("animal_species"),[]).append(b)
+
+    cached=[]
+    cached_subjects=set()
+    for subject,bridges in by_subject.items():
+        if subject in live_names:
+            continue
+        valid=[]
+        for old in bridges:
+            prior_misses=int(old.get("cache_miss_count") or 0)
+            if prior_misses>=max_misses:
+                continue
+            last_live=_parse_time(old.get("last_live_verified_at")) or previous_time
+            if not last_live:
+                continue
+            age=(now_dt-last_live).total_seconds()
+            if age<0 or age>max_age_days*86400:
+                continue
+            b=copy.deepcopy(old)
+            b["verification_mode"]="LAST_KNOWN_GOOD_CACHE"
+            b["last_live_verified_at"]=last_live.isoformat()
+            b["cache_miss_count"]=prior_misses+1
+            b["cache_reason"]="Current live providers did not reproduce this previously verified strict bridge; retained temporarily pending revalidation."
+            valid.append(b)
+        if valid:
+            cached.extend(valid)
+            cached_subjects.add(subject)
+
+    result["live_bridged_candidates"]=len(live_names)
+    result.setdefault("bridges",[]).extend(cached)
+
+    # De-duplicate after merging current and cached evidence.
+    uniq={}
+    for b in result.get("bridges",[]):
+        key=(b.get("animal_species"),b.get("animal_gene"),b.get("human_ensembl_id"),(b.get("orthology") or {}).get("provider"))
+        uniq[key]=b
+    result["bridges"]=list(uniq.values())
+
+    final_names={b.get("animal_species") for b in result["bridges"] if b.get("animal_species")}
+    result["cached_bridged_candidates"]=len(cached_subjects)
+    result["cached_subjects"]=sorted(cached_subjects)
+    result["bridged_candidates"]=len(final_names)
+    result["coverage_ratio"]=round(len(final_names)/max(1,result.get("attempted_candidates",len(claims))),4)
+    result.setdefault("provider_status",{})["Last-known-good cache"]="PASS" if cached_subjects else "IDLE"
+
+    for row in result.get("candidate_status",[]):
+        subject=row.get("candidate")
+        if subject in cached_subjects and subject not in live_names:
+            row["status"]="BRIDGED_CACHED"
+            row["bridges"]=sum(1 for b in result["bridges"] if b.get("animal_species")==subject)
+            row["cache_miss_count"]=max((b.get("cache_miss_count",0) for b in result["bridges"] if b.get("animal_species")==subject),default=0)
+    return result
+
 def main():
     cycle=json.loads(STATE.read_text(encoding="utf-8"))
     claims=[x for x in cycle.get("claims",[]) if x.get("status")=="SUPPORTED"]
     previous_sha=cycle.get("sha256")
 
     result=build_human_bridges(claims)
+    result=retain_last_known_good_strict(cycle,result,claims)
     translation=build_translation_paths(claims,result)
     by_subject={}
     for b in result.get("bridges",[]):
