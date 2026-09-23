@@ -121,13 +121,13 @@
   },
   {
     "brick_id": "human-bridge",
-    "metric": "candidates_with_human_bridge",
+    "metric": "verified_human_translation_coverage",
     "name": "Human Bridge",
-    "output_ref": "human_bridge_result",
+    "output_ref": "human_translation_result",
     "stage": "TRANSLATE",
-    "status": "PARTIAL",
-    "time": "2026-09-23T15:59:16.309877+00:00",
-    "value": 0
+    "status": "PASS",
+    "time": "2026-09-23T20:08:53.014368+00:00",
+    "value": 1.0
   },
   {
     "brick_id": "experiment-forge",
@@ -198,5 +198,55 @@
     "status": "PASS",
     "time": "2026-09-23T15:59:16.517505+00:00",
     "value": 1.0
+  },
+  {
+    "brick_id": "scientific-reasoning",
+    "metric": "reasoning_dossiers_generated",
+    "name": "Ω Scientific Reasoning Engine",
+    "output_ref": "scientific_reasoning",
+    "stage": "REASON",
+    "status": "PASS",
+    "time": "2026-09-23T21:58:59.614838+00:00",
+    "value": 6
+  },
+  {
+    "brick_id": "hypothesis-engine",
+    "metric": "falsifiable_hypotheses_generated",
+    "name": "Ω Hypothesis Engine",
+    "output_ref": "scientific_reasoning",
+    "stage": "REASON",
+    "status": "PASS",
+    "time": "2026-09-23T21:58:59.614838+00:00",
+    "value": 18
+  },
+  {
+    "brick_id": "debate-engine",
+    "metric": "hypotheses_surviving_adversarial_review",
+    "name": "Ω Debate / Contradiction Engine",
+    "output_ref": "scientific_reasoning",
+    "stage": "FALSIFY",
+    "status": "PASS",
+    "time": "2026-09-23T21:58:59.614838+00:00",
+    "value": 18
+  },
+  {
+    "brick_id": "experiment-planner",
+    "metric": "conceptual_experiment_plans_generated",
+    "name": "Ω Experiment Planner",
+    "output_ref": "scientific_reasoning",
+    "stage": "EXPERIMENT",
+    "status": "PASS",
+    "time": "2026-09-23T21:58:59.614838+00:00",
+    "value": 12
+  },
+  {
+    "brick_id": "scientific-memory",
+    "metric": "reasoning_hypotheses_retained",
+    "name": "Ω Scientific Discovery Memory",
+    "output_ref": "state/factory/scientific_reasoning_memory.json",
+    "stage": "MEMORY",
+    "status": "PASS",
+    "time": "2026-09-23T21:58:59.614838+00:00",
+    "value": 18
   }
 ]

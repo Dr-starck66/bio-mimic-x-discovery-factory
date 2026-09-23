@@ -303,6 +303,56 @@
       "status": "PASS",
       "time": "2026-09-23T15:59:16.517505+00:00",
       "value": 1.0
+    },
+    {
+      "brick_id": "scientific-reasoning",
+      "metric": "reasoning_dossiers_generated",
+      "name": "Ω Scientific Reasoning Engine",
+      "output_ref": "scientific_reasoning",
+      "stage": "REASON",
+      "status": "PASS",
+      "time": "2026-09-23T21:58:59.614838+00:00",
+      "value": 6
+    },
+    {
+      "brick_id": "hypothesis-engine",
+      "metric": "falsifiable_hypotheses_generated",
+      "name": "Ω Hypothesis Engine",
+      "output_ref": "scientific_reasoning",
+      "stage": "REASON",
+      "status": "PASS",
+      "time": "2026-09-23T21:58:59.614838+00:00",
+      "value": 18
+    },
+    {
+      "brick_id": "debate-engine",
+      "metric": "hypotheses_surviving_adversarial_review",
+      "name": "Ω Debate / Contradiction Engine",
+      "output_ref": "scientific_reasoning",
+      "stage": "FALSIFY",
+      "status": "PASS",
+      "time": "2026-09-23T21:58:59.614838+00:00",
+      "value": 18
+    },
+    {
+      "brick_id": "experiment-planner",
+      "metric": "conceptual_experiment_plans_generated",
+      "name": "Ω Experiment Planner",
+      "output_ref": "scientific_reasoning",
+      "stage": "EXPERIMENT",
+      "status": "PASS",
+      "time": "2026-09-23T21:58:59.614838+00:00",
+      "value": 12
+    },
+    {
+      "brick_id": "scientific-memory",
+      "metric": "reasoning_hypotheses_retained",
+      "name": "Ω Scientific Discovery Memory",
+      "output_ref": "state/factory/scientific_reasoning_memory.json",
+      "stage": "MEMORY",
+      "status": "PASS",
+      "time": "2026-09-23T21:58:59.614838+00:00",
+      "value": 18
     }
   ],
   "bridge_refresh": {
@@ -6686,7 +6736,1957 @@
       "updated_at": "2026-09-23T15:58:57.385713+00:00"
     }
   ],
+  "reasoning_refresh": {
+    "clinical_efficacy_claims": 0,
+    "dossiers": 6,
+    "experiment_plans": 12,
+    "hypotheses": 18,
+    "surviving_hypotheses": 18,
+    "time": "2026-09-23T21:58:59.614200+00:00"
+  },
   "schema": "biomimic-v7-factory-cycle-v1",
+  "scientific_reasoning": [
+    {
+      "claims_established_truth": false,
+      "clinical_efficacy_claim": false,
+      "contradictions": [
+        "correlation not causation",
+        "human functional divergence",
+        "phylogeny confound",
+        "publication bias",
+        "single-lab dependence"
+      ],
+      "debate": {
+        "adversarial_flags": [
+          "association does not establish causation",
+          "correlation not causation",
+          "human functional divergence",
+          "phylogeny confound",
+          "publication bias",
+          "single-lab dependence"
+        ],
+        "decision_rule": "prioritize evidence-rich falsifiable hypotheses; never promote ranking to scientific fact",
+        "ranked": [
+          {
+            "clinical_efficacy_claim": false,
+            "counter_tests": [
+              "compare a close species lacking the phenotype",
+              "perturb candidate mechanism and perform rescue",
+              "test same mechanism in an evolutionarily distant species with similar phenotype",
+              "test human orthologue/pathway in disease-relevant human cells"
+            ],
+            "evidence_priority_score": 0.485,
+            "evidence_support": [
+              "3 independent PMID-linked sources",
+              "4 recorded mechanisms",
+              "0 recorded gene/protein candidates"
+            ],
+            "hypothesis_id": "HYP-beae69173d53",
+            "kind": "CONTEXT_DEPENDENT_ALTERNATIVE",
+            "objections": [
+              "correlation not causation",
+              "human functional divergence",
+              "phylogeny confound",
+              "publication bias",
+              "single-lab dependence"
+            ],
+            "score_semantics": "heuristic evidence-prioritization score; not probability, efficacy, or truth",
+            "status": "SURVIVES_REVIEW"
+          },
+          {
+            "clinical_efficacy_claim": false,
+            "counter_tests": [
+              "compare a close species lacking the phenotype",
+              "perturb candidate mechanism and perform rescue",
+              "test same mechanism in an evolutionarily distant species with similar phenotype",
+              "test human orthologue/pathway in disease-relevant human cells"
+            ],
+            "evidence_priority_score": 0.485,
+            "evidence_support": [
+              "3 independent PMID-linked sources",
+              "4 recorded mechanisms",
+              "0 recorded gene/protein candidates"
+            ],
+            "hypothesis_id": "HYP-a69c3afc3bfe",
+            "kind": "PRIMARY_CAUSAL",
+            "objections": [
+              "association does not establish causation",
+              "correlation not causation",
+              "human functional divergence",
+              "phylogeny confound",
+              "publication bias",
+              "single-lab dependence"
+            ],
+            "score_semantics": "heuristic evidence-prioritization score; not probability, efficacy, or truth",
+            "status": "SURVIVES_REVIEW"
+          },
+          {
+            "clinical_efficacy_claim": false,
+            "counter_tests": [
+              "compare a close species lacking the phenotype",
+              "perturb candidate mechanism and perform rescue",
+              "test same mechanism in an evolutionarily distant species with similar phenotype",
+              "test human orthologue/pathway in disease-relevant human cells"
+            ],
+            "evidence_priority_score": 0.485,
+            "evidence_support": [
+              "3 independent PMID-linked sources",
+              "4 recorded mechanisms",
+              "0 recorded gene/protein candidates"
+            ],
+            "hypothesis_id": "HYP-2c72c51a4520",
+            "kind": "MARKER_ONLY_ALTERNATIVE",
+            "objections": [
+              "correlation not causation",
+              "human functional divergence",
+              "phylogeny confound",
+              "publication bias",
+              "single-lab dependence"
+            ],
+            "score_semantics": "heuristic evidence-prioritization score; not probability, efficacy, or truth",
+            "status": "SURVIVES_REVIEW"
+          }
+        ],
+        "surviving_hypothesis_ids": [
+          "HYP-beae69173d53",
+          "HYP-a69c3afc3bfe",
+          "HYP-2c72c51a4520"
+        ]
+      },
+      "evidence_status": "SUPPORTED",
+      "experiment_plans": [
+        {
+          "clinical_efficacy_claim": false,
+          "counterfactual_tests": [
+            "compare a close species lacking the phenotype",
+            "perturb candidate mechanism and perform rescue",
+            "test same mechanism in an evolutionarily distant species with similar phenotype",
+            "test human orthologue/pathway in disease-relevant human cells"
+          ],
+          "design": [
+            "pre-register primary phenotype and exclusion criteria",
+            "include untreated/baseline and negative controls",
+            "perturb the nominated mechanism with an appropriate validated method",
+            "perform an orthogonal or rescue validation where feasible",
+            "repeat across independent biological replicates",
+            "analyze effect direction, uncertainty, and failure conditions"
+          ],
+          "falsifier": "The effect remains stable across relevant contexts and does not depend on plausible interacting pathways.",
+          "hypothesis_id": "HYP-beae69173d53",
+          "kill_criteria": [
+            "no reproducible phenotype change",
+            "effect disappears under independent replication",
+            "negative controls reproduce the claimed effect",
+            "an alternative hypothesis explains the observations with fewer unsupported assumptions"
+          ],
+          "null_hypothesis": "The nominated mechanism does not causally alter the phenotype under the tested conditions.",
+          "objective": "Distinguish the nominated causal explanation from marker-only and context-dependent alternatives.",
+          "predicted_if_supported": "The effect size should vary across context, lineage, tissue, developmental state, or pathway background.",
+          "program_id": "PRG-4514111357",
+          "sha256": "029c28a319f60410a678c4f26f086434624cfc8778c5a239c06739f5ea5b1a28",
+          "source_pmids": [
+            "PMID:41491153",
+            "PMID:42154556",
+            "PMID:42402335"
+          ],
+          "status": "PROPOSED_NOT_EXECUTED",
+          "subject": "Somniosus microcephalus"
+        },
+        {
+          "clinical_efficacy_claim": false,
+          "counterfactual_tests": [
+            "compare a close species lacking the phenotype",
+            "perturb candidate mechanism and perform rescue",
+            "test same mechanism in an evolutionarily distant species with similar phenotype",
+            "test human orthologue/pathway in disease-relevant human cells"
+          ],
+          "design": [
+            "pre-register primary phenotype and exclusion criteria",
+            "include untreated/baseline and negative controls",
+            "perturb the nominated mechanism with an appropriate validated method",
+            "perform an orthogonal or rescue validation where feasible",
+            "repeat across independent biological replicates",
+            "analyze effect direction, uncertainty, and failure conditions"
+          ],
+          "falsifier": "Specific perturbation of DNA repair produces no reproducible phenotype change under adequate controls.",
+          "hypothesis_id": "HYP-a69c3afc3bfe",
+          "kill_criteria": [
+            "no reproducible phenotype change",
+            "effect disappears under independent replication",
+            "negative controls reproduce the claimed effect",
+            "an alternative hypothesis explains the observations with fewer unsupported assumptions"
+          ],
+          "null_hypothesis": "The nominated mechanism does not causally alter the phenotype under the tested conditions.",
+          "objective": "Distinguish the nominated causal explanation from marker-only and context-dependent alternatives.",
+          "predicted_if_supported": "Perturbing DNA repair should change the phenotype in the predicted direction, and rescue should partially restore it.",
+          "program_id": "PRG-4514111357",
+          "sha256": "fd0370f415c65057340f3b707187b796d7ac4839c388647d1cee1a5b8e858bb4",
+          "source_pmids": [
+            "PMID:41491153",
+            "PMID:42154556",
+            "PMID:42402335"
+          ],
+          "status": "PROPOSED_NOT_EXECUTED",
+          "subject": "Somniosus microcephalus"
+        }
+      ],
+      "experiments_executed": false,
+      "human_bridge_count": 1,
+      "hypotheses": [
+        {
+          "association_only": true,
+          "clinical_efficacy_claim": false,
+          "counterfactual_tests": [
+            "compare a close species lacking the phenotype",
+            "perturb candidate mechanism and perform rescue",
+            "test same mechanism in an evolutionarily distant species with similar phenotype",
+            "test human orthologue/pathway in disease-relevant human cells"
+          ],
+          "evidence_requirements": [
+            "independent replication",
+            "causal perturbation",
+            "rescue or orthogonal validation",
+            "negative control",
+            "human-relevant validation only after conservation checks"
+          ],
+          "falsifier": "Specific perturbation of DNA repair produces no reproducible phenotype change under adequate controls.",
+          "genes": [],
+          "human_targets": [
+            "TP53"
+          ],
+          "id": "HYP-a69c3afc3bfe",
+          "kind": "PRIMARY_CAUSAL",
+          "mechanisms": [
+            "DNA repair",
+            "genome maintenance",
+            "proteostasis",
+            "senescence"
+          ],
+          "prediction": "Perturbing DNA repair should change the phenotype in the predicted direction, and rescue should partially restore it.",
+          "program_id": "PRG-4514111357",
+          "source_pmids": [
+            "PMID:41491153",
+            "PMID:42154556",
+            "PMID:42402335"
+          ],
+          "statement": "In Somniosus microcephalus, DNA repair contributes causally to the reported phenotype rather than merely correlating with it.",
+          "status": "HYPOTHESIS",
+          "subject": "Somniosus microcephalus"
+        },
+        {
+          "association_only": true,
+          "clinical_efficacy_claim": false,
+          "counterfactual_tests": [
+            "compare a close species lacking the phenotype",
+            "perturb candidate mechanism and perform rescue",
+            "test same mechanism in an evolutionarily distant species with similar phenotype",
+            "test human orthologue/pathway in disease-relevant human cells"
+          ],
+          "evidence_requirements": [
+            "independent replication",
+            "causal perturbation",
+            "rescue or orthogonal validation",
+            "negative control",
+            "human-relevant validation only after conservation checks"
+          ],
+          "falsifier": "Targeted perturbation of DNA repair reproducibly abolishes the phenotype and rescue restores it.",
+          "genes": [],
+          "human_targets": [
+            "TP53"
+          ],
+          "id": "HYP-2c72c51a4520",
+          "kind": "MARKER_ONLY_ALTERNATIVE",
+          "mechanisms": [
+            "DNA repair",
+            "genome maintenance",
+            "proteostasis",
+            "senescence"
+          ],
+          "prediction": "The phenotype should persist when DNA repair changes, provided upstream drivers remain intact.",
+          "program_id": "PRG-4514111357",
+          "source_pmids": [
+            "PMID:41491153",
+            "PMID:42154556",
+            "PMID:42402335"
+          ],
+          "statement": "In Somniosus microcephalus, DNA repair is a downstream marker or correlate rather than a causal driver.",
+          "status": "HYPOTHESIS",
+          "subject": "Somniosus microcephalus"
+        },
+        {
+          "association_only": true,
+          "clinical_efficacy_claim": false,
+          "counterfactual_tests": [
+            "compare a close species lacking the phenotype",
+            "perturb candidate mechanism and perform rescue",
+            "test same mechanism in an evolutionarily distant species with similar phenotype",
+            "test human orthologue/pathway in disease-relevant human cells"
+          ],
+          "evidence_requirements": [
+            "independent replication",
+            "causal perturbation",
+            "rescue or orthogonal validation",
+            "negative control",
+            "human-relevant validation only after conservation checks"
+          ],
+          "falsifier": "The effect remains stable across relevant contexts and does not depend on plausible interacting pathways.",
+          "genes": [],
+          "human_targets": [
+            "TP53"
+          ],
+          "id": "HYP-beae69173d53",
+          "kind": "CONTEXT_DEPENDENT_ALTERNATIVE",
+          "mechanisms": [
+            "DNA repair",
+            "genome maintenance",
+            "proteostasis",
+            "senescence"
+          ],
+          "prediction": "The effect size should vary across context, lineage, tissue, developmental state, or pathway background.",
+          "program_id": "PRG-4514111357",
+          "source_pmids": [
+            "PMID:41491153",
+            "PMID:42154556",
+            "PMID:42402335"
+          ],
+          "statement": "In Somniosus microcephalus, the effect associated with DNA repair depends on biological context or interacting pathways.",
+          "status": "HYPOTHESIS",
+          "subject": "Somniosus microcephalus"
+        }
+      ],
+      "program_id": "PRG-4514111357",
+      "reasoning_status": "PROPOSED_AND_FALSIFIABLE",
+      "schema": "biomimic-scientific-reasoning-v1",
+      "sha256": "ad7f116cddde8b2a10c63533e6fdd2f2177c414d45520ff5729250b7503949ce",
+      "source_pmids": [
+        "PMID:41491153",
+        "PMID:42154556",
+        "PMID:42402335"
+      ],
+      "subject": "Somniosus microcephalus"
+    },
+    {
+      "claims_established_truth": false,
+      "clinical_efficacy_claim": false,
+      "contradictions": [
+        "correlation not causation",
+        "human functional divergence",
+        "phylogeny confound",
+        "publication bias",
+        "single-lab dependence"
+      ],
+      "debate": {
+        "adversarial_flags": [
+          "association does not establish causation",
+          "correlation not causation",
+          "human functional divergence",
+          "phylogeny confound",
+          "publication bias",
+          "single-lab dependence"
+        ],
+        "decision_rule": "prioritize evidence-rich falsifiable hypotheses; never promote ranking to scientific fact",
+        "ranked": [
+          {
+            "clinical_efficacy_claim": false,
+            "counter_tests": [
+              "compare a close species lacking the phenotype",
+              "perturb candidate mechanism and perform rescue",
+              "test same mechanism in an evolutionarily distant species with similar phenotype",
+              "test human orthologue/pathway in disease-relevant human cells"
+            ],
+            "evidence_priority_score": 0.485,
+            "evidence_support": [
+              "3 independent PMID-linked sources",
+              "3 recorded mechanisms",
+              "0 recorded gene/protein candidates"
+            ],
+            "hypothesis_id": "HYP-7b3ef919a2bd",
+            "kind": "CONTEXT_DEPENDENT_ALTERNATIVE",
+            "objections": [
+              "correlation not causation",
+              "human functional divergence",
+              "phylogeny confound",
+              "publication bias",
+              "single-lab dependence"
+            ],
+            "score_semantics": "heuristic evidence-prioritization score; not probability, efficacy, or truth",
+            "status": "SURVIVES_REVIEW"
+          },
+          {
+            "clinical_efficacy_claim": false,
+            "counter_tests": [
+              "compare a close species lacking the phenotype",
+              "perturb candidate mechanism and perform rescue",
+              "test same mechanism in an evolutionarily distant species with similar phenotype",
+              "test human orthologue/pathway in disease-relevant human cells"
+            ],
+            "evidence_priority_score": 0.485,
+            "evidence_support": [
+              "3 independent PMID-linked sources",
+              "3 recorded mechanisms",
+              "0 recorded gene/protein candidates"
+            ],
+            "hypothesis_id": "HYP-6a23694eb4bf",
+            "kind": "PRIMARY_CAUSAL",
+            "objections": [
+              "association does not establish causation",
+              "correlation not causation",
+              "human functional divergence",
+              "phylogeny confound",
+              "publication bias",
+              "single-lab dependence"
+            ],
+            "score_semantics": "heuristic evidence-prioritization score; not probability, efficacy, or truth",
+            "status": "SURVIVES_REVIEW"
+          },
+          {
+            "clinical_efficacy_claim": false,
+            "counter_tests": [
+              "compare a close species lacking the phenotype",
+              "perturb candidate mechanism and perform rescue",
+              "test same mechanism in an evolutionarily distant species with similar phenotype",
+              "test human orthologue/pathway in disease-relevant human cells"
+            ],
+            "evidence_priority_score": 0.485,
+            "evidence_support": [
+              "3 independent PMID-linked sources",
+              "3 recorded mechanisms",
+              "0 recorded gene/protein candidates"
+            ],
+            "hypothesis_id": "HYP-3750a79bb034",
+            "kind": "MARKER_ONLY_ALTERNATIVE",
+            "objections": [
+              "correlation not causation",
+              "human functional divergence",
+              "phylogeny confound",
+              "publication bias",
+              "single-lab dependence"
+            ],
+            "score_semantics": "heuristic evidence-prioritization score; not probability, efficacy, or truth",
+            "status": "SURVIVES_REVIEW"
+          }
+        ],
+        "surviving_hypothesis_ids": [
+          "HYP-7b3ef919a2bd",
+          "HYP-6a23694eb4bf",
+          "HYP-3750a79bb034"
+        ]
+      },
+      "evidence_status": "SUPPORTED",
+      "experiment_plans": [
+        {
+          "clinical_efficacy_claim": false,
+          "counterfactual_tests": [
+            "compare a close species lacking the phenotype",
+            "perturb candidate mechanism and perform rescue",
+            "test same mechanism in an evolutionarily distant species with similar phenotype",
+            "test human orthologue/pathway in disease-relevant human cells"
+          ],
+          "design": [
+            "pre-register primary phenotype and exclusion criteria",
+            "include untreated/baseline and negative controls",
+            "perturb the nominated mechanism with an appropriate validated method",
+            "perform an orthogonal or rescue validation where feasible",
+            "repeat across independent biological replicates",
+            "analyze effect direction, uncertainty, and failure conditions"
+          ],
+          "falsifier": "The effect remains stable across relevant contexts and does not depend on plausible interacting pathways.",
+          "hypothesis_id": "HYP-7b3ef919a2bd",
+          "kill_criteria": [
+            "no reproducible phenotype change",
+            "effect disappears under independent replication",
+            "negative controls reproduce the claimed effect",
+            "an alternative hypothesis explains the observations with fewer unsupported assumptions"
+          ],
+          "null_hypothesis": "The nominated mechanism does not causally alter the phenotype under the tested conditions.",
+          "objective": "Distinguish the nominated causal explanation from marker-only and context-dependent alternatives.",
+          "predicted_if_supported": "The effect size should vary across context, lineage, tissue, developmental state, or pathway background.",
+          "program_id": "PRG-c73037fcfb",
+          "sha256": "43bb5ad77eaba6bfa6ec56d4365bd776f9e73550fc656c7d1bb3175689d77391",
+          "source_pmids": [
+            "PMID:40883787",
+            "PMID:41732917",
+            "PMID:42194064"
+          ],
+          "status": "PROPOSED_NOT_EXECUTED",
+          "subject": "Acomys cahirinus"
+        },
+        {
+          "clinical_efficacy_claim": false,
+          "counterfactual_tests": [
+            "compare a close species lacking the phenotype",
+            "perturb candidate mechanism and perform rescue",
+            "test same mechanism in an evolutionarily distant species with similar phenotype",
+            "test human orthologue/pathway in disease-relevant human cells"
+          ],
+          "design": [
+            "pre-register primary phenotype and exclusion criteria",
+            "include untreated/baseline and negative controls",
+            "perturb the nominated mechanism with an appropriate validated method",
+            "perform an orthogonal or rescue validation where feasible",
+            "repeat across independent biological replicates",
+            "analyze effect direction, uncertainty, and failure conditions"
+          ],
+          "falsifier": "Specific perturbation of extracellular matrix produces no reproducible phenotype change under adequate controls.",
+          "hypothesis_id": "HYP-6a23694eb4bf",
+          "kill_criteria": [
+            "no reproducible phenotype change",
+            "effect disappears under independent replication",
+            "negative controls reproduce the claimed effect",
+            "an alternative hypothesis explains the observations with fewer unsupported assumptions"
+          ],
+          "null_hypothesis": "The nominated mechanism does not causally alter the phenotype under the tested conditions.",
+          "objective": "Distinguish the nominated causal explanation from marker-only and context-dependent alternatives.",
+          "predicted_if_supported": "Perturbing extracellular matrix should change the phenotype in the predicted direction, and rescue should partially restore it.",
+          "program_id": "PRG-c73037fcfb",
+          "sha256": "ef3944636b3a9f34f0f8952ccef42b646df1eff2942fa9dbbcd18c42923c3b80",
+          "source_pmids": [
+            "PMID:40883787",
+            "PMID:41732917",
+            "PMID:42194064"
+          ],
+          "status": "PROPOSED_NOT_EXECUTED",
+          "subject": "Acomys cahirinus"
+        }
+      ],
+      "experiments_executed": false,
+      "human_bridge_count": 1,
+      "hypotheses": [
+        {
+          "association_only": true,
+          "clinical_efficacy_claim": false,
+          "counterfactual_tests": [
+            "compare a close species lacking the phenotype",
+            "perturb candidate mechanism and perform rescue",
+            "test same mechanism in an evolutionarily distant species with similar phenotype",
+            "test human orthologue/pathway in disease-relevant human cells"
+          ],
+          "evidence_requirements": [
+            "independent replication",
+            "causal perturbation",
+            "rescue or orthogonal validation",
+            "negative control",
+            "human-relevant validation only after conservation checks"
+          ],
+          "falsifier": "Specific perturbation of extracellular matrix produces no reproducible phenotype change under adequate controls.",
+          "genes": [],
+          "human_targets": [
+            "IL10"
+          ],
+          "id": "HYP-6a23694eb4bf",
+          "kind": "PRIMARY_CAUSAL",
+          "mechanisms": [
+            "extracellular matrix",
+            "fibrosis",
+            "regeneration"
+          ],
+          "prediction": "Perturbing extracellular matrix should change the phenotype in the predicted direction, and rescue should partially restore it.",
+          "program_id": "PRG-c73037fcfb",
+          "source_pmids": [
+            "PMID:40883787",
+            "PMID:41732917",
+            "PMID:42194064"
+          ],
+          "statement": "In Acomys cahirinus, extracellular matrix contributes causally to the reported phenotype rather than merely correlating with it.",
+          "status": "HYPOTHESIS",
+          "subject": "Acomys cahirinus"
+        },
+        {
+          "association_only": true,
+          "clinical_efficacy_claim": false,
+          "counterfactual_tests": [
+            "compare a close species lacking the phenotype",
+            "perturb candidate mechanism and perform rescue",
+            "test same mechanism in an evolutionarily distant species with similar phenotype",
+            "test human orthologue/pathway in disease-relevant human cells"
+          ],
+          "evidence_requirements": [
+            "independent replication",
+            "causal perturbation",
+            "rescue or orthogonal validation",
+            "negative control",
+            "human-relevant validation only after conservation checks"
+          ],
+          "falsifier": "Targeted perturbation of extracellular matrix reproducibly abolishes the phenotype and rescue restores it.",
+          "genes": [],
+          "human_targets": [
+            "IL10"
+          ],
+          "id": "HYP-3750a79bb034",
+          "kind": "MARKER_ONLY_ALTERNATIVE",
+          "mechanisms": [
+            "extracellular matrix",
+            "fibrosis",
+            "regeneration"
+          ],
+          "prediction": "The phenotype should persist when extracellular matrix changes, provided upstream drivers remain intact.",
+          "program_id": "PRG-c73037fcfb",
+          "source_pmids": [
+            "PMID:40883787",
+            "PMID:41732917",
+            "PMID:42194064"
+          ],
+          "statement": "In Acomys cahirinus, extracellular matrix is a downstream marker or correlate rather than a causal driver.",
+          "status": "HYPOTHESIS",
+          "subject": "Acomys cahirinus"
+        },
+        {
+          "association_only": true,
+          "clinical_efficacy_claim": false,
+          "counterfactual_tests": [
+            "compare a close species lacking the phenotype",
+            "perturb candidate mechanism and perform rescue",
+            "test same mechanism in an evolutionarily distant species with similar phenotype",
+            "test human orthologue/pathway in disease-relevant human cells"
+          ],
+          "evidence_requirements": [
+            "independent replication",
+            "causal perturbation",
+            "rescue or orthogonal validation",
+            "negative control",
+            "human-relevant validation only after conservation checks"
+          ],
+          "falsifier": "The effect remains stable across relevant contexts and does not depend on plausible interacting pathways.",
+          "genes": [],
+          "human_targets": [
+            "IL10"
+          ],
+          "id": "HYP-7b3ef919a2bd",
+          "kind": "CONTEXT_DEPENDENT_ALTERNATIVE",
+          "mechanisms": [
+            "extracellular matrix",
+            "fibrosis",
+            "regeneration"
+          ],
+          "prediction": "The effect size should vary across context, lineage, tissue, developmental state, or pathway background.",
+          "program_id": "PRG-c73037fcfb",
+          "source_pmids": [
+            "PMID:40883787",
+            "PMID:41732917",
+            "PMID:42194064"
+          ],
+          "statement": "In Acomys cahirinus, the effect associated with extracellular matrix depends on biological context or interacting pathways.",
+          "status": "HYPOTHESIS",
+          "subject": "Acomys cahirinus"
+        }
+      ],
+      "program_id": "PRG-c73037fcfb",
+      "reasoning_status": "PROPOSED_AND_FALSIFIABLE",
+      "schema": "biomimic-scientific-reasoning-v1",
+      "sha256": "0640d0c7d5ab29989ff1c3815e21e6bae5203375e4441c90d5045e01802a78ef",
+      "source_pmids": [
+        "PMID:40883787",
+        "PMID:41732917",
+        "PMID:42194064"
+      ],
+      "subject": "Acomys cahirinus"
+    },
+    {
+      "claims_established_truth": false,
+      "clinical_efficacy_claim": false,
+      "contradictions": [
+        "correlation not causation",
+        "human functional divergence",
+        "phylogeny confound",
+        "publication bias",
+        "single-lab dependence"
+      ],
+      "debate": {
+        "adversarial_flags": [
+          "association does not establish causation",
+          "correlation not causation",
+          "human functional divergence",
+          "phylogeny confound",
+          "publication bias",
+          "single-lab dependence"
+        ],
+        "decision_rule": "prioritize evidence-rich falsifiable hypotheses; never promote ranking to scientific fact",
+        "ranked": [
+          {
+            "clinical_efficacy_claim": false,
+            "counter_tests": [
+              "compare a close species lacking the phenotype",
+              "perturb candidate mechanism and perform rescue",
+              "test same mechanism in an evolutionarily distant species with similar phenotype",
+              "test human orthologue/pathway in disease-relevant human cells"
+            ],
+            "evidence_priority_score": 0.565,
+            "evidence_support": [
+              "3 independent PMID-linked sources",
+              "2 recorded mechanisms",
+              "5 recorded gene/protein candidates"
+            ],
+            "hypothesis_id": "HYP-66687a37a4b5",
+            "kind": "PRIMARY_CAUSAL",
+            "objections": [
+              "association does not establish causation",
+              "correlation not causation",
+              "human functional divergence",
+              "phylogeny confound",
+              "publication bias",
+              "single-lab dependence"
+            ],
+            "score_semantics": "heuristic evidence-prioritization score; not probability, efficacy, or truth",
+            "status": "SURVIVES_REVIEW"
+          },
+          {
+            "clinical_efficacy_claim": false,
+            "counter_tests": [
+              "compare a close species lacking the phenotype",
+              "perturb candidate mechanism and perform rescue",
+              "test same mechanism in an evolutionarily distant species with similar phenotype",
+              "test human orthologue/pathway in disease-relevant human cells"
+            ],
+            "evidence_priority_score": 0.565,
+            "evidence_support": [
+              "3 independent PMID-linked sources",
+              "2 recorded mechanisms",
+              "5 recorded gene/protein candidates"
+            ],
+            "hypothesis_id": "HYP-5ea31822d209",
+            "kind": "CONTEXT_DEPENDENT_ALTERNATIVE",
+            "objections": [
+              "correlation not causation",
+              "human functional divergence",
+              "phylogeny confound",
+              "publication bias",
+              "single-lab dependence"
+            ],
+            "score_semantics": "heuristic evidence-prioritization score; not probability, efficacy, or truth",
+            "status": "SURVIVES_REVIEW"
+          },
+          {
+            "clinical_efficacy_claim": false,
+            "counter_tests": [
+              "compare a close species lacking the phenotype",
+              "perturb candidate mechanism and perform rescue",
+              "test same mechanism in an evolutionarily distant species with similar phenotype",
+              "test human orthologue/pathway in disease-relevant human cells"
+            ],
+            "evidence_priority_score": 0.565,
+            "evidence_support": [
+              "3 independent PMID-linked sources",
+              "2 recorded mechanisms",
+              "5 recorded gene/protein candidates"
+            ],
+            "hypothesis_id": "HYP-4449b29e740d",
+            "kind": "MARKER_ONLY_ALTERNATIVE",
+            "objections": [
+              "correlation not causation",
+              "human functional divergence",
+              "phylogeny confound",
+              "publication bias",
+              "single-lab dependence"
+            ],
+            "score_semantics": "heuristic evidence-prioritization score; not probability, efficacy, or truth",
+            "status": "SURVIVES_REVIEW"
+          }
+        ],
+        "surviving_hypothesis_ids": [
+          "HYP-66687a37a4b5",
+          "HYP-5ea31822d209",
+          "HYP-4449b29e740d"
+        ]
+      },
+      "evidence_status": "SUPPORTED",
+      "experiment_plans": [
+        {
+          "clinical_efficacy_claim": false,
+          "counterfactual_tests": [
+            "compare a close species lacking the phenotype",
+            "perturb candidate mechanism and perform rescue",
+            "test same mechanism in an evolutionarily distant species with similar phenotype",
+            "test human orthologue/pathway in disease-relevant human cells"
+          ],
+          "design": [
+            "pre-register primary phenotype and exclusion criteria",
+            "include untreated/baseline and negative controls",
+            "perturb the nominated mechanism with an appropriate validated method",
+            "perform an orthogonal or rescue validation where feasible",
+            "repeat across independent biological replicates",
+            "analyze effect direction, uncertainty, and failure conditions"
+          ],
+          "falsifier": "Specific perturbation of Wnt produces no reproducible phenotype change under adequate controls.",
+          "hypothesis_id": "HYP-66687a37a4b5",
+          "kill_criteria": [
+            "no reproducible phenotype change",
+            "effect disappears under independent replication",
+            "negative controls reproduce the claimed effect",
+            "an alternative hypothesis explains the observations with fewer unsupported assumptions"
+          ],
+          "null_hypothesis": "The nominated mechanism does not causally alter the phenotype under the tested conditions.",
+          "objective": "Distinguish the nominated causal explanation from marker-only and context-dependent alternatives.",
+          "predicted_if_supported": "Perturbing Wnt should change the phenotype in the predicted direction, and rescue should partially restore it.",
+          "program_id": "PRG-5fdcf74e81",
+          "sha256": "f2981a6dd033c6ee0a82ece9686e6a76966fe8d33d0373435fb13fbaf4a00770",
+          "source_pmids": [
+            "PMID:42314834",
+            "PMID:42690612",
+            "PMID:42755729"
+          ],
+          "status": "PROPOSED_NOT_EXECUTED",
+          "subject": "Danio rerio"
+        },
+        {
+          "clinical_efficacy_claim": false,
+          "counterfactual_tests": [
+            "compare a close species lacking the phenotype",
+            "perturb candidate mechanism and perform rescue",
+            "test same mechanism in an evolutionarily distant species with similar phenotype",
+            "test human orthologue/pathway in disease-relevant human cells"
+          ],
+          "design": [
+            "pre-register primary phenotype and exclusion criteria",
+            "include untreated/baseline and negative controls",
+            "perturb the nominated mechanism with an appropriate validated method",
+            "perform an orthogonal or rescue validation where feasible",
+            "repeat across independent biological replicates",
+            "analyze effect direction, uncertainty, and failure conditions"
+          ],
+          "falsifier": "The effect remains stable across relevant contexts and does not depend on plausible interacting pathways.",
+          "hypothesis_id": "HYP-5ea31822d209",
+          "kill_criteria": [
+            "no reproducible phenotype change",
+            "effect disappears under independent replication",
+            "negative controls reproduce the claimed effect",
+            "an alternative hypothesis explains the observations with fewer unsupported assumptions"
+          ],
+          "null_hypothesis": "The nominated mechanism does not causally alter the phenotype under the tested conditions.",
+          "objective": "Distinguish the nominated causal explanation from marker-only and context-dependent alternatives.",
+          "predicted_if_supported": "The effect size should vary across context, lineage, tissue, developmental state, or pathway background.",
+          "program_id": "PRG-5fdcf74e81",
+          "sha256": "7950ebb27cacced28e4fbbb6455933e73ea5e5c3d6719e1723f1f3faaca2a686",
+          "source_pmids": [
+            "PMID:42314834",
+            "PMID:42690612",
+            "PMID:42755729"
+          ],
+          "status": "PROPOSED_NOT_EXECUTED",
+          "subject": "Danio rerio"
+        }
+      ],
+      "experiments_executed": false,
+      "human_bridge_count": 1,
+      "hypotheses": [
+        {
+          "association_only": true,
+          "clinical_efficacy_claim": false,
+          "counterfactual_tests": [
+            "compare a close species lacking the phenotype",
+            "perturb candidate mechanism and perform rescue",
+            "test same mechanism in an evolutionarily distant species with similar phenotype",
+            "test human orthologue/pathway in disease-relevant human cells"
+          ],
+          "evidence_requirements": [
+            "independent replication",
+            "causal perturbation",
+            "rescue or orthogonal validation",
+            "negative control",
+            "human-relevant validation only after conservation checks"
+          ],
+          "falsifier": "Specific perturbation of Wnt produces no reproducible phenotype change under adequate controls.",
+          "genes": [
+            "MAPK",
+            "NF-",
+            "OCTA",
+            "SD-OCT",
+            "VEGF"
+          ],
+          "human_targets": [
+            "VEGFA"
+          ],
+          "id": "HYP-66687a37a4b5",
+          "kind": "PRIMARY_CAUSAL",
+          "mechanisms": [
+            "Wnt",
+            "regeneration"
+          ],
+          "prediction": "Perturbing Wnt should change the phenotype in the predicted direction, and rescue should partially restore it.",
+          "program_id": "PRG-5fdcf74e81",
+          "source_pmids": [
+            "PMID:42314834",
+            "PMID:42690612",
+            "PMID:42755729"
+          ],
+          "statement": "In Danio rerio, Wnt contributes causally to the reported phenotype rather than merely correlating with it.",
+          "status": "HYPOTHESIS",
+          "subject": "Danio rerio"
+        },
+        {
+          "association_only": true,
+          "clinical_efficacy_claim": false,
+          "counterfactual_tests": [
+            "compare a close species lacking the phenotype",
+            "perturb candidate mechanism and perform rescue",
+            "test same mechanism in an evolutionarily distant species with similar phenotype",
+            "test human orthologue/pathway in disease-relevant human cells"
+          ],
+          "evidence_requirements": [
+            "independent replication",
+            "causal perturbation",
+            "rescue or orthogonal validation",
+            "negative control",
+            "human-relevant validation only after conservation checks"
+          ],
+          "falsifier": "Targeted perturbation of Wnt reproducibly abolishes the phenotype and rescue restores it.",
+          "genes": [
+            "MAPK",
+            "NF-",
+            "OCTA",
+            "SD-OCT",
+            "VEGF"
+          ],
+          "human_targets": [
+            "VEGFA"
+          ],
+          "id": "HYP-4449b29e740d",
+          "kind": "MARKER_ONLY_ALTERNATIVE",
+          "mechanisms": [
+            "Wnt",
+            "regeneration"
+          ],
+          "prediction": "The phenotype should persist when Wnt changes, provided upstream drivers remain intact.",
+          "program_id": "PRG-5fdcf74e81",
+          "source_pmids": [
+            "PMID:42314834",
+            "PMID:42690612",
+            "PMID:42755729"
+          ],
+          "statement": "In Danio rerio, Wnt is a downstream marker or correlate rather than a causal driver.",
+          "status": "HYPOTHESIS",
+          "subject": "Danio rerio"
+        },
+        {
+          "association_only": true,
+          "clinical_efficacy_claim": false,
+          "counterfactual_tests": [
+            "compare a close species lacking the phenotype",
+            "perturb candidate mechanism and perform rescue",
+            "test same mechanism in an evolutionarily distant species with similar phenotype",
+            "test human orthologue/pathway in disease-relevant human cells"
+          ],
+          "evidence_requirements": [
+            "independent replication",
+            "causal perturbation",
+            "rescue or orthogonal validation",
+            "negative control",
+            "human-relevant validation only after conservation checks"
+          ],
+          "falsifier": "The effect remains stable across relevant contexts and does not depend on plausible interacting pathways.",
+          "genes": [
+            "MAPK",
+            "NF-",
+            "OCTA",
+            "SD-OCT",
+            "VEGF"
+          ],
+          "human_targets": [
+            "VEGFA"
+          ],
+          "id": "HYP-5ea31822d209",
+          "kind": "CONTEXT_DEPENDENT_ALTERNATIVE",
+          "mechanisms": [
+            "Wnt",
+            "regeneration"
+          ],
+          "prediction": "The effect size should vary across context, lineage, tissue, developmental state, or pathway background.",
+          "program_id": "PRG-5fdcf74e81",
+          "source_pmids": [
+            "PMID:42314834",
+            "PMID:42690612",
+            "PMID:42755729"
+          ],
+          "statement": "In Danio rerio, the effect associated with Wnt depends on biological context or interacting pathways.",
+          "status": "HYPOTHESIS",
+          "subject": "Danio rerio"
+        }
+      ],
+      "program_id": "PRG-5fdcf74e81",
+      "reasoning_status": "PROPOSED_AND_FALSIFIABLE",
+      "schema": "biomimic-scientific-reasoning-v1",
+      "sha256": "5ae156199f2a16389953cc516344e06453cb414b365adba855a3d1ff0f20126b",
+      "source_pmids": [
+        "PMID:42314834",
+        "PMID:42690612",
+        "PMID:42755729"
+      ],
+      "subject": "Danio rerio"
+    },
+    {
+      "claims_established_truth": false,
+      "clinical_efficacy_claim": false,
+      "contradictions": [
+        "correlation not causation",
+        "human functional divergence",
+        "phylogeny confound",
+        "publication bias",
+        "single-lab dependence"
+      ],
+      "debate": {
+        "adversarial_flags": [
+          "association does not establish causation",
+          "correlation not causation",
+          "human functional divergence",
+          "phylogeny confound",
+          "publication bias",
+          "single-lab dependence"
+        ],
+        "decision_rule": "prioritize evidence-rich falsifiable hypotheses; never promote ranking to scientific fact",
+        "ranked": [
+          {
+            "clinical_efficacy_claim": false,
+            "counter_tests": [
+              "compare a close species lacking the phenotype",
+              "perturb candidate mechanism and perform rescue",
+              "test same mechanism in an evolutionarily distant species with similar phenotype",
+              "test human orthologue/pathway in disease-relevant human cells"
+            ],
+            "evidence_priority_score": 0.565,
+            "evidence_support": [
+              "3 independent PMID-linked sources",
+              "2 recorded mechanisms",
+              "4 recorded gene/protein candidates"
+            ],
+            "hypothesis_id": "HYP-ba329885d20c",
+            "kind": "MARKER_ONLY_ALTERNATIVE",
+            "objections": [
+              "correlation not causation",
+              "human functional divergence",
+              "phylogeny confound",
+              "publication bias",
+              "single-lab dependence"
+            ],
+            "score_semantics": "heuristic evidence-prioritization score; not probability, efficacy, or truth",
+            "status": "SURVIVES_REVIEW"
+          },
+          {
+            "clinical_efficacy_claim": false,
+            "counter_tests": [
+              "compare a close species lacking the phenotype",
+              "perturb candidate mechanism and perform rescue",
+              "test same mechanism in an evolutionarily distant species with similar phenotype",
+              "test human orthologue/pathway in disease-relevant human cells"
+            ],
+            "evidence_priority_score": 0.565,
+            "evidence_support": [
+              "3 independent PMID-linked sources",
+              "2 recorded mechanisms",
+              "4 recorded gene/protein candidates"
+            ],
+            "hypothesis_id": "HYP-81a4bc9ace78",
+            "kind": "CONTEXT_DEPENDENT_ALTERNATIVE",
+            "objections": [
+              "correlation not causation",
+              "human functional divergence",
+              "phylogeny confound",
+              "publication bias",
+              "single-lab dependence"
+            ],
+            "score_semantics": "heuristic evidence-prioritization score; not probability, efficacy, or truth",
+            "status": "SURVIVES_REVIEW"
+          },
+          {
+            "clinical_efficacy_claim": false,
+            "counter_tests": [
+              "compare a close species lacking the phenotype",
+              "perturb candidate mechanism and perform rescue",
+              "test same mechanism in an evolutionarily distant species with similar phenotype",
+              "test human orthologue/pathway in disease-relevant human cells"
+            ],
+            "evidence_priority_score": 0.565,
+            "evidence_support": [
+              "3 independent PMID-linked sources",
+              "2 recorded mechanisms",
+              "4 recorded gene/protein candidates"
+            ],
+            "hypothesis_id": "HYP-4af4025ee5b0",
+            "kind": "PRIMARY_CAUSAL",
+            "objections": [
+              "association does not establish causation",
+              "correlation not causation",
+              "human functional divergence",
+              "phylogeny confound",
+              "publication bias",
+              "single-lab dependence"
+            ],
+            "score_semantics": "heuristic evidence-prioritization score; not probability, efficacy, or truth",
+            "status": "SURVIVES_REVIEW"
+          }
+        ],
+        "surviving_hypothesis_ids": [
+          "HYP-ba329885d20c",
+          "HYP-81a4bc9ace78",
+          "HYP-4af4025ee5b0"
+        ]
+      },
+      "evidence_status": "SUPPORTED",
+      "experiment_plans": [
+        {
+          "clinical_efficacy_claim": false,
+          "counterfactual_tests": [
+            "compare a close species lacking the phenotype",
+            "perturb candidate mechanism and perform rescue",
+            "test same mechanism in an evolutionarily distant species with similar phenotype",
+            "test human orthologue/pathway in disease-relevant human cells"
+          ],
+          "design": [
+            "pre-register primary phenotype and exclusion criteria",
+            "include untreated/baseline and negative controls",
+            "perturb the nominated mechanism with an appropriate validated method",
+            "perform an orthogonal or rescue validation where feasible",
+            "repeat across independent biological replicates",
+            "analyze effect direction, uncertainty, and failure conditions"
+          ],
+          "falsifier": "Targeted perturbation of fibrosis reproducibly abolishes the phenotype and rescue restores it.",
+          "hypothesis_id": "HYP-ba329885d20c",
+          "kill_criteria": [
+            "no reproducible phenotype change",
+            "effect disappears under independent replication",
+            "negative controls reproduce the claimed effect",
+            "an alternative hypothesis explains the observations with fewer unsupported assumptions"
+          ],
+          "null_hypothesis": "The nominated mechanism does not causally alter the phenotype under the tested conditions.",
+          "objective": "Distinguish the nominated causal explanation from marker-only and context-dependent alternatives.",
+          "predicted_if_supported": "The phenotype should persist when fibrosis changes, provided upstream drivers remain intact.",
+          "program_id": "PRG-14c747bea5",
+          "sha256": "bbca2dad01c16dca8f164981e21ea965dd959680a75ce22383f13e987f57f0ea",
+          "source_pmids": [
+            "PMID:34944708",
+            "PMID:41751333",
+            "PMID:42702818"
+          ],
+          "status": "PROPOSED_NOT_EXECUTED",
+          "subject": "Cynops pyrrhogaster"
+        },
+        {
+          "clinical_efficacy_claim": false,
+          "counterfactual_tests": [
+            "compare a close species lacking the phenotype",
+            "perturb candidate mechanism and perform rescue",
+            "test same mechanism in an evolutionarily distant species with similar phenotype",
+            "test human orthologue/pathway in disease-relevant human cells"
+          ],
+          "design": [
+            "pre-register primary phenotype and exclusion criteria",
+            "include untreated/baseline and negative controls",
+            "perturb the nominated mechanism with an appropriate validated method",
+            "perform an orthogonal or rescue validation where feasible",
+            "repeat across independent biological replicates",
+            "analyze effect direction, uncertainty, and failure conditions"
+          ],
+          "falsifier": "The effect remains stable across relevant contexts and does not depend on plausible interacting pathways.",
+          "hypothesis_id": "HYP-81a4bc9ace78",
+          "kill_criteria": [
+            "no reproducible phenotype change",
+            "effect disappears under independent replication",
+            "negative controls reproduce the claimed effect",
+            "an alternative hypothesis explains the observations with fewer unsupported assumptions"
+          ],
+          "null_hypothesis": "The nominated mechanism does not causally alter the phenotype under the tested conditions.",
+          "objective": "Distinguish the nominated causal explanation from marker-only and context-dependent alternatives.",
+          "predicted_if_supported": "The effect size should vary across context, lineage, tissue, developmental state, or pathway background.",
+          "program_id": "PRG-14c747bea5",
+          "sha256": "4fa7e2379279771e666679150094c516d6555fcd095740f04191b31aa69c1caa",
+          "source_pmids": [
+            "PMID:34944708",
+            "PMID:41751333",
+            "PMID:42702818"
+          ],
+          "status": "PROPOSED_NOT_EXECUTED",
+          "subject": "Cynops pyrrhogaster"
+        }
+      ],
+      "experiments_executed": false,
+      "human_bridge_count": 1,
+      "hypotheses": [
+        {
+          "association_only": true,
+          "clinical_efficacy_claim": false,
+          "counterfactual_tests": [
+            "compare a close species lacking the phenotype",
+            "perturb candidate mechanism and perform rescue",
+            "test same mechanism in an evolutionarily distant species with similar phenotype",
+            "test human orthologue/pathway in disease-relevant human cells"
+          ],
+          "evidence_requirements": [
+            "independent replication",
+            "causal perturbation",
+            "rescue or orthogonal validation",
+            "negative control",
+            "human-relevant validation only after conservation checks"
+          ],
+          "falsifier": "Specific perturbation of fibrosis produces no reproducible phenotype change under adequate controls.",
+          "genes": [
+            "PBD",
+            "PCNA",
+            "PCNA-",
+            "RT-PCR"
+          ],
+          "human_targets": [
+            "SHH"
+          ],
+          "id": "HYP-4af4025ee5b0",
+          "kind": "PRIMARY_CAUSAL",
+          "mechanisms": [
+            "fibrosis",
+            "regeneration"
+          ],
+          "prediction": "Perturbing fibrosis should change the phenotype in the predicted direction, and rescue should partially restore it.",
+          "program_id": "PRG-14c747bea5",
+          "source_pmids": [
+            "PMID:34944708",
+            "PMID:41751333",
+            "PMID:42702818"
+          ],
+          "statement": "In Cynops pyrrhogaster, fibrosis contributes causally to the reported phenotype rather than merely correlating with it.",
+          "status": "HYPOTHESIS",
+          "subject": "Cynops pyrrhogaster"
+        },
+        {
+          "association_only": true,
+          "clinical_efficacy_claim": false,
+          "counterfactual_tests": [
+            "compare a close species lacking the phenotype",
+            "perturb candidate mechanism and perform rescue",
+            "test same mechanism in an evolutionarily distant species with similar phenotype",
+            "test human orthologue/pathway in disease-relevant human cells"
+          ],
+          "evidence_requirements": [
+            "independent replication",
+            "causal perturbation",
+            "rescue or orthogonal validation",
+            "negative control",
+            "human-relevant validation only after conservation checks"
+          ],
+          "falsifier": "Targeted perturbation of fibrosis reproducibly abolishes the phenotype and rescue restores it.",
+          "genes": [
+            "PBD",
+            "PCNA",
+            "PCNA-",
+            "RT-PCR"
+          ],
+          "human_targets": [
+            "SHH"
+          ],
+          "id": "HYP-ba329885d20c",
+          "kind": "MARKER_ONLY_ALTERNATIVE",
+          "mechanisms": [
+            "fibrosis",
+            "regeneration"
+          ],
+          "prediction": "The phenotype should persist when fibrosis changes, provided upstream drivers remain intact.",
+          "program_id": "PRG-14c747bea5",
+          "source_pmids": [
+            "PMID:34944708",
+            "PMID:41751333",
+            "PMID:42702818"
+          ],
+          "statement": "In Cynops pyrrhogaster, fibrosis is a downstream marker or correlate rather than a causal driver.",
+          "status": "HYPOTHESIS",
+          "subject": "Cynops pyrrhogaster"
+        },
+        {
+          "association_only": true,
+          "clinical_efficacy_claim": false,
+          "counterfactual_tests": [
+            "compare a close species lacking the phenotype",
+            "perturb candidate mechanism and perform rescue",
+            "test same mechanism in an evolutionarily distant species with similar phenotype",
+            "test human orthologue/pathway in disease-relevant human cells"
+          ],
+          "evidence_requirements": [
+            "independent replication",
+            "causal perturbation",
+            "rescue or orthogonal validation",
+            "negative control",
+            "human-relevant validation only after conservation checks"
+          ],
+          "falsifier": "The effect remains stable across relevant contexts and does not depend on plausible interacting pathways.",
+          "genes": [
+            "PBD",
+            "PCNA",
+            "PCNA-",
+            "RT-PCR"
+          ],
+          "human_targets": [
+            "SHH"
+          ],
+          "id": "HYP-81a4bc9ace78",
+          "kind": "CONTEXT_DEPENDENT_ALTERNATIVE",
+          "mechanisms": [
+            "fibrosis",
+            "regeneration"
+          ],
+          "prediction": "The effect size should vary across context, lineage, tissue, developmental state, or pathway background.",
+          "program_id": "PRG-14c747bea5",
+          "source_pmids": [
+            "PMID:34944708",
+            "PMID:41751333",
+            "PMID:42702818"
+          ],
+          "statement": "In Cynops pyrrhogaster, the effect associated with fibrosis depends on biological context or interacting pathways.",
+          "status": "HYPOTHESIS",
+          "subject": "Cynops pyrrhogaster"
+        }
+      ],
+      "program_id": "PRG-14c747bea5",
+      "reasoning_status": "PROPOSED_AND_FALSIFIABLE",
+      "schema": "biomimic-scientific-reasoning-v1",
+      "sha256": "84837d2519f8a58986e38c06a3a488e71256d21681198bb9d6b0cb501e7157bf",
+      "source_pmids": [
+        "PMID:34944708",
+        "PMID:41751333",
+        "PMID:42702818"
+      ],
+      "subject": "Cynops pyrrhogaster"
+    },
+    {
+      "claims_established_truth": false,
+      "clinical_efficacy_claim": false,
+      "contradictions": [
+        "correlation not causation",
+        "human functional divergence",
+        "phylogeny confound",
+        "publication bias",
+        "single-lab dependence"
+      ],
+      "debate": {
+        "adversarial_flags": [
+          "association does not establish causation",
+          "correlation not causation",
+          "human functional divergence",
+          "phylogeny confound",
+          "publication bias",
+          "single-lab dependence"
+        ],
+        "decision_rule": "prioritize evidence-rich falsifiable hypotheses; never promote ranking to scientific fact",
+        "ranked": [
+          {
+            "clinical_efficacy_claim": false,
+            "counter_tests": [
+              "compare a close species lacking the phenotype",
+              "perturb candidate mechanism and perform rescue",
+              "test same mechanism in an evolutionarily distant species with similar phenotype",
+              "test human orthologue/pathway in disease-relevant human cells"
+            ],
+            "evidence_priority_score": 0.405,
+            "evidence_support": [
+              "3 independent PMID-linked sources",
+              "1 recorded mechanisms",
+              "0 recorded gene/protein candidates"
+            ],
+            "hypothesis_id": "HYP-fc8a0c1bdddc",
+            "kind": "CONTEXT_DEPENDENT_ALTERNATIVE",
+            "objections": [
+              "correlation not causation",
+              "human functional divergence",
+              "phylogeny confound",
+              "publication bias",
+              "single-lab dependence"
+            ],
+            "score_semantics": "heuristic evidence-prioritization score; not probability, efficacy, or truth",
+            "status": "SURVIVES_REVIEW"
+          },
+          {
+            "clinical_efficacy_claim": false,
+            "counter_tests": [
+              "compare a close species lacking the phenotype",
+              "perturb candidate mechanism and perform rescue",
+              "test same mechanism in an evolutionarily distant species with similar phenotype",
+              "test human orthologue/pathway in disease-relevant human cells"
+            ],
+            "evidence_priority_score": 0.405,
+            "evidence_support": [
+              "3 independent PMID-linked sources",
+              "1 recorded mechanisms",
+              "0 recorded gene/protein candidates"
+            ],
+            "hypothesis_id": "HYP-ec295aaca7bb",
+            "kind": "MARKER_ONLY_ALTERNATIVE",
+            "objections": [
+              "correlation not causation",
+              "human functional divergence",
+              "phylogeny confound",
+              "publication bias",
+              "single-lab dependence"
+            ],
+            "score_semantics": "heuristic evidence-prioritization score; not probability, efficacy, or truth",
+            "status": "SURVIVES_REVIEW"
+          },
+          {
+            "clinical_efficacy_claim": false,
+            "counter_tests": [
+              "compare a close species lacking the phenotype",
+              "perturb candidate mechanism and perform rescue",
+              "test same mechanism in an evolutionarily distant species with similar phenotype",
+              "test human orthologue/pathway in disease-relevant human cells"
+            ],
+            "evidence_priority_score": 0.405,
+            "evidence_support": [
+              "3 independent PMID-linked sources",
+              "1 recorded mechanisms",
+              "0 recorded gene/protein candidates"
+            ],
+            "hypothesis_id": "HYP-bd9dcdbb9f3d",
+            "kind": "PRIMARY_CAUSAL",
+            "objections": [
+              "association does not establish causation",
+              "correlation not causation",
+              "human functional divergence",
+              "phylogeny confound",
+              "publication bias",
+              "single-lab dependence"
+            ],
+            "score_semantics": "heuristic evidence-prioritization score; not probability, efficacy, or truth",
+            "status": "SURVIVES_REVIEW"
+          }
+        ],
+        "surviving_hypothesis_ids": [
+          "HYP-fc8a0c1bdddc",
+          "HYP-ec295aaca7bb",
+          "HYP-bd9dcdbb9f3d"
+        ]
+      },
+      "evidence_status": "SUPPORTED",
+      "experiment_plans": [
+        {
+          "clinical_efficacy_claim": false,
+          "counterfactual_tests": [
+            "compare a close species lacking the phenotype",
+            "perturb candidate mechanism and perform rescue",
+            "test same mechanism in an evolutionarily distant species with similar phenotype",
+            "test human orthologue/pathway in disease-relevant human cells"
+          ],
+          "design": [
+            "pre-register primary phenotype and exclusion criteria",
+            "include untreated/baseline and negative controls",
+            "perturb the nominated mechanism with an appropriate validated method",
+            "perform an orthogonal or rescue validation where feasible",
+            "repeat across independent biological replicates",
+            "analyze effect direction, uncertainty, and failure conditions"
+          ],
+          "falsifier": "The effect remains stable across relevant contexts and does not depend on plausible interacting pathways.",
+          "hypothesis_id": "HYP-fc8a0c1bdddc",
+          "kill_criteria": [
+            "no reproducible phenotype change",
+            "effect disappears under independent replication",
+            "negative controls reproduce the claimed effect",
+            "an alternative hypothesis explains the observations with fewer unsupported assumptions"
+          ],
+          "null_hypothesis": "The nominated mechanism does not causally alter the phenotype under the tested conditions.",
+          "objective": "Distinguish the nominated causal explanation from marker-only and context-dependent alternatives.",
+          "predicted_if_supported": "The effect size should vary across context, lineage, tissue, developmental state, or pathway background.",
+          "program_id": "PRG-7cd7bdba92",
+          "sha256": "b11679e73444c6118095f88f5c4543184090b2e213f120a1d33a7da6f2e4394f",
+          "source_pmids": [
+            "PMID:32950659",
+            "PMID:42615433",
+            "PMID:42746048"
+          ],
+          "status": "PROPOSED_NOT_EXECUTED",
+          "subject": "Eublepharis macularius"
+        },
+        {
+          "clinical_efficacy_claim": false,
+          "counterfactual_tests": [
+            "compare a close species lacking the phenotype",
+            "perturb candidate mechanism and perform rescue",
+            "test same mechanism in an evolutionarily distant species with similar phenotype",
+            "test human orthologue/pathway in disease-relevant human cells"
+          ],
+          "design": [
+            "pre-register primary phenotype and exclusion criteria",
+            "include untreated/baseline and negative controls",
+            "perturb the nominated mechanism with an appropriate validated method",
+            "perform an orthogonal or rescue validation where feasible",
+            "repeat across independent biological replicates",
+            "analyze effect direction, uncertainty, and failure conditions"
+          ],
+          "falsifier": "Targeted perturbation of immune reproducibly abolishes the phenotype and rescue restores it.",
+          "hypothesis_id": "HYP-ec295aaca7bb",
+          "kill_criteria": [
+            "no reproducible phenotype change",
+            "effect disappears under independent replication",
+            "negative controls reproduce the claimed effect",
+            "an alternative hypothesis explains the observations with fewer unsupported assumptions"
+          ],
+          "null_hypothesis": "The nominated mechanism does not causally alter the phenotype under the tested conditions.",
+          "objective": "Distinguish the nominated causal explanation from marker-only and context-dependent alternatives.",
+          "predicted_if_supported": "The phenotype should persist when immune changes, provided upstream drivers remain intact.",
+          "program_id": "PRG-7cd7bdba92",
+          "sha256": "2e0bddfd5b1e53c2917d24d655ec3ac682feedf7088cff03252d24de7e701a1e",
+          "source_pmids": [
+            "PMID:32950659",
+            "PMID:42615433",
+            "PMID:42746048"
+          ],
+          "status": "PROPOSED_NOT_EXECUTED",
+          "subject": "Eublepharis macularius"
+        }
+      ],
+      "experiments_executed": false,
+      "human_bridge_count": 4,
+      "hypotheses": [
+        {
+          "association_only": true,
+          "clinical_efficacy_claim": false,
+          "counterfactual_tests": [
+            "compare a close species lacking the phenotype",
+            "perturb candidate mechanism and perform rescue",
+            "test same mechanism in an evolutionarily distant species with similar phenotype",
+            "test human orthologue/pathway in disease-relevant human cells"
+          ],
+          "evidence_requirements": [
+            "independent replication",
+            "causal perturbation",
+            "rescue or orthogonal validation",
+            "negative control",
+            "human-relevant validation only after conservation checks"
+          ],
+          "falsifier": "Specific perturbation of immune produces no reproducible phenotype change under adequate controls.",
+          "genes": [],
+          "human_targets": [
+            "SOX2",
+            "SOX9"
+          ],
+          "id": "HYP-bd9dcdbb9f3d",
+          "kind": "PRIMARY_CAUSAL",
+          "mechanisms": [
+            "immune"
+          ],
+          "prediction": "Perturbing immune should change the phenotype in the predicted direction, and rescue should partially restore it.",
+          "program_id": "PRG-7cd7bdba92",
+          "source_pmids": [
+            "PMID:32950659",
+            "PMID:42615433",
+            "PMID:42746048"
+          ],
+          "statement": "In Eublepharis macularius, immune contributes causally to the reported phenotype rather than merely correlating with it.",
+          "status": "HYPOTHESIS",
+          "subject": "Eublepharis macularius"
+        },
+        {
+          "association_only": true,
+          "clinical_efficacy_claim": false,
+          "counterfactual_tests": [
+            "compare a close species lacking the phenotype",
+            "perturb candidate mechanism and perform rescue",
+            "test same mechanism in an evolutionarily distant species with similar phenotype",
+            "test human orthologue/pathway in disease-relevant human cells"
+          ],
+          "evidence_requirements": [
+            "independent replication",
+            "causal perturbation",
+            "rescue or orthogonal validation",
+            "negative control",
+            "human-relevant validation only after conservation checks"
+          ],
+          "falsifier": "Targeted perturbation of immune reproducibly abolishes the phenotype and rescue restores it.",
+          "genes": [],
+          "human_targets": [
+            "SOX2",
+            "SOX9"
+          ],
+          "id": "HYP-ec295aaca7bb",
+          "kind": "MARKER_ONLY_ALTERNATIVE",
+          "mechanisms": [
+            "immune"
+          ],
+          "prediction": "The phenotype should persist when immune changes, provided upstream drivers remain intact.",
+          "program_id": "PRG-7cd7bdba92",
+          "source_pmids": [
+            "PMID:32950659",
+            "PMID:42615433",
+            "PMID:42746048"
+          ],
+          "statement": "In Eublepharis macularius, immune is a downstream marker or correlate rather than a causal driver.",
+          "status": "HYPOTHESIS",
+          "subject": "Eublepharis macularius"
+        },
+        {
+          "association_only": true,
+          "clinical_efficacy_claim": false,
+          "counterfactual_tests": [
+            "compare a close species lacking the phenotype",
+            "perturb candidate mechanism and perform rescue",
+            "test same mechanism in an evolutionarily distant species with similar phenotype",
+            "test human orthologue/pathway in disease-relevant human cells"
+          ],
+          "evidence_requirements": [
+            "independent replication",
+            "causal perturbation",
+            "rescue or orthogonal validation",
+            "negative control",
+            "human-relevant validation only after conservation checks"
+          ],
+          "falsifier": "The effect remains stable across relevant contexts and does not depend on plausible interacting pathways.",
+          "genes": [],
+          "human_targets": [
+            "SOX2",
+            "SOX9"
+          ],
+          "id": "HYP-fc8a0c1bdddc",
+          "kind": "CONTEXT_DEPENDENT_ALTERNATIVE",
+          "mechanisms": [
+            "immune"
+          ],
+          "prediction": "The effect size should vary across context, lineage, tissue, developmental state, or pathway background.",
+          "program_id": "PRG-7cd7bdba92",
+          "source_pmids": [
+            "PMID:32950659",
+            "PMID:42615433",
+            "PMID:42746048"
+          ],
+          "statement": "In Eublepharis macularius, the effect associated with immune depends on biological context or interacting pathways.",
+          "status": "HYPOTHESIS",
+          "subject": "Eublepharis macularius"
+        }
+      ],
+      "program_id": "PRG-7cd7bdba92",
+      "reasoning_status": "PROPOSED_AND_FALSIFIABLE",
+      "schema": "biomimic-scientific-reasoning-v1",
+      "sha256": "43e6f95d9ff664694cf03b73777d947685e6b8626017a540711b0273eb013990",
+      "source_pmids": [
+        "PMID:32950659",
+        "PMID:42615433",
+        "PMID:42746048"
+      ],
+      "subject": "Eublepharis macularius"
+    },
+    {
+      "claims_established_truth": false,
+      "clinical_efficacy_claim": false,
+      "contradictions": [
+        "correlation not causation",
+        "human functional divergence",
+        "phenotype without mechanism",
+        "phylogeny confound",
+        "publication bias",
+        "single-lab dependence"
+      ],
+      "debate": {
+        "adversarial_flags": [
+          "association does not establish causation",
+          "correlation not causation",
+          "human functional divergence",
+          "phenotype without mechanism",
+          "phylogeny confound",
+          "publication bias",
+          "single-lab dependence"
+        ],
+        "decision_rule": "prioritize evidence-rich falsifiable hypotheses; never promote ranking to scientific fact",
+        "ranked": [
+          {
+            "clinical_efficacy_claim": false,
+            "counter_tests": [
+              "compare a close species lacking the phenotype",
+              "perturb candidate mechanism and perform rescue",
+              "test same mechanism in an evolutionarily distant species with similar phenotype",
+              "test human orthologue/pathway in disease-relevant human cells"
+            ],
+            "evidence_priority_score": 0.37,
+            "evidence_support": [
+              "3 independent PMID-linked sources",
+              "0 recorded mechanisms",
+              "2 recorded gene/protein candidates"
+            ],
+            "hypothesis_id": "HYP-d37198a34f9b",
+            "kind": "PRIMARY_CAUSAL",
+            "objections": [
+              "association does not establish causation",
+              "correlation not causation",
+              "human functional divergence",
+              "phenotype without mechanism",
+              "phylogeny confound",
+              "publication bias",
+              "single-lab dependence"
+            ],
+            "score_semantics": "heuristic evidence-prioritization score; not probability, efficacy, or truth",
+            "status": "SURVIVES_REVIEW"
+          },
+          {
+            "clinical_efficacy_claim": false,
+            "counter_tests": [
+              "compare a close species lacking the phenotype",
+              "perturb candidate mechanism and perform rescue",
+              "test same mechanism in an evolutionarily distant species with similar phenotype",
+              "test human orthologue/pathway in disease-relevant human cells"
+            ],
+            "evidence_priority_score": 0.37,
+            "evidence_support": [
+              "3 independent PMID-linked sources",
+              "0 recorded mechanisms",
+              "2 recorded gene/protein candidates"
+            ],
+            "hypothesis_id": "HYP-7d3002d34ca5",
+            "kind": "MARKER_ONLY_ALTERNATIVE",
+            "objections": [
+              "correlation not causation",
+              "human functional divergence",
+              "phenotype without mechanism",
+              "phylogeny confound",
+              "publication bias",
+              "single-lab dependence"
+            ],
+            "score_semantics": "heuristic evidence-prioritization score; not probability, efficacy, or truth",
+            "status": "SURVIVES_REVIEW"
+          },
+          {
+            "clinical_efficacy_claim": false,
+            "counter_tests": [
+              "compare a close species lacking the phenotype",
+              "perturb candidate mechanism and perform rescue",
+              "test same mechanism in an evolutionarily distant species with similar phenotype",
+              "test human orthologue/pathway in disease-relevant human cells"
+            ],
+            "evidence_priority_score": 0.37,
+            "evidence_support": [
+              "3 independent PMID-linked sources",
+              "0 recorded mechanisms",
+              "2 recorded gene/protein candidates"
+            ],
+            "hypothesis_id": "HYP-045b42ab27b2",
+            "kind": "CONTEXT_DEPENDENT_ALTERNATIVE",
+            "objections": [
+              "correlation not causation",
+              "human functional divergence",
+              "phenotype without mechanism",
+              "phylogeny confound",
+              "publication bias",
+              "single-lab dependence"
+            ],
+            "score_semantics": "heuristic evidence-prioritization score; not probability, efficacy, or truth",
+            "status": "SURVIVES_REVIEW"
+          }
+        ],
+        "surviving_hypothesis_ids": [
+          "HYP-d37198a34f9b",
+          "HYP-7d3002d34ca5",
+          "HYP-045b42ab27b2"
+        ]
+      },
+      "evidence_status": "SUPPORTED",
+      "experiment_plans": [
+        {
+          "clinical_efficacy_claim": false,
+          "counterfactual_tests": [
+            "compare a close species lacking the phenotype",
+            "perturb candidate mechanism and perform rescue",
+            "test same mechanism in an evolutionarily distant species with similar phenotype",
+            "test human orthologue/pathway in disease-relevant human cells"
+          ],
+          "design": [
+            "pre-register primary phenotype and exclusion criteria",
+            "include untreated/baseline and negative controls",
+            "perturb the nominated mechanism with an appropriate validated method",
+            "perform an orthogonal or rescue validation where feasible",
+            "repeat across independent biological replicates",
+            "analyze effect direction, uncertainty, and failure conditions"
+          ],
+          "falsifier": "Specific perturbation of NIH- produces no reproducible phenotype change under adequate controls.",
+          "hypothesis_id": "HYP-d37198a34f9b",
+          "kill_criteria": [
+            "no reproducible phenotype change",
+            "effect disappears under independent replication",
+            "negative controls reproduce the claimed effect",
+            "an alternative hypothesis explains the observations with fewer unsupported assumptions"
+          ],
+          "null_hypothesis": "The nominated mechanism does not causally alter the phenotype under the tested conditions.",
+          "objective": "Distinguish the nominated causal explanation from marker-only and context-dependent alternatives.",
+          "predicted_if_supported": "Perturbing NIH- should change the phenotype in the predicted direction, and rescue should partially restore it.",
+          "program_id": "PRG-70175ca5b4",
+          "sha256": "2f879aa298319596e5358b3faeb1273347e3c5f56e21d38d9e6b1a1d44e062ad",
+          "source_pmids": [
+            "PMID:42208364",
+            "PMID:42217062",
+            "PMID:42686794"
+          ],
+          "status": "PROPOSED_NOT_EXECUTED",
+          "subject": "Drosophila melanogaster"
+        },
+        {
+          "clinical_efficacy_claim": false,
+          "counterfactual_tests": [
+            "compare a close species lacking the phenotype",
+            "perturb candidate mechanism and perform rescue",
+            "test same mechanism in an evolutionarily distant species with similar phenotype",
+            "test human orthologue/pathway in disease-relevant human cells"
+          ],
+          "design": [
+            "pre-register primary phenotype and exclusion criteria",
+            "include untreated/baseline and negative controls",
+            "perturb the nominated mechanism with an appropriate validated method",
+            "perform an orthogonal or rescue validation where feasible",
+            "repeat across independent biological replicates",
+            "analyze effect direction, uncertainty, and failure conditions"
+          ],
+          "falsifier": "Targeted perturbation of NIH- reproducibly abolishes the phenotype and rescue restores it.",
+          "hypothesis_id": "HYP-7d3002d34ca5",
+          "kill_criteria": [
+            "no reproducible phenotype change",
+            "effect disappears under independent replication",
+            "negative controls reproduce the claimed effect",
+            "an alternative hypothesis explains the observations with fewer unsupported assumptions"
+          ],
+          "null_hypothesis": "The nominated mechanism does not causally alter the phenotype under the tested conditions.",
+          "objective": "Distinguish the nominated causal explanation from marker-only and context-dependent alternatives.",
+          "predicted_if_supported": "The phenotype should persist when NIH- changes, provided upstream drivers remain intact.",
+          "program_id": "PRG-70175ca5b4",
+          "sha256": "1b1b42e26c1cb5c577e0e8db9e7184d79b3e26a98bf216c79cea679be1e1686e",
+          "source_pmids": [
+            "PMID:42208364",
+            "PMID:42217062",
+            "PMID:42686794"
+          ],
+          "status": "PROPOSED_NOT_EXECUTED",
+          "subject": "Drosophila melanogaster"
+        }
+      ],
+      "experiments_executed": false,
+      "human_bridge_count": 6,
+      "hypotheses": [
+        {
+          "association_only": true,
+          "clinical_efficacy_claim": false,
+          "counterfactual_tests": [
+            "compare a close species lacking the phenotype",
+            "perturb candidate mechanism and perform rescue",
+            "test same mechanism in an evolutionarily distant species with similar phenotype",
+            "test human orthologue/pathway in disease-relevant human cells"
+          ],
+          "evidence_requirements": [
+            "independent replication",
+            "causal perturbation",
+            "rescue or orthogonal validation",
+            "negative control",
+            "human-relevant validation only after conservation checks"
+          ],
+          "falsifier": "Specific perturbation of NIH- produces no reproducible phenotype change under adequate controls.",
+          "genes": [
+            "NIH-",
+            "USDA"
+          ],
+          "human_targets": [
+            "ASH2L",
+            "EGFR",
+            "ERBB2",
+            "ERBB4",
+            "RORA",
+            "RORB"
+          ],
+          "id": "HYP-d37198a34f9b",
+          "kind": "PRIMARY_CAUSAL",
+          "mechanisms": [],
+          "prediction": "Perturbing NIH- should change the phenotype in the predicted direction, and rescue should partially restore it.",
+          "program_id": "PRG-70175ca5b4",
+          "source_pmids": [
+            "PMID:42208364",
+            "PMID:42217062",
+            "PMID:42686794"
+          ],
+          "statement": "In Drosophila melanogaster, NIH- contributes causally to the reported phenotype rather than merely correlating with it.",
+          "status": "HYPOTHESIS",
+          "subject": "Drosophila melanogaster"
+        },
+        {
+          "association_only": true,
+          "clinical_efficacy_claim": false,
+          "counterfactual_tests": [
+            "compare a close species lacking the phenotype",
+            "perturb candidate mechanism and perform rescue",
+            "test same mechanism in an evolutionarily distant species with similar phenotype",
+            "test human orthologue/pathway in disease-relevant human cells"
+          ],
+          "evidence_requirements": [
+            "independent replication",
+            "causal perturbation",
+            "rescue or orthogonal validation",
+            "negative control",
+            "human-relevant validation only after conservation checks"
+          ],
+          "falsifier": "Targeted perturbation of NIH- reproducibly abolishes the phenotype and rescue restores it.",
+          "genes": [
+            "NIH-",
+            "USDA"
+          ],
+          "human_targets": [
+            "ASH2L",
+            "EGFR",
+            "ERBB2",
+            "ERBB4",
+            "RORA",
+            "RORB"
+          ],
+          "id": "HYP-7d3002d34ca5",
+          "kind": "MARKER_ONLY_ALTERNATIVE",
+          "mechanisms": [],
+          "prediction": "The phenotype should persist when NIH- changes, provided upstream drivers remain intact.",
+          "program_id": "PRG-70175ca5b4",
+          "source_pmids": [
+            "PMID:42208364",
+            "PMID:42217062",
+            "PMID:42686794"
+          ],
+          "statement": "In Drosophila melanogaster, NIH- is a downstream marker or correlate rather than a causal driver.",
+          "status": "HYPOTHESIS",
+          "subject": "Drosophila melanogaster"
+        },
+        {
+          "association_only": true,
+          "clinical_efficacy_claim": false,
+          "counterfactual_tests": [
+            "compare a close species lacking the phenotype",
+            "perturb candidate mechanism and perform rescue",
+            "test same mechanism in an evolutionarily distant species with similar phenotype",
+            "test human orthologue/pathway in disease-relevant human cells"
+          ],
+          "evidence_requirements": [
+            "independent replication",
+            "causal perturbation",
+            "rescue or orthogonal validation",
+            "negative control",
+            "human-relevant validation only after conservation checks"
+          ],
+          "falsifier": "The effect remains stable across relevant contexts and does not depend on plausible interacting pathways.",
+          "genes": [
+            "NIH-",
+            "USDA"
+          ],
+          "human_targets": [
+            "ASH2L",
+            "EGFR",
+            "ERBB2",
+            "ERBB4",
+            "RORA",
+            "RORB"
+          ],
+          "id": "HYP-045b42ab27b2",
+          "kind": "CONTEXT_DEPENDENT_ALTERNATIVE",
+          "mechanisms": [],
+          "prediction": "The effect size should vary across context, lineage, tissue, developmental state, or pathway background.",
+          "program_id": "PRG-70175ca5b4",
+          "source_pmids": [
+            "PMID:42208364",
+            "PMID:42217062",
+            "PMID:42686794"
+          ],
+          "statement": "In Drosophila melanogaster, the effect associated with NIH- depends on biological context or interacting pathways.",
+          "status": "HYPOTHESIS",
+          "subject": "Drosophila melanogaster"
+        }
+      ],
+      "program_id": "PRG-70175ca5b4",
+      "reasoning_status": "PROPOSED_AND_FALSIFIABLE",
+      "schema": "biomimic-scientific-reasoning-v1",
+      "sha256": "6bc16a295d26878d1aea45c9b8ca204628bfbfdc9a5e3916c5d3b09929b6a61b",
+      "source_pmids": [
+        "PMID:42208364",
+        "PMID:42217062",
+        "PMID:42686794"
+      ],
+      "subject": "Drosophila melanogaster"
+    }
+  ],
   "scout_observations": [
     {
       "genes": [],
@@ -6788,7 +8788,7 @@
       "taxon_verified": true
     }
   ],
-  "sha256": "7060102097f2d431955fbf317a441402ff60adef77a892a31aa6f9539e1a0859",
+  "sha256": "9d3e612e18fb1f5f4308f783779b487af84716882e40855d8a5a93104c889db2",
   "status": "PASS",
   "telemetry": {
     "brick_observability_ratio": 1.0,
