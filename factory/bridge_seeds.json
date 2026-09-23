@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "policy": "A seed nominates a literature-supported gene/protein for exact-species orthology lookup. A seed alone never creates a Human Bridge; NCBI/OMA/Ensembl plus Open Targets must validate the chain.",
+  "species": {
+    "Somniosus microcephalus": [
+      {
+        "gene": "TP53",
+        "evidence_pmids": [
+          "42402335"
+        ],
+        "rationale": "Greenland shark longevity review summarizes genomic evidence of structural variation in tumor suppressor p53 in the context of genome maintenance and extreme longevity.",
+        "evidence_level": "literature_mechanism_seed"
+      }
+    ],
+    "Eublepharis macularius": [
+      {
+        "gene": "SOX2",
+        "evidence_pmids": [
+          "29941970"
+        ],
+        "rationale": "SOX2-positive radial glial neural stem/progenitor cells were identified in the leopard gecko neurogenic niche.",
+        "evidence_level": "literature_mechanism_seed"
+      },
+      {
+        "gene": "SOX9",
+        "evidence_pmids": [
+          "21846350"
+        ],
+        "rationale": "SOX9 expression was reported during leopard gecko tail regeneration and skeletal tissue differentiation.",
+        "evidence_level": "literature_mechanism_seed"
+      }
+    ]
+  }
+}
