@@ -42,4 +42,11 @@ class TestV6Organization(unittest.TestCase):
         self.assertEqual(len(pairs),3)
         self.assertTrue(all(x["proponent_lab"]!=x["challenger_lab"] for x in pairs))
 
+
+    def test_longevity_has_replication_vocabulary(self):
+        labs=json.loads((ROOT/"organization"/"labs.json").read_text(encoding="utf-8"))
+        lab=next(x for x in labs if x["id"]=="longevity")
+        self.assertIn("aging",lab["replication_terms"])
+        self.assertIn("lifespan",lab["replication_terms"])
+
 if __name__=="__main__":unittest.main()
