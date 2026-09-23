@@ -96,14 +96,18 @@ def _walk_annotation_entities(x,names,uniprots):
                 if name and any(k in low for k in ("uniprot","ensembl","/gene/","ncbigene","identifiers.org/hgnc")):
                     names.add(name)
                 if "uniprot" in low:
-                    tail=uri.rstrip("/").split("/")[-1].split(":")[-1]
-                    if re.fullmatch(r"[A-Z0-9]{6,10}(?:-\d+)?",tail):
-                        uniprots.add(tail.split("-",1)[0])
+                    m=re.search(r"/uniprotkb/([A-Za-z0-9]{6,10})(?:-\d+)?(?:/|$)",uri,re.I)
+                    if not m:
+                        m=re.search(r"(?:uniprot:|uniprotkb:)([A-Za-z0-9]{6,10})(?:-\d+)?",uri,re.I)
+                    if m:
+                        uniprots.add(m.group(1).upper())
         body=x.get("body")
         if isinstance(body,str) and "uniprot" in body.lower():
-            tail=body.rstrip("/").split("/")[-1].split(":")[-1]
-            if re.fullmatch(r"[A-Z0-9]{6,10}(?:-\d+)?",tail):
-                uniprots.add(tail.split("-",1)[0])
+            m=re.search(r"/uniprotkb/([A-Za-z0-9]{6,10})(?:-\d+)?(?:/|$)",body,re.I)
+            if not m:
+                m=re.search(r"(?:uniprot:|uniprotkb:)([A-Za-z0-9]{6,10})(?:-\d+)?",body,re.I)
+            if m:
+                uniprots.add(m.group(1).upper())
         for v in x.values():
             _walk_annotation_entities(v,names,uniprots)
     elif isinstance(x,list):
