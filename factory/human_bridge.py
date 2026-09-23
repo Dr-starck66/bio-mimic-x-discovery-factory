@@ -22,12 +22,18 @@ NCBI_GENE_CACHE={}
 NCBI_ORTHO_CACHE={}
 ORTHODB_GENE_CACHE={}
 ORTHODB_ORTHO_CACHE={}
+UNIPROT_ENTRY_CACHE={}
 
 SEED_PATH=Path(__file__).with_name("bridge_seeds.json")
+PHYLO_SEED_PATH=Path(__file__).with_name("phylogenetic_orthology_seeds.json")
 try:
     BRIDGE_SEEDS=json.loads(SEED_PATH.read_text(encoding="utf-8")).get("species",{})
 except Exception:
     BRIDGE_SEEDS={}
+try:
+    PHYLO_SEEDS=json.loads(PHYLO_SEED_PATH.read_text(encoding="utf-8")).get("species",{})
+except Exception:
+    PHYLO_SEEDS={}
 
 def norm(x):
     return re.sub(r"[^a-z0-9]+"," ",(x or "").lower()).strip()
@@ -393,6 +399,131 @@ def ncbi_bridges_for_candidate(candidate):
 
 def _gene_norm(x):
     return re.sub(r"[^a-z0-9]+","",str(x or "").lower())
+
+def uniprot_entry(accession):
+    accession=str(accession or "").strip()
+    if accession in UNIPROT_ENTRY_CACHE:
+        return UNIPROT_ENTRY_CACHE[accession]
+    try:
+        data=get_json("https://rest.uniprot.org/uniprotkb/"+urllib.parse.quote(accession)+".json",1)
+    except Exception:
+        data=None
+    UNIPROT_ENTRY_CACHE[accession]=data
+    return data
+
+def uniprot_exact_species_gene(accession,species,gene,taxon_id=None):
+    data=uniprot_entry(accession)
+    if not isinstance(data,dict):
+        return None
+    org=data.get("organism") or {}
+    if norm(str(org.get("scientificName") or ""))!=norm(species):
+        return None
+    if taxon_id is not None and str(org.get("taxonId") or "")!=str(taxon_id):
+        return None
+    genes=[]
+    for g in data.get("genes") or []:
+        gn=(g.get("geneName") or {}).get("value")
+        if gn:
+            genes.append(str(gn))
+        for syn in g.get("synonyms") or []:
+            v=syn.get("value")
+            if v:
+                genes.append(str(v))
+    if _gene_norm(gene) not in {_gene_norm(x) for x in genes}:
+        return None
+    reviewed="reviewed" in str(data.get("entryType") or "").lower()
+    if not reviewed:
+        return None
+    return {
+        "accession":data.get("primaryAccession") or accession,
+        "species":org.get("scientificName"),
+        "taxon_id":org.get("taxonId"),
+        "genes":genes,
+        "reviewed":reviewed
+    }
+
+def phylogenetic_seed_records(candidate):
+    rows=PHYLO_SEEDS.get(candidate_name(candidate),[])
+    return [x for x in rows if isinstance(x,dict)]
+
+def strict_phylogenetic_bridges_for_candidate(candidate):
+    name=candidate_name(candidate)
+    bridges=[]; checked=0; validated=0
+    for seed in phylogenetic_seed_records(candidate):
+        checked+=1
+        required=[
+            seed.get("animal_gene"),seed.get("animal_uniprot"),
+            seed.get("animal_taxon_id"),seed.get("modern_transcript_genbank"),
+            seed.get("modern_evidence_pmid"),seed.get("human_symbol"),
+            seed.get("human_ensembl_id"),seed.get("phylogeny_pmid"),
+            seed.get("phylogeny_doi"),seed.get("exact_species_accession_in_phylogeny")
+        ]
+        if not all(required):
+            continue
+        if str(seed.get("exact_species_accession_in_phylogeny"))!=str(seed.get("animal_uniprot")):
+            continue
+        controls={_gene_norm(x.replace("human ","")) for x in seed.get("paralog_controls") or []}
+        if not {"ihh","dhh"}.issubset(controls):
+            continue
+        exact=uniprot_exact_species_gene(
+            seed["animal_uniprot"],name,seed["animal_gene"],seed.get("animal_taxon_id")
+        )
+        if not exact:
+            continue
+        # The current claim must be the same biological context that motivated
+        # the modern exact-species observation; otherwise the orthology dossier
+        # cannot silently upgrade an unrelated claim.
+        claim_pmids={str(x).replace("PMID:","") for x in candidate.get("pmid_sources",[])}
+        if str(seed["modern_evidence_pmid"]) not in claim_pmids:
+            continue
+        try:
+            human=opentarget_context(seed["human_ensembl_id"])
+        except Exception:
+            human=None
+        if not human or _gene_norm(human.get("approved_symbol"))!=_gene_norm(seed["human_symbol"]):
+            continue
+        validated+=1
+        bridges.append({
+            "animal_species":name,
+            "animal_ensembl_species":None,
+            "animal_gene":seed["animal_gene"],
+            "animal_uniprot":seed["animal_uniprot"],
+            "animal_taxon_id":seed["animal_taxon_id"],
+            "animal_genbank_nucleotide":seed.get("animal_genbank_nucleotide"),
+            "animal_genbank_protein":seed.get("animal_genbank_protein"),
+            "modern_transcript_genbank":seed.get("modern_transcript_genbank"),
+            "human_ensembl_id":seed["human_ensembl_id"],
+            "human_symbol":human.get("approved_symbol"),
+            "human_name":human.get("approved_name"),
+            "human_biotype":human.get("biotype"),
+            "orthology":{
+                "provider":"Peer-reviewed phylogenetic orthology",
+                "phylogeny_pmid":seed["phylogeny_pmid"],
+                "phylogeny_doi":seed["phylogeny_doi"],
+                "method":seed.get("phylogeny_method"),
+                "exact_species_accession":seed["exact_species_accession_in_phylogeny"],
+                "human_target_in_phylogeny":seed.get("human_target_in_phylogeny"),
+                "paralog_controls":seed.get("paralog_controls") or []
+            },
+            "tractability":human.get("tractability",[]),
+            "source_claim_pmids":candidate.get("pmid_sources",[]),
+            "bridge_evidence_pmids":[str(seed["phylogeny_pmid"]),str(seed["modern_evidence_pmid"])],
+            "bridge_seed_rationale":seed.get("rationale"),
+            "source_chain":[
+                "replicated PMID species claim",
+                "reviewed UniProt exact-species protein",
+                "peer-reviewed Hedgehog-family phylogeny with human SHH/IHH/DHH paralog discrimination",
+                "independent modern exact-species Shh transcript cloning in regenerative tissue",
+                "Open Targets human Ensembl target validation"
+            ],
+            "translation_status":"ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
+            "clinical_efficacy_claim":False
+        })
+    return bridges,{
+        "phylogenetic_seed_records_checked":checked,
+        "phylogenetic_strict_bridges":validated
+    }
+
 
 def orthodb_exact_gene(species,gene):
     """Resolve one OrthoDB gene only when the returned organism is the exact claim species."""
@@ -761,6 +892,10 @@ def build_human_bridges(portfolio,max_candidates=20,max_genes=10):
         bridges.extend(orthodb_new)
         row.update(orthodb_stats)
 
+        phylo_new,phylo_stats=strict_phylogenetic_bridges_for_candidate(c)
+        bridges.extend(phylo_new)
+        row.update(phylo_stats)
+
         oma_new,oma_stats=oma_bridges_for_candidate(c)
         bridges.extend(oma_new)
         row.update(oma_stats)
@@ -770,7 +905,8 @@ def build_human_bridges(portfolio,max_candidates=20,max_genes=10):
         if row["bridges"]:
             row["status"]="BRIDGED"
         elif (not ens_species and row.get("oma_species_matched",0)==0
-              and row.get("ncbi_exact_genes",0)==0 and row.get("orthodb_exact_genes",0)==0):
+              and row.get("ncbi_exact_genes",0)==0 and row.get("orthodb_exact_genes",0)==0
+              and row.get("phylogenetic_strict_bridges",0)==0):
             row["status"]="NO_SUPPORTED_ORTHOLOGY_PROVIDER_MATCH"
         elif not genes and not row.get("uniprot_candidates",0):
             row["status"]="NO_GENE_OR_PROTEIN_ANNOTATION"
@@ -796,8 +932,9 @@ def build_human_bridges(portfolio,max_candidates=20,max_genes=10):
     oma_bridge_count=sum(1 for b in bridges if (b.get("orthology") or {}).get("provider")=="OMA")
     ncbi_bridge_count=sum(1 for b in bridges if (b.get("orthology") or {}).get("provider")=="NCBI Ortholog")
     orthodb_bridge_count=sum(1 for b in bridges if (b.get("orthology") or {}).get("provider")=="OrthoDB v12")
+    phylo_bridge_count=sum(1 for b in bridges if (b.get("orthology") or {}).get("provider")=="Peer-reviewed phylogenetic orthology")
     verified_human_targets=len({(b["animal_species"],b["human_ensembl_id"]) for b in bridges})
-    total_orthologue_hits=orth_hits+oma_bridge_count+ncbi_bridge_count+orthodb_bridge_count
+    total_orthologue_hits=orth_hits+oma_bridge_count+ncbi_bridge_count+orthodb_bridge_count+phylo_bridge_count
 
     # PASS means all replicated claims got at least one verified human bridge.
     # Anything less is explicitly PARTIAL rather than hidden.
@@ -810,6 +947,7 @@ def build_human_bridges(portfolio,max_candidates=20,max_genes=10):
             "OMA orthology":"PASS" if oma_bridge_count else "PARTIAL",
             "NCBI Ortholog":"PASS" if ncbi_bridge_count else "PARTIAL",
             "OrthoDB v12":"PASS" if orthodb_bridge_count else "PARTIAL",
+            "Peer-reviewed phylogenetic orthology":"PASS" if phylo_bridge_count else "PARTIAL",
             "Ensembl homology":"PASS" if orth_hits else "PARTIAL",
             "Open Targets":"PASS" if verified_human_targets else "PARTIAL"
         },
@@ -823,6 +961,7 @@ def build_human_bridges(portfolio,max_candidates=20,max_genes=10):
         "oma_orthologue_hits":oma_bridge_count,
         "ncbi_orthologue_hits":ncbi_bridge_count,
         "orthodb_orthologue_hits":orthodb_bridge_count,
+        "phylogenetic_orthologue_hits":phylo_bridge_count,
         "bridges":bridges,
         "candidate_status":candidate_status,
         "errors":errors[:50]
