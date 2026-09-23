@@ -1,20 +1,28 @@
 {
   "allocations": [
     {
-      "committee_score": 50,
+      "committee_score": 61,
       "labs": [
         "longevity"
       ],
       "name": "Somniosus microcephalus",
-      "research_credits": 10
+      "research_credits": 12
     },
     {
-      "committee_score": 47,
+      "committee_score": 58,
       "labs": [
         "regeneration"
       ],
       "name": "Acomys cahirinus",
-      "research_credits": 10
+      "research_credits": 11
+    },
+    {
+      "committee_score": 46,
+      "labs": [
+        "immunology"
+      ],
+      "name": "Eublepharis macularius",
+      "research_credits": 9
     },
     {
       "committee_score": 45,
@@ -38,14 +46,6 @@
         "preservation"
       ],
       "name": "Caenorhabditis elegans",
-      "research_credits": 8
-    },
-    {
-      "committee_score": 40,
-      "labs": [
-        "immunology"
-      ],
-      "name": "Eublepharis macularius",
       "research_credits": 8
     },
     {
@@ -94,7 +94,7 @@
         "longevity"
       ],
       "name": "Nothobranchius furzeri",
-      "research_credits": 8
+      "research_credits": 4
     }
   ],
   "committee_rules": {
@@ -152,7 +152,7 @@
       "id": "cancer",
       "name": "ONCO-X Lab",
       "paper_count": 35,
-      "sha256": "ea4e47fc11e58b86289d331b25e549460ce5331f2a38e84c411409a8775f7cdf",
+      "sha256": "ff257b0c047cd8bcd82f801123076c9e7f3a1f580613986a1c08c3869d6de69f",
       "status": "PASS"
     },
     {
@@ -160,7 +160,7 @@
       "id": "immunology",
       "name": "IMMUNO-X Lab",
       "paper_count": 35,
-      "sha256": "5074910d0a8c57692f672e2c0f805105acc5134f99928093f54c289e946da89a",
+      "sha256": "b0ada0859f440c2be4e751cb2db664b64aa76beac48c685272d56551b801eec3",
       "status": "PASS"
     },
     {
@@ -168,7 +168,7 @@
       "id": "longevity",
       "name": "LONGEVITY-X Lab",
       "paper_count": 35,
-      "sha256": "b5d780dfd3cc385d1e73b8c46deacd4773f6291d97026803e822fec4b9c87eeb",
+      "sha256": "01ccfd5788b4c84eb17e3fbdf590a8d29241db1344560bdbb5eb4d099c15db11",
       "status": "PASS"
     },
     {
@@ -176,7 +176,7 @@
       "id": "metabolism",
       "name": "METABOLIC-X Lab",
       "paper_count": 35,
-      "sha256": "e253fe96ad07c86346580b9af76d74801559997cd13856d3fdea31792be3649a",
+      "sha256": "35050529db5d6c14d8701d91f12624f87fcb77c261affa566ef145ad542fa2c1",
       "status": "PASS"
     },
     {
@@ -184,7 +184,7 @@
       "id": "neuro",
       "name": "NEURO-X Lab",
       "paper_count": 35,
-      "sha256": "747da830752e9fea7c2ba095e11294bbde2dddb3736b5807ff5ad037eda701b9",
+      "sha256": "bb77ef30a333455ff9c93dc3526c652e001f568d9e36557946d0ac002de618d2",
       "status": "PASS"
     },
     {
@@ -192,7 +192,7 @@
       "id": "preservation",
       "name": "PRESERVE-X Lab",
       "paper_count": 35,
-      "sha256": "56da39c4b155a736a4529a3b5303e0c2da0464826b9f8cdf005fc06d160e9282",
+      "sha256": "d41ddc19b661eeed937999848d929d9f7a7545104f5448bacb43aba76d9bae1d",
       "status": "PASS"
     },
     {
@@ -200,7 +200,7 @@
       "id": "regeneration",
       "name": "REGEN-X Lab",
       "paper_count": 35,
-      "sha256": "e119dccecc79946190a783c58836f6340e6dd0fe1cc5eae4697940e75efbbfa1",
+      "sha256": "6f185a058e30f27cf147560a43cf8f64dfd0223498d5490010b8275ac31b0121",
       "status": "PASS"
     }
   ],
@@ -213,16 +213,15 @@
         "human functional divergence remains possible",
         "lifespan data quality",
         "no gene symbol candidate",
-        "phylogeny confounding",
-        "single-paper dependence"
+        "phylogeny confounding"
       ],
-      "committee_score": 50,
+      "committee_score": 61,
       "genes": [],
       "lab_count": 1,
       "labs": [
         "longevity"
       ],
-      "mean_arbiter": 50.0,
+      "mean_arbiter": 71.0,
       "mechanisms": [
         "DNA repair",
         "genome maintenance",
@@ -230,8 +229,10 @@
         "senescence"
       ],
       "name": "Somniosus microcephalus",
-      "source_count": 1,
+      "source_count": 3,
       "sources": [
+        "PMID:41491153",
+        "PMID:42154556",
         "PMID:42402335"
       ],
       "taxon_proofs": [
@@ -255,25 +256,26 @@
         "fibrosis tradeoffs",
         "human functional divergence remains possible",
         "no gene symbol candidate",
-        "regeneration-vs-repair ambiguity",
-        "single-paper dependence"
+        "regeneration-vs-repair ambiguity"
       ],
-      "committee_score": 47,
+      "committee_score": 58,
       "genes": [],
       "lab_count": 1,
       "labs": [
         "regeneration"
       ],
-      "mean_arbiter": 49.0,
+      "mean_arbiter": 70.0,
       "mechanisms": [
         "extracellular matrix",
         "fibrosis",
         "regeneration"
       ],
       "name": "Acomys cahirinus",
-      "source_count": 1,
+      "source_count": 3,
       "sources": [
-        "PMID:41732917"
+        "PMID:41732917",
+        "PMID:42194064",
+        "PPR:PPR1272325"
       ],
       "taxon_proofs": [
         {
@@ -284,6 +286,45 @@
           "rank": "SPECIES",
           "status": "ACCEPTED",
           "taxon_key": 9800308
+        }
+      ],
+      "taxon_verified": true
+    },
+    {
+      "annotation_support": true,
+      "challenges": [
+        "correlation does not prove causation",
+        "human functional divergence remains possible",
+        "immune pathology tradeoffs",
+        "no gene symbol candidate",
+        "pathogen-specific adaptation",
+        "reservoir-host confounding"
+      ],
+      "committee_score": 46,
+      "genes": [],
+      "lab_count": 1,
+      "labs": [
+        "immunology"
+      ],
+      "mean_arbiter": 55.0,
+      "mechanisms": [
+        "immune"
+      ],
+      "name": "Eublepharis macularius",
+      "source_count": 2,
+      "sources": [
+        "PMID:42615433",
+        "PMID:42746048"
+      ],
+      "taxon_proofs": [
+        {
+          "canonical_name": "Eublepharis macularius",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 5221283
         }
       ],
       "taxon_verified": true
@@ -414,45 +455,6 @@
           "rank": "SPECIES",
           "status": "ACCEPTED",
           "taxon_key": 2283683
-        }
-      ],
-      "taxon_verified": true
-    },
-    {
-      "annotation_support": true,
-      "challenges": [
-        "correlation does not prove causation",
-        "human functional divergence remains possible",
-        "immune pathology tradeoffs",
-        "no gene symbol candidate",
-        "pathogen-specific adaptation",
-        "reservoir-host confounding",
-        "single-paper dependence"
-      ],
-      "committee_score": 40,
-      "genes": [],
-      "lab_count": 1,
-      "labs": [
-        "immunology"
-      ],
-      "mean_arbiter": 43.0,
-      "mechanisms": [
-        "immune"
-      ],
-      "name": "Eublepharis macularius",
-      "source_count": 1,
-      "sources": [
-        "PMID:42746048"
-      ],
-      "taxon_proofs": [
-        {
-          "canonical_name": "Eublepharis macularius",
-          "kingdom": "Animalia",
-          "match_type": "EXACT",
-          "provider": "GBIF",
-          "rank": "SPECIES",
-          "status": "ACCEPTED",
-          "taxon_key": 5221283
         }
       ],
       "taxon_verified": true
@@ -696,6 +698,6 @@
     }
   ],
   "schema": "biomimic-v6-org-run-v1",
-  "sha256": "9677766ded395ca82b336a76fceaf5da63a48e9e9aa1a100e2db45b98d2e8f2e",
-  "time": "2026-09-23T15:30:36.429353+00:00"
+  "sha256": "a5e540ef411fb6bf67078703bf27de0bcdcee0c731f43e536fec510fbe975e8a",
+  "time": "2026-09-23T15:37:12.433298+00:00"
 }

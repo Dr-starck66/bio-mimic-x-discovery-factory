@@ -1,7 +1,7 @@
 {
   "claims": {
     "Acomys cahirinus": {
-      "claim": "Acomys cahirinus is a cross-species research candidate; this is not a human efficacy claim.",
+      "claim": "Acomys cahirinus is a replicated cross-species research candidate; this is not a human efficacy claim.",
       "genes": [],
       "labs": [
         "regeneration"
@@ -11,10 +11,13 @@
         "fibrosis",
         "regeneration"
       ],
+      "source_count": 3,
       "sources": [
-        "PMID:41732917"
+        "PMID:41732917",
+        "PMID:42194064",
+        "PPR:PPR1272325"
       ],
-      "status": "PLAUSIBLE",
+      "status": "SUPPORTED",
       "subject": "Acomys cahirinus",
       "taxon_proofs": [
         {
@@ -30,7 +33,7 @@
       "taxon_verified": true
     },
     "Caenorhabditis elegans": {
-      "claim": "Caenorhabditis elegans is a cross-species research candidate; this is not a human efficacy claim.",
+      "claim": "Caenorhabditis elegans is a replicated cross-species research candidate; this is not a human efficacy claim.",
       "genes": [
         "IBP",
         "NIH-",
@@ -40,6 +43,7 @@
         "preservation"
       ],
       "mechanisms": [],
+      "source_count": 2,
       "sources": [
         "PMID:42169464",
         "PMID:42208364"
@@ -230,7 +234,7 @@
       "subject": "Emerging evidence"
     },
     "Eublepharis macularius": {
-      "claim": "Eublepharis macularius is a cross-species research candidate; this is not a human efficacy claim.",
+      "claim": "Eublepharis macularius is a replicated cross-species research candidate; this is not a human efficacy claim.",
       "genes": [],
       "labs": [
         "immunology"
@@ -238,10 +242,12 @@
       "mechanisms": [
         "immune"
       ],
+      "source_count": 2,
       "sources": [
+        "PMID:42615433",
         "PMID:42746048"
       ],
-      "status": "PLAUSIBLE",
+      "status": "SUPPORTED",
       "subject": "Eublepharis macularius",
       "taxon_proofs": [
         {
@@ -856,7 +862,7 @@
       "subject": "Scarring remains"
     },
     "Somniosus microcephalus": {
-      "claim": "Somniosus microcephalus is a cross-species research candidate; this is not a human efficacy claim.",
+      "claim": "Somniosus microcephalus is a replicated cross-species research candidate; this is not a human efficacy claim.",
       "genes": [],
       "labs": [
         "longevity"
@@ -867,10 +873,13 @@
         "proteostasis",
         "senescence"
       ],
+      "source_count": 3,
       "sources": [
+        "PMID:41491153",
+        "PMID:42154556",
         "PMID:42402335"
       ],
-      "status": "PLAUSIBLE",
+      "status": "SUPPORTED",
       "subject": "Somniosus microcephalus",
       "taxon_proofs": [
         {
@@ -1432,7 +1441,7 @@
       "subject": "Wound healing"
     }
   },
-  "cycles": 5,
+  "cycles": 6,
   "experiments": {
     "PRG-14a8494d89": {
       "counterfactual_tests": [
@@ -1497,6 +1506,36 @@
         "test human-relevant model only after conservation check"
       ],
       "subject": "Cynops pyrrhogaster"
+    },
+    "PRG-4514111357": {
+      "counterfactual_tests": [
+        "compare a close species lacking the phenotype",
+        "perturb candidate mechanism and perform rescue",
+        "test same mechanism in an evolutionarily distant species with similar phenotype",
+        "test human orthologue/pathway in disease-relevant human cells"
+      ],
+      "hypothesis": "A mechanism associated with Somniosus microcephalus may causally contribute to the target phenotype.",
+      "kill_criteria": [
+        "no reproducible phenotype",
+        "no conserved mechanism",
+        "human perturbation does not reproduce direction of effect",
+        "unacceptable toxicity or contradictory evidence"
+      ],
+      "program_id": "PRG-4514111357",
+      "sha256": "b2adaa65f8d6fa9db20f5601efb77e844459d7eb62a0c068366296b71a123acc",
+      "sources": [
+        "PMID:41491153",
+        "PMID:42154556",
+        "PMID:42402335"
+      ],
+      "steps": [
+        "replicate phenotype under controlled conditions",
+        "perturb candidate mechanism",
+        "perform rescue experiment",
+        "test evolutionarily close negative control",
+        "test human-relevant model only after conservation check"
+      ],
+      "subject": "Somniosus microcephalus"
     },
     "PRG-5bdbc6d26b": {
       "counterfactual_tests": [
@@ -1627,6 +1666,35 @@
         "test human-relevant model only after conservation check"
       ],
       "subject": "Pituitary adenylate"
+    },
+    "PRG-7cd7bdba92": {
+      "counterfactual_tests": [
+        "compare a close species lacking the phenotype",
+        "perturb candidate mechanism and perform rescue",
+        "test same mechanism in an evolutionarily distant species with similar phenotype",
+        "test human orthologue/pathway in disease-relevant human cells"
+      ],
+      "hypothesis": "A mechanism associated with Eublepharis macularius may causally contribute to the target phenotype.",
+      "kill_criteria": [
+        "no reproducible phenotype",
+        "no conserved mechanism",
+        "human perturbation does not reproduce direction of effect",
+        "unacceptable toxicity or contradictory evidence"
+      ],
+      "program_id": "PRG-7cd7bdba92",
+      "sha256": "bdd0f4df9e387eeb1d994faac1f2df54431a8a919c39dcd5201dd5d08d88dc47",
+      "sources": [
+        "PMID:42615433",
+        "PMID:42746048"
+      ],
+      "steps": [
+        "replicate phenotype under controlled conditions",
+        "perturb candidate mechanism",
+        "perform rescue experiment",
+        "test evolutionarily close negative control",
+        "test human-relevant model only after conservation check"
+      ],
+      "subject": "Eublepharis macularius"
     },
     "PRG-7e3a506cd9": {
       "counterfactual_tests": [
@@ -1835,9 +1903,11 @@
         "unacceptable toxicity or contradictory evidence"
       ],
       "program_id": "PRG-c73037fcfb",
-      "sha256": "3a64fd9feb44691c61f7dcb46dc04ec4320eed33739ccbd627e9b8d178b7769d",
+      "sha256": "2951ae19c79c7e6655190be85b609258203697ddb81a24c3bf45508e531f1122",
       "sources": [
-        "PMID:41732917"
+        "PMID:41732917",
+        "PMID:42194064",
+        "PPR:PPR1272325"
       ],
       "steps": [
         "replicate phenotype under controlled conditions",
@@ -1990,6 +2060,16 @@
         "PRG-5e1f85b349"
       ],
       "time": "2026-09-23T15:30:55.269046+00:00"
+    },
+    {
+      "cycle_sha256": "9255fef44523f3c5a125ddd0d03f8a32aac75bcb2a9fda3f7efb79b41c3721ab",
+      "programs": [
+        "PRG-4514111357",
+        "PRG-c73037fcfb",
+        "PRG-7cd7bdba92",
+        "PRG-5e1f85b349"
+      ],
+      "time": "2026-09-23T15:38:31.073922+00:00"
     }
   ]
 }

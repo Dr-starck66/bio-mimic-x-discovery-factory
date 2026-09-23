@@ -6,7 +6,7 @@
     "output_ref": "cycle_plan",
     "stage": "CONTROL",
     "status": "PASS",
-    "time": "2026-09-23T15:30:36.479841+00:00",
+    "time": "2026-09-23T15:37:12.537592+00:00",
     "value": 14
   },
   {
@@ -16,8 +16,8 @@
     "output_ref": "state/factory/programs.json",
     "stage": "PLAN",
     "status": "PASS",
-    "time": "2026-09-23T15:30:36.480658+00:00",
-    "value": 1
+    "time": "2026-09-23T15:37:12.539158+00:00",
+    "value": 4
   },
   {
     "brick_id": "aion-nexus",
@@ -26,8 +26,8 @@
     "output_ref": "mission_graphs",
     "stage": "PLAN",
     "status": "PASS",
-    "time": "2026-09-23T15:30:36.480669+00:00",
-    "value": 1
+    "time": "2026-09-23T15:37:12.539203+00:00",
+    "value": 4
   },
   {
     "brick_id": "data-fusion",
@@ -36,7 +36,7 @@
     "output_ref": "normalized_bundle",
     "stage": "OBSERVE",
     "status": "PASS",
-    "time": "2026-09-23T15:30:36.480676+00:00",
+    "time": "2026-09-23T15:37:12.539216+00:00",
     "value": 1.0
   },
   {
@@ -46,7 +46,7 @@
     "output_ref": "trusted_bundle",
     "stage": "OBSERVE",
     "status": "PASS",
-    "time": "2026-09-23T15:30:36.480681+00:00",
+    "time": "2026-09-23T15:37:12.539224+00:00",
     "value": 0
   },
   {
@@ -56,7 +56,7 @@
     "output_ref": "committee.portfolio",
     "stage": "DISCOVER",
     "status": "PASS",
-    "time": "2026-09-23T15:30:36.480682+00:00",
+    "time": "2026-09-23T15:37:12.539227+00:00",
     "value": 12
   },
   {
@@ -66,17 +66,17 @@
     "output_ref": "committee.allocations",
     "stage": "DECIDE",
     "status": "PASS",
-    "time": "2026-09-23T15:30:36.480686+00:00",
+    "time": "2026-09-23T15:37:12.539233+00:00",
     "value": 100
   },
   {
     "brick_id": "evidence-network",
-    "metric": "claims_with_provenance_ratio",
+    "metric": "replicated_claims_with_provenance_ratio",
     "name": "Evidence Network / Claim Ledger",
     "output_ref": "claim_ledger",
     "stage": "VERIFY",
     "status": "PASS",
-    "time": "2026-09-23T15:30:55.268539+00:00",
+    "time": "2026-09-23T15:38:31.073065+00:00",
     "value": 1.0
   },
   {
@@ -86,8 +86,8 @@
     "output_ref": "committee.portfolio",
     "stage": "EVALUATE",
     "status": "PASS",
-    "time": "2026-09-23T15:30:55.268584+00:00",
-    "value": 3.167
+    "time": "2026-09-23T15:38:31.073104+00:00",
+    "value": 5.333
   },
   {
     "brick_id": "morpheus",
@@ -96,8 +96,8 @@
     "output_ref": "morpheus_audits",
     "stage": "FALSIFY",
     "status": "PASS",
-    "time": "2026-09-23T15:30:55.268847+00:00",
-    "value": 6.0
+    "time": "2026-09-23T15:38:31.073484+00:00",
+    "value": 5.25
   },
   {
     "brick_id": "omega-causal",
@@ -106,8 +106,8 @@
     "output_ref": "causal_plans",
     "stage": "FALSIFY",
     "status": "PASS",
-    "time": "2026-09-23T15:30:55.268851+00:00",
-    "value": 1
+    "time": "2026-09-23T15:38:31.073491+00:00",
+    "value": 4
   },
   {
     "brick_id": "negative-kg",
@@ -116,7 +116,7 @@
     "output_ref": "negative_filter",
     "stage": "MEMORY",
     "status": "PASS",
-    "time": "2026-09-23T15:30:55.268854+00:00",
+    "time": "2026-09-23T15:38:31.073497+00:00",
     "value": 0
   },
   {
@@ -126,7 +126,7 @@
     "output_ref": "human_bridge_result",
     "stage": "TRANSLATE",
     "status": "PARTIAL",
-    "time": "2026-09-23T15:30:55.268857+00:00",
+    "time": "2026-09-23T15:38:31.073502+00:00",
     "value": 0
   },
   {
@@ -136,8 +136,8 @@
     "output_ref": "experiments",
     "stage": "EXPERIMENT",
     "status": "PASS",
-    "time": "2026-09-23T15:30:55.268860+00:00",
-    "value": 1
+    "time": "2026-09-23T15:38:31.073507+00:00",
+    "value": 4
   },
   {
     "brick_id": "benchmark-x10",
@@ -146,8 +146,8 @@
     "output_ref": "benchmark",
     "stage": "BENCHMARK",
     "status": "PASS",
-    "time": "2026-09-23T15:30:55.268878+00:00",
-    "value": 1.7214
+    "time": "2026-09-23T15:38:31.073525+00:00",
+    "value": 1.6276
   },
   {
     "brick_id": "omega-foundry",
@@ -156,7 +156,7 @@
     "output_ref": "policy_variants",
     "stage": "IMPROVE",
     "status": "PASS",
-    "time": "2026-09-23T15:30:55.269020+00:00",
+    "time": "2026-09-23T15:38:31.073686+00:00",
     "value": 8
   },
   {
@@ -166,8 +166,8 @@
     "output_ref": "policy_gate",
     "stage": "IMPROVE",
     "status": "PASS",
-    "time": "2026-09-23T15:30:55.269044+00:00",
-    "value": 1
+    "time": "2026-09-23T15:38:31.073916+00:00",
+    "value": 0
   },
   {
     "brick_id": "omega-memory",
@@ -176,8 +176,8 @@
     "output_ref": "state/factory/long_term_memory.json",
     "stage": "MEMORY",
     "status": "PASS",
-    "time": "2026-09-23T15:30:55.270472+00:00",
-    "value": 13
+    "time": "2026-09-23T15:38:31.077158+00:00",
+    "value": 16
   },
   {
     "brick_id": "omega-telemetry",
@@ -186,7 +186,7 @@
     "output_ref": "telemetry",
     "stage": "OBSERVE",
     "status": "PASS",
-    "time": "2026-09-23T15:30:55.270495+00:00",
+    "time": "2026-09-23T15:38:31.077205+00:00",
     "value": 1.0
   },
   {
@@ -196,7 +196,7 @@
     "output_ref": "validated_state",
     "stage": "OPERATE",
     "status": "PASS",
-    "time": "2026-09-23T15:30:55.270499+00:00",
+    "time": "2026-09-23T15:38:31.077214+00:00",
     "value": 1.0
   }
 ]

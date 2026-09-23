@@ -2,7 +2,7 @@
   "programs": [
     {
       "age_days": 0,
-      "committee_score": 50,
+      "committee_score": 61,
       "created_at": "2026-09-23T15:10:18.281981+00:00",
       "credit_history": [],
       "genes": [],
@@ -50,12 +50,14 @@
         }
       ],
       "priority_rank": 1,
-      "source_count": 1,
+      "source_count": 3,
       "sources": [
+        "PMID:41491153",
+        "PMID:42154556",
         "PMID:42402335"
       ],
       "stage": "DISCOVERY",
-      "status": "SCOUT",
+      "status": "ACTIVE",
       "taxon_proofs": [
         {
           "canonical_name": "Somniosus microcephalus",
@@ -69,11 +71,11 @@
       ],
       "taxon_verified": true,
       "title": "Somniosus microcephalus",
-      "updated_at": "2026-09-23T15:30:36.480019+00:00"
+      "updated_at": "2026-09-23T15:37:12.537894+00:00"
     },
     {
       "age_days": 0,
-      "committee_score": 47,
+      "committee_score": 58,
       "created_at": "2026-09-23T14:46:56.018630+00:00",
       "credit_history": [],
       "genes": [],
@@ -120,12 +122,14 @@
         }
       ],
       "priority_rank": 2,
-      "source_count": 1,
+      "source_count": 3,
       "sources": [
-        "PMID:41732917"
+        "PMID:41732917",
+        "PMID:42194064",
+        "PPR:PPR1272325"
       ],
       "stage": "DISCOVERY",
-      "status": "SCOUT",
+      "status": "ACTIVE",
       "taxon_proofs": [
         {
           "canonical_name": "Acomys cahirinus",
@@ -139,7 +143,76 @@
       ],
       "taxon_verified": true,
       "title": "Acomys cahirinus",
-      "updated_at": "2026-09-23T15:30:36.480027+00:00"
+      "updated_at": "2026-09-23T15:37:12.537905+00:00"
+    },
+    {
+      "age_days": 0,
+      "committee_score": 46,
+      "created_at": "2026-09-23T15:10:18.282024+00:00",
+      "credit_history": [],
+      "genes": [],
+      "id": "PRG-7cd7bdba92",
+      "key": "eublepharis macularius",
+      "labs": [
+        "immunology"
+      ],
+      "mechanisms": [
+        "immune"
+      ],
+      "milestones": [
+        {
+          "id": "M1",
+          "kill": "<2 independent sources",
+          "name": "Replicate evidence",
+          "status": "PENDING"
+        },
+        {
+          "id": "M2",
+          "kill": "no causal mechanism candidate",
+          "name": "Resolve mechanism",
+          "status": "PENDING"
+        },
+        {
+          "id": "M3",
+          "kill": "no relevant conserved human context",
+          "name": "Human bridge",
+          "status": "PENDING"
+        },
+        {
+          "id": "M4",
+          "kill": "critical Morpheus failure unresolved",
+          "name": "Adversarial survival",
+          "status": "PENDING"
+        },
+        {
+          "id": "M5",
+          "kill": "no falsifiable perturbation test",
+          "name": "Experiment specification",
+          "status": "PENDING"
+        }
+      ],
+      "priority_rank": 3,
+      "source_count": 2,
+      "sources": [
+        "PMID:42615433",
+        "PMID:42746048"
+      ],
+      "stage": "DISCOVERY",
+      "status": "ACTIVE",
+      "taxon_proofs": [
+        {
+          "canonical_name": "Eublepharis macularius",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 5221283
+        }
+      ],
+      "taxon_verified": true,
+      "title": "Eublepharis macularius",
+      "updated_at": "2026-09-23T15:37:12.537912+00:00"
     },
     {
       "age_days": 0,
@@ -194,7 +267,7 @@
           "status": "PENDING"
         }
       ],
-      "priority_rank": 3,
+      "priority_rank": 4,
       "source_count": 1,
       "sources": [
         "PMID:42755729"
@@ -214,7 +287,7 @@
       ],
       "taxon_verified": true,
       "title": "Danio rerio",
-      "updated_at": "2026-09-23T15:30:36.480031+00:00"
+      "updated_at": "2026-09-23T15:37:12.537917+00:00"
     },
     {
       "age_days": 0,
@@ -268,7 +341,7 @@
           "status": "PENDING"
         }
       ],
-      "priority_rank": 4,
+      "priority_rank": 5,
       "source_count": 1,
       "sources": [
         "PMID:42702818"
@@ -288,7 +361,7 @@
       ],
       "taxon_verified": true,
       "title": "Cynops pyrrhogaster",
-      "updated_at": "2026-09-23T15:30:36.480034+00:00"
+      "updated_at": "2026-09-23T15:37:12.537922+00:00"
     },
     {
       "age_days": 0,
@@ -338,7 +411,7 @@
           "status": "PENDING"
         }
       ],
-      "priority_rank": 5,
+      "priority_rank": 6,
       "source_count": 2,
       "sources": [
         "PMID:42169464",
@@ -359,75 +432,7 @@
       ],
       "taxon_verified": true,
       "title": "Caenorhabditis elegans",
-      "updated_at": "2026-09-23T15:30:36.480036+00:00"
-    },
-    {
-      "age_days": 0,
-      "committee_score": 40,
-      "created_at": "2026-09-23T15:10:18.282024+00:00",
-      "credit_history": [],
-      "genes": [],
-      "id": "PRG-7cd7bdba92",
-      "key": "eublepharis macularius",
-      "labs": [
-        "immunology"
-      ],
-      "mechanisms": [
-        "immune"
-      ],
-      "milestones": [
-        {
-          "id": "M1",
-          "kill": "<2 independent sources",
-          "name": "Replicate evidence",
-          "status": "PENDING"
-        },
-        {
-          "id": "M2",
-          "kill": "no causal mechanism candidate",
-          "name": "Resolve mechanism",
-          "status": "PENDING"
-        },
-        {
-          "id": "M3",
-          "kill": "no relevant conserved human context",
-          "name": "Human bridge",
-          "status": "PENDING"
-        },
-        {
-          "id": "M4",
-          "kill": "critical Morpheus failure unresolved",
-          "name": "Adversarial survival",
-          "status": "PENDING"
-        },
-        {
-          "id": "M5",
-          "kill": "no falsifiable perturbation test",
-          "name": "Experiment specification",
-          "status": "PENDING"
-        }
-      ],
-      "priority_rank": 6,
-      "source_count": 1,
-      "sources": [
-        "PMID:42746048"
-      ],
-      "stage": "DISCOVERY",
-      "status": "SCOUT",
-      "taxon_proofs": [
-        {
-          "canonical_name": "Eublepharis macularius",
-          "kingdom": "Animalia",
-          "match_type": "EXACT",
-          "provider": "GBIF",
-          "rank": "SPECIES",
-          "status": "ACCEPTED",
-          "taxon_key": 5221283
-        }
-      ],
-      "taxon_verified": true,
-      "title": "Eublepharis macularius",
-      "updated_at": "2026-09-23T15:30:36.480038+00:00"
+      "updated_at": "2026-09-23T15:37:12.537925+00:00"
     },
     {
       "age_days": 0,
@@ -494,7 +499,7 @@
       "stage": "DISCOVERY",
       "status": "PAUSED",
       "title": "Insulin resistance",
-      "updated_at": "2026-09-23T15:30:36.480042+00:00"
+      "updated_at": "2026-09-23T15:37:12.537932+00:00"
     },
     {
       "age_days": 0,
@@ -559,7 +564,7 @@
       "stage": "DISCOVERY",
       "status": "PAUSED",
       "title": "Neurological disorders",
-      "updated_at": "2026-09-23T15:30:36.480043+00:00"
+      "updated_at": "2026-09-23T15:37:12.537934+00:00"
     },
     {
       "age_days": 0,
@@ -623,7 +628,7 @@
       "stage": "DISCOVERY",
       "status": "PAUSED",
       "title": "Pituitary adenylate",
-      "updated_at": "2026-09-23T15:30:36.480044+00:00"
+      "updated_at": "2026-09-23T15:37:12.537936+00:00"
     },
     {
       "age_days": 0,
@@ -820,7 +825,7 @@
       "stage": "DISCOVERY",
       "status": "PAUSED",
       "title": "This review",
-      "updated_at": "2026-09-23T15:30:36.480045+00:00"
+      "updated_at": "2026-09-23T15:37:12.537938+00:00"
     },
     {
       "age_days": 0,
@@ -930,7 +935,7 @@
       "stage": "DISCOVERY",
       "status": "PAUSED",
       "title": "These findings",
-      "updated_at": "2026-09-23T15:30:36.480046+00:00"
+      "updated_at": "2026-09-23T15:37:12.537939+00:00"
     },
     {
       "age_days": 0,
@@ -1043,7 +1048,7 @@
       "stage": "DISCOVERY",
       "status": "PAUSED",
       "title": "This study",
-      "updated_at": "2026-09-23T15:30:36.480047+00:00"
+      "updated_at": "2026-09-23T15:37:12.537941+00:00"
     },
     {
       "age_days": 0,
@@ -1112,7 +1117,7 @@
       "stage": "DISCOVERY",
       "status": "PAUSED",
       "title": "Wound healing",
-      "updated_at": "2026-09-23T15:30:36.480048+00:00"
+      "updated_at": "2026-09-23T15:37:12.537943+00:00"
     },
     {
       "age_days": 0,
@@ -1197,7 +1202,7 @@
       "stage": "DISCOVERY",
       "status": "PAUSED",
       "title": "Emerging evidence",
-      "updated_at": "2026-09-23T15:30:36.480049+00:00"
+      "updated_at": "2026-09-23T15:37:12.537944+00:00"
     },
     {
       "age_days": 0,
@@ -1296,8 +1301,8 @@
       "stage": "DISCOVERY",
       "status": "PAUSED",
       "title": "This narrative",
-      "updated_at": "2026-09-23T15:30:36.480050+00:00"
+      "updated_at": "2026-09-23T15:37:12.537946+00:00"
     }
   ],
-  "updated_at": "2026-09-23T15:30:36.480051+00:00"
+  "updated_at": "2026-09-23T15:37:12.537948+00:00"
 }
