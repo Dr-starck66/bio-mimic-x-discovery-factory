@@ -51,11 +51,13 @@ def create_or_update_programs(committee,max_programs=6):
         p["taxon_verified"]=bool(c.get("taxon_verified"))
         p["taxon_proofs"]=c.get("taxon_proofs",[])
         p["source_count"]=c.get("source_count",len(c.get("sources",[])))
+        p["independent_source_count"]=c.get("independent_source_count",len([s for s in c.get("sources",[]) if str(s).startswith("PMID:")]))
+        p["pmid_sources"]=c.get("pmid_sources",[s for s in c.get("sources",[]) if str(s).startswith("PMID:")])
         p["priority_rank"]=rank
-        # Scientific promotion gate: exact animal taxonomy + independent-source replication.
+        # Scientific promotion gate: exact animal taxonomy + >=2 independent PubMed records.
         if not p["taxon_verified"]:
             p["status"]="REJECTED"
-        elif p["source_count"] < 2:
+        elif p["independent_source_count"] < 2:
             p["status"]="SCOUT"
         else:
             p["status"]="ACTIVE" if c.get("committee_score",0)>=25 else "PAUSED"
