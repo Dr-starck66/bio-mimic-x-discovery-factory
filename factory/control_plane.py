@@ -77,14 +77,16 @@ def build_evidence_ledgers(trusted):
             "taxon_proofs":c.get("taxon_proofs",[]),
             "source_count":c.get("source_count",len(c.get("sources",[])))
         }
-        if record["source_count"] >= 2:
+        record["pmid_sources"]=sorted({s for s in record["sources"] if str(s).startswith("PMID:")})
+        record["independent_source_count"]=len(record["pmid_sources"])
+        if record["independent_source_count"] >= 2:
             record["status"]="SUPPORTED"
             record["claim"]=f"{c['name']} is a replicated cross-species research candidate; this is not a human efficacy claim."
             claims.append(record)
         else:
             record["status"]="SCOUT"
             record["observation"]=f"{c['name']} is a single-source observation awaiting independent replication."
-            record["replication_needed"]=max(0,2-record["source_count"])
+            record["replication_needed"]=max(0,2-record["independent_source_count"])
             scouts.append(record)
     return claims,scouts
 
