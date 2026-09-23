@@ -1,0 +1,60 @@
+name: BIO-MIMIC X Strict Bridge Probe
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/strict-bridge-probe.yml'
+
+jobs:
+  probe:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Probe Acomys IL10 and Cynops SHH
+        run: |
+          python - <<'PY'
+          import json, sys
+          from pathlib import Path
+          sys.path.insert(0,str(Path("factory").resolve()))
+          import human_bridge as h
+
+          tests=[
+              ("Acomys cahirinus","IL10"),
+              ("Cynops pyrrhogaster","SHH"),
+          ]
+          out=[]
+          for species,gene in tests:
+              row={"species":species,"gene":gene}
+              ng=h.ncbi_exact_gene(species,gene)
+              row["ncbi_gene"]=ng
+              row["ncbi_human_orthologs"]=h.ncbi_human_orthologs(ng["gene_id"]) if ng else []
+
+              candidate={"subject":species,"genes":[],"pmid_sources":[],"sources":[],"taxon_proofs":[]}
+              # seed file supplies the gene to candidate_gene_candidates
+              row["candidate_genes"]=h.candidate_gene_candidates(candidate)
+              accs=h.uniprot_species_gene_accessions(candidate,max_terms=10,max_accessions=10)
+              row["uniprot_exact_species"]=accs
+              oma=[]
+              for acc in accs:
+                  info=h.oma_protein_info(acc)
+                  humans=h.oma_human_orthologs(acc)
+                  oma.append({
+                      "acc":acc,
+                      "oma_species":((info or {}).get("species") or {}).get("species"),
+                      "human_orthologs":[{
+                          "entry_nr":x.get("entry_nr"),
+                          "canonicalid":x.get("canonicalid"),
+                          "omaid":x.get("omaid"),
+                          "rel_type":x.get("rel_type"),
+                          "ensembl_ids":h.human_ensembl_ids_from_oma(x)
+                      } for x in humans[:5]]
+                  })
+              row["oma"]=oma
+              out.append(row)
+          print(json.dumps(out,indent=2))
+          PY
