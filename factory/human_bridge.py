@@ -7,6 +7,7 @@ ENSEMBL_BASE="https://rest.ensembl.org"
 OPEN_TARGETS="https://api.platform.opentargets.org/api/v4/graphql"
 EPMC_ANN="https://www.ebi.ac.uk/europepmc/annotations_api/annotationsByArticleIds"
 OMA_BASE="https://omabrowser.org/api"
+UNIPROT_SEARCH="https://rest.uniprot.org/uniprotkb/search"
 TIMEOUT=12
 ORTHO_CACHE={}
 OT_CACHE={}
@@ -14,6 +15,7 @@ OMA_INFO_CACHE={}
 OMA_ORTHO_CACHE={}
 OMA_XREF_CACHE={}
 ANN_ENTITY_CACHE={}
+UNIPROT_SEARCH_CACHE={}
 
 def norm(x):
     return re.sub(r"[^a-z0-9]+"," ",(x or "").lower()).strip()
@@ -250,6 +252,43 @@ def opentarget_context(ensembl_id):
     OT_CACHE[ensembl_id]=result
     return result
 
+def uniprot_species_gene_accessions(candidate,max_terms=7,max_accessions=10):
+    """Resolve article-derived gene/protein terms inside the exact claim species."""
+    species=candidate_name(candidate)
+    terms=candidate_gene_candidates(candidate,max_genes=max_terms)
+    cache_key=(norm(species),tuple(terms))
+    if cache_key in UNIPROT_SEARCH_CACHE:
+        return UNIPROT_SEARCH_CACHE[cache_key]
+
+    out=[]
+    for term in terms:
+        # Avoid free-text phrases here: gene: is intentionally constrained.
+        if not re.fullmatch(r"[A-Za-z][A-Za-z0-9._-]{1,15}",term):
+            continue
+        query=f'(organism_name:"{species}") AND (gene:{term})'
+        try:
+            url=UNIPROT_SEARCH+"?"+urllib.parse.urlencode({
+                "query":query,
+                "format":"json",
+                "fields":"accession,gene_names,organism_name",
+                "size":"4"
+            })
+            data=get_json(url,1)
+        except Exception:
+            continue
+        for row in data.get("results",[]) if isinstance(data,dict) else []:
+            org=(row.get("organism") or {}).get("scientificName") or ""
+            acc=str(row.get("primaryAccession") or "").strip()
+            if norm(org)!=norm(species):
+                continue
+            if re.fullmatch(r"[A-Z0-9]{6,10}",acc) and acc not in out:
+                out.append(acc)
+                if len(out)>=max_accessions:
+                    UNIPROT_SEARCH_CACHE[cache_key]=out
+                    return out
+    UNIPROT_SEARCH_CACHE[cache_key]=out
+    return out
+
 def oma_protein_info(entry_id):
     if entry_id in OMA_INFO_CACHE:
         return OMA_INFO_CACHE[entry_id]
@@ -297,11 +336,17 @@ def human_ensembl_ids_from_oma(entry):
             ids.append(val)
     return ids
 
-def oma_bridges_for_candidate(candidate,max_uniprots=8):
+def oma_bridges_for_candidate(candidate,max_uniprots=10):
     name=candidate_name(candidate)
     wanted=norm(name)
     bridges=[]; checked=0; matched_species=0
-    for acc in annotation_uniprot_candidates(candidate,max_uniprots):
+    annotated=annotation_uniprot_candidates(candidate,max_ids=max_uniprots)
+    species_resolved=uniprot_species_gene_accessions(candidate,max_accessions=max_uniprots)
+    accessions=[]
+    for acc in species_resolved+annotated:
+        if acc not in accessions:
+            accessions.append(acc)
+    for acc in accessions[:max_uniprots]:
         checked+=1
         info=oma_protein_info(acc)
         if not isinstance(info,dict):
@@ -339,7 +384,8 @@ def oma_bridges_for_candidate(candidate,max_uniprots=8):
                     "source_claim_pmids":candidate.get("pmid_sources",[]),
                     "source_chain":[
                         "replicated PMID claim",
-                        "Europe PMC Gene_Proteins UniProt annotation",
+                        "Europe PMC Gene_Proteins term extraction",
+                        "UniProt exact-species gene/protein resolution",
                         "OMA source-protein species verification",
                         "OMA pairwise orthology to Homo sapiens",
                         "OMA human Ensembl xref",
@@ -348,7 +394,12 @@ def oma_bridges_for_candidate(candidate,max_uniprots=8):
                     "translation_status":"ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
                     "clinical_efficacy_claim":False
                 })
-    return bridges,{"oma_uniprots_checked":checked,"oma_species_matched":matched_species}
+    return bridges,{
+        "oma_uniprots_checked":checked,
+        "oma_species_matched":matched_species,
+        "uniprot_annotation_candidates":len(annotated),
+        "uniprot_species_gene_candidates":len(species_resolved)
+    }
 
 def build_human_bridges(portfolio,max_candidates=20,max_genes=10):
     try:
@@ -419,7 +470,7 @@ def build_human_bridges(portfolio,max_candidates=20,max_genes=10):
         oma_new,oma_stats=oma_bridges_for_candidate(c)
         bridges.extend(oma_new)
         row.update(oma_stats)
-        row["uniprot_candidates"]=len(annotation_uniprot_candidates(c))
+        row["uniprot_candidates"]=row.get("uniprot_annotation_candidates",0)+row.get("uniprot_species_gene_candidates",0)
 
         row["bridges"]=sum(1 for b in bridges if b["animal_species"]==name)
         if row["bridges"]:
