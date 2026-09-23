@@ -1,0 +1,50 @@
+name: BIO-MIMIC X OrthoDB Sequence Probe
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/orthodb-sequence-probe.yml'
+
+jobs:
+  probe:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Probe OrthoDB with Cynops SHH sequence and Acomys ortholog endpoint
+        run: |
+          python - <<'PY'
+          import json, urllib.parse, urllib.request
+
+          def text(url):
+              req=urllib.request.Request(url,headers={"User-Agent":"BIO-MIMIC-X","Accept":"application/json,text/plain,*/*"})
+              with urllib.request.urlopen(req,timeout=30) as r:
+                  return r.read().decode()
+
+          def get_json(url):
+              return json.loads(text(url))
+
+          # Acomys exact gene -> human orthologs
+          u="https://data.orthodb.org/v12/orthologs?"+urllib.parse.urlencode({
+              "id":"10068_0:001eb9",
+              "species":"9606_0"
+          })
+          try:
+              print("ACOMYS_ORTHOLOGS",json.dumps(get_json(u),indent=2)[:15000])
+          except Exception as e:
+              print("ACOMYS_ORTHOLOGS_ERR",repr(e))
+
+          # Cynops reviewed SHH sequence -> OrthoDB sequence search
+          fasta=text("https://rest.uniprot.org/uniprotkb/Q90385.fasta")
+          seq="".join(x.strip() for x in fasta.splitlines() if not x.startswith(">"))
+          print("CYNOPS_SEQ_LEN",len(seq))
+          try:
+              u2="https://data.orthodb.org/v12/blast?"+urllib.parse.urlencode({"seq":seq})
+              print("CYNOPS_BLAST",json.dumps(get_json(u2),indent=2)[:20000])
+          except Exception as e:
+              print("CYNOPS_BLAST_ERR",repr(e))
+          PY
