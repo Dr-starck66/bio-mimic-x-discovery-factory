@@ -1,5 +1,5 @@
-name: BIO-MIMIC X Human Bridge 5-of-9 Gate
-# gate-retry-2
+name: BIO-MIMIC X Human Translation 9-of-9 Gate
+# translation-gate-9of9-v1
 
 on:
   push:
@@ -26,30 +26,38 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Human Bridge unit tests
-        run: python -m unittest tests.test_human_bridge -v
+      - name: Human Bridge + Translation unit tests
+        run: python -m unittest tests.test_human_bridge tests.test_translation_paths -v
 
       - name: Recompute latest Human Bridge
         run: python human_bridge_refresh.py
 
-      - name: Require at least 5 of 9 supported claims bridged
+      - name: Require strict 5-of-9 and translation 9-of-9
         run: |
           python - <<'PY'
           import json, pathlib
           x=json.loads(pathlib.Path("state/factory/latest.json").read_text(encoding="utf-8"))
           h=x["human_bridge_result"]
+          t=x["human_translation_result"]
           print({
             "supported_claims":len(x["claims"]),
-            "bridged_candidates":h["bridged_candidates"],
-            "coverage_ratio":h["coverage_ratio"],
+            "strict_orthology_candidates":t["strict_orthology_candidates"],
+            "strict_orthology_coverage":t["strict_orthology_coverage_ratio"],
+            "translation_verified_candidates":t["translation_verified_candidates"],
+            "translation_coverage":t["translation_coverage_ratio"],
+            "path_type_counts":t["path_type_counts"],
             "providers":h["provider_status"]
           })
           assert len(x["claims"])==9, len(x["claims"])
           assert h["attempted_candidates"]==9, h["attempted_candidates"]
           assert h["bridged_candidates"]>=5, h["candidate_status"]
+          assert t["strict_orthology_candidates"]>=5, t["candidate_status"]
+          assert t["translation_verified_candidates"]==9, t["candidate_status"]
+          assert t["translation_coverage_ratio"]==1.0, t["candidate_status"]
+          assert all(p.get("clinical_efficacy_claim") is False for p in t["paths"])
           PY
 
-      - name: Persist verified 5-of-9 state
+      - name: Persist verified Human Translation state
         shell: bash
         run: |
           set -euo pipefail
