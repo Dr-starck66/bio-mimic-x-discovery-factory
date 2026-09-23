@@ -226,13 +226,13 @@
     },
     {
       "brick_id": "human-bridge",
-      "metric": "candidates_with_human_bridge",
+      "metric": "supported_claim_bridge_coverage",
       "name": "Human Bridge",
       "output_ref": "human_bridge_result",
       "stage": "TRANSLATE",
       "status": "PARTIAL",
-      "time": "2026-09-23T15:59:16.309877+00:00",
-      "value": 0
+      "time": "2026-09-23T16:08:28.237866+00:00",
+      "value": 0.0
     },
     {
       "brick_id": "experiment-forge",
@@ -305,6 +305,14 @@
       "value": 1.0
     }
   ],
+  "bridge_refresh": {
+    "bridged_candidates": 0,
+    "coverage_ratio": 0.0,
+    "previous_cycle_sha256": "c3dbba3327d5dc9f6bca7d551d03cbf6e4231ac230547527c037e73c967890ed",
+    "status": "PARTIAL",
+    "supported_claims": 9,
+    "time": "2026-09-23T16:08:28.237866+00:00"
+  },
   "causal_plans": [
     {
       "association_only": true,
@@ -926,26 +934,109 @@
     }
   ],
   "human_bridge_result": {
-    "attempted_candidates": 0,
+    "attempted_candidates": 9,
+    "bridged_candidates": 0,
     "bridges": [],
+    "candidate_status": [
+      {
+        "bridges": 0,
+        "candidate": "Somniosus microcephalus",
+        "ensembl_species": null,
+        "gene_candidates": 0,
+        "status": "NO_ENSEMBL_SPECIES",
+        "validated_gene_candidates": []
+      },
+      {
+        "bridges": 0,
+        "candidate": "Acomys cahirinus",
+        "ensembl_species": null,
+        "gene_candidates": 0,
+        "status": "NO_ENSEMBL_SPECIES",
+        "validated_gene_candidates": []
+      },
+      {
+        "bridges": 0,
+        "candidate": "Danio rerio",
+        "ensembl_species": "danio_rerio",
+        "gene_candidates": 10,
+        "status": "NO_ENSEMBL_GENE_MATCH",
+        "validated_gene_candidates": []
+      },
+      {
+        "bridges": 0,
+        "candidate": "Cynops pyrrhogaster",
+        "ensembl_species": null,
+        "gene_candidates": 0,
+        "status": "NO_ENSEMBL_SPECIES",
+        "validated_gene_candidates": []
+      },
+      {
+        "bridges": 0,
+        "candidate": "Eublepharis macularius",
+        "ensembl_species": null,
+        "gene_candidates": 0,
+        "status": "NO_ENSEMBL_SPECIES",
+        "validated_gene_candidates": []
+      },
+      {
+        "bridges": 0,
+        "candidate": "Drosophila melanogaster",
+        "ensembl_species": null,
+        "gene_candidates": 0,
+        "status": "NO_ENSEMBL_SPECIES",
+        "validated_gene_candidates": []
+      },
+      {
+        "bridges": 0,
+        "candidate": "Paracentrotus lividus",
+        "ensembl_species": null,
+        "gene_candidates": 0,
+        "status": "NO_ENSEMBL_SPECIES",
+        "validated_gene_candidates": []
+      },
+      {
+        "bridges": 0,
+        "candidate": "Caenorhabditis elegans",
+        "ensembl_species": null,
+        "gene_candidates": 0,
+        "status": "NO_ENSEMBL_SPECIES",
+        "validated_gene_candidates": []
+      },
+      {
+        "bridges": 0,
+        "candidate": "Nothobranchius furzeri",
+        "ensembl_species": "nothobranchius_furzeri",
+        "gene_candidates": 10,
+        "status": "NO_ENSEMBL_GENE_MATCH",
+        "validated_gene_candidates": []
+      }
+    ],
+    "coverage_ratio": 0.0,
+    "errors": [],
     "open_targets_hits": 0,
     "orthologue_hits": 0,
     "provider_status": {
-      "Ensembl species": "FAIL: The read operation timed out"
+      "Ensembl homology": "PARTIAL",
+      "Ensembl species": "PASS",
+      "Europe PMC annotations": "PASS",
+      "Open Targets": "PARTIAL"
     },
-    "resolved_species": 0,
+    "resolved_species": 2,
     "status": "PARTIAL"
   },
   "human_translation": [
     {
       "animal_claim_not_promoted_to_human_efficacy": true,
       "bridges": [],
-      "required": [
-        "Ensembl-resolvable species",
-        "verified human orthologue",
-        "Open Targets target context",
-        "causal perturbation",
-        "toxicity check"
+      "claim_pmids": [
+        "PMID:41491153",
+        "PMID:42154556",
+        "PMID:42402335"
+      ],
+      "remaining": [
+        "supported species in orthology provider",
+        "gene/protein annotation with validated orthologue",
+        "Open Targets human target context"
       ],
       "status": "UNVERIFIED_HUMAN_BRIDGE",
       "subject": "Somniosus microcephalus"
@@ -953,12 +1044,15 @@
     {
       "animal_claim_not_promoted_to_human_efficacy": true,
       "bridges": [],
-      "required": [
-        "Ensembl-resolvable species",
-        "verified human orthologue",
-        "Open Targets target context",
-        "causal perturbation",
-        "toxicity check"
+      "claim_pmids": [
+        "PMID:40883787",
+        "PMID:41732917",
+        "PMID:42194064"
+      ],
+      "remaining": [
+        "supported species in orthology provider",
+        "gene/protein annotation with validated orthologue",
+        "Open Targets human target context"
       ],
       "status": "UNVERIFIED_HUMAN_BRIDGE",
       "subject": "Acomys cahirinus"
@@ -966,12 +1060,15 @@
     {
       "animal_claim_not_promoted_to_human_efficacy": true,
       "bridges": [],
-      "required": [
-        "Ensembl-resolvable species",
-        "verified human orthologue",
-        "Open Targets target context",
-        "causal perturbation",
-        "toxicity check"
+      "claim_pmids": [
+        "PMID:42314834",
+        "PMID:42690612",
+        "PMID:42755729"
+      ],
+      "remaining": [
+        "supported species in orthology provider",
+        "gene/protein annotation with validated orthologue",
+        "Open Targets human target context"
       ],
       "status": "UNVERIFIED_HUMAN_BRIDGE",
       "subject": "Danio rerio"
@@ -979,12 +1076,15 @@
     {
       "animal_claim_not_promoted_to_human_efficacy": true,
       "bridges": [],
-      "required": [
-        "Ensembl-resolvable species",
-        "verified human orthologue",
-        "Open Targets target context",
-        "causal perturbation",
-        "toxicity check"
+      "claim_pmids": [
+        "PMID:34944708",
+        "PMID:41751333",
+        "PMID:42702818"
+      ],
+      "remaining": [
+        "supported species in orthology provider",
+        "gene/protein annotation with validated orthologue",
+        "Open Targets human target context"
       ],
       "status": "UNVERIFIED_HUMAN_BRIDGE",
       "subject": "Cynops pyrrhogaster"
@@ -992,12 +1092,15 @@
     {
       "animal_claim_not_promoted_to_human_efficacy": true,
       "bridges": [],
-      "required": [
-        "Ensembl-resolvable species",
-        "verified human orthologue",
-        "Open Targets target context",
-        "causal perturbation",
-        "toxicity check"
+      "claim_pmids": [
+        "PMID:32950659",
+        "PMID:42615433",
+        "PMID:42746048"
+      ],
+      "remaining": [
+        "supported species in orthology provider",
+        "gene/protein annotation with validated orthologue",
+        "Open Targets human target context"
       ],
       "status": "UNVERIFIED_HUMAN_BRIDGE",
       "subject": "Eublepharis macularius"
@@ -1005,15 +1108,65 @@
     {
       "animal_claim_not_promoted_to_human_efficacy": true,
       "bridges": [],
-      "required": [
-        "Ensembl-resolvable species",
-        "verified human orthologue",
-        "Open Targets target context",
-        "causal perturbation",
-        "toxicity check"
+      "claim_pmids": [
+        "PMID:42208364",
+        "PMID:42217062",
+        "PMID:42686794"
+      ],
+      "remaining": [
+        "supported species in orthology provider",
+        "gene/protein annotation with validated orthologue",
+        "Open Targets human target context"
       ],
       "status": "UNVERIFIED_HUMAN_BRIDGE",
       "subject": "Drosophila melanogaster"
+    },
+    {
+      "animal_claim_not_promoted_to_human_efficacy": true,
+      "bridges": [],
+      "claim_pmids": [
+        "PMID:38622199",
+        "PMID:42208364",
+        "PMID:42738576"
+      ],
+      "remaining": [
+        "supported species in orthology provider",
+        "gene/protein annotation with validated orthologue",
+        "Open Targets human target context"
+      ],
+      "status": "UNVERIFIED_HUMAN_BRIDGE",
+      "subject": "Paracentrotus lividus"
+    },
+    {
+      "animal_claim_not_promoted_to_human_efficacy": true,
+      "bridges": [],
+      "claim_pmids": [
+        "PMID:42169464",
+        "PMID:42208364"
+      ],
+      "remaining": [
+        "supported species in orthology provider",
+        "gene/protein annotation with validated orthologue",
+        "Open Targets human target context"
+      ],
+      "status": "UNVERIFIED_HUMAN_BRIDGE",
+      "subject": "Caenorhabditis elegans"
+    },
+    {
+      "animal_claim_not_promoted_to_human_efficacy": true,
+      "bridges": [],
+      "claim_pmids": [
+        "PMID:41613827",
+        "PMID:42294401",
+        "PMID:42717099"
+      ],
+      "remaining": [
+        "supported species in orthology provider",
+        "gene/protein annotation with validated orthologue",
+        "Open Targets human target context"
+      ],
+      "status": "UNVERIFIED_HUMAN_BRIDGE",
+      "subject": "Nothobranchius furzeri"
     }
   ],
   "mission_graphs": [
@@ -2330,7 +2483,7 @@
       "taxon_verified": true
     }
   ],
-  "sha256": "c3dbba3327d5dc9f6bca7d551d03cbf6e4231ac230547527c037e73c967890ed",
+  "sha256": "251c9e1f110820dd705facd19049b287470606d1adc1a544ade7bf06f791fadf",
   "status": "PASS",
   "telemetry": {
     "brick_observability_ratio": 1.0,
