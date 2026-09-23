@@ -15,6 +15,8 @@ sys.path.insert(0,str(FACTORY))
 from program_director import create_or_update_programs
 from policy_foundry import propose_variants, select_safe_variant
 from human_bridge import build_human_bridges
+from reasoning_engine import reason_program
+from scientific_memory import update_scientific_memory
 
 REG=json.loads((FACTORY/"brick_registry.json").read_text(encoding="utf-8"))
 ACTIVE={x["id"]:x for x in REG["active"]}
@@ -236,7 +238,7 @@ def run_cycle(committee_path):
     usage.use("duality-x","committee.portfolio","mean_disagreement",round(sum(disagreements)/max(1,len(disagreements)),3))
 
     negative=load(ROOT/"state"/"negative_knowledge.json",[])
-    experiments=[];audits=[];causal_plans=[];human=[]
+    experiments=[];audits=[];causal_plans=[];human=[];reasoning_dossiers=[]
     for p in programs:
         claim=next((c for c in claims if c["subject"]==p["title"]),None)
         if not claim: continue
@@ -247,6 +249,11 @@ def run_cycle(committee_path):
         causal=causal_uncertainty(claim,audit);causal_plans.append(causal)
         human.append(human_translation_gate(claim,bridge_index))
         experiments.append(forge_experiment(p,claim,causal,audit))
+        reasoning_dossiers.append(
+            reason_program(
+                p,claim,audit,causal,bridge_index.get(claim["subject"],[])
+            )
+        )
     usage.use("morpheus","morpheus_audits","falsifiable_failure_modes_per_program",round(sum(len(x["flags"]) for x in audits)/max(1,len(audits)),3))
     usage.use("omega-causal","causal_plans","claims_with_counterfactual_test",len(causal_plans))
     usage.use("negative-kg","negative_filter","repeated_dead_ends_prevented",max(0,len(programs)-len(experiments)))
@@ -255,6 +262,18 @@ def run_cycle(committee_path):
     usage.use("human-bridge","human_bridge_result","supported_claim_bridge_coverage",
               human_bridge_result.get("coverage_ratio",0),bridge_status)
     usage.use("experiment-forge","experiments","programs_with_explicit_kill_criteria",sum(1 for e in experiments if e["kill_criteria"]))
+
+    hypothesis_count=sum(len(d.get("hypotheses",[])) for d in reasoning_dossiers)
+    surviving_count=sum(len(d.get("debate",{}).get("surviving_hypothesis_ids",[])) for d in reasoning_dossiers)
+    reasoning_plan_count=sum(len(d.get("experiment_plans",[])) for d in reasoning_dossiers)
+    usage.use("scientific-reasoning","scientific_reasoning","reasoning_dossiers_generated",len(reasoning_dossiers),
+              "PASS" if reasoning_dossiers else "PARTIAL")
+    usage.use("hypothesis-engine","scientific_reasoning","falsifiable_hypotheses_generated",hypothesis_count,
+              "PASS" if hypothesis_count else "PARTIAL")
+    usage.use("debate-engine","scientific_reasoning","hypotheses_surviving_adversarial_review",surviving_count,
+              "PASS" if reasoning_dossiers else "PARTIAL")
+    usage.use("experiment-planner","scientific_reasoning","conceptual_experiment_plans_generated",reasoning_plan_count,
+              "PASS" if reasoning_plan_count else "PARTIAL")
 
     metrics={
         "provenance_ratio":prov,
@@ -290,12 +309,16 @@ def run_cycle(committee_path):
         "programs":programs,"mission_graphs":mission_graphs,"claims":claims,"scout_observations":scouts,
         "audits":audits,"causal_plans":causal_plans,"human_translation":human,
         "human_bridge_result":human_bridge_result,
-        "experiments":experiments,"benchmark":bench,"policy_gate":gate
+        "experiments":experiments,"scientific_reasoning":reasoning_dossiers,
+        "benchmark":bench,"policy_gate":gate
     }
     cycle["sha256"]=hashlib.sha256(json.dumps(cycle,sort_keys=True,ensure_ascii=False).encode()).hexdigest()
 
     mem=update_memory(cycle)
     usage.use("omega-memory","state/factory/long_term_memory.json","new_provenance_edges",len(claims)+len(scouts)+len(experiments))
+    reasoning_mem=update_scientific_memory(STATE/"scientific_reasoning_memory.json",reasoning_dossiers)
+    usage.use("scientific-memory","state/factory/scientific_reasoning_memory.json","reasoning_hypotheses_retained",
+              reasoning_mem.get("hypotheses",0),"PASS" if reasoning_dossiers else "PARTIAL")
     telemetry=telemetry_from(cycle,bundle,trusted,claims,usage)
     usage.use("omega-telemetry","telemetry","brick_observability_ratio",0.0)
     reliability_ratio=round(bundle.get("valid_ratio",0),4)
