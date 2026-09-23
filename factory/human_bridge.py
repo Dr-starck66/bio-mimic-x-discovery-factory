@@ -6,6 +6,7 @@ from pathlib import Path
 ENSEMBL_BASE="https://rest.ensembl.org"
 OPEN_TARGETS="https://api.platform.opentargets.org/api/v4/graphql"
 EPMC_ANN="https://www.ebi.ac.uk/europepmc/annotations_api/annotationsByArticleIds"
+EPMC_SEARCH="https://www.ebi.ac.uk/europepmc/webservices/rest/search"
 OMA_BASE="https://omabrowser.org/api"
 UNIPROT_SEARCH="https://rest.uniprot.org/uniprotkb/search"
 NCBI_DATASETS="https://api.ncbi.nlm.nih.gov/datasets/v2"
@@ -23,6 +24,7 @@ NCBI_ORTHO_CACHE={}
 ORTHODB_GENE_CACHE={}
 ORTHODB_ORTHO_CACHE={}
 UNIPROT_ENTRY_CACHE={}
+PUBMED_RECORD_CACHE={}
 
 SEED_PATH=Path(__file__).with_name("bridge_seeds.json")
 PHYLO_SEED_PATH=Path(__file__).with_name("phylogenetic_orthology_seeds.json")
@@ -400,6 +402,43 @@ def ncbi_bridges_for_candidate(candidate):
 def _gene_norm(x):
     return re.sub(r"[^a-z0-9]+","",str(x or "").lower())
 
+def europepmc_record(pmid):
+    pmid=str(pmid or "").replace("PMID:","").strip()
+    if pmid in PUBMED_RECORD_CACHE:
+        return PUBMED_RECORD_CACHE[pmid]
+    try:
+        url=EPMC_SEARCH+"?"+urllib.parse.urlencode({
+            "query":f"EXT_ID:{pmid}",
+            "format":"json",
+            "pageSize":"1"
+        })
+        data=get_json(url,1)
+        rows=((data.get("resultList") or {}).get("result") or []) if isinstance(data,dict) else []
+        rec=rows[0] if rows else None
+    except Exception:
+        rec=None
+    PUBMED_RECORD_CACHE[pmid]=rec
+    return rec
+
+def validate_bridge_context_paper(pmid,species,gene):
+    rec=europepmc_record(pmid)
+    if not isinstance(rec,dict):
+        return False
+    text=" ".join([
+        str(rec.get("title") or ""),
+        str(rec.get("abstractText") or "")
+    ]).lower()
+    species_key=norm(species)
+    if species_key not in norm(text):
+        return False
+    gene_key=str(gene or "").lower()
+    gene_ok=(gene_key in text) or (gene_key=="shh" and "sonic hedgehog" in text)
+    if not gene_ok:
+        return False
+    if "regenerat" not in text:
+        return False
+    return True
+
 def uniprot_entry(accession):
     accession=str(accession or "").strip()
     if accession in UNIPROT_ENTRY_CACHE:
@@ -474,8 +513,10 @@ def strict_phylogenetic_bridges_for_candidate(candidate):
         # the modern exact-species observation; otherwise the orthology dossier
         # cannot silently upgrade an unrelated claim.
         claim_pmids={str(x).replace("PMID:","") for x in candidate.get("pmid_sources",[])}
-        if str(seed["modern_evidence_pmid"]) not in claim_pmids:
-            continue
+        modern_pmid=str(seed["modern_evidence_pmid"])
+        if modern_pmid not in claim_pmids:
+            if not validate_bridge_context_paper(modern_pmid,name,seed["animal_gene"]):
+                continue
         try:
             human=opentarget_context(seed["human_ensembl_id"])
         except Exception:
