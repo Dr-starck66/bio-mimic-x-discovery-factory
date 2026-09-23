@@ -1,0 +1,100 @@
+name: BIO-MIMIC X V9 Reasoning Refresh Once
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/v9-reasoning-refresh-once.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: biomimic-v9-reasoning-refresh-once
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Unit gates
+        run: |
+          python -m unittest discover -s tests -v
+          python factory/brick_audit.py
+
+      - name: Snapshot protected translation sections
+        run: |
+          python - <<'PY'
+          import hashlib,json,pathlib
+          x=json.loads(pathlib.Path("state/factory/latest.json").read_text(encoding="utf-8"))
+          protected={
+            "bridge_refresh":x.get("bridge_refresh"),
+            "human_bridge_result":x.get("human_bridge_result"),
+            "human_translation_result":x.get("human_translation_result"),
+            "human_translation":x.get("human_translation")
+          }
+          pathlib.Path("/tmp/protected.json").write_text(json.dumps(protected,sort_keys=True,ensure_ascii=False),encoding="utf-8")
+          print(hashlib.sha256(json.dumps(protected,sort_keys=True,ensure_ascii=False).encode()).hexdigest())
+          PY
+
+      - name: Refresh V9 reasoning state
+        run: python reasoning_refresh.py
+
+      - name: Validate V9 state and non-regression
+        run: |
+          python - <<'PY'
+          import hashlib,json,pathlib
+          x=json.loads(pathlib.Path("state/factory/latest.json").read_text(encoding="utf-8"))
+          before=json.loads(pathlib.Path("/tmp/protected.json").read_text(encoding="utf-8"))
+          after={
+            "bridge_refresh":x.get("bridge_refresh"),
+            "human_bridge_result":x.get("human_bridge_result"),
+            "human_translation_result":x.get("human_translation_result"),
+            "human_translation":x.get("human_translation")
+          }
+          assert before==after, "Human Bridge/translation state changed during V9 reasoning refresh"
+          rr=x["reasoning_refresh"]
+          assert rr["dossiers"]>0
+          assert rr["hypotheses"]>=rr["dossiers"]
+          assert rr["experiment_plans"]>0
+          assert rr["clinical_efficacy_claims"]==0
+          assert len(x["scientific_reasoning"])==rr["dossiers"]
+          assert all(d["claims_established_truth"] is False for d in x["scientific_reasoning"])
+          assert all(d["experiments_executed"] is False for d in x["scientific_reasoning"])
+          assert all(d["clinical_efficacy_claim"] is False for d in x["scientific_reasoning"])
+          assert x["unused_active_bricks"]==[]
+          assert x["telemetry"]["brick_observability_ratio"]==1.0
+          used={e["brick_id"] for e in x["brick_usage"]}
+          assert len(used)==25, len(used)
+          print({
+            "status":"PASS",
+            "dossiers":rr["dossiers"],
+            "hypotheses":rr["hypotheses"],
+            "survivors":rr["surviving_hypotheses"],
+            "experiment_plans":rr["experiment_plans"],
+            "active_used_bricks":len(used),
+            "protected_translation_unchanged":True
+          })
+          PY
+
+      - name: Persist V9 reasoning state
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "BIO-MIMIC-X-V9"
+          git config user.email "biomimic-x-v9@users.noreply.github.com"
+          git add             state/factory/latest.json             state/factory/brick_usage_latest.json             state/factory/scientific_reasoning_memory.json             public/data/factory/latest.json             public/data/factory/brick_usage.json             reports/factory/V9-REASONING-LATEST.md
+          if git diff --cached --quiet; then
+            echo "No V9 reasoning state change."
+          else
+            git commit -m "factory: persist V9 scientific reasoning state"
+            git push origin HEAD:main
+          fi
