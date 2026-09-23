@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "policy": "A strict phylogenetic bridge is accepted only when the exact source species/protein is curated, a peer-reviewed phylogeny explicitly includes that accession together with human target and relevant human paralogs, an independent modern exact-species transcript or protein observation exists, and Open Targets validates the nominated human Ensembl target. Sequence similarity alone is insufficient.",
+  "species": {
+    "Cynops pyrrhogaster": [
+      {
+        "animal_gene": "SHH",
+        "animal_uniprot": "Q90385",
+        "animal_taxon_id": 8330,
+        "animal_genbank_protein": "BAA09657.1",
+        "animal_genbank_nucleotide": "D63339",
+        "modern_transcript_genbank": "PQ306330",
+        "modern_evidence_pmid": "39595071",
+        "human_symbol": "SHH",
+        "human_ensembl_id": "ENSG00000164690",
+        "phylogeny_pmid": "17318658",
+        "phylogeny_doi": "10.1007/s00427-007-0139-2",
+        "phylogeny_method": "Neighbor-joining phylogeny of 21 Hedgehog-family proteins after Clustal X alignment; 500 bootstrap replicates; Poisson-corrected distances.",
+        "exact_species_accession_in_phylogeny": "Q90385",
+        "human_target_in_phylogeny": "human SHH",
+        "paralog_controls": [
+          "human IHH",
+          "human DHH"
+        ],
+        "rationale": "Peer-reviewed Hedgehog-family phylogeny explicitly includes Cynops pyrrhogaster SHH Q90385 alongside human SHH, IHH and DHH, providing paralog discrimination. A 2024 Cynops regeneration study independently cloned the species' Shh transcript (PQ306330) from limb blastema."
+      }
+    ]
+  }
+}
