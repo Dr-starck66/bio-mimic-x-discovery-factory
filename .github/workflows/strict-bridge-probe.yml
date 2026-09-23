@@ -15,7 +15,7 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
-      - name: Probe Acomys IL10 and Cynops SHH
+      - name: Probe Cynops strict phylogenetic chain
         run: |
           python - <<'PY'
           import json, sys
@@ -23,38 +23,22 @@ jobs:
           sys.path.insert(0,str(Path("factory").resolve()))
           import human_bridge as h
 
-          tests=[
-              ("Acomys cahirinus","IL10"),
-              ("Cynops pyrrhogaster","SHH"),
-          ]
-          out=[]
-          for species,gene in tests:
-              row={"species":species,"gene":gene}
-              ng=h.ncbi_exact_gene(species,gene)
-              row["ncbi_gene"]=ng
-              row["ncbi_human_orthologs"]=h.ncbi_human_orthologs(ng["gene_id"]) if ng else []
+          species="Cynops pyrrhogaster"
+          seed=h.PHYLO_SEEDS[species][0]
+          candidate={"subject":species,"pmid_sources":["PMID:34944708","PMID:41751333","PMID:42702818","PMID:39595071"]}
 
-              candidate={"subject":species,"genes":[],"pmid_sources":[],"sources":[],"taxon_proofs":[]}
-              # seed file supplies the gene to candidate_gene_candidates
-              row["candidate_genes"]=h.candidate_gene_candidates(candidate)
-              accs=h.uniprot_species_gene_accessions(candidate,max_terms=10,max_accessions=10)
-              row["uniprot_exact_species"]=accs
-              oma=[]
-              for acc in accs:
-                  info=h.oma_protein_info(acc)
-                  humans=h.oma_human_orthologs(acc)
-                  oma.append({
-                      "acc":acc,
-                      "oma_species":((info or {}).get("species") or {}).get("species"),
-                      "human_orthologs":[{
-                          "entry_nr":x.get("entry_nr"),
-                          "canonicalid":x.get("canonicalid"),
-                          "omaid":x.get("omaid"),
-                          "rel_type":x.get("rel_type"),
-                          "ensembl_ids":h.human_ensembl_ids_from_oma(x)
-                      } for x in humans[:5]]
-                  })
-              row["oma"]=oma
-              out.append(row)
-          print(json.dumps(out,indent=2))
+          out={"seed":seed}
+          out["uniprot_raw"]=h.uniprot_entry(seed["animal_uniprot"])
+          out["uniprot_exact"]=h.uniprot_exact_species_gene(
+              seed["animal_uniprot"],species,seed["animal_gene"],seed["animal_taxon_id"]
+          )
+          try:
+              out["open_targets"]=h.opentarget_context(seed["human_ensembl_id"])
+          except Exception as e:
+              out["open_targets_error"]=repr(e)
+          out["claim_pmids"]=[str(x).replace("PMID:","") for x in candidate["pmid_sources"]]
+          bridges,stats=h.strict_phylogenetic_bridges_for_candidate(candidate)
+          out["bridges"]=bridges
+          out["stats"]=stats
+          print(json.dumps(out,indent=2)[:40000])
           PY
