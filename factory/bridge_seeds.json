@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "policy": "A seed nominates a literature-supported gene/protein for exact-species orthology lookup. A seed alone never creates a Human Bridge; NCBI/OMA/Ensembl plus Open Targets must validate the chain.",
+  "policy": "A seed only nominates a literature-supported exact-species mechanism and an optional human target locator. Strict status requires independent provider orthology (Ensembl, NCBI Ortholog, OMA or OrthoDB) plus Open Targets validation.",
   "species": {
     "Somniosus microcephalus": [
       {
@@ -38,7 +38,9 @@
           "32849592"
         ],
         "rationale": "Acomys cahirinus regenerative wound healing shows strongly elevated Il10; published cross-species comparison reports substantial peptide similarity to human IL-10.",
-        "evidence_level": "literature_mechanism_seed"
+        "evidence_level": "literature_mechanism_seed",
+        "human_symbol": "IL10",
+        "human_ensembl_id": "ENSG00000136634"
       }
     ],
     "Cynops pyrrhogaster": [
@@ -48,7 +50,10 @@
           "39595071"
         ],
         "rationale": "SHH is reactivated during Cynops pyrrhogaster limb regeneration; curated exact-species UniProt protein Q90385 exists.",
-        "evidence_level": "literature_mechanism_seed"
+        "evidence_level": "literature_mechanism_seed",
+        "human_symbol": "SHH",
+        "human_ensembl_id": "ENSG00000164690",
+        "animal_uniprot": "Q90385"
       }
     ]
   }
