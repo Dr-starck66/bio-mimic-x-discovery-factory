@@ -43,9 +43,11 @@ button{background:#123340;color:var(--text);border:1px solid #285466;padding:8px
 
     <section class="card wide4">
       <h2>⏱ Automatisation</h2>
-      <div class="row"><span>Planification</span><b class="ok">QUOTIDIENNE</b></div>
-      <div class="row"><span>Heure workflow</span><b>03:17 UTC</b></div>
-      <div class="row"><span>Prochain cycle</span><b id="nextRun">—</b></div>
+      <div class="row"><span>Factory scientifique</span><b class="ok">03:17 UTC</b></div>
+      <div class="row"><span>Human Bridge</span><b class="ok">03:47 UTC</b></div>
+      <div class="row"><span>Push → gros workflow</span><b class="ok">OFF · anti-cascade</b></div>
+      <div class="row"><span>Prochaine Factory</span><b id="nextRun">—</b></div>
+      <div class="row"><span>Prochain Human Bridge</span><b id="nextBridge">—</b></div>
       <div class="row"><span>Dernière synchro UI</span><b id="uiSync">—</b></div>
       <button onclick="location.reload()">Actualiser maintenant</button>
     </section>
@@ -114,7 +116,8 @@ function nextDailyUtc(h=3,m=17){
 }
 async function get(path){const r=await fetch(path+'?v='+Date.now(),{cache:'no-store'});if(!r.ok)throw new Error(path+' HTTP '+r.status);return r.json()}
 (async()=>{
-  $('#nextRun').textContent=nextDailyUtc();
+  $('#nextRun').textContent=nextDailyUtc(3,17);
+  $('#nextBridge').textContent=nextDailyUtc(3,47);
   $('#uiSync').textContent=new Date().toLocaleTimeString('fr-FR');
   const alerts=[];
   try{
