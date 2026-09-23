@@ -1,5 +1,6 @@
 name: BIO-MIMIC X Strict Orthology 7-of-9 Gate
 # retry-phylogenetic-cynops
+# retry-context-and-lkg
 
 on:
   push:
@@ -27,7 +28,7 @@ jobs:
           python-version: '3.12'
 
       - name: Human Bridge tests
-        run: python -m unittest tests.test_human_bridge tests.test_translation_paths -v
+        run: python -m unittest tests.test_human_bridge tests.test_translation_paths tests.test_bridge_refresh_cache -v
 
       - name: Recompute Human Bridge
         run: python human_bridge_refresh.py
