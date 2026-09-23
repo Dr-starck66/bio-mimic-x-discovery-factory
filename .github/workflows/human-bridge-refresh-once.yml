@@ -1,0 +1,63 @@
+name: BIO-MIMIC X Human Bridge 5-of-9 Gate
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/human-bridge-refresh-once.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: biomimic-human-bridge-5of9-once
+  cancel-in-progress: true
+
+jobs:
+  bridge-gate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Human Bridge unit tests
+        run: python -m unittest tests.test_human_bridge -v
+
+      - name: Recompute latest Human Bridge
+        run: python human_bridge_refresh.py
+
+      - name: Require at least 5 of 9 supported claims bridged
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          x=json.loads(pathlib.Path("state/factory/latest.json").read_text(encoding="utf-8"))
+          h=x["human_bridge_result"]
+          print({
+            "supported_claims":len(x["claims"]),
+            "bridged_candidates":h["bridged_candidates"],
+            "coverage_ratio":h["coverage_ratio"],
+            "providers":h["provider_status"]
+          })
+          assert len(x["claims"])==9, len(x["claims"])
+          assert h["attempted_candidates"]==9, h["attempted_candidates"]
+          assert h["bridged_candidates"]>=5, h["candidate_status"]
+          PY
+
+      - name: Persist verified 5-of-9 state
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "BIO-MIMIC-X-HUMAN-BRIDGE"
+          git config user.email "biomimic-x-human-bridge@users.noreply.github.com"
+          git add state/factory/latest.json public/data/factory/latest.json reports/factory/HUMAN-BRIDGE-LATEST.md
+          if git diff --cached --quiet; then
+            echo "No state change."
+          else
+            git commit -m "bridge: persist verified Human Bridge coverage"
+            git push origin HEAD:main
+          fi
