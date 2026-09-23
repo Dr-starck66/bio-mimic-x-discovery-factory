@@ -96,8 +96,9 @@ def find_replication_sources(lab,c,max_results=12):
     is not enough to count as replication.
     """
     existing=set(c.get("sources",[]))
-    focus=list(c.get("mechanisms") or lab.get("mechanism_focus",[])[:3])
-    terms=[m for m in focus if m][:3]
+    specific=[m for m in (c.get("mechanisms") or []) if m]
+    domain=[m for m in (lab.get("replication_terms") or []) if m]
+    terms=(specific[:3] if specific else domain[:6])
     if not terms:
         return []
     mech=" OR ".join(f'"{m}"' for m in terms)
@@ -200,7 +201,7 @@ def run_lab(lab_id,out_path):
         }
         c["replication_search"]={"attempted":False,"new_sources":[]}
         # Spend extra provider calls only on strong single-source animal candidates.
-        if c["paper_count"]==1 and c["mechanisms"] and len(candidates)<8:
+        if c["paper_count"]==1 and len(candidates)<10:
             c["replication_search"]["attempted"]=True
             extra=find_replication_sources(lab,c)
             if extra:
