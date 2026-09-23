@@ -274,7 +274,9 @@ def run_cycle(committee_path):
     usage.use("omega-memory","state/factory/long_term_memory.json","new_provenance_edges",len(claims)+len(experiments))
     telemetry=telemetry_from(cycle,bundle,trusted,claims,usage)
     usage.use("omega-telemetry","telemetry","brick_observability_ratio",0.0)
-    usage.use("devops-x","validated_state","successful_daily_cycle_ratio",1.0)
+    reliability_ratio=round(bundle.get("valid_ratio",0),4)
+    usage.use("devops-x","validated_state","successful_daily_cycle_ratio",reliability_ratio,
+              "PASS" if reliability_ratio==1.0 else "PARTIAL")
 
     # Finish Ω-OS with the number of completed stages.
     for e in usage.events:
@@ -291,7 +293,7 @@ def run_cycle(committee_path):
     cycle["brick_usage"]=usage.events
     cycle["unused_active_bricks"]=unused
     cycle["telemetry"]=telemetry
-    cycle["status"]="PASS" if not unused else "PARTIAL"
+    cycle["status"]="PASS" if (not unused and reliability_ratio==1.0) else "PARTIAL"
     # Re-fingerprint after usage audit.
     cycle["sha256"]=hashlib.sha256(json.dumps(cycle,sort_keys=True,ensure_ascii=False).encode()).hexdigest()
 
