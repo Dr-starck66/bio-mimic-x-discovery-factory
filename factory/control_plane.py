@@ -223,7 +223,8 @@ def run_cycle(committee_path):
 
     claims,scouts=build_evidence_ledgers(trusted)
     prov=sum(1 for c in claims if c.get("sources"))/max(1,len(claims))
-    human_bridge_result=build_human_bridges(trusted["accepted"])
+    # Human Bridge only operates on replicated SUPPORTED claims.
+    human_bridge_result=build_human_bridges(claims)
     bridge_index={}
     for b in human_bridge_result.get("bridges",[]):
         bridge_index.setdefault(b["animal_species"],[]).append(b)
@@ -250,8 +251,9 @@ def run_cycle(committee_path):
     usage.use("omega-causal","causal_plans","claims_with_counterfactual_test",len(causal_plans))
     usage.use("negative-kg","negative_filter","repeated_dead_ends_prevented",max(0,len(programs)-len(experiments)))
     verified_human=sum(1 for x in human if x["status"]=="ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED")
-    usage.use("human-bridge","human_bridge_result","candidates_with_human_bridge",verified_human,
-              "PASS" if verified_human else "PARTIAL")
+    bridge_status=human_bridge_result.get("status","PARTIAL")
+    usage.use("human-bridge","human_bridge_result","supported_claim_bridge_coverage",
+              human_bridge_result.get("coverage_ratio",0),bridge_status)
     usage.use("experiment-forge","experiments","programs_with_explicit_kill_criteria",sum(1 for e in experiments if e["kill_criteria"]))
 
     metrics={
