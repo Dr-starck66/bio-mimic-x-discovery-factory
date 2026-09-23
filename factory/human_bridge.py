@@ -351,14 +351,9 @@ def build_human_bridges(portfolio,max_candidates=20,max_genes=10):
         species_index=ensembl_species_index()
         species_provider="PASS"
     except Exception as e:
-        return {
-            "status":"PARTIAL",
-            "provider_status":{"Ensembl species":f"FAIL: {e}"},
-            "bridges":[],"candidate_status":[],
-            "attempted_candidates":0,"resolved_species":0,
-            "bridged_candidates":0,"coverage_ratio":0,
-            "orthologue_hits":0,"open_targets_hits":0
-        }
+        # Ensembl availability must never disable the OMA fallback.
+        species_index={}
+        species_provider=f"FAIL: {e}"
 
     bridges=[]; attempted=0; resolved=0; orth_hits=0; ot_hits=0; errors=[]
     candidate_status=[]
