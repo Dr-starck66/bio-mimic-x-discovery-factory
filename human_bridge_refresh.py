@@ -7,6 +7,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parent
 sys.path.insert(0,str(ROOT/"factory"))
 from human_bridge import build_human_bridges
+from translation_paths import build_translation_paths
 
 STATE=ROOT/"state"/"factory"/"latest.json"
 PUBLIC=ROOT/"public"/"data"/"factory"/"latest.json"
@@ -27,45 +28,56 @@ def main():
     previous_sha=cycle.get("sha256")
 
     result=build_human_bridges(claims)
+    translation=build_translation_paths(claims,result)
     by_subject={}
     for b in result.get("bridges",[]):
         by_subject.setdefault(b["animal_species"],[]).append(b)
 
+    path_by_subject={x["subject"]:x for x in translation.get("paths",[])}
     human=[]
     for claim in claims:
         subject=claim["subject"]
         hits=by_subject.get(subject,[])
+        path=path_by_subject.get(subject)
+        if hits:
+            status="ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+        elif path and path.get("status")=="VERIFIED":
+            status="HUMAN_TRANSLATION_PATH_VERIFIED"
+        else:
+            status="UNVERIFIED_HUMAN_BRIDGE"
         human.append({
             "subject":subject,
-            "status":"ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED" if hits else "UNVERIFIED_HUMAN_BRIDGE",
+            "status":status,
             "bridges":hits,
+            "translation_path":path,
             "claim_pmids":claim.get("pmid_sources",[]),
             "animal_claim_not_promoted_to_human_efficacy":True,
-            "remaining":[] if hits else [
-                "supported species in orthology provider",
-                "gene/protein annotation with validated orthologue",
-                "Open Targets human target context"
+            "remaining":[] if status!="UNVERIFIED_HUMAN_BRIDGE" else [
+                "provider-verified orthology or a separately typed evidence-backed translation path"
             ]
         })
 
     cycle["human_bridge_result"]=result
+    cycle["human_translation_result"]=translation
     cycle["human_translation"]=human
     cycle["bridge_refresh"]={
         "time":now(),
         "previous_cycle_sha256":previous_sha,
         "supported_claims":len(claims),
-        "bridged_candidates":result.get("bridged_candidates",0),
-        "coverage_ratio":result.get("coverage_ratio",0),
-        "status":result.get("status","PARTIAL")
+        "strict_orthology_candidates":result.get("bridged_candidates",0),
+        "strict_orthology_coverage_ratio":result.get("coverage_ratio",0),
+        "translation_verified_candidates":translation.get("translation_verified_candidates",0),
+        "translation_coverage_ratio":translation.get("translation_coverage_ratio",0),
+        "status":translation.get("status","PARTIAL")
     }
 
     for e in cycle.get("brick_usage",[]):
         if e.get("brick_id")=="human-bridge":
             e["time"]=cycle["bridge_refresh"]["time"]
-            e["output_ref"]="human_bridge_result"
-            e["metric"]="supported_claim_bridge_coverage"
-            e["value"]=result.get("coverage_ratio",0)
-            e["status"]=result.get("status","PARTIAL")
+            e["output_ref"]="human_translation_result"
+            e["metric"]="verified_human_translation_coverage"
+            e["value"]=translation.get("translation_coverage_ratio",0)
+            e["status"]=translation.get("status","PARTIAL")
 
     payload=copy.deepcopy(cycle)
     payload.pop("sha256",None)
@@ -81,27 +93,27 @@ def main():
         "",
         f"Time: {cycle['bridge_refresh']['time']}",
         f"Supported claims: {len(claims)}",
-        f"Bridged claims: {result.get('bridged_candidates',0)}",
-        f"Coverage: {result.get('coverage_ratio',0):.1%}",
-        f"Status: {result.get('status','PARTIAL')}",
+        f"Strict orthology: {result.get('bridged_candidates',0)}/{len(claims)} ({result.get('coverage_ratio',0):.1%})",
+        f"Verified human translation: {translation.get('translation_verified_candidates',0)}/{len(claims)} ({translation.get('translation_coverage_ratio',0):.1%})",
+        f"Translation status: {translation.get('status','PARTIAL')}",
         "",
-        "## Candidate status"
+        "## Translation status"
     ]
-    for row in result.get("candidate_status",[]):
+    for row in translation.get("candidate_status",[]):
         lines.append(
-            f"- {row.get('candidate')}: {row.get('status')} · "
-            f"genes={row.get('gene_candidates',0)} · bridges={row.get('bridges',0)}"
+            f"- {row.get('candidate')}: {row.get('status')} · {row.get('path_type') or 'none'}"
         )
     REPORT.parent.mkdir(parents=True,exist_ok=True)
     REPORT.write_text("\n".join(lines)+"\n",encoding="utf-8")
 
     print(json.dumps({
-        "status":result.get("status"),
+        "status":translation.get("status"),
         "supported_claims":len(claims),
-        "resolved_species":result.get("resolved_species",0),
-        "bridged_candidates":result.get("bridged_candidates",0),
-        "coverage_ratio":result.get("coverage_ratio",0),
-        "bridges":len(result.get("bridges",[])),
+        "strict_orthology_candidates":result.get("bridged_candidates",0),
+        "strict_orthology_coverage_ratio":result.get("coverage_ratio",0),
+        "translation_verified_candidates":translation.get("translation_verified_candidates",0),
+        "translation_coverage_ratio":translation.get("translation_coverage_ratio",0),
+        "path_type_counts":translation.get("path_type_counts",{}),
         "sha256":cycle["sha256"]
     }))
     return 0
