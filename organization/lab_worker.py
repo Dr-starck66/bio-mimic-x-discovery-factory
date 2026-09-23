@@ -122,7 +122,18 @@ def run_lab(lab_id,out_path):
         data=get_json(EPMC+"?"+urllib.parse.urlencode(params))
         papers=data.get("resultList",{}).get("result",[])
     except Exception as e:
-        papers=[]; status="FAIL"; failures.append(str(e))
+        papers=[]; status="FAIL"; failures.append("primary Europe PMC: "+str(e))
+    if (status=="FAIL" or not papers) and lab.get("fallback_query"):
+        try:
+            fallback_params={"format":"json","resultType":"core","pageSize":"35","query":lab["fallback_query"]}
+            fallback=get_json(EPMC+"?"+urllib.parse.urlencode(fallback_params))
+            fallback_papers=fallback.get("resultList",{}).get("result",[])
+            if fallback_papers:
+                papers=fallback_papers
+                status="PARTIAL" if failures else "PASS"
+                failures.append("fallback query used")
+        except Exception as e:
+            failures.append("fallback Europe PMC: "+str(e))
 
     buckets={}
     focus=[norm(x) for x in lab["mechanism_focus"]]
@@ -177,7 +188,7 @@ def run_lab(lab_id,out_path):
     result["sha256"]=hashlib.sha256(json.dumps(result,sort_keys=True,ensure_ascii=False).encode()).hexdigest()
     out=Path(out_path); out.parent.mkdir(parents=True,exist_ok=True)
     out.write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding="utf-8")
-    print(json.dumps({"status":status,"lab":lab_id,"papers":len(papers),"raw_candidates":len(buckets),"verified_candidates":len(candidates),"rejected":len(rejected),"sha256":result["sha256"]}))
+    print(json.dumps({"status":status,"lab":lab_id,"papers":len(papers),"raw_candidates":len(buckets),"verified_candidates":len(candidates),"rejected":len(rejected),"failures":failures,"sha256":result["sha256"]}))
     return 0 if status=="PASS" else 2
 
 if __name__=="__main__":
