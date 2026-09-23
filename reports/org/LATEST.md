@@ -1,6 +1,6 @@
-# BIO-MIMIC X V6 Scientific Investment Committee — 2026-09-23T15:37:12.433298+00:00
+# BIO-MIMIC X V6 Scientific Investment Committee — 2026-09-23T15:58:57.304200+00:00
 
-**Organization replay SHA-256:** `a5e540ef411fb6bf67078703bf27de0bcdcee0c731f43e536fec510fbe975e8a`
+**Organization replay SHA-256:** `67de5f7b7ad7dc0d31dcf6fcf685e1b9483c54196d60e0eeb0a9bdfb356004d4`
 
 ## Laboratory status
 - ONCO-X Lab: PASS · 35 papers · 0 candidates
@@ -22,25 +22,40 @@
 - Sources: 3 · mechanisms: extracellular matrix, fibrosis, regeneration
 - Challenge flags: correlation does not prove causation, developmental-stage confounding, fibrosis tradeoffs, human functional divergence remains possible, no gene symbol candidate, regeneration-vs-repair ambiguity
 
-### Eublepharis macularius — Committee 46/100
+### Danio rerio — Committee 55/100
+- Labs: regeneration
+- Sources: 3 · mechanisms: Wnt, regeneration
+- Challenge flags: correlation does not prove causation, developmental-stage confounding, fibrosis tradeoffs, human functional divergence remains possible, regeneration-vs-repair ambiguity
+
+### Cynops pyrrhogaster — Committee 55/100
+- Labs: regeneration
+- Sources: 3 · mechanisms: fibrosis, regeneration
+- Challenge flags: correlation does not prove causation, developmental-stage confounding, fibrosis tradeoffs, human functional divergence remains possible, regeneration-vs-repair ambiguity
+
+### Eublepharis macularius — Committee 50/100
 - Labs: immunology
-- Sources: 2 · mechanisms: immune
+- Sources: 3 · mechanisms: immune
 - Challenge flags: correlation does not prove causation, human functional divergence remains possible, immune pathology tradeoffs, no gene symbol candidate, pathogen-specific adaptation, reservoir-host confounding
 
-### Danio rerio — Committee 45/100
-- Labs: regeneration
-- Sources: 1 · mechanisms: Wnt, regeneration
-- Challenge flags: correlation does not prove causation, developmental-stage confounding, fibrosis tradeoffs, human functional divergence remains possible, regeneration-vs-repair ambiguity, single-paper dependence
+### Drosophila melanogaster — Committee 45/100
+- Labs: preservation
+- Sources: 3 · mechanisms: none extracted
+- Challenge flags: correlation does not prove causation, cryoprotectant toxicity, human functional divergence remains possible, phenotype without extracted mechanism, reperfusion injury, whole-animal vs isolated-organ mismatch
 
-### Cynops pyrrhogaster — Committee 45/100
-- Labs: regeneration
-- Sources: 1 · mechanisms: fibrosis, regeneration
-- Challenge flags: correlation does not prove causation, developmental-stage confounding, fibrosis tradeoffs, human functional divergence remains possible, regeneration-vs-repair ambiguity, single-paper dependence
+### Paracentrotus lividus — Committee 45/100
+- Labs: preservation
+- Sources: 3 · mechanisms: none extracted
+- Challenge flags: correlation does not prove causation, cryoprotectant toxicity, human functional divergence remains possible, phenotype without extracted mechanism, reperfusion injury, whole-animal vs isolated-organ mismatch
 
 ### Caenorhabditis elegans — Committee 41/100
 - Labs: preservation
 - Sources: 2 · mechanisms: none extracted
 - Challenge flags: correlation does not prove causation, cryoprotectant toxicity, human functional divergence remains possible, phenotype without extracted mechanism, reperfusion injury, whole-animal vs isolated-organ mismatch
+
+### Nothobranchius furzeri — Committee 40/100
+- Labs: longevity
+- Sources: 3 · mechanisms: none extracted
+- Challenge flags: body-size confounding, correlation does not prove causation, human functional divergence remains possible, lifespan data quality, phenotype without extracted mechanism, phylogeny confounding
 
 ### Tiliqua scincoides — Committee 40/100
 - Labs: immunology
@@ -57,34 +72,19 @@
 - Sources: 1 · mechanisms: immune
 - Challenge flags: correlation does not prove causation, human functional divergence remains possible, immune pathology tradeoffs, no gene symbol candidate, pathogen-specific adaptation, reservoir-host confounding
 
-### Drosophila melanogaster — Committee 35/100
-- Labs: preservation
-- Sources: 1 · mechanisms: none extracted
-- Challenge flags: correlation does not prove causation, cryoprotectant toxicity, human functional divergence remains possible, phenotype without extracted mechanism, reperfusion injury, single-paper dependence
-
-### Paracentrotus lividus — Committee 35/100
-- Labs: preservation
-- Sources: 1 · mechanisms: none extracted
-- Challenge flags: correlation does not prove causation, cryoprotectant toxicity, human functional divergence remains possible, phenotype without extracted mechanism, reperfusion injury, single-paper dependence
-
-### Nothobranchius furzeri — Committee 29/100
-- Labs: longevity
-- Sources: 1 · mechanisms: none extracted
-- Challenge flags: body-size confounding, correlation does not prove causation, human functional divergence remains possible, lifespan data quality, phenotype without extracted mechanism, phylogeny confounding
-
 ## Research-credit allocation
-- Somniosus microcephalus: 12 credits
-- Acomys cahirinus: 11 credits
+- Somniosus microcephalus: 11 credits
+- Acomys cahirinus: 10 credits
+- Danio rerio: 10 credits
+- Cynops pyrrhogaster: 10 credits
 - Eublepharis macularius: 9 credits
-- Danio rerio: 9 credits
-- Cynops pyrrhogaster: 9 credits
-- Caenorhabditis elegans: 8 credits
-- Tiliqua scincoides: 8 credits
-- Pantherophis guttatus: 8 credits
-- Python regius: 8 credits
-- Drosophila melanogaster: 7 credits
-- Paracentrotus lividus: 7 credits
-- Nothobranchius furzeri: 4 credits
+- Drosophila melanogaster: 8 credits
+- Paracentrotus lividus: 8 credits
+- Caenorhabditis elegans: 7 credits
+- Nothobranchius furzeri: 7 credits
+- Tiliqua scincoides: 7 credits
+- Pantherophis guttatus: 7 credits
+- Python regius: 6 credits
 
 ## Cross-lab challenge plan
 - immunology challenges cancer: Re-audit the top hypothesis using the challenger lab's confounders and require at least one falsifiable counter-test.

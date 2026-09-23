@@ -46,6 +46,38 @@
         "human perturbation does not reproduce direction of effect",
         "unacceptable toxicity or contradictory evidence"
       ],
+      "program_id": "PRG-5fdcf74e81"
+    },
+    {
+      "flags": [
+        "single-lab dependence",
+        "phylogeny confound",
+        "publication bias",
+        "correlation not causation",
+        "human functional divergence"
+      ],
+      "kill_criteria": [
+        "no reproducible phenotype",
+        "no conserved mechanism",
+        "human perturbation does not reproduce direction of effect",
+        "unacceptable toxicity or contradictory evidence"
+      ],
+      "program_id": "PRG-14c747bea5"
+    },
+    {
+      "flags": [
+        "single-lab dependence",
+        "phylogeny confound",
+        "publication bias",
+        "correlation not causation",
+        "human functional divergence"
+      ],
+      "kill_criteria": [
+        "no reproducible phenotype",
+        "no conserved mechanism",
+        "human perturbation does not reproduce direction of effect",
+        "unacceptable toxicity or contradictory evidence"
+      ],
       "program_id": "PRG-7cd7bdba92"
     },
     {
@@ -63,12 +95,12 @@
         "human perturbation does not reproduce direction of effect",
         "unacceptable toxicity or contradictory evidence"
       ],
-      "program_id": "PRG-5e1f85b349"
+      "program_id": "PRG-70175ca5b4"
     }
   ],
   "benchmark": {
     "cross_lab_diversity": 0.4714,
-    "falsification_depth": 0.6562,
+    "falsification_depth": 0.6458,
     "provenance_ratio": 0.5
   },
   "brick_usage": [
@@ -79,7 +111,7 @@
       "output_ref": "cycle_plan",
       "stage": "CONTROL",
       "status": "PASS",
-      "time": "2026-09-23T15:37:12.537592+00:00",
+      "time": "2026-09-23T15:58:57.385382+00:00",
       "value": 14
     },
     {
@@ -89,8 +121,8 @@
       "output_ref": "state/factory/programs.json",
       "stage": "PLAN",
       "status": "PASS",
-      "time": "2026-09-23T15:37:12.539158+00:00",
-      "value": 4
+      "time": "2026-09-23T15:58:57.386896+00:00",
+      "value": 6
     },
     {
       "brick_id": "aion-nexus",
@@ -99,8 +131,8 @@
       "output_ref": "mission_graphs",
       "stage": "PLAN",
       "status": "PASS",
-      "time": "2026-09-23T15:37:12.539203+00:00",
-      "value": 4
+      "time": "2026-09-23T15:58:57.386949+00:00",
+      "value": 6
     },
     {
       "brick_id": "data-fusion",
@@ -109,7 +141,7 @@
       "output_ref": "normalized_bundle",
       "stage": "OBSERVE",
       "status": "PASS",
-      "time": "2026-09-23T15:37:12.539216+00:00",
+      "time": "2026-09-23T15:58:57.386963+00:00",
       "value": 1.0
     },
     {
@@ -119,7 +151,7 @@
       "output_ref": "trusted_bundle",
       "stage": "OBSERVE",
       "status": "PASS",
-      "time": "2026-09-23T15:37:12.539224+00:00",
+      "time": "2026-09-23T15:58:57.386972+00:00",
       "value": 0
     },
     {
@@ -129,7 +161,7 @@
       "output_ref": "committee.portfolio",
       "stage": "DISCOVER",
       "status": "PASS",
-      "time": "2026-09-23T15:37:12.539227+00:00",
+      "time": "2026-09-23T15:58:57.386974+00:00",
       "value": 12
     },
     {
@@ -139,7 +171,7 @@
       "output_ref": "committee.allocations",
       "stage": "DECIDE",
       "status": "PASS",
-      "time": "2026-09-23T15:37:12.539233+00:00",
+      "time": "2026-09-23T15:58:57.386982+00:00",
       "value": 100
     },
     {
@@ -149,7 +181,7 @@
       "output_ref": "claim_ledger",
       "stage": "VERIFY",
       "status": "PASS",
-      "time": "2026-09-23T15:38:31.073065+00:00",
+      "time": "2026-09-23T15:59:16.309148+00:00",
       "value": 1.0
     },
     {
@@ -159,8 +191,8 @@
       "output_ref": "committee.portfolio",
       "stage": "EVALUATE",
       "status": "PASS",
-      "time": "2026-09-23T15:38:31.073104+00:00",
-      "value": 5.333
+      "time": "2026-09-23T15:59:16.309194+00:00",
+      "value": 7.583
     },
     {
       "brick_id": "morpheus",
@@ -169,8 +201,8 @@
       "output_ref": "morpheus_audits",
       "stage": "FALSIFY",
       "status": "PASS",
-      "time": "2026-09-23T15:38:31.073484+00:00",
-      "value": 5.25
+      "time": "2026-09-23T15:59:16.309851+00:00",
+      "value": 5.167
     },
     {
       "brick_id": "omega-causal",
@@ -179,8 +211,8 @@
       "output_ref": "causal_plans",
       "stage": "FALSIFY",
       "status": "PASS",
-      "time": "2026-09-23T15:38:31.073491+00:00",
-      "value": 4
+      "time": "2026-09-23T15:59:16.309864+00:00",
+      "value": 6
     },
     {
       "brick_id": "negative-kg",
@@ -189,7 +221,7 @@
       "output_ref": "negative_filter",
       "stage": "MEMORY",
       "status": "PASS",
-      "time": "2026-09-23T15:38:31.073497+00:00",
+      "time": "2026-09-23T15:59:16.309870+00:00",
       "value": 0
     },
     {
@@ -199,7 +231,7 @@
       "output_ref": "human_bridge_result",
       "stage": "TRANSLATE",
       "status": "PARTIAL",
-      "time": "2026-09-23T15:38:31.073502+00:00",
+      "time": "2026-09-23T15:59:16.309877+00:00",
       "value": 0
     },
     {
@@ -209,8 +241,8 @@
       "output_ref": "experiments",
       "stage": "EXPERIMENT",
       "status": "PASS",
-      "time": "2026-09-23T15:38:31.073507+00:00",
-      "value": 4
+      "time": "2026-09-23T15:59:16.309882+00:00",
+      "value": 6
     },
     {
       "brick_id": "benchmark-x10",
@@ -219,8 +251,8 @@
       "output_ref": "benchmark",
       "stage": "BENCHMARK",
       "status": "PASS",
-      "time": "2026-09-23T15:38:31.073525+00:00",
-      "value": 1.6276
+      "time": "2026-09-23T15:59:16.309906+00:00",
+      "value": 1.6172
     },
     {
       "brick_id": "omega-foundry",
@@ -229,7 +261,7 @@
       "output_ref": "policy_variants",
       "stage": "IMPROVE",
       "status": "PASS",
-      "time": "2026-09-23T15:38:31.073686+00:00",
+      "time": "2026-09-23T15:59:16.469198+00:00",
       "value": 8
     },
     {
@@ -239,7 +271,7 @@
       "output_ref": "policy_gate",
       "stage": "IMPROVE",
       "status": "PASS",
-      "time": "2026-09-23T15:38:31.073916+00:00",
+      "time": "2026-09-23T15:59:16.514136+00:00",
       "value": 0
     },
     {
@@ -249,8 +281,8 @@
       "output_ref": "state/factory/long_term_memory.json",
       "stage": "MEMORY",
       "status": "PASS",
-      "time": "2026-09-23T15:38:31.077158+00:00",
-      "value": 16
+      "time": "2026-09-23T15:59:16.517426+00:00",
+      "value": 18
     },
     {
       "brick_id": "omega-telemetry",
@@ -259,7 +291,7 @@
       "output_ref": "telemetry",
       "stage": "OBSERVE",
       "status": "PASS",
-      "time": "2026-09-23T15:38:31.077205+00:00",
+      "time": "2026-09-23T15:59:16.517500+00:00",
       "value": 1.0
     },
     {
@@ -269,11 +301,41 @@
       "output_ref": "validated_state",
       "stage": "OPERATE",
       "status": "PASS",
-      "time": "2026-09-23T15:38:31.077214+00:00",
+      "time": "2026-09-23T15:59:16.517505+00:00",
       "value": 1.0
     }
   ],
   "causal_plans": [
+    {
+      "association_only": true,
+      "counterfactual_tests": [
+        "compare a close species lacking the phenotype",
+        "perturb candidate mechanism and perform rescue",
+        "test same mechanism in an evolutionarily distant species with similar phenotype",
+        "test human orthologue/pathway in disease-relevant human cells"
+      ],
+      "uncertainty": {
+        "human_translation": 0.7,
+        "mechanistic": 0.3,
+        "publication_bias": 0.35,
+        "taxonomic": 0.55
+      }
+    },
+    {
+      "association_only": true,
+      "counterfactual_tests": [
+        "compare a close species lacking the phenotype",
+        "perturb candidate mechanism and perform rescue",
+        "test same mechanism in an evolutionarily distant species with similar phenotype",
+        "test human orthologue/pathway in disease-relevant human cells"
+      ],
+      "uncertainty": {
+        "human_translation": 0.7,
+        "mechanistic": 0.3,
+        "publication_bias": 0.35,
+        "taxonomic": 0.55
+      }
+    },
     {
       "association_only": true,
       "counterfactual_tests": [
@@ -339,6 +401,7 @@
     {
       "claim": "Somniosus microcephalus is a replicated cross-species research candidate; this is not a human efficacy claim.",
       "genes": [],
+      "independent_source_count": 3,
       "labs": [
         "longevity"
       ],
@@ -347,6 +410,11 @@
         "genome maintenance",
         "proteostasis",
         "senescence"
+      ],
+      "pmid_sources": [
+        "PMID:41491153",
+        "PMID:42154556",
+        "PMID:42402335"
       ],
       "source_count": 3,
       "sources": [
@@ -372,6 +440,7 @@
     {
       "claim": "Acomys cahirinus is a replicated cross-species research candidate; this is not a human efficacy claim.",
       "genes": [],
+      "independent_source_count": 3,
       "labs": [
         "regeneration"
       ],
@@ -380,11 +449,16 @@
         "fibrosis",
         "regeneration"
       ],
+      "pmid_sources": [
+        "PMID:40883787",
+        "PMID:41732917",
+        "PMID:42194064"
+      ],
       "source_count": 3,
       "sources": [
+        "PMID:40883787",
         "PMID:41732917",
-        "PMID:42194064",
-        "PPR:PPR1272325"
+        "PMID:42194064"
       ],
       "status": "SUPPORTED",
       "subject": "Acomys cahirinus",
@@ -402,16 +476,108 @@
       "taxon_verified": true
     },
     {
+      "claim": "Danio rerio is a replicated cross-species research candidate; this is not a human efficacy claim.",
+      "genes": [
+        "MAPK",
+        "NF-",
+        "OCTA",
+        "SD-OCT",
+        "VEGF"
+      ],
+      "independent_source_count": 3,
+      "labs": [
+        "regeneration"
+      ],
+      "mechanisms": [
+        "Wnt",
+        "regeneration"
+      ],
+      "pmid_sources": [
+        "PMID:42314834",
+        "PMID:42690612",
+        "PMID:42755729"
+      ],
+      "source_count": 3,
+      "sources": [
+        "PMID:42314834",
+        "PMID:42690612",
+        "PMID:42755729"
+      ],
+      "status": "SUPPORTED",
+      "subject": "Danio rerio",
+      "taxon_proofs": [
+        {
+          "canonical_name": "Danio rerio",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 9797255
+        }
+      ],
+      "taxon_verified": true
+    },
+    {
+      "claim": "Cynops pyrrhogaster is a replicated cross-species research candidate; this is not a human efficacy claim.",
+      "genes": [
+        "PBD",
+        "PCNA",
+        "PCNA-",
+        "RT-PCR"
+      ],
+      "independent_source_count": 3,
+      "labs": [
+        "regeneration"
+      ],
+      "mechanisms": [
+        "fibrosis",
+        "regeneration"
+      ],
+      "pmid_sources": [
+        "PMID:34944708",
+        "PMID:41751333",
+        "PMID:42702818"
+      ],
+      "source_count": 3,
+      "sources": [
+        "PMID:34944708",
+        "PMID:41751333",
+        "PMID:42702818"
+      ],
+      "status": "SUPPORTED",
+      "subject": "Cynops pyrrhogaster",
+      "taxon_proofs": [
+        {
+          "canonical_name": "Cynops pyrrhogaster",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 2431862
+        }
+      ],
+      "taxon_verified": true
+    },
+    {
       "claim": "Eublepharis macularius is a replicated cross-species research candidate; this is not a human efficacy claim.",
       "genes": [],
+      "independent_source_count": 3,
       "labs": [
         "immunology"
       ],
       "mechanisms": [
         "immune"
       ],
-      "source_count": 2,
+      "pmid_sources": [
+        "PMID:32950659",
+        "PMID:42615433",
+        "PMID:42746048"
+      ],
+      "source_count": 3,
       "sources": [
+        "PMID:32950659",
         "PMID:42615433",
         "PMID:42746048"
       ],
@@ -431,16 +597,95 @@
       "taxon_verified": true
     },
     {
+      "claim": "Drosophila melanogaster is a replicated cross-species research candidate; this is not a human efficacy claim.",
+      "genes": [
+        "NIH-",
+        "USDA"
+      ],
+      "independent_source_count": 3,
+      "labs": [
+        "preservation"
+      ],
+      "mechanisms": [],
+      "pmid_sources": [
+        "PMID:42208364",
+        "PMID:42217062",
+        "PMID:42686794"
+      ],
+      "source_count": 3,
+      "sources": [
+        "PMID:42208364",
+        "PMID:42217062",
+        "PMID:42686794"
+      ],
+      "status": "SUPPORTED",
+      "subject": "Drosophila melanogaster",
+      "taxon_proofs": [
+        {
+          "canonical_name": "Drosophila melanogaster",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 5073713
+        }
+      ],
+      "taxon_verified": true
+    },
+    {
+      "claim": "Paracentrotus lividus is a replicated cross-species research candidate; this is not a human efficacy claim.",
+      "genes": [
+        "NIH-",
+        "USDA"
+      ],
+      "independent_source_count": 3,
+      "labs": [
+        "preservation"
+      ],
+      "mechanisms": [],
+      "pmid_sources": [
+        "PMID:38622199",
+        "PMID:42208364",
+        "PMID:42738576"
+      ],
+      "source_count": 3,
+      "sources": [
+        "PMID:38622199",
+        "PMID:42208364",
+        "PMID:42738576"
+      ],
+      "status": "SUPPORTED",
+      "subject": "Paracentrotus lividus",
+      "taxon_proofs": [
+        {
+          "canonical_name": "Paracentrotus lividus",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 2278845
+        }
+      ],
+      "taxon_verified": true
+    },
+    {
       "claim": "Caenorhabditis elegans is a replicated cross-species research candidate; this is not a human efficacy claim.",
       "genes": [
         "IBP",
         "NIH-",
         "USDA"
       ],
+      "independent_source_count": 2,
       "labs": [
         "preservation"
       ],
       "mechanisms": [],
+      "pmid_sources": [
+        "PMID:42169464",
+        "PMID:42208364"
+      ],
       "source_count": 2,
       "sources": [
         "PMID:42169464",
@@ -457,6 +702,42 @@
           "rank": "SPECIES",
           "status": "ACCEPTED",
           "taxon_key": 2283683
+        }
+      ],
+      "taxon_verified": true
+    },
+    {
+      "claim": "Nothobranchius furzeri is a replicated cross-species research candidate; this is not a human efficacy claim.",
+      "genes": [
+        "ER"
+      ],
+      "independent_source_count": 3,
+      "labs": [
+        "longevity"
+      ],
+      "mechanisms": [],
+      "pmid_sources": [
+        "PMID:41613827",
+        "PMID:42294401",
+        "PMID:42717099"
+      ],
+      "source_count": 3,
+      "sources": [
+        "PMID:41613827",
+        "PMID:42294401",
+        "PMID:42717099"
+      ],
+      "status": "SUPPORTED",
+      "subject": "Nothobranchius furzeri",
+      "taxon_proofs": [
+        {
+          "canonical_name": "Nothobranchius furzeri",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 2348706
         }
       ],
       "taxon_verified": true
@@ -508,11 +789,11 @@
         "unacceptable toxicity or contradictory evidence"
       ],
       "program_id": "PRG-c73037fcfb",
-      "sha256": "2951ae19c79c7e6655190be85b609258203697ddb81a24c3bf45508e531f1122",
+      "sha256": "4d18912227ffac497dd2c704e0a69de425ffbf89ad24adcb8a7b89bd8da93f56",
       "sources": [
+        "PMID:40883787",
         "PMID:41732917",
-        "PMID:42194064",
-        "PPR:PPR1272325"
+        "PMID:42194064"
       ],
       "steps": [
         "replicate phenotype under controlled conditions",
@@ -530,6 +811,66 @@
         "test same mechanism in an evolutionarily distant species with similar phenotype",
         "test human orthologue/pathway in disease-relevant human cells"
       ],
+      "hypothesis": "A mechanism associated with Danio rerio may causally contribute to the target phenotype.",
+      "kill_criteria": [
+        "no reproducible phenotype",
+        "no conserved mechanism",
+        "human perturbation does not reproduce direction of effect",
+        "unacceptable toxicity or contradictory evidence"
+      ],
+      "program_id": "PRG-5fdcf74e81",
+      "sha256": "5d67ab3b31aa3695140f2dc491439de4e3a1406b1d732687b2469858ba986eed",
+      "sources": [
+        "PMID:42314834",
+        "PMID:42690612",
+        "PMID:42755729"
+      ],
+      "steps": [
+        "replicate phenotype under controlled conditions",
+        "perturb candidate mechanism",
+        "perform rescue experiment",
+        "test evolutionarily close negative control",
+        "test human-relevant model only after conservation check"
+      ],
+      "subject": "Danio rerio"
+    },
+    {
+      "counterfactual_tests": [
+        "compare a close species lacking the phenotype",
+        "perturb candidate mechanism and perform rescue",
+        "test same mechanism in an evolutionarily distant species with similar phenotype",
+        "test human orthologue/pathway in disease-relevant human cells"
+      ],
+      "hypothesis": "A mechanism associated with Cynops pyrrhogaster may causally contribute to the target phenotype.",
+      "kill_criteria": [
+        "no reproducible phenotype",
+        "no conserved mechanism",
+        "human perturbation does not reproduce direction of effect",
+        "unacceptable toxicity or contradictory evidence"
+      ],
+      "program_id": "PRG-14c747bea5",
+      "sha256": "eb0fa5e01f111f28a6771751d38d161d2c52608af9bf58aef0796871c7ed98f5",
+      "sources": [
+        "PMID:34944708",
+        "PMID:41751333",
+        "PMID:42702818"
+      ],
+      "steps": [
+        "replicate phenotype under controlled conditions",
+        "perturb candidate mechanism",
+        "perform rescue experiment",
+        "test evolutionarily close negative control",
+        "test human-relevant model only after conservation check"
+      ],
+      "subject": "Cynops pyrrhogaster"
+    },
+    {
+      "counterfactual_tests": [
+        "compare a close species lacking the phenotype",
+        "perturb candidate mechanism and perform rescue",
+        "test same mechanism in an evolutionarily distant species with similar phenotype",
+        "test human orthologue/pathway in disease-relevant human cells"
+      ],
       "hypothesis": "A mechanism associated with Eublepharis macularius may causally contribute to the target phenotype.",
       "kill_criteria": [
         "no reproducible phenotype",
@@ -538,8 +879,9 @@
         "unacceptable toxicity or contradictory evidence"
       ],
       "program_id": "PRG-7cd7bdba92",
-      "sha256": "bdd0f4df9e387eeb1d994faac1f2df54431a8a919c39dcd5201dd5d08d88dc47",
+      "sha256": "9efd0310ef4f0faf2bf23d2e92bacf2f3d86fdeb25d9519d89515a642c00c615",
       "sources": [
+        "PMID:32950659",
         "PMID:42615433",
         "PMID:42746048"
       ],
@@ -559,18 +901,19 @@
         "test same mechanism in an evolutionarily distant species with similar phenotype",
         "test human orthologue/pathway in disease-relevant human cells"
       ],
-      "hypothesis": "A mechanism associated with Caenorhabditis elegans may causally contribute to the target phenotype.",
+      "hypothesis": "A mechanism associated with Drosophila melanogaster may causally contribute to the target phenotype.",
       "kill_criteria": [
         "no reproducible phenotype",
         "no conserved mechanism",
         "human perturbation does not reproduce direction of effect",
         "unacceptable toxicity or contradictory evidence"
       ],
-      "program_id": "PRG-5e1f85b349",
-      "sha256": "549f0b7cc268f9d5e3a4a392205ae53e076e0e0d4c7d7867e060f8949113ac79",
+      "program_id": "PRG-70175ca5b4",
+      "sha256": "8965d7b35f7e0cf3bad8d25618a4864af08db2de6098801568d7dfbf97999e4d",
       "sources": [
-        "PMID:42169464",
-        "PMID:42208364"
+        "PMID:42208364",
+        "PMID:42217062",
+        "PMID:42686794"
       ],
       "steps": [
         "replicate phenotype under controlled conditions",
@@ -579,115 +922,19 @@
         "test evolutionarily close negative control",
         "test human-relevant model only after conservation check"
       ],
-      "subject": "Caenorhabditis elegans"
+      "subject": "Drosophila melanogaster"
     }
   ],
   "human_bridge_result": {
-    "attempted_candidates": 12,
-    "bridges": [
-      {
-        "animal_ensembl_species": "danio_rerio",
-        "animal_gene": "VEGF",
-        "animal_species": "Danio rerio",
-        "clinical_efficacy_claim": false,
-        "human_biotype": "protein_coding",
-        "human_ensembl_id": "ENSG00000112715",
-        "human_name": "vascular endothelial growth factor A",
-        "human_symbol": "VEGFA",
-        "orthology": {
-          "ensembl_id": "ENSG00000112715",
-          "perc_id": 27.0886,
-          "perc_pos": 34.6835,
-          "protein_id": "ENSP00000500082",
-          "taxon_id": 9606
-        },
-        "source_chain": [
-          "candidate taxonomy proof / organism annotation",
-          "Ensembl Compara orthology",
-          "Open Targets human target annotation"
-        ],
-        "tractability": [
-          {
-            "label": "Structure with Ligand",
-            "modality": "SM"
-          },
-          {
-            "label": "High-Quality Ligand",
-            "modality": "SM"
-          },
-          {
-            "label": "Med-Quality Pocket",
-            "modality": "SM"
-          },
-          {
-            "label": "Approved Drug",
-            "modality": "AB"
-          },
-          {
-            "label": "UniProt loc high conf",
-            "modality": "AB"
-          },
-          {
-            "label": "GO CC high conf",
-            "modality": "AB"
-          },
-          {
-            "label": "UniProt loc med conf",
-            "modality": "AB"
-          },
-          {
-            "label": "Small Molecule Binder",
-            "modality": "PR"
-          },
-          {
-            "label": "Approved Drug",
-            "modality": "OC"
-          }
-        ],
-        "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
-      }
-    ],
-    "errors": [
-      {
-        "candidate": "Danio rerio",
-        "error": "HTTP Error 400: Bad Request",
-        "gene": "MAPK",
-        "stage": "ensembl_homology"
-      },
-      {
-        "candidate": "Danio rerio",
-        "error": "The read operation timed out",
-        "gene": "NF-",
-        "stage": "ensembl_homology"
-      },
-      {
-        "candidate": "Danio rerio",
-        "error": "The read operation timed out",
-        "gene": "OCTA",
-        "stage": "ensembl_homology"
-      },
-      {
-        "candidate": "Danio rerio",
-        "error": "HTTP Error 400: Bad Request",
-        "gene": "SD-OCT",
-        "stage": "ensembl_homology"
-      },
-      {
-        "candidate": "Nothobranchius furzeri",
-        "error": "HTTP Error 400: Bad Request",
-        "gene": "ER",
-        "stage": "ensembl_homology"
-      }
-    ],
-    "open_targets_hits": 1,
-    "orthologue_hits": 1,
+    "attempted_candidates": 0,
+    "bridges": [],
+    "open_targets_hits": 0,
+    "orthologue_hits": 0,
     "provider_status": {
-      "Ensembl homology": "PASS",
-      "Ensembl species": "PASS",
-      "Open Targets": "PASS"
+      "Ensembl species": "FAIL: The read operation timed out"
     },
-    "resolved_species": 2,
-    "status": "PASS"
+    "resolved_species": 0,
+    "status": "PARTIAL"
   },
   "human_translation": [
     {
@@ -727,6 +974,32 @@
         "toxicity check"
       ],
       "status": "UNVERIFIED_HUMAN_BRIDGE",
+      "subject": "Danio rerio"
+    },
+    {
+      "animal_claim_not_promoted_to_human_efficacy": true,
+      "bridges": [],
+      "required": [
+        "Ensembl-resolvable species",
+        "verified human orthologue",
+        "Open Targets target context",
+        "causal perturbation",
+        "toxicity check"
+      ],
+      "status": "UNVERIFIED_HUMAN_BRIDGE",
+      "subject": "Cynops pyrrhogaster"
+    },
+    {
+      "animal_claim_not_promoted_to_human_efficacy": true,
+      "bridges": [],
+      "required": [
+        "Ensembl-resolvable species",
+        "verified human orthologue",
+        "Open Targets target context",
+        "causal perturbation",
+        "toxicity check"
+      ],
+      "status": "UNVERIFIED_HUMAN_BRIDGE",
       "subject": "Eublepharis macularius"
     },
     {
@@ -740,7 +1013,7 @@
         "toxicity check"
       ],
       "status": "UNVERIFIED_HUMAN_BRIDGE",
-      "subject": "Caenorhabditis elegans"
+      "subject": "Drosophila melanogaster"
     }
   ],
   "mission_graphs": [
@@ -987,6 +1260,246 @@
     {
       "edges": [
         {
+          "from": "PRG-5fdcf74e81:PLAN",
+          "to": "PRG-5fdcf74e81:OBSERVE"
+        },
+        {
+          "from": "PRG-5fdcf74e81:OBSERVE",
+          "to": "PRG-5fdcf74e81:DISCOVER"
+        },
+        {
+          "from": "PRG-5fdcf74e81:DISCOVER",
+          "to": "PRG-5fdcf74e81:VERIFY"
+        },
+        {
+          "from": "PRG-5fdcf74e81:VERIFY",
+          "to": "PRG-5fdcf74e81:EVALUATE"
+        },
+        {
+          "from": "PRG-5fdcf74e81:EVALUATE",
+          "to": "PRG-5fdcf74e81:FALSIFY"
+        },
+        {
+          "from": "PRG-5fdcf74e81:FALSIFY",
+          "to": "PRG-5fdcf74e81:TRANSLATE"
+        },
+        {
+          "from": "PRG-5fdcf74e81:TRANSLATE",
+          "to": "PRG-5fdcf74e81:EXPERIMENT"
+        },
+        {
+          "from": "PRG-5fdcf74e81:EXPERIMENT",
+          "to": "PRG-5fdcf74e81:BENCHMARK"
+        },
+        {
+          "from": "PRG-5fdcf74e81:BENCHMARK",
+          "to": "PRG-5fdcf74e81:IMPROVE"
+        },
+        {
+          "from": "PRG-5fdcf74e81:IMPROVE",
+          "to": "PRG-5fdcf74e81:MEMORY"
+        },
+        {
+          "from": "PRG-5fdcf74e81:MEMORY",
+          "to": "PRG-5fdcf74e81:DECIDE"
+        },
+        {
+          "from": "PRG-5fdcf74e81:DECIDE",
+          "to": "PRG-5fdcf74e81:OPERATE"
+        }
+      ],
+      "nodes": [
+        {
+          "id": "PRG-5fdcf74e81:PLAN",
+          "stage": "PLAN",
+          "status": "PLANNED"
+        },
+        {
+          "id": "PRG-5fdcf74e81:OBSERVE",
+          "stage": "OBSERVE",
+          "status": "PLANNED"
+        },
+        {
+          "id": "PRG-5fdcf74e81:DISCOVER",
+          "stage": "DISCOVER",
+          "status": "PLANNED"
+        },
+        {
+          "id": "PRG-5fdcf74e81:VERIFY",
+          "stage": "VERIFY",
+          "status": "PLANNED"
+        },
+        {
+          "id": "PRG-5fdcf74e81:EVALUATE",
+          "stage": "EVALUATE",
+          "status": "PLANNED"
+        },
+        {
+          "id": "PRG-5fdcf74e81:FALSIFY",
+          "stage": "FALSIFY",
+          "status": "PLANNED"
+        },
+        {
+          "id": "PRG-5fdcf74e81:TRANSLATE",
+          "stage": "TRANSLATE",
+          "status": "PLANNED"
+        },
+        {
+          "id": "PRG-5fdcf74e81:EXPERIMENT",
+          "stage": "EXPERIMENT",
+          "status": "PLANNED"
+        },
+        {
+          "id": "PRG-5fdcf74e81:BENCHMARK",
+          "stage": "BENCHMARK",
+          "status": "PLANNED"
+        },
+        {
+          "id": "PRG-5fdcf74e81:IMPROVE",
+          "stage": "IMPROVE",
+          "status": "PLANNED"
+        },
+        {
+          "id": "PRG-5fdcf74e81:MEMORY",
+          "stage": "MEMORY",
+          "status": "PLANNED"
+        },
+        {
+          "id": "PRG-5fdcf74e81:DECIDE",
+          "stage": "DECIDE",
+          "status": "PLANNED"
+        },
+        {
+          "id": "PRG-5fdcf74e81:OPERATE",
+          "stage": "OPERATE",
+          "status": "PLANNED"
+        }
+      ],
+      "program_id": "PRG-5fdcf74e81"
+    },
+    {
+      "edges": [
+        {
+          "from": "PRG-14c747bea5:PLAN",
+          "to": "PRG-14c747bea5:OBSERVE"
+        },
+        {
+          "from": "PRG-14c747bea5:OBSERVE",
+          "to": "PRG-14c747bea5:DISCOVER"
+        },
+        {
+          "from": "PRG-14c747bea5:DISCOVER",
+          "to": "PRG-14c747bea5:VERIFY"
+        },
+        {
+          "from": "PRG-14c747bea5:VERIFY",
+          "to": "PRG-14c747bea5:EVALUATE"
+        },
+        {
+          "from": "PRG-14c747bea5:EVALUATE",
+          "to": "PRG-14c747bea5:FALSIFY"
+        },
+        {
+          "from": "PRG-14c747bea5:FALSIFY",
+          "to": "PRG-14c747bea5:TRANSLATE"
+        },
+        {
+          "from": "PRG-14c747bea5:TRANSLATE",
+          "to": "PRG-14c747bea5:EXPERIMENT"
+        },
+        {
+          "from": "PRG-14c747bea5:EXPERIMENT",
+          "to": "PRG-14c747bea5:BENCHMARK"
+        },
+        {
+          "from": "PRG-14c747bea5:BENCHMARK",
+          "to": "PRG-14c747bea5:IMPROVE"
+        },
+        {
+          "from": "PRG-14c747bea5:IMPROVE",
+          "to": "PRG-14c747bea5:MEMORY"
+        },
+        {
+          "from": "PRG-14c747bea5:MEMORY",
+          "to": "PRG-14c747bea5:DECIDE"
+        },
+        {
+          "from": "PRG-14c747bea5:DECIDE",
+          "to": "PRG-14c747bea5:OPERATE"
+        }
+      ],
+      "nodes": [
+        {
+          "id": "PRG-14c747bea5:PLAN",
+          "stage": "PLAN",
+          "status": "PLANNED"
+        },
+        {
+          "id": "PRG-14c747bea5:OBSERVE",
+          "stage": "OBSERVE",
+          "status": "PLANNED"
+        },
+        {
+          "id": "PRG-14c747bea5:DISCOVER",
+          "stage": "DISCOVER",
+          "status": "PLANNED"
+        },
+        {
+          "id": "PRG-14c747bea5:VERIFY",
+          "stage": "VERIFY",
+          "status": "PLANNED"
+        },
+        {
+          "id": "PRG-14c747bea5:EVALUATE",
+          "stage": "EVALUATE",
+          "status": "PLANNED"
+        },
+        {
+          "id": "PRG-14c747bea5:FALSIFY",
+          "stage": "FALSIFY",
+          "status": "PLANNED"
+        },
+        {
+          "id": "PRG-14c747bea5:TRANSLATE",
+          "stage": "TRANSLATE",
+          "status": "PLANNED"
+        },
+        {
+          "id": "PRG-14c747bea5:EXPERIMENT",
+          "stage": "EXPERIMENT",
+          "status": "PLANNED"
+        },
+        {
+          "id": "PRG-14c747bea5:BENCHMARK",
+          "stage": "BENCHMARK",
+          "status": "PLANNED"
+        },
+        {
+          "id": "PRG-14c747bea5:IMPROVE",
+          "stage": "IMPROVE",
+          "status": "PLANNED"
+        },
+        {
+          "id": "PRG-14c747bea5:MEMORY",
+          "stage": "MEMORY",
+          "status": "PLANNED"
+        },
+        {
+          "id": "PRG-14c747bea5:DECIDE",
+          "stage": "DECIDE",
+          "status": "PLANNED"
+        },
+        {
+          "id": "PRG-14c747bea5:OPERATE",
+          "stage": "OPERATE",
+          "status": "PLANNED"
+        }
+      ],
+      "program_id": "PRG-14c747bea5"
+    },
+    {
+      "edges": [
+        {
           "from": "PRG-7cd7bdba92:PLAN",
           "to": "PRG-7cd7bdba92:OBSERVE"
         },
@@ -1107,132 +1620,132 @@
     {
       "edges": [
         {
-          "from": "PRG-5e1f85b349:PLAN",
-          "to": "PRG-5e1f85b349:OBSERVE"
+          "from": "PRG-70175ca5b4:PLAN",
+          "to": "PRG-70175ca5b4:OBSERVE"
         },
         {
-          "from": "PRG-5e1f85b349:OBSERVE",
-          "to": "PRG-5e1f85b349:DISCOVER"
+          "from": "PRG-70175ca5b4:OBSERVE",
+          "to": "PRG-70175ca5b4:DISCOVER"
         },
         {
-          "from": "PRG-5e1f85b349:DISCOVER",
-          "to": "PRG-5e1f85b349:VERIFY"
+          "from": "PRG-70175ca5b4:DISCOVER",
+          "to": "PRG-70175ca5b4:VERIFY"
         },
         {
-          "from": "PRG-5e1f85b349:VERIFY",
-          "to": "PRG-5e1f85b349:EVALUATE"
+          "from": "PRG-70175ca5b4:VERIFY",
+          "to": "PRG-70175ca5b4:EVALUATE"
         },
         {
-          "from": "PRG-5e1f85b349:EVALUATE",
-          "to": "PRG-5e1f85b349:FALSIFY"
+          "from": "PRG-70175ca5b4:EVALUATE",
+          "to": "PRG-70175ca5b4:FALSIFY"
         },
         {
-          "from": "PRG-5e1f85b349:FALSIFY",
-          "to": "PRG-5e1f85b349:TRANSLATE"
+          "from": "PRG-70175ca5b4:FALSIFY",
+          "to": "PRG-70175ca5b4:TRANSLATE"
         },
         {
-          "from": "PRG-5e1f85b349:TRANSLATE",
-          "to": "PRG-5e1f85b349:EXPERIMENT"
+          "from": "PRG-70175ca5b4:TRANSLATE",
+          "to": "PRG-70175ca5b4:EXPERIMENT"
         },
         {
-          "from": "PRG-5e1f85b349:EXPERIMENT",
-          "to": "PRG-5e1f85b349:BENCHMARK"
+          "from": "PRG-70175ca5b4:EXPERIMENT",
+          "to": "PRG-70175ca5b4:BENCHMARK"
         },
         {
-          "from": "PRG-5e1f85b349:BENCHMARK",
-          "to": "PRG-5e1f85b349:IMPROVE"
+          "from": "PRG-70175ca5b4:BENCHMARK",
+          "to": "PRG-70175ca5b4:IMPROVE"
         },
         {
-          "from": "PRG-5e1f85b349:IMPROVE",
-          "to": "PRG-5e1f85b349:MEMORY"
+          "from": "PRG-70175ca5b4:IMPROVE",
+          "to": "PRG-70175ca5b4:MEMORY"
         },
         {
-          "from": "PRG-5e1f85b349:MEMORY",
-          "to": "PRG-5e1f85b349:DECIDE"
+          "from": "PRG-70175ca5b4:MEMORY",
+          "to": "PRG-70175ca5b4:DECIDE"
         },
         {
-          "from": "PRG-5e1f85b349:DECIDE",
-          "to": "PRG-5e1f85b349:OPERATE"
+          "from": "PRG-70175ca5b4:DECIDE",
+          "to": "PRG-70175ca5b4:OPERATE"
         }
       ],
       "nodes": [
         {
-          "id": "PRG-5e1f85b349:PLAN",
+          "id": "PRG-70175ca5b4:PLAN",
           "stage": "PLAN",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-5e1f85b349:OBSERVE",
+          "id": "PRG-70175ca5b4:OBSERVE",
           "stage": "OBSERVE",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-5e1f85b349:DISCOVER",
+          "id": "PRG-70175ca5b4:DISCOVER",
           "stage": "DISCOVER",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-5e1f85b349:VERIFY",
+          "id": "PRG-70175ca5b4:VERIFY",
           "stage": "VERIFY",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-5e1f85b349:EVALUATE",
+          "id": "PRG-70175ca5b4:EVALUATE",
           "stage": "EVALUATE",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-5e1f85b349:FALSIFY",
+          "id": "PRG-70175ca5b4:FALSIFY",
           "stage": "FALSIFY",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-5e1f85b349:TRANSLATE",
+          "id": "PRG-70175ca5b4:TRANSLATE",
           "stage": "TRANSLATE",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-5e1f85b349:EXPERIMENT",
+          "id": "PRG-70175ca5b4:EXPERIMENT",
           "stage": "EXPERIMENT",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-5e1f85b349:BENCHMARK",
+          "id": "PRG-70175ca5b4:BENCHMARK",
           "stage": "BENCHMARK",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-5e1f85b349:IMPROVE",
+          "id": "PRG-70175ca5b4:IMPROVE",
           "stage": "IMPROVE",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-5e1f85b349:MEMORY",
+          "id": "PRG-70175ca5b4:MEMORY",
           "stage": "MEMORY",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-5e1f85b349:DECIDE",
+          "id": "PRG-70175ca5b4:DECIDE",
           "stage": "DECIDE",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-5e1f85b349:OPERATE",
+          "id": "PRG-70175ca5b4:OPERATE",
           "stage": "OPERATE",
           "status": "PLANNED"
         }
       ],
-      "program_id": "PRG-5e1f85b349"
+      "program_id": "PRG-70175ca5b4"
     }
   ],
   "policy_gate": {
     "accepted": true,
-    "base_score": 0.7792857142857142,
-    "best_score": 0.7992857142857142,
+    "base_score": 0.7992857142857142,
+    "best_score": 0.8192857142857142,
     "policy": {
       "_variant": "minimum_sources:+1",
       "exploration_rate": 0.2,
-      "minimum_sources": 3,
+      "minimum_sources": 4,
       "morpheus_penalty": 0.2,
       "novelty_weight": 0.3
     },
@@ -1246,6 +1759,7 @@
       "credit_history": [],
       "genes": [],
       "id": "PRG-4514111357",
+      "independent_source_count": 3,
       "key": "somniosus microcephalus",
       "labs": [
         "longevity"
@@ -1288,6 +1802,11 @@
           "status": "PENDING"
         }
       ],
+      "pmid_sources": [
+        "PMID:41491153",
+        "PMID:42154556",
+        "PMID:42402335"
+      ],
       "priority_rank": 1,
       "source_count": 3,
       "sources": [
@@ -1310,7 +1829,7 @@
       ],
       "taxon_verified": true,
       "title": "Somniosus microcephalus",
-      "updated_at": "2026-09-23T15:37:12.537894+00:00"
+      "updated_at": "2026-09-23T15:58:57.385643+00:00"
     },
     {
       "age_days": 0,
@@ -1319,6 +1838,7 @@
       "credit_history": [],
       "genes": [],
       "id": "PRG-c73037fcfb",
+      "independent_source_count": 3,
       "key": "acomys cahirinus",
       "labs": [
         "regeneration"
@@ -1360,12 +1880,17 @@
           "status": "PENDING"
         }
       ],
+      "pmid_sources": [
+        "PMID:40883787",
+        "PMID:41732917",
+        "PMID:42194064"
+      ],
       "priority_rank": 2,
       "source_count": 3,
       "sources": [
+        "PMID:40883787",
         "PMID:41732917",
-        "PMID:42194064",
-        "PPR:PPR1272325"
+        "PMID:42194064"
       ],
       "stage": "DISCOVERY",
       "status": "ACTIVE",
@@ -1382,15 +1907,181 @@
       ],
       "taxon_verified": true,
       "title": "Acomys cahirinus",
-      "updated_at": "2026-09-23T15:37:12.537905+00:00"
+      "updated_at": "2026-09-23T15:58:57.385657+00:00"
     },
     {
       "age_days": 0,
-      "committee_score": 46,
+      "committee_score": 55,
+      "created_at": "2026-09-23T14:46:56.018642+00:00",
+      "credit_history": [],
+      "genes": [
+        "MAPK",
+        "NF-",
+        "OCTA",
+        "SD-OCT",
+        "VEGF"
+      ],
+      "id": "PRG-5fdcf74e81",
+      "independent_source_count": 3,
+      "key": "danio rerio",
+      "labs": [
+        "regeneration"
+      ],
+      "mechanisms": [
+        "Wnt",
+        "regeneration"
+      ],
+      "milestones": [
+        {
+          "id": "M1",
+          "kill": "<2 independent sources",
+          "name": "Replicate evidence",
+          "status": "PENDING"
+        },
+        {
+          "id": "M2",
+          "kill": "no causal mechanism candidate",
+          "name": "Resolve mechanism",
+          "status": "PENDING"
+        },
+        {
+          "id": "M3",
+          "kill": "no relevant conserved human context",
+          "name": "Human bridge",
+          "status": "PENDING"
+        },
+        {
+          "id": "M4",
+          "kill": "critical Morpheus failure unresolved",
+          "name": "Adversarial survival",
+          "status": "PENDING"
+        },
+        {
+          "id": "M5",
+          "kill": "no falsifiable perturbation test",
+          "name": "Experiment specification",
+          "status": "PENDING"
+        }
+      ],
+      "pmid_sources": [
+        "PMID:42314834",
+        "PMID:42690612",
+        "PMID:42755729"
+      ],
+      "priority_rank": 3,
+      "source_count": 3,
+      "sources": [
+        "PMID:42314834",
+        "PMID:42690612",
+        "PMID:42755729"
+      ],
+      "stage": "DISCOVERY",
+      "status": "ACTIVE",
+      "taxon_proofs": [
+        {
+          "canonical_name": "Danio rerio",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 9797255
+        }
+      ],
+      "taxon_verified": true,
+      "title": "Danio rerio",
+      "updated_at": "2026-09-23T15:58:57.385665+00:00"
+    },
+    {
+      "age_days": 0,
+      "committee_score": 55,
+      "created_at": "2026-09-23T14:46:56.018651+00:00",
+      "credit_history": [],
+      "genes": [
+        "PBD",
+        "PCNA",
+        "PCNA-",
+        "RT-PCR"
+      ],
+      "id": "PRG-14c747bea5",
+      "independent_source_count": 3,
+      "key": "cynops pyrrhogaster",
+      "labs": [
+        "regeneration"
+      ],
+      "mechanisms": [
+        "fibrosis",
+        "regeneration"
+      ],
+      "milestones": [
+        {
+          "id": "M1",
+          "kill": "<2 independent sources",
+          "name": "Replicate evidence",
+          "status": "PENDING"
+        },
+        {
+          "id": "M2",
+          "kill": "no causal mechanism candidate",
+          "name": "Resolve mechanism",
+          "status": "PENDING"
+        },
+        {
+          "id": "M3",
+          "kill": "no relevant conserved human context",
+          "name": "Human bridge",
+          "status": "PENDING"
+        },
+        {
+          "id": "M4",
+          "kill": "critical Morpheus failure unresolved",
+          "name": "Adversarial survival",
+          "status": "PENDING"
+        },
+        {
+          "id": "M5",
+          "kill": "no falsifiable perturbation test",
+          "name": "Experiment specification",
+          "status": "PENDING"
+        }
+      ],
+      "pmid_sources": [
+        "PMID:34944708",
+        "PMID:41751333",
+        "PMID:42702818"
+      ],
+      "priority_rank": 4,
+      "source_count": 3,
+      "sources": [
+        "PMID:34944708",
+        "PMID:41751333",
+        "PMID:42702818"
+      ],
+      "stage": "DISCOVERY",
+      "status": "ACTIVE",
+      "taxon_proofs": [
+        {
+          "canonical_name": "Cynops pyrrhogaster",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 2431862
+        }
+      ],
+      "taxon_verified": true,
+      "title": "Cynops pyrrhogaster",
+      "updated_at": "2026-09-23T15:58:57.385671+00:00"
+    },
+    {
+      "age_days": 0,
+      "committee_score": 50,
       "created_at": "2026-09-23T15:10:18.282024+00:00",
       "credit_history": [],
       "genes": [],
       "id": "PRG-7cd7bdba92",
+      "independent_source_count": 3,
       "key": "eublepharis macularius",
       "labs": [
         "immunology"
@@ -1430,9 +2121,15 @@
           "status": "PENDING"
         }
       ],
-      "priority_rank": 3,
-      "source_count": 2,
+      "pmid_sources": [
+        "PMID:32950659",
+        "PMID:42615433",
+        "PMID:42746048"
+      ],
+      "priority_rank": 5,
+      "source_count": 3,
       "sources": [
+        "PMID:32950659",
         "PMID:42615433",
         "PMID:42746048"
       ],
@@ -1451,20 +2148,20 @@
       ],
       "taxon_verified": true,
       "title": "Eublepharis macularius",
-      "updated_at": "2026-09-23T15:37:12.537912+00:00"
+      "updated_at": "2026-09-23T15:58:57.385676+00:00"
     },
     {
       "age_days": 0,
-      "committee_score": 41,
-      "created_at": "2026-09-23T15:10:18.282015+00:00",
+      "committee_score": 45,
+      "created_at": "2026-09-23T15:58:57.385710+00:00",
       "credit_history": [],
       "genes": [
-        "IBP",
         "NIH-",
         "USDA"
       ],
-      "id": "PRG-5e1f85b349",
-      "key": "caenorhabditis elegans",
+      "id": "PRG-70175ca5b4",
+      "independent_source_count": 3,
+      "key": "drosophila melanogaster",
       "labs": [
         "preservation"
       ],
@@ -1501,105 +2198,41 @@
           "status": "PENDING"
         }
       ],
+      "pmid_sources": [
+        "PMID:42208364",
+        "PMID:42217062",
+        "PMID:42686794"
+      ],
       "priority_rank": 6,
-      "source_count": 2,
+      "source_count": 3,
       "sources": [
-        "PMID:42169464",
-        "PMID:42208364"
+        "PMID:42208364",
+        "PMID:42217062",
+        "PMID:42686794"
       ],
       "stage": "DISCOVERY",
       "status": "ACTIVE",
       "taxon_proofs": [
         {
-          "canonical_name": "Caenorhabditis elegans",
+          "canonical_name": "Drosophila melanogaster",
           "kingdom": "Animalia",
           "match_type": "EXACT",
           "provider": "GBIF",
           "rank": "SPECIES",
           "status": "ACCEPTED",
-          "taxon_key": 2283683
+          "taxon_key": 5073713
         }
       ],
       "taxon_verified": true,
-      "title": "Caenorhabditis elegans",
-      "updated_at": "2026-09-23T15:37:12.537925+00:00"
+      "title": "Drosophila melanogaster",
+      "updated_at": "2026-09-23T15:58:57.385713+00:00"
     }
   ],
   "schema": "biomimic-v7-factory-cycle-v1",
   "scout_observations": [
     {
-      "genes": [
-        "MAPK",
-        "NF-",
-        "OCTA",
-        "SD-OCT",
-        "VEGF"
-      ],
-      "labs": [
-        "regeneration"
-      ],
-      "mechanisms": [
-        "Wnt",
-        "regeneration"
-      ],
-      "observation": "Danio rerio is a single-source observation awaiting independent replication.",
-      "replication_needed": 1,
-      "source_count": 1,
-      "sources": [
-        "PMID:42755729"
-      ],
-      "status": "SCOUT",
-      "subject": "Danio rerio",
-      "taxon_proofs": [
-        {
-          "canonical_name": "Danio rerio",
-          "kingdom": "Animalia",
-          "match_type": "EXACT",
-          "provider": "GBIF",
-          "rank": "SPECIES",
-          "status": "ACCEPTED",
-          "taxon_key": 9797255
-        }
-      ],
-      "taxon_verified": true
-    },
-    {
-      "genes": [
-        "PBD",
-        "PCNA",
-        "PCNA-",
-        "RT-PCR"
-      ],
-      "labs": [
-        "regeneration"
-      ],
-      "mechanisms": [
-        "fibrosis",
-        "regeneration"
-      ],
-      "observation": "Cynops pyrrhogaster is a single-source observation awaiting independent replication.",
-      "replication_needed": 1,
-      "source_count": 1,
-      "sources": [
-        "PMID:42702818"
-      ],
-      "status": "SCOUT",
-      "subject": "Cynops pyrrhogaster",
-      "taxon_proofs": [
-        {
-          "canonical_name": "Cynops pyrrhogaster",
-          "kingdom": "Animalia",
-          "match_type": "EXACT",
-          "provider": "GBIF",
-          "rank": "SPECIES",
-          "status": "ACCEPTED",
-          "taxon_key": 2431862
-        }
-      ],
-      "taxon_verified": true
-    },
-    {
       "genes": [],
+      "independent_source_count": 1,
       "labs": [
         "immunology"
       ],
@@ -1607,6 +2240,9 @@
         "immune"
       ],
       "observation": "Tiliqua scincoides is a single-source observation awaiting independent replication.",
+      "pmid_sources": [
+        "PMID:42746048"
+      ],
       "replication_needed": 1,
       "source_count": 1,
       "sources": [
@@ -1629,6 +2265,7 @@
     },
     {
       "genes": [],
+      "independent_source_count": 1,
       "labs": [
         "immunology"
       ],
@@ -1636,6 +2273,9 @@
         "immune"
       ],
       "observation": "Pantherophis guttatus is a single-source observation awaiting independent replication.",
+      "pmid_sources": [
+        "PMID:42746048"
+      ],
       "replication_needed": 1,
       "source_count": 1,
       "sources": [
@@ -1658,6 +2298,7 @@
     },
     {
       "genes": [],
+      "independent_source_count": 1,
       "labs": [
         "immunology"
       ],
@@ -1665,6 +2306,9 @@
         "immune"
       ],
       "observation": "Python regius is a single-source observation awaiting independent replication.",
+      "pmid_sources": [
+        "PMID:42746048"
+      ],
       "replication_needed": 1,
       "source_count": 1,
       "sources": [
@@ -1684,110 +2328,21 @@
         }
       ],
       "taxon_verified": true
-    },
-    {
-      "genes": [
-        "NIH-",
-        "USDA"
-      ],
-      "labs": [
-        "preservation"
-      ],
-      "mechanisms": [],
-      "observation": "Drosophila melanogaster is a single-source observation awaiting independent replication.",
-      "replication_needed": 1,
-      "source_count": 1,
-      "sources": [
-        "PMID:42208364"
-      ],
-      "status": "SCOUT",
-      "subject": "Drosophila melanogaster",
-      "taxon_proofs": [
-        {
-          "canonical_name": "Drosophila melanogaster",
-          "kingdom": "Animalia",
-          "match_type": "EXACT",
-          "provider": "GBIF",
-          "rank": "SPECIES",
-          "status": "ACCEPTED",
-          "taxon_key": 5073713
-        }
-      ],
-      "taxon_verified": true
-    },
-    {
-      "genes": [
-        "NIH-",
-        "USDA"
-      ],
-      "labs": [
-        "preservation"
-      ],
-      "mechanisms": [],
-      "observation": "Paracentrotus lividus is a single-source observation awaiting independent replication.",
-      "replication_needed": 1,
-      "source_count": 1,
-      "sources": [
-        "PMID:42208364"
-      ],
-      "status": "SCOUT",
-      "subject": "Paracentrotus lividus",
-      "taxon_proofs": [
-        {
-          "canonical_name": "Paracentrotus lividus",
-          "kingdom": "Animalia",
-          "match_type": "EXACT",
-          "provider": "GBIF",
-          "rank": "SPECIES",
-          "status": "ACCEPTED",
-          "taxon_key": 2278845
-        }
-      ],
-      "taxon_verified": true
-    },
-    {
-      "genes": [
-        "ER"
-      ],
-      "labs": [
-        "longevity"
-      ],
-      "mechanisms": [],
-      "observation": "Nothobranchius furzeri is a single-source observation awaiting independent replication.",
-      "replication_needed": 1,
-      "source_count": 1,
-      "sources": [
-        "PMID:41613827"
-      ],
-      "status": "SCOUT",
-      "subject": "Nothobranchius furzeri",
-      "taxon_proofs": [
-        {
-          "canonical_name": "Nothobranchius furzeri",
-          "kingdom": "Animalia",
-          "match_type": "EXACT",
-          "provider": "GBIF",
-          "rank": "SPECIES",
-          "status": "ACCEPTED",
-          "taxon_key": 2348706
-        }
-      ],
-      "taxon_verified": true
     }
   ],
-  "sha256": "edc2b38515dccf3764bd53de08e0448b5fdde67652b8a831053ec983dcdeec96",
+  "sha256": "c3dbba3327d5dc9f6bca7d551d03cbf6e4231ac230547527c037e73c967890ed",
   "status": "PASS",
   "telemetry": {
     "brick_observability_ratio": 1.0,
-    "claim_count": 4,
+    "claim_count": 9,
     "cross_lab_diversity": 0.5714285714285714,
     "false_positive_rate": 0.0,
     "fragile_claim_rate": 0.0,
     "provider_success_ratio": 1.0,
-    "replication_backlog": 8,
-    "scout_count": 8,
+    "replication_backlog": 3,
+    "scout_count": 3,
     "verified_ratio": 1.0
   },
-  "time": "2026-09-23T15:38:31.073922+00:00",
+  "time": "2026-09-23T15:59:16.514204+00:00",
   "unused_active_bricks": []
 }

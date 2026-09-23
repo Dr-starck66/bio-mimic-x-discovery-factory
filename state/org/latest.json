@@ -6,7 +6,7 @@
         "longevity"
       ],
       "name": "Somniosus microcephalus",
-      "research_credits": 12
+      "research_credits": 11
     },
     {
       "committee_score": 58,
@@ -14,10 +14,26 @@
         "regeneration"
       ],
       "name": "Acomys cahirinus",
-      "research_credits": 11
+      "research_credits": 10
     },
     {
-      "committee_score": 46,
+      "committee_score": 55,
+      "labs": [
+        "regeneration"
+      ],
+      "name": "Danio rerio",
+      "research_credits": 10
+    },
+    {
+      "committee_score": 55,
+      "labs": [
+        "regeneration"
+      ],
+      "name": "Cynops pyrrhogaster",
+      "research_credits": 10
+    },
+    {
+      "committee_score": 50,
       "labs": [
         "immunology"
       ],
@@ -27,18 +43,18 @@
     {
       "committee_score": 45,
       "labs": [
-        "regeneration"
+        "preservation"
       ],
-      "name": "Danio rerio",
-      "research_credits": 9
+      "name": "Drosophila melanogaster",
+      "research_credits": 8
     },
     {
       "committee_score": 45,
       "labs": [
-        "regeneration"
+        "preservation"
       ],
-      "name": "Cynops pyrrhogaster",
-      "research_credits": 9
+      "name": "Paracentrotus lividus",
+      "research_credits": 8
     },
     {
       "committee_score": 41,
@@ -46,7 +62,15 @@
         "preservation"
       ],
       "name": "Caenorhabditis elegans",
-      "research_credits": 8
+      "research_credits": 7
+    },
+    {
+      "committee_score": 40,
+      "labs": [
+        "longevity"
+      ],
+      "name": "Nothobranchius furzeri",
+      "research_credits": 7
     },
     {
       "committee_score": 40,
@@ -54,7 +78,7 @@
         "immunology"
       ],
       "name": "Tiliqua scincoides",
-      "research_credits": 8
+      "research_credits": 7
     },
     {
       "committee_score": 40,
@@ -62,7 +86,7 @@
         "immunology"
       ],
       "name": "Pantherophis guttatus",
-      "research_credits": 8
+      "research_credits": 7
     },
     {
       "committee_score": 40,
@@ -70,31 +94,7 @@
         "immunology"
       ],
       "name": "Python regius",
-      "research_credits": 8
-    },
-    {
-      "committee_score": 35,
-      "labs": [
-        "preservation"
-      ],
-      "name": "Drosophila melanogaster",
-      "research_credits": 7
-    },
-    {
-      "committee_score": 35,
-      "labs": [
-        "preservation"
-      ],
-      "name": "Paracentrotus lividus",
-      "research_credits": 7
-    },
-    {
-      "committee_score": 29,
-      "labs": [
-        "longevity"
-      ],
-      "name": "Nothobranchius furzeri",
-      "research_credits": 4
+      "research_credits": 6
     }
   ],
   "committee_rules": {
@@ -152,7 +152,7 @@
       "id": "cancer",
       "name": "ONCO-X Lab",
       "paper_count": 35,
-      "sha256": "ff257b0c047cd8bcd82f801123076c9e7f3a1f580613986a1c08c3869d6de69f",
+      "sha256": "1f6bccb895bcf946ae54a297c4a0c529ad94577b21c0cdb9a9c23b65f4f57b54",
       "status": "PASS"
     },
     {
@@ -160,7 +160,7 @@
       "id": "immunology",
       "name": "IMMUNO-X Lab",
       "paper_count": 35,
-      "sha256": "b0ada0859f440c2be4e751cb2db664b64aa76beac48c685272d56551b801eec3",
+      "sha256": "943d5c921abc7c4c95821433d9733a1fb02effac218905890bd9d4ccec050fae",
       "status": "PASS"
     },
     {
@@ -168,7 +168,7 @@
       "id": "longevity",
       "name": "LONGEVITY-X Lab",
       "paper_count": 35,
-      "sha256": "01ccfd5788b4c84eb17e3fbdf590a8d29241db1344560bdbb5eb4d099c15db11",
+      "sha256": "ec53dec954410d930856352f11b1eb10918784cc069b419094677a59ce889cef",
       "status": "PASS"
     },
     {
@@ -176,7 +176,7 @@
       "id": "metabolism",
       "name": "METABOLIC-X Lab",
       "paper_count": 35,
-      "sha256": "35050529db5d6c14d8701d91f12624f87fcb77c261affa566ef145ad542fa2c1",
+      "sha256": "dc83cb068c8123123ff9d371ea35cdb03b5a7c156aba1ad775ecf7649cb72fb2",
       "status": "PASS"
     },
     {
@@ -184,7 +184,7 @@
       "id": "neuro",
       "name": "NEURO-X Lab",
       "paper_count": 35,
-      "sha256": "bb77ef30a333455ff9c93dc3526c652e001f568d9e36557946d0ac002de618d2",
+      "sha256": "52246ca350ecf06a19a5752364ea9f6d4455022e316132e0c19f825c487a4c64",
       "status": "PASS"
     },
     {
@@ -192,7 +192,7 @@
       "id": "preservation",
       "name": "PRESERVE-X Lab",
       "paper_count": 35,
-      "sha256": "d41ddc19b661eeed937999848d929d9f7a7545104f5448bacb43aba76d9bae1d",
+      "sha256": "f2244dbfa053424abfbd1ac428d9e0be92933114321f04c78d86f4254ff91969",
       "status": "PASS"
     },
     {
@@ -200,7 +200,7 @@
       "id": "regeneration",
       "name": "REGEN-X Lab",
       "paper_count": 35,
-      "sha256": "6f185a058e30f27cf147560a43cf8f64dfd0223498d5490010b8275ac31b0121",
+      "sha256": "8951078fffbbe408829db118178358d78b9d52c2db97d19742d1458abe4c3b7d",
       "status": "PASS"
     }
   ],
@@ -217,6 +217,7 @@
       ],
       "committee_score": 61,
       "genes": [],
+      "independent_source_count": 3,
       "lab_count": 1,
       "labs": [
         "longevity"
@@ -229,6 +230,11 @@
         "senescence"
       ],
       "name": "Somniosus microcephalus",
+      "pmid_sources": [
+        "PMID:41491153",
+        "PMID:42154556",
+        "PMID:42402335"
+      ],
       "source_count": 3,
       "sources": [
         "PMID:41491153",
@@ -260,6 +266,7 @@
       ],
       "committee_score": 58,
       "genes": [],
+      "independent_source_count": 3,
       "lab_count": 1,
       "labs": [
         "regeneration"
@@ -271,11 +278,16 @@
         "regeneration"
       ],
       "name": "Acomys cahirinus",
+      "pmid_sources": [
+        "PMID:40883787",
+        "PMID:41732917",
+        "PMID:42194064"
+      ],
       "source_count": 3,
       "sources": [
+        "PMID:40883787",
         "PMID:41732917",
-        "PMID:42194064",
-        "PPR:PPR1272325"
+        "PMID:42194064"
       ],
       "taxon_proofs": [
         {
@@ -294,52 +306,12 @@
       "annotation_support": true,
       "challenges": [
         "correlation does not prove causation",
-        "human functional divergence remains possible",
-        "immune pathology tradeoffs",
-        "no gene symbol candidate",
-        "pathogen-specific adaptation",
-        "reservoir-host confounding"
-      ],
-      "committee_score": 46,
-      "genes": [],
-      "lab_count": 1,
-      "labs": [
-        "immunology"
-      ],
-      "mean_arbiter": 55.0,
-      "mechanisms": [
-        "immune"
-      ],
-      "name": "Eublepharis macularius",
-      "source_count": 2,
-      "sources": [
-        "PMID:42615433",
-        "PMID:42746048"
-      ],
-      "taxon_proofs": [
-        {
-          "canonical_name": "Eublepharis macularius",
-          "kingdom": "Animalia",
-          "match_type": "EXACT",
-          "provider": "GBIF",
-          "rank": "SPECIES",
-          "status": "ACCEPTED",
-          "taxon_key": 5221283
-        }
-      ],
-      "taxon_verified": true
-    },
-    {
-      "annotation_support": true,
-      "challenges": [
-        "correlation does not prove causation",
         "developmental-stage confounding",
         "fibrosis tradeoffs",
         "human functional divergence remains possible",
-        "regeneration-vs-repair ambiguity",
-        "single-paper dependence"
+        "regeneration-vs-repair ambiguity"
       ],
-      "committee_score": 45,
+      "committee_score": 55,
       "genes": [
         "MAPK",
         "NF-",
@@ -347,18 +319,26 @@
         "SD-OCT",
         "VEGF"
       ],
+      "independent_source_count": 3,
       "lab_count": 1,
       "labs": [
         "regeneration"
       ],
-      "mean_arbiter": 49.0,
+      "mean_arbiter": 67.0,
       "mechanisms": [
         "Wnt",
         "regeneration"
       ],
       "name": "Danio rerio",
-      "source_count": 1,
+      "pmid_sources": [
+        "PMID:42314834",
+        "PMID:42690612",
+        "PMID:42755729"
+      ],
+      "source_count": 3,
       "sources": [
+        "PMID:42314834",
+        "PMID:42690612",
         "PMID:42755729"
       ],
       "taxon_proofs": [
@@ -381,28 +361,35 @@
         "developmental-stage confounding",
         "fibrosis tradeoffs",
         "human functional divergence remains possible",
-        "regeneration-vs-repair ambiguity",
-        "single-paper dependence"
+        "regeneration-vs-repair ambiguity"
       ],
-      "committee_score": 45,
+      "committee_score": 55,
       "genes": [
         "PBD",
         "PCNA",
         "PCNA-",
         "RT-PCR"
       ],
+      "independent_source_count": 3,
       "lab_count": 1,
       "labs": [
         "regeneration"
       ],
-      "mean_arbiter": 49.0,
+      "mean_arbiter": 67.0,
       "mechanisms": [
         "fibrosis",
         "regeneration"
       ],
       "name": "Cynops pyrrhogaster",
-      "source_count": 1,
+      "pmid_sources": [
+        "PMID:34944708",
+        "PMID:41751333",
+        "PMID:42702818"
+      ],
+      "source_count": 3,
       "sources": [
+        "PMID:34944708",
+        "PMID:41751333",
         "PMID:42702818"
       ],
       "taxon_proofs": [
@@ -414,6 +401,146 @@
           "rank": "SPECIES",
           "status": "ACCEPTED",
           "taxon_key": 2431862
+        }
+      ],
+      "taxon_verified": true
+    },
+    {
+      "annotation_support": true,
+      "challenges": [
+        "correlation does not prove causation",
+        "human functional divergence remains possible",
+        "immune pathology tradeoffs",
+        "no gene symbol candidate",
+        "pathogen-specific adaptation",
+        "reservoir-host confounding"
+      ],
+      "committee_score": 50,
+      "genes": [],
+      "independent_source_count": 3,
+      "lab_count": 1,
+      "labs": [
+        "immunology"
+      ],
+      "mean_arbiter": 61.0,
+      "mechanisms": [
+        "immune"
+      ],
+      "name": "Eublepharis macularius",
+      "pmid_sources": [
+        "PMID:32950659",
+        "PMID:42615433",
+        "PMID:42746048"
+      ],
+      "source_count": 3,
+      "sources": [
+        "PMID:32950659",
+        "PMID:42615433",
+        "PMID:42746048"
+      ],
+      "taxon_proofs": [
+        {
+          "canonical_name": "Eublepharis macularius",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 5221283
+        }
+      ],
+      "taxon_verified": true
+    },
+    {
+      "annotation_support": true,
+      "challenges": [
+        "correlation does not prove causation",
+        "cryoprotectant toxicity",
+        "human functional divergence remains possible",
+        "phenotype without extracted mechanism",
+        "reperfusion injury",
+        "whole-animal vs isolated-organ mismatch"
+      ],
+      "committee_score": 45,
+      "genes": [
+        "NIH-",
+        "USDA"
+      ],
+      "independent_source_count": 3,
+      "lab_count": 1,
+      "labs": [
+        "preservation"
+      ],
+      "mean_arbiter": 54.0,
+      "mechanisms": [],
+      "name": "Drosophila melanogaster",
+      "pmid_sources": [
+        "PMID:42208364",
+        "PMID:42217062",
+        "PMID:42686794"
+      ],
+      "source_count": 3,
+      "sources": [
+        "PMID:42208364",
+        "PMID:42217062",
+        "PMID:42686794"
+      ],
+      "taxon_proofs": [
+        {
+          "canonical_name": "Drosophila melanogaster",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 5073713
+        }
+      ],
+      "taxon_verified": true
+    },
+    {
+      "annotation_support": true,
+      "challenges": [
+        "correlation does not prove causation",
+        "cryoprotectant toxicity",
+        "human functional divergence remains possible",
+        "phenotype without extracted mechanism",
+        "reperfusion injury",
+        "whole-animal vs isolated-organ mismatch"
+      ],
+      "committee_score": 45,
+      "genes": [
+        "NIH-",
+        "USDA"
+      ],
+      "independent_source_count": 3,
+      "lab_count": 1,
+      "labs": [
+        "preservation"
+      ],
+      "mean_arbiter": 54.0,
+      "mechanisms": [],
+      "name": "Paracentrotus lividus",
+      "pmid_sources": [
+        "PMID:38622199",
+        "PMID:42208364",
+        "PMID:42738576"
+      ],
+      "source_count": 3,
+      "sources": [
+        "PMID:38622199",
+        "PMID:42208364",
+        "PMID:42738576"
+      ],
+      "taxon_proofs": [
+        {
+          "canonical_name": "Paracentrotus lividus",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 2278845
         }
       ],
       "taxon_verified": true
@@ -434,6 +561,7 @@
         "NIH-",
         "USDA"
       ],
+      "independent_source_count": 2,
       "lab_count": 1,
       "labs": [
         "preservation"
@@ -441,6 +569,10 @@
       "mean_arbiter": 48.0,
       "mechanisms": [],
       "name": "Caenorhabditis elegans",
+      "pmid_sources": [
+        "PMID:42169464",
+        "PMID:42208364"
+      ],
       "source_count": 2,
       "sources": [
         "PMID:42169464",
@@ -460,6 +592,53 @@
       "taxon_verified": true
     },
     {
+      "annotation_support": false,
+      "challenges": [
+        "body-size confounding",
+        "correlation does not prove causation",
+        "human functional divergence remains possible",
+        "lifespan data quality",
+        "phenotype without extracted mechanism",
+        "phylogeny confounding",
+        "taxonomy not annotation-supported"
+      ],
+      "committee_score": 40,
+      "genes": [
+        "ER"
+      ],
+      "independent_source_count": 3,
+      "lab_count": 1,
+      "labs": [
+        "longevity"
+      ],
+      "mean_arbiter": 40.0,
+      "mechanisms": [],
+      "name": "Nothobranchius furzeri",
+      "pmid_sources": [
+        "PMID:41613827",
+        "PMID:42294401",
+        "PMID:42717099"
+      ],
+      "source_count": 3,
+      "sources": [
+        "PMID:41613827",
+        "PMID:42294401",
+        "PMID:42717099"
+      ],
+      "taxon_proofs": [
+        {
+          "canonical_name": "Nothobranchius furzeri",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 2348706
+        }
+      ],
+      "taxon_verified": true
+    },
+    {
       "annotation_support": true,
       "challenges": [
         "correlation does not prove causation",
@@ -472,6 +651,7 @@
       ],
       "committee_score": 40,
       "genes": [],
+      "independent_source_count": 1,
       "lab_count": 1,
       "labs": [
         "immunology"
@@ -481,6 +661,9 @@
         "immune"
       ],
       "name": "Tiliqua scincoides",
+      "pmid_sources": [
+        "PMID:42746048"
+      ],
       "source_count": 1,
       "sources": [
         "PMID:42746048"
@@ -511,6 +694,7 @@
       ],
       "committee_score": 40,
       "genes": [],
+      "independent_source_count": 1,
       "lab_count": 1,
       "labs": [
         "immunology"
@@ -520,6 +704,9 @@
         "immune"
       ],
       "name": "Pantherophis guttatus",
+      "pmid_sources": [
+        "PMID:42746048"
+      ],
       "source_count": 1,
       "sources": [
         "PMID:42746048"
@@ -550,6 +737,7 @@
       ],
       "committee_score": 40,
       "genes": [],
+      "independent_source_count": 1,
       "lab_count": 1,
       "labs": [
         "immunology"
@@ -559,6 +747,9 @@
         "immune"
       ],
       "name": "Python regius",
+      "pmid_sources": [
+        "PMID:42746048"
+      ],
       "source_count": 1,
       "sources": [
         "PMID:42746048"
@@ -575,129 +766,9 @@
         }
       ],
       "taxon_verified": true
-    },
-    {
-      "annotation_support": true,
-      "challenges": [
-        "correlation does not prove causation",
-        "cryoprotectant toxicity",
-        "human functional divergence remains possible",
-        "phenotype without extracted mechanism",
-        "reperfusion injury",
-        "single-paper dependence",
-        "whole-animal vs isolated-organ mismatch"
-      ],
-      "committee_score": 35,
-      "genes": [
-        "NIH-",
-        "USDA"
-      ],
-      "lab_count": 1,
-      "labs": [
-        "preservation"
-      ],
-      "mean_arbiter": 36.0,
-      "mechanisms": [],
-      "name": "Drosophila melanogaster",
-      "source_count": 1,
-      "sources": [
-        "PMID:42208364"
-      ],
-      "taxon_proofs": [
-        {
-          "canonical_name": "Drosophila melanogaster",
-          "kingdom": "Animalia",
-          "match_type": "EXACT",
-          "provider": "GBIF",
-          "rank": "SPECIES",
-          "status": "ACCEPTED",
-          "taxon_key": 5073713
-        }
-      ],
-      "taxon_verified": true
-    },
-    {
-      "annotation_support": true,
-      "challenges": [
-        "correlation does not prove causation",
-        "cryoprotectant toxicity",
-        "human functional divergence remains possible",
-        "phenotype without extracted mechanism",
-        "reperfusion injury",
-        "single-paper dependence",
-        "whole-animal vs isolated-organ mismatch"
-      ],
-      "committee_score": 35,
-      "genes": [
-        "NIH-",
-        "USDA"
-      ],
-      "lab_count": 1,
-      "labs": [
-        "preservation"
-      ],
-      "mean_arbiter": 36.0,
-      "mechanisms": [],
-      "name": "Paracentrotus lividus",
-      "source_count": 1,
-      "sources": [
-        "PMID:42208364"
-      ],
-      "taxon_proofs": [
-        {
-          "canonical_name": "Paracentrotus lividus",
-          "kingdom": "Animalia",
-          "match_type": "EXACT",
-          "provider": "GBIF",
-          "rank": "SPECIES",
-          "status": "ACCEPTED",
-          "taxon_key": 2278845
-        }
-      ],
-      "taxon_verified": true
-    },
-    {
-      "annotation_support": false,
-      "challenges": [
-        "body-size confounding",
-        "correlation does not prove causation",
-        "human functional divergence remains possible",
-        "lifespan data quality",
-        "phenotype without extracted mechanism",
-        "phylogeny confounding",
-        "single-paper dependence",
-        "taxonomy not annotation-supported"
-      ],
-      "committee_score": 29,
-      "genes": [
-        "ER"
-      ],
-      "lab_count": 1,
-      "labs": [
-        "longevity"
-      ],
-      "mean_arbiter": 22.0,
-      "mechanisms": [],
-      "name": "Nothobranchius furzeri",
-      "source_count": 1,
-      "sources": [
-        "PMID:41613827"
-      ],
-      "taxon_proofs": [
-        {
-          "canonical_name": "Nothobranchius furzeri",
-          "kingdom": "Animalia",
-          "match_type": "EXACT",
-          "provider": "GBIF",
-          "rank": "SPECIES",
-          "status": "ACCEPTED",
-          "taxon_key": 2348706
-        }
-      ],
-      "taxon_verified": true
     }
   ],
   "schema": "biomimic-v6-org-run-v1",
-  "sha256": "a5e540ef411fb6bf67078703bf27de0bcdcee0c731f43e536fec510fbe975e8a",
-  "time": "2026-09-23T15:37:12.433298+00:00"
+  "sha256": "67de5f7b7ad7dc0d31dcf6fcf685e1b9483c54196d60e0eeb0a9bdfb356004d4",
+  "time": "2026-09-23T15:58:57.304200+00:00"
 }
