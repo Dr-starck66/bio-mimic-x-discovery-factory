@@ -410,6 +410,7 @@ def europepmc_record(pmid):
         url=EPMC_SEARCH+"?"+urllib.parse.urlencode({
             "query":f"EXT_ID:{pmid}",
             "format":"json",
+            "resultType":"core",
             "pageSize":"1"
         })
         data=get_json(url,1)
