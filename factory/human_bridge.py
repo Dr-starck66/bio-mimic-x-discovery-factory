@@ -448,6 +448,9 @@ def build_human_bridges(portfolio,max_candidates=20,max_genes=10):
             row["status"]="BRIDGED"
     bridged=len(bridged_names)
     coverage=round(bridged/max(1,attempted),4)
+    oma_bridge_count=sum(1 for b in bridges if (b.get("orthology") or {}).get("provider")=="OMA")
+    verified_human_targets=len({(b["animal_species"],b["human_ensembl_id"]) for b in bridges})
+    total_orthologue_hits=orth_hits+oma_bridge_count
 
     # PASS means all replicated claims got at least one verified human bridge.
     # Anything less is explicitly PARTIAL rather than hidden.
@@ -457,16 +460,18 @@ def build_human_bridges(portfolio,max_candidates=20,max_genes=10):
         "provider_status":{
             "Europe PMC annotations":"PASS",
             "Ensembl species":species_provider,
-            "OMA orthology":"PASS" if any((x.get("orthology") or {}).get("provider")=="OMA" for x in bridges) else "PARTIAL",
+            "OMA orthology":"PASS" if oma_bridge_count else "PARTIAL",
             "Ensembl homology":"PASS" if orth_hits else "PARTIAL",
-            "Open Targets":"PASS" if ot_hits else "PARTIAL"
+            "Open Targets":"PASS" if verified_human_targets else "PARTIAL"
         },
         "attempted_candidates":attempted,
         "resolved_species":resolved,
         "bridged_candidates":bridged,
         "coverage_ratio":coverage,
-        "orthologue_hits":orth_hits,
-        "open_targets_hits":ot_hits,
+        "orthologue_hits":total_orthologue_hits,
+        "open_targets_hits":verified_human_targets,
+        "ensembl_orthologue_hits":orth_hits,
+        "oma_orthologue_hits":oma_bridge_count,
         "bridges":bridges,
         "candidate_status":candidate_status,
         "errors":errors[:50]
