@@ -54,5 +54,40 @@ class TestHumanBridge(unittest.TestCase):
     def test_bridge_pass_requires_full_claim_coverage_shape(self):
         self.assertIn("PASS","PASS")
 
+
+    def test_bridge_seeds_require_evidence_pmids(self):
+        for species,rows in human_bridge.BRIDGE_SEEDS.items():
+            self.assertTrue(species)
+            for row in rows:
+                self.assertTrue(row.get("gene"))
+                self.assertTrue(row.get("evidence_pmids"))
+
+    def test_ncbi_bridge_requires_exact_chain(self):
+        original_gene=human_bridge.ncbi_exact_gene
+        original_orth=human_bridge.ncbi_human_orthologs
+        original_ot=human_bridge.opentarget_context
+        try:
+            human_bridge.ncbi_exact_gene=lambda species,gene: {
+                "gene_id":"129332189","symbol":"SOX2","tax_id":"481883","taxname":"Eublepharis macularius"
+            } if species=="Eublepharis macularius" and gene=="SOX2" else None
+            human_bridge.ncbi_human_orthologs=lambda gid: [{
+                "ensembl_id":"ENSG00000181449","gene_id":"6657","symbol":"SOX2","ortholog_method":"NCBI Ortholog"
+            }] if gid=="129332189" else []
+            human_bridge.opentarget_context=lambda ensg: {
+                "approved_symbol":"SOX2","approved_name":"SRY-box transcription factor 2",
+                "biotype":"protein_coding","tractability":[]
+            } if ensg=="ENSG00000181449" else None
+            candidate={"subject":"Eublepharis macularius","pmid_sources":["PMID:42615433"]}
+            bridges,stats=human_bridge.ncbi_bridges_for_candidate(candidate)
+            self.assertGreaterEqual(len(bridges),1)
+            self.assertEqual(bridges[0]["human_symbol"],"SOX2")
+            self.assertEqual(bridges[0]["orthology"]["provider"],"NCBI Ortholog")
+            self.assertTrue(bridges[0]["bridge_evidence_pmids"])
+            self.assertEqual(stats["ncbi_exact_genes"],1)
+        finally:
+            human_bridge.ncbi_exact_gene=original_gene
+            human_bridge.ncbi_human_orthologs=original_orth
+            human_bridge.opentarget_context=original_ot
+
 if __name__=="__main__":
     unittest.main()
