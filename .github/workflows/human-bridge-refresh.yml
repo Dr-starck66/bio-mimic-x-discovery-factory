@@ -1,0 +1,81 @@
+name: BIO-MIMIC X Human Bridge Refresh
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'human_bridge_refresh.py'
+      - 'factory/human_bridge.py'
+      - '.github/workflows/human-bridge-refresh.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: biomimic-human-bridge-refresh
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Refresh Human Bridge against latest main
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "BIO-MIMIC-X-HUMAN-BRIDGE"
+          git config user.email "biomimic-x-human-bridge@users.noreply.github.com"
+
+          ok=0
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git reset --hard origin/main
+
+            python human_bridge_refresh.py
+
+            git add state/factory/latest.json public/data/factory/latest.json reports/factory/HUMAN-BRIDGE-LATEST.md
+            if git diff --cached --quiet; then
+              echo "No Human Bridge state change."
+              ok=1
+              break
+            fi
+
+            git commit -m "bridge: refresh verified human translation state"
+            if git push origin HEAD:main; then
+              ok=1
+              break
+            fi
+
+            echo "Push race detected; recomputing from newest main..."
+            sleep 2
+          done
+
+          test "$ok" = "1"
+
+      - name: Validate persisted bridge state
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          p=pathlib.Path("state/factory/latest.json")
+          x=json.loads(p.read_text(encoding="utf-8"))
+          h=x["human_bridge_result"]
+          assert x["bridge_refresh"]["supported_claims"] == len(x["claims"])
+          assert h["attempted_candidates"] == len(x["claims"])
+          assert 0 <= h["coverage_ratio"] <= 1
+          assert pathlib.Path("reports/factory/HUMAN-BRIDGE-LATEST.md").exists()
+          print({
+            "supported_claims": len(x["claims"]),
+            "bridged_candidates": h["bridged_candidates"],
+            "coverage_ratio": h["coverage_ratio"],
+            "status": h["status"]
+          })
+          PY
