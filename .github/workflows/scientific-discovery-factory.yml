@@ -2,13 +2,6 @@ name: BIO-MIMIC X V7 Scientific Discovery Factory
 
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - 'organization/**'
-      - 'factory/**'
-      - 'tests/**'
-      - '.github/workflows/scientific-discovery-factory.yml'
   schedule:
     - cron: '17 3 * * *'
 
