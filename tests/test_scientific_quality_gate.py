@@ -24,5 +24,11 @@ class TestScientificQualityGate(unittest.TestCase):
         self.assertEqual([x["name"] for x in p],["Ambystoma mexicanum"])
         self.assertTrue(p[0]["taxon_verified"])
 
+    def test_annotation_support_cannot_replace_taxonomy(self):
+        outs=[{"lab_id":"x","candidates":[
+            {"name":"Insulin resistance","sources":["P1","P2"],"mechanisms":["metabolism"],"genes":[],"arbiter":90,"priority":90,"challenge_flags":[],"annotation_support":True,"taxon_verified":False}
+        ]}]
+        self.assertEqual(committee.cross_lab_portfolio(outs),[])
+
 if __name__=="__main__":
     unittest.main()
