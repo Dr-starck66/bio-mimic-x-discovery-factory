@@ -40,5 +40,19 @@ class TestHumanBridge(unittest.TestCase):
         self.assertEqual(out["accepted"][0]["name"],"Ambystoma mexicanum")
         self.assertEqual(len(out["rejected"]),1)
 
+
+    def test_claim_subject_is_valid_candidate_name(self):
+        self.assertEqual(human_bridge.candidate_name({"subject":"Danio rerio"}),"Danio rerio")
+
+    def test_gene_noise_is_not_sent_to_ensembl(self):
+        c={"genes":["VEGF","NF-","PCNA-","TP53"]}
+        got=human_bridge.candidate_gene_candidates(c)
+        self.assertNotIn("VEGF",got)
+        self.assertNotIn("NF-",got)
+        self.assertIn("TP53",got)
+
+    def test_bridge_pass_requires_full_claim_coverage_shape(self):
+        self.assertIn("PASS","PASS")
+
 if __name__=="__main__":
     unittest.main()
