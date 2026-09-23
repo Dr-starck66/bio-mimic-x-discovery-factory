@@ -36,15 +36,21 @@ def candidate_key(name): return " ".join((name or "").lower().split())
 def cross_lab_portfolio(outputs):
     bucket=defaultdict(lambda:{
         "name":None,"labs":set(),"sources":set(),"mechanisms":set(),"genes":set(),
-        "arbiter_scores":[],"priorities":[],"challenges":set(),"annotation_support":False
+        "arbiter_scores":[],"priorities":[],"challenges":set(),"annotation_support":False,
+        "taxon_verified":False,"taxon_proofs":[]
     })
     for o in outputs:
         for c in o.get("candidates",[]):
+            if not c.get("taxon_verified") and not c.get("annotation_support"):
+                continue
             k=candidate_key(c["name"]); b=bucket[k]; b["name"]=c["name"]; b["labs"].add(o["lab_id"])
             b["sources"].update(c.get("sources",[])); b["mechanisms"].update(c.get("mechanisms",[]))
             b["genes"].update(c.get("genes",[])); b["arbiter_scores"].append(c.get("arbiter",0))
             b["priorities"].append(c.get("priority",0)); b["challenges"].update(c.get("challenge_flags",[]))
             b["annotation_support"]=b["annotation_support"] or bool(c.get("annotation_support"))
+            if c.get("taxon_verified"):
+                b["taxon_verified"]=True
+                if c.get("taxon_proof"): b["taxon_proofs"].append(c["taxon_proof"])
     out=[]
     for b in bucket.values():
         lab_count=len(b["labs"])
@@ -54,12 +60,14 @@ def cross_lab_portfolio(outputs):
         provenance=min(100,source_count*10)
         mechanism=min(100,len(b["mechanisms"])*22)
         challenge_penalty=min(30,len(b["challenges"])*2.0)
-        committee=max(0,round(mean_arb*0.38+convergence*0.22+provenance*0.18+mechanism*0.12+(15 if b["annotation_support"] else 0)-challenge_penalty*0.10))
+        taxonomy_bonus=15 if b["taxon_verified"] else 5 if b["annotation_support"] else 0
+        committee=max(0,round(mean_arb*0.36+convergence*0.22+provenance*0.18+mechanism*0.12+taxonomy_bonus-challenge_penalty*0.10))
         out.append({
             "name":b["name"],"labs":sorted(b["labs"]),"lab_count":lab_count,
             "sources":sorted(b["sources"]),"source_count":source_count,
             "mechanisms":sorted(b["mechanisms"]),"genes":sorted(b["genes"])[:30],
             "mean_arbiter":round(mean_arb,2),"annotation_support":b["annotation_support"],
+            "taxon_verified":b["taxon_verified"],"taxon_proofs":b["taxon_proofs"][:3],
             "committee_score":committee,"challenges":sorted(b["challenges"])
         })
     out.sort(key=lambda x:(-x["committee_score"],-x["lab_count"],-x["source_count"]))
@@ -111,7 +119,8 @@ def main():
         "labs":[{"id":o["lab_id"],"name":o["lab_name"],"status":o["status"],"paper_count":o["paper_count"],"candidate_count":o["candidate_count"],"sha256":o["sha256"]} for o in outputs],
         "portfolio":portfolio[:50],"allocations":credits,"cross_lab_challenges":challenges,
         "committee_rules":{
-            "score_components":["mean arbiter","cross-lab convergence","provenance","mechanism density","annotation support","challenge penalty"],
+            "hard_gate":"taxon_verified OR organism_annotation_support",
+            "score_components":["mean arbiter","cross-lab convergence","provenance","mechanism density","taxonomy proof","challenge penalty"],
             "research_credits":"internal prioritization units, not currency"
         }
     }
