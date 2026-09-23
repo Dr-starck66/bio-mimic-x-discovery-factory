@@ -1,0 +1,38 @@
+name: BIO-MIMIC X OrthoDB Probe
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/orthodb-probe.yml'
+
+jobs:
+  probe:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Probe OrthoDB v12 for Cynops SHH and Acomys IL10
+        run: |
+          python - <<'PY'
+          import json, urllib.parse, urllib.request
+
+          BASE="https://data.orthodb.org/v12"
+          def get(path,params):
+              url=BASE+path+"?"+urllib.parse.urlencode(params)
+              req=urllib.request.Request(url,headers={"Accept":"application/json","User-Agent":"BIO-MIMIC-X"})
+              with urllib.request.urlopen(req,timeout=25) as r:
+                  return json.loads(r.read().decode())
+
+          queries=["Q90385","SHH_CYNPY","SHH Cynops pyrrhogaster","IL10 Acomys cahirinus"]
+          for q in queries:
+              try:
+                  d=get("/genesearch",{"query":q})
+                  print("\nQUERY",q)
+                  print(json.dumps(d,indent=2)[:15000])
+              except Exception as e:
+                  print("\nQUERY",q,"ERR",repr(e))
+          PY
