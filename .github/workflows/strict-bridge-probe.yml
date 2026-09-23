@@ -25,7 +25,7 @@ jobs:
 
           species="Cynops pyrrhogaster"
           seed=h.PHYLO_SEEDS[species][0]
-          candidate={"subject":species,"pmid_sources":["PMID:34944708","PMID:41751333","PMID:42702818","PMID:39595071"]}
+          candidate={"subject":species,"pmid_sources":["PMID:34944708","PMID:41751333","PMID:42702818"]}
           raw=h.uniprot_entry(seed["animal_uniprot"]) or {}
           exact=h.uniprot_exact_species_gene(seed["animal_uniprot"],species,seed["animal_gene"],seed["animal_taxon_id"])
           try: ot=h.opentarget_context(seed["human_ensembl_id"])
@@ -45,6 +45,7 @@ jobs:
             "accession_in_phylogeny_matches":seed.get("exact_species_accession_in_phylogeny")==seed.get("animal_uniprot"),
             "paralog_controls_pass":{"ihh","dhh"}.issubset(controls),
             "modern_claim_pmid_pass":str(seed.get("modern_evidence_pmid")) in pmids,
+            "bridge_context_paper_pass":h.validate_bridge_context_paper(seed["modern_evidence_pmid"],species,seed["animal_gene"]),
             "open_targets_symbol":None if not isinstance(ot,dict) else ot.get("approved_symbol"),
             "open_targets_error":None if not isinstance(ot,dict) else ot.get("error"),
             "bridge_count":len(bridges),
