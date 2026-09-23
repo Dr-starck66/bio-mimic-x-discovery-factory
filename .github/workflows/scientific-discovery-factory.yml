@@ -16,8 +16,8 @@ permissions:
   contents: write
 
 concurrency:
-  group: biomimic-v7-factory
-  cancel-in-progress: false
+  group: biomimic-v7-factory-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   specialist-labs:
