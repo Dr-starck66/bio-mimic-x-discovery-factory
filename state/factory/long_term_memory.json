@@ -567,6 +567,33 @@
       "taxon_proofs": [],
       "taxon_verified": false
     },
+    "Nothobranchius furzeri": {
+      "claim": "Nothobranchius furzeri is a cross-species research candidate; this is not a human efficacy claim.",
+      "genes": [
+        "ER"
+      ],
+      "labs": [
+        "longevity"
+      ],
+      "mechanisms": [],
+      "sources": [
+        "PMID:41613827"
+      ],
+      "status": "PLAUSIBLE",
+      "subject": "Nothobranchius furzeri",
+      "taxon_proofs": [
+        {
+          "canonical_name": "Nothobranchius furzeri",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 2348706
+        }
+      ],
+      "taxon_verified": true
+    },
     "Pantherophis guttatus": {
       "claim": "Pantherophis guttatus is a cross-species research candidate; this is not a human efficacy claim.",
       "genes": [],
@@ -830,6 +857,7 @@
     },
     "Somniosus microcephalus": {
       "claim": "Somniosus microcephalus is a cross-species research candidate; this is not a human efficacy claim.",
+      "genes": [],
       "labs": [
         "longevity"
       ],
@@ -843,7 +871,19 @@
         "PMID:42402335"
       ],
       "status": "PLAUSIBLE",
-      "subject": "Somniosus microcephalus"
+      "subject": "Somniosus microcephalus",
+      "taxon_proofs": [
+        {
+          "canonical_name": "Somniosus microcephalus",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 2421162
+        }
+      ],
+      "taxon_verified": true
     },
     "Staphylococcus aureus": {
       "claim": "Staphylococcus aureus is a cross-species research candidate; this is not a human efficacy claim.",
@@ -1392,7 +1432,7 @@
       "subject": "Wound healing"
     }
   },
-  "cycles": 3,
+  "cycles": 4,
   "experiments": {
     "PRG-14a8494d89": {
       "counterfactual_tests": [
@@ -1502,6 +1542,35 @@
         "test human-relevant model only after conservation check"
       ],
       "subject": "This study"
+    },
+    "PRG-5e1f85b349": {
+      "counterfactual_tests": [
+        "compare a close species lacking the phenotype",
+        "perturb candidate mechanism and perform rescue",
+        "test same mechanism in an evolutionarily distant species with similar phenotype",
+        "test human orthologue/pathway in disease-relevant human cells"
+      ],
+      "hypothesis": "A mechanism associated with Caenorhabditis elegans may causally contribute to the target phenotype.",
+      "kill_criteria": [
+        "no reproducible phenotype",
+        "no conserved mechanism",
+        "human perturbation does not reproduce direction of effect",
+        "unacceptable toxicity or contradictory evidence"
+      ],
+      "program_id": "PRG-5e1f85b349",
+      "sha256": "549f0b7cc268f9d5e3a4a392205ae53e076e0e0d4c7d7867e060f8949113ac79",
+      "sources": [
+        "PMID:42169464",
+        "PMID:42208364"
+      ],
+      "steps": [
+        "replicate phenotype under controlled conditions",
+        "perturb candidate mechanism",
+        "perform rescue experiment",
+        "test evolutionarily close negative control",
+        "test human-relevant model only after conservation check"
+      ],
+      "subject": "Caenorhabditis elegans"
     },
     "PRG-5fdcf74e81": {
       "counterfactual_tests": [
@@ -1907,6 +1976,13 @@
         "PRG-6cfac6b023"
       ],
       "time": "2026-09-23T14:47:10.009541+00:00"
+    },
+    {
+      "cycle_sha256": "6ca7fdd6cf305ae21114e085fe4120139974fc44813c3955f994cd3624fc16ba",
+      "programs": [
+        "PRG-5e1f85b349"
+      ],
+      "time": "2026-09-23T15:11:36.338264+00:00"
     }
   ]
 }

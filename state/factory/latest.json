@@ -3,6 +3,7 @@
     {
       "flags": [
         "single-lab dependence",
+        "phenotype without mechanism",
         "phylogeny confound",
         "publication bias",
         "correlation not causation",
@@ -14,96 +15,12 @@
         "human perturbation does not reproduce direction of effect",
         "unacceptable toxicity or contradictory evidence"
       ],
-      "program_id": "PRG-ebd4ae030a"
-    },
-    {
-      "flags": [
-        "single-lab dependence",
-        "phylogeny confound",
-        "publication bias",
-        "correlation not causation",
-        "human functional divergence"
-      ],
-      "kill_criteria": [
-        "no reproducible phenotype",
-        "no conserved mechanism",
-        "human perturbation does not reproduce direction of effect",
-        "unacceptable toxicity or contradictory evidence"
-      ],
-      "program_id": "PRG-d2d991fa39"
-    },
-    {
-      "flags": [
-        "insufficient independent-source replication",
-        "single-lab dependence",
-        "phylogeny confound",
-        "publication bias",
-        "correlation not causation",
-        "human functional divergence"
-      ],
-      "kill_criteria": [
-        "no reproducible phenotype",
-        "no conserved mechanism",
-        "human perturbation does not reproduce direction of effect",
-        "unacceptable toxicity or contradictory evidence"
-      ],
-      "program_id": "PRG-c73037fcfb"
-    },
-    {
-      "flags": [
-        "insufficient independent-source replication",
-        "single-lab dependence",
-        "phylogeny confound",
-        "publication bias",
-        "correlation not causation",
-        "human functional divergence"
-      ],
-      "kill_criteria": [
-        "no reproducible phenotype",
-        "no conserved mechanism",
-        "human perturbation does not reproduce direction of effect",
-        "unacceptable toxicity or contradictory evidence"
-      ],
-      "program_id": "PRG-5fdcf74e81"
-    },
-    {
-      "flags": [
-        "insufficient independent-source replication",
-        "single-lab dependence",
-        "phylogeny confound",
-        "publication bias",
-        "correlation not causation",
-        "human functional divergence"
-      ],
-      "kill_criteria": [
-        "no reproducible phenotype",
-        "no conserved mechanism",
-        "human perturbation does not reproduce direction of effect",
-        "unacceptable toxicity or contradictory evidence"
-      ],
-      "program_id": "PRG-14c747bea5"
-    },
-    {
-      "flags": [
-        "insufficient independent-source replication",
-        "single-lab dependence",
-        "phylogeny confound",
-        "publication bias",
-        "correlation not causation",
-        "human functional divergence"
-      ],
-      "kill_criteria": [
-        "no reproducible phenotype",
-        "no conserved mechanism",
-        "human perturbation does not reproduce direction of effect",
-        "unacceptable toxicity or contradictory evidence"
-      ],
-      "program_id": "PRG-6cfac6b023"
+      "program_id": "PRG-5e1f85b349"
     }
   ],
   "benchmark": {
-    "cross_lab_diversity": 0.7571,
-    "falsification_depth": 0.7083,
+    "cross_lab_diversity": 0.4714,
+    "falsification_depth": 0.75,
     "provenance_ratio": 0.5
   },
   "brick_usage": [
@@ -114,7 +31,7 @@
       "output_ref": "cycle_plan",
       "stage": "CONTROL",
       "status": "PASS",
-      "time": "2026-09-23T14:46:56.018401+00:00",
+      "time": "2026-09-23T15:10:18.281710+00:00",
       "value": 14
     },
     {
@@ -124,8 +41,8 @@
       "output_ref": "state/factory/programs.json",
       "stage": "PLAN",
       "status": "PASS",
-      "time": "2026-09-23T14:46:56.019648+00:00",
-      "value": 6
+      "time": "2026-09-23T15:10:18.283268+00:00",
+      "value": 1
     },
     {
       "brick_id": "aion-nexus",
@@ -134,8 +51,8 @@
       "output_ref": "mission_graphs",
       "stage": "PLAN",
       "status": "PASS",
-      "time": "2026-09-23T14:46:56.019705+00:00",
-      "value": 6
+      "time": "2026-09-23T15:10:18.283287+00:00",
+      "value": 1
     },
     {
       "brick_id": "data-fusion",
@@ -144,8 +61,8 @@
       "output_ref": "normalized_bundle",
       "stage": "OBSERVE",
       "status": "PASS",
-      "time": "2026-09-23T14:46:56.019718+00:00",
-      "value": 0.8571
+      "time": "2026-09-23T15:10:18.283301+00:00",
+      "value": 1.0
     },
     {
       "brick_id": "agentshield",
@@ -154,7 +71,7 @@
       "output_ref": "trusted_bundle",
       "stage": "OBSERVE",
       "status": "PASS",
-      "time": "2026-09-23T14:46:56.019728+00:00",
+      "time": "2026-09-23T15:10:18.283310+00:00",
       "value": 0
     },
     {
@@ -164,8 +81,8 @@
       "output_ref": "committee.portfolio",
       "stage": "DISCOVER",
       "status": "PASS",
-      "time": "2026-09-23T14:46:56.019731+00:00",
-      "value": 24
+      "time": "2026-09-23T15:10:18.283313+00:00",
+      "value": 12
     },
     {
       "brick_id": "decision-engine",
@@ -174,7 +91,7 @@
       "output_ref": "committee.allocations",
       "stage": "DECIDE",
       "status": "PASS",
-      "time": "2026-09-23T14:46:56.019737+00:00",
+      "time": "2026-09-23T15:10:18.283319+00:00",
       "value": 100
     },
     {
@@ -184,7 +101,7 @@
       "output_ref": "claim_ledger",
       "stage": "VERIFY",
       "status": "PASS",
-      "time": "2026-09-23T14:47:10.008947+00:00",
+      "time": "2026-09-23T15:11:36.337743+00:00",
       "value": 1.0
     },
     {
@@ -194,8 +111,8 @@
       "output_ref": "committee.portfolio",
       "stage": "EVALUATE",
       "status": "PASS",
-      "time": "2026-09-23T14:47:10.008979+00:00",
-      "value": 9.25
+      "time": "2026-09-23T15:11:36.337783+00:00",
+      "value": 3.167
     },
     {
       "brick_id": "morpheus",
@@ -204,8 +121,8 @@
       "output_ref": "morpheus_audits",
       "stage": "FALSIFY",
       "status": "PASS",
-      "time": "2026-09-23T14:47:10.009273+00:00",
-      "value": 5.667
+      "time": "2026-09-23T15:11:36.338050+00:00",
+      "value": 6.0
     },
     {
       "brick_id": "omega-causal",
@@ -214,8 +131,8 @@
       "output_ref": "causal_plans",
       "stage": "FALSIFY",
       "status": "PASS",
-      "time": "2026-09-23T14:47:10.009279+00:00",
-      "value": 6
+      "time": "2026-09-23T15:11:36.338057+00:00",
+      "value": 1
     },
     {
       "brick_id": "negative-kg",
@@ -224,7 +141,7 @@
       "output_ref": "negative_filter",
       "stage": "MEMORY",
       "status": "PASS",
-      "time": "2026-09-23T14:47:10.009284+00:00",
+      "time": "2026-09-23T15:11:36.338061+00:00",
       "value": 0
     },
     {
@@ -233,9 +150,9 @@
       "name": "Human Bridge",
       "output_ref": "human_bridge_result",
       "stage": "TRANSLATE",
-      "status": "PASS",
-      "time": "2026-09-23T14:47:10.009289+00:00",
-      "value": 1
+      "status": "PARTIAL",
+      "time": "2026-09-23T15:11:36.338066+00:00",
+      "value": 0
     },
     {
       "brick_id": "experiment-forge",
@@ -244,8 +161,8 @@
       "output_ref": "experiments",
       "stage": "EXPERIMENT",
       "status": "PASS",
-      "time": "2026-09-23T14:47:10.009294+00:00",
-      "value": 6
+      "time": "2026-09-23T15:11:36.338070+00:00",
+      "value": 1
     },
     {
       "brick_id": "benchmark-x10",
@@ -254,8 +171,8 @@
       "output_ref": "benchmark",
       "stage": "BENCHMARK",
       "status": "PASS",
-      "time": "2026-09-23T14:47:10.009317+00:00",
-      "value": 1.9654
+      "time": "2026-09-23T15:11:36.338090+00:00",
+      "value": 1.7214
     },
     {
       "brick_id": "omega-foundry",
@@ -264,7 +181,7 @@
       "output_ref": "policy_variants",
       "stage": "IMPROVE",
       "status": "PASS",
-      "time": "2026-09-23T14:47:10.009507+00:00",
+      "time": "2026-09-23T15:11:36.338232+00:00",
       "value": 8
     },
     {
@@ -274,7 +191,7 @@
       "output_ref": "policy_gate",
       "stage": "IMPROVE",
       "status": "PASS",
-      "time": "2026-09-23T14:47:10.009538+00:00",
+      "time": "2026-09-23T15:11:36.338261+00:00",
       "value": 1
     },
     {
@@ -284,8 +201,8 @@
       "output_ref": "state/factory/long_term_memory.json",
       "stage": "MEMORY",
       "status": "PASS",
-      "time": "2026-09-23T14:47:10.012011+00:00",
-      "value": 30
+      "time": "2026-09-23T15:11:36.341184+00:00",
+      "value": 13
     },
     {
       "brick_id": "omega-telemetry",
@@ -294,7 +211,7 @@
       "output_ref": "telemetry",
       "stage": "OBSERVE",
       "status": "PASS",
-      "time": "2026-09-23T14:47:10.012047+00:00",
+      "time": "2026-09-23T15:11:36.341225+00:00",
       "value": 1.0
     },
     {
@@ -304,7 +221,7 @@
       "output_ref": "validated_state",
       "stage": "OPERATE",
       "status": "PASS",
-      "time": "2026-09-23T14:47:10.012052+00:00",
+      "time": "2026-09-23T15:11:36.341232+00:00",
       "value": 1.0
     }
   ],
@@ -319,82 +236,7 @@
       ],
       "uncertainty": {
         "human_translation": 0.7,
-        "mechanistic": 0.3,
-        "publication_bias": 0.35,
-        "taxonomic": 0.55
-      }
-    },
-    {
-      "association_only": true,
-      "counterfactual_tests": [
-        "compare a close species lacking the phenotype",
-        "perturb candidate mechanism and perform rescue",
-        "test same mechanism in an evolutionarily distant species with similar phenotype",
-        "test human orthologue/pathway in disease-relevant human cells"
-      ],
-      "uncertainty": {
-        "human_translation": 0.7,
-        "mechanistic": 0.3,
-        "publication_bias": 0.35,
-        "taxonomic": 0.55
-      }
-    },
-    {
-      "association_only": true,
-      "counterfactual_tests": [
-        "compare a close species lacking the phenotype",
-        "perturb candidate mechanism and perform rescue",
-        "test same mechanism in an evolutionarily distant species with similar phenotype",
-        "test human orthologue/pathway in disease-relevant human cells"
-      ],
-      "uncertainty": {
-        "human_translation": 0.7,
-        "mechanistic": 0.3,
-        "publication_bias": 0.35,
-        "taxonomic": 0.55
-      }
-    },
-    {
-      "association_only": true,
-      "counterfactual_tests": [
-        "compare a close species lacking the phenotype",
-        "perturb candidate mechanism and perform rescue",
-        "test same mechanism in an evolutionarily distant species with similar phenotype",
-        "test human orthologue/pathway in disease-relevant human cells"
-      ],
-      "uncertainty": {
-        "human_translation": 0.7,
-        "mechanistic": 0.3,
-        "publication_bias": 0.35,
-        "taxonomic": 0.55
-      }
-    },
-    {
-      "association_only": true,
-      "counterfactual_tests": [
-        "compare a close species lacking the phenotype",
-        "perturb candidate mechanism and perform rescue",
-        "test same mechanism in an evolutionarily distant species with similar phenotype",
-        "test human orthologue/pathway in disease-relevant human cells"
-      ],
-      "uncertainty": {
-        "human_translation": 0.7,
-        "mechanistic": 0.3,
-        "publication_bias": 0.35,
-        "taxonomic": 0.55
-      }
-    },
-    {
-      "association_only": true,
-      "counterfactual_tests": [
-        "compare a close species lacking the phenotype",
-        "perturb candidate mechanism and perform rescue",
-        "test same mechanism in an evolutionarily distant species with similar phenotype",
-        "test human orthologue/pathway in disease-relevant human cells"
-      ],
-      "uncertainty": {
-        "human_translation": 0.7,
-        "mechanistic": 0.3,
+        "mechanistic": 0.75,
         "publication_bias": 0.35,
         "taxonomic": 0.55
       }
@@ -402,60 +244,34 @@
   ],
   "claims": [
     {
-      "claim": "Insulin resistance is a cross-species research candidate; this is not a human efficacy claim.",
-      "genes": [
-        "HDL-C",
-        "HOMA-IR",
-        "HSP70",
-        "MASLD",
-        "NAFLD",
-        "OGTT",
-        "TG"
-      ],
+      "claim": "Somniosus microcephalus is a cross-species research candidate; this is not a human efficacy claim.",
+      "genes": [],
       "labs": [
-        "metabolism"
+        "longevity"
       ],
       "mechanisms": [
-        "mitochondria",
-        "oxidative stress"
+        "DNA repair",
+        "genome maintenance",
+        "proteostasis",
+        "senescence"
       ],
       "sources": [
-        "PMID:42589246",
-        "PMID:42591408",
-        "PMID:42654246",
-        "PMID:42713502"
+        "PMID:42402335"
       ],
-      "status": "SUPPORTED",
-      "subject": "Insulin resistance",
-      "taxon_proofs": [],
-      "taxon_verified": false
-    },
-    {
-      "claim": "Neurological disorders is a cross-species research candidate; this is not a human efficacy claim.",
-      "genes": [
-        "BBB",
-        "CFB",
-        "EV",
-        "PCA",
-        "PD"
+      "status": "PLAUSIBLE",
+      "subject": "Somniosus microcephalus",
+      "taxon_proofs": [
+        {
+          "canonical_name": "Somniosus microcephalus",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 2421162
+        }
       ],
-      "labs": [
-        "neuro"
-      ],
-      "mechanisms": [
-        "mitochondria",
-        "neuroprotection",
-        "oxidative stress",
-        "regeneration"
-      ],
-      "sources": [
-        "PMID:42212363",
-        "PMID:42625393"
-      ],
-      "status": "SUPPORTED",
-      "subject": "Neurological disorders",
-      "taxon_proofs": [],
-      "taxon_verified": false
+      "taxon_verified": true
     },
     {
       "claim": "Acomys cahirinus is a cross-species research candidate; this is not a human efficacy claim.",
@@ -552,81 +368,6 @@
         }
       ],
       "taxon_verified": true
-    },
-    {
-      "claim": "Pituitary adenylate is a cross-species research candidate; this is not a human efficacy claim.",
-      "genes": [
-        "NLRP3",
-        "PAC1",
-        "PACAP",
-        "VPAC1",
-        "VPAC2"
-      ],
-      "labs": [
-        "neuro"
-      ],
-      "mechanisms": [
-        "mitochondria",
-        "neuroprotection",
-        "oxidative stress",
-        "regeneration"
-      ],
-      "sources": [
-        "PMID:42614376"
-      ],
-      "status": "PLAUSIBLE",
-      "subject": "Pituitary adenylate",
-      "taxon_proofs": [],
-      "taxon_verified": false
-    },
-    {
-      "claim": "Mitochondrial dysfunction is a cross-species research candidate; this is not a human efficacy claim.",
-      "genes": [
-        "NLRP3",
-        "PAC1",
-        "PACAP",
-        "VPAC1",
-        "VPAC2"
-      ],
-      "labs": [
-        "neuro"
-      ],
-      "mechanisms": [
-        "mitochondria",
-        "neuroprotection",
-        "oxidative stress",
-        "regeneration"
-      ],
-      "sources": [
-        "PMID:42614376"
-      ],
-      "status": "PLAUSIBLE",
-      "subject": "Mitochondrial dysfunction",
-      "taxon_proofs": [],
-      "taxon_verified": false
-    },
-    {
-      "claim": "Protocatechuic acid is a cross-species research candidate; this is not a human efficacy claim.",
-      "genes": [
-        "PCA",
-        "PD"
-      ],
-      "labs": [
-        "neuro"
-      ],
-      "mechanisms": [
-        "mitochondria",
-        "neuroprotection",
-        "oxidative stress",
-        "regeneration"
-      ],
-      "sources": [
-        "PMID:42212363"
-      ],
-      "status": "PLAUSIBLE",
-      "subject": "Protocatechuic acid",
-      "taxon_proofs": [],
-      "taxon_verified": false
     },
     {
       "claim": "Caenorhabditis elegans is a cross-species research candidate; this is not a human efficacy claim.",
@@ -767,32 +508,6 @@
       "taxon_verified": true
     },
     {
-      "claim": "Cerebral ischemia is a cross-species research candidate; this is not a human efficacy claim.",
-      "genes": [
-        "BBB",
-        "HO-1",
-        "IL-",
-        "PI3K",
-        "PI3K-",
-        "TNF-"
-      ],
-      "labs": [
-        "neuro"
-      ],
-      "mechanisms": [
-        "mitochondria",
-        "neuroprotection",
-        "oxidative stress"
-      ],
-      "sources": [
-        "PMID:42260757"
-      ],
-      "status": "PLAUSIBLE",
-      "subject": "Cerebral ischemia",
-      "taxon_proofs": [],
-      "taxon_verified": false
-    },
-    {
       "claim": "Drosophila melanogaster is a cross-species research candidate; this is not a human efficacy claim.",
       "genes": [
         "NIH-",
@@ -849,166 +564,31 @@
       "taxon_verified": true
     },
     {
-      "claim": "Staphylococcus aureus is a cross-species research candidate; this is not a human efficacy claim.",
+      "claim": "Nothobranchius furzeri is a cross-species research candidate; this is not a human efficacy claim.",
       "genes": [
-        "AO",
-        "HA",
-        "III",
-        "MRSA",
-        "MRSA-"
+        "ER"
       ],
       "labs": [
-        "regeneration"
-      ],
-      "mechanisms": [
-        "extracellular matrix",
-        "regeneration"
-      ],
-      "sources": [
-        "PMID:42762838"
-      ],
-      "status": "PLAUSIBLE",
-      "subject": "Staphylococcus aureus",
-      "taxon_proofs": [],
-      "taxon_verified": false
-    },
-    {
-      "claim": "Lactobacillus johnsonii is a cross-species research candidate; this is not a human efficacy claim.",
-      "genes": [],
-      "labs": [
-        "immunology"
-      ],
-      "mechanisms": [
-        "immune",
-        "inflammation"
-      ],
-      "sources": [
-        "PMID:42638873"
-      ],
-      "status": "PLAUSIBLE",
-      "subject": "Lactobacillus johnsonii",
-      "taxon_proofs": [],
-      "taxon_verified": false
-    },
-    {
-      "claim": "Interferon regulatory is a cross-species research candidate; this is not a human efficacy claim.",
-      "genes": [
-        "AKO",
-        "AKT",
-        "HFD",
-        "IRF1",
-        "L1",
-        "TOMM20"
-      ],
-      "labs": [
-        "metabolism"
-      ],
-      "mechanisms": [
-        "mitochondria"
-      ],
-      "sources": [
-        "PMID:42653336"
-      ],
-      "status": "PLAUSIBLE",
-      "subject": "Interferon regulatory",
-      "taxon_proofs": [],
-      "taxon_verified": false
-    },
-    {
-      "claim": "Metabolic diseases is a cross-species research candidate; this is not a human efficacy claim.",
-      "genes": [
-        "ER",
-        "EV",
-        "EV-",
-        "METHODS"
-      ],
-      "labs": [
-        "metabolism"
-      ],
-      "mechanisms": [
-        "mitochondria"
-      ],
-      "sources": [
-        "PMID:42290027"
-      ],
-      "status": "PLAUSIBLE",
-      "subject": "Metabolic diseases",
-      "taxon_proofs": [],
-      "taxon_verified": false
-    },
-    {
-      "claim": "Gestational diabetes is a cross-species research candidate; this is not a human efficacy claim.",
-      "genes": [
-        "GDM",
-        "OGTT"
-      ],
-      "labs": [
-        "metabolism"
-      ],
-      "mechanisms": [
-        "oxidative stress"
-      ],
-      "sources": [
-        "PMID:42516090"
-      ],
-      "status": "PLAUSIBLE",
-      "subject": "Gestational diabetes",
-      "taxon_proofs": [],
-      "taxon_verified": false
-    },
-    {
-      "claim": "Saccharomyces cerevisiae is a cross-species research candidate; this is not a human efficacy claim.",
-      "genes": [
-        "HOG",
-        "MAPK"
-      ],
-      "labs": [
-        "preservation"
-      ],
-      "mechanisms": [
-        "mitochondria"
-      ],
-      "sources": [
-        "PMID:42045390"
-      ],
-      "status": "PLAUSIBLE",
-      "subject": "Saccharomyces cerevisiae",
-      "taxon_proofs": [],
-      "taxon_verified": false
-    },
-    {
-      "claim": "Heat shock is a cross-species research candidate; this is not a human efficacy claim.",
-      "genes": [],
-      "labs": [
-        "immunology"
-      ],
-      "mechanisms": [
-        "immune"
-      ],
-      "sources": [
-        "PMID:42609872"
-      ],
-      "status": "PLAUSIBLE",
-      "subject": "Heat shock",
-      "taxon_proofs": [],
-      "taxon_verified": false
-    },
-    {
-      "claim": "Persistent infection is a cross-species research candidate; this is not a human efficacy claim.",
-      "genes": [
-        "HR-HPV"
-      ],
-      "labs": [
-        "cancer"
+        "longevity"
       ],
       "mechanisms": [],
       "sources": [
-        "PMID:42621466"
+        "PMID:41613827"
       ],
       "status": "PLAUSIBLE",
-      "subject": "Persistent infection",
-      "taxon_proofs": [],
-      "taxon_verified": false
+      "subject": "Nothobranchius furzeri",
+      "taxon_proofs": [
+        {
+          "canonical_name": "Nothobranchius furzeri",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 2348706
+        }
+      ],
+      "taxon_verified": true
     }
   ],
   "experiments": [
@@ -1019,20 +599,18 @@
         "test same mechanism in an evolutionarily distant species with similar phenotype",
         "test human orthologue/pathway in disease-relevant human cells"
       ],
-      "hypothesis": "A mechanism associated with Insulin resistance may causally contribute to the target phenotype.",
+      "hypothesis": "A mechanism associated with Caenorhabditis elegans may causally contribute to the target phenotype.",
       "kill_criteria": [
         "no reproducible phenotype",
         "no conserved mechanism",
         "human perturbation does not reproduce direction of effect",
         "unacceptable toxicity or contradictory evidence"
       ],
-      "program_id": "PRG-ebd4ae030a",
-      "sha256": "3410caf132d3ccd9d4c3f44791ff097a96ce1424f328b7c20c57c10bc5959ca1",
+      "program_id": "PRG-5e1f85b349",
+      "sha256": "549f0b7cc268f9d5e3a4a392205ae53e076e0e0d4c7d7867e060f8949113ac79",
       "sources": [
-        "PMID:42589246",
-        "PMID:42591408",
-        "PMID:42654246",
-        "PMID:42713502"
+        "PMID:42169464",
+        "PMID:42208364"
       ],
       "steps": [
         "replicate phenotype under controlled conditions",
@@ -1041,148 +619,7 @@
         "test evolutionarily close negative control",
         "test human-relevant model only after conservation check"
       ],
-      "subject": "Insulin resistance"
-    },
-    {
-      "counterfactual_tests": [
-        "compare a close species lacking the phenotype",
-        "perturb candidate mechanism and perform rescue",
-        "test same mechanism in an evolutionarily distant species with similar phenotype",
-        "test human orthologue/pathway in disease-relevant human cells"
-      ],
-      "hypothesis": "A mechanism associated with Neurological disorders may causally contribute to the target phenotype.",
-      "kill_criteria": [
-        "no reproducible phenotype",
-        "no conserved mechanism",
-        "human perturbation does not reproduce direction of effect",
-        "unacceptable toxicity or contradictory evidence"
-      ],
-      "program_id": "PRG-d2d991fa39",
-      "sha256": "149621efca96faf667dcd760fc93f5494f24a5e4e6d8f18c366e0fbdb3de618c",
-      "sources": [
-        "PMID:42212363",
-        "PMID:42625393"
-      ],
-      "steps": [
-        "replicate phenotype under controlled conditions",
-        "perturb candidate mechanism",
-        "perform rescue experiment",
-        "test evolutionarily close negative control",
-        "test human-relevant model only after conservation check"
-      ],
-      "subject": "Neurological disorders"
-    },
-    {
-      "counterfactual_tests": [
-        "compare a close species lacking the phenotype",
-        "perturb candidate mechanism and perform rescue",
-        "test same mechanism in an evolutionarily distant species with similar phenotype",
-        "test human orthologue/pathway in disease-relevant human cells"
-      ],
-      "hypothesis": "A mechanism associated with Acomys cahirinus may causally contribute to the target phenotype.",
-      "kill_criteria": [
-        "no reproducible phenotype",
-        "no conserved mechanism",
-        "human perturbation does not reproduce direction of effect",
-        "unacceptable toxicity or contradictory evidence"
-      ],
-      "program_id": "PRG-c73037fcfb",
-      "sha256": "3a64fd9feb44691c61f7dcb46dc04ec4320eed33739ccbd627e9b8d178b7769d",
-      "sources": [
-        "PMID:41732917"
-      ],
-      "steps": [
-        "replicate phenotype under controlled conditions",
-        "perturb candidate mechanism",
-        "perform rescue experiment",
-        "test evolutionarily close negative control",
-        "test human-relevant model only after conservation check"
-      ],
-      "subject": "Acomys cahirinus"
-    },
-    {
-      "counterfactual_tests": [
-        "compare a close species lacking the phenotype",
-        "perturb candidate mechanism and perform rescue",
-        "test same mechanism in an evolutionarily distant species with similar phenotype",
-        "test human orthologue/pathway in disease-relevant human cells"
-      ],
-      "hypothesis": "A mechanism associated with Danio rerio may causally contribute to the target phenotype.",
-      "kill_criteria": [
-        "no reproducible phenotype",
-        "no conserved mechanism",
-        "human perturbation does not reproduce direction of effect",
-        "unacceptable toxicity or contradictory evidence"
-      ],
-      "program_id": "PRG-5fdcf74e81",
-      "sha256": "2d389e1464518065936f7a7c8685a7cc35fce770e113b41190c63843d65cc9b6",
-      "sources": [
-        "PMID:42755729"
-      ],
-      "steps": [
-        "replicate phenotype under controlled conditions",
-        "perturb candidate mechanism",
-        "perform rescue experiment",
-        "test evolutionarily close negative control",
-        "test human-relevant model only after conservation check"
-      ],
-      "subject": "Danio rerio"
-    },
-    {
-      "counterfactual_tests": [
-        "compare a close species lacking the phenotype",
-        "perturb candidate mechanism and perform rescue",
-        "test same mechanism in an evolutionarily distant species with similar phenotype",
-        "test human orthologue/pathway in disease-relevant human cells"
-      ],
-      "hypothesis": "A mechanism associated with Cynops pyrrhogaster may causally contribute to the target phenotype.",
-      "kill_criteria": [
-        "no reproducible phenotype",
-        "no conserved mechanism",
-        "human perturbation does not reproduce direction of effect",
-        "unacceptable toxicity or contradictory evidence"
-      ],
-      "program_id": "PRG-14c747bea5",
-      "sha256": "17a02a252988e1a119514291ca23d68aed5bf643a2fcf01a95a3658ddcc555a8",
-      "sources": [
-        "PMID:42702818"
-      ],
-      "steps": [
-        "replicate phenotype under controlled conditions",
-        "perturb candidate mechanism",
-        "perform rescue experiment",
-        "test evolutionarily close negative control",
-        "test human-relevant model only after conservation check"
-      ],
-      "subject": "Cynops pyrrhogaster"
-    },
-    {
-      "counterfactual_tests": [
-        "compare a close species lacking the phenotype",
-        "perturb candidate mechanism and perform rescue",
-        "test same mechanism in an evolutionarily distant species with similar phenotype",
-        "test human orthologue/pathway in disease-relevant human cells"
-      ],
-      "hypothesis": "A mechanism associated with Pituitary adenylate may causally contribute to the target phenotype.",
-      "kill_criteria": [
-        "no reproducible phenotype",
-        "no conserved mechanism",
-        "human perturbation does not reproduce direction of effect",
-        "unacceptable toxicity or contradictory evidence"
-      ],
-      "program_id": "PRG-6cfac6b023",
-      "sha256": "38278d75fe1d9cf4652588cef66a31526e71016c80eb2b38b446f6740f9a484e",
-      "sources": [
-        "PMID:42614376"
-      ],
-      "steps": [
-        "replicate phenotype under controlled conditions",
-        "perturb candidate mechanism",
-        "perform rescue experiment",
-        "test evolutionarily close negative control",
-        "test human-relevant model only after conservation check"
-      ],
-      "subject": "Pituitary adenylate"
+      "subject": "Caenorhabditis elegans"
     }
   ],
   "human_bridge_result": {
@@ -1274,6 +711,12 @@
         "error": "HTTP Error 400: Bad Request",
         "gene": "SD-OCT",
         "stage": "ensembl_homology"
+      },
+      {
+        "candidate": "Nothobranchius furzeri",
+        "error": "The read operation timed out",
+        "gene": "ER",
+        "stage": "ensembl_homology"
       }
     ],
     "open_targets_hits": 1,
@@ -1283,7 +726,7 @@
       "Ensembl species": "PASS",
       "Open Targets": "PASS"
     },
-    "resolved_species": 1,
+    "resolved_species": 2,
     "status": "PASS"
   },
   "human_translation": [
@@ -1298,860 +741,135 @@
         "toxicity check"
       ],
       "status": "UNVERIFIED_HUMAN_BRIDGE",
-      "subject": "Insulin resistance"
-    },
-    {
-      "animal_claim_not_promoted_to_human_efficacy": true,
-      "bridges": [],
-      "required": [
-        "Ensembl-resolvable species",
-        "verified human orthologue",
-        "Open Targets target context",
-        "causal perturbation",
-        "toxicity check"
-      ],
-      "status": "UNVERIFIED_HUMAN_BRIDGE",
-      "subject": "Neurological disorders"
-    },
-    {
-      "animal_claim_not_promoted_to_human_efficacy": true,
-      "bridges": [],
-      "required": [
-        "Ensembl-resolvable species",
-        "verified human orthologue",
-        "Open Targets target context",
-        "causal perturbation",
-        "toxicity check"
-      ],
-      "status": "UNVERIFIED_HUMAN_BRIDGE",
-      "subject": "Acomys cahirinus"
-    },
-    {
-      "animal_claim_not_promoted_to_human_efficacy": true,
-      "bridges": [
-        {
-          "animal_ensembl_species": "danio_rerio",
-          "animal_gene": "VEGF",
-          "animal_species": "Danio rerio",
-          "clinical_efficacy_claim": false,
-          "human_biotype": "protein_coding",
-          "human_ensembl_id": "ENSG00000112715",
-          "human_name": "vascular endothelial growth factor A",
-          "human_symbol": "VEGFA",
-          "orthology": {
-            "ensembl_id": "ENSG00000112715",
-            "perc_id": 27.0886,
-            "perc_pos": 34.6835,
-            "protein_id": "ENSP00000500082",
-            "taxon_id": 9606
-          },
-          "source_chain": [
-            "candidate taxonomy proof / organism annotation",
-            "Ensembl Compara orthology",
-            "Open Targets human target annotation"
-          ],
-          "tractability": [
-            {
-              "label": "Structure with Ligand",
-              "modality": "SM"
-            },
-            {
-              "label": "High-Quality Ligand",
-              "modality": "SM"
-            },
-            {
-              "label": "Med-Quality Pocket",
-              "modality": "SM"
-            },
-            {
-              "label": "Approved Drug",
-              "modality": "AB"
-            },
-            {
-              "label": "UniProt loc high conf",
-              "modality": "AB"
-            },
-            {
-              "label": "GO CC high conf",
-              "modality": "AB"
-            },
-            {
-              "label": "UniProt loc med conf",
-              "modality": "AB"
-            },
-            {
-              "label": "Small Molecule Binder",
-              "modality": "PR"
-            },
-            {
-              "label": "Approved Drug",
-              "modality": "OC"
-            }
-          ],
-          "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
-        }
-      ],
-      "remaining": [
-        "disease-specific human evidence",
-        "causal perturbation",
-        "toxicity check"
-      ],
-      "status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
-      "subject": "Danio rerio"
-    },
-    {
-      "animal_claim_not_promoted_to_human_efficacy": true,
-      "bridges": [],
-      "required": [
-        "Ensembl-resolvable species",
-        "verified human orthologue",
-        "Open Targets target context",
-        "causal perturbation",
-        "toxicity check"
-      ],
-      "status": "UNVERIFIED_HUMAN_BRIDGE",
-      "subject": "Cynops pyrrhogaster"
-    },
-    {
-      "animal_claim_not_promoted_to_human_efficacy": true,
-      "bridges": [],
-      "required": [
-        "Ensembl-resolvable species",
-        "verified human orthologue",
-        "Open Targets target context",
-        "causal perturbation",
-        "toxicity check"
-      ],
-      "status": "UNVERIFIED_HUMAN_BRIDGE",
-      "subject": "Pituitary adenylate"
+      "subject": "Caenorhabditis elegans"
     }
   ],
   "mission_graphs": [
     {
       "edges": [
         {
-          "from": "PRG-ebd4ae030a:PLAN",
-          "to": "PRG-ebd4ae030a:OBSERVE"
+          "from": "PRG-5e1f85b349:PLAN",
+          "to": "PRG-5e1f85b349:OBSERVE"
         },
         {
-          "from": "PRG-ebd4ae030a:OBSERVE",
-          "to": "PRG-ebd4ae030a:DISCOVER"
+          "from": "PRG-5e1f85b349:OBSERVE",
+          "to": "PRG-5e1f85b349:DISCOVER"
         },
         {
-          "from": "PRG-ebd4ae030a:DISCOVER",
-          "to": "PRG-ebd4ae030a:VERIFY"
+          "from": "PRG-5e1f85b349:DISCOVER",
+          "to": "PRG-5e1f85b349:VERIFY"
         },
         {
-          "from": "PRG-ebd4ae030a:VERIFY",
-          "to": "PRG-ebd4ae030a:EVALUATE"
+          "from": "PRG-5e1f85b349:VERIFY",
+          "to": "PRG-5e1f85b349:EVALUATE"
         },
         {
-          "from": "PRG-ebd4ae030a:EVALUATE",
-          "to": "PRG-ebd4ae030a:FALSIFY"
+          "from": "PRG-5e1f85b349:EVALUATE",
+          "to": "PRG-5e1f85b349:FALSIFY"
         },
         {
-          "from": "PRG-ebd4ae030a:FALSIFY",
-          "to": "PRG-ebd4ae030a:TRANSLATE"
+          "from": "PRG-5e1f85b349:FALSIFY",
+          "to": "PRG-5e1f85b349:TRANSLATE"
         },
         {
-          "from": "PRG-ebd4ae030a:TRANSLATE",
-          "to": "PRG-ebd4ae030a:EXPERIMENT"
+          "from": "PRG-5e1f85b349:TRANSLATE",
+          "to": "PRG-5e1f85b349:EXPERIMENT"
         },
         {
-          "from": "PRG-ebd4ae030a:EXPERIMENT",
-          "to": "PRG-ebd4ae030a:BENCHMARK"
+          "from": "PRG-5e1f85b349:EXPERIMENT",
+          "to": "PRG-5e1f85b349:BENCHMARK"
         },
         {
-          "from": "PRG-ebd4ae030a:BENCHMARK",
-          "to": "PRG-ebd4ae030a:IMPROVE"
+          "from": "PRG-5e1f85b349:BENCHMARK",
+          "to": "PRG-5e1f85b349:IMPROVE"
         },
         {
-          "from": "PRG-ebd4ae030a:IMPROVE",
-          "to": "PRG-ebd4ae030a:MEMORY"
+          "from": "PRG-5e1f85b349:IMPROVE",
+          "to": "PRG-5e1f85b349:MEMORY"
         },
         {
-          "from": "PRG-ebd4ae030a:MEMORY",
-          "to": "PRG-ebd4ae030a:DECIDE"
+          "from": "PRG-5e1f85b349:MEMORY",
+          "to": "PRG-5e1f85b349:DECIDE"
         },
         {
-          "from": "PRG-ebd4ae030a:DECIDE",
-          "to": "PRG-ebd4ae030a:OPERATE"
+          "from": "PRG-5e1f85b349:DECIDE",
+          "to": "PRG-5e1f85b349:OPERATE"
         }
       ],
       "nodes": [
         {
-          "id": "PRG-ebd4ae030a:PLAN",
+          "id": "PRG-5e1f85b349:PLAN",
           "stage": "PLAN",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-ebd4ae030a:OBSERVE",
+          "id": "PRG-5e1f85b349:OBSERVE",
           "stage": "OBSERVE",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-ebd4ae030a:DISCOVER",
+          "id": "PRG-5e1f85b349:DISCOVER",
           "stage": "DISCOVER",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-ebd4ae030a:VERIFY",
+          "id": "PRG-5e1f85b349:VERIFY",
           "stage": "VERIFY",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-ebd4ae030a:EVALUATE",
+          "id": "PRG-5e1f85b349:EVALUATE",
           "stage": "EVALUATE",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-ebd4ae030a:FALSIFY",
+          "id": "PRG-5e1f85b349:FALSIFY",
           "stage": "FALSIFY",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-ebd4ae030a:TRANSLATE",
+          "id": "PRG-5e1f85b349:TRANSLATE",
           "stage": "TRANSLATE",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-ebd4ae030a:EXPERIMENT",
+          "id": "PRG-5e1f85b349:EXPERIMENT",
           "stage": "EXPERIMENT",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-ebd4ae030a:BENCHMARK",
+          "id": "PRG-5e1f85b349:BENCHMARK",
           "stage": "BENCHMARK",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-ebd4ae030a:IMPROVE",
+          "id": "PRG-5e1f85b349:IMPROVE",
           "stage": "IMPROVE",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-ebd4ae030a:MEMORY",
+          "id": "PRG-5e1f85b349:MEMORY",
           "stage": "MEMORY",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-ebd4ae030a:DECIDE",
+          "id": "PRG-5e1f85b349:DECIDE",
           "stage": "DECIDE",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-ebd4ae030a:OPERATE",
+          "id": "PRG-5e1f85b349:OPERATE",
           "stage": "OPERATE",
           "status": "PLANNED"
         }
       ],
-      "program_id": "PRG-ebd4ae030a"
-    },
-    {
-      "edges": [
-        {
-          "from": "PRG-d2d991fa39:PLAN",
-          "to": "PRG-d2d991fa39:OBSERVE"
-        },
-        {
-          "from": "PRG-d2d991fa39:OBSERVE",
-          "to": "PRG-d2d991fa39:DISCOVER"
-        },
-        {
-          "from": "PRG-d2d991fa39:DISCOVER",
-          "to": "PRG-d2d991fa39:VERIFY"
-        },
-        {
-          "from": "PRG-d2d991fa39:VERIFY",
-          "to": "PRG-d2d991fa39:EVALUATE"
-        },
-        {
-          "from": "PRG-d2d991fa39:EVALUATE",
-          "to": "PRG-d2d991fa39:FALSIFY"
-        },
-        {
-          "from": "PRG-d2d991fa39:FALSIFY",
-          "to": "PRG-d2d991fa39:TRANSLATE"
-        },
-        {
-          "from": "PRG-d2d991fa39:TRANSLATE",
-          "to": "PRG-d2d991fa39:EXPERIMENT"
-        },
-        {
-          "from": "PRG-d2d991fa39:EXPERIMENT",
-          "to": "PRG-d2d991fa39:BENCHMARK"
-        },
-        {
-          "from": "PRG-d2d991fa39:BENCHMARK",
-          "to": "PRG-d2d991fa39:IMPROVE"
-        },
-        {
-          "from": "PRG-d2d991fa39:IMPROVE",
-          "to": "PRG-d2d991fa39:MEMORY"
-        },
-        {
-          "from": "PRG-d2d991fa39:MEMORY",
-          "to": "PRG-d2d991fa39:DECIDE"
-        },
-        {
-          "from": "PRG-d2d991fa39:DECIDE",
-          "to": "PRG-d2d991fa39:OPERATE"
-        }
-      ],
-      "nodes": [
-        {
-          "id": "PRG-d2d991fa39:PLAN",
-          "stage": "PLAN",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-d2d991fa39:OBSERVE",
-          "stage": "OBSERVE",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-d2d991fa39:DISCOVER",
-          "stage": "DISCOVER",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-d2d991fa39:VERIFY",
-          "stage": "VERIFY",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-d2d991fa39:EVALUATE",
-          "stage": "EVALUATE",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-d2d991fa39:FALSIFY",
-          "stage": "FALSIFY",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-d2d991fa39:TRANSLATE",
-          "stage": "TRANSLATE",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-d2d991fa39:EXPERIMENT",
-          "stage": "EXPERIMENT",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-d2d991fa39:BENCHMARK",
-          "stage": "BENCHMARK",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-d2d991fa39:IMPROVE",
-          "stage": "IMPROVE",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-d2d991fa39:MEMORY",
-          "stage": "MEMORY",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-d2d991fa39:DECIDE",
-          "stage": "DECIDE",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-d2d991fa39:OPERATE",
-          "stage": "OPERATE",
-          "status": "PLANNED"
-        }
-      ],
-      "program_id": "PRG-d2d991fa39"
-    },
-    {
-      "edges": [
-        {
-          "from": "PRG-c73037fcfb:PLAN",
-          "to": "PRG-c73037fcfb:OBSERVE"
-        },
-        {
-          "from": "PRG-c73037fcfb:OBSERVE",
-          "to": "PRG-c73037fcfb:DISCOVER"
-        },
-        {
-          "from": "PRG-c73037fcfb:DISCOVER",
-          "to": "PRG-c73037fcfb:VERIFY"
-        },
-        {
-          "from": "PRG-c73037fcfb:VERIFY",
-          "to": "PRG-c73037fcfb:EVALUATE"
-        },
-        {
-          "from": "PRG-c73037fcfb:EVALUATE",
-          "to": "PRG-c73037fcfb:FALSIFY"
-        },
-        {
-          "from": "PRG-c73037fcfb:FALSIFY",
-          "to": "PRG-c73037fcfb:TRANSLATE"
-        },
-        {
-          "from": "PRG-c73037fcfb:TRANSLATE",
-          "to": "PRG-c73037fcfb:EXPERIMENT"
-        },
-        {
-          "from": "PRG-c73037fcfb:EXPERIMENT",
-          "to": "PRG-c73037fcfb:BENCHMARK"
-        },
-        {
-          "from": "PRG-c73037fcfb:BENCHMARK",
-          "to": "PRG-c73037fcfb:IMPROVE"
-        },
-        {
-          "from": "PRG-c73037fcfb:IMPROVE",
-          "to": "PRG-c73037fcfb:MEMORY"
-        },
-        {
-          "from": "PRG-c73037fcfb:MEMORY",
-          "to": "PRG-c73037fcfb:DECIDE"
-        },
-        {
-          "from": "PRG-c73037fcfb:DECIDE",
-          "to": "PRG-c73037fcfb:OPERATE"
-        }
-      ],
-      "nodes": [
-        {
-          "id": "PRG-c73037fcfb:PLAN",
-          "stage": "PLAN",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-c73037fcfb:OBSERVE",
-          "stage": "OBSERVE",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-c73037fcfb:DISCOVER",
-          "stage": "DISCOVER",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-c73037fcfb:VERIFY",
-          "stage": "VERIFY",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-c73037fcfb:EVALUATE",
-          "stage": "EVALUATE",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-c73037fcfb:FALSIFY",
-          "stage": "FALSIFY",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-c73037fcfb:TRANSLATE",
-          "stage": "TRANSLATE",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-c73037fcfb:EXPERIMENT",
-          "stage": "EXPERIMENT",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-c73037fcfb:BENCHMARK",
-          "stage": "BENCHMARK",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-c73037fcfb:IMPROVE",
-          "stage": "IMPROVE",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-c73037fcfb:MEMORY",
-          "stage": "MEMORY",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-c73037fcfb:DECIDE",
-          "stage": "DECIDE",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-c73037fcfb:OPERATE",
-          "stage": "OPERATE",
-          "status": "PLANNED"
-        }
-      ],
-      "program_id": "PRG-c73037fcfb"
-    },
-    {
-      "edges": [
-        {
-          "from": "PRG-5fdcf74e81:PLAN",
-          "to": "PRG-5fdcf74e81:OBSERVE"
-        },
-        {
-          "from": "PRG-5fdcf74e81:OBSERVE",
-          "to": "PRG-5fdcf74e81:DISCOVER"
-        },
-        {
-          "from": "PRG-5fdcf74e81:DISCOVER",
-          "to": "PRG-5fdcf74e81:VERIFY"
-        },
-        {
-          "from": "PRG-5fdcf74e81:VERIFY",
-          "to": "PRG-5fdcf74e81:EVALUATE"
-        },
-        {
-          "from": "PRG-5fdcf74e81:EVALUATE",
-          "to": "PRG-5fdcf74e81:FALSIFY"
-        },
-        {
-          "from": "PRG-5fdcf74e81:FALSIFY",
-          "to": "PRG-5fdcf74e81:TRANSLATE"
-        },
-        {
-          "from": "PRG-5fdcf74e81:TRANSLATE",
-          "to": "PRG-5fdcf74e81:EXPERIMENT"
-        },
-        {
-          "from": "PRG-5fdcf74e81:EXPERIMENT",
-          "to": "PRG-5fdcf74e81:BENCHMARK"
-        },
-        {
-          "from": "PRG-5fdcf74e81:BENCHMARK",
-          "to": "PRG-5fdcf74e81:IMPROVE"
-        },
-        {
-          "from": "PRG-5fdcf74e81:IMPROVE",
-          "to": "PRG-5fdcf74e81:MEMORY"
-        },
-        {
-          "from": "PRG-5fdcf74e81:MEMORY",
-          "to": "PRG-5fdcf74e81:DECIDE"
-        },
-        {
-          "from": "PRG-5fdcf74e81:DECIDE",
-          "to": "PRG-5fdcf74e81:OPERATE"
-        }
-      ],
-      "nodes": [
-        {
-          "id": "PRG-5fdcf74e81:PLAN",
-          "stage": "PLAN",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-5fdcf74e81:OBSERVE",
-          "stage": "OBSERVE",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-5fdcf74e81:DISCOVER",
-          "stage": "DISCOVER",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-5fdcf74e81:VERIFY",
-          "stage": "VERIFY",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-5fdcf74e81:EVALUATE",
-          "stage": "EVALUATE",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-5fdcf74e81:FALSIFY",
-          "stage": "FALSIFY",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-5fdcf74e81:TRANSLATE",
-          "stage": "TRANSLATE",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-5fdcf74e81:EXPERIMENT",
-          "stage": "EXPERIMENT",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-5fdcf74e81:BENCHMARK",
-          "stage": "BENCHMARK",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-5fdcf74e81:IMPROVE",
-          "stage": "IMPROVE",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-5fdcf74e81:MEMORY",
-          "stage": "MEMORY",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-5fdcf74e81:DECIDE",
-          "stage": "DECIDE",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-5fdcf74e81:OPERATE",
-          "stage": "OPERATE",
-          "status": "PLANNED"
-        }
-      ],
-      "program_id": "PRG-5fdcf74e81"
-    },
-    {
-      "edges": [
-        {
-          "from": "PRG-14c747bea5:PLAN",
-          "to": "PRG-14c747bea5:OBSERVE"
-        },
-        {
-          "from": "PRG-14c747bea5:OBSERVE",
-          "to": "PRG-14c747bea5:DISCOVER"
-        },
-        {
-          "from": "PRG-14c747bea5:DISCOVER",
-          "to": "PRG-14c747bea5:VERIFY"
-        },
-        {
-          "from": "PRG-14c747bea5:VERIFY",
-          "to": "PRG-14c747bea5:EVALUATE"
-        },
-        {
-          "from": "PRG-14c747bea5:EVALUATE",
-          "to": "PRG-14c747bea5:FALSIFY"
-        },
-        {
-          "from": "PRG-14c747bea5:FALSIFY",
-          "to": "PRG-14c747bea5:TRANSLATE"
-        },
-        {
-          "from": "PRG-14c747bea5:TRANSLATE",
-          "to": "PRG-14c747bea5:EXPERIMENT"
-        },
-        {
-          "from": "PRG-14c747bea5:EXPERIMENT",
-          "to": "PRG-14c747bea5:BENCHMARK"
-        },
-        {
-          "from": "PRG-14c747bea5:BENCHMARK",
-          "to": "PRG-14c747bea5:IMPROVE"
-        },
-        {
-          "from": "PRG-14c747bea5:IMPROVE",
-          "to": "PRG-14c747bea5:MEMORY"
-        },
-        {
-          "from": "PRG-14c747bea5:MEMORY",
-          "to": "PRG-14c747bea5:DECIDE"
-        },
-        {
-          "from": "PRG-14c747bea5:DECIDE",
-          "to": "PRG-14c747bea5:OPERATE"
-        }
-      ],
-      "nodes": [
-        {
-          "id": "PRG-14c747bea5:PLAN",
-          "stage": "PLAN",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-14c747bea5:OBSERVE",
-          "stage": "OBSERVE",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-14c747bea5:DISCOVER",
-          "stage": "DISCOVER",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-14c747bea5:VERIFY",
-          "stage": "VERIFY",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-14c747bea5:EVALUATE",
-          "stage": "EVALUATE",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-14c747bea5:FALSIFY",
-          "stage": "FALSIFY",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-14c747bea5:TRANSLATE",
-          "stage": "TRANSLATE",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-14c747bea5:EXPERIMENT",
-          "stage": "EXPERIMENT",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-14c747bea5:BENCHMARK",
-          "stage": "BENCHMARK",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-14c747bea5:IMPROVE",
-          "stage": "IMPROVE",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-14c747bea5:MEMORY",
-          "stage": "MEMORY",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-14c747bea5:DECIDE",
-          "stage": "DECIDE",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-14c747bea5:OPERATE",
-          "stage": "OPERATE",
-          "status": "PLANNED"
-        }
-      ],
-      "program_id": "PRG-14c747bea5"
-    },
-    {
-      "edges": [
-        {
-          "from": "PRG-6cfac6b023:PLAN",
-          "to": "PRG-6cfac6b023:OBSERVE"
-        },
-        {
-          "from": "PRG-6cfac6b023:OBSERVE",
-          "to": "PRG-6cfac6b023:DISCOVER"
-        },
-        {
-          "from": "PRG-6cfac6b023:DISCOVER",
-          "to": "PRG-6cfac6b023:VERIFY"
-        },
-        {
-          "from": "PRG-6cfac6b023:VERIFY",
-          "to": "PRG-6cfac6b023:EVALUATE"
-        },
-        {
-          "from": "PRG-6cfac6b023:EVALUATE",
-          "to": "PRG-6cfac6b023:FALSIFY"
-        },
-        {
-          "from": "PRG-6cfac6b023:FALSIFY",
-          "to": "PRG-6cfac6b023:TRANSLATE"
-        },
-        {
-          "from": "PRG-6cfac6b023:TRANSLATE",
-          "to": "PRG-6cfac6b023:EXPERIMENT"
-        },
-        {
-          "from": "PRG-6cfac6b023:EXPERIMENT",
-          "to": "PRG-6cfac6b023:BENCHMARK"
-        },
-        {
-          "from": "PRG-6cfac6b023:BENCHMARK",
-          "to": "PRG-6cfac6b023:IMPROVE"
-        },
-        {
-          "from": "PRG-6cfac6b023:IMPROVE",
-          "to": "PRG-6cfac6b023:MEMORY"
-        },
-        {
-          "from": "PRG-6cfac6b023:MEMORY",
-          "to": "PRG-6cfac6b023:DECIDE"
-        },
-        {
-          "from": "PRG-6cfac6b023:DECIDE",
-          "to": "PRG-6cfac6b023:OPERATE"
-        }
-      ],
-      "nodes": [
-        {
-          "id": "PRG-6cfac6b023:PLAN",
-          "stage": "PLAN",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-6cfac6b023:OBSERVE",
-          "stage": "OBSERVE",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-6cfac6b023:DISCOVER",
-          "stage": "DISCOVER",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-6cfac6b023:VERIFY",
-          "stage": "VERIFY",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-6cfac6b023:EVALUATE",
-          "stage": "EVALUATE",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-6cfac6b023:FALSIFY",
-          "stage": "FALSIFY",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-6cfac6b023:TRANSLATE",
-          "stage": "TRANSLATE",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-6cfac6b023:EXPERIMENT",
-          "stage": "EXPERIMENT",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-6cfac6b023:BENCHMARK",
-          "stage": "BENCHMARK",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-6cfac6b023:IMPROVE",
-          "stage": "IMPROVE",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-6cfac6b023:MEMORY",
-          "stage": "MEMORY",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-6cfac6b023:DECIDE",
-          "stage": "DECIDE",
-          "status": "PLANNED"
-        },
-        {
-          "id": "PRG-6cfac6b023:OPERATE",
-          "stage": "OPERATE",
-          "status": "PLANNED"
-        }
-      ],
-      "program_id": "PRG-6cfac6b023"
+      "program_id": "PRG-5e1f85b349"
     }
   ],
   "policy_gate": {
     "accepted": false,
-    "base_score": 0.23910714285714288,
-    "best_score": 0.25910714285714287,
+    "base_score": 0.183452380952381,
+    "best_score": 0.203452380952381,
     "policy": {
       "exploration_rate": 0.2,
       "minimum_sources": 2,
@@ -2163,275 +881,20 @@
   "programs": [
     {
       "age_days": 0,
-      "committee_score": 49,
-      "created_at": "2026-09-23T14:46:56.018603+00:00",
+      "committee_score": 41,
+      "created_at": "2026-09-23T15:10:18.282015+00:00",
       "credit_history": [],
       "genes": [
-        "HDL-C",
-        "HOMA-IR",
-        "HSP70",
-        "MASLD",
-        "NAFLD",
-        "OGTT",
-        "TG"
+        "IBP",
+        "NIH-",
+        "USDA"
       ],
-      "id": "PRG-ebd4ae030a",
-      "key": "insulin resistance",
+      "id": "PRG-5e1f85b349",
+      "key": "caenorhabditis elegans",
       "labs": [
-        "metabolism"
+        "preservation"
       ],
-      "mechanisms": [
-        "mitochondria",
-        "oxidative stress"
-      ],
-      "milestones": [
-        {
-          "id": "M1",
-          "kill": "<2 independent sources",
-          "name": "Replicate evidence",
-          "status": "PENDING"
-        },
-        {
-          "id": "M2",
-          "kill": "no causal mechanism candidate",
-          "name": "Resolve mechanism",
-          "status": "PENDING"
-        },
-        {
-          "id": "M3",
-          "kill": "no relevant conserved human context",
-          "name": "Human bridge",
-          "status": "PENDING"
-        },
-        {
-          "id": "M4",
-          "kill": "critical Morpheus failure unresolved",
-          "name": "Adversarial survival",
-          "status": "PENDING"
-        },
-        {
-          "id": "M5",
-          "kill": "no falsifiable perturbation test",
-          "name": "Experiment specification",
-          "status": "PENDING"
-        }
-      ],
-      "priority_rank": 1,
-      "sources": [
-        "PMID:42589246",
-        "PMID:42591408",
-        "PMID:42654246",
-        "PMID:42713502"
-      ],
-      "stage": "DISCOVERY",
-      "status": "ACTIVE",
-      "title": "Insulin resistance",
-      "updated_at": "2026-09-23T14:46:56.018611+00:00"
-    },
-    {
-      "age_days": 0,
-      "committee_score": 48,
-      "created_at": "2026-09-23T14:46:56.018621+00:00",
-      "credit_history": [],
-      "genes": [
-        "BBB",
-        "CFB",
-        "EV",
-        "PCA",
-        "PD"
-      ],
-      "id": "PRG-d2d991fa39",
-      "key": "neurological disorders",
-      "labs": [
-        "neuro"
-      ],
-      "mechanisms": [
-        "mitochondria",
-        "neuroprotection",
-        "oxidative stress",
-        "regeneration"
-      ],
-      "milestones": [
-        {
-          "id": "M1",
-          "kill": "<2 independent sources",
-          "name": "Replicate evidence",
-          "status": "PENDING"
-        },
-        {
-          "id": "M2",
-          "kill": "no causal mechanism candidate",
-          "name": "Resolve mechanism",
-          "status": "PENDING"
-        },
-        {
-          "id": "M3",
-          "kill": "no relevant conserved human context",
-          "name": "Human bridge",
-          "status": "PENDING"
-        },
-        {
-          "id": "M4",
-          "kill": "critical Morpheus failure unresolved",
-          "name": "Adversarial survival",
-          "status": "PENDING"
-        },
-        {
-          "id": "M5",
-          "kill": "no falsifiable perturbation test",
-          "name": "Experiment specification",
-          "status": "PENDING"
-        }
-      ],
-      "priority_rank": 2,
-      "sources": [
-        "PMID:42212363",
-        "PMID:42625393"
-      ],
-      "stage": "DISCOVERY",
-      "status": "ACTIVE",
-      "title": "Neurological disorders",
-      "updated_at": "2026-09-23T14:46:56.018624+00:00"
-    },
-    {
-      "age_days": 0,
-      "committee_score": 47,
-      "created_at": "2026-09-23T14:46:56.018630+00:00",
-      "credit_history": [],
-      "genes": [],
-      "id": "PRG-c73037fcfb",
-      "key": "acomys cahirinus",
-      "labs": [
-        "regeneration"
-      ],
-      "mechanisms": [
-        "extracellular matrix",
-        "fibrosis",
-        "regeneration"
-      ],
-      "milestones": [
-        {
-          "id": "M1",
-          "kill": "<2 independent sources",
-          "name": "Replicate evidence",
-          "status": "PENDING"
-        },
-        {
-          "id": "M2",
-          "kill": "no causal mechanism candidate",
-          "name": "Resolve mechanism",
-          "status": "PENDING"
-        },
-        {
-          "id": "M3",
-          "kill": "no relevant conserved human context",
-          "name": "Human bridge",
-          "status": "PENDING"
-        },
-        {
-          "id": "M4",
-          "kill": "critical Morpheus failure unresolved",
-          "name": "Adversarial survival",
-          "status": "PENDING"
-        },
-        {
-          "id": "M5",
-          "kill": "no falsifiable perturbation test",
-          "name": "Experiment specification",
-          "status": "PENDING"
-        }
-      ],
-      "priority_rank": 3,
-      "sources": [
-        "PMID:41732917"
-      ],
-      "stage": "DISCOVERY",
-      "status": "ACTIVE",
-      "title": "Acomys cahirinus",
-      "updated_at": "2026-09-23T14:46:56.018636+00:00"
-    },
-    {
-      "age_days": 0,
-      "committee_score": 45,
-      "created_at": "2026-09-23T14:46:56.018642+00:00",
-      "credit_history": [],
-      "genes": [
-        "MAPK",
-        "NF-",
-        "OCTA",
-        "SD-OCT",
-        "VEGF"
-      ],
-      "id": "PRG-5fdcf74e81",
-      "key": "danio rerio",
-      "labs": [
-        "regeneration"
-      ],
-      "mechanisms": [
-        "Wnt",
-        "regeneration"
-      ],
-      "milestones": [
-        {
-          "id": "M1",
-          "kill": "<2 independent sources",
-          "name": "Replicate evidence",
-          "status": "PENDING"
-        },
-        {
-          "id": "M2",
-          "kill": "no causal mechanism candidate",
-          "name": "Resolve mechanism",
-          "status": "PENDING"
-        },
-        {
-          "id": "M3",
-          "kill": "no relevant conserved human context",
-          "name": "Human bridge",
-          "status": "PENDING"
-        },
-        {
-          "id": "M4",
-          "kill": "critical Morpheus failure unresolved",
-          "name": "Adversarial survival",
-          "status": "PENDING"
-        },
-        {
-          "id": "M5",
-          "kill": "no falsifiable perturbation test",
-          "name": "Experiment specification",
-          "status": "PENDING"
-        }
-      ],
-      "priority_rank": 4,
-      "sources": [
-        "PMID:42755729"
-      ],
-      "stage": "DISCOVERY",
-      "status": "ACTIVE",
-      "title": "Danio rerio",
-      "updated_at": "2026-09-23T14:46:56.018645+00:00"
-    },
-    {
-      "age_days": 0,
-      "committee_score": 45,
-      "created_at": "2026-09-23T14:46:56.018651+00:00",
-      "credit_history": [],
-      "genes": [
-        "PBD",
-        "PCNA",
-        "PCNA-",
-        "RT-PCR"
-      ],
-      "id": "PRG-14c747bea5",
-      "key": "cynops pyrrhogaster",
-      "labs": [
-        "regeneration"
-      ],
-      "mechanisms": [
-        "fibrosis",
-        "regeneration"
-      ],
+      "mechanisms": [],
       "milestones": [
         {
           "id": "M1",
@@ -2465,90 +928,40 @@
         }
       ],
       "priority_rank": 5,
+      "source_count": 2,
       "sources": [
-        "PMID:42702818"
+        "PMID:42169464",
+        "PMID:42208364"
       ],
       "stage": "DISCOVERY",
       "status": "ACTIVE",
-      "title": "Cynops pyrrhogaster",
-      "updated_at": "2026-09-23T14:46:56.018653+00:00"
-    },
-    {
-      "age_days": 0,
-      "committee_score": 42,
-      "created_at": "2026-09-23T14:46:56.018657+00:00",
-      "credit_history": [],
-      "genes": [
-        "NLRP3",
-        "PAC1",
-        "PACAP",
-        "VPAC1",
-        "VPAC2"
-      ],
-      "id": "PRG-6cfac6b023",
-      "key": "pituitary adenylate",
-      "labs": [
-        "neuro"
-      ],
-      "mechanisms": [
-        "mitochondria",
-        "neuroprotection",
-        "oxidative stress",
-        "regeneration"
-      ],
-      "milestones": [
+      "taxon_proofs": [
         {
-          "id": "M1",
-          "kill": "<2 independent sources",
-          "name": "Replicate evidence",
-          "status": "PENDING"
-        },
-        {
-          "id": "M2",
-          "kill": "no causal mechanism candidate",
-          "name": "Resolve mechanism",
-          "status": "PENDING"
-        },
-        {
-          "id": "M3",
-          "kill": "no relevant conserved human context",
-          "name": "Human bridge",
-          "status": "PENDING"
-        },
-        {
-          "id": "M4",
-          "kill": "critical Morpheus failure unresolved",
-          "name": "Adversarial survival",
-          "status": "PENDING"
-        },
-        {
-          "id": "M5",
-          "kill": "no falsifiable perturbation test",
-          "name": "Experiment specification",
-          "status": "PENDING"
+          "canonical_name": "Caenorhabditis elegans",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 2283683
         }
       ],
-      "priority_rank": 6,
-      "sources": [
-        "PMID:42614376"
-      ],
-      "stage": "DISCOVERY",
-      "status": "ACTIVE",
-      "title": "Pituitary adenylate",
-      "updated_at": "2026-09-23T14:46:56.018660+00:00"
+      "taxon_verified": true,
+      "title": "Caenorhabditis elegans",
+      "updated_at": "2026-09-23T15:10:18.282018+00:00"
     }
   ],
   "schema": "biomimic-v7-factory-cycle-v1",
-  "sha256": "baa100c72e5f92f95de3df4f210ad7f21b86455830d5537fc9cd5d65052eff18",
+  "sha256": "f3fa0596cc3823373f1b672cbca941be489376eb1be42b212242c5989a083dac",
   "status": "PASS",
   "telemetry": {
     "brick_observability_ratio": 1.0,
-    "claim_count": 24,
-    "cross_lab_diversity": 0.8571428571428571,
-    "false_positive_rate": 0.875,
-    "provider_success_ratio": 0.8571428571428571,
-    "verified_ratio": 0.125
+    "claim_count": 12,
+    "cross_lab_diversity": 0.5714285714285714,
+    "false_positive_rate": 0.9167,
+    "provider_success_ratio": 1.0,
+    "verified_ratio": 0.08333333333333333
   },
-  "time": "2026-09-23T14:47:10.009541+00:00",
+  "time": "2026-09-23T15:11:36.338264+00:00",
   "unused_active_bricks": []
 }
