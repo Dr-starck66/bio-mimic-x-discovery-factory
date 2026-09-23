@@ -55,6 +55,8 @@ def cross_lab_portfolio(outputs):
     for b in bucket.values():
         lab_count=len(b["labs"])
         source_count=len(b["sources"])
+        pmid_sources=sorted(s for s in b["sources"] if str(s).startswith("PMID:"))
+        independent_source_count=len(pmid_sources)
         mean_arb=sum(b["arbiter_scores"])/max(1,len(b["arbiter_scores"]))
         convergence=min(100,lab_count*28)
         provenance=min(100,source_count*10)
@@ -65,6 +67,7 @@ def cross_lab_portfolio(outputs):
         out.append({
             "name":b["name"],"labs":sorted(b["labs"]),"lab_count":lab_count,
             "sources":sorted(b["sources"]),"source_count":source_count,
+            "pmid_sources":pmid_sources,"independent_source_count":independent_source_count,
             "mechanisms":sorted(b["mechanisms"]),"genes":sorted(b["genes"])[:30],
             "mean_arbiter":round(mean_arb,2),"annotation_support":b["annotation_support"],
             "taxon_verified":b["taxon_verified"],"taxon_proofs":b["taxon_proofs"][:3],
