@@ -96,8 +96,8 @@ def _walk_annotations(x,out):
             _walk_annotations(v,out)
 
 GENE_NOISE={
-    "DNA","RNA","PCR","RT-PCR","NIH","USDA","MAPK","ER","IBP","PBD","OCTA","SD-OCT",
-    "NF-","PCNA-","VEGF"
+    "DNA","RNA","PCR","RT-PCR","NIH","USDA","ER","IBP","PBD","OCTA","SD-OCT",
+    "NF-","PCNA-"
 }
 
 def annotation_gene_candidates(candidate):
@@ -106,27 +106,34 @@ def annotation_gene_candidates(candidate):
         s=str(s)
         if s.startswith("PMID:"):
             pmids.append(s.split(":",1)[1])
+    if not pmids:
+        return []
+
+    # Europe PMC supports a comma-separated articleIds batch and a Gene_Proteins
+    # type filter. One focused request per claim is faster and less noisy.
+    ids=",".join("MED:"+p for p in pmids[:4])
+    try:
+        url=EPMC_ANN+"?"+urllib.parse.urlencode({
+            "articleIds":ids,
+            "type":"Gene_Proteins",
+            "provider":"Europe PMC",
+            "format":"JSON",
+            "pageSize":"1000"
+        })
+        data=get_json(url,1)
+    except Exception:
+        return []
+
+    raw=set(); _walk_annotations(data,raw)
     out=set()
-    for pmid in pmids[:4]:
-        try:
-            url=EPMC_ANN+"?"+urllib.parse.urlencode({
-                "articleIds":"MED:"+pmid,
-                "format":"JSON",
-                "pageSize":"1000"
-            })
-            data=get_json(url,1)
-            raw=set(); _walk_annotations(data,raw)
-            for x in raw:
-                x=x.strip()
-                if not x or len(x)>80:
-                    continue
-                # Keep plausible symbols/display names; Ensembl remains the authority.
-                if x.upper() in GENE_NOISE:
-                    continue
-                if re.fullmatch(r"[A-Za-z][A-Za-z0-9._-]{1,20}",x) or (" " in x and len(x)<=60):
-                    out.add(x)
-        except Exception:
+    for x in raw:
+        x=x.strip()
+        if not x or len(x)>80:
             continue
+        if x.upper() in GENE_NOISE:
+            continue
+        if re.fullmatch(r"[A-Za-z][A-Za-z0-9._-]{1,20}",x) or (" " in x and len(x)<=60):
+            out.add(x)
     return sorted(out)
 
 def candidate_gene_candidates(candidate,max_genes=10):
