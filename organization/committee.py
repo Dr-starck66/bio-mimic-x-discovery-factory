@@ -41,7 +41,7 @@ def cross_lab_portfolio(outputs):
     })
     for o in outputs:
         for c in o.get("candidates",[]):
-            if not c.get("taxon_verified") and not c.get("annotation_support"):
+            if not c.get("taxon_verified"):
                 continue
             k=candidate_key(c["name"]); b=bucket[k]; b["name"]=c["name"]; b["labs"].add(o["lab_id"])
             b["sources"].update(c.get("sources",[])); b["mechanisms"].update(c.get("mechanisms",[]))
@@ -119,7 +119,7 @@ def main():
         "labs":[{"id":o["lab_id"],"name":o["lab_name"],"status":o["status"],"paper_count":o["paper_count"],"candidate_count":o["candidate_count"],"sha256":o["sha256"]} for o in outputs],
         "portfolio":portfolio[:50],"allocations":credits,"cross_lab_challenges":challenges,
         "committee_rules":{
-            "hard_gate":"taxon_verified OR organism_annotation_support",
+            "hard_gate":"exact GBIF-verified Animalia taxon required",
             "score_components":["mean arbiter","cross-lab convergence","provenance","mechanism density","taxonomy proof","challenge penalty"],
             "research_credits":"internal prioritization units, not currency"
         }
