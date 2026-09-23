@@ -48,9 +48,17 @@ def create_or_update_programs(committee,max_programs=6):
         p["sources"]=c.get("sources",[])
         p["mechanisms"]=c.get("mechanisms",[])
         p["genes"]=c.get("genes",[])
+        p["taxon_verified"]=bool(c.get("taxon_verified"))
+        p["taxon_proofs"]=c.get("taxon_proofs",[])
+        p["source_count"]=c.get("source_count",len(c.get("sources",[])))
         p["priority_rank"]=rank
-        # Programs that lose all support are paused rather than silently deleted.
-        p["status"]="ACTIVE" if c.get("committee_score",0)>=25 else "PAUSED"
+        # Scientific promotion gate: exact animal taxonomy + independent-source replication.
+        if not p["taxon_verified"]:
+            p["status"]="REJECTED"
+        elif p["source_count"] < 2:
+            p["status"]="SCOUT"
+        else:
+            p["status"]="ACTIVE" if c.get("committee_score",0)>=25 else "PAUSED"
         programs.append(p)
     # Preserve prior programs not currently funded as PAUSED.
     current={p["key"] for p in programs}
