@@ -17,7 +17,15 @@
       "lifespan confounding",
       "cell-culture artifacts"
     ],
-    "human_domain": "oncology"
+    "human_domain": "oncology",
+    "replication_terms": [
+      "cancer",
+      "tumor",
+      "neoplasia",
+      "oncology",
+      "p53",
+      "DNA repair"
+    ]
   },
   {
     "id": "regeneration",
@@ -37,7 +45,15 @@
       "regeneration-vs-repair ambiguity",
       "fibrosis tradeoffs"
     ],
-    "human_domain": "regenerative medicine"
+    "human_domain": "regenerative medicine",
+    "replication_terms": [
+      "regeneration",
+      "regenerative",
+      "wound healing",
+      "fibrosis",
+      "Wnt",
+      "tissue repair"
+    ]
   },
   {
     "id": "neuro",
@@ -57,7 +73,15 @@
       "reperfusion injury",
       "species-specific neuroanatomy"
     ],
-    "human_domain": "neurology"
+    "human_domain": "neurology",
+    "replication_terms": [
+      "neuroprotection",
+      "brain",
+      "neural",
+      "ischemia",
+      "neurological",
+      "neurodegeneration"
+    ]
   },
   {
     "id": "immunology",
@@ -76,7 +100,15 @@
       "immune pathology tradeoffs",
       "reservoir-host confounding"
     ],
-    "human_domain": "immunology"
+    "human_domain": "immunology",
+    "replication_terms": [
+      "immune",
+      "immunity",
+      "infection",
+      "inflammation",
+      "pathogen",
+      "antimicrobial"
+    ]
   },
   {
     "id": "longevity",
@@ -97,7 +129,15 @@
       "lifespan data quality"
     ],
     "human_domain": "aging biology",
-    "fallback_query": "(longevity OR lifespan OR aging OR senescence) AND (animal OR species OR comparative)"
+    "fallback_query": "(longevity OR lifespan OR aging OR senescence) AND (animal OR species OR comparative)",
+    "replication_terms": [
+      "aging",
+      "ageing",
+      "longevity",
+      "lifespan",
+      "senescence",
+      "healthspan"
+    ]
   },
   {
     "id": "metabolism",
@@ -116,7 +156,15 @@
       "temperature dependence",
       "species-specific endocrine physiology"
     ],
-    "human_domain": "metabolic medicine"
+    "human_domain": "metabolic medicine",
+    "replication_terms": [
+      "metabolic",
+      "metabolism",
+      "insulin",
+      "glucose",
+      "fasting",
+      "mitochondria"
+    ]
   },
   {
     "id": "preservation",
@@ -135,6 +183,14 @@
       "reperfusion injury",
       "cryoprotectant toxicity"
     ],
-    "human_domain": "transplantation and preservation"
+    "human_domain": "transplantation and preservation",
+    "replication_terms": [
+      "preservation",
+      "cryoprotection",
+      "freeze tolerance",
+      "hibernation",
+      "desiccation",
+      "metabolic suppression"
+    ]
   }
 ]
