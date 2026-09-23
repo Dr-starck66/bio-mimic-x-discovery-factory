@@ -6,7 +6,7 @@
     "output_ref": "cycle_plan",
     "stage": "CONTROL",
     "status": "PASS",
-    "time": "2026-09-23T14:33:56.980820+00:00",
+    "time": "2026-09-23T14:46:56.018401+00:00",
     "value": 14
   },
   {
@@ -16,7 +16,7 @@
     "output_ref": "state/factory/programs.json",
     "stage": "PLAN",
     "status": "PASS",
-    "time": "2026-09-23T14:33:56.981675+00:00",
+    "time": "2026-09-23T14:46:56.019648+00:00",
     "value": 6
   },
   {
@@ -26,7 +26,7 @@
     "output_ref": "mission_graphs",
     "stage": "PLAN",
     "status": "PASS",
-    "time": "2026-09-23T14:33:56.981753+00:00",
+    "time": "2026-09-23T14:46:56.019705+00:00",
     "value": 6
   },
   {
@@ -36,8 +36,8 @@
     "output_ref": "normalized_bundle",
     "stage": "OBSERVE",
     "status": "PASS",
-    "time": "2026-09-23T14:33:56.981766+00:00",
-    "value": 1.0
+    "time": "2026-09-23T14:46:56.019718+00:00",
+    "value": 0.8571
   },
   {
     "brick_id": "agentshield",
@@ -46,7 +46,7 @@
     "output_ref": "trusted_bundle",
     "stage": "OBSERVE",
     "status": "PASS",
-    "time": "2026-09-23T14:33:56.981776+00:00",
+    "time": "2026-09-23T14:46:56.019728+00:00",
     "value": 0
   },
   {
@@ -56,8 +56,8 @@
     "output_ref": "committee.portfolio",
     "stage": "DISCOVER",
     "status": "PASS",
-    "time": "2026-09-23T14:33:56.981779+00:00",
-    "value": 50
+    "time": "2026-09-23T14:46:56.019731+00:00",
+    "value": 24
   },
   {
     "brick_id": "decision-engine",
@@ -66,7 +66,7 @@
     "output_ref": "committee.allocations",
     "stage": "DECIDE",
     "status": "PASS",
-    "time": "2026-09-23T14:33:56.981785+00:00",
+    "time": "2026-09-23T14:46:56.019737+00:00",
     "value": 100
   },
   {
@@ -76,7 +76,7 @@
     "output_ref": "claim_ledger",
     "stage": "VERIFY",
     "status": "PASS",
-    "time": "2026-09-23T14:33:56.981865+00:00",
+    "time": "2026-09-23T14:47:10.008947+00:00",
     "value": 1.0
   },
   {
@@ -86,8 +86,8 @@
     "output_ref": "committee.portfolio",
     "stage": "EVALUATE",
     "status": "PASS",
-    "time": "2026-09-23T14:33:56.981882+00:00",
-    "value": 6.485
+    "time": "2026-09-23T14:47:10.008979+00:00",
+    "value": 9.25
   },
   {
     "brick_id": "morpheus",
@@ -96,8 +96,8 @@
     "output_ref": "morpheus_audits",
     "stage": "FALSIFY",
     "status": "PASS",
-    "time": "2026-09-23T14:33:56.982127+00:00",
-    "value": 4.167
+    "time": "2026-09-23T14:47:10.009273+00:00",
+    "value": 5.667
   },
   {
     "brick_id": "omega-causal",
@@ -106,7 +106,7 @@
     "output_ref": "causal_plans",
     "stage": "FALSIFY",
     "status": "PASS",
-    "time": "2026-09-23T14:33:56.982133+00:00",
+    "time": "2026-09-23T14:47:10.009279+00:00",
     "value": 6
   },
   {
@@ -116,18 +116,18 @@
     "output_ref": "negative_filter",
     "stage": "MEMORY",
     "status": "PASS",
-    "time": "2026-09-23T14:33:56.982137+00:00",
+    "time": "2026-09-23T14:47:10.009284+00:00",
     "value": 0
   },
   {
     "brick_id": "human-bridge",
     "metric": "candidates_with_human_bridge",
     "name": "Human Bridge",
-    "output_ref": "human_translation",
+    "output_ref": "human_bridge_result",
     "stage": "TRANSLATE",
     "status": "PASS",
-    "time": "2026-09-23T14:33:56.982141+00:00",
-    "value": 0
+    "time": "2026-09-23T14:47:10.009289+00:00",
+    "value": 1
   },
   {
     "brick_id": "experiment-forge",
@@ -136,7 +136,7 @@
     "output_ref": "experiments",
     "stage": "EXPERIMENT",
     "status": "PASS",
-    "time": "2026-09-23T14:33:56.982146+00:00",
+    "time": "2026-09-23T14:47:10.009294+00:00",
     "value": 6
   },
   {
@@ -146,8 +146,8 @@
     "output_ref": "benchmark",
     "stage": "BENCHMARK",
     "status": "PASS",
-    "time": "2026-09-23T14:33:56.982168+00:00",
-    "value": 1.9208
+    "time": "2026-09-23T14:47:10.009317+00:00",
+    "value": 1.9654
   },
   {
     "brick_id": "omega-foundry",
@@ -156,7 +156,7 @@
     "output_ref": "policy_variants",
     "stage": "IMPROVE",
     "status": "PASS",
-    "time": "2026-09-23T14:33:56.982292+00:00",
+    "time": "2026-09-23T14:47:10.009507+00:00",
     "value": 8
   },
   {
@@ -166,7 +166,7 @@
     "output_ref": "policy_gate",
     "stage": "IMPROVE",
     "status": "PASS",
-    "time": "2026-09-23T14:33:56.982317+00:00",
+    "time": "2026-09-23T14:47:10.009538+00:00",
     "value": 1
   },
   {
@@ -176,8 +176,8 @@
     "output_ref": "state/factory/long_term_memory.json",
     "stage": "MEMORY",
     "status": "PASS",
-    "time": "2026-09-23T14:33:56.984146+00:00",
-    "value": 56
+    "time": "2026-09-23T14:47:10.012011+00:00",
+    "value": 30
   },
   {
     "brick_id": "omega-telemetry",
@@ -186,8 +186,8 @@
     "output_ref": "telemetry",
     "stage": "OBSERVE",
     "status": "PASS",
-    "time": "2026-09-23T14:33:56.984187+00:00",
-    "value": 0.95
+    "time": "2026-09-23T14:47:10.012047+00:00",
+    "value": 1.0
   },
   {
     "brick_id": "devops-x",
@@ -196,7 +196,7 @@
     "output_ref": "validated_state",
     "stage": "OPERATE",
     "status": "PASS",
-    "time": "2026-09-23T14:33:56.984191+00:00",
+    "time": "2026-09-23T14:47:10.012052+00:00",
     "value": 1.0
   }
 ]

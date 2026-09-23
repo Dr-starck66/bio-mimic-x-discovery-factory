@@ -2,6 +2,7 @@
   "claims": {
     "Acomys cahirinus": {
       "claim": "Acomys cahirinus is a cross-species research candidate; this is not a human efficacy claim.",
+      "genes": [],
       "labs": [
         "regeneration"
       ],
@@ -14,10 +15,27 @@
         "PMID:41732917"
       ],
       "status": "PLAUSIBLE",
-      "subject": "Acomys cahirinus"
+      "subject": "Acomys cahirinus",
+      "taxon_proofs": [
+        {
+          "canonical_name": "Acomys cahirinus",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 9800308
+        }
+      ],
+      "taxon_verified": true
     },
     "Caenorhabditis elegans": {
       "claim": "Caenorhabditis elegans is a cross-species research candidate; this is not a human efficacy claim.",
+      "genes": [
+        "IBP",
+        "NIH-",
+        "USDA"
+      ],
       "labs": [
         "preservation"
       ],
@@ -27,10 +45,30 @@
         "PMID:42208364"
       ],
       "status": "SUPPORTED",
-      "subject": "Caenorhabditis elegans"
+      "subject": "Caenorhabditis elegans",
+      "taxon_proofs": [
+        {
+          "canonical_name": "Caenorhabditis elegans",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 2283683
+        }
+      ],
+      "taxon_verified": true
     },
     "Cerebral ischemia": {
       "claim": "Cerebral ischemia is a cross-species research candidate; this is not a human efficacy claim.",
+      "genes": [
+        "BBB",
+        "HO-1",
+        "IL-",
+        "PI3K",
+        "PI3K-",
+        "TNF-"
+      ],
       "labs": [
         "neuro"
       ],
@@ -43,10 +81,18 @@
         "PMID:42260757"
       ],
       "status": "PLAUSIBLE",
-      "subject": "Cerebral ischemia"
+      "subject": "Cerebral ischemia",
+      "taxon_proofs": [],
+      "taxon_verified": false
     },
     "Cynops pyrrhogaster": {
       "claim": "Cynops pyrrhogaster is a cross-species research candidate; this is not a human efficacy claim.",
+      "genes": [
+        "PBD",
+        "PCNA",
+        "PCNA-",
+        "RT-PCR"
+      ],
       "labs": [
         "regeneration"
       ],
@@ -58,10 +104,29 @@
         "PMID:42702818"
       ],
       "status": "PLAUSIBLE",
-      "subject": "Cynops pyrrhogaster"
+      "subject": "Cynops pyrrhogaster",
+      "taxon_proofs": [
+        {
+          "canonical_name": "Cynops pyrrhogaster",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 2431862
+        }
+      ],
+      "taxon_verified": true
     },
     "Danio rerio": {
       "claim": "Danio rerio is a cross-species research candidate; this is not a human efficacy claim.",
+      "genes": [
+        "MAPK",
+        "NF-",
+        "OCTA",
+        "SD-OCT",
+        "VEGF"
+      ],
       "labs": [
         "regeneration"
       ],
@@ -73,7 +138,47 @@
         "PMID:42755729"
       ],
       "status": "PLAUSIBLE",
-      "subject": "Danio rerio"
+      "subject": "Danio rerio",
+      "taxon_proofs": [
+        {
+          "canonical_name": "Danio rerio",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 9797255
+        }
+      ],
+      "taxon_verified": true
+    },
+    "Drosophila melanogaster": {
+      "claim": "Drosophila melanogaster is a cross-species research candidate; this is not a human efficacy claim.",
+      "genes": [
+        "NIH-",
+        "USDA"
+      ],
+      "labs": [
+        "preservation"
+      ],
+      "mechanisms": [],
+      "sources": [
+        "PMID:42208364"
+      ],
+      "status": "PLAUSIBLE",
+      "subject": "Drosophila melanogaster",
+      "taxon_proofs": [
+        {
+          "canonical_name": "Drosophila melanogaster",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 5073713
+        }
+      ],
+      "taxon_verified": true
     },
     "During the": {
       "claim": "During the is a cross-species research candidate; this is not a human efficacy claim.",
@@ -124,6 +229,33 @@
       "status": "PLAUSIBLE",
       "subject": "Emerging evidence"
     },
+    "Eublepharis macularius": {
+      "claim": "Eublepharis macularius is a cross-species research candidate; this is not a human efficacy claim.",
+      "genes": [],
+      "labs": [
+        "immunology"
+      ],
+      "mechanisms": [
+        "immune"
+      ],
+      "sources": [
+        "PMID:42746048"
+      ],
+      "status": "PLAUSIBLE",
+      "subject": "Eublepharis macularius",
+      "taxon_proofs": [
+        {
+          "canonical_name": "Eublepharis macularius",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 5221283
+        }
+      ],
+      "taxon_verified": true
+    },
     "Future research": {
       "claim": "Future research is a cross-species research candidate; this is not a human efficacy claim.",
       "labs": [
@@ -143,6 +275,10 @@
     },
     "Gestational diabetes": {
       "claim": "Gestational diabetes is a cross-species research candidate; this is not a human efficacy claim.",
+      "genes": [
+        "GDM",
+        "OGTT"
+      ],
       "labs": [
         "metabolism"
       ],
@@ -153,7 +289,9 @@
         "PMID:42516090"
       ],
       "status": "PLAUSIBLE",
-      "subject": "Gestational diabetes"
+      "subject": "Gestational diabetes",
+      "taxon_proofs": [],
+      "taxon_verified": false
     },
     "Greenland shark": {
       "claim": "Greenland shark is a cross-species research candidate; this is not a human efficacy claim.",
@@ -191,8 +329,34 @@
       "status": "PLAUSIBLE",
       "subject": "Growing evidence"
     },
+    "Heat shock": {
+      "claim": "Heat shock is a cross-species research candidate; this is not a human efficacy claim.",
+      "genes": [],
+      "labs": [
+        "immunology"
+      ],
+      "mechanisms": [
+        "immune"
+      ],
+      "sources": [
+        "PMID:42609872"
+      ],
+      "status": "PLAUSIBLE",
+      "subject": "Heat shock",
+      "taxon_proofs": [],
+      "taxon_verified": false
+    },
     "Insulin resistance": {
       "claim": "Insulin resistance is a cross-species research candidate; this is not a human efficacy claim.",
+      "genes": [
+        "HDL-C",
+        "HOMA-IR",
+        "HSP70",
+        "MASLD",
+        "NAFLD",
+        "OGTT",
+        "TG"
+      ],
       "labs": [
         "metabolism"
       ],
@@ -207,10 +371,20 @@
         "PMID:42713502"
       ],
       "status": "SUPPORTED",
-      "subject": "Insulin resistance"
+      "subject": "Insulin resistance",
+      "taxon_proofs": [],
+      "taxon_verified": false
     },
     "Interferon regulatory": {
       "claim": "Interferon regulatory is a cross-species research candidate; this is not a human efficacy claim.",
+      "genes": [
+        "AKO",
+        "AKT",
+        "HFD",
+        "IRF1",
+        "L1",
+        "TOMM20"
+      ],
       "labs": [
         "metabolism"
       ],
@@ -221,7 +395,9 @@
         "PMID:42653336"
       ],
       "status": "PLAUSIBLE",
-      "subject": "Interferon regulatory"
+      "subject": "Interferon regulatory",
+      "taxon_proofs": [],
+      "taxon_verified": false
     },
     "Ischemic stroke": {
       "claim": "Ischemic stroke is a cross-species research candidate; this is not a human efficacy claim.",
@@ -260,6 +436,7 @@
     },
     "Lactobacillus johnsonii": {
       "claim": "Lactobacillus johnsonii is a cross-species research candidate; this is not a human efficacy claim.",
+      "genes": [],
       "labs": [
         "immunology"
       ],
@@ -271,7 +448,9 @@
         "PMID:42638873"
       ],
       "status": "PLAUSIBLE",
-      "subject": "Lactobacillus johnsonii"
+      "subject": "Lactobacillus johnsonii",
+      "taxon_proofs": [],
+      "taxon_verified": false
     },
     "Mechanisms and": {
       "claim": "Mechanisms and is a cross-species research candidate; this is not a human efficacy claim.",
@@ -315,6 +494,12 @@
     },
     "Metabolic diseases": {
       "claim": "Metabolic diseases is a cross-species research candidate; this is not a human efficacy claim.",
+      "genes": [
+        "ER",
+        "EV",
+        "EV-",
+        "METHODS"
+      ],
       "labs": [
         "metabolism"
       ],
@@ -325,30 +510,45 @@
         "PMID:42290027"
       ],
       "status": "PLAUSIBLE",
-      "subject": "Metabolic diseases"
+      "subject": "Metabolic diseases",
+      "taxon_proofs": [],
+      "taxon_verified": false
     },
     "Mitochondrial dysfunction": {
       "claim": "Mitochondrial dysfunction is a cross-species research candidate; this is not a human efficacy claim.",
+      "genes": [
+        "NLRP3",
+        "PAC1",
+        "PACAP",
+        "VPAC1",
+        "VPAC2"
+      ],
       "labs": [
-        "neuro",
-        "preservation"
+        "neuro"
       ],
       "mechanisms": [
-        "heat shock",
         "mitochondria",
         "neuroprotection",
         "oxidative stress",
         "regeneration"
       ],
       "sources": [
-        "PMID:42614376",
-        "PMID:42765071"
+        "PMID:42614376"
       ],
-      "status": "SUPPORTED",
-      "subject": "Mitochondrial dysfunction"
+      "status": "PLAUSIBLE",
+      "subject": "Mitochondrial dysfunction",
+      "taxon_proofs": [],
+      "taxon_verified": false
     },
     "Neurological disorders": {
       "claim": "Neurological disorders is a cross-species research candidate; this is not a human efficacy claim.",
+      "genes": [
+        "BBB",
+        "CFB",
+        "EV",
+        "PCA",
+        "PD"
+      ],
       "labs": [
         "neuro"
       ],
@@ -363,7 +563,64 @@
         "PMID:42625393"
       ],
       "status": "SUPPORTED",
-      "subject": "Neurological disorders"
+      "subject": "Neurological disorders",
+      "taxon_proofs": [],
+      "taxon_verified": false
+    },
+    "Pantherophis guttatus": {
+      "claim": "Pantherophis guttatus is a cross-species research candidate; this is not a human efficacy claim.",
+      "genes": [],
+      "labs": [
+        "immunology"
+      ],
+      "mechanisms": [
+        "immune"
+      ],
+      "sources": [
+        "PMID:42746048"
+      ],
+      "status": "PLAUSIBLE",
+      "subject": "Pantherophis guttatus",
+      "taxon_proofs": [
+        {
+          "canonical_name": "Pantherophis guttatus",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 2455615
+        }
+      ],
+      "taxon_verified": true
+    },
+    "Paracentrotus lividus": {
+      "claim": "Paracentrotus lividus is a cross-species research candidate; this is not a human efficacy claim.",
+      "genes": [
+        "NIH-",
+        "USDA"
+      ],
+      "labs": [
+        "preservation"
+      ],
+      "mechanisms": [],
+      "sources": [
+        "PMID:42208364"
+      ],
+      "status": "PLAUSIBLE",
+      "subject": "Paracentrotus lividus",
+      "taxon_proofs": [
+        {
+          "canonical_name": "Paracentrotus lividus",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 2278845
+        }
+      ],
+      "taxon_verified": true
     },
     "Pathological scars": {
       "claim": "Pathological scars is a cross-species research candidate; this is not a human efficacy claim.",
@@ -385,6 +642,9 @@
     },
     "Persistent infection": {
       "claim": "Persistent infection is a cross-species research candidate; this is not a human efficacy claim.",
+      "genes": [
+        "HR-HPV"
+      ],
       "labs": [
         "cancer"
       ],
@@ -393,10 +653,19 @@
         "PMID:42621466"
       ],
       "status": "PLAUSIBLE",
-      "subject": "Persistent infection"
+      "subject": "Persistent infection",
+      "taxon_proofs": [],
+      "taxon_verified": false
     },
     "Pituitary adenylate": {
       "claim": "Pituitary adenylate is a cross-species research candidate; this is not a human efficacy claim.",
+      "genes": [
+        "NLRP3",
+        "PAC1",
+        "PACAP",
+        "VPAC1",
+        "VPAC2"
+      ],
       "labs": [
         "neuro"
       ],
@@ -410,7 +679,9 @@
         "PMID:42614376"
       ],
       "status": "PLAUSIBLE",
-      "subject": "Pituitary adenylate"
+      "subject": "Pituitary adenylate",
+      "taxon_proofs": [],
+      "taxon_verified": false
     },
     "Preclinical studies": {
       "claim": "Preclinical studies is a cross-species research candidate; this is not a human efficacy claim.",
@@ -431,6 +702,10 @@
     },
     "Protocatechuic acid": {
       "claim": "Protocatechuic acid is a cross-species research candidate; this is not a human efficacy claim.",
+      "genes": [
+        "PCA",
+        "PD"
+      ],
       "labs": [
         "neuro"
       ],
@@ -444,7 +719,36 @@
         "PMID:42212363"
       ],
       "status": "PLAUSIBLE",
-      "subject": "Protocatechuic acid"
+      "subject": "Protocatechuic acid",
+      "taxon_proofs": [],
+      "taxon_verified": false
+    },
+    "Python regius": {
+      "claim": "Python regius is a cross-species research candidate; this is not a human efficacy claim.",
+      "genes": [],
+      "labs": [
+        "immunology"
+      ],
+      "mechanisms": [
+        "immune"
+      ],
+      "sources": [
+        "PMID:42746048"
+      ],
+      "status": "PLAUSIBLE",
+      "subject": "Python regius",
+      "taxon_proofs": [
+        {
+          "canonical_name": "Python regius",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 2465380
+        }
+      ],
+      "taxon_verified": true
     },
     "Recent advances": {
       "claim": "Recent advances is a cross-species research candidate; this is not a human efficacy claim.",
@@ -468,6 +772,26 @@
       ],
       "status": "PLAUSIBLE",
       "subject": "Recent advances"
+    },
+    "Saccharomyces cerevisiae": {
+      "claim": "Saccharomyces cerevisiae is a cross-species research candidate; this is not a human efficacy claim.",
+      "genes": [
+        "HOG",
+        "MAPK"
+      ],
+      "labs": [
+        "preservation"
+      ],
+      "mechanisms": [
+        "mitochondria"
+      ],
+      "sources": [
+        "PMID:42045390"
+      ],
+      "status": "PLAUSIBLE",
+      "subject": "Saccharomyces cerevisiae",
+      "taxon_proofs": [],
+      "taxon_verified": false
     },
     "Salvia miltiorrhiza": {
       "claim": "Salvia miltiorrhiza is a cross-species research candidate; this is not a human efficacy claim.",
@@ -523,6 +847,13 @@
     },
     "Staphylococcus aureus": {
       "claim": "Staphylococcus aureus is a cross-species research candidate; this is not a human efficacy claim.",
+      "genes": [
+        "AO",
+        "HA",
+        "III",
+        "MRSA",
+        "MRSA-"
+      ],
       "labs": [
         "regeneration"
       ],
@@ -534,7 +865,9 @@
         "PMID:42762838"
       ],
       "status": "PLAUSIBLE",
-      "subject": "Staphylococcus aureus"
+      "subject": "Staphylococcus aureus",
+      "taxon_proofs": [],
+      "taxon_verified": false
     },
     "Synergistic effects": {
       "claim": "Synergistic effects is a cross-species research candidate; this is not a human efficacy claim.",
@@ -993,6 +1326,33 @@
       "status": "PLAUSIBLE",
       "subject": "This study"
     },
+    "Tiliqua scincoides": {
+      "claim": "Tiliqua scincoides is a cross-species research candidate; this is not a human efficacy claim.",
+      "genes": [],
+      "labs": [
+        "immunology"
+      ],
+      "mechanisms": [
+        "immune"
+      ],
+      "sources": [
+        "PMID:42746048"
+      ],
+      "status": "PLAUSIBLE",
+      "subject": "Tiliqua scincoides",
+      "taxon_proofs": [
+        {
+          "canonical_name": "Tiliqua scincoides",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 2462503
+        }
+      ],
+      "taxon_verified": true
+    },
     "Understanding these": {
       "claim": "Understanding these is a cross-species research candidate; this is not a human efficacy claim.",
       "labs": [
@@ -1032,7 +1392,7 @@
       "subject": "Wound healing"
     }
   },
-  "cycles": 2,
+  "cycles": 3,
   "experiments": {
     "PRG-14a8494d89": {
       "counterfactual_tests": [
@@ -1069,6 +1429,34 @@
         "test human-relevant model only after conservation check"
       ],
       "subject": "This narrative"
+    },
+    "PRG-14c747bea5": {
+      "counterfactual_tests": [
+        "compare a close species lacking the phenotype",
+        "perturb candidate mechanism and perform rescue",
+        "test same mechanism in an evolutionarily distant species with similar phenotype",
+        "test human orthologue/pathway in disease-relevant human cells"
+      ],
+      "hypothesis": "A mechanism associated with Cynops pyrrhogaster may causally contribute to the target phenotype.",
+      "kill_criteria": [
+        "no reproducible phenotype",
+        "no conserved mechanism",
+        "human perturbation does not reproduce direction of effect",
+        "unacceptable toxicity or contradictory evidence"
+      ],
+      "program_id": "PRG-14c747bea5",
+      "sha256": "17a02a252988e1a119514291ca23d68aed5bf643a2fcf01a95a3658ddcc555a8",
+      "sources": [
+        "PMID:42702818"
+      ],
+      "steps": [
+        "replicate phenotype under controlled conditions",
+        "perturb candidate mechanism",
+        "perform rescue experiment",
+        "test evolutionarily close negative control",
+        "test human-relevant model only after conservation check"
+      ],
+      "subject": "Cynops pyrrhogaster"
     },
     "PRG-5bdbc6d26b": {
       "counterfactual_tests": [
@@ -1114,6 +1502,62 @@
         "test human-relevant model only after conservation check"
       ],
       "subject": "This study"
+    },
+    "PRG-5fdcf74e81": {
+      "counterfactual_tests": [
+        "compare a close species lacking the phenotype",
+        "perturb candidate mechanism and perform rescue",
+        "test same mechanism in an evolutionarily distant species with similar phenotype",
+        "test human orthologue/pathway in disease-relevant human cells"
+      ],
+      "hypothesis": "A mechanism associated with Danio rerio may causally contribute to the target phenotype.",
+      "kill_criteria": [
+        "no reproducible phenotype",
+        "no conserved mechanism",
+        "human perturbation does not reproduce direction of effect",
+        "unacceptable toxicity or contradictory evidence"
+      ],
+      "program_id": "PRG-5fdcf74e81",
+      "sha256": "2d389e1464518065936f7a7c8685a7cc35fce770e113b41190c63843d65cc9b6",
+      "sources": [
+        "PMID:42755729"
+      ],
+      "steps": [
+        "replicate phenotype under controlled conditions",
+        "perturb candidate mechanism",
+        "perform rescue experiment",
+        "test evolutionarily close negative control",
+        "test human-relevant model only after conservation check"
+      ],
+      "subject": "Danio rerio"
+    },
+    "PRG-6cfac6b023": {
+      "counterfactual_tests": [
+        "compare a close species lacking the phenotype",
+        "perturb candidate mechanism and perform rescue",
+        "test same mechanism in an evolutionarily distant species with similar phenotype",
+        "test human orthologue/pathway in disease-relevant human cells"
+      ],
+      "hypothesis": "A mechanism associated with Pituitary adenylate may causally contribute to the target phenotype.",
+      "kill_criteria": [
+        "no reproducible phenotype",
+        "no conserved mechanism",
+        "human perturbation does not reproduce direction of effect",
+        "unacceptable toxicity or contradictory evidence"
+      ],
+      "program_id": "PRG-6cfac6b023",
+      "sha256": "38278d75fe1d9cf4652588cef66a31526e71016c80eb2b38b446f6740f9a484e",
+      "sources": [
+        "PMID:42614376"
+      ],
+      "steps": [
+        "replicate phenotype under controlled conditions",
+        "perturb candidate mechanism",
+        "perform rescue experiment",
+        "test evolutionarily close negative control",
+        "test human-relevant model only after conservation check"
+      ],
+      "subject": "Pituitary adenylate"
     },
     "PRG-7e3a506cd9": {
       "counterfactual_tests": [
@@ -1307,6 +1751,94 @@
       ],
       "subject": "These findings"
     },
+    "PRG-c73037fcfb": {
+      "counterfactual_tests": [
+        "compare a close species lacking the phenotype",
+        "perturb candidate mechanism and perform rescue",
+        "test same mechanism in an evolutionarily distant species with similar phenotype",
+        "test human orthologue/pathway in disease-relevant human cells"
+      ],
+      "hypothesis": "A mechanism associated with Acomys cahirinus may causally contribute to the target phenotype.",
+      "kill_criteria": [
+        "no reproducible phenotype",
+        "no conserved mechanism",
+        "human perturbation does not reproduce direction of effect",
+        "unacceptable toxicity or contradictory evidence"
+      ],
+      "program_id": "PRG-c73037fcfb",
+      "sha256": "3a64fd9feb44691c61f7dcb46dc04ec4320eed33739ccbd627e9b8d178b7769d",
+      "sources": [
+        "PMID:41732917"
+      ],
+      "steps": [
+        "replicate phenotype under controlled conditions",
+        "perturb candidate mechanism",
+        "perform rescue experiment",
+        "test evolutionarily close negative control",
+        "test human-relevant model only after conservation check"
+      ],
+      "subject": "Acomys cahirinus"
+    },
+    "PRG-d2d991fa39": {
+      "counterfactual_tests": [
+        "compare a close species lacking the phenotype",
+        "perturb candidate mechanism and perform rescue",
+        "test same mechanism in an evolutionarily distant species with similar phenotype",
+        "test human orthologue/pathway in disease-relevant human cells"
+      ],
+      "hypothesis": "A mechanism associated with Neurological disorders may causally contribute to the target phenotype.",
+      "kill_criteria": [
+        "no reproducible phenotype",
+        "no conserved mechanism",
+        "human perturbation does not reproduce direction of effect",
+        "unacceptable toxicity or contradictory evidence"
+      ],
+      "program_id": "PRG-d2d991fa39",
+      "sha256": "149621efca96faf667dcd760fc93f5494f24a5e4e6d8f18c366e0fbdb3de618c",
+      "sources": [
+        "PMID:42212363",
+        "PMID:42625393"
+      ],
+      "steps": [
+        "replicate phenotype under controlled conditions",
+        "perturb candidate mechanism",
+        "perform rescue experiment",
+        "test evolutionarily close negative control",
+        "test human-relevant model only after conservation check"
+      ],
+      "subject": "Neurological disorders"
+    },
+    "PRG-ebd4ae030a": {
+      "counterfactual_tests": [
+        "compare a close species lacking the phenotype",
+        "perturb candidate mechanism and perform rescue",
+        "test same mechanism in an evolutionarily distant species with similar phenotype",
+        "test human orthologue/pathway in disease-relevant human cells"
+      ],
+      "hypothesis": "A mechanism associated with Insulin resistance may causally contribute to the target phenotype.",
+      "kill_criteria": [
+        "no reproducible phenotype",
+        "no conserved mechanism",
+        "human perturbation does not reproduce direction of effect",
+        "unacceptable toxicity or contradictory evidence"
+      ],
+      "program_id": "PRG-ebd4ae030a",
+      "sha256": "3410caf132d3ccd9d4c3f44791ff097a96ce1424f328b7c20c57c10bc5959ca1",
+      "sources": [
+        "PMID:42589246",
+        "PMID:42591408",
+        "PMID:42654246",
+        "PMID:42713502"
+      ],
+      "steps": [
+        "replicate phenotype under controlled conditions",
+        "perturb candidate mechanism",
+        "perform rescue experiment",
+        "test evolutionarily close negative control",
+        "test human-relevant model only after conservation check"
+      ],
+      "subject": "Insulin resistance"
+    },
     "PRG-f5b5d795d2": {
       "counterfactual_tests": [
         "compare a close species lacking the phenotype",
@@ -1363,6 +1895,18 @@
         "PRG-14a8494d89"
       ],
       "time": "2026-09-23T14:33:56.982324+00:00"
+    },
+    {
+      "cycle_sha256": "3955831d7ebd5d6593911e11f38a257ad7944b524181b2f46877f00f2450911f",
+      "programs": [
+        "PRG-ebd4ae030a",
+        "PRG-d2d991fa39",
+        "PRG-c73037fcfb",
+        "PRG-5fdcf74e81",
+        "PRG-14c747bea5",
+        "PRG-6cfac6b023"
+      ],
+      "time": "2026-09-23T14:47:10.009541+00:00"
     }
   ]
 }

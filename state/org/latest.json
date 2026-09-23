@@ -1,127 +1,111 @@
 {
   "allocations": [
     {
-      "committee_score": 74,
-      "labs": [
-        "cancer",
-        "immunology",
-        "longevity",
-        "metabolism",
-        "neuro",
-        "preservation",
-        "regeneration"
-      ],
-      "name": "This review",
-      "research_credits": 8
-    },
-    {
-      "committee_score": 71,
-      "labs": [
-        "metabolism",
-        "preservation",
-        "regeneration"
-      ],
-      "name": "These findings",
-      "research_credits": 8
-    },
-    {
-      "committee_score": 69,
-      "labs": [
-        "metabolism",
-        "preservation",
-        "regeneration"
-      ],
-      "name": "This study",
-      "research_credits": 8
-    },
-    {
-      "committee_score": 69,
-      "labs": [
-        "regeneration"
-      ],
-      "name": "Wound healing",
-      "research_credits": 8
-    },
-    {
-      "committee_score": 63,
-      "labs": [
-        "immunology",
-        "longevity",
-        "metabolism",
-        "neuro"
-      ],
-      "name": "Emerging evidence",
-      "research_credits": 7
-    },
-    {
-      "committee_score": 60,
-      "labs": [
-        "cancer",
-        "longevity",
-        "metabolism"
-      ],
-      "name": "This narrative",
-      "research_credits": 7
-    },
-    {
-      "committee_score": 60,
+      "committee_score": 49,
       "labs": [
         "metabolism"
       ],
       "name": "Insulin resistance",
-      "research_credits": 7
+      "research_credits": 8
     },
     {
-      "committee_score": 60,
+      "committee_score": 48,
       "labs": [
         "neuro"
       ],
       "name": "Neurological disorders",
+      "research_credits": 8
+    },
+    {
+      "committee_score": 47,
+      "labs": [
+        "regeneration"
+      ],
+      "name": "Acomys cahirinus",
       "research_credits": 7
     },
     {
-      "committee_score": 58,
+      "committee_score": 45,
       "labs": [
-        "neuro",
-        "preservation"
+        "regeneration"
       ],
-      "name": "Mitochondrial dysfunction",
-      "research_credits": 6
+      "name": "Danio rerio",
+      "research_credits": 7
     },
     {
-      "committee_score": 53,
+      "committee_score": 45,
+      "labs": [
+        "regeneration"
+      ],
+      "name": "Cynops pyrrhogaster",
+      "research_credits": 7
+    },
+    {
+      "committee_score": 42,
       "labs": [
         "neuro"
       ],
       "name": "Pituitary adenylate",
-      "research_credits": 6
+      "research_credits": 7
     },
     {
-      "committee_score": 53,
+      "committee_score": 42,
+      "labs": [
+        "neuro"
+      ],
+      "name": "Mitochondrial dysfunction",
+      "research_credits": 7
+    },
+    {
+      "committee_score": 42,
       "labs": [
         "neuro"
       ],
       "name": "Protocatechuic acid",
-      "research_credits": 6
+      "research_credits": 7
     },
     {
-      "committee_score": 51,
+      "committee_score": 41,
       "labs": [
-        "longevity"
+        "preservation"
       ],
-      "name": "Greenland shark",
+      "name": "Caenorhabditis elegans",
       "research_credits": 6
     },
     {
-      "committee_score": 51,
+      "committee_score": 40,
       "labs": [
-        "longevity"
+        "immunology"
       ],
-      "name": "Somniosus microcephalus",
+      "name": "Eublepharis macularius",
       "research_credits": 6
     },
     {
-      "committee_score": 51,
+      "committee_score": 40,
+      "labs": [
+        "immunology"
+      ],
+      "name": "Tiliqua scincoides",
+      "research_credits": 6
+    },
+    {
+      "committee_score": 40,
+      "labs": [
+        "immunology"
+      ],
+      "name": "Pantherophis guttatus",
+      "research_credits": 6
+    },
+    {
+      "committee_score": 40,
+      "labs": [
+        "immunology"
+      ],
+      "name": "Python regius",
+      "research_credits": 6
+    },
+    {
+      "committee_score": 40,
       "labs": [
         "neuro"
       ],
@@ -129,23 +113,23 @@
       "research_credits": 6
     },
     {
-      "committee_score": 50,
+      "committee_score": 35,
       "labs": [
-        "metabolism",
-        "neuro"
+        "preservation"
       ],
-      "name": "Mechanisms and",
-      "research_credits": 4
+      "name": "Drosophila melanogaster",
+      "research_credits": 6
     }
   ],
   "committee_rules": {
+    "hard_gate": "taxon_verified OR organism_annotation_support",
     "research_credits": "internal prioritization units, not currency",
     "score_components": [
       "mean arbiter",
       "cross-lab convergence",
       "provenance",
       "mechanism density",
-      "annotation support",
+      "taxonomy proof",
       "challenge penalty"
     ]
   },
@@ -188,608 +172,64 @@
   ],
   "labs": [
     {
-      "candidate_count": 130,
+      "candidate_count": 1,
       "id": "cancer",
       "name": "ONCO-X Lab",
       "paper_count": 35,
-      "sha256": "a386ddf1f2cae35e855d164d9c41a33df73a4c01a43b78466c5d6b98b6b855eb",
+      "sha256": "090cbb75abbf5565f22ffc1d57c508a445cb465df67e96bd3fc3ed58c0fbe141",
       "status": "PASS"
     },
     {
-      "candidate_count": 168,
+      "candidate_count": 6,
       "id": "immunology",
       "name": "IMMUNO-X Lab",
       "paper_count": 35,
-      "sha256": "024984f261b6ff578f53eba7069f4340ec9128e049bfd6b03573a99d54625b20",
+      "sha256": "18fde089fa36e735e2ed1b6b2bd857f2076536ffac6c152fe3f6b1ef31e3ef83",
       "status": "PASS"
     },
     {
-      "candidate_count": 157,
+      "candidate_count": 0,
       "id": "longevity",
       "name": "LONGEVITY-X Lab",
-      "paper_count": 35,
-      "sha256": "4156c59f6de9c0d863036fa15ad99c2ec0c793ffddc592e74d41137820631b40",
-      "status": "PASS"
+      "paper_count": 0,
+      "sha256": "95706af16ddb77a2cd395f2f253528bca626ec6cac77f758179978ac5979bab5",
+      "status": "FAIL"
     },
     {
-      "candidate_count": 189,
+      "candidate_count": 4,
       "id": "metabolism",
       "name": "METABOLIC-X Lab",
       "paper_count": 35,
-      "sha256": "ff4c033f1b69fc0bcb07d937a7aefe341978c138ca7daebb7b5fc74db557ea9c",
+      "sha256": "d307b0f1f4ff5b22ec1d189ae7a27fe72317f78cdf083d6af5c60641f0161df4",
       "status": "PASS"
     },
     {
-      "candidate_count": 145,
+      "candidate_count": 5,
       "id": "neuro",
       "name": "NEURO-X Lab",
       "paper_count": 35,
-      "sha256": "0e1bd75bbbeb1d3a26ac8bb1fadd8d44e95f77a3225bf67db8042879fc98921c",
+      "sha256": "16b2983e4d985181549573e4b925bb20101f773a2d0d9be924b9c9bf0cfabdf3",
       "status": "PASS"
     },
     {
-      "candidate_count": 193,
+      "candidate_count": 4,
       "id": "preservation",
       "name": "PRESERVE-X Lab",
       "paper_count": 35,
-      "sha256": "ba4c68a11f04eb4f697a954fc8ba022ec1e65bbfb720a768ff9b2680468bbbd4",
+      "sha256": "43d5fdbcdd383356e5155e837cf6c89658c52ec130056befdbc5c85f693448e4",
       "status": "PASS"
     },
     {
-      "candidate_count": 190,
+      "candidate_count": 4,
       "id": "regeneration",
       "name": "REGEN-X Lab",
       "paper_count": 35,
-      "sha256": "d31fdfd900b257ad71eef4ff1bc69391b2b16d338ecc80c530396ad8a9d1f37b",
+      "sha256": "575d9486c0795c9b54915537f9b6c5d1ba8b2c094100061329cf697555b591e7",
       "status": "PASS"
     }
   ],
   "portfolio": [
     {
-      "annotation_support": false,
-      "challenges": [
-        "behavioral-vs-cellular endpoint mismatch",
-        "body-size confounding",
-        "cell-culture artifacts",
-        "correlation does not prove causation",
-        "cryoprotectant toxicity",
-        "developmental-stage confounding",
-        "diet-context dependence",
-        "false cancer-resistance claims",
-        "fibrosis tradeoffs",
-        "human functional divergence remains possible",
-        "immune pathology tradeoffs",
-        "lifespan confounding",
-        "lifespan data quality",
-        "pathogen-specific adaptation",
-        "phylogeny confounding",
-        "regeneration-vs-repair ambiguity",
-        "reperfusion injury",
-        "reservoir-host confounding",
-        "species-specific endocrine physiology",
-        "species-specific neuroanatomy",
-        "taxonomy not annotation-supported",
-        "temperature dependence",
-        "whole-animal vs isolated-organ mismatch"
-      ],
-      "committee_score": 74,
-      "genes": [
-        "AI",
-        "AI-",
-        "AKT",
-        "AMP-",
-        "AMPK",
-        "BBB",
-        "BER",
-        "BMB",
-        "BR",
-        "BR-",
-        "C-",
-        "CAT",
-        "CD4",
-        "CIRI",
-        "CIRI-",
-        "CLSV-6",
-        "CMV",
-        "CNS",
-        "CNS-",
-        "COVID-19",
-        "CRC",
-        "CRISPR",
-        "CRISPR-",
-        "CVD",
-        "CXCL12",
-        "CXCR4",
-        "DDR",
-        "DDR-",
-        "DM",
-        "DNA-"
-      ],
-      "lab_count": 7,
-      "labs": [
-        "cancer",
-        "immunology",
-        "longevity",
-        "metabolism",
-        "neuro",
-        "preservation",
-        "regeneration"
-      ],
-      "mean_arbiter": 64.71,
-      "mechanisms": [
-        "Wnt",
-        "autophagy",
-        "cryoprotectant",
-        "extracellular matrix",
-        "fibrosis",
-        "heat shock",
-        "immune",
-        "inflammation",
-        "interferon",
-        "metabolic suppression",
-        "mitochondria",
-        "neuroprotection",
-        "oxidative stress",
-        "p53",
-        "proteostasis",
-        "regeneration",
-        "senescence",
-        "stem cell",
-        "telomere"
-      ],
-      "name": "This review",
-      "source_count": 88,
-      "sources": [
-        "PMID:41249546",
-        "PMID:41263971",
-        "PMID:41296427",
-        "PMID:41375340",
-        "PMID:41407319",
-        "PMID:41491675",
-        "PMID:41590771",
-        "PMID:41720633",
-        "PMID:41732917",
-        "PMID:41810075",
-        "PMID:41823836",
-        "PMID:41868216",
-        "PMID:41995539",
-        "PMID:42021784",
-        "PMID:42054804",
-        "PMID:42075172",
-        "PMID:42078852",
-        "PMID:42123520",
-        "PMID:42179845",
-        "PMID:42188043",
-        "PMID:42196445",
-        "PMID:42197398",
-        "PMID:42210496",
-        "PMID:42225652",
-        "PMID:42260757",
-        "PMID:42272639",
-        "PMID:42280674",
-        "PMID:42309719",
-        "PMID:42317459",
-        "PMID:42356391",
-        "PMID:42368777",
-        "PMID:42410075",
-        "PMID:42440782",
-        "PMID:42445133",
-        "PMID:42449678",
-        "PMID:42455433",
-        "PMID:42516090",
-        "PMID:42533572",
-        "PMID:42534704",
-        "PMID:42555410",
-        "PMID:42558869",
-        "PMID:42583033",
-        "PMID:42583998",
-        "PMID:42588511",
-        "PMID:42589109",
-        "PMID:42599176",
-        "PMID:42608715",
-        "PMID:42609872",
-        "PMID:42614252",
-        "PMID:42614376",
-        "PMID:42618877",
-        "PMID:42618997",
-        "PMID:42625132",
-        "PMID:42638873",
-        "PMID:42651978",
-        "PMID:42652999",
-        "PMID:42653089",
-        "PMID:42653890",
-        "PMID:42654303",
-        "PMID:42654969",
-        "PMID:42655835",
-        "PMID:42661740",
-        "PMID:42662413",
-        "PMID:42666826",
-        "PMID:42666915",
-        "PMID:42698810",
-        "PMID:42707763",
-        "PMID:42707963",
-        "PMID:42708003",
-        "PMID:42710444",
-        "PMID:42713281",
-        "PMID:42713502",
-        "PMID:42718881",
-        "PMID:42720714",
-        "PMID:42721885",
-        "PMID:42729679",
-        "PMID:42730041",
-        "PMID:42734204",
-        "PMID:42737610",
-        "PMID:42737943",
-        "PMID:42738586",
-        "PMID:42739349",
-        "PMID:42739482",
-        "PMID:42746520",
-        "PMID:42746597",
-        "PMID:42755729",
-        "PMID:42756118",
-        "PMID:42763691"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "challenges": [
-        "correlation does not prove causation",
-        "cryoprotectant toxicity",
-        "developmental-stage confounding",
-        "diet-context dependence",
-        "fibrosis tradeoffs",
-        "human functional divergence remains possible",
-        "regeneration-vs-repair ambiguity",
-        "reperfusion injury",
-        "species-specific endocrine physiology",
-        "taxonomy not annotation-supported",
-        "temperature dependence",
-        "whole-animal vs isolated-organ mismatch"
-      ],
-      "committee_score": 71,
-      "genes": [
-        "AKT",
-        "ALT",
-        "AMPK",
-        "AST",
-        "AUC",
-        "BMI",
-        "BSNF",
-        "C0",
-        "C1",
-        "C2",
-        "C3",
-        "C4",
-        "C57BL",
-        "CPT1",
-        "ECM",
-        "EGCG",
-        "EMS",
-        "F-T",
-        "GAPDH",
-        "GLP-1",
-        "GPCR",
-        "GPR37",
-        "GT",
-        "HOMA-IR",
-        "HSP70",
-        "IBP",
-        "IRS-1",
-        "LAB",
-        "M2",
-        "MC"
-      ],
-      "lab_count": 3,
-      "labs": [
-        "metabolism",
-        "preservation",
-        "regeneration"
-      ],
-      "mean_arbiter": 64.67,
-      "mechanisms": [
-        "GLP-1",
-        "cryoprotectant",
-        "extracellular matrix",
-        "fibrosis",
-        "heat shock",
-        "mitochondria",
-        "oxidative stress",
-        "regeneration",
-        "stem cell"
-      ],
-      "name": "These findings",
-      "source_count": 15,
-      "sources": [
-        "PMID:41491675",
-        "PMID:41821971",
-        "PMID:41934824",
-        "PMID:42169464",
-        "PMID:42207848",
-        "PMID:42450167",
-        "PMID:42450482",
-        "PMID:42547904",
-        "PMID:42639786",
-        "PMID:42652687",
-        "PMID:42656852",
-        "PMID:42702818",
-        "PMID:42705773",
-        "PMID:42746347",
-        "PMID:42765071"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "challenges": [
-        "correlation does not prove causation",
-        "cryoprotectant toxicity",
-        "developmental-stage confounding",
-        "diet-context dependence",
-        "fibrosis tradeoffs",
-        "human functional divergence remains possible",
-        "regeneration-vs-repair ambiguity",
-        "reperfusion injury",
-        "species-specific endocrine physiology",
-        "taxonomy not annotation-supported",
-        "temperature dependence",
-        "whole-animal vs isolated-organ mismatch"
-      ],
-      "committee_score": 69,
-      "genes": [
-        "A-",
-        "AD",
-        "ADIPOR1",
-        "AKT",
-        "AMPK",
-        "AXT3K",
-        "B-3",
-        "BSA",
-        "BSNF",
-        "C-",
-        "C0",
-        "C1",
-        "C2",
-        "C2C12",
-        "C3",
-        "C4",
-        "C57BL",
-        "CFU",
-        "CO",
-        "CPT1",
-        "DC",
-        "DHN",
-        "DM",
-        "DMA",
-        "DPP-4",
-        "ECM",
-        "EGCG",
-        "F-T",
-        "FD",
-        "FSK"
-      ],
-      "lab_count": 3,
-      "labs": [
-        "metabolism",
-        "preservation",
-        "regeneration"
-      ],
-      "mean_arbiter": 61.0,
-      "mechanisms": [
-        "GLP-1",
-        "cryoprotectant",
-        "extracellular matrix",
-        "fibrosis",
-        "heat shock",
-        "inflammation",
-        "metabolic suppression",
-        "mitochondria",
-        "regeneration"
-      ],
-      "name": "This study",
-      "source_count": 18,
-      "sources": [
-        "PMID:41009943",
-        "PMID:41449242",
-        "PMID:41636017",
-        "PMID:41883048",
-        "PMID:41901402",
-        "PMID:41934824",
-        "PMID:42003801",
-        "PMID:42050536",
-        "PMID:42572931",
-        "PMID:42574839",
-        "PMID:42655807",
-        "PMID:42656852",
-        "PMID:42661360",
-        "PMID:42667517",
-        "PMID:42705773",
-        "PMID:42713502",
-        "PMID:42738624",
-        "PMID:42765071"
-      ]
-    },
-    {
-      "annotation_support": true,
-      "challenges": [
-        "correlation does not prove causation",
-        "developmental-stage confounding",
-        "fibrosis tradeoffs",
-        "human functional divergence remains possible",
-        "regeneration-vs-repair ambiguity"
-      ],
-      "committee_score": 69,
-      "genes": [
-        "MAPK",
-        "MSC-",
-        "NF-",
-        "OCTA",
-        "SD-OCT",
-        "VEGF"
-      ],
-      "lab_count": 1,
-      "labs": [
-        "regeneration"
-      ],
-      "mean_arbiter": 79.0,
-      "mechanisms": [
-        "Wnt",
-        "extracellular matrix",
-        "inflammation",
-        "regeneration",
-        "stem cell"
-      ],
-      "name": "Wound healing",
-      "source_count": 4,
-      "sources": [
-        "PMID:42450167",
-        "PMID:42599176",
-        "PMID:42713281",
-        "PMID:42755729"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "challenges": [
-        "behavioral-vs-cellular endpoint mismatch",
-        "body-size confounding",
-        "correlation does not prove causation",
-        "diet-context dependence",
-        "human functional divergence remains possible",
-        "immune pathology tradeoffs",
-        "lifespan data quality",
-        "no gene symbol candidate",
-        "pathogen-specific adaptation",
-        "phylogeny confounding",
-        "reperfusion injury",
-        "reservoir-host confounding",
-        "species-specific endocrine physiology",
-        "species-specific neuroanatomy",
-        "taxonomy not annotation-supported",
-        "temperature dependence"
-      ],
-      "committee_score": 63,
-      "genes": [
-        "COVID-19",
-        "EDC",
-        "IBD",
-        "IF2",
-        "IIA",
-        "MEDLINE",
-        "MSC",
-        "PFAS",
-        "PI3K",
-        "SARS-",
-        "TGF-"
-      ],
-      "lab_count": 4,
-      "labs": [
-        "immunology",
-        "longevity",
-        "metabolism",
-        "neuro"
-      ],
-      "mean_arbiter": 47.25,
-      "mechanisms": [
-        "DNA repair",
-        "genome maintenance",
-        "immune",
-        "mitochondria",
-        "neuroprotection",
-        "oxidative stress",
-        "proteostasis",
-        "regeneration",
-        "senescence"
-      ],
-      "name": "Emerging evidence",
-      "source_count": 8,
-      "sources": [
-        "PMID:42016362",
-        "PMID:42197398",
-        "PMID:42402335",
-        "PMID:42583033",
-        "PMID:42618997",
-        "PMID:42653089",
-        "PMID:42712787",
-        "PMID:42718881"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "challenges": [
-        "body-size confounding",
-        "cell-culture artifacts",
-        "correlation does not prove causation",
-        "diet-context dependence",
-        "false cancer-resistance claims",
-        "human functional divergence remains possible",
-        "lifespan confounding",
-        "lifespan data quality",
-        "phenotype without extracted mechanism",
-        "phylogeny confounding",
-        "species-specific endocrine physiology",
-        "taxonomy not annotation-supported",
-        "temperature dependence"
-      ],
-      "committee_score": 60,
-      "genes": [
-        "AMP-",
-        "AMPK",
-        "B96",
-        "BMI",
-        "CPS",
-        "CRC",
-        "CVD",
-        "ENGOT-",
-        "FYGL",
-        "GLUT4",
-        "GTN",
-        "HDL-C",
-        "HI",
-        "HOMA-IR",
-        "HOMA-IR-",
-        "HPV",
-        "IL-6",
-        "IR",
-        "KEYNOTE-",
-        "KRAS",
-        "MASLD",
-        "MEDLINE",
-        "MSI-H",
-        "MSS",
-        "NAFLD",
-        "OGTT",
-        "ON",
-        "OS",
-        "PD-1",
-        "PD-L1"
-      ],
-      "lab_count": 3,
-      "labs": [
-        "cancer",
-        "longevity",
-        "metabolism"
-      ],
-      "mean_arbiter": 44.67,
-      "mechanisms": [
-        "DNA repair",
-        "genome maintenance",
-        "proteostasis",
-        "senescence"
-      ],
-      "name": "This narrative",
-      "source_count": 9,
-      "sources": [
-        "PMID:42188043",
-        "PMID:42402335",
-        "PMID:42654246",
-        "PMID:42654312",
-        "PMID:42694779",
-        "PMID:42729805",
-        "PMID:42738293",
-        "PMID:42739036",
-        "PMID:42755803"
-      ]
-    },
-    {
       "annotation_support": true,
       "challenges": [
         "correlation does not prove causation",
@@ -798,15 +238,11 @@
         "species-specific endocrine physiology",
         "temperature dependence"
       ],
-      "committee_score": 60,
+      "committee_score": 49,
       "genes": [
-        "CVD",
-        "DM",
         "HDL-C",
-        "HI",
         "HOMA-IR",
         "HSP70",
-        "IR",
         "MASLD",
         "NAFLD",
         "OGTT",
@@ -828,7 +264,9 @@
         "PMID:42591408",
         "PMID:42654246",
         "PMID:42713502"
-      ]
+      ],
+      "taxon_proofs": [],
+      "taxon_verified": false
     },
     {
       "annotation_support": true,
@@ -839,9 +277,8 @@
         "reperfusion injury",
         "species-specific neuroanatomy"
       ],
-      "committee_score": 60,
+      "committee_score": 48,
       "genes": [
-        "AD",
         "BBB",
         "CFB",
         "EV",
@@ -864,60 +301,139 @@
       "sources": [
         "PMID:42212363",
         "PMID:42625393"
-      ]
+      ],
+      "taxon_proofs": [],
+      "taxon_verified": false
     },
     {
       "annotation_support": true,
       "challenges": [
-        "behavioral-vs-cellular endpoint mismatch",
         "correlation does not prove causation",
-        "cryoprotectant toxicity",
+        "developmental-stage confounding",
+        "fibrosis tradeoffs",
         "human functional divergence remains possible",
-        "reperfusion injury",
-        "single-paper dependence",
-        "species-specific neuroanatomy",
-        "taxonomy not annotation-supported",
-        "whole-animal vs isolated-organ mismatch"
+        "no gene symbol candidate",
+        "regeneration-vs-repair ambiguity",
+        "single-paper dependence"
       ],
-      "committee_score": 58,
-      "genes": [
-        "C0",
-        "C1",
-        "C2",
-        "C3",
-        "C4",
-        "GAPDH",
-        "HSP70",
-        "MDA",
-        "MMP",
-        "NLRP3",
-        "PAC1",
-        "PACAP",
-        "PE",
-        "Q10",
-        "RT-",
-        "VPAC1",
-        "VPAC2"
-      ],
-      "lab_count": 2,
+      "committee_score": 47,
+      "genes": [],
+      "lab_count": 1,
       "labs": [
-        "neuro",
-        "preservation"
-      ],
-      "mean_arbiter": 44.5,
-      "mechanisms": [
-        "heat shock",
-        "mitochondria",
-        "neuroprotection",
-        "oxidative stress",
         "regeneration"
       ],
-      "name": "Mitochondrial dysfunction",
-      "source_count": 2,
+      "mean_arbiter": 49.0,
+      "mechanisms": [
+        "extracellular matrix",
+        "fibrosis",
+        "regeneration"
+      ],
+      "name": "Acomys cahirinus",
+      "source_count": 1,
       "sources": [
-        "PMID:42614376",
-        "PMID:42765071"
-      ]
+        "PMID:41732917"
+      ],
+      "taxon_proofs": [
+        {
+          "canonical_name": "Acomys cahirinus",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 9800308
+        }
+      ],
+      "taxon_verified": true
+    },
+    {
+      "annotation_support": true,
+      "challenges": [
+        "correlation does not prove causation",
+        "developmental-stage confounding",
+        "fibrosis tradeoffs",
+        "human functional divergence remains possible",
+        "regeneration-vs-repair ambiguity",
+        "single-paper dependence"
+      ],
+      "committee_score": 45,
+      "genes": [
+        "MAPK",
+        "NF-",
+        "OCTA",
+        "SD-OCT",
+        "VEGF"
+      ],
+      "lab_count": 1,
+      "labs": [
+        "regeneration"
+      ],
+      "mean_arbiter": 49.0,
+      "mechanisms": [
+        "Wnt",
+        "regeneration"
+      ],
+      "name": "Danio rerio",
+      "source_count": 1,
+      "sources": [
+        "PMID:42755729"
+      ],
+      "taxon_proofs": [
+        {
+          "canonical_name": "Danio rerio",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 9797255
+        }
+      ],
+      "taxon_verified": true
+    },
+    {
+      "annotation_support": true,
+      "challenges": [
+        "correlation does not prove causation",
+        "developmental-stage confounding",
+        "fibrosis tradeoffs",
+        "human functional divergence remains possible",
+        "regeneration-vs-repair ambiguity",
+        "single-paper dependence"
+      ],
+      "committee_score": 45,
+      "genes": [
+        "PBD",
+        "PCNA",
+        "PCNA-",
+        "RT-PCR"
+      ],
+      "lab_count": 1,
+      "labs": [
+        "regeneration"
+      ],
+      "mean_arbiter": 49.0,
+      "mechanisms": [
+        "fibrosis",
+        "regeneration"
+      ],
+      "name": "Cynops pyrrhogaster",
+      "source_count": 1,
+      "sources": [
+        "PMID:42702818"
+      ],
+      "taxon_proofs": [
+        {
+          "canonical_name": "Cynops pyrrhogaster",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 2431862
+        }
+      ],
+      "taxon_verified": true
     },
     {
       "annotation_support": true,
@@ -929,7 +445,7 @@
         "single-paper dependence",
         "species-specific neuroanatomy"
       ],
-      "committee_score": 53,
+      "committee_score": 42,
       "genes": [
         "NLRP3",
         "PAC1",
@@ -952,7 +468,9 @@
       "source_count": 1,
       "sources": [
         "PMID:42614376"
-      ]
+      ],
+      "taxon_proofs": [],
+      "taxon_verified": false
     },
     {
       "annotation_support": true,
@@ -964,9 +482,45 @@
         "single-paper dependence",
         "species-specific neuroanatomy"
       ],
-      "committee_score": 53,
+      "committee_score": 42,
       "genes": [
-        "AD",
+        "NLRP3",
+        "PAC1",
+        "PACAP",
+        "VPAC1",
+        "VPAC2"
+      ],
+      "lab_count": 1,
+      "labs": [
+        "neuro"
+      ],
+      "mean_arbiter": 55.0,
+      "mechanisms": [
+        "mitochondria",
+        "neuroprotection",
+        "oxidative stress",
+        "regeneration"
+      ],
+      "name": "Mitochondrial dysfunction",
+      "source_count": 1,
+      "sources": [
+        "PMID:42614376"
+      ],
+      "taxon_proofs": [],
+      "taxon_verified": false
+    },
+    {
+      "annotation_support": true,
+      "challenges": [
+        "behavioral-vs-cellular endpoint mismatch",
+        "correlation does not prove causation",
+        "human functional divergence remains possible",
+        "reperfusion injury",
+        "single-paper dependence",
+        "species-specific neuroanatomy"
+      ],
+      "committee_score": 42,
+      "genes": [
         "PCA",
         "PD"
       ],
@@ -985,67 +539,206 @@
       "source_count": 1,
       "sources": [
         "PMID:42212363"
-      ]
+      ],
+      "taxon_proofs": [],
+      "taxon_verified": false
     },
     {
       "annotation_support": true,
       "challenges": [
-        "body-size confounding",
         "correlation does not prove causation",
+        "cryoprotectant toxicity",
         "human functional divergence remains possible",
-        "lifespan data quality",
-        "no gene symbol candidate",
-        "phylogeny confounding",
-        "single-paper dependence"
+        "phenotype without extracted mechanism",
+        "reperfusion injury",
+        "whole-animal vs isolated-organ mismatch"
       ],
-      "committee_score": 51,
-      "genes": [],
+      "committee_score": 41,
+      "genes": [
+        "IBP",
+        "NIH-",
+        "USDA"
+      ],
       "lab_count": 1,
       "labs": [
-        "longevity"
+        "preservation"
       ],
-      "mean_arbiter": 50.0,
-      "mechanisms": [
-        "DNA repair",
-        "genome maintenance",
-        "proteostasis",
-        "senescence"
-      ],
-      "name": "Greenland shark",
-      "source_count": 1,
+      "mean_arbiter": 48.0,
+      "mechanisms": [],
+      "name": "Caenorhabditis elegans",
+      "source_count": 2,
       "sources": [
-        "PMID:42402335"
-      ]
+        "PMID:42169464",
+        "PMID:42208364"
+      ],
+      "taxon_proofs": [
+        {
+          "canonical_name": "Caenorhabditis elegans",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 2283683
+        }
+      ],
+      "taxon_verified": true
     },
     {
       "annotation_support": true,
       "challenges": [
-        "body-size confounding",
         "correlation does not prove causation",
         "human functional divergence remains possible",
-        "lifespan data quality",
+        "immune pathology tradeoffs",
         "no gene symbol candidate",
-        "phylogeny confounding",
+        "pathogen-specific adaptation",
+        "reservoir-host confounding",
         "single-paper dependence"
       ],
-      "committee_score": 51,
+      "committee_score": 40,
       "genes": [],
       "lab_count": 1,
       "labs": [
-        "longevity"
+        "immunology"
       ],
-      "mean_arbiter": 50.0,
+      "mean_arbiter": 43.0,
       "mechanisms": [
-        "DNA repair",
-        "genome maintenance",
-        "proteostasis",
-        "senescence"
+        "immune"
       ],
-      "name": "Somniosus microcephalus",
+      "name": "Eublepharis macularius",
       "source_count": 1,
       "sources": [
-        "PMID:42402335"
-      ]
+        "PMID:42746048"
+      ],
+      "taxon_proofs": [
+        {
+          "canonical_name": "Eublepharis macularius",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 5221283
+        }
+      ],
+      "taxon_verified": true
+    },
+    {
+      "annotation_support": true,
+      "challenges": [
+        "correlation does not prove causation",
+        "human functional divergence remains possible",
+        "immune pathology tradeoffs",
+        "no gene symbol candidate",
+        "pathogen-specific adaptation",
+        "reservoir-host confounding",
+        "single-paper dependence"
+      ],
+      "committee_score": 40,
+      "genes": [],
+      "lab_count": 1,
+      "labs": [
+        "immunology"
+      ],
+      "mean_arbiter": 43.0,
+      "mechanisms": [
+        "immune"
+      ],
+      "name": "Tiliqua scincoides",
+      "source_count": 1,
+      "sources": [
+        "PMID:42746048"
+      ],
+      "taxon_proofs": [
+        {
+          "canonical_name": "Tiliqua scincoides",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 2462503
+        }
+      ],
+      "taxon_verified": true
+    },
+    {
+      "annotation_support": true,
+      "challenges": [
+        "correlation does not prove causation",
+        "human functional divergence remains possible",
+        "immune pathology tradeoffs",
+        "no gene symbol candidate",
+        "pathogen-specific adaptation",
+        "reservoir-host confounding",
+        "single-paper dependence"
+      ],
+      "committee_score": 40,
+      "genes": [],
+      "lab_count": 1,
+      "labs": [
+        "immunology"
+      ],
+      "mean_arbiter": 43.0,
+      "mechanisms": [
+        "immune"
+      ],
+      "name": "Pantherophis guttatus",
+      "source_count": 1,
+      "sources": [
+        "PMID:42746048"
+      ],
+      "taxon_proofs": [
+        {
+          "canonical_name": "Pantherophis guttatus",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 2455615
+        }
+      ],
+      "taxon_verified": true
+    },
+    {
+      "annotation_support": true,
+      "challenges": [
+        "correlation does not prove causation",
+        "human functional divergence remains possible",
+        "immune pathology tradeoffs",
+        "no gene symbol candidate",
+        "pathogen-specific adaptation",
+        "reservoir-host confounding",
+        "single-paper dependence"
+      ],
+      "committee_score": 40,
+      "genes": [],
+      "lab_count": 1,
+      "labs": [
+        "immunology"
+      ],
+      "mean_arbiter": 43.0,
+      "mechanisms": [
+        "immune"
+      ],
+      "name": "Python regius",
+      "source_count": 1,
+      "sources": [
+        "PMID:42746048"
+      ],
+      "taxon_proofs": [
+        {
+          "canonical_name": "Python regius",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 2465380
+        }
+      ],
+      "taxon_verified": true
     },
     {
       "annotation_support": true,
@@ -1057,7 +750,7 @@
         "single-paper dependence",
         "species-specific neuroanatomy"
       ],
-      "committee_score": 51,
+      "committee_score": 40,
       "genes": [
         "BBB",
         "HO-1",
@@ -1080,119 +773,89 @@
       "source_count": 1,
       "sources": [
         "PMID:42260757"
-      ]
+      ],
+      "taxon_proofs": [],
+      "taxon_verified": false
     },
     {
-      "annotation_support": false,
+      "annotation_support": true,
       "challenges": [
-        "behavioral-vs-cellular endpoint mismatch",
         "correlation does not prove causation",
-        "diet-context dependence",
+        "cryoprotectant toxicity",
         "human functional divergence remains possible",
+        "phenotype without extracted mechanism",
         "reperfusion injury",
-        "species-specific endocrine physiology",
-        "species-specific neuroanatomy",
-        "taxonomy not annotation-supported",
-        "temperature dependence"
+        "single-paper dependence",
+        "whole-animal vs isolated-organ mismatch"
       ],
-      "committee_score": 50,
+      "committee_score": 35,
       "genes": [
-        "BBB",
-        "CNS",
-        "HIF-",
-        "HO-1",
-        "HSP70",
-        "IL-",
-        "PI3K",
-        "PI3K-",
-        "PRISMA",
-        "T2DM",
-        "TNF-"
-      ],
-      "lab_count": 2,
-      "labs": [
-        "metabolism",
-        "neuro"
-      ],
-      "mean_arbiter": 55.5,
-      "mechanisms": [
-        "mitochondria",
-        "neuroprotection",
-        "oxidative stress"
-      ],
-      "name": "Mechanisms and",
-      "source_count": 6,
-      "sources": [
-        "PMID:42260757",
-        "PMID:42589109",
-        "PMID:42589246",
-        "PMID:42618997",
-        "PMID:42746347",
-        "PMID:42746597"
-      ]
-    },
-    {
-      "annotation_support": true,
-      "challenges": [
-        "correlation does not prove causation",
-        "developmental-stage confounding",
-        "fibrosis tradeoffs",
-        "human functional divergence remains possible",
-        "regeneration-vs-repair ambiguity",
-        "single-paper dependence"
-      ],
-      "committee_score": 50,
-      "genes": [
-        "ECM"
+        "NIH-",
+        "USDA"
       ],
       "lab_count": 1,
       "labs": [
-        "regeneration"
+        "preservation"
       ],
-      "mean_arbiter": 54.0,
-      "mechanisms": [
-        "extracellular matrix",
-        "fibrosis",
-        "regeneration"
-      ],
-      "name": "Acomys cahirinus",
+      "mean_arbiter": 36.0,
+      "mechanisms": [],
+      "name": "Drosophila melanogaster",
       "source_count": 1,
       "sources": [
-        "PMID:41732917"
-      ]
+        "PMID:42208364"
+      ],
+      "taxon_proofs": [
+        {
+          "canonical_name": "Drosophila melanogaster",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 5073713
+        }
+      ],
+      "taxon_verified": true
     },
     {
       "annotation_support": true,
       "challenges": [
         "correlation does not prove causation",
-        "developmental-stage confounding",
-        "fibrosis tradeoffs",
+        "cryoprotectant toxicity",
         "human functional divergence remains possible",
-        "regeneration-vs-repair ambiguity",
-        "single-paper dependence"
+        "phenotype without extracted mechanism",
+        "reperfusion injury",
+        "single-paper dependence",
+        "whole-animal vs isolated-organ mismatch"
       ],
-      "committee_score": 46,
+      "committee_score": 35,
       "genes": [
-        "MAPK",
-        "NF-",
-        "OCTA",
-        "SD-OCT",
-        "VEGF"
+        "NIH-",
+        "USDA"
       ],
       "lab_count": 1,
       "labs": [
-        "regeneration"
+        "preservation"
       ],
-      "mean_arbiter": 49.0,
-      "mechanisms": [
-        "Wnt",
-        "regeneration"
-      ],
-      "name": "Danio rerio",
+      "mean_arbiter": 36.0,
+      "mechanisms": [],
+      "name": "Paracentrotus lividus",
       "source_count": 1,
       "sources": [
-        "PMID:42755729"
-      ]
+        "PMID:42208364"
+      ],
+      "taxon_proofs": [
+        {
+          "canonical_name": "Paracentrotus lividus",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 2278845
+        }
+      ],
+      "taxon_verified": true
     },
     {
       "annotation_support": true,
@@ -1204,39 +867,7 @@
         "regeneration-vs-repair ambiguity",
         "single-paper dependence"
       ],
-      "committee_score": 46,
-      "genes": [
-        "PBD",
-        "PCNA",
-        "PCNA-",
-        "RT-PCR"
-      ],
-      "lab_count": 1,
-      "labs": [
-        "regeneration"
-      ],
-      "mean_arbiter": 49.0,
-      "mechanisms": [
-        "fibrosis",
-        "regeneration"
-      ],
-      "name": "Cynops pyrrhogaster",
-      "source_count": 1,
-      "sources": [
-        "PMID:42702818"
-      ]
-    },
-    {
-      "annotation_support": true,
-      "challenges": [
-        "correlation does not prove causation",
-        "developmental-stage confounding",
-        "fibrosis tradeoffs",
-        "human functional divergence remains possible",
-        "regeneration-vs-repair ambiguity",
-        "single-paper dependence"
-      ],
-      "committee_score": 46,
+      "committee_score": 35,
       "genes": [
         "AO",
         "HA",
@@ -1257,7 +888,9 @@
       "source_count": 1,
       "sources": [
         "PMID:42762838"
-      ]
+      ],
+      "taxon_proofs": [],
+      "taxon_verified": false
     },
     {
       "annotation_support": true,
@@ -1270,7 +903,7 @@
         "reservoir-host confounding",
         "single-paper dependence"
       ],
-      "committee_score": 45,
+      "committee_score": 34,
       "genes": [],
       "lab_count": 1,
       "labs": [
@@ -1285,124 +918,9 @@
       "source_count": 1,
       "sources": [
         "PMID:42638873"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "challenges": [
-        "body-size confounding",
-        "correlation does not prove causation",
-        "developmental-stage confounding",
-        "fibrosis tradeoffs",
-        "human functional divergence remains possible",
-        "lifespan data quality",
-        "phylogeny confounding",
-        "regeneration-vs-repair ambiguity",
-        "single-paper dependence",
-        "taxonomy not annotation-supported"
       ],
-      "committee_score": 44,
-      "genes": [
-        "AI",
-        "AKT",
-        "AMPK",
-        "BMB",
-        "III",
-        "MAPK",
-        "PI3K",
-        "SMAD",
-        "TGF-"
-      ],
-      "lab_count": 2,
-      "labs": [
-        "longevity",
-        "regeneration"
-      ],
-      "mean_arbiter": 42.5,
-      "mechanisms": [
-        "Wnt",
-        "autophagy",
-        "extracellular matrix",
-        "fibrosis",
-        "inflammation",
-        "regeneration",
-        "senescence"
-      ],
-      "name": "Recent advances",
-      "source_count": 3,
-      "sources": [
-        "PMID:41407319",
-        "PMID:42225652",
-        "PMID:42343448"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "challenges": [
-        "behavioral-vs-cellular endpoint mismatch",
-        "correlation does not prove causation",
-        "human functional divergence remains possible",
-        "reperfusion injury",
-        "species-specific neuroanatomy",
-        "taxonomy not annotation-supported"
-      ],
-      "committee_score": 43,
-      "genes": [
-        "ADP-",
-        "IIA",
-        "MSC",
-        "NCOA4",
-        "PI3K",
-        "SCI",
-        "TGF-"
-      ],
-      "lab_count": 1,
-      "labs": [
-        "neuro"
-      ],
-      "mean_arbiter": 58.0,
-      "mechanisms": [
-        "mitochondria",
-        "neuroprotection",
-        "oxidative stress",
-        "regeneration"
-      ],
-      "name": "Growing evidence",
-      "source_count": 3,
-      "sources": [
-        "PMID:42346130",
-        "PMID:42718881",
-        "PMID:42737610"
-      ]
-    },
-    {
-      "annotation_support": true,
-      "challenges": [
-        "correlation does not prove causation",
-        "cryoprotectant toxicity",
-        "human functional divergence remains possible",
-        "phenotype without extracted mechanism",
-        "reperfusion injury",
-        "whole-animal vs isolated-organ mismatch"
-      ],
-      "committee_score": 42,
-      "genes": [
-        "IBP",
-        "NIH-",
-        "USDA"
-      ],
-      "lab_count": 1,
-      "labs": [
-        "preservation"
-      ],
-      "mean_arbiter": 48.0,
-      "mechanisms": [],
-      "name": "Caenorhabditis elegans",
-      "source_count": 2,
-      "sources": [
-        "PMID:42169464",
-        "PMID:42208364"
-      ]
+      "taxon_proofs": [],
+      "taxon_verified": false
     },
     {
       "annotation_support": true,
@@ -1414,7 +932,7 @@
         "species-specific endocrine physiology",
         "temperature dependence"
       ],
-      "committee_score": 42,
+      "committee_score": 31,
       "genes": [
         "AKO",
         "AKT",
@@ -1435,7 +953,9 @@
       "source_count": 1,
       "sources": [
         "PMID:42653336"
-      ]
+      ],
+      "taxon_proofs": [],
+      "taxon_verified": false
     },
     {
       "annotation_support": true,
@@ -1447,7 +967,7 @@
         "species-specific endocrine physiology",
         "temperature dependence"
       ],
-      "committee_score": 42,
+      "committee_score": 31,
       "genes": [
         "ER",
         "EV",
@@ -1466,7 +986,9 @@
       "source_count": 1,
       "sources": [
         "PMID:42290027"
-      ]
+      ],
+      "taxon_proofs": [],
+      "taxon_verified": false
     },
     {
       "annotation_support": true,
@@ -1478,7 +1000,7 @@
         "species-specific endocrine physiology",
         "temperature dependence"
       ],
-      "committee_score": 42,
+      "committee_score": 31,
       "genes": [
         "GDM",
         "OGTT"
@@ -1495,538 +1017,69 @@
       "source_count": 1,
       "sources": [
         "PMID:42516090"
-      ]
+      ],
+      "taxon_proofs": [],
+      "taxon_verified": false
     },
     {
-      "annotation_support": false,
+      "annotation_support": true,
       "challenges": [
         "correlation does not prove causation",
-        "developmental-stage confounding",
-        "fibrosis tradeoffs",
-        "human functional divergence remains possible",
-        "regeneration-vs-repair ambiguity",
-        "taxonomy not annotation-supported"
-      ],
-      "committee_score": 40,
-      "genes": [
-        "A-",
-        "CNKI",
-        "CXCR4",
-        "ECM",
-        "III",
-        "M2",
-        "MEDLINE",
-        "ROCK",
-        "SDF-1",
-        "VA",
-        "VA-HP",
-        "YAP"
-      ],
-      "lab_count": 1,
-      "labs": [
-        "regeneration"
-      ],
-      "mean_arbiter": 55.0,
-      "mechanisms": [
-        "Wnt",
-        "fibrosis",
-        "inflammation",
-        "regeneration"
-      ],
-      "name": "Pathological scars",
-      "source_count": 2,
-      "sources": [
-        "PMID:41122062",
-        "PMID:42050536"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "challenges": [
-        "behavioral-vs-cellular endpoint mismatch",
-        "correlation does not prove causation",
+        "cryoprotectant toxicity",
         "human functional divergence remains possible",
         "reperfusion injury",
-        "species-specific neuroanatomy",
-        "taxonomy not annotation-supported"
+        "single-paper dependence",
+        "whole-animal vs isolated-organ mismatch"
       ],
-      "committee_score": 39,
+      "committee_score": 31,
       "genes": [
-        "CNS",
-        "CNS-",
-        "IIA",
-        "MS",
-        "MSC",
-        "MSC-",
-        "NF-",
-        "PI3K",
-        "PTEN",
-        "TBI",
-        "TGF-"
+        "HOG",
+        "MAPK"
       ],
       "lab_count": 1,
       "labs": [
-        "neuro"
+        "preservation"
       ],
-      "mean_arbiter": 53.0,
+      "mean_arbiter": 45.0,
       "mechanisms": [
-        "mitochondria",
-        "neuroprotection",
-        "oxidative stress",
-        "regeneration"
+        "mitochondria"
       ],
-      "name": "Mesenchymal stem",
-      "source_count": 2,
+      "name": "Saccharomyces cerevisiae",
+      "source_count": 1,
       "sources": [
-        "PMID:42179845",
-        "PMID:42718881"
-      ]
+        "PMID:42045390"
+      ],
+      "taxon_proofs": [],
+      "taxon_verified": false
     },
     {
-      "annotation_support": false,
+      "annotation_support": true,
       "challenges": [
-        "behavioral-vs-cellular endpoint mismatch",
         "correlation does not prove causation",
-        "human functional divergence remains possible",
-        "reperfusion injury",
-        "species-specific neuroanatomy",
-        "taxonomy not annotation-supported"
-      ],
-      "committee_score": 39,
-      "genes": [
-        "AD",
-        "OS",
-        "PCA",
-        "PD"
-      ],
-      "lab_count": 1,
-      "labs": [
-        "neuro"
-      ],
-      "mean_arbiter": 52.0,
-      "mechanisms": [
-        "mitochondria",
-        "neuroprotection",
-        "oxidative stress",
-        "regeneration"
-      ],
-      "name": "The present",
-      "source_count": 2,
-      "sources": [
-        "PMID:42212363",
-        "PMID:42695417"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "challenges": [
-        "behavioral-vs-cellular endpoint mismatch",
-        "correlation does not prove causation",
-        "human functional divergence remains possible",
-        "reperfusion injury",
-        "species-specific neuroanatomy",
-        "taxonomy not annotation-supported"
-      ],
-      "committee_score": 39,
-      "genes": [
-        "ADP-"
-      ],
-      "lab_count": 1,
-      "labs": [
-        "neuro"
-      ],
-      "mean_arbiter": 52.0,
-      "mechanisms": [
-        "mitochondria",
-        "neuroprotection",
-        "oxidative stress",
-        "regeneration"
-      ],
-      "name": "Ischemic stroke",
-      "source_count": 2,
-      "sources": [
-        "PMID:42143325",
-        "PMID:42346130"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "challenges": [
-        "cell-culture artifacts",
-        "correlation does not prove causation",
-        "false cancer-resistance claims",
         "human functional divergence remains possible",
         "immune pathology tradeoffs",
-        "lifespan confounding",
+        "no gene symbol candidate",
         "pathogen-specific adaptation",
         "reservoir-host confounding",
-        "single-paper dependence",
-        "taxonomy not annotation-supported"
+        "single-paper dependence"
       ],
-      "committee_score": 37,
-      "genes": [
-        "B1",
-        "CMV",
-        "GMP-AMP",
-        "HBV",
-        "HSV",
-        "KEAP1",
-        "KRAS",
-        "LKB1",
-        "LUAD",
-        "NF1",
-        "PI3K-",
-        "PJS",
-        "PRR",
-        "RIG-I-",
-        "SARS-",
-        "STING",
-        "STK11",
-        "TP53"
-      ],
-      "lab_count": 2,
+      "committee_score": 30,
+      "genes": [],
+      "lab_count": 1,
       "labs": [
-        "cancer",
         "immunology"
       ],
-      "mean_arbiter": 33.5,
+      "mean_arbiter": 43.0,
       "mechanisms": [
-        "immune",
-        "inflammation",
-        "interferon",
-        "p53"
+        "immune"
       ],
-      "name": "Therapeutic strategies",
-      "source_count": 2,
+      "name": "Heat shock",
+      "source_count": 1,
       "sources": [
-        "PMID:42555410",
-        "PMID:42738366"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "challenges": [
-        "behavioral-vs-cellular endpoint mismatch",
-        "correlation does not prove causation",
-        "human functional divergence remains possible",
-        "reperfusion injury",
-        "species-specific neuroanatomy",
-        "taxonomy not annotation-supported"
+        "PMID:42609872"
       ],
-      "committee_score": 37,
-      "genes": [
-        "AKT",
-        "BBB",
-        "HO-1",
-        "IGF-1",
-        "IL-",
-        "PI3K",
-        "PI3K-",
-        "PROSPERO",
-        "SYRCLE",
-        "TNF-"
-      ],
-      "lab_count": 1,
-      "labs": [
-        "neuro"
-      ],
-      "mean_arbiter": 53.0,
-      "mechanisms": [
-        "mitochondria",
-        "neuroprotection",
-        "oxidative stress"
-      ],
-      "name": "During the",
-      "source_count": 2,
-      "sources": [
-        "PMID:42260757",
-        "PMID:42534704"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "challenges": [
-        "body-size confounding",
-        "correlation does not prove causation",
-        "human functional divergence remains possible",
-        "lifespan data quality",
-        "phylogeny confounding",
-        "taxonomy not annotation-supported"
-      ],
-      "committee_score": 36,
-      "genes": [
-        "AI",
-        "AKT",
-        "NF-",
-        "PI3K"
-      ],
-      "lab_count": 1,
-      "labs": [
-        "longevity"
-      ],
-      "mean_arbiter": 52.0,
-      "mechanisms": [
-        "autophagy",
-        "senescence",
-        "telomere"
-      ],
-      "name": "The convergence",
-      "source_count": 2,
-      "sources": [
-        "PMID:42225652",
-        "PMID:42583998"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "challenges": [
-        "behavioral-vs-cellular endpoint mismatch",
-        "correlation does not prove causation",
-        "human functional divergence remains possible",
-        "reperfusion injury",
-        "species-specific neuroanatomy",
-        "taxonomy not annotation-supported"
-      ],
-      "committee_score": 36,
-      "genes": [
-        "CNS"
-      ],
-      "lab_count": 1,
-      "labs": [
-        "neuro"
-      ],
-      "mean_arbiter": 52.0,
-      "mechanisms": [
-        "metabolic suppression",
-        "neuroprotection",
-        "regeneration"
-      ],
-      "name": "The ability",
-      "source_count": 2,
-      "sources": [
-        "PMID:42021784",
-        "PMID:42499342"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "challenges": [
-        "correlation does not prove causation",
-        "developmental-stage confounding",
-        "fibrosis tradeoffs",
-        "human functional divergence remains possible",
-        "regeneration-vs-repair ambiguity",
-        "taxonomy not annotation-supported"
-      ],
-      "committee_score": 36,
-      "genes": [
-        "CAF",
-        "FAP",
-        "FAP-",
-        "FTP",
-        "M2",
-        "MN"
-      ],
-      "lab_count": 1,
-      "labs": [
-        "regeneration"
-      ],
-      "mean_arbiter": 52.0,
-      "mechanisms": [
-        "fibrosis",
-        "inflammation",
-        "regeneration"
-      ],
-      "name": "The microneedle",
-      "source_count": 2,
-      "sources": [
-        "PMID:41883048",
-        "PMID:42606143"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "challenges": [
-        "correlation does not prove causation",
-        "diet-context dependence",
-        "human functional divergence remains possible",
-        "species-specific endocrine physiology",
-        "taxonomy not annotation-supported",
-        "temperature dependence"
-      ],
-      "committee_score": 35,
-      "genes": [
-        "AD",
-        "KD",
-        "KD-",
-        "MIND",
-        "SGLT-2"
-      ],
-      "lab_count": 1,
-      "labs": [
-        "metabolism"
-      ],
-      "mean_arbiter": 50.0,
-      "mechanisms": [
-        "autophagy",
-        "mitochondria",
-        "oxidative stress"
-      ],
-      "name": "The diet",
-      "source_count": 2,
-      "sources": [
-        "PMID:42356391",
-        "PMID:42451206"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "challenges": [
-        "behavioral-vs-cellular endpoint mismatch",
-        "correlation does not prove causation",
-        "human functional divergence remains possible",
-        "reperfusion injury",
-        "species-specific neuroanatomy",
-        "taxonomy not annotation-supported"
-      ],
-      "committee_score": 35,
-      "genes": [
-        "AKT",
-        "BBB",
-        "CAT",
-        "IGF-1",
-        "IL-",
-        "IL-6",
-        "PD",
-        "PROSPERO",
-        "SOD",
-        "SYRCLE",
-        "TNF-"
-      ],
-      "lab_count": 1,
-      "labs": [
-        "neuro"
-      ],
-      "mean_arbiter": 50.0,
-      "mechanisms": [
-        "mitochondria",
-        "neuroprotection",
-        "oxidative stress"
-      ],
-      "name": "Understanding these",
-      "source_count": 2,
-      "sources": [
-        "PMID:42534704",
-        "PMID:42662413"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "challenges": [
-        "behavioral-vs-cellular endpoint mismatch",
-        "correlation does not prove causation",
-        "human functional divergence remains possible",
-        "reperfusion injury",
-        "species-specific neuroanatomy",
-        "taxonomy not annotation-supported"
-      ],
-      "committee_score": 35,
-      "genes": [
-        "CNS",
-        "DEOPA",
-        "DIPOPA",
-        "EP",
-        "GLI-",
-        "HMGB1",
-        "N-",
-        "NF-",
-        "PUR"
-      ],
-      "lab_count": 1,
-      "labs": [
-        "neuro"
-      ],
-      "mean_arbiter": 50.0,
-      "mechanisms": [
-        "neuroprotection",
-        "oxidative stress",
-        "regeneration"
-      ],
-      "name": "Preclinical studies",
-      "source_count": 2,
-      "sources": [
-        "PMID:42375081",
-        "PMID:42698179"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "challenges": [
-        "correlation does not prove causation",
-        "developmental-stage confounding",
-        "fibrosis tradeoffs",
-        "human functional divergence remains possible",
-        "regeneration-vs-repair ambiguity",
-        "taxonomy not annotation-supported"
-      ],
-      "committee_score": 35,
-      "genes": [
-        "AIE-",
-        "DMA",
-        "M2",
-        "MA",
-        "RNA-",
-        "TGF-"
-      ],
-      "lab_count": 1,
-      "labs": [
-        "regeneration"
-      ],
-      "mean_arbiter": 50.0,
-      "mechanisms": [
-        "fibrosis",
-        "inflammation",
-        "regeneration"
-      ],
-      "name": "The hydrogel",
-      "source_count": 2,
-      "sources": [
-        "PMID:42003801",
-        "PMID:42182876"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "challenges": [
-        "correlation does not prove causation",
-        "developmental-stage confounding",
-        "fibrosis tradeoffs",
-        "human functional divergence remains possible",
-        "regeneration-vs-repair ambiguity",
-        "taxonomy not annotation-supported"
-      ],
-      "committee_score": 35,
-      "genes": [
-        "PL",
-        "PL-",
-        "TE"
-      ],
-      "lab_count": 1,
-      "labs": [
-        "regeneration"
-      ],
-      "mean_arbiter": 50.0,
-      "mechanisms": [
-        "inflammation",
-        "regeneration",
-        "stem cell"
-      ],
-      "name": "Future research",
-      "source_count": 2,
-      "sources": [
-        "PMID:42599176",
-        "PMID:42730041"
-      ]
+      "taxon_proofs": [],
+      "taxon_verified": false
     },
     {
       "annotation_support": true,
@@ -2039,7 +1092,7 @@
         "phenotype without extracted mechanism",
         "single-paper dependence"
       ],
-      "committee_score": 35,
+      "committee_score": 25,
       "genes": [
         "HR-HPV"
       ],
@@ -2053,342 +1106,12 @@
       "source_count": 1,
       "sources": [
         "PMID:42621466"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "challenges": [
-        "correlation does not prove causation",
-        "developmental-stage confounding",
-        "fibrosis tradeoffs",
-        "human functional divergence remains possible",
-        "regeneration-vs-repair ambiguity",
-        "single-paper dependence",
-        "taxonomy not annotation-supported"
       ],
-      "committee_score": 33,
-      "genes": [
-        "AKT",
-        "III",
-        "MAPK",
-        "PI3K",
-        "SMAD",
-        "TGF-"
-      ],
-      "lab_count": 1,
-      "labs": [
-        "regeneration"
-      ],
-      "mean_arbiter": 38.0,
-      "mechanisms": [
-        "Wnt",
-        "extracellular matrix",
-        "fibrosis",
-        "inflammation",
-        "regeneration"
-      ],
-      "name": "Scarring remains",
-      "source_count": 1,
-      "sources": [
-        "PMID:42343448"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "challenges": [
-        "correlation does not prove causation",
-        "developmental-stage confounding",
-        "fibrosis tradeoffs",
-        "human functional divergence remains possible",
-        "regeneration-vs-repair ambiguity",
-        "single-paper dependence",
-        "taxonomy not annotation-supported"
-      ],
-      "committee_score": 33,
-      "genes": [
-        "AKT",
-        "III",
-        "MAPK",
-        "PI3K",
-        "SMAD",
-        "TGF-"
-      ],
-      "lab_count": 1,
-      "labs": [
-        "regeneration"
-      ],
-      "mean_arbiter": 38.0,
-      "mechanisms": [
-        "Wnt",
-        "extracellular matrix",
-        "fibrosis",
-        "inflammation",
-        "regeneration"
-      ],
-      "name": "This regenerative",
-      "source_count": 1,
-      "sources": [
-        "PMID:42343448"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "challenges": [
-        "correlation does not prove causation",
-        "developmental-stage confounding",
-        "fibrosis tradeoffs",
-        "human functional divergence remains possible",
-        "regeneration-vs-repair ambiguity",
-        "single-paper dependence",
-        "taxonomy not annotation-supported"
-      ],
-      "committee_score": 33,
-      "genes": [
-        "AKT",
-        "III",
-        "MAPK",
-        "PI3K",
-        "SMAD",
-        "TGF-"
-      ],
-      "lab_count": 1,
-      "labs": [
-        "regeneration"
-      ],
-      "mean_arbiter": 38.0,
-      "mechanisms": [
-        "Wnt",
-        "extracellular matrix",
-        "fibrosis",
-        "inflammation",
-        "regeneration"
-      ],
-      "name": "The human",
-      "source_count": 1,
-      "sources": [
-        "PMID:42343448"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "challenges": [
-        "correlation does not prove causation",
-        "developmental-stage confounding",
-        "fibrosis tradeoffs",
-        "human functional divergence remains possible",
-        "regeneration-vs-repair ambiguity",
-        "single-paper dependence",
-        "taxonomy not annotation-supported"
-      ],
-      "committee_score": 33,
-      "genes": [
-        "AKT",
-        "III",
-        "MAPK",
-        "PI3K",
-        "SMAD",
-        "TGF-"
-      ],
-      "lab_count": 1,
-      "labs": [
-        "regeneration"
-      ],
-      "mean_arbiter": 38.0,
-      "mechanisms": [
-        "Wnt",
-        "extracellular matrix",
-        "fibrosis",
-        "inflammation",
-        "regeneration"
-      ],
-      "name": "These effects",
-      "source_count": 1,
-      "sources": [
-        "PMID:42343448"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "challenges": [
-        "correlation does not prove causation",
-        "diet-context dependence",
-        "human functional divergence remains possible",
-        "species-specific endocrine physiology",
-        "taxonomy not annotation-supported",
-        "temperature dependence"
-      ],
-      "committee_score": 32,
-      "genes": [
-        "CVD",
-        "HDL-C",
-        "HI",
-        "HOMA-IR",
-        "IR",
-        "MASLD",
-        "NAFLD",
-        "OGTT",
-        "SGLT2",
-        "TG"
-      ],
-      "lab_count": 1,
-      "labs": [
-        "metabolism"
-      ],
-      "mean_arbiter": 47.0,
-      "mechanisms": [
-        "mitochondria",
-        "oxidative stress"
-      ],
-      "name": "The findings",
-      "source_count": 2,
-      "sources": [
-        "PMID:42455433",
-        "PMID:42654246"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "challenges": [
-        "behavioral-vs-cellular endpoint mismatch",
-        "correlation does not prove causation",
-        "human functional divergence remains possible",
-        "reperfusion injury",
-        "single-paper dependence",
-        "species-specific neuroanatomy",
-        "taxonomy not annotation-supported"
-      ],
-      "committee_score": 32,
-      "genes": [
-        "NLRP3",
-        "PAC1",
-        "PACAP",
-        "VPAC1",
-        "VPAC2"
-      ],
-      "lab_count": 1,
-      "labs": [
-        "neuro"
-      ],
-      "mean_arbiter": 38.0,
-      "mechanisms": [
-        "mitochondria",
-        "neuroprotection",
-        "oxidative stress",
-        "regeneration"
-      ],
-      "name": "Its neuroprotection",
-      "source_count": 1,
-      "sources": [
-        "PMID:42614376"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "challenges": [
-        "behavioral-vs-cellular endpoint mismatch",
-        "correlation does not prove causation",
-        "human functional divergence remains possible",
-        "reperfusion injury",
-        "single-paper dependence",
-        "species-specific neuroanatomy",
-        "taxonomy not annotation-supported"
-      ],
-      "committee_score": 32,
-      "genes": [
-        "IIA",
-        "MSC",
-        "PI3K",
-        "TGF-"
-      ],
-      "lab_count": 1,
-      "labs": [
-        "neuro"
-      ],
-      "mean_arbiter": 38.0,
-      "mechanisms": [
-        "mitochondria",
-        "neuroprotection",
-        "oxidative stress",
-        "regeneration"
-      ],
-      "name": "Synergistic effects",
-      "source_count": 1,
-      "sources": [
-        "PMID:42718881"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "challenges": [
-        "behavioral-vs-cellular endpoint mismatch",
-        "correlation does not prove causation",
-        "human functional divergence remains possible",
-        "reperfusion injury",
-        "single-paper dependence",
-        "species-specific neuroanatomy",
-        "taxonomy not annotation-supported"
-      ],
-      "committee_score": 32,
-      "genes": [
-        "IIA",
-        "MSC",
-        "PI3K",
-        "TGF-"
-      ],
-      "lab_count": 1,
-      "labs": [
-        "neuro"
-      ],
-      "mean_arbiter": 38.0,
-      "mechanisms": [
-        "mitochondria",
-        "neuroprotection",
-        "oxidative stress",
-        "regeneration"
-      ],
-      "name": "Salvia miltiorrhiza",
-      "source_count": 1,
-      "sources": [
-        "PMID:42718881"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "challenges": [
-        "behavioral-vs-cellular endpoint mismatch",
-        "correlation does not prove causation",
-        "human functional divergence remains possible",
-        "reperfusion injury",
-        "single-paper dependence",
-        "species-specific neuroanatomy",
-        "taxonomy not annotation-supported"
-      ],
-      "committee_score": 32,
-      "genes": [
-        "IIA",
-        "MSC",
-        "PI3K",
-        "TGF-"
-      ],
-      "lab_count": 1,
-      "labs": [
-        "neuro"
-      ],
-      "mean_arbiter": 38.0,
-      "mechanisms": [
-        "mitochondria",
-        "neuroprotection",
-        "oxidative stress",
-        "regeneration"
-      ],
-      "name": "The underlying",
-      "source_count": 1,
-      "sources": [
-        "PMID:42718881"
-      ]
+      "taxon_proofs": [],
+      "taxon_verified": false
     }
   ],
   "schema": "biomimic-v6-org-run-v1",
-  "sha256": "734d4f890c9a2fec065ac1511670a1d2d074261955c72758eccc3628de70aec7",
-  "time": "2026-09-23T14:33:56.913212+00:00"
+  "sha256": "f0263391dd28a84d10a6bc23fa38962a62bb9a2682d47dcfc5981f6ec714d521",
+  "time": "2026-09-23T14:46:55.925090+00:00"
 }
