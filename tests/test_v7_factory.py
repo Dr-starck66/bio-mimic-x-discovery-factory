@@ -47,4 +47,19 @@ class TestV7Factory(unittest.TestCase):
         self.assertTrue(e["kill_criteria"])
         self.assertEqual(len(e["sha256"]),64)
 
+
+    def test_single_source_is_scout_not_claim(self):
+        trusted={"accepted":[{"name":"Danio rerio","sources":["PMID:1"],"source_count":1,"mechanisms":["regeneration"],"labs":["regeneration"],"genes":["VEGF"],"taxon_verified":True,"taxon_proofs":[{"provider":"GBIF"}]}]}
+        claims,scouts=control_plane.build_evidence_ledgers(trusted)
+        self.assertEqual(claims,[])
+        self.assertEqual(len(scouts),1)
+        self.assertEqual(scouts[0]["status"],"SCOUT")
+
+    def test_two_sources_becomes_supported_claim(self):
+        trusted={"accepted":[{"name":"Danio rerio","sources":["PMID:1","PMID:2"],"source_count":2,"mechanisms":["regeneration"],"labs":["regeneration"],"genes":["VEGF"],"taxon_verified":True,"taxon_proofs":[{"provider":"GBIF"}]}]}
+        claims,scouts=control_plane.build_evidence_ledgers(trusted)
+        self.assertEqual(scouts,[])
+        self.assertEqual(len(claims),1)
+        self.assertEqual(claims[0]["status"],"SUPPORTED")
+
 if __name__=="__main__": unittest.main()
