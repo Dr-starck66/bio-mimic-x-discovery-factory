@@ -1,27 +1,173 @@
 <!doctype html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>BIO-MIMIC X Autonomous Lab</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>BIO-MIMIC X · Control Center</title>
 <style>
-body{font-family:system-ui;margin:0;background:#071018;color:#eef7fb}.w{max-width:1100px;margin:auto;padding:24px}
-h1{margin-bottom:4px}.mut{color:#95aab5}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:22px 0}
-.c{background:#0d1c25;border:1px solid #23404b;border-radius:14px;padding:14px}.c b{font-size:25px;display:block}
-table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:9px;border-bottom:1px solid #213a45;text-align:left}
-.good{color:#62e6c2}.warn{color:#ffd166}@media(max-width:700px){.grid{grid-template-columns:1fr 1fr}}
-</style></head>
-<body><main class="w"><h1>BIO-MIMIC X Autonomous Lab</h1><div class="mut" id="stamp">Chargement du dernier run…</div>
-<div class="grid"><div class="c"><b id="papers">—</b><span>articles</span></div><div class="c"><b id="cand">—</b><span>candidats</span></div><div class="c"><b id="verified">—</b><span>vérifiés</span></div><div class="c"><b id="nodes">—</b><span>nœuds du graphe</span></div></div>
-<h2>Top candidats</h2><table><thead><tr><th>Espèce</th><th>Statut</th><th>Arbiter</th><th>Sources</th><th>Mécanismes</th></tr></thead><tbody id="rows"></tbody></table>
-<h2>Empreinte du run</h2><pre id="hash"></pre></main>
+:root{--bg:#061015;--panel:#0b1a21;--panel2:#0f232d;--line:#1d3a45;--text:#ecf7f8;--muted:#8eabb5;--ok:#4ee3b0;--warn:#ffd166;--bad:#ff6b7a;--cyan:#53d8fb;--violet:#aa8cff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 15% 0%,#0d2630 0,#061015 40%);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
+.wrap{max-width:1440px;margin:auto;padding:22px}.top{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.brand h1{margin:0;font-size:clamp(25px,4vw,42px);letter-spacing:-.04em}.brand p{margin:7px 0 0;color:var(--muted)}
+.mode{display:flex;align-items:center;gap:10px;border:1px solid #1b5b4d;background:#09271f;border-radius:999px;padding:9px 14px;font-weight:800}.dot{width:10px;height:10px;border-radius:50%;background:var(--ok);box-shadow:0 0 18px var(--ok);animation:pulse 1.4s infinite}@keyframes pulse{50%{opacity:.4}}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px;margin-top:18px}.card{background:linear-gradient(180deg,rgba(15,35,45,.94),rgba(8,24,31,.94));border:1px solid var(--line);border-radius:18px;padding:16px;min-width:0}
+.kpi{grid-column:span 2}.wide4{grid-column:span 4}.wide6{grid-column:span 6}.wide8{grid-column:span 8}.wide12{grid-column:span 12}
+.label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}.value{font-size:29px;font-weight:850;margin-top:5px}.sub{font-size:12px;color:var(--muted);margin-top:5px}.ok{color:var(--ok)}.warn{color:var(--warn)}.bad{color:var(--bad)}.cyan{color:var(--cyan)}
+.row{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:9px 0;border-bottom:1px solid rgba(46,83,96,.45)}.row:last-child{border-bottom:0}
+.pill{font-size:11px;font-weight:800;border-radius:999px;padding:5px 9px;background:#132d38;color:var(--muted)}.pill.ok{background:#0c3027;color:var(--ok)}.pill.warn{background:#3a3014;color:var(--warn)}.pill.bad{background:#3a1820;color:var(--bad)}
+.bar{height:8px;background:#132a33;border-radius:999px;overflow:hidden;margin-top:7px}.bar>i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--cyan),var(--ok))}
+h2{font-size:16px;margin:0 0 10px}table{width:100%;border-collapse:collapse;font-size:12px}th,td{text-align:left;padding:9px 8px;border-bottom:1px solid rgba(46,83,96,.42);vertical-align:top}th{color:var(--muted);font-weight:600}
+.alert{padding:12px;border-radius:12px;border:1px solid #644d1b;background:#2c2511;color:#ffe39a;margin-top:10px}
+.mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:11px;word-break:break-all}
+.footer{color:var(--muted);font-size:12px;margin:18px 0 40px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+button{background:#123340;color:var(--text);border:1px solid #285466;padding:8px 11px;border-radius:10px;cursor:pointer}button:hover{background:#174354}
+@media(max-width:1000px){.kpi{grid-column:span 4}.wide4,.wide6,.wide8{grid-column:span 12}}
+@media(max-width:620px){.wrap{padding:13px}.kpi{grid-column:span 6}.grid{gap:8px}.card{padding:12px}.value{font-size:22px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="brand"><h1>BIO-MIMIC X <span class="cyan">Control Center</span></h1><p>Scientific Discovery Factory · supervision autonome</p></div>
+    <div class="mode"><span class="dot"></span><span id="autoMode">AUTO MODE ON</span></div>
+  </div>
+
+  <div class="grid">
+    <section class="card kpi"><div class="label">État usine</div><div class="value" id="factoryStatus">—</div><div class="sub" id="lastCycle">chargement…</div></section>
+    <section class="card kpi"><div class="label">Labs</div><div class="value" id="labs">—</div><div class="sub">laboratoires spécialisés</div></section>
+    <section class="card kpi"><div class="label">Briques</div><div class="value" id="bricks">—</div><div class="sub">actives / utilisées</div></section>
+    <section class="card kpi"><div class="label">Programmes</div><div class="value" id="programs">—</div><div class="sub">recherche active</div></section>
+    <section class="card kpi"><div class="label">Claims</div><div class="value" id="claims">—</div><div class="sub">avec provenance</div></section>
+    <section class="card kpi"><div class="label">Human Bridge</div><div class="value" id="human">—</div><div class="sub">ponts vérifiés</div></section>
+
+    <section class="card wide4">
+      <h2>⏱ Automatisation</h2>
+      <div class="row"><span>Planification</span><b class="ok">QUOTIDIENNE</b></div>
+      <div class="row"><span>Heure workflow</span><b>03:17 UTC</b></div>
+      <div class="row"><span>Prochain cycle</span><b id="nextRun">—</b></div>
+      <div class="row"><span>Dernière synchro UI</span><b id="uiSync">—</b></div>
+      <button onclick="location.reload()">Actualiser maintenant</button>
+    </section>
+
+    <section class="card wide4">
+      <h2>🧪 Qualité scientifique</h2>
+      <div class="row"><span>Faux positifs</span><b id="fp">—</b></div>
+      <div class="bar"><i id="fpbar" style="width:0%"></i></div>
+      <div class="row"><span>Claims vérifiés</span><b id="verified">—</b></div>
+      <div class="row"><span>Provenance</span><b id="prov">—</b></div>
+      <div class="row"><span>Cross-lab diversity</span><b id="diversity">—</b></div>
+    </section>
+
+    <section class="card wide4">
+      <h2>🧬 Human Bridge</h2>
+      <div class="row"><span>Espèces résolues Ensembl</span><b id="resolvedSpecies">—</b></div>
+      <div class="row"><span>Orthologues humains</span><b id="orthHits">—</b></div>
+      <div class="row"><span>Cibles Open Targets</span><b id="otHits">—</b></div>
+      <div class="row"><span>Statut</span><span class="pill" id="humanStatus">—</span></div>
+    </section>
+
+    <section class="card wide6">
+      <h2>🔬 7 laboratoires</h2>
+      <div id="labList"><div class="sub">Chargement…</div></div>
+    </section>
+
+    <section class="card wide6">
+      <h2>🧱 20 briques — observabilité</h2>
+      <div id="brickList"><div class="sub">Chargement…</div></div>
+    </section>
+
+    <section class="card wide12">
+      <h2>🎯 Programmes prioritaires</h2>
+      <div style="overflow:auto"><table><thead><tr><th>Programme</th><th>Score</th><th>Labs</th><th>Stage</th><th>Statut</th></tr></thead><tbody id="programRows"></tbody></table></div>
+    </section>
+
+    <section class="card wide8">
+      <h2>🧠 Auto-amélioration / Model Immune System</h2>
+      <div id="policy"><div class="sub">Chargement…</div></div>
+    </section>
+
+    <section class="card wide4">
+      <h2>🔐 Intégrité</h2>
+      <div class="label">Replay SHA-256</div><div class="mono" id="sha">—</div>
+      <div class="label" style="margin-top:12px">Briques inutilisées</div><div id="unused">—</div>
+    </section>
+
+    <section class="card wide12">
+      <h2>🚨 Alertes</h2>
+      <div id="alerts"><div class="sub">Aucune donnée chargée.</div></div>
+    </section>
+  </div>
+
+  <div class="footer"><span>Les statuts sont des statuts de workflow scientifique, pas des preuves cliniques.</span><span>Les données se mettent à jour après chaque cycle cloud validé.</span></div>
+</div>
 <script>
-fetch('./data/latest.json?ts='+Date.now()).then(r=>r.json()).then(x=>{
- document.querySelector('#stamp').textContent='Dernier run: '+(x.finished_at||'aucun');
- document.querySelector('#papers').textContent=(x.papers||[]).length;
- document.querySelector('#cand').textContent=(x.candidates||[]).length;
- document.querySelector('#verified').textContent=x.progress?.verified_candidates??0;
- document.querySelector('#nodes').textContent=x.progress?.graph_nodes??0;
- document.querySelector('#hash').textContent=x.sha256||'—';
- document.querySelector('#rows').innerHTML=(x.candidates||[]).slice(0,20).map(c=>`<tr><td>${c.name}</td><td class="${c.status==='VERIFIED_CANDIDATE'?'good':'warn'}">${c.status}</td><td>${c.arbiter}</td><td>${c.paper_count}</td><td>${(c.mechanisms||[]).slice(0,4).join(', ')}</td></tr>`).join('');
-}).catch(()=>document.querySelector('#stamp').textContent='Aucun run publié pour le moment.');
-</script></body></html>
+const $=s=>document.querySelector(s);
+const pct=x=>Number.isFinite(+x)?Math.round(+x*100)+'%':'—';
+const safe=(x,d='—')=>x===undefined||x===null||x===''?d:x;
+const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+function nextDailyUtc(h=3,m=17){
+  const now=new Date(), n=new Date(now);
+  n.setUTCHours(h,m,0,0); if(n<=now)n.setUTCDate(n.getUTCDate()+1);
+  const ms=n-now, hh=Math.floor(ms/36e5), mm=Math.floor(ms%36e5/6e4);
+  return n.toLocaleString('fr-FR',{timeZone:'Europe/Paris',dateStyle:'short',timeStyle:'short'})+` (dans ${hh}h ${mm}m)`;
+}
+async function get(path){const r=await fetch(path+'?v='+Date.now(),{cache:'no-store'});if(!r.ok)throw new Error(path+' HTTP '+r.status);return r.json()}
+(async()=>{
+  $('#nextRun').textContent=nextDailyUtc();
+  $('#uiSync').textContent=new Date().toLocaleTimeString('fr-FR');
+  const alerts=[];
+  try{
+    const [f,o]=await Promise.all([get('./data/factory/latest.json'),get('./data/org/latest.json')]);
+    const usage=f.brick_usage||[], labs=o.labs||[], hb=f.human_bridge_result||{};
+    $('#factoryStatus').textContent=safe(f.status);
+    $('#factoryStatus').className='value '+(f.status==='PASS'?'ok':f.status==='PARTIAL'?'warn':'bad');
+    $('#lastCycle').textContent=f.time?new Date(f.time).toLocaleString('fr-FR'):'aucun cycle';
+    $('#labs').textContent=labs.length||7;
+    $('#bricks').textContent=`${new Set(usage.map(x=>x.brick_id)).size}/20`;
+    $('#programs').textContent=(f.programs||[]).length;
+    $('#claims').textContent=(f.claims||[]).length;
+    const verifiedBridges=(hb.bridges||[]).length;
+    $('#human').textContent=verifiedBridges;
+    $('#resolvedSpecies').textContent=safe(hb.resolved_species,0);
+    $('#orthHits').textContent=safe(hb.orthologue_hits,0);
+    $('#otHits').textContent=safe(hb.open_targets_hits,0);
+    $('#humanStatus').textContent=safe(hb.status,'LEGACY / EN ATTENTE V7.1');
+    $('#humanStatus').className='pill '+(hb.status==='PASS'?'ok':hb.status==='PARTIAL'?'warn':'warn');
+
+    const t=f.telemetry||{};
+    $('#fp').textContent=pct(t.false_positive_rate);
+    $('#fp').className=(+t.false_positive_rate>.2?'bad':+t.false_positive_rate>.08?'warn':'ok');
+    $('#fpbar').style.width=Math.min(100,(+t.false_positive_rate||0)*100)+'%';
+    $('#verified').textContent=pct(t.verified_ratio);
+    $('#prov').textContent=pct((f.benchmark||{}).provenance_ratio===undefined?1:(f.benchmark||{}).provenance_ratio+0.5);
+    $('#diversity').textContent=pct(t.cross_lab_diversity);
+
+    $('#labList').innerHTML=labs.map(x=>`<div class="row"><span><b>${esc(x.name||x.id)}</b><div class="sub">${safe(x.paper_count,0)} papers · ${safe(x.candidate_count,0)} candidats</div></span><span class="pill ${x.status==='PASS'?'ok':x.status==='PARTIAL'?'warn':'bad'}">${esc(x.status)}</span></div>`).join('')||'<div class="sub">Pas encore de statut lab.</div>';
+
+    $('#brickList').innerHTML=usage.map(x=>`<div class="row"><span><b>${esc(x.name)}</b><div class="sub">${esc(x.metric)} = ${esc(x.value)}</div></span><span class="pill ${x.status==='PASS'?'ok':x.status==='PARTIAL'?'warn':'bad'}">${esc(x.status)}</span></div>`).join('');
+
+    $('#programRows').innerHTML=(f.programs||[]).map(p=>`<tr><td><b>${esc(p.title)}</b><div class="mono">${esc(p.id)}</div></td><td>${safe(p.committee_score,0)}</td><td>${esc((p.labs||[]).join(', '))}</td><td>${esc(p.stage)}</td><td><span class="pill ${p.status==='ACTIVE'?'ok':'warn'}">${esc(p.status)}</span></td></tr>`).join('');
+
+    const g=f.policy_gate||{};
+    $('#policy').innerHTML=`<div class="row"><span>Changement politique</span><span class="pill ${g.accepted?'ok':'warn'}">${g.accepted?'ACCEPTÉ':'BLOQUÉ'}</span></div><div class="row"><span>Raison</span><b>${esc(g.reason||'—')}</b></div><div class="row"><span>Score courant</span><b>${safe(g.base_score)}</b></div><div class="row"><span>Meilleure variante</span><b>${safe(g.best_score)}</b></div>`;
+    $('#sha').textContent=safe(f.sha256);
+    const unused=f.unused_active_bricks||[];
+    $('#unused').innerHTML=unused.length?'<span class="bad">'+esc(unused.join(', '))+'</span>':'<span class="ok">0 — toutes utilisées</span>';
+
+    if(f.status!=='PASS') alerts.push('Factory status = '+f.status);
+    if((+t.false_positive_rate||0)>.2) alerts.push('Taux de faux positifs élevé : '+pct(t.false_positive_rate));
+    if(!hb.status) alerts.push('Human Bridge V7.1 pas encore présent dans le dernier état publié.');
+    else if(hb.status!=='PASS') alerts.push('Human Bridge = '+hb.status+' — chaîne humaine encore incomplète.');
+    if(unused.length) alerts.push('Briques actives inutilisées : '+unused.join(', '));
+    const failed=labs.filter(x=>x.status!=='PASS');
+    if(failed.length) alerts.push(failed.length+' lab(s) non PASS.');
+    $('#alerts').innerHTML=alerts.length?alerts.map(a=>`<div class="alert">⚠ ${esc(a)}</div>`).join(''):'<div class="row"><span>Aucune alerte critique dans le dernier état publié.</span><span class="pill ok">OK</span></div>';
+  }catch(e){
+    $('#factoryStatus').textContent='OFFLINE';
+    $('#factoryStatus').className='value bad';
+    $('#alerts').innerHTML='<div class="alert">Impossible de charger les données du laboratoire : '+esc(e.message)+'</div>';
+  }
+})();
+</script>
+</body></html>
