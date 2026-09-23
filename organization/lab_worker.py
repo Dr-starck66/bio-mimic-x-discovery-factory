@@ -144,8 +144,8 @@ def run_lab(lab_id,out_path):
     for b in raw[:40]:
         tax=validate_gbif_match(b["name"])
         taxon_verified=bool(tax)
-        if not taxon_verified and not b["annotation_support"]:
-            rejected.append({"name":b["name"],"reason":"no independent taxon proof"})
+        if not taxon_verified:
+            rejected.append({"name":b["name"],"reason":"not an exact GBIF-verified Animalia taxon","annotation_support":b["annotation_support"]})
             continue
         c={
             "name":b["name"],"paper_count":len(b["sources"]),"sources":sorted(b["sources"]),
