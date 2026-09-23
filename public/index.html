@@ -69,13 +69,22 @@ button{background:#123340;color:var(--text);border:1px solid #285466;padding:8px
       <div class="row"><span>Statut</span><span class="pill" id="humanStatus">—</span></div>
     </section>
 
+    <section class="card wide4">
+      <h2>🧠 V9 Scientific Reasoning</h2>
+      <div class="row"><span>Dossiers</span><b id="reasoningDossiers">—</b></div>
+      <div class="row"><span>Hypothèses falsifiables</span><b id="reasoningHypotheses">—</b></div>
+      <div class="row"><span>Survivent revue contradictoire</span><b id="reasoningSurvivors">—</b></div>
+      <div class="row"><span>Plans expérimentaux proposés</span><b id="reasoningPlans">—</b></div>
+      <div class="row"><span>Efficacité clinique revendiquée</span><b id="reasoningClinical">—</b></div>
+    </section>
+
     <section class="card wide6">
       <h2>🔬 7 laboratoires</h2>
       <div id="labList"><div class="sub">Chargement…</div></div>
     </section>
 
     <section class="card wide6">
-      <h2>🧱 20 briques — observabilité</h2>
+      <h2>🧱 25 briques — observabilité</h2>
       <div id="brickList"><div class="sub">Chargement…</div></div>
     </section>
 
@@ -127,7 +136,7 @@ async function get(path){const r=await fetch(path+'?v='+Date.now(),{cache:'no-st
     $('#factoryStatus').className='value '+(f.status==='PASS'?'ok':f.status==='PARTIAL'?'warn':'bad');
     $('#lastCycle').textContent=f.time?new Date(f.time).toLocaleString('fr-FR'):'aucun cycle';
     $('#labs').textContent=labs.length||7;
-    $('#bricks').textContent=`${new Set(usage.map(x=>x.brick_id)).size}/20`;
+    $('#bricks').textContent=`${new Set(usage.map(x=>x.brick_id)).size}/25`;
     $('#programs').textContent=(f.programs||[]).length;
     $('#claims').textContent=(f.claims||[]).length;
     const verifiedBridges=(hb.bridges||[]).length;
@@ -146,6 +155,18 @@ async function get(path){const r=await fetch(path+'?v='+Date.now(),{cache:'no-st
     $('#prov').textContent=pct((f.benchmark||{}).provenance_ratio===undefined?1:(f.benchmark||{}).provenance_ratio+0.5);
     $('#diversity').textContent=pct(t.cross_lab_diversity);
 
+    const reasoning=f.scientific_reasoning||[];
+    const rh=reasoning.reduce((n,d)=>n+(d.hypotheses||[]).length,0);
+    const rs=reasoning.reduce((n,d)=>n+(((d.debate||{}).surviving_hypothesis_ids)||[]).length,0);
+    const rp=reasoning.reduce((n,d)=>n+(d.experiment_plans||[]).length,0);
+    const clinical=reasoning.some(d=>d.clinical_efficacy_claim===true);
+    $('#reasoningDossiers').textContent=reasoning.length;
+    $('#reasoningHypotheses').textContent=rh;
+    $('#reasoningSurvivors').textContent=rs;
+    $('#reasoningPlans').textContent=rp;
+    $('#reasoningClinical').textContent=clinical?'OUI':'NON';
+    $('#reasoningClinical').className=clinical?'bad':'ok';
+
     $('#labList').innerHTML=labs.map(x=>`<div class="row"><span><b>${esc(x.name||x.id)}</b><div class="sub">${safe(x.paper_count,0)} papers · ${safe(x.candidate_count,0)} candidats</div></span><span class="pill ${x.status==='PASS'?'ok':x.status==='PARTIAL'?'warn':'bad'}">${esc(x.status)}</span></div>`).join('')||'<div class="sub">Pas encore de statut lab.</div>';
 
     $('#brickList').innerHTML=usage.map(x=>`<div class="row"><span><b>${esc(x.name)}</b><div class="sub">${esc(x.metric)} = ${esc(x.value)}</div></span><span class="pill ${x.status==='PASS'?'ok':x.status==='PARTIAL'?'warn':'bad'}">${esc(x.status)}</span></div>`).join('');
@@ -163,6 +184,8 @@ async function get(path){const r=await fetch(path+'?v='+Date.now(),{cache:'no-st
     if(!hb.status) alerts.push('Human Bridge V7.1 pas encore présent dans le dernier état publié.');
     else if(hb.status!=='PASS') alerts.push('Human Bridge = '+hb.status+' — chaîne humaine encore incomplète.');
     if(unused.length) alerts.push('Briques actives inutilisées : '+unused.join(', '));
+    if(!reasoning.length) alerts.push('V9 Scientific Reasoning en attente du prochain cycle Factory validé.');
+    if(clinical) alerts.push('ERREUR: un dossier V9 revendique une efficacité clinique.');
     const failed=labs.filter(x=>x.status!=='PASS');
     if(failed.length) alerts.push(failed.length+' lab(s) non PASS.');
     $('#alerts').innerHTML=alerts.length?alerts.map(a=>`<div class="alert">⚠ ${esc(a)}</div>`).join(''):'<div class="row"><span>Aucune alerte critique dans le dernier état publié.</span><span class="pill ok">OK</span></div>';
