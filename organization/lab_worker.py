@@ -90,6 +90,40 @@ def validate_gbif_match(name):
     TAX_CACHE[key]=proof
     return proof
 
+def find_replication_sources(lab,c,max_results=12):
+    """Seek independent literature for the same species + mechanism context.
+    This is deliberately conservative: a second generic mention of the species
+    is not enough to count as replication.
+    """
+    existing=set(c.get("sources",[]))
+    focus=list(c.get("mechanisms") or lab.get("mechanism_focus",[])[:3])
+    terms=[m for m in focus if m][:3]
+    if not terms:
+        return []
+    mech=" OR ".join(f'"{m}"' for m in terms)
+    query=f'"{c["name"]}" AND ({mech})'
+    params={"format":"json","resultType":"core","pageSize":str(max_results),"query":query}
+    try:
+        data=get_json(EPMC+"?"+urllib.parse.urlencode(params),1)
+    except Exception:
+        return []
+    additions=[]
+    for p in data.get("resultList",{}).get("result",[]):
+        sid=source_id(p)
+        if sid in existing or sid in additions:
+            continue
+        text=(p.get("title") or "")+" "+(p.get("abstractText") or "")
+        h=norm(text)
+        # Require exact binomial plus at least one same-context mechanism.
+        if norm(c["name"]) not in h:
+            continue
+        if not any(norm(m) in h for m in terms):
+            continue
+        additions.append(sid)
+        if len(additions)>=2:
+            break
+    return additions
+
 def evidence_score(c):
     return min(100, round(
         12 + min(35,c["paper_count"]*8) + min(18,math.log10(1+c["citations"])*7)
@@ -164,6 +198,15 @@ def run_lab(lab_id,out_path):
             "citations":b["citations"],"annotation_support":b["annotation_support"],
             "taxon_verified":taxon_verified,"taxon_proof":tax
         }
+        c["replication_search"]={"attempted":False,"new_sources":[]}
+        # Spend extra provider calls only on strong single-source animal candidates.
+        if c["paper_count"]==1 and c["mechanisms"] and len(candidates)<8:
+            c["replication_search"]["attempted"]=True
+            extra=find_replication_sources(lab,c)
+            if extra:
+                c["sources"]=sorted(set(c["sources"]+extra))
+                c["paper_count"]=len(c["sources"])
+                c["replication_search"]["new_sources"]=extra
         c["evidence"]=evidence_score(c)
         c["skeptic"]=skeptic_score(c)
         c["disagreement"]=abs(c["evidence"]-c["skeptic"])
@@ -182,7 +225,9 @@ def run_lab(lab_id,out_path):
         "lab_id":lab["id"],"lab_name":lab["name"],"mission":lab["mission"],
         "human_domain":lab["human_domain"],"started_at":now(),"status":status,
         "paper_count":len(papers),"raw_candidate_count":len(buckets),
-        "candidate_count":len(candidates),"rejected_candidate_count":len(rejected),
+        "candidate_count":len(candidates),"replicated_candidate_count":sum(1 for x in candidates if x.get("paper_count",0)>=2),
+        "replication_search_hits":sum(len((x.get("replication_search") or {}).get("new_sources",[])) for x in candidates),
+        "rejected_candidate_count":len(rejected),
         "rejected_samples":rejected[:12],"candidates":top,"failures":failures
     }
     result["sha256"]=hashlib.sha256(json.dumps(result,sort_keys=True,ensure_ascii=False).encode()).hexdigest()
