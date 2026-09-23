@@ -2,12 +2,8 @@ name: BIO-MIMIC X Human Bridge Refresh
 
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - 'human_bridge_refresh.py'
-      - 'factory/human_bridge.py'
-      - '.github/workflows/human-bridge-refresh.yml'
+  schedule:
+    - cron: '47 3 * * *'
 
 permissions:
   contents: write
