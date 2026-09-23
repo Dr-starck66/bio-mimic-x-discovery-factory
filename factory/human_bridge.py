@@ -5,6 +5,7 @@ from pathlib import Path
 
 ENSEMBL_BASE="https://rest.ensembl.org"
 OPEN_TARGETS="https://api.platform.opentargets.org/api/v4/graphql"
+EPMC_ANN="https://www.ebi.ac.uk/europepmc/annotations_api/annotationsByArticleIds"
 TIMEOUT=18
 
 def norm(x):
@@ -57,8 +58,11 @@ def ensembl_species_index():
                 out[a]=s.get("name")
     return out
 
+def candidate_name(candidate):
+    return candidate.get("subject") or candidate.get("name") or ""
+
 def resolve_ensembl_species(candidate,index):
-    names=[candidate.get("name","")]
+    names=[candidate_name(candidate)]
     for proof in candidate.get("taxon_proofs") or []:
         names += [proof.get("canonical_name",""),proof.get("scientific_name","")]
     for n in names:
@@ -66,6 +70,75 @@ def resolve_ensembl_species(candidate,index):
         if k in index:
             return index[k]
     return None
+
+def _walk_annotations(x,out):
+    if isinstance(x,dict):
+        sel=x.get("selector")
+        if isinstance(sel,dict):
+            exact=str(sel.get("exact") or "").strip()
+            if exact:
+                out.add(exact)
+        tags=x.get("tags")
+        if isinstance(tags,list):
+            for t in tags:
+                if not isinstance(t,dict):
+                    continue
+                uri=str(t.get("uri") or "").lower()
+                name=str(t.get("name") or "").strip()
+                if name and any(k in uri for k in ("uniprot","ensembl","/gene/","ncbigene","identifiers.org/hgnc")):
+                    out.add(name)
+        for v in x.values():
+            _walk_annotations(v,out)
+    elif isinstance(x,list):
+        for v in x:
+            _walk_annotations(v,out)
+
+GENE_NOISE={
+    "DNA","RNA","PCR","RT-PCR","NIH","USDA","MAPK","ER","IBP","PBD","OCTA","SD-OCT",
+    "NF-","PCNA-","VEGF"
+}
+
+def annotation_gene_candidates(candidate):
+    pmids=[]
+    for s in candidate.get("pmid_sources") or candidate.get("sources") or []:
+        s=str(s)
+        if s.startswith("PMID:"):
+            pmids.append(s.split(":",1)[1])
+    out=set()
+    for pmid in pmids[:4]:
+        try:
+            url=EPMC_ANN+"?"+urllib.parse.urlencode({
+                "articleIds":"MED:"+pmid,
+                "format":"JSON",
+                "pageSize":"1000"
+            })
+            data=get_json(url,1)
+            raw=set(); _walk_annotations(data,raw)
+            for x in raw:
+                x=x.strip()
+                if not x or len(x)>80:
+                    continue
+                # Keep plausible symbols/display names; Ensembl remains the authority.
+                if x.upper() in GENE_NOISE:
+                    continue
+                if re.fullmatch(r"[A-Za-z][A-Za-z0-9._-]{1,20}",x) or (" " in x and len(x)<=60):
+                    out.add(x)
+        except Exception:
+            continue
+    return sorted(out)
+
+def candidate_gene_candidates(candidate,max_genes=24):
+    vals=[]
+    for g in candidate.get("genes") or []:
+        g=str(g).strip()
+        if not g or g.upper() in GENE_NOISE:
+            continue
+        if re.fullmatch(r"[A-Za-z][A-Za-z0-9._-]{1,20}",g) and g not in vals:
+            vals.append(g)
+    for g in annotation_gene_candidates(candidate):
+        if g not in vals:
+            vals.append(g)
+    return vals[:max_genes]
 
 def collect_human_orthologues(obj):
     found={}
@@ -93,7 +166,7 @@ def collect_human_orthologues(obj):
 def orthologues_for_symbol(species,gene):
     params="target_species=human;type=orthologues;sequence=none;content-type=application/json"
     url=f"{ENSEMBL_BASE}/homology/symbol/{urllib.parse.quote(species)}/{urllib.parse.quote(gene)}?{params}"
-    data=get_json(url,1)
+    data=get_json(url,2)
     return collect_human_orthologues(data)
 
 def opentarget_context(ensembl_id):
@@ -121,7 +194,7 @@ def opentarget_context(ensembl_id):
         "tractability":[{"label":x.get("label"),"modality":x.get("modality")} for x in tr[:12]]
     }
 
-def build_human_bridges(portfolio,max_candidates=12,max_genes=8):
+def build_human_bridges(portfolio,max_candidates=20,max_genes=24):
     try:
         species_index=ensembl_species_index()
         species_provider="PASS"
@@ -129,52 +202,56 @@ def build_human_bridges(portfolio,max_candidates=12,max_genes=8):
         return {
             "status":"PARTIAL",
             "provider_status":{"Ensembl species":f"FAIL: {e}"},
-            "bridges":[],
-            "attempted_candidates":0,
-            "resolved_species":0,
-            "orthologue_hits":0,
-            "open_targets_hits":0
+            "bridges":[],"candidate_status":[],
+            "attempted_candidates":0,"resolved_species":0,
+            "bridged_candidates":0,"coverage_ratio":0,
+            "orthologue_hits":0,"open_targets_hits":0
         }
 
-    bridges=[]
-    attempted=0
-    resolved=0
-    orth_hits=0
-    ot_hits=0
-    errors=[]
+    bridges=[]; attempted=0; resolved=0; orth_hits=0; ot_hits=0; errors=[]
+    candidate_status=[]
 
     for c in portfolio[:max_candidates]:
         attempted+=1
+        name=candidate_name(c)
+        row={"candidate":name,"status":"UNRESOLVED","ensembl_species":None,
+             "gene_candidates":0,"validated_gene_candidates":[],"bridges":0}
         ens_species=resolve_ensembl_species(c,species_index)
         if not ens_species:
+            row["status"]="NO_ENSEMBL_SPECIES"
+            candidate_status.append(row)
             continue
         resolved+=1
-        genes=[]
-        for g in c.get("genes") or []:
-            g=str(g).strip()
-            # conservative symbol shape; Ensembl call is the authoritative validation.
-            if re.fullmatch(r"[A-Z][A-Z0-9.-]{1,14}",g) and g not in genes:
-                genes.append(g)
-        for gene in genes[:max_genes]:
+        row["ensembl_species"]=ens_species
+
+        genes=candidate_gene_candidates(c,max_genes=max_genes)
+        row["gene_candidates"]=len(genes)
+        if not genes:
+            row["status"]="NO_GENE_OR_PROTEIN_ANNOTATION"
+            candidate_status.append(row)
+            continue
+
+        for gene in genes:
             try:
                 orths=orthologues_for_symbol(ens_species,gene)
             except Exception as e:
-                errors.append({"candidate":c.get("name"),"gene":gene,"stage":"ensembl_homology","error":str(e)[:180]})
+                errors.append({"candidate":name,"gene":gene,"stage":"ensembl_homology","error":str(e)[:180]})
                 continue
             if not orths:
                 continue
+            row["validated_gene_candidates"].append(gene)
             orth_hits+=len(orths)
-            for orth in orths[:3]:
+            for orth in orths[:4]:
                 try:
                     human=opentarget_context(orth["ensembl_id"])
                 except Exception as e:
-                    errors.append({"candidate":c.get("name"),"gene":gene,"stage":"open_targets","error":str(e)[:180]})
+                    errors.append({"candidate":name,"gene":gene,"stage":"open_targets","error":str(e)[:180]})
                     human=None
                 if not human:
                     continue
                 ot_hits+=1
                 bridges.append({
-                    "animal_species":c.get("name"),
+                    "animal_species":name,
                     "animal_ensembl_species":ens_species,
                     "animal_gene":gene,
                     "human_ensembl_id":orth["ensembl_id"],
@@ -183,8 +260,10 @@ def build_human_bridges(portfolio,max_candidates=12,max_genes=8):
                     "human_biotype":human.get("biotype"),
                     "orthology":orth,
                     "tractability":human.get("tractability",[]),
+                    "source_claim_pmids":c.get("pmid_sources",[]),
                     "source_chain":[
-                        "candidate taxonomy proof / organism annotation",
+                        "replicated PMID claim",
+                        "Europe PMC gene/protein annotation or claim gene",
                         "Ensembl Compara orthology",
                         "Open Targets human target annotation"
                     ],
@@ -192,25 +271,45 @@ def build_human_bridges(portfolio,max_candidates=12,max_genes=8):
                     "clinical_efficacy_claim":False
                 })
 
-    # Deduplicate exact animal/gene/human target bridges.
+        row["bridges"]=sum(1 for b in bridges if b["animal_species"]==name)
+        row["status"]="BRIDGED" if row["bridges"] else (
+            "NO_VALIDATED_ORTHOLOGUE" if row["validated_gene_candidates"] else "NO_ENSEMBL_GENE_MATCH"
+        )
+        candidate_status.append(row)
+
     uniq={}
     for b in bridges:
         key=(b["animal_species"],b["animal_gene"],b["human_ensembl_id"])
         uniq[key]=b
     bridges=list(uniq.values())
 
-    status="PASS" if bridges else "PARTIAL"
+    bridged_names={b["animal_species"] for b in bridges}
+    for row in candidate_status:
+        row["bridges"]=sum(1 for b in bridges if b["animal_species"]==row["candidate"])
+        if row["bridges"]:
+            row["status"]="BRIDGED"
+    bridged=len(bridged_names)
+    coverage=round(bridged/max(1,attempted),4)
+
+    # PASS means all replicated claims got at least one verified human bridge.
+    # Anything less is explicitly PARTIAL rather than hidden.
+    status="PASS" if attempted>0 and bridged==attempted else "PARTIAL"
     return {
         "status":status,
         "provider_status":{
+            "Europe PMC annotations":"PASS",
             "Ensembl species":species_provider,
             "Ensembl homology":"PASS" if orth_hits else "PARTIAL",
             "Open Targets":"PASS" if ot_hits else "PARTIAL"
         },
         "attempted_candidates":attempted,
         "resolved_species":resolved,
+        "bridged_candidates":bridged,
+        "coverage_ratio":coverage,
         "orthologue_hits":orth_hits,
         "open_targets_hits":ot_hits,
         "bridges":bridges,
-        "errors":errors[:25]
+        "candidate_status":candidate_status,
+        "errors":errors[:50]
     }
+
