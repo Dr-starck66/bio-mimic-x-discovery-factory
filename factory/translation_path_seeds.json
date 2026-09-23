@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0",
+  "policy": "Fallback translation paths are evaluated only for SUPPORTED claims without a strict orthology bridge. They never change or inflate strict_orthology_coverage. Every path has an explicit type and literature provenance.",
+  "species": {
+    "Acomys cahirinus": {
+      "path_type": "LITERATURE_SEQUENCE_HOMOLOGY",
+      "animal_feature": "IL10",
+      "human_symbol": "IL10",
+      "human_ensembl_id": "ENSG00000136634",
+      "animal_evidence_pmids": [
+        "31141508",
+        "32849592"
+      ],
+      "evidence_locator": "PMID 32849592 Table 2",
+      "human_similarity_pct": 74.13,
+      "rationale": "Acomys Il10 is strongly upregulated during regenerative wound healing; a published cross-species peptide comparison reports 74.13% similarity to human IL-10.",
+      "caveat": "Literature-supported peptide homology; not counted as provider-verified orthology."
+    },
+    "Cynops pyrrhogaster": {
+      "path_type": "CURATED_PROTEIN_HOMOLOGY",
+      "animal_feature": "SHH",
+      "animal_uniprot": "Q90385",
+      "human_symbol": "SHH",
+      "human_uniprot": "Q15465",
+      "human_ensembl_id": "ENSG00000164690",
+      "animal_evidence_pmids": [
+        "39595071"
+      ],
+      "rationale": "SHH is reactivated during terrestrial newt limb regeneration. UniProt has a reviewed Cynops SHH entry and a reviewed human SHH entry.",
+      "caveat": "Curated same-gene/protein homology; not counted as OMA/NCBI/Ensembl orthology."
+    },
+    "Paracentrotus lividus": {
+      "path_type": "FUNCTIONAL_CRYOPRESERVATION_INTERVENTION",
+      "intervention": [
+        "DMSO",
+        "trehalose"
+      ],
+      "animal_evidence_pmids": [
+        "24997279",
+        "42738576"
+      ],
+      "human_evidence_pmids": [
+        "39309363",
+        "34360005"
+      ],
+      "rationale": "Paracentrotus sperm cryopreservation uses DMSO plus trehalose; independent human-biomedical literature supports DMSO/trehalose cryopreservation of human cells/tissues.",
+      "caveat": "Intervention-level translation, not a gene or orthology bridge."
+    },
+    "Caenorhabditis elegans": {
+      "path_type": "FUNCTIONAL_ICE_BINDING_PROTEIN_INTERVENTION",
+      "intervention": [
+        "ice-binding protein",
+        "antifreeze protein"
+      ],
+      "animal_evidence_pmids": [
+        "42169464"
+      ],
+      "human_evidence_pmids": [
+        "31498594",
+        "40258546"
+      ],
+      "rationale": "The C. elegans claim uses an exogenous ice-binding protein; independent studies show antifreeze/ice-binding proteins improve cryopreservation in human cell models.",
+      "caveat": "Exogenous intervention translation; an endogenous C. elegans orthologue would be scientifically inappropriate."
+    }
+  }
+}
