@@ -90,5 +90,52 @@ class TestHumanBridge(unittest.TestCase):
             human_bridge.ncbi_human_orthologs=original_orth
             human_bridge.opentarget_context=original_ot
 
+
+    def test_orthodb_strict_bridge_requires_exact_species_gene_and_human_target(self):
+        original_gene=human_bridge.orthodb_exact_gene
+        original_orth=human_bridge.orthodb_human_orthologs
+        original_ot=human_bridge.opentarget_context
+        original_seeds=human_bridge.BRIDGE_SEEDS
+        try:
+            human_bridge.BRIDGE_SEEDS={
+                "Acomys cahirinus":[{
+                    "gene":"IL10",
+                    "human_symbol":"IL10",
+                    "human_ensembl_id":"ENSG00000136634",
+                    "evidence_pmids":["31141508","32849592"],
+                    "rationale":"test"
+                }]
+            }
+            human_bridge.orthodb_exact_gene=lambda species,gene: {
+                "source_gene":"IL10","source_param":"10068_0:001eb9",
+                "organism_id":"10068_0","organism_name":"Acomys cahirinus",
+                "assembly":"GCA_004027535.1"
+            } if species=="Acomys cahirinus" and gene=="IL10" else None
+            human_bridge.orthodb_human_orthologs=lambda source,expected: [{
+                "human_gene":"IL-10","human_param":"9606_0:0009a3",
+                "clade_id":314146,"taxon_id":"9606_0"
+            }] if source=="10068_0:001eb9" and expected=="IL10" else []
+            human_bridge.opentarget_context=lambda ensg: {
+                "approved_symbol":"IL10","approved_name":"interleukin 10",
+                "biotype":"protein_coding","tractability":[]
+            } if ensg=="ENSG00000136634" else None
+
+            candidate={"subject":"Acomys cahirinus","pmid_sources":["PMID:31141508","PMID:32849592"]}
+            bridges,stats=human_bridge.orthodb_bridges_for_candidate(candidate)
+            self.assertEqual(len(bridges),1)
+            self.assertEqual(bridges[0]["orthology"]["provider"],"OrthoDB v12")
+            self.assertEqual(bridges[0]["human_symbol"],"IL10")
+            self.assertEqual(stats["orthodb_exact_genes"],1)
+
+            wrong={"subject":"Acomys russatus","pmid_sources":["PMID:31141508"]}
+            bridges2,stats2=human_bridge.orthodb_bridges_for_candidate(wrong)
+            self.assertEqual(bridges2,[])
+            self.assertEqual(stats2["orthodb_exact_genes"],0)
+        finally:
+            human_bridge.orthodb_exact_gene=original_gene
+            human_bridge.orthodb_human_orthologs=original_orth
+            human_bridge.opentarget_context=original_ot
+            human_bridge.BRIDGE_SEEDS=original_seeds
+
 if __name__=="__main__":
     unittest.main()
