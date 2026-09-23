@@ -1,0 +1,62 @@
+name: BIO-MIMIC X V9 Reasoning Gate
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/v9-reasoning-gate.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: biomimic-v9-reasoning-gate
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Compile V9 modules
+        run: |
+          python -m py_compile             factory/reasoning_engine.py             factory/hypothesis_engine.py             factory/debate_engine.py             factory/experiment_planner.py             factory/scientific_memory.py             factory/control_plane.py
+
+      - name: Run full test suite
+        run: python -m unittest discover -s tests -v
+
+      - name: Audit active bricks
+        run: python factory/brick_audit.py
+
+      - name: Verify V9 control-plane wiring
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          root=pathlib.Path(".")
+          reg=json.loads((root/"factory/brick_registry.json").read_text(encoding="utf-8"))
+          ids={x["id"] for x in reg["active"]}
+          expected={
+              "scientific-reasoning","hypothesis-engine","debate-engine",
+              "experiment-planner","scientific-memory"
+          }
+          assert expected.issubset(ids), expected-ids
+          assert len(ids)==len(reg["active"])
+          cp=(root/"factory/control_plane.py").read_text(encoding="utf-8")
+          for brick in expected:
+              assert f'usage.use("{brick}"' in cp, brick
+          for module in (
+              "reasoning_engine.py","hypothesis_engine.py","debate_engine.py",
+              "experiment_planner.py","scientific_memory.py"
+          ):
+              assert (root/"factory"/module).exists(), module
+          print({
+              "status":"PASS",
+              "active_bricks":len(ids),
+              "v9_bricks":sorted(expected)
+          })
+          PY
