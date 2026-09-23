@@ -1,0 +1,42 @@
+{
+  "name": "BIO-MIMIC X V4",
+  "version": "4.0.0",
+  "codename": "Novel Species Hunter + Sovereign Research Stack",
+  "api_keys_required": false,
+  "providers": [
+    {
+      "name": "Europe PMC",
+      "base": "https://www.ebi.ac.uk/europepmc",
+      "usage": "literature + annotations"
+    },
+    {
+      "name": "Ensembl REST",
+      "base": "https://rest.ensembl.org",
+      "usage": "species + orthology"
+    },
+    {
+      "name": "Open Targets",
+      "base": "https://api.platform.opentargets.org/api/v4/graphql",
+      "usage": "human target context"
+    }
+  ],
+  "bricks": [
+    "AION-NEXUS",
+    "Evidence Network",
+    "DUALITY-X",
+    "Morpheus",
+    "Negative Knowledge Graph",
+    "AgentShield Trust Gateway",
+    "Ω-EXPERIMENT",
+    "BENCHMARK-X10",
+    "DEVOPS-X + Data Fusion"
+  ],
+  "guards": [
+    "phenotype_is_not_mechanism",
+    "animal_evidence_is_not_human_efficacy",
+    "heuristic_scores_are_not_clinical_probabilities",
+    "all_live_claims_keep_source_ids",
+    "negative_results_are_persisted",
+    "provider_failure_triggers_fallback_not_fabrication"
+  ]
+}

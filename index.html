@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BIO-MIMIC X V4 — Novel Species Hunter</title>
+<meta name="description" content="Moteur de découverte biomédicale comparative et de convergence évolutive avec Evidence Network, Mission Graph et falsification adversariale.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header><div class="wrap"><div class="brand"><div class="logo">BX</div><div><h1>BIO-MIMIC X V4</h1><div class="mut">Novel Species Hunter · Sovereign Research Stack · evidence-first</div></div></div>
+<nav>
+<button class="nav on" data-tab="hunter">Novel Species Hunter</button>
+<button class="nav" data-tab="evidence">Evidence Network</button>
+<button class="nav" data-tab="mission">AION Mission Graph</button>
+<button class="nav" data-tab="sovereign">Sovereign Stack</button>
+<button class="nav" data-tab="atlas">Atlas</button>
+<button class="nav" data-tab="audit">Audit / DEVOPS-X</button>
+</nav></div></header>
+
+<main class="wrap">
+<section class="hero"><div><div class="eyebrow">DISCOVER UNKNOWN BIOLOGY → VERIFY → COMPARE → ATTACK → TRANSLATE</div>
+<h2>Faire émerger des espèces et mécanismes que notre atlas ne connaît pas encore.</h2>
+<p>La V4 parcourt la littérature publique, repère des mentions d’espèces absentes de l’atlas, agrège leurs articles et mécanismes, les soumet à deux évaluateurs indépendants et à un audit adversarial, puis tente un pont vers l’humain. Toute piste reste une hypothèse tant que la chaîne de preuves n’est pas complète.</p></div>
+<div class="kpis"><div class="kpi"><b id="kSpecies">—</b><span>modèles curés existants</span></div><div class="kpi"><b id="kPrograms">—</b><span>programmes comparatifs V3</span></div><div class="kpi"><b id="kBricks">—</b><span>briques souveraines intégrées</span></div><div class="kpi"><b>0 €</b><span>clé API obligatoire</span></div></div></section>
+
+<section id="hunter" class="tab on">
+<div class="panel"><h3>Novel Species Hunter</h3><p>Entre un problème médical. La détection de nouvelles espèces commence comme une extraction textuelle et reste explicitement « non vérifiée » jusqu’à ce qu’une annotation ou une vérification taxonomique la renforce.</p>
+<div class="row"><input id="problem" class="input" placeholder="Ex. résistance naturelle au cancer avec réparation ADN"><select id="years" class="input"><option value="5">5 dernières années</option><option value="10">10 dernières années</option><option value="">Toute période</option></select><button id="runHunter" class="primary">Lancer le Hunter</button></div>
+<div class="chips"><span class="chip click example">résistance naturelle au cancer</span><span class="chip click example">régénération sans fibrose</span><span class="chip click example">tolérance à l'AVC et à l'ischémie</span><span class="chip click example">réparation de l'ADN et longévité</span><span class="chip click example">préservation d'organes</span></div>
+<div id="providerStatus" class="chips"></div></div>
+
+<div class="sectionHead"><div><h3>Nouvelles espèces candidates</h3><div class="mut">Absentes de l’atlas V3 · triées par signal de nouveauté et preuves récupérées.</div></div><button id="enrich">Enrichir avec annotations</button></div>
+<div id="candidateGrid" class="grid"><div class="empty">Aucun run lancé.</div></div>
+
+<div class="sectionHead"><div><h3>DUALITY-X</h3><div class="mut">Evidence evaluator vs Skeptic evaluator; l’Arbiter pénalise le désaccord.</div></div></div>
+<div id="dualityGrid" class="grid"></div>
+
+<div id="morpheusOut"></div>
+<div id="humanGrid" class="grid"></div>
+
+<div class="sectionHead"><div><h3>Experiment Forge</h3><div class="mut">Expérience conceptuelle falsifiable, jamais une recommandation thérapeutique.</div></div><button id="buildExp">Regénérer</button></div>
+<div id="experimentOut"></div>
+
+<div class="sectionHead"><div><h3>Littérature du run</h3><div class="mut">Identifiants source conservés pour le ledger.</div></div></div><div id="paperGrid" class="grid"></div>
+</section>
+
+<section id="evidence" class="tab">
+<div class="panel"><h3>Evidence Network / Claim Ledger</h3><p>Un claim n’est promu que par des indices explicites. Les catégories servent à piloter la recherche : elles ne remplacent pas l’évaluation scientifique humaine.</p><div class="row"><button id="exportState" class="primary">Exporter l’état courant</button></div></div>
+<div id="claimGrid" class="grid"></div>
+<div class="sectionHead"><div><h3>Negative Knowledge Graph</h3><div class="mut">Mémoire des pistes rejetées et de la raison du rejet.</div></div><div><button id="exportNeg">Exporter</button> <button id="clearNeg">Effacer</button></div></div>
+<div id="negativeGrid" class="grid"></div>
+</section>
+
+<section id="mission" class="tab">
+<div class="panel"><h3>AION-NEXUS Biomedical Mission Compiler</h3><p>Chaque recherche devient un graphe d’exécution explicite. PASS n’est accordé que lorsque l’étape possède une preuve observable dans le périmètre du run.</p></div>
+<div id="missionGrid" class="grid"></div>
+<div class="sectionHead"><div><h3>Ω-EXPERIMENT</h3><div class="mut">Snapshot reproductible + SHA-256.</div></div><button id="makeReplay" class="primary">Créer replay</button></div>
+<div id="replayOut"></div>
+<div id="runGrid" class="grid"></div>
+</section>
+
+<section id="sovereign" class="tab">
+<div class="panel"><h3>Briques réutilisées</h3><p>La V4 n’empile pas des noms : chaque brique ci-dessous possède une fonction concrète dans le pipeline biomédical.</p></div>
+<div id="brickGrid" class="grid"></div>
+<div class="sectionHead"><div><h3>BENCHMARK-X10 lens</h3><div class="mut">Baseline naïve vs structure V4 sur le run courant; aucune fausse affirmation de 10 runs.</div></div></div>
+<div id="benchmarkOut"></div>
+</section>
+
+<section id="atlas" class="tab">
+<div class="panel"><h3>Atlas V3 conservé</h3><div class="row"><input id="atlasQ" class="input" placeholder="Filtrer animal, mécanisme, phénotype..."></div></div>
+<div id="atlasGrid" class="grid"></div>
+</section>
+
+<section id="audit" class="tab">
+<div class="panel"><h3>DEVOPS-X / AgentShield Trust Gateway</h3><p>Les appels externes sont limités à trois fournisseurs biomédicaux publics explicitement autorisés. Les échecs réseau sont signalés et ne deviennent jamais des données inventées.</p><button id="healthBtn" class="primary">Tester les fournisseurs</button></div>
+<div id="healthOut"></div>
+<div class="panel"><h3>Règles de sécurité scientifique</h3>
+<div class="tableWrap"><table><tr><th>Règle</th><th>Application</th></tr>
+<tr><td>Phénotype ≠ mécanisme</td><td>Deux champs et deux niveaux de preuve séparés.</td></tr>
+<tr><td>Animal ≠ humain</td><td>Orthologie puis contexte Open Targets avant promotion humaine.</td></tr>
+<tr><td>Score ≠ probabilité clinique</td><td>Scores uniquement heuristiques de priorisation.</td></tr>
+<tr><td>Échec visible</td><td>FAIL/PARTIAL au lieu de faux PASS.</td></tr>
+<tr><td>Négatifs conservés</td><td>Negative Knowledge Graph.</td></tr>
+<tr><td>Reproductibilité</td><td>Replay JSON + SHA-256.</td></tr></table></div></div>
+</section>
+
+<div class="notice"><b>Usage scientifique uniquement.</b> BIO-MIMIC X V4 sert à découvrir, comparer et falsifier des hypothèses biomédicales. Les espèces candidates extraites automatiquement peuvent être des faux positifs textuels; les scores ne prédisent pas l’efficacité clinique et aucun résultat ne constitue un traitement.</div>
+</main><div id="toast"></div><script src="app.js"></script>
+</body></html>

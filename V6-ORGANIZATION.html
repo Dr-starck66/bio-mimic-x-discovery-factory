@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BIO-MIMIC X V6 Scientific Organization</title>
+<style>
+body{margin:0;background:#061018;color:#eef8fb;font-family:system-ui}.w{max-width:1180px;margin:auto;padding:24px}
+h1{margin:0}.mut{color:#94aab5}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:20px 0}
+.c{background:#0d1c26;border:1px solid #24424e;border-radius:14px;padding:14px}.c b{display:block;font-size:25px}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:9px;border-bottom:1px solid #203b46;text-align:left}
+.good{color:#62e6c2}.warn{color:#ffd166}pre{white-space:pre-wrap;word-break:break-all}@media(max-width:700px){.grid{grid-template-columns:1fr 1fr}}
+</style></head>
+<body><main class="w">
+<h1>BIO-MIMIC X V6 — Autonomous Scientific Organization</h1><div id="stamp" class="mut">Chargement…</div>
+<div class="grid"><div class="c"><b id="labs">—</b><span>labs</span></div><div class="c"><b id="portfolio">—</b><span>portfolio</span></div><div class="c"><b id="allocs">—</b><span>priorités financées</span></div><div class="c"><b id="challenges">—</b><span>cross-lab challenges</span></div></div>
+<h2>Scientific Investment Committee</h2>
+<table><thead><tr><th>Hypothèse / espèce</th><th>Score</th><th>Labs</th><th>Sources</th><th>Mécanismes</th></tr></thead><tbody id="rows"></tbody></table>
+<h2>Allocation de 100 crédits internes</h2><table><thead><tr><th>Candidat</th><th>Crédits</th><th>Score</th></tr></thead><tbody id="credits"></tbody></table>
+<h2>Replay</h2><pre id="hash"></pre>
+</main><script>
+fetch('./public/data/org/latest.json?'+Date.now()).then(r=>r.json()).then(x=>{
+document.querySelector('#stamp').textContent='Dernier cycle: '+(x.time||'—');
+document.querySelector('#labs').textContent=(x.labs||[]).length;
+document.querySelector('#portfolio').textContent=(x.portfolio||[]).length;
+document.querySelector('#allocs').textContent=(x.allocations||[]).length;
+document.querySelector('#challenges').textContent=(x.cross_lab_challenges||[]).length;
+document.querySelector('#rows').innerHTML=(x.portfolio||[]).slice(0,20).map(c=>`<tr><td>${c.name}</td><td class="${c.committee_score>=60?'good':'warn'}">${c.committee_score}</td><td>${c.labs.join(', ')}</td><td>${c.source_count}</td><td>${c.mechanisms.slice(0,4).join(', ')}</td></tr>`).join('');
+document.querySelector('#credits').innerHTML=(x.allocations||[]).map(c=>`<tr><td>${c.name}</td><td>${c.research_credits}</td><td>${c.committee_score}</td></tr>`).join('');
+document.querySelector('#hash').textContent=x.sha256||'—';
+}).catch(()=>document.querySelector('#stamp').textContent='Aucun cycle V6 publié pour le moment.');
+</script></body></html>

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BIO-MIMIC X Autonomous Lab</title>
+<style>
+body{font-family:system-ui;margin:0;background:#071018;color:#eef7fb}.w{max-width:1100px;margin:auto;padding:24px}
+h1{margin-bottom:4px}.mut{color:#95aab5}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:22px 0}
+.c{background:#0d1c25;border:1px solid #23404b;border-radius:14px;padding:14px}.c b{font-size:25px;display:block}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:9px;border-bottom:1px solid #213a45;text-align:left}
+.good{color:#62e6c2}.warn{color:#ffd166}@media(max-width:700px){.grid{grid-template-columns:1fr 1fr}}
+</style></head>
+<body><main class="w"><h1>BIO-MIMIC X Autonomous Lab</h1><div class="mut" id="stamp">Chargement du dernier run…</div>
+<div class="grid"><div class="c"><b id="papers">—</b><span>articles</span></div><div class="c"><b id="cand">—</b><span>candidats</span></div><div class="c"><b id="verified">—</b><span>vérifiés</span></div><div class="c"><b id="nodes">—</b><span>nœuds du graphe</span></div></div>
+<h2>Top candidats</h2><table><thead><tr><th>Espèce</th><th>Statut</th><th>Arbiter</th><th>Sources</th><th>Mécanismes</th></tr></thead><tbody id="rows"></tbody></table>
+<h2>Empreinte du run</h2><pre id="hash"></pre></main>
+<script>
+fetch('./data/latest.json?ts='+Date.now()).then(r=>r.json()).then(x=>{
+ document.querySelector('#stamp').textContent='Dernier run: '+(x.finished_at||'aucun');
+ document.querySelector('#papers').textContent=(x.papers||[]).length;
+ document.querySelector('#cand').textContent=(x.candidates||[]).length;
+ document.querySelector('#verified').textContent=x.progress?.verified_candidates??0;
+ document.querySelector('#nodes').textContent=x.progress?.graph_nodes??0;
+ document.querySelector('#hash').textContent=x.sha256||'—';
+ document.querySelector('#rows').innerHTML=(x.candidates||[]).slice(0,20).map(c=>`<tr><td>${c.name}</td><td class="${c.status==='VERIFIED_CANDIDATE'?'good':'warn'}">${c.status}</td><td>${c.arbiter}</td><td>${c.paper_count}</td><td>${(c.mechanisms||[]).slice(0,4).join(', ')}</td></tr>`).join('');
+}).catch(()=>document.querySelector('#stamp').textContent='Aucun run publié pour le moment.');
+</script></body></html>

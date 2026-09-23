@@ -1,0 +1,139 @@
+[
+  {
+    "id": "cancer",
+    "name": "ONCO-X Lab",
+    "mission": "Discover natural cancer-resistance mechanisms across species.",
+    "query": "(cancer resistance OR tumor resistance OR neoplasia resistance) AND (species OR comparative OR evolution)",
+    "mechanism_focus": [
+      "DNA repair",
+      "p53",
+      "apoptosis",
+      "genome maintenance",
+      "hyaluronan",
+      "senescence"
+    ],
+    "challenge_focus": [
+      "false cancer-resistance claims",
+      "lifespan confounding",
+      "cell-culture artifacts"
+    ],
+    "human_domain": "oncology"
+  },
+  {
+    "id": "regeneration",
+    "name": "REGEN-X Lab",
+    "mission": "Find mechanisms of scarless healing and organ/tissue regeneration.",
+    "query": "(regeneration OR scarless healing OR tissue repair) AND (animal OR species OR comparative)",
+    "mechanism_focus": [
+      "regeneration",
+      "fibrosis",
+      "extracellular matrix",
+      "stem cell",
+      "Wnt",
+      "inflammation"
+    ],
+    "challenge_focus": [
+      "developmental-stage confounding",
+      "regeneration-vs-repair ambiguity",
+      "fibrosis tradeoffs"
+    ],
+    "human_domain": "regenerative medicine"
+  },
+  {
+    "id": "neuro",
+    "name": "NEURO-X Lab",
+    "mission": "Discover neuroprotection, ischemia tolerance and neural repair mechanisms.",
+    "query": "(neuroprotection OR ischemia tolerance OR brain regeneration OR neural repair) AND (animal OR species OR comparative)",
+    "mechanism_focus": [
+      "neuroprotection",
+      "hypoxia",
+      "mitochondria",
+      "oxidative stress",
+      "metabolic suppression",
+      "regeneration"
+    ],
+    "challenge_focus": [
+      "behavioral-vs-cellular endpoint mismatch",
+      "reperfusion injury",
+      "species-specific neuroanatomy"
+    ],
+    "human_domain": "neurology"
+  },
+  {
+    "id": "immunology",
+    "name": "IMMUNO-X Lab",
+    "mission": "Find infection tolerance and inflammation-control strategies.",
+    "query": "(viral tolerance OR pathogen tolerance OR disease resistance OR inflammation control) AND (animal OR species OR comparative)",
+    "mechanism_focus": [
+      "immune",
+      "interferon",
+      "inflammation",
+      "antimicrobial peptide",
+      "autophagy"
+    ],
+    "challenge_focus": [
+      "pathogen-specific adaptation",
+      "immune pathology tradeoffs",
+      "reservoir-host confounding"
+    ],
+    "human_domain": "immunology"
+  },
+  {
+    "id": "longevity",
+    "name": "LONGEVITY-X Lab",
+    "mission": "Find longevity, DNA maintenance and proteostasis mechanisms.",
+    "query": "(longevity OR exceptional lifespan OR negligible senescence) AND (DNA repair OR proteostasis OR genome maintenance OR animal)",
+    "mechanism_focus": [
+      "DNA repair",
+      "genome maintenance",
+      "proteostasis",
+      "senescence",
+      "telomere",
+      "autophagy"
+    ],
+    "challenge_focus": [
+      "body-size confounding",
+      "phylogeny confounding",
+      "lifespan data quality"
+    ],
+    "human_domain": "aging biology"
+  },
+  {
+    "id": "metabolism",
+    "name": "METABOLIC-X Lab",
+    "mission": "Find unusual metabolic control useful for diabetes, obesity and organ stress.",
+    "query": "(metabolic adaptation OR fasting tolerance OR glucose regulation OR insulin sensitivity) AND (animal OR species OR comparative)",
+    "mechanism_focus": [
+      "GLP-1",
+      "metabolic suppression",
+      "mitochondria",
+      "autophagy",
+      "oxidative stress"
+    ],
+    "challenge_focus": [
+      "diet-context dependence",
+      "temperature dependence",
+      "species-specific endocrine physiology"
+    ],
+    "human_domain": "metabolic medicine"
+  },
+  {
+    "id": "preservation",
+    "name": "PRESERVE-X Lab",
+    "mission": "Find mechanisms for cryoprotection, hibernation and organ preservation.",
+    "query": "(freeze tolerance OR hibernation OR desiccation tolerance OR organ preservation) AND (animal OR species)",
+    "mechanism_focus": [
+      "cryoprotectant",
+      "metabolic suppression",
+      "oxidative stress",
+      "heat shock",
+      "mitochondria"
+    ],
+    "challenge_focus": [
+      "whole-animal vs isolated-organ mismatch",
+      "reperfusion injury",
+      "cryoprotectant toxicity"
+    ],
+    "human_domain": "transplantation and preservation"
+  }
+]

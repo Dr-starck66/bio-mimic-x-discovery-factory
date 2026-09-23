@@ -1,0 +1,108 @@
+name: BIO-MIMIC X V6 Autonomous Scientific Organization
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 3 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: biomimic-v6-org
+  cancel-in-progress: false
+
+jobs:
+  specialist-labs:
+    strategy:
+      fail-fast: false
+      matrix:
+        lab: [cancer, regeneration, neuro, immunology, longevity, metabolism, preservation]
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run specialist lab
+        run: |
+          python organization/lab_worker.py \
+            --lab "${{ matrix.lab }}" \
+            --out "organization/output/labs/${{ matrix.lab }}.json"
+
+      - name: Validate lab artifact
+        run: |
+          python - <<'PY'
+          import json, pathlib, os
+          lab=os.environ["LAB"]
+          p=pathlib.Path("organization/output/labs")/f"{lab}.json"
+          x=json.loads(p.read_text(encoding="utf-8"))
+          assert x["lab_id"]==lab
+          assert len(x["sha256"])==64
+          print("PASS",lab,x["paper_count"],x["candidate_count"])
+          PY
+        env:
+          LAB: ${{ matrix.lab }}
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lab-${{ matrix.lab }}
+          path: organization/output/labs/${{ matrix.lab }}.json
+          if-no-files-found: error
+
+  scientific-investment-committee:
+    needs: specialist-labs
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: lab-*
+          path: downloaded-labs
+          merge-multiple: true
+
+      - name: Assemble lab outputs
+        run: |
+          mkdir -p organization/output/labs
+          cp downloaded-labs/*.json organization/output/labs/
+
+      - name: Run static tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Run Scientific Investment Committee
+        run: python organization/committee.py
+
+      - name: Validate organization state
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          p=pathlib.Path("state/org/latest.json")
+          x=json.loads(p.read_text(encoding="utf-8"))
+          assert len(x["labs"]) >= 5
+          assert len(x["sha256"]) == 64
+          assert sum(a["research_credits"] for a in x["allocations"]) == 100
+          assert pathlib.Path("reports/org/LATEST.md").exists()
+          print("PASS: committee + portfolio + credits + replay")
+          PY
+
+      - name: Commit new scientific state
+        run: |
+          git config user.name "BIO-MIMIC-X-SCI-ORG"
+          git config user.email "biomimic-x-org@users.noreply.github.com"
+          git add state/org reports/org public/data/org
+          if git diff --cached --quiet; then
+            echo "No organization-state change."
+          else
+            git commit -m "org: autonomous daily scientific cycle"
+            git push
+          fi

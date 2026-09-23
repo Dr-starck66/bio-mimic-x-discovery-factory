@@ -1,0 +1,107 @@
+[
+  {
+    "id": "aion-nexus",
+    "name": "AION-NEXUS",
+    "role": "Mission Compiler",
+    "purpose": "Transforme une question médicale en graphe de tâches vérifiables : ingestion, extraction, vérification, comparaison, orthologie, evidence humaine, attaque adversariale, expérience et retest.",
+    "implemented": [
+      "mission graph",
+      "statuses",
+      "dependency order",
+      "replay payload"
+    ]
+  },
+  {
+    "id": "evidence-network",
+    "name": "Evidence Network",
+    "role": "Claim Ledger + provenance",
+    "purpose": "Chaque affirmation conserve ses articles, identifiants, mécanismes détectés, état VERIFIED/PLAUSIBLE/SPECULATIVE/UNSUPPORTED et provenance.",
+    "implemented": [
+      "claim ledger",
+      "source refs",
+      "evidence density",
+      "export"
+    ]
+  },
+  {
+    "id": "duality-x",
+    "name": "DUALITY-X",
+    "role": "Independent evaluator + Arbiter",
+    "purpose": "Deux évaluateurs indépendants notent la solidité et la transposabilité. L'Arbiter pénalise leurs désaccords au lieu de les masquer.",
+    "implemented": [
+      "evidence evaluator",
+      "skeptic evaluator",
+      "disagreement penalty",
+      "arbiter score"
+    ]
+  },
+  {
+    "id": "morpheus",
+    "name": "Morpheus",
+    "role": "Adversarial falsification",
+    "purpose": "Attaque les hypothèses sur les biais de publication, confusions phylogénétiques, causalité, captivité, divergence fonctionnelle et toxicité humaine.",
+    "implemented": [
+      "red-team checklist",
+      "failure flags",
+      "kill criteria"
+    ]
+  },
+  {
+    "id": "negative-kg",
+    "name": "Negative Knowledge Graph",
+    "role": "Failure memory",
+    "purpose": "Mémorise les pistes rejetées, mécanismes invalidés et raisons d'échec pour éviter de les promouvoir à nouveau sans nouvelles preuves.",
+    "implemented": [
+      "local persistence",
+      "candidate blocking",
+      "reason ledger"
+    ]
+  },
+  {
+    "id": "agentshield",
+    "name": "AgentShield Trust Gateway",
+    "role": "Trusted data gateway",
+    "purpose": "N'autorise que les fournisseurs biomédicaux explicitement listés, suit leur santé et sépare données externes, heuristiques et assertions vérifiées.",
+    "implemented": [
+      "provider allowlist",
+      "health status",
+      "trust labels"
+    ]
+  },
+  {
+    "id": "omega",
+    "name": "Ω-EXPERIMENT",
+    "role": "Reproducible replay",
+    "purpose": "Produit un paquet de replay avec requête, résultats, règles, négatifs et empreinte SHA-256 afin de pouvoir comparer deux exécutions.",
+    "implemented": [
+      "snapshot",
+      "SHA-256",
+      "JSON export",
+      "run history"
+    ]
+  },
+  {
+    "id": "benchmark-x10",
+    "name": "BENCHMARK-X10",
+    "role": "Baseline vs upgrade",
+    "purpose": "Compare une recherche naïve mono-article avec la pile V4 sur la couverture, la diversité d'espèces, la densité de preuves et les désaccords détectés.",
+    "implemented": [
+      "baseline metrics",
+      "upgrade metrics",
+      "no fake multi-run claims"
+    ]
+  },
+  {
+    "id": "devops-x",
+    "name": "DEVOPS-X + Data Fusion",
+    "role": "Reliability layer",
+    "purpose": "Adapters de sources, timeouts, retry, health checks, fallback local, versionnement et diagnostics sans casser l'application si une API publique tombe.",
+    "implemented": [
+      "retry",
+      "timeout",
+      "health checks",
+      "fallback",
+      "manifest"
+    ]
+  }
+]

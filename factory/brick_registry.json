@@ -1,0 +1,331 @@
+{
+  "policy": "NO_DECORATIVE_BRICKS",
+  "active": [
+    {
+      "id": "omega-os",
+      "name": "Ω-OS Control Plane",
+      "stage": "CONTROL",
+      "purpose": "Choisit quoi exécuter, dans quel ordre et avec quel budget interne.",
+      "entrypoint": "factory/control_plane.py::run_cycle",
+      "inputs": [
+        "committee portfolio",
+        "active programs",
+        "brick registry"
+      ],
+      "outputs": [
+        "cycle plan",
+        "brick usage ledger"
+      ],
+      "metric": "planned_stages_completed"
+    },
+    {
+      "id": "research-director",
+      "name": "Research Director + Scientific Planner",
+      "stage": "PLAN",
+      "purpose": "Transforme les meilleures pistes du comité en programmes de recherche multi-jours avec objectifs et milestones.",
+      "entrypoint": "factory/program_director.py::create_or_update_programs",
+      "inputs": [
+        "committee portfolio",
+        "program history"
+      ],
+      "outputs": [
+        "program portfolio"
+      ],
+      "metric": "programs_with_testable_milestones"
+    },
+    {
+      "id": "aion-nexus",
+      "name": "AION-NEXUS Mission Graph",
+      "stage": "PLAN",
+      "purpose": "Compile chaque programme en dépendances explicites avant exécution.",
+      "entrypoint": "factory/control_plane.py::compile_mission_graph",
+      "inputs": [
+        "program"
+      ],
+      "outputs": [
+        "mission DAG"
+      ],
+      "metric": "missions_with_no_unresolved_dependency"
+    },
+    {
+      "id": "data-fusion",
+      "name": "DEVOPS-X Data Fusion Engine",
+      "stage": "OBSERVE",
+      "purpose": "Normalise les résultats des labs, sources et états historiques.",
+      "entrypoint": "factory/control_plane.py::fuse_sources",
+      "inputs": [
+        "lab artifacts",
+        "previous state"
+      ],
+      "outputs": [
+        "normalized evidence bundle"
+      ],
+      "metric": "valid_artifact_ratio"
+    },
+    {
+      "id": "agentshield",
+      "name": "AgentShield Trust Gateway",
+      "stage": "OBSERVE",
+      "purpose": "N'accepte que les fournisseurs/schémas autorisés et marque les données dégradées.",
+      "entrypoint": "factory/control_plane.py::trust_gate",
+      "inputs": [
+        "normalized evidence bundle"
+      ],
+      "outputs": [
+        "trusted evidence bundle",
+        "rejections"
+      ],
+      "metric": "rejected_untrusted_records"
+    },
+    {
+      "id": "novel-species-hunter",
+      "name": "Novel Species Hunter",
+      "stage": "DISCOVER",
+      "purpose": "Détecte les espèces absentes du corpus propriétaire et crée des candidats.",
+      "entrypoint": "organization/lab_worker.py",
+      "inputs": [
+        "literature"
+      ],
+      "outputs": [
+        "candidate species"
+      ],
+      "metric": "novel_candidate_yield"
+    },
+    {
+      "id": "evidence-network",
+      "name": "Evidence Network / Claim Ledger",
+      "stage": "VERIFY",
+      "purpose": "Relie chaque claim à ses sources et à son statut épistémique.",
+      "entrypoint": "factory/control_plane.py::build_claim_ledger",
+      "inputs": [
+        "trusted evidence"
+      ],
+      "outputs": [
+        "claim ledger"
+      ],
+      "metric": "claims_with_provenance_ratio"
+    },
+    {
+      "id": "omega-memory",
+      "name": "Ω-MEMORY / Knowledge Graph",
+      "stage": "MEMORY",
+      "purpose": "Conserve faits, expériences, décisions, lignées, échecs et provenance entre les jours.",
+      "entrypoint": "factory/control_plane.py::update_memory",
+      "inputs": [
+        "claims",
+        "program events"
+      ],
+      "outputs": [
+        "long-term memory",
+        "knowledge graph delta"
+      ],
+      "metric": "new_provenance_edges"
+    },
+    {
+      "id": "human-bridge",
+      "name": "Human Bridge",
+      "stage": "TRANSLATE",
+      "purpose": "Sépare découverte animale et transposition humaine, avec orthologie/contexte cible lorsqu'ils existent.",
+      "entrypoint": "factory/control_plane.py::human_translation_gate",
+      "inputs": [
+        "candidate mechanisms",
+        "human checks"
+      ],
+      "outputs": [
+        "human translation status"
+      ],
+      "metric": "candidates_with_human_bridge"
+    },
+    {
+      "id": "duality-x",
+      "name": "DUALITY-X + Arbiter",
+      "stage": "EVALUATE",
+      "purpose": "Deux évaluations contradictoires; l'Arbiter pénalise le désaccord.",
+      "entrypoint": "organization/lab_worker.py",
+      "inputs": [
+        "candidate evidence"
+      ],
+      "outputs": [
+        "evidence score",
+        "skeptic score",
+        "arbiter"
+      ],
+      "metric": "mean_disagreement"
+    },
+    {
+      "id": "morpheus",
+      "name": "Morpheus Adversarial Engine",
+      "stage": "FALSIFY",
+      "purpose": "Cherche biais, causalité manquante, confusions phylogénétiques et divergence humaine.",
+      "entrypoint": "factory/control_plane.py::morpheus_audit",
+      "inputs": [
+        "program hypothesis",
+        "claims"
+      ],
+      "outputs": [
+        "failure modes",
+        "kill criteria"
+      ],
+      "metric": "falsifiable_failure_modes_per_program"
+    },
+    {
+      "id": "omega-causal",
+      "name": "Ω-CAUSAL + Uncertainty Engine",
+      "stage": "FALSIFY",
+      "purpose": "Produit des contre-tests et sépare association, mécanisme plausible et causalité démontrée.",
+      "entrypoint": "factory/control_plane.py::causal_uncertainty",
+      "inputs": [
+        "claims",
+        "Morpheus flags"
+      ],
+      "outputs": [
+        "causal test plan",
+        "uncertainty decomposition"
+      ],
+      "metric": "claims_with_counterfactual_test"
+    },
+    {
+      "id": "negative-kg",
+      "name": "Negative Knowledge Graph",
+      "stage": "MEMORY",
+      "purpose": "Empêche la réapparition automatique de pistes déjà invalidées sans nouvelle preuve.",
+      "entrypoint": "factory/control_plane.py::apply_negative_memory",
+      "inputs": [
+        "candidate",
+        "negative history"
+      ],
+      "outputs": [
+        "blocked/deprioritized candidates"
+      ],
+      "metric": "repeated_dead_ends_prevented"
+    },
+    {
+      "id": "experiment-forge",
+      "name": "Experiment Designer + Ω-EXPERIMENT",
+      "stage": "EXPERIMENT",
+      "purpose": "Génère une expérience conceptuelle falsifiable et un replay reproductible.",
+      "entrypoint": "factory/control_plane.py::forge_experiment",
+      "inputs": [
+        "surviving hypothesis",
+        "causal plan"
+      ],
+      "outputs": [
+        "experiment spec",
+        "SHA-256 replay"
+      ],
+      "metric": "programs_with_explicit_kill_criteria"
+    },
+    {
+      "id": "benchmark-x10",
+      "name": "BENCHMARK-X10",
+      "stage": "BENCHMARK",
+      "purpose": "Compare la pile complète à une baseline simple sans inventer de multi-runs.",
+      "entrypoint": "factory/control_plane.py::benchmark_cycle",
+      "inputs": [
+        "cycle metrics",
+        "baseline"
+      ],
+      "outputs": [
+        "benchmark delta"
+      ],
+      "metric": "delta_vs_baseline"
+    },
+    {
+      "id": "omega-foundry",
+      "name": "Ω-FOUNDRY + MAP-Elites/Novelty",
+      "stage": "IMPROVE",
+      "purpose": "Génère plusieurs variantes de politique de recherche et maintient de la diversité, sans modifier le code source.",
+      "entrypoint": "factory/policy_foundry.py::propose_variants",
+      "inputs": [
+        "telemetry",
+        "learning policy"
+      ],
+      "outputs": [
+        "policy variants"
+      ],
+      "metric": "policy_variant_diversity"
+    },
+    {
+      "id": "immune-gate",
+      "name": "Model Immune System / Self-Improvement Gate",
+      "stage": "IMPROVE",
+      "purpose": "N'adopte une nouvelle politique que si elle bat la politique actuelle sur des critères mesurés et n'augmente pas les faux positifs.",
+      "entrypoint": "factory/policy_foundry.py::select_safe_variant",
+      "inputs": [
+        "policy variants",
+        "benchmark metrics"
+      ],
+      "outputs": [
+        "accepted/rejected policy change"
+      ],
+      "metric": "unsafe_policy_changes_blocked"
+    },
+    {
+      "id": "omega-telemetry",
+      "name": "Ω-TELEMETRY",
+      "stage": "OBSERVE",
+      "purpose": "Mesure rendement, échecs, disagreement, provenance et coût d'exécution de chaque brique.",
+      "entrypoint": "factory/control_plane.py::emit_telemetry",
+      "inputs": [
+        "brick events"
+      ],
+      "outputs": [
+        "telemetry snapshot"
+      ],
+      "metric": "brick_observability_ratio"
+    },
+    {
+      "id": "decision-engine",
+      "name": "Deterministic Decision Engine / Scientific Investment Committee",
+      "stage": "DECIDE",
+      "purpose": "Alloue les crédits internes selon des règles explicites; le LLM n'est jamais l'autorité finale.",
+      "entrypoint": "organization/committee.py",
+      "inputs": [
+        "lab outputs",
+        "cross-lab portfolio"
+      ],
+      "outputs": [
+        "ranked portfolio",
+        "research credits"
+      ],
+      "metric": "credits_sum_to_100"
+    },
+    {
+      "id": "devops-x",
+      "name": "DEVOPS-X Reliability Layer",
+      "stage": "OPERATE",
+      "purpose": "Tests, retries, workflow cloud, reprise après erreur et validation avant persistance.",
+      "entrypoint": ".github/workflows/scientific-discovery-factory.yml",
+      "inputs": [
+        "repository state"
+      ],
+      "outputs": [
+        "daily cycle",
+        "validated committed state"
+      ],
+      "metric": "successful_daily_cycle_ratio"
+    }
+  ],
+  "excluded": [
+    {
+      "name": "Quantum Advantage Router / QAOA solvers",
+      "reason": "Aucun sous-problème actuel du laboratoire ne démontre un avantage quantique; l'intégrer serait décoratif."
+    },
+    {
+      "name": "Embodied-Core / robot fleet optimization",
+      "reason": "Pertinent pour robotique/ANT, pas pour un laboratoire de littérature biomédicale sans robot expérimental."
+    },
+    {
+      "name": "GPU Kernel Foundry",
+      "reason": "Optimisation de kernels sans charge GPU propriétaire à optimiser; pas de valeur scientifique directe ici."
+    },
+    {
+      "name": "Bio-Core neural dynamics simulator",
+      "reason": "Ne doit être ajouté que lorsqu'un modèle biologique formel précis et validable est nécessaire; sinon il créerait une simulation sans preuve."
+    },
+    {
+      "name": "Quantum/biological navigation sensor stack",
+      "reason": "Spécifique à Q-NAV et aux capteurs; hors périmètre de médecine comparative actuelle."
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+name: BIO-MIMIC X V7 Scientific Discovery Factory
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 3 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: biomimic-v7-factory
+  cancel-in-progress: false
+
+jobs:
+  specialist-labs:
+    strategy:
+      fail-fast: false
+      matrix:
+        lab: [cancer, regeneration, neuro, immunology, longevity, metabolism, preservation]
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run specialist lab
+        run: python organization/lab_worker.py --lab "${{ matrix.lab }}" --out "organization/output/labs/${{ matrix.lab }}.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lab-${{ matrix.lab }}
+          path: organization/output/labs/${{ matrix.lab }}.json
+          if-no-files-found: error
+
+  committee-and-factory:
+    needs: specialist-labs
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: lab-*
+          path: downloaded-labs
+          merge-multiple: true
+      - name: Assemble lab outputs
+        run: |
+          mkdir -p organization/output/labs
+          cp downloaded-labs/*.json organization/output/labs/
+      - name: Static + brick audit
+        run: |
+          python -m unittest discover -s tests -v
+          python factory/brick_audit.py
+      - name: Scientific Investment Committee
+        run: python organization/committee.py
+      - name: Scientific Discovery Factory
+        run: python factory/control_plane.py --committee state/org/latest.json
+      - name: Evidence-based final validation
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          x=json.loads(pathlib.Path("state/factory/latest.json").read_text(encoding="utf-8"))
+          assert x["status"]=="PASS", x.get("unused_active_bricks")
+          assert x["unused_active_bricks"]==[]
+          assert len(x["sha256"])==64
+          usage=x["brick_usage"]
+          reg=json.loads(pathlib.Path("factory/brick_registry.json").read_text(encoding="utf-8"))
+          assert len({e["brick_id"] for e in usage})==len(reg["active"])
+          assert pathlib.Path("reports/factory/LATEST.md").exists()
+          print("PASS: every active brick used, observable, persisted")
+          PY
+      - name: Commit learned scientific state
+        run: |
+          git config user.name "BIO-MIMIC-X-DISCOVERY-FACTORY"
+          git config user.email "biomimic-x-factory@users.noreply.github.com"
+          git add state reports public/data
+          if git diff --cached --quiet; then
+            echo "No state change."
+          else
+            git commit -m "factory: autonomous daily scientific program cycle"
+            git push
+          fi

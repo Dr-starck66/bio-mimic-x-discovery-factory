@@ -1,0 +1,62 @@
+name: BIO-MIMIC X Daily Autonomous Lab
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 4 * * *'
+      timezone: 'Europe/Paris'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: biomimic-daily-lab
+  cancel-in-progress: false
+
+jobs:
+  daily-research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Static tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Run autonomous research cycle
+        env:
+          BIOMIMIC_TRACKS_PER_RUN: '4'
+          BIOMIMIC_PAPERS_PER_TRACK: '30'
+          BIOMIMIC_HTTP_TIMEOUT: '20'
+        run: python lab/runner.py
+
+      - name: Validate produced state
+        run: |
+          python - <<'PY'
+          import json, pathlib, sys
+          p=pathlib.Path("state/latest.json")
+          x=json.loads(p.read_text(encoding="utf-8"))
+          assert x.get("sha256") and len(x["sha256"]) == 64
+          assert "progress" in x
+          assert pathlib.Path("reports/LATEST.md").exists()
+          print("PASS: replay + report + state")
+          PY
+
+      - name: Commit learning state
+        shell: bash
+        run: |
+          git config user.name "BIO-MIMIC-X-LAB"
+          git config user.email "biomimic-x-lab@users.noreply.github.com"
+          git add state reports public/data
+          if git diff --cached --quiet; then
+            echo "No research-state change."
+          else
+            git commit -m "lab: daily autonomous research cycle"
+            git push
+          fi

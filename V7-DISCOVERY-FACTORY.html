@@ -1,0 +1,24 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BIO-MIMIC X V7 Discovery Factory</title><style>
+body{margin:0;background:#061018;color:#eff9fb;font-family:system-ui}.w{max-width:1200px;margin:auto;padding:24px}.mut{color:#92aab5}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.c{background:#0d1c26;border:1px solid #24424e;border-radius:14px;padding:14px}.c b{display:block;font-size:25px}
+table{width:100%;border-collapse:collapse;font-size:12px;margin:16px 0}th,td{padding:8px;border-bottom:1px solid #203a45;text-align:left}.good{color:#62e6c2}.bad{color:#ff8585}
+@media(max-width:700px){.grid{grid-template-columns:1fr 1fr}}</style></head><body><main class="w">
+<h1>BIO-MIMIC X V7 — Scientific Discovery Factory</h1><div id="stamp" class="mut">Chargement…</div>
+<div class="grid"><div class="c"><b id="programs">—</b><span>programmes actifs</span></div><div class="c"><b id="claims">—</b><span>claims</span></div><div class="c"><b id="experiments">—</b><span>expériences</span></div><div class="c"><b id="bricks">—</b><span>briques réellement utilisées</span></div></div>
+<h2>Utilisation réelle des briques</h2><table><thead><tr><th>Brique</th><th>Stage</th><th>Statut</th><th>Métrique</th><th>Valeur</th><th>Sortie</th></tr></thead><tbody id="usage"></tbody></table>
+<h2>Programmes de recherche</h2><table><thead><tr><th>Programme</th><th>Score</th><th>Labs</th><th>Statut</th></tr></thead><tbody id="progs"></tbody></table>
+<h2>Self-Improvement Gate</h2><pre id="policy"></pre><h2>Replay</h2><pre id="hash"></pre>
+</main><script>
+fetch('./public/data/factory/latest.json?'+Date.now()).then(r=>r.json()).then(x=>{
+document.querySelector('#stamp').textContent='Dernier cycle: '+x.time+' · '+x.status;
+document.querySelector('#programs').textContent=(x.programs||[]).length;
+document.querySelector('#claims').textContent=(x.claims||[]).length;
+document.querySelector('#experiments').textContent=(x.experiments||[]).length;
+document.querySelector('#bricks').textContent=new Set((x.brick_usage||[]).map(e=>e.brick_id)).size;
+document.querySelector('#usage').innerHTML=(x.brick_usage||[]).map(e=>`<tr><td>${e.name}</td><td>${e.stage}</td><td class="${e.status==='PASS'?'good':'bad'}">${e.status}</td><td>${e.metric}</td><td>${e.value}</td><td>${e.output_ref}</td></tr>`).join('');
+document.querySelector('#progs').innerHTML=(x.programs||[]).map(p=>`<tr><td>${p.title}</td><td>${p.committee_score||0}</td><td>${(p.labs||[]).join(', ')}</td><td>${p.status}</td></tr>`).join('');
+document.querySelector('#policy').textContent=JSON.stringify(x.policy_gate,null,2);
+document.querySelector('#hash').textContent=x.sha256;
+}).catch(e=>document.querySelector('#stamp').textContent='Aucun cycle V7 publié.');
+</script></body></html>
