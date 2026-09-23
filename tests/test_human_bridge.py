@@ -137,5 +137,61 @@ class TestHumanBridge(unittest.TestCase):
             human_bridge.opentarget_context=original_ot
             human_bridge.BRIDGE_SEEDS=original_seeds
 
+
+    def test_phylogenetic_strict_bridge_requires_exact_species_paralog_controls_and_target(self):
+        original_entry=human_bridge.uniprot_exact_species_gene
+        original_ot=human_bridge.opentarget_context
+        original_phylo=human_bridge.PHYLO_SEEDS
+        try:
+            human_bridge.PHYLO_SEEDS={
+                "Cynops pyrrhogaster":[{
+                    "animal_gene":"SHH",
+                    "animal_uniprot":"Q90385",
+                    "animal_taxon_id":8330,
+                    "animal_genbank_protein":"BAA09657.1",
+                    "animal_genbank_nucleotide":"D63339",
+                    "modern_transcript_genbank":"PQ306330",
+                    "modern_evidence_pmid":"39595071",
+                    "human_symbol":"SHH",
+                    "human_ensembl_id":"ENSG00000164690",
+                    "phylogeny_pmid":"17318658",
+                    "phylogeny_doi":"10.1007/s00427-007-0139-2",
+                    "phylogeny_method":"21 Hedgehog proteins; 500 bootstrap replicates",
+                    "exact_species_accession_in_phylogeny":"Q90385",
+                    "human_target_in_phylogeny":"human SHH",
+                    "paralog_controls":["human IHH","human DHH"],
+                    "rationale":"test"
+                }]
+            }
+            human_bridge.uniprot_exact_species_gene=lambda acc,species,gene,taxon_id=None: {
+                "accession":"Q90385","species":"Cynops pyrrhogaster",
+                "taxon_id":8330,"genes":["SHH"],"reviewed":True
+            } if (acc,species,gene,str(taxon_id))==("Q90385","Cynops pyrrhogaster","SHH","8330") else None
+            human_bridge.opentarget_context=lambda ensg: {
+                "approved_symbol":"SHH","approved_name":"sonic hedgehog signaling molecule",
+                "biotype":"protein_coding","tractability":[]
+            } if ensg=="ENSG00000164690" else None
+
+            candidate={"subject":"Cynops pyrrhogaster","pmid_sources":["PMID:39595071"]}
+            bridges,stats=human_bridge.strict_phylogenetic_bridges_for_candidate(candidate)
+            self.assertEqual(len(bridges),1)
+            self.assertEqual(bridges[0]["orthology"]["provider"],"Peer-reviewed phylogenetic orthology")
+            self.assertEqual(bridges[0]["human_symbol"],"SHH")
+            self.assertEqual(stats["phylogenetic_strict_bridges"],1)
+
+            wrong_species={"subject":"Pleurodeles waltl","pmid_sources":["PMID:39595071"]}
+            b2,s2=human_bridge.strict_phylogenetic_bridges_for_candidate(wrong_species)
+            self.assertEqual(b2,[])
+            self.assertEqual(s2["phylogenetic_strict_bridges"],0)
+
+            human_bridge.PHYLO_SEEDS["Cynops pyrrhogaster"][0]["paralog_controls"]=["human IHH"]
+            b3,s3=human_bridge.strict_phylogenetic_bridges_for_candidate(candidate)
+            self.assertEqual(b3,[])
+            self.assertEqual(s3["phylogenetic_strict_bridges"],0)
+        finally:
+            human_bridge.uniprot_exact_species_gene=original_entry
+            human_bridge.opentarget_context=original_ot
+            human_bridge.PHYLO_SEEDS=original_phylo
+
 if __name__=="__main__":
     unittest.main()
