@@ -17,11 +17,11 @@ class TestV6Organization(unittest.TestCase):
 
     def test_committee_cross_lab_boost(self):
         one=[
-            {"lab_id":"a","candidates":[{"name":"Species alpha","sources":["P1"],"mechanisms":["DNA repair"],"genes":[],"arbiter":60,"priority":60,"challenge_flags":[],"annotation_support":True}]}
+            {"lab_id":"a","candidates":[{"name":"Species alpha","sources":["P1"],"mechanisms":["DNA repair"],"genes":[],"arbiter":60,"priority":60,"challenge_flags":[],"annotation_support":True,"taxon_verified":True,"taxon_proof":{"provider":"GBIF","kingdom":"Animalia","match_type":"EXACT"}}]}
         ]
         two=[
-            {"lab_id":"a","candidates":[{"name":"Species alpha","sources":["P1"],"mechanisms":["DNA repair"],"genes":[],"arbiter":60,"priority":60,"challenge_flags":[],"annotation_support":True}]},
-            {"lab_id":"b","candidates":[{"name":"Species alpha","sources":["P2"],"mechanisms":["DNA repair"],"genes":[],"arbiter":60,"priority":60,"challenge_flags":[],"annotation_support":True}]}
+            {"lab_id":"a","candidates":[{"name":"Species alpha","sources":["P1"],"mechanisms":["DNA repair"],"genes":[],"arbiter":60,"priority":60,"challenge_flags":[],"annotation_support":True,"taxon_verified":True,"taxon_proof":{"provider":"GBIF","kingdom":"Animalia","match_type":"EXACT"}}]},
+            {"lab_id":"b","candidates":[{"name":"Species alpha","sources":["P2"],"mechanisms":["DNA repair"],"genes":[],"arbiter":60,"priority":60,"challenge_flags":[],"annotation_support":True,"taxon_verified":True,"taxon_proof":{"provider":"GBIF","kingdom":"Animalia","match_type":"EXACT"}}]}
         ]
         p1=committee.cross_lab_portfolio(one)
         p2=committee.cross_lab_portfolio(two)
