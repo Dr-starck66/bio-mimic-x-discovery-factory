@@ -14,6 +14,7 @@ for p in [STATE,REPORTS,PUBLIC]: p.mkdir(parents=True,exist_ok=True)
 sys.path.insert(0,str(FACTORY))
 from program_director import create_or_update_programs
 from policy_foundry import propose_variants, select_safe_variant
+from human_bridge import build_human_bridges
 
 REG=json.loads((FACTORY/"brick_registry.json").read_text(encoding="utf-8"))
 ACTIVE={x["id"]:x for x in REG["active"]}
@@ -56,9 +57,11 @@ def fuse_sources(committee):
 def trust_gate(bundle):
     accepted=[];rejected=[]
     for c in bundle.get("portfolio",[]):
-        if c.get("sources") and c.get("name"):
+        has_taxon_proof=bool(c.get("taxon_verified") or c.get("annotation_support"))
+        if c.get("sources") and c.get("name") and has_taxon_proof:
             accepted.append(c)
-        else: rejected.append(c)
+        else:
+            rejected.append({"candidate":c,"reason":"missing provenance/name/taxon proof"})
     return {"accepted":accepted,"rejected":rejected}
 
 def build_claim_ledger(trusted):
@@ -69,6 +72,8 @@ def build_claim_ledger(trusted):
         claims.append({
             "subject":c["name"],"status":status,"sources":c.get("sources",[]),
             "mechanisms":c.get("mechanisms",[]),"labs":c.get("labs",[]),
+            "genes":c.get("genes",[]),"taxon_verified":bool(c.get("taxon_verified")),
+            "taxon_proofs":c.get("taxon_proofs",[]),
             "claim":f"{c['name']} is a cross-species research candidate; this is not a human efficacy claim."
         })
     return claims
@@ -112,11 +117,22 @@ def apply_negative_memory(claim,negative):
     blocked=" ".join(claim["subject"].lower().split()) in names
     return {"blocked":blocked,"reason":"negative knowledge hit" if blocked else None}
 
-def human_translation_gate(claim):
+def human_translation_gate(claim,bridge_index):
+    hits=bridge_index.get(claim["subject"],[])
+    if hits:
+        return {
+            "subject":claim["subject"],
+            "status":"ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
+            "bridges":hits,
+            "remaining":["disease-specific human evidence","causal perturbation","toxicity check"],
+            "animal_claim_not_promoted_to_human_efficacy":True
+        }
     return {
+        "subject":claim["subject"],
         "status":"UNVERIFIED_HUMAN_BRIDGE",
-        "required":["orthologue or functional analogue","human tissue expression/context","causal perturbation","toxicity check"],
-        "animal_claim_not_promoted_to_human":True
+        "bridges":[],
+        "required":["Ensembl-resolvable species","verified human orthologue","Open Targets target context","causal perturbation","toxicity check"],
+        "animal_claim_not_promoted_to_human_efficacy":True
     }
 
 def forge_experiment(program,claim,causal,audit):
@@ -189,6 +205,10 @@ def run_cycle(committee_path):
 
     claims=build_claim_ledger(trusted)
     prov=sum(1 for c in claims if c.get("sources"))/max(1,len(claims))
+    human_bridge_result=build_human_bridges(trusted["accepted"])
+    bridge_index={}
+    for b in human_bridge_result.get("bridges",[]):
+        bridge_index.setdefault(b["animal_species"],[]).append(b)
     usage.use("evidence-network","claim_ledger","claims_with_provenance_ratio",round(prov,4))
 
     # DUALITY is represented by the upstream committee's mean arbiter values.
@@ -205,12 +225,14 @@ def run_cycle(committee_path):
             continue
         audit=morpheus_audit(p,claim);audits.append(audit)
         causal=causal_uncertainty(claim,audit);causal_plans.append(causal)
-        human.append(human_translation_gate(claim))
+        human.append(human_translation_gate(claim,bridge_index))
         experiments.append(forge_experiment(p,claim,causal,audit))
     usage.use("morpheus","morpheus_audits","falsifiable_failure_modes_per_program",round(sum(len(x["flags"]) for x in audits)/max(1,len(audits)),3))
     usage.use("omega-causal","causal_plans","claims_with_counterfactual_test",len(causal_plans))
     usage.use("negative-kg","negative_filter","repeated_dead_ends_prevented",max(0,len(programs)-len(experiments)))
-    usage.use("human-bridge","human_translation","candidates_with_human_bridge",sum(1 for x in human if x["status"]!="UNVERIFIED_HUMAN_BRIDGE"))
+    verified_human=sum(1 for x in human if x["status"]=="ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED")
+    usage.use("human-bridge","human_bridge_result","candidates_with_human_bridge",verified_human,
+              "PASS" if verified_human else "PARTIAL")
     usage.use("experiment-forge","experiments","programs_with_explicit_kill_criteria",sum(1 for e in experiments if e["kill_criteria"]))
 
     metrics={
@@ -243,6 +265,7 @@ def run_cycle(committee_path):
         "schema":"biomimic-v7-factory-cycle-v1","time":now(),
         "programs":programs,"mission_graphs":mission_graphs,"claims":claims,
         "audits":audits,"causal_plans":causal_plans,"human_translation":human,
+        "human_bridge_result":human_bridge_result,
         "experiments":experiments,"benchmark":bench,"policy_gate":gate
     }
     cycle["sha256"]=hashlib.sha256(json.dumps(cycle,sort_keys=True,ensure_ascii=False).encode()).hexdigest()
@@ -250,7 +273,7 @@ def run_cycle(committee_path):
     mem=update_memory(cycle)
     usage.use("omega-memory","state/factory/long_term_memory.json","new_provenance_edges",len(claims)+len(experiments))
     telemetry=telemetry_from(cycle,bundle,trusted,claims,usage)
-    usage.use("omega-telemetry","telemetry","brick_observability_ratio",round((len({e["brick_id"] for e in usage.events})+1)/len(ACTIVE),4))
+    usage.use("omega-telemetry","telemetry","brick_observability_ratio",0.0)
     usage.use("devops-x","validated_state","successful_daily_cycle_ratio",1.0)
 
     # Finish Ω-OS with the number of completed stages.
@@ -260,6 +283,11 @@ def run_cycle(committee_path):
 
     used={e["brick_id"] for e in usage.events}
     unused=sorted(set(ACTIVE)-used)
+    telemetry["brick_observability_ratio"]=round(len(used)/len(ACTIVE),4)
+    for e in usage.events:
+        if e["brick_id"]=="omega-telemetry":
+            e["value"]=telemetry["brick_observability_ratio"]
+            e["status"]="PASS" if telemetry["brick_observability_ratio"]==1.0 else "PARTIAL"
     cycle["brick_usage"]=usage.events
     cycle["unused_active_bricks"]=unused
     cycle["telemetry"]=telemetry
