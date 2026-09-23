@@ -9,16 +9,16 @@ on:
 jobs:
   probe:
     runs-on: ubuntu-24.04
-    timeout-minutes: 6
+    timeout-minutes: 4
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
-      - name: Probe Cynops strict phylogenetic chain
+      - name: Compact Cynops strict phylogenetic probe
         run: |
           python - <<'PY'
-          import json, sys
+          import json, sys, re
           from pathlib import Path
           sys.path.insert(0,str(Path("factory").resolve()))
           import human_bridge as h
@@ -26,19 +26,28 @@ jobs:
           species="Cynops pyrrhogaster"
           seed=h.PHYLO_SEEDS[species][0]
           candidate={"subject":species,"pmid_sources":["PMID:34944708","PMID:41751333","PMID:42702818","PMID:39595071"]}
-
-          out={"seed":seed}
-          out["uniprot_raw"]=h.uniprot_entry(seed["animal_uniprot"])
-          out["uniprot_exact"]=h.uniprot_exact_species_gene(
-              seed["animal_uniprot"],species,seed["animal_gene"],seed["animal_taxon_id"]
-          )
-          try:
-              out["open_targets"]=h.opentarget_context(seed["human_ensembl_id"])
-          except Exception as e:
-              out["open_targets_error"]=repr(e)
-          out["claim_pmids"]=[str(x).replace("PMID:","") for x in candidate["pmid_sources"]]
+          raw=h.uniprot_entry(seed["animal_uniprot"]) or {}
+          exact=h.uniprot_exact_species_gene(seed["animal_uniprot"],species,seed["animal_gene"],seed["animal_taxon_id"])
+          try: ot=h.opentarget_context(seed["human_ensembl_id"])
+          except Exception as e: ot={"error":repr(e)}
+          controls={re.sub(r"[^a-z0-9]+","",x.replace("human ","").lower()) for x in seed.get("paralog_controls",[])}
+          pmids={str(x).replace("PMID:","") for x in candidate["pmid_sources"]}
           bridges,stats=h.strict_phylogenetic_bridges_for_candidate(candidate)
-          out["bridges"]=bridges
-          out["stats"]=stats
-          print(json.dumps(out,indent=2)[:40000])
+
+          print(json.dumps({
+            "entry_type":raw.get("entryType"),
+            "uniprot_species":(raw.get("organism") or {}).get("scientificName"),
+            "uniprot_taxon":(raw.get("organism") or {}).get("taxonId"),
+            "uniprot_gene_names":[
+              (g.get("geneName") or {}).get("value") for g in raw.get("genes",[]) if (g.get("geneName") or {}).get("value")
+            ],
+            "exact_validator_pass":bool(exact),
+            "accession_in_phylogeny_matches":seed.get("exact_species_accession_in_phylogeny")==seed.get("animal_uniprot"),
+            "paralog_controls_pass":{"ihh","dhh"}.issubset(controls),
+            "modern_claim_pmid_pass":str(seed.get("modern_evidence_pmid")) in pmids,
+            "open_targets_symbol":None if not isinstance(ot,dict) else ot.get("approved_symbol"),
+            "open_targets_error":None if not isinstance(ot,dict) else ot.get("error"),
+            "bridge_count":len(bridges),
+            "stats":stats
+          },indent=2))
           PY
