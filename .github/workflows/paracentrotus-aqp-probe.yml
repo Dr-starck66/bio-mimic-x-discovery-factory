@@ -1,0 +1,51 @@
+name: BIO-MIMIC X Paracentrotus AQP Probe
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/paracentrotus-aqp-probe.yml'
+
+jobs:
+  probe:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Probe exact-species AQP1/AQP3 orthology
+        run: |
+          python - <<'PY'
+          import json, urllib.parse, urllib.request
+          species="Paracentrotus lividus"
+          def get(url):
+              req=urllib.request.Request(url,headers={"Accept":"application/json","User-Agent":"BIO-MIMIC-X"})
+              with urllib.request.urlopen(req,timeout=25) as r:
+                  return json.loads(r.read().decode())
+
+          out={}
+          for gene in ["AQP3","AQP1"]:
+              row={}
+              try:
+                  u="https://api.ncbi.nlm.nih.gov/datasets/v2/gene/symbol/"+urllib.parse.quote(gene,safe="")+"/taxon/"+urllib.parse.quote(species,safe="")+"/dataset_report"
+                  row["ncbi"]=get(u)
+              except Exception as e:
+                  row["ncbi_error"]=repr(e)
+              try:
+                  q=f'(organism_name:"{species}") AND (gene:{gene})'
+                  u="https://rest.uniprot.org/uniprotkb/search?"+urllib.parse.urlencode({
+                      "query":q,"format":"json","fields":"accession,gene_names,organism_name","size":"10"
+                  })
+                  row["uniprot"]=get(u)
+              except Exception as e:
+                  row["uniprot_error"]=repr(e)
+              try:
+                  u="https://data.orthodb.org/v12/genesearch?"+urllib.parse.urlencode({"query":f"{gene} {species}"})
+                  row["orthodb_search"]=get(u)
+              except Exception as e:
+                  row["orthodb_error"]=repr(e)
+              out[gene]=row
+          print(json.dumps(out,indent=2)[:60000])
+          PY
