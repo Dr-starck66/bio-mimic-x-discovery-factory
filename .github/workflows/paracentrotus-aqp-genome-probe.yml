@@ -1,0 +1,144 @@
+name: BIO-MIMIC X Paracentrotus AQP Genome Probe
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/paracentrotus-aqp-genome-probe.yml'
+
+jobs:
+  probe:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Install sequence tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ncbi-blast+ mafft fasttree
+
+      - name: Download official P. lividus proteome and AQP controls
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/pliv-aqp
+          cd /tmp/pliv-aqp
+          curl -fL --retry 3 --connect-timeout 20             'https://www.dropbox.com/s/yn3v1zhoxqo8q7y/Pliv_PqN3S_evmp.pep.gz?dl=1'             -o pliv.pep.gz
+          gzip -t pliv.pep.gz
+          gunzip -c pliv.pep.gz > pliv.pep.fa
+          test -s pliv.pep.fa
+
+          python - <<'PY'
+          import urllib.parse, urllib.request, pathlib, time
+
+          out=pathlib.Path("/tmp/pliv-aqp/human_aqps.fa")
+          genes=["AQP1","AQP2","AQP3","AQP4","AQP5","AQP6","AQP7","AQP8","AQP9","AQP10","AQP11","AQP12A"]
+          blocks=[]
+          for gene in genes:
+              q=f'organism_id:9606 AND gene_exact:{gene} AND reviewed:true'
+              url="https://rest.uniprot.org/uniprotkb/search?"+urllib.parse.urlencode({
+                  "query":q,"format":"fasta","size":"1"
+              })
+              req=urllib.request.Request(url,headers={"User-Agent":"BIO-MIMIC-X"})
+              with urllib.request.urlopen(req,timeout=25) as r:
+                  txt=r.read().decode()
+              if txt.startswith(">"):
+                  hdr,seq=txt.strip().split("\n",1)
+                  blocks.append(f">{gene}|"+hdr[1:]+"\n"+seq+"\n")
+              time.sleep(.15)
+          out.write_text("".join(blocks))
+
+          # Sea urchin reference aquaporin from Strongylocentrotus purpuratus.
+          url=("https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?"
+               "db=protein&id=XP_001190612.2&rettype=fasta&retmode=text")
+          req=urllib.request.Request(url,headers={"User-Agent":"BIO-MIMIC-X"})
+          with urllib.request.urlopen(req,timeout=25) as r:
+              txt=r.read().decode()
+          pathlib.Path("/tmp/pliv-aqp/spur_aqp.fa").write_text(txt)
+          PY
+
+          grep -c '^>' pliv.pep.fa
+          grep -c '^>' human_aqps.fa
+
+      - name: Reciprocal BLAST AQP classification
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd /tmp/pliv-aqp
+          makeblastdb -in pliv.pep.fa -dbtype prot -out plivdb >/dev/null
+          makeblastdb -in human_aqps.fa -dbtype prot -out human_aqp_db >/dev/null
+
+          # Forward: every human AQP against exact P. lividus predicted proteome.
+          blastp -query human_aqps.fa -db plivdb             -evalue 1e-10 -max_target_seqs 8             -outfmt '6 qseqid sseqid pident length qcovs evalue bitscore'             > forward.tsv
+
+          # Take the top AQP3 candidate plus the top sea-urchin-reference candidate.
+          awk -F '\t' '$1 ~ /^AQP3\|/ {print $2; exit}' forward.tsv > candidate_ids.txt
+          blastp -query spur_aqp.fa -db plivdb             -evalue 1e-10 -max_target_seqs 3             -outfmt '6 qseqid sseqid pident length qcovs evalue bitscore'             > spur_forward.tsv
+          head -n1 spur_forward.tsv | cut -f2 >> candidate_ids.txt
+          sort -u candidate_ids.txt -o candidate_ids.txt
+          blastdbcmd -db plivdb -entry_batch candidate_ids.txt > candidates.fa
+
+          # Reciprocal: candidate(s) against all human AQP paralogs.
+          blastp -query candidates.fa -db human_aqp_db             -evalue 1e-10 -max_target_seqs 12             -outfmt '6 qseqid sseqid pident length qcovs evalue bitscore'             > reciprocal.tsv
+
+          echo '=== AQP3 forward top hits ==='
+          awk -F '\t' '$1 ~ /^AQP3\|/' forward.tsv | head -n8
+          echo '=== Strongylocentrotus reference top hits ==='
+          cat spur_forward.tsv
+          echo '=== Reciprocal human AQP ranking ==='
+          cat reciprocal.tsv
+
+          python - <<'PY'
+          import csv, json, pathlib, re
+          base=pathlib.Path("/tmp/pliv-aqp")
+          rows=list(csv.reader((base/"reciprocal.tsv").open(),delimiter="\t"))
+          by={}
+          for r in rows:
+              by.setdefault(r[0],[]).append(r)
+          result={}
+          for cand,rs in by.items():
+              rs.sort(key=lambda r: float(r[6]),reverse=True)
+              result[cand]=[
+                  {"human_aqp":r[1].split("|",1)[0],"pident":float(r[2]),
+                   "qcovs":float(r[4]),"evalue":r[5],"bitscore":float(r[6])}
+                  for r in rs[:12]
+              ]
+          # A strict candidate must have human AQP3 as reciprocal best hit,
+          # with a measurable bitscore margin to the next human paralog.
+          strict=[]
+          for cand,ranking in result.items():
+              if not ranking: continue
+              best=ranking[0]
+              second=ranking[1] if len(ranking)>1 else None
+              margin=(best["bitscore"]-(second["bitscore"] if second else 0))
+              if best["human_aqp"]=="AQP3" and best["qcovs"]>=70 and best["pident"]>=25 and margin>=5:
+                  strict.append({"candidate":cand,"best":best,"bitscore_margin":margin})
+          print(json.dumps({"reciprocal_rankings":result,"strict_candidates":strict},indent=2))
+          pathlib.Path("classification.json").write_text(json.dumps({"reciprocal_rankings":result,"strict_candidates":strict},indent=2))
+          PY
+
+      - name: AQP family phylogeny
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd /tmp/pliv-aqp
+          cat human_aqps.fa spur_aqp.fa candidates.fa > phylo_input.fa
+          mafft --auto --quiet phylo_input.fa > phylo_aligned.fa
+          FastTree -wag -gamma phylo_aligned.fa > phylo.tree
+          echo '=== TREE ==='
+          cat phylo.tree
+          python - <<'PY'
+          import json, pathlib, re
+          cls=json.loads(pathlib.Path("/tmp/pliv-aqp/classification.json").read_text())
+          tree=pathlib.Path("/tmp/pliv-aqp/phylo.tree").read_text().strip()
+          print(json.dumps({
+            "strict_candidates":cls["strict_candidates"],
+            "tree":tree,
+            "candidate_count":len(cls["strict_candidates"])
+          },indent=2))
+          assert cls["strict_candidates"], "No reciprocal-best-hit AQP3 candidate in exact P. lividus proteome"
+          PY
