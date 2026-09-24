@@ -78,6 +78,15 @@ button{background:#123340;color:var(--text);border:1px solid #285466;padding:8px
       <div class="row"><span>Efficacité clinique revendiquée</span><b id="reasoningClinical">—</b></div>
     </section>
 
+    <section class="card wide4">
+      <h2>🧬 Orthology Watch</h2>
+      <div class="row"><span>Statut</span><span class="pill" id="watchStatus">—</span></div>
+      <div class="row"><span>Cibles surveillées</span><b id="watchTargets">—</b></div>
+      <div class="row"><span>Prêtes à promouvoir</span><b id="watchReady">—</b></div>
+      <div class="row"><span>Paracentrotus AQP3</span><b id="watchAqp3">—</b></div>
+      <div class="row"><span>Assemblages suivis</span><b id="watchAssemblies">—</b></div>
+    </section>
+
     <section class="card wide6">
       <h2>🔬 7 laboratoires</h2>
       <div id="labList"><div class="sub">Chargement…</div></div>
@@ -130,7 +139,11 @@ async function get(path){const r=await fetch(path+'?v='+Date.now(),{cache:'no-st
   $('#uiSync').textContent=new Date().toLocaleTimeString('fr-FR');
   const alerts=[];
   try{
-    const [f,o]=await Promise.all([get('./data/factory/latest.json'),get('./data/org/latest.json')]);
+    const [f,o,w]=await Promise.all([
+      get('./data/factory/latest.json'),
+      get('./data/org/latest.json'),
+      get('./data/factory/orthology_watch_latest.json').catch(()=>({status:'IDLE',targets:[],pending_targets:0,promotion_ready_targets:0}))
+    ]);
     const usage=f.brick_usage||[], labs=o.labs||[], hb=f.human_bridge_result||{};
     $('#factoryStatus').textContent=safe(f.status);
     $('#factoryStatus').className='value '+(f.status==='PASS'?'ok':f.status==='PARTIAL'?'warn':'bad');
@@ -167,6 +180,15 @@ async function get(path){const r=await fetch(path+'?v='+Date.now(),{cache:'no-st
     $('#reasoningClinical').textContent=clinical?'OUI':'NON';
     $('#reasoningClinical').className=clinical?'bad':'ok';
 
+    const wt=(w.targets||[]).find(x=>x.species==='Paracentrotus lividus'&&x.gene==='AQP3');
+    $('#watchStatus').textContent=safe(w.status,'IDLE');
+    $('#watchStatus').className='pill '+(w.status==='PROMOTION_READY'?'ok':w.status==='WATCHING'?'warn':'');
+    $('#watchTargets').textContent=safe(w.pending_targets,0);
+    $('#watchReady').textContent=safe(w.promotion_ready_targets,0);
+    $('#watchAqp3').textContent=wt?(wt.promotion_ready?'PROMOTION READY':'WATCHING'):'—';
+    $('#watchAqp3').className=wt&&wt.promotion_ready?'ok':'warn';
+    $('#watchAssemblies').textContent=wt?(wt.genome_assemblies||[]).length:0;
+
     $('#labList').innerHTML=labs.map(x=>`<div class="row"><span><b>${esc(x.name||x.id)}</b><div class="sub">${safe(x.paper_count,0)} papers · ${safe(x.candidate_count,0)} candidats</div></span><span class="pill ${x.status==='PASS'?'ok':x.status==='PARTIAL'?'warn':'bad'}">${esc(x.status)}</span></div>`).join('')||'<div class="sub">Pas encore de statut lab.</div>';
 
     $('#brickList').innerHTML=usage.map(x=>`<div class="row"><span><b>${esc(x.name)}</b><div class="sub">${esc(x.metric)} = ${esc(x.value)}</div></span><span class="pill ${x.status==='PASS'?'ok':x.status==='PARTIAL'?'warn':'bad'}">${esc(x.status)}</span></div>`).join('');
@@ -186,6 +208,8 @@ async function get(path){const r=await fetch(path+'?v='+Date.now(),{cache:'no-st
     if(unused.length) alerts.push('Briques actives inutilisées : '+unused.join(', '));
     if(!reasoning.length) alerts.push('V9 Scientific Reasoning en attente du prochain cycle Factory validé.');
     if(clinical) alerts.push('ERREUR: un dossier V9 revendique une efficacité clinique.');
+    if(w.status==='PROMOTION_READY') alerts.push('Orthology Watch: une cible stricte est prête à être promue après validation finale.');
+    else if(w.status==='WATCHING') alerts.push('Orthology Watch actif : Paracentrotus AQP3 reste sous surveillance exacte multi-fournisseurs.');
     const failed=labs.filter(x=>x.status!=='PASS');
     if(failed.length) alerts.push(failed.length+' lab(s) non PASS.');
     $('#alerts').innerHTML=alerts.length?alerts.map(a=>`<div class="alert">⚠ ${esc(a)}</div>`).join(''):'<div class="row"><span>Aucune alerte critique dans le dernier état publié.</span><span class="pill ok">OK</span></div>';
