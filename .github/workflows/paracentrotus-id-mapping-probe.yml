@@ -1,0 +1,39 @@
+name: Paracentrotus Annotation ID Mapping Probe
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/paracentrotus-id-mapping-probe.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  map:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v7
+      - name: Download mapping and new annotation
+        run: |
+          set -euo pipefail
+          curl -fL --retry 3 -o /tmp/equiv.tsv             'https://www.dropbox.com/s/grukyhrtigw75b2/annot_equivalence.tsv?dl=1'
+          curl -fL --retry 3 -o /tmp/new.gtf             'https://www.dropbox.com/s/9kimik7jsj1n6th/Pliv_aH2p_fg.gtf?dl=1'
+          echo "EQUIV_BYTES=$(stat -c%s /tmp/equiv.tsv)"
+          echo "GTF_BYTES=$(stat -c%s /tmp/new.gtf)"
+      - name: Resolve orthogroup gene IDs
+        run: |
+          set -euo pipefail
+          echo "=== EQUIVALENCE ==="
+          grep -iE 'PL00559|PL00165' /tmp/equiv.tsv || true
+          echo "=== NEW GTF ==="
+          grep -iE 'PL00559|PL00165|aquapor|AQP' /tmp/new.gtf | head -120 || true
+          python - <<'PY'
+          from pathlib import Path
+          eq=Path("/tmp/equiv.tsv").read_text(errors="replace").splitlines()
+          hits=[x for x in eq if "PL00559" in x or "PL00165" in x]
+          print("MAPPING_HITS",len(hits))
+          for x in hits: print("MAP",x)
+          assert hits, "No mapping rows for PL00559/PL00165"
+          PY
