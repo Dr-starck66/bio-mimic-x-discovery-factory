@@ -1,0 +1,44 @@
+name: Paracentrotus AQP8 Orthogroup Consistency Probe
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/paracentrotus-aqp8-orthogroup-consistency.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v7
+      - name: Verify orthogroup membership is non-ambiguous
+        run: |
+          set -euo pipefail
+          curl -fL --retry 3 -o /tmp/groups.gz \
+            'https://raw.githubusercontent.com/paracentrotus/genome/a611588e31ad2bd9b06d68f5bf01a456690e72e1/duplications/orthologous_groups.txt.gz'
+          python - <<'PY'
+          import gzip,json
+          target_genes={"PL34918","PL35288","PL09430","PL10758"}
+          rows=[]
+          occurrences={g:[] for g in target_genes}
+          with gzip.open("/tmp/groups.gz","rt",encoding="utf-8",errors="replace") as fh:
+              for line in fh:
+                  if line.startswith("#") or "\t" not in line: continue
+                  fid,glt=line.rstrip().split("\t",1)
+                  toks=glt.split()
+                  par=[x.split("_",1)[1] for x in toks if x.startswith("Parliv_")]
+                  hum=[x.split("_",1)[1] for x in toks if x.startswith("Homsap_")]
+                  hit=target_genes.intersection(par)
+                  if hit:
+                      row={"family":fid,"parliv":par,"human":hum}
+                      rows.append(row)
+                      for g in hit: occurrences[g].append(fid)
+          print("ROWS",json.dumps(rows,sort_keys=True))
+          print("OCCURRENCES",json.dumps(occurrences,sort_keys=True))
+          for g,fams in occurrences.items():
+              print("GENE",g,"FAMILY_COUNT",len(fams),"FAMILIES",",".join(fams))
+          PY
