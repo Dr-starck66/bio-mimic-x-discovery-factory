@@ -70,31 +70,31 @@ jobs:
                   out.write(f">{gid}|{aqp[gid]}|Paracentrotus_lividus\n{s}\n")
           PY
 
-      - name: Fetch human aquaporin reference proteins
+      - name: Fetch reviewed human aquaporin reference proteins
         run: |
           python - <<'PY'
-          import json,urllib.request
-          ids={
-            "AQP3":"ENSG00000165272",
-            "AQP7":"ENSG00000165269",
-            "AQP8":"ENSG00000103375",
-            "AQP9":"ENSG00000103569",
-            "AQP10":"ENSG00000143595"
-          }
-          headers={"Content-Type":"application/json","Accept":"application/json","User-Agent":"BIO-MIMIC-X/1.0"}
+          import json,urllib.parse,urllib.request
+          symbols=["AQP3","AQP7","AQP8","AQP9","AQP10"]
+          headers={"User-Agent":"BIO-MIMIC-X/1.0","Accept":"application/json"}
           with open("/tmp/human_aqp.fa","w") as out:
-              for sym,eid in ids.items():
-                  req=urllib.request.Request(f"https://rest.ensembl.org/lookup/id/{eid}?expand=1",headers=headers)
-                  g=json.load(urllib.request.urlopen(req,timeout=25))
-                  canonical=str(g.get("canonical_transcript") or "").split(".")[0]
-                  trs=g.get("Transcript") or []
-                  tr=next((x for x in trs if str(x.get("id"))==canonical),None) or next((x for x in trs if x.get("Translation")),None)
-                  assert tr and tr.get("Translation"), (sym,eid)
-                  pid=tr["Translation"]["id"]
-                  req2=urllib.request.Request(f"https://rest.ensembl.org/sequence/id/{pid}?type=protein",headers={"Content-Type":"text/plain","User-Agent":"BIO-MIMIC-X/1.0"})
-                  seq=urllib.request.urlopen(req2,timeout=25).read().decode().strip()
-                  out.write(f">{sym}|Homo_sapiens|{eid}\n{seq}\n")
-                  print("HUMAN",sym,eid,len(seq))
+              for sym in symbols:
+                  q=f'gene_exact:{sym} AND organism_id:9606 AND reviewed:true'
+                  url="https://rest.uniprot.org/uniprotkb/search?"+urllib.parse.urlencode({
+                      "query":q,"format":"json","fields":"accession,gene_names,organism_name","size":1
+                  })
+                  req=urllib.request.Request(url,headers=headers)
+                  data=json.load(urllib.request.urlopen(req,timeout=30))
+                  rows=data.get("results") or []
+                  assert rows, sym
+                  acc=rows[0]["primaryAccession"]
+                  fasta=urllib.request.urlopen(
+                      urllib.request.Request(f"https://rest.uniprot.org/uniprotkb/{acc}.fasta",headers={"User-Agent":"BIO-MIMIC-X/1.0"}),
+                      timeout=30
+                  ).read().decode()
+                  seq="".join(x.strip() for x in fasta.splitlines() if not x.startswith(">"))
+                  assert seq, (sym,acc)
+                  out.write(f">{sym}|Homo_sapiens|{acc}\n{seq}\n")
+                  print("HUMAN",sym,acc,len(seq))
           PY
 
       - name: Align and score nearest human paralog
