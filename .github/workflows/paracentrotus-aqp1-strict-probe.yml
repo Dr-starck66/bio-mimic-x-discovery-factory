@@ -1,0 +1,62 @@
+name: Paracentrotus AQP1 Strict Probe
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/paracentrotus-aqp1-strict-probe.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Download published resources
+        run: |
+          set -euo pipefail
+          curl -fL --retry 3 -o /tmp/orthogroups.txt.gz             'https://raw.githubusercontent.com/paracentrotus/genome/main/duplications/orthologous_groups.txt.gz'
+          curl -fL --retry 3 -o /tmp/new.gtf             'https://www.dropbox.com/s/9kimik7jsj1n6th/Pliv_aH2p_fg.gtf?dl=1'
+      - name: Resolve human AQP1 family to exact Paracentrotus genes
+        run: |
+          python - <<'PY'
+          import gzip,json,re
+          target="ENSG00000106125"  # human AQP1
+          line=None
+          with gzip.open("/tmp/orthogroups.txt.gz","rt",encoding="utf-8",errors="replace") as fh:
+              for row in fh:
+                  if target in row:
+                      line=row.rstrip();break
+          assert line, "human AQP1 absent from published orthogroups"
+          fid,glt=line.split("\t",1)
+          toks=glt.split()
+          humans=[x.split("_",1)[1] for x in toks if x.startswith("Homsap_")]
+          parliv=[x.split("_",1)[1] for x in toks if x.startswith("Parliv_")]
+          print("AQP1_FAMILY",fid)
+          print("HUMAN_MEMBERS",json.dumps(humans))
+          print("PARLIV_MEMBERS",json.dumps(parliv))
+          assert parliv, "No Paracentrotus member in human AQP1 family"
+
+          gene_ann={}
+          with open("/tmp/new.gtf",encoding="utf-8",errors="replace") as fh:
+              for row in fh:
+                  if "\tgene\t" not in row: continue
+                  mi=re.search(r'gene_id "([^"]+)"',row)
+                  mn=re.search(r'gene_name "([^"]+)"',row)
+                  if mi and mi.group(1) in parliv:
+                      gene_ann[mi.group(1)]=mn.group(1) if mn else None
+          print("PARLIV_ANNOTATIONS",json.dumps(gene_ann,sort_keys=True))
+          print("EVIDENCE_SHAPE",json.dumps({
+              "family":fid,
+              "human_gene_count":len(humans),
+              "parliv_gene_count":len(parliv),
+              "human_only_AQP1":humans==[target],
+              "all_parliv_annotated":all(g in gene_ann for g in parliv)
+          },sort_keys=True))
+          PY
