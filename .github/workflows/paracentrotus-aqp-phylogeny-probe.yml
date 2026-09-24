@@ -48,7 +48,7 @@ jobs:
       - name: Discover exact-species AQP-family candidates
         run: |
           set -euo pipefail
-          makeblastdb -in /tmp/pliv.pep.fa -dbtype prot -out /tmp/plivdb >/dev/null
+          makeblastdb -in /tmp/pliv.pep.fa -dbtype prot -parse_seqids -out /tmp/plivdb >/dev/null
           curl -fsSL 'https://rest.uniprot.org/uniprotkb/Q92482.fasta' > /tmp/human_aqp3.fa
           blastp -query /tmp/human_aqp3.fa -db /tmp/plivdb             -max_target_seqs 12 -evalue 1e-15             -outfmt '6 qseqid sseqid pident length evalue bitscore qcovs'             > /tmp/forward.tsv
           test -s /tmp/forward.tsv
