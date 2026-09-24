@@ -6,8 +6,8 @@
     "output_ref": "cycle_plan",
     "stage": "CONTROL",
     "status": "PASS",
-    "time": "2026-09-23T15:58:57.385382+00:00",
-    "value": 14
+    "time": "2026-09-24T08:33:10.112888+00:00",
+    "value": 15
   },
   {
     "brick_id": "research-director",
@@ -16,7 +16,7 @@
     "output_ref": "state/factory/programs.json",
     "stage": "PLAN",
     "status": "PASS",
-    "time": "2026-09-23T15:58:57.386896+00:00",
+    "time": "2026-09-24T08:33:10.114197+00:00",
     "value": 6
   },
   {
@@ -26,7 +26,7 @@
     "output_ref": "mission_graphs",
     "stage": "PLAN",
     "status": "PASS",
-    "time": "2026-09-23T15:58:57.386949+00:00",
+    "time": "2026-09-24T08:33:10.114296+00:00",
     "value": 6
   },
   {
@@ -36,7 +36,7 @@
     "output_ref": "normalized_bundle",
     "stage": "OBSERVE",
     "status": "PASS",
-    "time": "2026-09-23T15:58:57.386963+00:00",
+    "time": "2026-09-24T08:33:10.114308+00:00",
     "value": 1.0
   },
   {
@@ -46,7 +46,7 @@
     "output_ref": "trusted_bundle",
     "stage": "OBSERVE",
     "status": "PASS",
-    "time": "2026-09-23T15:58:57.386972+00:00",
+    "time": "2026-09-24T08:33:10.114315+00:00",
     "value": 0
   },
   {
@@ -56,7 +56,7 @@
     "output_ref": "committee.portfolio",
     "stage": "DISCOVER",
     "status": "PASS",
-    "time": "2026-09-23T15:58:57.386974+00:00",
+    "time": "2026-09-24T08:33:10.114318+00:00",
     "value": 12
   },
   {
@@ -66,7 +66,7 @@
     "output_ref": "committee.allocations",
     "stage": "DECIDE",
     "status": "PASS",
-    "time": "2026-09-23T15:58:57.386982+00:00",
+    "time": "2026-09-24T08:33:10.114323+00:00",
     "value": 100
   },
   {
@@ -76,7 +76,7 @@
     "output_ref": "claim_ledger",
     "stage": "VERIFY",
     "status": "PASS",
-    "time": "2026-09-23T15:59:16.309148+00:00",
+    "time": "2026-09-24T08:36:48.594161+00:00",
     "value": 1.0
   },
   {
@@ -86,7 +86,7 @@
     "output_ref": "committee.portfolio",
     "stage": "EVALUATE",
     "status": "PASS",
-    "time": "2026-09-23T15:59:16.309194+00:00",
+    "time": "2026-09-24T08:36:48.594191+00:00",
     "value": 7.583
   },
   {
@@ -96,7 +96,7 @@
     "output_ref": "morpheus_audits",
     "stage": "FALSIFY",
     "status": "PASS",
-    "time": "2026-09-23T15:59:16.309851+00:00",
+    "time": "2026-09-24T08:36:48.595426+00:00",
     "value": 5.167
   },
   {
@@ -106,7 +106,7 @@
     "output_ref": "causal_plans",
     "stage": "FALSIFY",
     "status": "PASS",
-    "time": "2026-09-23T15:59:16.309864+00:00",
+    "time": "2026-09-24T08:36:48.595432+00:00",
     "value": 6
   },
   {
@@ -116,18 +116,18 @@
     "output_ref": "negative_filter",
     "stage": "MEMORY",
     "status": "PASS",
-    "time": "2026-09-23T15:59:16.309870+00:00",
+    "time": "2026-09-24T08:36:48.595437+00:00",
     "value": 0
   },
   {
     "brick_id": "human-bridge",
-    "metric": "verified_human_translation_coverage",
+    "metric": "supported_claim_bridge_coverage",
     "name": "Human Bridge",
-    "output_ref": "human_translation_result",
+    "output_ref": "human_bridge_result",
     "stage": "TRANSLATE",
-    "status": "PASS",
-    "time": "2026-09-23T20:08:53.014368+00:00",
-    "value": 1.0
+    "status": "PARTIAL",
+    "time": "2026-09-24T08:36:48.595442+00:00",
+    "value": 0.7778
   },
   {
     "brick_id": "experiment-forge",
@@ -136,68 +136,8 @@
     "output_ref": "experiments",
     "stage": "EXPERIMENT",
     "status": "PASS",
-    "time": "2026-09-23T15:59:16.309882+00:00",
+    "time": "2026-09-24T08:36:48.595445+00:00",
     "value": 6
-  },
-  {
-    "brick_id": "benchmark-x10",
-    "metric": "delta_vs_baseline",
-    "name": "BENCHMARK-X10",
-    "output_ref": "benchmark",
-    "stage": "BENCHMARK",
-    "status": "PASS",
-    "time": "2026-09-23T15:59:16.309906+00:00",
-    "value": 1.6172
-  },
-  {
-    "brick_id": "omega-foundry",
-    "metric": "policy_variant_diversity",
-    "name": "Ω-FOUNDRY + MAP-Elites/Novelty",
-    "output_ref": "policy_variants",
-    "stage": "IMPROVE",
-    "status": "PASS",
-    "time": "2026-09-23T15:59:16.469198+00:00",
-    "value": 8
-  },
-  {
-    "brick_id": "immune-gate",
-    "metric": "unsafe_policy_changes_blocked",
-    "name": "Model Immune System / Self-Improvement Gate",
-    "output_ref": "policy_gate",
-    "stage": "IMPROVE",
-    "status": "PASS",
-    "time": "2026-09-23T15:59:16.514136+00:00",
-    "value": 0
-  },
-  {
-    "brick_id": "omega-memory",
-    "metric": "new_provenance_edges",
-    "name": "Ω-MEMORY / Knowledge Graph",
-    "output_ref": "state/factory/long_term_memory.json",
-    "stage": "MEMORY",
-    "status": "PASS",
-    "time": "2026-09-23T15:59:16.517426+00:00",
-    "value": 18
-  },
-  {
-    "brick_id": "omega-telemetry",
-    "metric": "brick_observability_ratio",
-    "name": "Ω-TELEMETRY",
-    "output_ref": "telemetry",
-    "stage": "OBSERVE",
-    "status": "PASS",
-    "time": "2026-09-23T15:59:16.517500+00:00",
-    "value": 1.0
-  },
-  {
-    "brick_id": "devops-x",
-    "metric": "successful_daily_cycle_ratio",
-    "name": "DEVOPS-X Reliability Layer",
-    "output_ref": "validated_state",
-    "stage": "OPERATE",
-    "status": "PASS",
-    "time": "2026-09-23T15:59:16.517505+00:00",
-    "value": 1.0
   },
   {
     "brick_id": "scientific-reasoning",
@@ -206,7 +146,7 @@
     "output_ref": "scientific_reasoning",
     "stage": "REASON",
     "status": "PASS",
-    "time": "2026-09-23T21:58:59.614838+00:00",
+    "time": "2026-09-24T08:36:48.595453+00:00",
     "value": 6
   },
   {
@@ -216,7 +156,7 @@
     "output_ref": "scientific_reasoning",
     "stage": "REASON",
     "status": "PASS",
-    "time": "2026-09-23T21:58:59.614838+00:00",
+    "time": "2026-09-24T08:36:48.595455+00:00",
     "value": 18
   },
   {
@@ -226,7 +166,7 @@
     "output_ref": "scientific_reasoning",
     "stage": "FALSIFY",
     "status": "PASS",
-    "time": "2026-09-23T21:58:59.614838+00:00",
+    "time": "2026-09-24T08:36:48.595458+00:00",
     "value": 18
   },
   {
@@ -236,8 +176,48 @@
     "output_ref": "scientific_reasoning",
     "stage": "EXPERIMENT",
     "status": "PASS",
-    "time": "2026-09-23T21:58:59.614838+00:00",
+    "time": "2026-09-24T08:36:48.595460+00:00",
     "value": 12
+  },
+  {
+    "brick_id": "benchmark-x10",
+    "metric": "delta_vs_baseline",
+    "name": "BENCHMARK-X10",
+    "output_ref": "benchmark",
+    "stage": "BENCHMARK",
+    "status": "PASS",
+    "time": "2026-09-24T08:36:48.595474+00:00",
+    "value": 1.6172
+  },
+  {
+    "brick_id": "omega-foundry",
+    "metric": "policy_variant_diversity",
+    "name": "Ω-FOUNDRY + MAP-Elites/Novelty",
+    "output_ref": "policy_variants",
+    "stage": "IMPROVE",
+    "status": "PASS",
+    "time": "2026-09-24T08:36:48.595627+00:00",
+    "value": 8
+  },
+  {
+    "brick_id": "immune-gate",
+    "metric": "unsafe_policy_changes_blocked",
+    "name": "Model Immune System / Self-Improvement Gate",
+    "output_ref": "policy_gate",
+    "stage": "IMPROVE",
+    "status": "PASS",
+    "time": "2026-09-24T08:36:48.595666+00:00",
+    "value": 1
+  },
+  {
+    "brick_id": "omega-memory",
+    "metric": "new_provenance_edges",
+    "name": "Ω-MEMORY / Knowledge Graph",
+    "output_ref": "state/factory/long_term_memory.json",
+    "stage": "MEMORY",
+    "status": "PASS",
+    "time": "2026-09-24T08:36:48.599160+00:00",
+    "value": 18
   },
   {
     "brick_id": "scientific-memory",
@@ -246,7 +226,27 @@
     "output_ref": "state/factory/scientific_reasoning_memory.json",
     "stage": "MEMORY",
     "status": "PASS",
-    "time": "2026-09-23T21:58:59.614838+00:00",
-    "value": 18
+    "time": "2026-09-24T08:36:48.599874+00:00",
+    "value": 24
+  },
+  {
+    "brick_id": "omega-telemetry",
+    "metric": "brick_observability_ratio",
+    "name": "Ω-TELEMETRY",
+    "output_ref": "telemetry",
+    "stage": "OBSERVE",
+    "status": "PASS",
+    "time": "2026-09-24T08:36:48.599905+00:00",
+    "value": 1.0
+  },
+  {
+    "brick_id": "devops-x",
+    "metric": "successful_daily_cycle_ratio",
+    "name": "DEVOPS-X Reliability Layer",
+    "output_ref": "validated_state",
+    "stage": "OPERATE",
+    "status": "PASS",
+    "time": "2026-09-24T08:36:48.599910+00:00",
+    "value": 1.0
   }
 ]
