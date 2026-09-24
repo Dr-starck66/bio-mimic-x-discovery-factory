@@ -1,0 +1,68 @@
+{
+  "clinical_efficacy_claim": false,
+  "pending_targets": 1,
+  "promotion_ready_targets": 0,
+  "schema": "biomimic-orthology-watch-v1",
+  "sha256": "5dd21eb56b54c489f5a5c467b49ca11b586c45b12833b2fb7198344d41d12b97",
+  "status": "WATCHING",
+  "targets": [
+    {
+      "bridges": [],
+      "candidate_status": [
+        {
+          "bridges": 0,
+          "candidate": "Paracentrotus lividus",
+          "ensembl_species": null,
+          "gene_candidates": 12,
+          "ncbi_exact_genes": 0,
+          "ncbi_human_orthologs": 0,
+          "ncbi_seed_genes_checked": 1,
+          "oma_species_matched": 0,
+          "oma_uniprots_checked": 10,
+          "orthodb_exact_genes": 0,
+          "orthodb_human_orthologs": 0,
+          "orthodb_seed_genes_checked": 1,
+          "phylogenetic_seed_records_checked": 0,
+          "phylogenetic_strict_bridges": 0,
+          "status": "NO_SUPPORTED_ORTHOLOGY_PROVIDER_MATCH",
+          "uniprot_annotation_candidates": 10,
+          "uniprot_candidates": 10,
+          "uniprot_species_gene_candidates": 0,
+          "validated_gene_candidates": []
+        }
+      ],
+      "claim_pmids": [
+        "PMID:38622199",
+        "PMID:42208364",
+        "PMID:42738576"
+      ],
+      "claim_supported": true,
+      "clinical_efficacy_claim": false,
+      "errors": [],
+      "gene": "AQP3",
+      "genome_assemblies": [
+        "GCA_984792215.1",
+        "GCA_940671915.1"
+      ],
+      "human_ensembl_id": "ENSG00000165272",
+      "human_symbol": "AQP3",
+      "promotion_ready": false,
+      "promotion_rule": "Require the existing strict Human Bridge chain to return Paracentrotus lividus AQP3 -> human AQP3 via an accepted orthology provider plus Open Targets validation.",
+      "provider_status": {
+        "Ensembl homology": "PARTIAL",
+        "Ensembl species": "FAIL: HTTP Error 500: Internal Server Error",
+        "Europe PMC annotations": "PASS",
+        "NCBI Ortholog": "PARTIAL",
+        "OMA orthology": "PARTIAL",
+        "Open Targets": "PARTIAL",
+        "OrthoDB v12": "PARTIAL",
+        "Peer-reviewed phylogenetic orthology": "PARTIAL"
+      },
+      "species": "Paracentrotus lividus",
+      "status": "WATCHING",
+      "strict_bridge_count": 0,
+      "strict_providers": []
+    }
+  ],
+  "time": "2026-09-24T17:51:36.701254+00:00"
+}
