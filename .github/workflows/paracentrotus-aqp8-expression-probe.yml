@@ -1,0 +1,46 @@
+name: Paracentrotus AQP8 Expression Probe
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/paracentrotus-aqp8-expression-probe.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v7
+      - name: Download published developmental expression matrix
+        run: |
+          set -euo pipefail
+          curl -fL --retry 3 -o /tmp/pliv_fpkm.tsv.gz             'https://raw.githubusercontent.com/paracentrotus/genome/main/rna-seq/Pliv_rename_fpkms.tsv.gz'
+          gzip -t /tmp/pliv_fpkm.tsv.gz
+      - name: Probe AQP8 exact-species expression
+        run: |
+          python - <<'PY'
+          import gzip,json
+          targets={"PL34918","PL35288","PL09430"}
+          with gzip.open("/tmp/pliv_fpkm.tsv.gz","rt",encoding="utf-8",errors="replace") as fh:
+              header=next(fh).rstrip("\n").split("\t")
+              hits=[]
+              for line in fh:
+                  if any(t in line for t in targets):
+                      hits.append(line.rstrip("\n").split("\t"))
+          print("HEADER",json.dumps(header))
+          print("HIT_COUNT",len(hits))
+          for row in hits:
+              print("EXPR_ROW",json.dumps(row))
+          assert hits, "No AQP8-family gene in published expression matrix"
+          for row in hits:
+              nums=[]
+              for x in row[1:]:
+                  try: nums.append(float(x))
+                  except: pass
+              if nums:
+                  print("EXPR_SUMMARY",row[0],"max",max(nums),"sum",sum(nums),"positive",sum(v>0 for v in nums))
+          PY
