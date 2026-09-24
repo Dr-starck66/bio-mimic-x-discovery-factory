@@ -1,0 +1,157 @@
+name: BIO-MIMIC X Paracentrotus AQP Genome Phylogeny Probe
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/paracentrotus-aqp-phylogeny-probe.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Install free phylogeny tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ncbi-blast+ mafft fasttree
+
+      - name: Download exact-species P. lividus predicted proteins
+        run: |
+          set -euo pipefail
+          curl -fL --retry 3 --retry-delay 2             'https://www.dropbox.com/s/yn3v1zhoxqo8q7y/Pliv_PqN3S_evmp.pep.gz?dl=1'             -o /tmp/pliv.pep.gz
+          gzip -t /tmp/pliv.pep.gz
+          gunzip -c /tmp/pliv.pep.gz > /tmp/pliv.pep.fa
+          test -s /tmp/pliv.pep.fa
+          echo "P. lividus proteins: $(grep -c '^>' /tmp/pliv.pep.fa)"
+
+      - name: Fetch reviewed human aquaporin paralog controls
+        run: |
+          set -euo pipefail
+          : > /tmp/human_aqps.fa
+          for gene in AQP1 AQP3 AQP7 AQP9 AQP10; do
+            curl -fsSL --retry 3               "https://rest.uniprot.org/uniprotkb/search?query=%28gene_exact%3A${gene}%29%20AND%20%28organism_id%3A9606%29%20AND%20%28reviewed%3Atrue%29&format=fasta&size=1"               >> /tmp/human_aqps.fa
+          done
+          test "$(grep -c '^>' /tmp/human_aqps.fa)" -ge 5
+          awk '/^>/{print}' /tmp/human_aqps.fa
+
+      - name: Discover exact-species AQP-family candidates
+        run: |
+          set -euo pipefail
+          makeblastdb -in /tmp/pliv.pep.fa -dbtype prot -out /tmp/plivdb >/dev/null
+          curl -fsSL 'https://rest.uniprot.org/uniprotkb/Q92482.fasta' > /tmp/human_aqp3.fa
+          blastp -query /tmp/human_aqp3.fa -db /tmp/plivdb             -max_target_seqs 12 -evalue 1e-15             -outfmt '6 qseqid sseqid pident length evalue bitscore qcovs'             > /tmp/forward.tsv
+          test -s /tmp/forward.tsv
+          cut -f2 /tmp/forward.tsv | sort -u | head -n 12 > /tmp/candidate.ids
+          blastdbcmd -db /tmp/plivdb -entry_batch /tmp/candidate.ids > /tmp/pliv_candidates.fa
+          test -s /tmp/pliv_candidates.fa
+          cat /tmp/forward.tsv
+
+      - name: Reciprocal aquaporin-family classification
+        run: |
+          set -euo pipefail
+          makeblastdb -in /tmp/human_aqps.fa -dbtype prot -out /tmp/human_aqpdb >/dev/null
+          blastp -query /tmp/pliv_candidates.fa -db /tmp/human_aqpdb             -max_target_seqs 5 -evalue 1e-10             -outfmt '6 qseqid sseqid pident length evalue bitscore qcovs'             > /tmp/reciprocal.tsv
+          test -s /tmp/reciprocal.tsv
+          cat /tmp/reciprocal.tsv
+
+      - name: Build paralog-aware phylogenetic tree
+        run: |
+          set -euo pipefail
+          cat /tmp/pliv_candidates.fa /tmp/human_aqps.fa > /tmp/tree_input.fa
+          mafft --auto /tmp/tree_input.fa > /tmp/tree_alignment.fa 2>/tmp/mafft.log
+          FastTree /tmp/tree_alignment.fa > /tmp/tree.nwk 2>/tmp/fasttree.log
+          test -s /tmp/tree.nwk
+          cat /tmp/tree.nwk
+
+      - name: Build fail-closed evidence dossier
+        run: |
+          python - <<'PY'
+          import json, pathlib, hashlib
+
+          def rows(path):
+              out=[]
+              for line in pathlib.Path(path).read_text().splitlines():
+                  if not line.strip():
+                      continue
+                  q,s,pid,length,evalue,bits,qcov=line.split("\t")
+                  out.append({
+                      "query":q,"subject":s,"pident":float(pid),"length":int(length),
+                      "evalue":float(evalue),"bitscore":float(bits),"qcovs":float(qcov)
+                  })
+              return out
+
+          forward=rows("/tmp/forward.tsv")
+          reciprocal=rows("/tmp/reciprocal.tsv")
+          best={}
+          for r in reciprocal:
+              best.setdefault(r["query"],r)
+
+          aqp3_candidates=[]
+          for q,r in best.items():
+              if "AQP3_HUMAN" in r["subject"] or "Q92482" in r["subject"]:
+                  aqp3_candidates.append({
+                      "candidate":q,
+                      "human_best_hit":r,
+                      "forward_hits":[x for x in forward if x["subject"]==q]
+                  })
+
+          tree=pathlib.Path("/tmp/tree.nwk").read_text().strip()
+          report={
+              "schema":"biomimic-paracentrotus-aqp-genome-probe-v1",
+              "species":"Paracentrotus lividus",
+              "taxon_id":7656,
+              "genome_context":{
+                  "historic_annotation":"Pliv_PqN3S_evmp.pep",
+                  "new_chromosome_assembly":"GCA_984792215.1"
+              },
+              "query_human_aqp3":"UniProt Q92482",
+              "paralog_controls":["AQP1","AQP3","AQP7","AQP9","AQP10"],
+              "forward_hits":forward,
+              "reciprocal_hits":reciprocal,
+              "reciprocal_aqp3_candidates":aqp3_candidates,
+              "tree_newick":tree,
+              "status":"CANDIDATE_DOSSIER" if aqp3_candidates else "NO_AQP3_RECIPROCAL_CANDIDATE",
+              "strict_orthology_promoted":False,
+              "promotion_blockers":[
+                  "tree topology/bootstrap support has not yet been formally validated for AQP3-vs-aquaglyceroporin paralog discrimination",
+                  "candidate locus must be cross-mapped to a stable exact-species accession on a current public assembly",
+                  "independent provider or peer-reviewed phylogenetic confirmation is still required"
+              ],
+              "clinical_efficacy_claim":False
+          }
+          payload=json.dumps(report,sort_keys=True,ensure_ascii=False).encode()
+          report["sha256"]=hashlib.sha256(payload).hexdigest()
+          p=pathlib.Path("reports/factory/PARACENTROTUS-AQP-GENOME-PROBE.json")
+          p.parent.mkdir(parents=True,exist_ok=True)
+          p.write_text(json.dumps(report,indent=2,sort_keys=True,ensure_ascii=False)+"\n",encoding="utf-8")
+          print(json.dumps({
+              "status":report["status"],
+              "reciprocal_aqp3_candidates":len(aqp3_candidates),
+              "strict_orthology_promoted":False,
+              "sha256":report["sha256"]
+          }))
+          PY
+
+      - name: Persist probe dossier
+        run: |
+          set -euo pipefail
+          git config user.name "BIO-MIMIC-X-GENOME-PROBE"
+          git config user.email "biomimic-x-genome-probe@users.noreply.github.com"
+          git add reports/factory/PARACENTROTUS-AQP-GENOME-PROBE.json
+          if git diff --cached --quiet; then
+            echo "No probe report change."
+          else
+            git commit -m "research: persist Paracentrotus AQP genome probe"
+            git push origin HEAD:main
+          fi
