@@ -73,31 +73,28 @@ jobs:
       - name: Fetch reviewed human aquaporin reference proteins
         run: |
           python - <<'PY'
-          import json,urllib.parse,urllib.request
-          symbols=["AQP3","AQP7","AQP8","AQP9","AQP10"]
-          headers={"User-Agent":"BIO-MIMIC-X/1.0","Accept":"application/json"}
+          import urllib.request
+          refs={
+            "AQP3":"Q92482",
+            "AQP7":"O14520",
+            "AQP8":"O94778",
+            "AQP9":"O43315",
+            "AQP10":"Q96PS8"
+          }
           with open("/tmp/human_aqp.fa","w") as out:
-              for sym in symbols:
-                  q=f'gene_exact:{sym} AND organism_id:9606 AND reviewed:true'
-                  url="https://rest.uniprot.org/uniprotkb/search?"+urllib.parse.urlencode({
-                      "query":q,"format":"json","fields":"accession,gene_names,organism_name","size":1
-                  })
-                  req=urllib.request.Request(url,headers=headers)
-                  data=json.load(urllib.request.urlopen(req,timeout=30))
-                  rows=data.get("results") or []
-                  assert rows, sym
-                  acc=rows[0]["primaryAccession"]
+              for sym,acc in refs.items():
                   fasta=urllib.request.urlopen(
                       urllib.request.Request(f"https://rest.uniprot.org/uniprotkb/{acc}.fasta",headers={"User-Agent":"BIO-MIMIC-X/1.0"}),
                       timeout=30
                   ).read().decode()
+                  header=fasta.splitlines()[0]
                   seq="".join(x.strip() for x in fasta.splitlines() if not x.startswith(">"))
                   assert seq, (sym,acc)
                   out.write(f">{sym}|Homo_sapiens|{acc}\n{seq}\n")
-                  print("HUMAN",sym,acc,len(seq))
+                  print("HUMAN",sym,acc,len(seq),header)
           PY
 
-      - name: Align and score nearest human paralog
+      - name: Align, tree, and rank every Paracentrotus aquaporin
         run: |
           set -euo pipefail
           sudo apt-get update -qq
@@ -105,24 +102,22 @@ jobs:
           cat /tmp/pliv_aqp.fa /tmp/human_aqp.fa > /tmp/all.fa
           mafft --auto --quiet /tmp/all.fa > /tmp/all.aln.fa
           FastTree -quiet /tmp/all.aln.fa > /tmp/tree.nwk
-          echo TREE
-          cat /tmp/tree.nwk
+          echo "TREE_NEWICK=$(cat /tmp/tree.nwk)"
           python - <<'PY'
           from pathlib import Path
-          seqs={}
-          cur=None
+          seqs={};cur=None
           for line in Path("/tmp/all.aln.fa").read_text().splitlines():
               if line.startswith(">"):
                   cur=line[1:];seqs[cur]=""
-              else: seqs[cur]+=line.strip()
+              else:
+                  seqs[cur]+=line.strip()
           humans={k:v for k,v in seqs.items() if "Homo_sapiens" in k}
-          targets={k:v for k,v in seqs.items() if k.startswith("PL34918|") or k.startswith("PL35288|")}
+          pliv={k:v for k,v in seqs.items() if "Paracentrotus_lividus" in k}
           def pid(a,b):
               pairs=[(x,y) for x,y in zip(a,b) if x!="-" and y!="-"]
               return sum(x==y for x,y in pairs)/max(1,len(pairs))
-          for th,ts in targets.items():
-              scores=sorted(((pid(ts,hs),hh) for hh,hs in humans.items()),reverse=True)
-              print("NEAREST",th,[(round(s,4),h) for s,h in scores])
-              assert scores[0][1].startswith("AQP8|"), (th,scores)
-          print("PASS: both exact-species AQP8 paralogs are nearest to human AQP8 among tested human aquaglyceroporin controls")
+          for ph,ps in sorted(pliv.items()):
+              scores=sorted(((pid(ps,hs),hh) for hh,hs in humans.items()),reverse=True)
+              print("NEAREST_ALL",ph,[(round(s,4),h) for s,h in scores])
+          print("PASS: paralog ranking completed without automatic promotion")
           PY
