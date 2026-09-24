@@ -34,6 +34,10 @@ class TestV9ScientificReasoning(unittest.TestCase):
         self.assertEqual(len(d["ranked"]),len(hs))
         self.assertIn("correlation not causation",d["adversarial_flags"])
         self.assertTrue(all("not probability" in x["score_semantics"] for x in d["ranked"]))
+        primary=next(x for x in d["ranked"] if x["kind"]=="PRIMARY_CAUSAL")
+        self.assertEqual(primary["status"],"NEEDS_CAUSAL_EVIDENCE")
+        self.assertNotIn(primary["hypothesis_id"],d["surviving_hypothesis_ids"])
+        self.assertTrue(d["blocked_or_pending_hypothesis_ids"])
 
     def test_experiment_plans_are_explicitly_unexecuted(self):
         hs=hypothesis_engine.generate_hypotheses(PROGRAM,CLAIM,CAUSAL,BRIDGES)
