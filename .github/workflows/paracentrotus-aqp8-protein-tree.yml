@@ -1,0 +1,128 @@
+name: Paracentrotus AQP8 Protein Tree
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/paracentrotus-aqp8-protein-tree.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  tree:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Download consortium mappings and proteins
+        run: |
+          set -euo pipefail
+          curl -fL --retry 3 -o /tmp/equiv.tsv 'https://www.dropbox.com/s/grukyhrtigw75b2/annot_equivalence.tsv?dl=1'
+          curl -fL --retry 3 -o /tmp/new.gtf 'https://www.dropbox.com/s/9kimik7jsj1n6th/Pliv_aH2p_fg.gtf?dl=1'
+          curl -fL --retry 3 -o /tmp/oldpep.gz 'https://www.dropbox.com/s/yn3v1zhoxqo8q7y/Pliv_PqN3S_evmp.pep.gz?dl=1'
+          gzip -t /tmp/oldpep.gz
+
+      - name: Extract exact-species aquaporin proteins
+        run: |
+          python - <<'PY'
+          import gzip,re,json
+          aqp={}
+          with open("/tmp/new.gtf",encoding="utf-8",errors="replace") as fh:
+              for line in fh:
+                  if "\tgene\t" not in line: continue
+                  mi=re.search(r'gene_id "([^"]+)"',line); mn=re.search(r'gene_name "([^"]+)"',line)
+                  if mi and mn and ("aqp" in mn.group(1).lower() or "aquapor" in mn.group(1).lower()):
+                      aqp[mi.group(1)]=mn.group(1)
+          mapping={}
+          with open("/tmp/equiv.tsv",encoding="utf-8",errors="replace") as fh:
+              for line in fh:
+                  p=line.rstrip().split("\t")
+                  if len(p)>=5 and p[4] in aqp:
+                      mapping.setdefault(p[4],[]).append(p[0])
+          print("AQP_MAPPING",json.dumps(mapping,sort_keys=True))
+          old_to_new={old:new for new,olds in mapping.items() for old in olds}
+          seqs={}
+          cur=None;buf=[]
+          with gzip.open("/tmp/oldpep.gz","rt",encoding="utf-8",errors="replace") as fh:
+              for line in fh:
+                  if line.startswith(">"):
+                      if cur:
+                          for old,new in old_to_new.items():
+                              if old in cur:
+                                  seqs.setdefault(new,[]).append((cur,"".join(buf)))
+                      cur=line[1:].strip();buf=[]
+                  else: buf.append(line.strip())
+              if cur:
+                  for old,new in old_to_new.items():
+                      if old in cur:
+                          seqs.setdefault(new,[]).append((cur,"".join(buf)))
+          print("EXTRACTED",json.dumps({k:[len(x[1]) for x in v] for k,v in seqs.items()},sort_keys=True))
+          assert "PL34918" in seqs and "PL35288" in seqs
+          with open("/tmp/pliv_aqp.fa","w") as out:
+              for gid,rows in sorted(seqs.items()):
+                  # longest mapped protein per new gene avoids isoform duplication in the tree
+                  h,s=max(rows,key=lambda x:len(x[1]))
+                  out.write(f">{gid}|{aqp[gid]}|Paracentrotus_lividus\n{s}\n")
+          PY
+
+      - name: Fetch human aquaporin reference proteins
+        run: |
+          python - <<'PY'
+          import json,urllib.request
+          ids={
+            "AQP3":"ENSG00000165272",
+            "AQP7":"ENSG00000165269",
+            "AQP8":"ENSG00000103375",
+            "AQP9":"ENSG00000103569",
+            "AQP10":"ENSG00000143595"
+          }
+          headers={"Content-Type":"application/json","Accept":"application/json","User-Agent":"BIO-MIMIC-X/1.0"}
+          with open("/tmp/human_aqp.fa","w") as out:
+              for sym,eid in ids.items():
+                  req=urllib.request.Request(f"https://rest.ensembl.org/lookup/id/{eid}?expand=1",headers=headers)
+                  g=json.load(urllib.request.urlopen(req,timeout=25))
+                  canonical=str(g.get("canonical_transcript") or "").split(".")[0]
+                  trs=g.get("Transcript") or []
+                  tr=next((x for x in trs if str(x.get("id"))==canonical),None) or next((x for x in trs if x.get("Translation")),None)
+                  assert tr and tr.get("Translation"), (sym,eid)
+                  pid=tr["Translation"]["id"]
+                  req2=urllib.request.Request(f"https://rest.ensembl.org/sequence/id/{pid}?type=protein",headers={"Content-Type":"text/plain","User-Agent":"BIO-MIMIC-X/1.0"})
+                  seq=urllib.request.urlopen(req2,timeout=25).read().decode().strip()
+                  out.write(f">{sym}|Homo_sapiens|{eid}\n{seq}\n")
+                  print("HUMAN",sym,eid,len(seq))
+          PY
+
+      - name: Align and score nearest human paralog
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq mafft fasttree >/dev/null
+          cat /tmp/pliv_aqp.fa /tmp/human_aqp.fa > /tmp/all.fa
+          mafft --auto --quiet /tmp/all.fa > /tmp/all.aln.fa
+          FastTree -quiet /tmp/all.aln.fa > /tmp/tree.nwk
+          echo TREE
+          cat /tmp/tree.nwk
+          python - <<'PY'
+          from pathlib import Path
+          seqs={}
+          cur=None
+          for line in Path("/tmp/all.aln.fa").read_text().splitlines():
+              if line.startswith(">"):
+                  cur=line[1:];seqs[cur]=""
+              else: seqs[cur]+=line.strip()
+          humans={k:v for k,v in seqs.items() if "Homo_sapiens" in k}
+          targets={k:v for k,v in seqs.items() if k.startswith("PL34918|") or k.startswith("PL35288|")}
+          def pid(a,b):
+              pairs=[(x,y) for x,y in zip(a,b) if x!="-" and y!="-"]
+              return sum(x==y for x,y in pairs)/max(1,len(pairs))
+          for th,ts in targets.items():
+              scores=sorted(((pid(ts,hs),hh) for hh,hs in humans.items()),reverse=True)
+              print("NEAREST",th,[(round(s,4),h) for s,h in scores])
+              assert scores[0][1].startswith("AQP8|"), (th,scores)
+          print("PASS: both exact-species AQP8 paralogs are nearest to human AQP8 among tested human aquaglyceroporin controls")
+          PY
