@@ -1,0 +1,133 @@
+name: Paracentrotus AQP3 Paralog Discrimination
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/paracentrotus-aqp3-paralog-tree.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  tree:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Download exact-species consortium annotation
+        run: |
+          set -euo pipefail
+          curl -fL --retry 3 -o /tmp/pliv.pep.gz             'https://www.dropbox.com/s/yn3v1zhoxqo8q7y/Pliv_PqN3S_evmp.pep.gz?dl=1'
+          curl -fL --retry 3 -o /tmp/pliv.gtf.gz             'https://www.dropbox.com/s/4b0f11ooj2fwa1a/Pliv_PqN3S_evmp.gtf.gz?dl=1'
+          gzip -t /tmp/pliv.pep.gz
+          gzip -t /tmp/pliv.gtf.gz
+          echo "PEP_BYTES=$(stat -c%s /tmp/pliv.pep.gz)"
+          echo "GTF_BYTES=$(stat -c%s /tmp/pliv.gtf.gz)"
+
+      - name: Extract PL00559 and PL00165 proteins and annotation
+        run: |
+          python - <<'PY'
+          import gzip,re,json
+          targets={"PL00559","PL00165"}
+          ann=[]
+          with gzip.open("/tmp/pliv.gtf.gz","rt",encoding="utf-8",errors="replace") as fh:
+              for line in fh:
+                  if any(t in line for t in targets) or "aquapor" in line.lower() or "AQP" in line:
+                      ann.append(line.rstrip())
+          print("ANNOTATION_LINES",len(ann))
+          for x in ann[:80]: print("ANNOT",x)
+
+          seqs={}
+          current=None
+          buf=[]
+          with gzip.open("/tmp/pliv.pep.gz","rt",encoding="utf-8",errors="replace") as fh:
+              for line in fh:
+                  if line.startswith(">"):
+                      if current and any(t in current for t in targets):
+                          seqs[current]="".join(buf)
+                      current=line[1:].strip();buf=[]
+                  else: buf.append(line.strip())
+              if current and any(t in current for t in targets):
+                  seqs[current]="".join(buf)
+          print("TARGET_HEADERS",json.dumps(list(seqs),indent=2))
+          print("TARGET_LENGTHS",json.dumps({k:len(v) for k,v in seqs.items()},indent=2))
+          assert seqs, "Target protein IDs not found in consortium peptide FASTA"
+          with open("/tmp/pliv_targets.fa","w") as out:
+              for h,s in seqs.items():
+                  gid=next(t for t in targets if t in h)
+                  out.write(f">{gid}|Paracentrotus_lividus|{h}\n{s}\n")
+          PY
+
+      - name: Fetch canonical human aquaglyceroporins
+        run: |
+          python - <<'PY'
+          import json,urllib.request
+          ids={
+            "AQP3":"ENSG00000165272",
+            "AQP7":"ENSG00000165269",
+            "AQP7B":"ENSG00000259916",
+            "AQP9":"ENSG00000103569",
+            "AQP10":"ENSG00000143595"
+          }
+          headers={"Content-Type":"application/json","Accept":"application/json","User-Agent":"BIO-MIMIC-X/1.0"}
+          with open("/tmp/human.fa","w") as out:
+              for sym,eid in ids.items():
+                  req=urllib.request.Request(f"https://rest.ensembl.org/lookup/id/{eid}?expand=1",headers=headers)
+                  g=json.load(urllib.request.urlopen(req,timeout=30))
+                  canonical=str(g.get("canonical_transcript") or "").split(".")[0]
+                  trs=g.get("Transcript") or []
+                  tr=next((x for x in trs if str(x.get("id"))==canonical),None)
+                  if tr is None:
+                      tr=next((x for x in trs if x.get("Translation")),None)
+                  assert tr and tr.get("Translation"), (sym,eid,canonical)
+                  tid=tr["Translation"]["id"]
+                  req2=urllib.request.Request(f"https://rest.ensembl.org/sequence/id/{tid}?type=protein",headers={"Content-Type":"text/plain","User-Agent":"BIO-MIMIC-X/1.0"})
+                  seq=urllib.request.urlopen(req2,timeout=30).read().decode().strip()
+                  assert seq and all(c.isalpha() or c=="*" for c in seq), (sym,tid,len(seq))
+                  out.write(f">{sym}|Homo_sapiens|{eid}|{tid}\n{seq}\n")
+                  print("HUMAN_SEQ",sym,eid,tid,len(seq))
+          PY
+
+      - name: Fetch Strongylocentrotus orthogroup proteins
+        run: |
+          python - <<'PY'
+          import json,urllib.parse,urllib.request
+          genes=["LOC584831","LOC581006"]
+          with open("/tmp/strpur.fa","w") as out:
+              for gene in genes:
+                  term=f'Strongylocentrotus purpuratus[Organism] AND {gene}[Gene Name]'
+                  u="https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?"+urllib.parse.urlencode({"db":"protein","term":term,"retmode":"json","retmax":10})
+                  data=json.load(urllib.request.urlopen(u,timeout=30))
+                  ids=data.get("esearchresult",{}).get("idlist",[])
+                  print("STRPUR_SEARCH",gene,ids)
+                  if not ids: continue
+                  u2="https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?"+urllib.parse.urlencode({"db":"protein","id":ids[0],"rettype":"fasta","retmode":"text"})
+                  fasta=urllib.request.urlopen(u2,timeout=30).read().decode()
+                  lines=fasta.strip().splitlines()
+                  seq="".join(lines[1:])
+                  out.write(f">{gene}|Strongylocentrotus_purpuratus|protein_id={ids[0]}\n{seq}\n")
+          PY
+
+      - name: Build alignment and phylogenetic tree
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq mafft fasttree >/dev/null
+          cat /tmp/pliv_targets.fa /tmp/human.fa /tmp/strpur.fa > /tmp/all.fa
+          echo "FASTA_HEADERS"
+          grep '^>' /tmp/all.fa
+          mafft --auto --quiet /tmp/all.fa > /tmp/all.aln.fa
+          FastTree -quiet /tmp/all.aln.fa > /tmp/tree.nwk
+          echo "TREE_NEWICK"
+          cat /tmp/tree.nwk
+          python - <<'PY'
+          from pathlib import Path
+          t=Path("/tmp/tree.nwk").read_text().strip()
+          assert "PL00559" in t and "PL00165" in t and "AQP3" in t
+          print("PASS_TREE_BUILT",len(t))
+          PY
