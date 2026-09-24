@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "policy": "Fail closed. A watched target becomes PROMOTION_READY only when the existing Human Bridge strict provider chain independently returns an exact-species orthologue with validated human target context. Sequence similarity, antibody cross-reactivity, nearby species, or genome presence alone never count as strict orthology.",
+  "targets": [
+    {
+      "species": "Paracentrotus lividus",
+      "taxon_id": 7656,
+      "gene": "AQP3",
+      "human_symbol": "AQP3",
+      "human_ensembl_id": "ENSG00000165272",
+      "status": "PENDING_STRICT",
+      "enabled": true,
+      "evidence_pmids": [
+        "22889702",
+        "38622199"
+      ],
+      "genome_assemblies": [
+        "GCA_984792215.1",
+        "GCA_940671915.1"
+      ],
+      "genome_notes": "GCA_984792215.1 is a chromosome-scale 2026 Paracentrotus lividus assembly; genome availability is a discovery aid, not itself orthology proof.",
+      "promotion_rule": "Require the existing strict Human Bridge chain to return Paracentrotus lividus AQP3 -> human AQP3 via an accepted orthology provider plus Open Targets validation."
+    }
+  ],
+  "explicitly_not_targets": [
+    {
+      "species": "Caenorhabditis elegans",
+      "reason": "Current verified translation is an exogenous ice-binding/antifreeze-protein intervention. Forcing an endogenous orthologue would change the scientific claim and is therefore excluded."
+    }
+  ]
+}
