@@ -1,0 +1,92 @@
+name: Paracentrotus Aquaporin Paralog Map
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/paracentrotus-aquaporin-paralog-map.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  map:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Download published annotation and orthogroups
+        run: |
+          set -euo pipefail
+          curl -fL --retry 3 -o /tmp/new.gtf             'https://www.dropbox.com/s/9kimik7jsj1n6th/Pliv_aH2p_fg.gtf?dl=1'
+          curl -fL --retry 3 -o /tmp/orthogroups.txt.gz             'https://raw.githubusercontent.com/paracentrotus/genome/main/duplications/orthologous_groups.txt.gz'
+          gzip -t /tmp/orthogroups.txt.gz
+
+      - name: Map every exact-species aquaporin to human orthogroups
+        run: |
+          python - <<'PY'
+          import gzip,json,re,urllib.request
+          genes={}
+          with open("/tmp/new.gtf",encoding="utf-8",errors="replace") as fh:
+              for line in fh:
+                  if "\tgene\t" not in line: continue
+                  m_id=re.search(r'gene_id "([^"]+)"',line)
+                  m_name=re.search(r'gene_name "([^"]+)"',line)
+                  if not (m_id and m_name): continue
+                  gid,name=m_id.group(1),m_name.group(1)
+                  if "aqp" in name.lower() or "aquapor" in name.lower():
+                      genes[gid]=name
+          print("EXACT_SPECIES_AQP_GENES",json.dumps(genes,sort_keys=True))
+          assert genes, "No aquaporin annotations found"
+
+          family_rows={}
+          all_human=set()
+          with gzip.open("/tmp/orthogroups.txt.gz","rt",encoding="utf-8",errors="replace") as fh:
+              for line in fh:
+                  fid,glt=line.rstrip().split("\t",1)
+                  toks=glt.split()
+                  pars=[x.split("_",1)[1] for x in toks if x.startswith("Parliv_")]
+                  overlap=sorted(set(pars)&set(genes))
+                  if not overlap: continue
+                  humans=[x.split("_",1)[1] for x in toks if x.startswith("Homsap_")]
+                  all_human.update(humans)
+                  for gid in overlap:
+                      family_rows[gid]={
+                          "gene_name":genes[gid],
+                          "family":fid,
+                          "human_ids":humans,
+                          "parliv_members":pars
+                      }
+
+          payload=json.dumps({"ids":sorted(all_human)}).encode()
+          resolved={}
+          if all_human:
+              req=urllib.request.Request(
+                  "https://rest.ensembl.org/lookup/id",
+                  data=payload,
+                  headers={"Content-Type":"application/json","Accept":"application/json","User-Agent":"BIO-MIMIC-X/1.0"},
+                  method="POST"
+              )
+              try:
+                  data=json.load(urllib.request.urlopen(req,timeout=40))
+              except Exception as e:
+                  print("ENSEMBL_LOOKUP_ERROR",repr(e)); data={}
+              for eid,x in data.items():
+                  resolved[eid]=x.get("display_name")
+
+          for gid,row in sorted(family_rows.items()):
+              row["human_symbols"]=[resolved.get(eid) for eid in row["human_ids"]]
+              print("AQP_MAP",gid,json.dumps(row,sort_keys=True))
+
+          clean=[]
+          for gid,row in family_rows.items():
+              syms=[x for x in row["human_symbols"] if x]
+              if len(syms)==1 and syms[0].upper()==row["gene_name"].upper():
+                  clean.append({"gene_id":gid,**row})
+          print("CLEAN_ONE_HUMAN_SYMBOL_FAMILIES",json.dumps(clean,sort_keys=True))
+          print("MAPPED_COUNT",len(family_rows),"AQP_GENE_COUNT",len(genes))
+          PY
