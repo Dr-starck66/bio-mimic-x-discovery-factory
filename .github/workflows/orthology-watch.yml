@@ -1,0 +1,77 @@
+name: BIO-MIMIC X Orthology Watch
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '7 4 * * *'
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/orthology-watch.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: biomimic-orthology-watch
+  cancel-in-progress: true
+
+jobs:
+  watch:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Static and unit gates
+        run: |
+          python -m py_compile factory/orthology_watch.py
+          python -m unittest discover -s tests -v
+          python factory/brick_audit.py
+
+      - name: Probe pending exact-species orthology targets
+        run: python factory/orthology_watch.py
+
+      - name: Validate fail-closed watch output
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          p=pathlib.Path("state/factory/orthology_watch_latest.json")
+          assert p.exists()
+          x=json.loads(p.read_text(encoding="utf-8"))
+          assert x["clinical_efficacy_claim"] is False
+          assert x["pending_targets"]>=1
+          for r in x["targets"]:
+              assert r.get("clinical_efficacy_claim") is False
+              if r.get("promotion_ready"):
+                  assert r.get("strict_bridge_count",0)>0
+                  assert r.get("strict_providers")
+                  assert r.get("status")=="PROMOTION_READY"
+              else:
+                  assert r.get("status") in {"WATCHING","NO_SUPPORTED_CLAIM"}
+          print(json.dumps({
+              "status":"PASS",
+              "watch_status":x["status"],
+              "pending_targets":x["pending_targets"],
+              "promotion_ready_targets":x["promotion_ready_targets"],
+              "sha256":x["sha256"]
+          }))
+          PY
+
+      - name: Persist watch state
+        run: |
+          set -euo pipefail
+          git config user.name "BIO-MIMIC-X-ORTHOLOGY-WATCH"
+          git config user.email "biomimic-x-orthology-watch@users.noreply.github.com"
+          git add state/factory/orthology_watch_latest.json public/data/factory/orthology_watch_latest.json reports/factory/ORTHOLOGY-WATCH-LATEST.md
+          if git diff --cached --quiet; then
+            echo "No orthology-watch state change."
+          else
+            git commit -m "factory: refresh strict orthology watch"
+            git push origin HEAD:main
+          fi
