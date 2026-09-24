@@ -1,0 +1,43 @@
+name: BIO-MIMIC X V9 Debate Hardening Gate
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/v9-debate-hardening.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Full tests
+        run: python -m unittest discover -s tests -v
+      - name: Brick audit
+        run: python factory/brick_audit.py
+      - name: Adversarial false-PASS probe
+        run: |
+          python - <<'PY'
+          import sys
+          sys.path.insert(0,"factory")
+          from hypothesis_engine import generate_hypotheses
+          from debate_engine import debate_hypotheses
+          p={"id":"probe","title":"Probe species"}
+          c={"subject":"Probe species","status":"SUPPORTED","pmid_sources":["PMID:1","PMID:2"],"mechanisms":["candidate mechanism"],"genes":[]}
+          a={"flags":["correlation not causation","publication bias"]}
+          cp={"counterfactual_tests":["perturb candidate mechanism and perform rescue"]}
+          hs=generate_hypotheses(p,c,cp,[])
+          d=debate_hypotheses(hs,c,a,cp)
+          primary=next(x for x in d["ranked"] if x["kind"]=="PRIMARY_CAUSAL")
+          assert primary["status"]=="NEEDS_CAUSAL_EVIDENCE", primary
+          assert primary["hypothesis_id"] not in d["surviving_hypothesis_ids"]
+          assert len(d["surviving_hypothesis_ids"]) < len(hs)
+          print({"status":"PASS","primary":primary["status"],"survivors":len(d["surviving_hypothesis_ids"]),"total":len(hs)})
+          PY
