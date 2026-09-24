@@ -1,0 +1,77 @@
+name: Paracentrotus AQP3 Family Probe
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/paracentrotus-aqp3-family-probe.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Extract AQP3 orthogroup and resolve all human members
+        run: |
+          set -euo pipefail
+          curl -fL --retry 3 -o /tmp/orthogroups.txt.gz             https://raw.githubusercontent.com/paracentrotus/genome/main/duplications/orthologous_groups.txt.gz
+          python - <<'PY'
+          import gzip,json,urllib.request
+          target="ENSG00000165272"
+          line=None
+          with gzip.open("/tmp/orthogroups.txt.gz","rt",encoding="utf-8",errors="replace") as fh:
+              for row in fh:
+                  if target in row:
+                      line=row.rstrip()
+                      break
+          assert line, "AQP3 human ENSG absent from published orthogroups"
+          fid, genes=line.split("\t",1)
+          toks=genes.split()
+          human=[x.split("_",1)[1] for x in toks if x.startswith("Homsap_")]
+          parliv=[x.split("_",1)[1] for x in toks if x.startswith("Parliv_")]
+          strpur=[x.split("_",1)[1] for x in toks if x.startswith("Strpur_")]
+          print("FAMILY_ID",fid)
+          print("PARLIV_IDS",json.dumps(parliv))
+          print("STRPUR_IDS",json.dumps(strpur))
+          print("HUMAN_IDS",json.dumps(human))
+
+          payload=json.dumps({"ids":human}).encode()
+          req=urllib.request.Request(
+              "https://rest.ensembl.org/lookup/id",
+              data=payload,
+              headers={"Content-Type":"application/json","Accept":"application/json","User-Agent":"BIO-MIMIC-X/1.0"},
+              method="POST"
+          )
+          try:
+              data=json.load(urllib.request.urlopen(req,timeout=30))
+          except Exception as e:
+              print("ENSEMBL_BULK_LOOKUP_ERROR",repr(e))
+              data={}
+          resolved={}
+          for eid in human:
+              x=data.get(eid) or {}
+              resolved[eid]={
+                  "display_name":x.get("display_name"),
+                  "description":x.get("description"),
+                  "biotype":x.get("biotype")
+              }
+          print("HUMAN_RESOLVED",json.dumps(resolved,sort_keys=True))
+          target_symbol=(resolved.get(target) or {}).get("display_name")
+          assert target_symbol in ("AQP3",None), target_symbol
+          assert parliv, "No exact-species Paracentrotus member in human AQP3 orthogroup"
+          print("PASS_FAMILY_SHAPE",json.dumps({
+              "family":fid,
+              "human_count":len(human),
+              "parliv_count":len(parliv),
+              "strpur_count":len(strpur),
+              "target_symbol":target_symbol
+          },sort_keys=True))
+          PY
