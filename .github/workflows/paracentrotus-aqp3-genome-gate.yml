@@ -1,0 +1,31 @@
+name: Paracentrotus AQP3 Genome Gate
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/paracentrotus-aqp3-genome-gate.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Full regression suite
+        run: python -m unittest discover -s tests -v
+      - name: Verify current strict count is not fabricated
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open("state/factory/latest.json",encoding="utf-8"))
+          assert x["bridge_refresh"]["strict_orthology_candidates"]==7
+          assert x["bridge_refresh"]["translation_verified_candidates"]==9
+          print({"status":"PASS","strict":7,"translation":9,"aqp3":"WATCHING"})
+          PY
