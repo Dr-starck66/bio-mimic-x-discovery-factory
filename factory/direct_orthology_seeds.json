@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "policy": "Direct peer-reviewed orthology can be used as a strict species-level anchor only when the exact source species and gene are explicitly identified as orthologous in a peer-reviewed study, the study reports phylogenetic support that includes Homo sapiens in the same gene-family analysis, and the nominated human Ensembl target is independently validated. This does not imply that the ortholog is the causal mechanism of the claim.",
+  "species": {
+    "Paracentrotus lividus": [
+      {
+        "animal_gene": "WNT2",
+        "animal_taxon_id": 7656,
+        "orthology_pmid": "31479176",
+        "orthology_doi": "10.1002/dvg.23331",
+        "human_symbol": "WNT2",
+        "human_ensembl_id": "ENSG00000105989",
+        "relation": "peer_reviewed_gene_family_orthology",
+        "phylogeny_methods": [
+          "unrooted Maximum Likelihood WNT-family phylogeny",
+          "unrooted Bayesian Inference WNT-family phylogeny"
+        ],
+        "human_in_phylogeny": true,
+        "paralog_discrimination": "Bilaterian WNT subfamilies were resolved; P. lividus WNT2 was highlighted inside the WNT2 subfamily while Homo sapiens WNT sequences were included in the same analyses.",
+        "bridge_scope": "species-level strict orthology anchor only; the preservation/cryopreservation translation path remains the separate DMSO/trehalose functional bridge",
+        "rationale": "Robert et al. 2019 explicitly identify a WNT2 ortholog in Paracentrotus lividus and report both Maximum Likelihood and Bayesian phylogenetic analyses with Homo sapiens WNT sequences included."
+      }
+    ]
+  }
+}
