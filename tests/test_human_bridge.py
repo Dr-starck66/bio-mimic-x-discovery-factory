@@ -138,6 +138,87 @@ class TestHumanBridge(unittest.TestCase):
             human_bridge.BRIDGE_SEEDS=original_seeds
 
 
+    def test_functional_orthology_requires_exact_gene_context_complementation_and_target(self):
+        original_gene=human_bridge.ncbi_exact_gene
+        original_ot=human_bridge.opentarget_context
+        original_preservation=human_bridge.validate_preservation_context_paper
+        original_functional=human_bridge.validate_functional_orthology_paper
+        original_seeds=human_bridge.FUNCTIONAL_ORTHO_SEEDS
+        try:
+            human_bridge.FUNCTIONAL_ORTHO_SEEDS={
+                "Caenorhabditis elegans":[{
+                    "animal_gene":"daf-16",
+                    "animal_ncbi_gene_id":"172981",
+                    "animal_taxon_id":6239,
+                    "preservation_evidence_pmids":["26635120"],
+                    "functional_orthology_pmid":"11747821",
+                    "functional_orthology_doi":"10.1016/S0960-9822(01)00595-4",
+                    "human_symbol":"FOXO3",
+                    "human_alias_in_paper":"FKHRL1",
+                    "human_ensembl_id":"ENSG00000118689",
+                    "relation":"one_to_many_functional_orthology",
+                    "human_paralog_context":["FOXO1","FOXO3","FOXO4"],
+                    "bridge_scope":"endogenous freeze-tolerance mechanism; independent of exogenous IBP intervention",
+                    "rationale":"test"
+                }]
+            }
+            human_bridge.ncbi_exact_gene=lambda species,gene: {
+                "gene_id":"172981","symbol":"daf-16","tax_id":6239,
+                "taxname":"Caenorhabditis elegans"
+            } if (species,gene)==("Caenorhabditis elegans","daf-16") else None
+            human_bridge.validate_preservation_context_paper=lambda pmid,species,gene: (
+                pmid=="26635120" and species=="Caenorhabditis elegans" and gene=="daf-16"
+            )
+            human_bridge.validate_functional_orthology_paper=lambda pmid,gene,symbol,alias=None: (
+                pmid=="11747821" and gene=="daf-16" and symbol=="FOXO3" and alias=="FKHRL1"
+            )
+            human_bridge.opentarget_context=lambda ensg: {
+                "approved_symbol":"FOXO3","approved_name":"forkhead box O3",
+                "biotype":"protein_coding","tractability":[]
+            } if ensg=="ENSG00000118689" else None
+
+            candidate={"subject":"Caenorhabditis elegans","pmid_sources":["PMID:42169464","PMID:42208364"]}
+            bridges,stats=human_bridge.functional_orthology_bridges_for_candidate(candidate)
+            self.assertEqual(len(bridges),1)
+            b=bridges[0]
+            self.assertEqual(b["animal_ncbi_gene_id"],"172981")
+            self.assertEqual(b["human_symbol"],"FOXO3")
+            self.assertEqual(b["orthology"]["provider"],"Peer-reviewed functional orthology")
+            self.assertEqual(b["orthology"]["relation"],"one_to_many_functional_orthology")
+            self.assertIn("independent",b["bridge_scope"])
+            self.assertFalse(b["clinical_efficacy_claim"])
+            self.assertEqual(stats["functional_orthology_strict_bridges"],1)
+
+            human_bridge.ncbi_exact_gene=lambda *args,**kwargs: {
+                "gene_id":"999999","symbol":"daf-16","tax_id":6239,
+                "taxname":"Caenorhabditis elegans"
+            }
+            bad,_=human_bridge.functional_orthology_bridges_for_candidate(candidate)
+            self.assertEqual(bad,[])
+
+            human_bridge.ncbi_exact_gene=lambda *args,**kwargs: {
+                "gene_id":"172981","symbol":"daf-16","tax_id":6239,
+                "taxname":"Caenorhabditis elegans"
+            }
+            human_bridge.validate_preservation_context_paper=lambda *args,**kwargs: False
+            bad2,_=human_bridge.functional_orthology_bridges_for_candidate(candidate)
+            self.assertEqual(bad2,[])
+
+            human_bridge.validate_preservation_context_paper=lambda *args,**kwargs: True
+            human_bridge.opentarget_context=lambda *args,**kwargs: {
+                "approved_symbol":"FOXO1","approved_name":"forkhead box O1",
+                "biotype":"protein_coding","tractability":[]
+            }
+            bad3,_=human_bridge.functional_orthology_bridges_for_candidate(candidate)
+            self.assertEqual(bad3,[])
+        finally:
+            human_bridge.ncbi_exact_gene=original_gene
+            human_bridge.opentarget_context=original_ot
+            human_bridge.validate_preservation_context_paper=original_preservation
+            human_bridge.validate_functional_orthology_paper=original_functional
+            human_bridge.FUNCTIONAL_ORTHO_SEEDS=original_seeds
+
+
     def test_phylogenetic_strict_bridge_requires_exact_species_paralog_controls_and_target(self):
         original_entry=human_bridge.uniprot_exact_species_gene
         original_ot=human_bridge.opentarget_context
