@@ -1,0 +1,195 @@
+name: BIO-MIMIC X Paracentrotus AQP3 Paralog Gate
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/paracentrotus-aqp3-paralog-gate.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  gate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Install local alignment tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ncbi-blast+ mafft fasttree
+          pip install --quiet biopython
+
+      - name: Download exact-species annotation and proteins
+        run: |
+          set -euo pipefail
+          curl -L --fail --retry 3 'https://www.dropbox.com/s/4b0f11ooj2fwa1a/Pliv_PqN3S_evmp.gtf.gz?dl=1' -o /tmp/pliv.gtf.gz
+          curl -L --fail --retry 3 'https://www.dropbox.com/s/yn3v1zhoxqo8q7y/Pliv_PqN3S_evmp.pep.gz?dl=1' -o /tmp/pliv.pep.gz
+          gzip -t /tmp/pliv.gtf.gz
+          gzip -t /tmp/pliv.pep.gz
+
+      - name: Extract all Paracentrotus AQP-family proteins
+        run: |
+          python - <<'PY'
+          import gzip,re,pathlib,json
+          aqp_ids={}
+          with gzip.open('/tmp/pliv.gtf.gz','rt',errors='replace') as gtf:
+              for line in gtf:
+                  if line.startswith('#'): continue
+                  attrs=line.split('\t')[-1]
+                  mname=re.search(r'gene_name "([^"]+)"',attrs,re.I)
+                  mgene=re.search(r'gene_id "([^"]+)"',attrs)
+                  mtx=re.search(r'transcript_id "([^"]+)"',attrs)
+                  if not (mname and mgene): continue
+                  name=mname.group(1)
+                  if re.fullmatch(r'(?i)aqp\w*|aquaporin.*',name):
+                      aqp_ids[mgene.group(1)]=name
+                      if mtx: aqp_ids[mtx.group(1)]=name
+          seqs=[]; h=None; chunks=[]
+          def flush():
+              if h is None:return
+              hit=None
+              for ident,name in aqp_ids.items():
+                  if ident in h:
+                      hit=(ident,name);break
+              if hit:
+                  seqs.append((h,''.join(chunks),hit[0],hit[1]))
+          with gzip.open('/tmp/pliv.pep.gz','rt',errors='replace') as f:
+              for line in f:
+                  line=line.strip()
+                  if line.startswith('>'):
+                      flush(); h=line[1:]; chunks=[]
+                  else: chunks.append(line)
+              flush()
+          with open('/tmp/pliv_aqps.fa','w') as out:
+              for i,(hdr,seq,ident,name) in enumerate(seqs,1):
+                  out.write(f'>PLIV|{ident}|{name}|n{i}\n{seq}\n')
+          payload={
+              'aqp_annotation_ids':len(aqp_ids),
+              'aqp_proteins':len(seqs),
+              'aqp3_proteins':[{'id':i,'name':n,'length':len(s)} for h,s,i,n in seqs if n.lower()=='aqp3']
+          }
+          print(json.dumps(payload,indent=2))
+          if not payload['aqp3_proteins']:
+              raise SystemExit('NO_EXACT_SPECIES_AQP3_PROTEIN')
+          PY
+
+      - name: Fetch human AQP paralog controls
+        run: |
+          set -euo pipefail
+          : > /tmp/human_aqps.fa
+          for g in AQP1 AQP2 AQP3 AQP4 AQP5 AQP6 AQP7 AQP8 AQP9 AQP10 AQP11 AQP12A AQP12B; do
+            url="https://rest.uniprot.org/uniprotkb/search?query=%28gene_exact%3A${g}%29%20AND%20%28organism_id%3A9606%29%20AND%20%28reviewed%3Atrue%29&format=fasta&size=1"
+            curl -L --fail --retry 3 "$url" | awk -v g="$g" '/^>/{print ">HUMAN|"g;next}{print}' >> /tmp/human_aqps.fa
+          done
+          grep '^>' /tmp/human_aqps.fa
+          test "$(grep -c '^>' /tmp/human_aqps.fa)" -ge 10
+
+      - name: Reciprocal-best-hit paralog discrimination
+        run: |
+          set -euo pipefail
+          makeblastdb -in /tmp/human_aqps.fa -dbtype prot -out /tmp/human >/dev/null
+          blastp -query /tmp/pliv_aqps.fa -db /tmp/human -outfmt '6 qseqid sseqid pident length evalue bitscore' -max_target_seqs 13 > /tmp/pliv_to_human.tsv
+          makeblastdb -in /tmp/pliv_aqps.fa -dbtype prot -out /tmp/pliv >/dev/null
+          awk '/^>HUMAN\|AQP3$/{p=1;print;next}/^>/{p=0}p' /tmp/human_aqps.fa > /tmp/human_aqp3.fa
+          blastp -query /tmp/human_aqp3.fa -db /tmp/pliv -outfmt '6 qseqid sseqid pident length evalue bitscore' -max_target_seqs 100 > /tmp/human3_to_pliv.tsv
+          python - <<'PY'
+          import csv,json,pathlib
+          def rows(path):
+              out=[]
+              with open(path) as f:
+                  for r in csv.reader(f,delimiter='\t'):
+                      out.append({'q':r[0],'s':r[1],'pident':float(r[2]),'length':int(r[3]),'evalue':float(r[4]),'bitscore':float(r[5])})
+              return out
+          fwd=rows('/tmp/pliv_to_human.tsv')
+          rev=rows('/tmp/human3_to_pliv.tsv')
+          byq={}
+          for r in fwd: byq.setdefault(r['q'],[]).append(r)
+          revbest=max(rev,key=lambda x:x['bitscore']) if rev else None
+          candidates=[]
+          for q,rs in byq.items():
+              if '|Aqp3|' not in q: continue
+              best=max(rs,key=lambda x:x['bitscore'])
+              candidates.append({'candidate':q,'best_human':best,'reciprocal_best':bool(revbest and revbest['s']==q)})
+          print(json.dumps({'candidates':candidates,'human_AQP3_best_PLIV':revbest},indent=2))
+          good=[x for x in candidates if x['best_human']['s']=='HUMAN|AQP3' and x['reciprocal_best']]
+          pathlib.Path('/tmp/rbh.json').write_text(json.dumps({'all':candidates,'good':good,'revbest':revbest},indent=2))
+          if len(good)!=1:
+              raise SystemExit(f'RBH_FAIL good={len(good)}')
+          PY
+
+      - name: Conserved aquaporin motif gate
+        run: |
+          python - <<'PY'
+          import json,re,pathlib
+          r=json.loads(pathlib.Path('/tmp/rbh.json').read_text())
+          q=r['good'][0]['candidate']
+          seqs={}
+          h=None; chunks=[]
+          for line in pathlib.Path('/tmp/pliv_aqps.fa').read_text().splitlines():
+              if line.startswith('>'):
+                  if h: seqs[h]=''.join(chunks)
+                  h=line[1:]; chunks=[]
+              else: chunks.append(line.strip())
+          if h: seqs[h]=''.join(chunks)
+          s=seqs[q].upper()
+          npa=[m.start() for m in re.finditer('NPA',s)]
+          print(json.dumps({'candidate':q,'length':len(s),'NPA_motifs':npa},indent=2))
+          if len(npa)<2:
+              raise SystemExit('MOTIF_FAIL: fewer than two NPA motifs')
+          pathlib.Path('/tmp/winner.txt').write_text(q)
+          PY
+
+      - name: Paralog-controlled tree
+        run: |
+          set -euo pipefail
+          cat /tmp/pliv_aqps.fa /tmp/human_aqps.fa > /tmp/family.fa
+          mafft --auto /tmp/family.fa > /tmp/family.aln.fa 2>/tmp/mafft.log
+          FastTree /tmp/family.aln.fa > /tmp/family.tree 2>/tmp/fasttree.log
+          python - <<'PY'
+          from Bio import Phylo
+          import pathlib,json
+          winner=pathlib.Path('/tmp/winner.txt').read_text().strip()
+          tree=Phylo.read('/tmp/family.tree','newick')
+          target=None
+          for cl in tree.find_clades():
+              names={t.name for t in cl.get_terminals()}
+              if winner in names and 'HUMAN|AQP3' in names:
+                  if target is None or len(names)<len({t.name for t in target.get_terminals()}):
+                      target=cl
+          if target is None:
+              raise SystemExit('TREE_FAIL: no shared clade')
+          names=sorted(t.name for t in target.get_terminals())
+          human_paralogs=sorted(x for x in names if x.startswith('HUMAN|') and x!='HUMAN|AQP3')
+          support=target.confidence
+          print(json.dumps({'winner':winner,'smallest_shared_clade':names,'human_paralog_contamination':human_paralogs,'local_support':support},indent=2))
+          if human_paralogs:
+              raise SystemExit('TREE_FAIL: AQP3 clade includes human paralog controls')
+          if support is not None and float(support)<0.80:
+              raise SystemExit(f'TREE_FAIL: support {support} < 0.80')
+          pathlib.Path('/tmp/tree_verdict.json').write_text(json.dumps({'winner':winner,'clade':names,'support':support},indent=2))
+          PY
+
+      - name: Final fail-closed verdict
+        run: |
+          python - <<'PY'
+          import json,pathlib
+          r=json.loads(pathlib.Path('/tmp/rbh.json').read_text())
+          t=json.loads(pathlib.Path('/tmp/tree_verdict.json').read_text())
+          print(json.dumps({
+              'status':'PROMOTION_EVIDENCE_READY',
+              'exact_species':'Paracentrotus lividus',
+              'candidate':t['winner'],
+              'human_target':'AQP3',
+              'reciprocal_best_hit':True,
+              'two_NPA_motifs':True,
+              'paralog_controlled_tree':True,
+              'tree_support':t['support'],
+              'clinical_efficacy_claim':False
+          },indent=2))
+          PY
