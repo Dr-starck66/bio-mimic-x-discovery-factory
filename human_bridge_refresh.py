@@ -27,6 +27,7 @@ STRICT_PROVIDERS={
     "OMA",
     "OrthoDB v12",
     "Peer-reviewed phylogenetic orthology",
+    "Peer-reviewed functional orthology",
 }
 
 def _parse_time(x):
