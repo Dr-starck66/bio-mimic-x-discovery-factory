@@ -69,6 +69,20 @@
         "human_ensembl_id": "ENSG00000165272",
         "promotion_rule": "Do not count as strict until NCBI Ortholog, OrthoDB, OMA, Ensembl, or an equivalent exact-species phylogenetic dossier validates Paracentrotus lividus AQP3 -> human AQP3."
       }
+    ],
+    "Caenorhabditis elegans": [
+      {
+        "gene": "daf-16",
+        "evidence_pmids": [
+          "26635120",
+          "11747821"
+        ],
+        "rationale": "Exact-species freeze-thaw experiments show DAF-16/FOXO is required for daf-2-mediated freezing survival; independent cross-species complementation work showed human FKHRL1/FOXO3 can partially replace C. elegans DAF-16, providing functional orthology evidence.",
+        "evidence_level": "exact_species_preservation_mechanism_plus_functional_orthology",
+        "human_symbol": "FOXO3",
+        "human_ensembl_id": "ENSG00000118689",
+        "promotion_rule": "Count as strict only if an independent orthology provider resolves exact C. elegans daf-16 to a human FOXO target and Open Targets validates the returned human Ensembl target. Preserve one-to-many FOXO orthology explicitly; do not claim one-to-one if multiple human FOXO orthologs are returned."
+      }
     ]
   }
 }
