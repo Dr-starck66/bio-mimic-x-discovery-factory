@@ -56,6 +56,18 @@ class TestHumanBridge(unittest.TestCase):
         self.assertIn("PASS","PASS")
 
 
+    def test_paracentrotus_direct_orthology_seed_is_strictly_typed(self):
+        rows=human_bridge.DIRECT_ORTHO_SEEDS.get("Paracentrotus lividus",[])
+        self.assertEqual(len(rows),1)
+        seed=rows[0]
+        self.assertEqual(seed["animal_gene"],"WNT2")
+        self.assertEqual(seed["human_symbol"],"WNT2")
+        self.assertEqual(seed["human_ensembl_id"],"ENSG00000105989")
+        self.assertTrue(seed["human_in_phylogeny"])
+        self.assertGreaterEqual(len(seed["phylogeny_methods"]),2)
+        self.assertIn("species-level strict orthology anchor",seed["bridge_scope"])
+
+
     def test_bridge_seeds_require_evidence_pmids(self):
         for species,rows in human_bridge.BRIDGE_SEEDS.items():
             self.assertTrue(species)
