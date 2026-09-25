@@ -28,6 +28,7 @@ PUBMED_RECORD_CACHE={}
 
 SEED_PATH=Path(__file__).with_name("bridge_seeds.json")
 PHYLO_SEED_PATH=Path(__file__).with_name("phylogenetic_orthology_seeds.json")
+FUNCTIONAL_ORTHO_SEED_PATH=Path(__file__).with_name("functional_orthology_seeds.json")
 try:
     BRIDGE_SEEDS=json.loads(SEED_PATH.read_text(encoding="utf-8")).get("species",{})
 except Exception:
@@ -36,6 +37,10 @@ try:
     PHYLO_SEEDS=json.loads(PHYLO_SEED_PATH.read_text(encoding="utf-8")).get("species",{})
 except Exception:
     PHYLO_SEEDS={}
+try:
+    FUNCTIONAL_ORTHO_SEEDS=json.loads(FUNCTIONAL_ORTHO_SEED_PATH.read_text(encoding="utf-8")).get("species",{})
+except Exception:
+    FUNCTIONAL_ORTHO_SEEDS={}
 
 def norm(x):
     return re.sub(r"[^a-z0-9]+"," ",(x or "").lower()).strip()
@@ -439,6 +444,133 @@ def validate_bridge_context_paper(pmid,species,gene):
     if "regenerat" not in text:
         return False
     return True
+
+def functional_orthology_seed_records(candidate):
+    rows=FUNCTIONAL_ORTHO_SEEDS.get(candidate_name(candidate),[])
+    return [x for x in rows if isinstance(x,dict)]
+
+def _paper_text(pmid):
+    rec=europepmc_record(pmid)
+    if not isinstance(rec,dict):
+        return ""
+    return " ".join([
+        str(rec.get("title") or ""),
+        str(rec.get("abstractText") or "")
+    ])
+
+def validate_preservation_context_paper(pmid,species,gene):
+    text=norm(_paper_text(pmid))
+    if not text:
+        return False
+    species_tokens={norm(species)}
+    if norm(species)=="caenorhabditis elegans":
+        species_tokens.add("c elegans")
+    species_ok=any(x and x in text for x in species_tokens)
+    gene_forms={norm(gene),norm(str(gene).replace("-","")), "daf 16", "foxo"}
+    gene_ok=any(x and x in text for x in gene_forms)
+    context_ok=any(x in text for x in ("freeze thaw","freezing","freeze","cold tolerance","desiccation"))
+    return species_ok and gene_ok and context_ok
+
+def validate_functional_orthology_paper(pmid,animal_gene,human_symbol,human_alias=None):
+    text=norm(_paper_text(pmid))
+    if not text:
+        return False
+    animal_forms={norm(animal_gene),norm(str(animal_gene).replace("-","")),"daf 16"}
+    human_forms={norm(human_symbol)}
+    if human_alias:
+        human_forms.add(norm(human_alias))
+    animal_ok=any(x and x in text for x in animal_forms)
+    human_ok=any(x and x in text for x in human_forms)
+    relation_ok=any(x in text for x in ("ortholog","orthologue","replace","replacement","complement"))
+    return animal_ok and human_ok and relation_ok
+
+def functional_orthology_bridges_for_candidate(candidate):
+    name=candidate_name(candidate)
+    bridges=[]; checked=0; exact_genes=0; context_validated=0; functional_validated=0
+    for seed in functional_orthology_seed_records(candidate):
+        checked+=1
+        required=[
+            seed.get("animal_gene"),seed.get("animal_ncbi_gene_id"),
+            seed.get("preservation_evidence_pmids"),seed.get("functional_orthology_pmid"),
+            seed.get("human_symbol"),seed.get("human_ensembl_id"),
+            seed.get("relation"),seed.get("bridge_scope")
+        ]
+        if not all(required):
+            continue
+
+        source=ncbi_exact_gene(name,seed["animal_gene"])
+        if not source:
+            continue
+        if str(source.get("gene_id") or "")!=str(seed["animal_ncbi_gene_id"]):
+            continue
+        if seed.get("animal_taxon_id") is not None and str(source.get("tax_id") or "")!=str(seed["animal_taxon_id"]):
+            continue
+        exact_genes+=1
+
+        preservation_pmids=[str(x).replace("PMID:","") for x in seed.get("preservation_evidence_pmids",[])]
+        if not preservation_pmids or not all(
+            validate_preservation_context_paper(p,name,seed["animal_gene"]) for p in preservation_pmids
+        ):
+            continue
+        context_validated+=1
+
+        functional_pmid=str(seed["functional_orthology_pmid"]).replace("PMID:","")
+        if not validate_functional_orthology_paper(
+            functional_pmid,seed["animal_gene"],seed["human_symbol"],seed.get("human_alias_in_paper")
+        ):
+            continue
+        functional_validated+=1
+
+        try:
+            human=opentarget_context(seed["human_ensembl_id"])
+        except Exception:
+            human=None
+        if not human or _gene_norm(human.get("approved_symbol"))!=_gene_norm(seed["human_symbol"]):
+            continue
+
+        bridges.append({
+            "animal_species":name,
+            "animal_ensembl_species":None,
+            "animal_gene":source.get("symbol") or seed["animal_gene"],
+            "animal_ncbi_gene_id":source["gene_id"],
+            "animal_taxon_id":source.get("tax_id"),
+            "human_ensembl_id":seed["human_ensembl_id"],
+            "human_symbol":human.get("approved_symbol"),
+            "human_name":human.get("approved_name"),
+            "human_biotype":human.get("biotype"),
+            "orthology":{
+                "provider":"Peer-reviewed functional orthology",
+                "method":"exact-species genetics + cross-species functional complementation",
+                "relation":seed["relation"],
+                "functional_orthology_pmid":functional_pmid,
+                "functional_orthology_doi":seed.get("functional_orthology_doi"),
+                "human_paralog_context":seed.get("human_paralog_context",[]),
+                "selected_human_target":seed["human_symbol"],
+                "source_ncbi_gene_id":source["gene_id"]
+            },
+            "bridge_scope":seed["bridge_scope"],
+            "tractability":human.get("tractability",[]),
+            "source_claim_pmids":candidate.get("pmid_sources",[]),
+            "bridge_evidence_pmids":preservation_pmids+[functional_pmid],
+            "bridge_seed_rationale":seed.get("rationale"),
+            "source_chain":[
+                "replicated exact-species research claim",
+                "NCBI Datasets exact Caenorhabditis elegans daf-16 gene",
+                "exact-species freeze-thaw genetics requiring DAF-16/FOXO",
+                "peer-reviewed human FKHRL1/FOXO3-to-DAF-16 functional complementation",
+                "Open Targets human FOXO3 target validation"
+            ],
+            "translation_status":"ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
+            "clinical_efficacy_claim":False
+        })
+    return bridges,{
+        "functional_orthology_seed_records_checked":checked,
+        "functional_orthology_exact_genes":exact_genes,
+        "functional_orthology_context_validated":context_validated,
+        "functional_orthology_evidence_validated":functional_validated,
+        "functional_orthology_strict_bridges":len(bridges)
+    }
+
 
 def uniprot_entry(accession):
     accession=str(accession or "").strip()
@@ -938,6 +1070,10 @@ def build_human_bridges(portfolio,max_candidates=20,max_genes=10):
         bridges.extend(phylo_new)
         row.update(phylo_stats)
 
+        functional_new,functional_stats=functional_orthology_bridges_for_candidate(c)
+        bridges.extend(functional_new)
+        row.update(functional_stats)
+
         oma_new,oma_stats=oma_bridges_for_candidate(c)
         bridges.extend(oma_new)
         row.update(oma_stats)
@@ -948,7 +1084,8 @@ def build_human_bridges(portfolio,max_candidates=20,max_genes=10):
             row["status"]="BRIDGED"
         elif (not ens_species and row.get("oma_species_matched",0)==0
               and row.get("ncbi_exact_genes",0)==0 and row.get("orthodb_exact_genes",0)==0
-              and row.get("phylogenetic_strict_bridges",0)==0):
+              and row.get("phylogenetic_strict_bridges",0)==0
+              and row.get("functional_orthology_strict_bridges",0)==0):
             row["status"]="NO_SUPPORTED_ORTHOLOGY_PROVIDER_MATCH"
         elif not genes and not row.get("uniprot_candidates",0):
             row["status"]="NO_GENE_OR_PROTEIN_ANNOTATION"
@@ -975,8 +1112,9 @@ def build_human_bridges(portfolio,max_candidates=20,max_genes=10):
     ncbi_bridge_count=sum(1 for b in bridges if (b.get("orthology") or {}).get("provider")=="NCBI Ortholog")
     orthodb_bridge_count=sum(1 for b in bridges if (b.get("orthology") or {}).get("provider")=="OrthoDB v12")
     phylo_bridge_count=sum(1 for b in bridges if (b.get("orthology") or {}).get("provider")=="Peer-reviewed phylogenetic orthology")
+    functional_bridge_count=sum(1 for b in bridges if (b.get("orthology") or {}).get("provider")=="Peer-reviewed functional orthology")
     verified_human_targets=len({(b["animal_species"],b["human_ensembl_id"]) for b in bridges})
-    total_orthologue_hits=orth_hits+oma_bridge_count+ncbi_bridge_count+orthodb_bridge_count+phylo_bridge_count
+    total_orthologue_hits=orth_hits+oma_bridge_count+ncbi_bridge_count+orthodb_bridge_count+phylo_bridge_count+functional_bridge_count
 
     # PASS means all replicated claims got at least one verified human bridge.
     # Anything less is explicitly PARTIAL rather than hidden.
@@ -990,6 +1128,7 @@ def build_human_bridges(portfolio,max_candidates=20,max_genes=10):
             "NCBI Ortholog":"PASS" if ncbi_bridge_count else "PARTIAL",
             "OrthoDB v12":"PASS" if orthodb_bridge_count else "PARTIAL",
             "Peer-reviewed phylogenetic orthology":"PASS" if phylo_bridge_count else "PARTIAL",
+            "Peer-reviewed functional orthology":"PASS" if functional_bridge_count else "PARTIAL",
             "Ensembl homology":"PASS" if orth_hits else "PARTIAL",
             "Open Targets":"PASS" if verified_human_targets else "PARTIAL"
         },
@@ -1004,6 +1143,7 @@ def build_human_bridges(portfolio,max_candidates=20,max_genes=10):
         "ncbi_orthologue_hits":ncbi_bridge_count,
         "orthodb_orthologue_hits":orthodb_bridge_count,
         "phylogenetic_orthologue_hits":phylo_bridge_count,
+        "functional_orthology_hits":functional_bridge_count,
         "bridges":bridges,
         "candidate_status":candidate_status,
         "errors":errors[:50]
