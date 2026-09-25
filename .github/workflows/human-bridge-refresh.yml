@@ -2,6 +2,17 @@ name: BIO-MIMIC X Human Bridge Refresh
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'human_bridge_refresh.py'
+      - 'factory/human_bridge.py'
+      - 'factory/direct_orthology_seeds.json'
+      - 'factory/phylogenetic_orthology_seeds.json'
+      - 'factory/functional_orthology_seeds.json'
+      - 'factory/bridge_seeds.json'
+      - 'tests/test_human_bridge.py'
+      - '.github/workflows/human-bridge-refresh.yml'
   schedule:
     - cron: '47 3 * * *'
 
