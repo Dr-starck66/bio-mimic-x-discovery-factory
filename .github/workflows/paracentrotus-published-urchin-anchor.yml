@@ -1,0 +1,100 @@
+name: BIO-MIMIC X Paracentrotus Published Urchin Anchor Probe
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/paracentrotus-published-urchin-anchor.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Install BLAST
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ncbi-blast+
+
+      - name: Build exact-species Paracentrotus AQP family
+        run: |
+          set -euo pipefail
+          curl -L --fail --retry 3 'https://www.dropbox.com/s/4b0f11ooj2fwa1a/Pliv_PqN3S_evmp.gtf.gz?dl=1' -o /tmp/pliv.gtf.gz
+          curl -L --fail --retry 3 'https://www.dropbox.com/s/yn3v1zhoxqo8q7y/Pliv_PqN3S_evmp.pep.gz?dl=1' -o /tmp/pliv.pep.gz
+          python - <<'PY'
+          import gzip,re
+          ids={}
+          with gzip.open('/tmp/pliv.gtf.gz','rt',errors='replace') as f:
+              for line in f:
+                  a=line.split('\t')[-1]
+                  n=re.search(r'gene_name "([^"]+)"',a,re.I); g=re.search(r'gene_id "([^"]+)"',a); t=re.search(r'transcript_id "([^"]+)"',a)
+                  if n and g and re.fullmatch(r'(?i)aqp\w*|aquaporin.*',n.group(1)):
+                      ids[g.group(1)]=n.group(1)
+                      if t: ids[t.group(1)]=n.group(1)
+          seqs=[];h=None;chunks=[]
+          def flush():
+              if h is None:return
+              hit=next(((i,n) for i,n in ids.items() if i in h),None)
+              if hit:seqs.append((hit[0],hit[1],''.join(chunks)))
+          with gzip.open('/tmp/pliv.pep.gz','rt',errors='replace') as f:
+              for line in f:
+                  line=line.strip()
+                  if line.startswith('>'):flush();h=line[1:];chunks=[]
+                  else:chunks.append(line)
+              flush()
+          with open('/tmp/pliv_aqps.fa','w') as o:
+              for i,n,s in seqs:o.write(f'>PLIV|{i}|{n}\n{s}\n')
+          PY
+
+      - name: Fetch peer-reviewed phylogeny sea-urchin proteins
+        run: |
+          set -euo pipefail
+          curl -L --fail --retry 3 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=protein&id=XP_780933.1&rettype=fasta&retmode=text' -o /tmp/urch1.raw
+          curl -L --fail --retry 3 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=protein&id=XP_787329.1&rettype=fasta&retmode=text' -o /tmp/urch2.raw
+          python - <<'PY'
+          import pathlib,json
+          out=[]
+          for acc,p in [('XP_780933.1','/tmp/urch1.raw'),('XP_787329.1','/tmp/urch2.raw')]:
+              lines=pathlib.Path(p).read_text().splitlines()
+              seq=''.join(x.strip() for x in lines if not x.startswith('>'))
+              if len(seq)<150: raise SystemExit(f'{acc}_TOO_SHORT_{len(seq)}')
+              out.append((acc,seq,lines[0] if lines else ''))
+          pathlib.Path('/tmp/published_urchins.fa').write_text(''.join(f'>SPURP|{a}\n{s}\n' for a,s,h in out))
+          print(json.dumps([{'accession':a,'length':len(s),'header':h} for a,s,h in out],indent=2))
+          PY
+
+      - name: Fetch reviewed human AQP paralogs
+        run: |
+          set -euo pipefail
+          : > /tmp/human.fa
+          for g in AQP1 AQP2 AQP3 AQP4 AQP5 AQP6 AQP7 AQP8 AQP9 AQP10 AQP11 AQP12A AQP12B; do
+            url="https://rest.uniprot.org/uniprotkb/search?query=%28gene_exact%3A${g}%29%20AND%20%28organism_id%3A9606%29%20AND%20%28reviewed%3Atrue%29&format=fasta&size=1"
+            curl -L --fail --retry 3 "$url" | awk -v g="$g" '/^>/{print ">HUMAN|"g;next}{print}' >> /tmp/human.fa
+          done
+
+      - name: Classify published sea-urchin sequences and exact Paracentrotus models
+        run: |
+          set -euo pipefail
+          makeblastdb -in /tmp/human.fa -dbtype prot -out /tmp/human >/dev/null
+          makeblastdb -in /tmp/pliv_aqps.fa -dbtype prot -out /tmp/pliv >/dev/null
+          blastp -query /tmp/published_urchins.fa -db /tmp/human -outfmt '6 qseqid sseqid pident length evalue bitscore' -max_target_seqs 13 > /tmp/u_h.tsv
+          blastp -query /tmp/published_urchins.fa -db /tmp/pliv -outfmt '6 qseqid sseqid pident length evalue bitscore' -max_target_seqs 100 > /tmp/u_p.tsv
+          python - <<'PY'
+          import csv,json
+          def read(p):
+              with open(p) as f:return [dict(q=r[0],s=r[1],pident=float(r[2]),length=int(r[3]),evalue=float(r[4]),bitscore=float(r[5])) for r in csv.reader(f,delimiter='\t')]
+          def best(rows):
+              by={}
+              for r in rows:by.setdefault(r['q'],[]).append(r)
+              return {q:max(rs,key=lambda x:x['bitscore']) for q,rs in by.items()}
+          uh=best(read('/tmp/u_h.tsv')); up=best(read('/tmp/u_p.tsv'))
+          print(json.dumps({'best_human':uh,'best_Paracentrotus':up},indent=2))
+          # This is a discovery probe, not a promotion gate.
+          for q in sorted(uh):
+              print(q,'=>',uh[q]['s'],';',up[q]['s'])
+          PY
