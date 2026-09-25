@@ -29,6 +29,7 @@ PUBMED_RECORD_CACHE={}
 SEED_PATH=Path(__file__).with_name("bridge_seeds.json")
 PHYLO_SEED_PATH=Path(__file__).with_name("phylogenetic_orthology_seeds.json")
 FUNCTIONAL_ORTHO_SEED_PATH=Path(__file__).with_name("functional_orthology_seeds.json")
+DIRECT_ORTHO_SEED_PATH=Path(__file__).with_name("direct_orthology_seeds.json")
 try:
     BRIDGE_SEEDS=json.loads(SEED_PATH.read_text(encoding="utf-8")).get("species",{})
 except Exception:
@@ -41,6 +42,10 @@ try:
     FUNCTIONAL_ORTHO_SEEDS=json.loads(FUNCTIONAL_ORTHO_SEED_PATH.read_text(encoding="utf-8")).get("species",{})
 except Exception:
     FUNCTIONAL_ORTHO_SEEDS={}
+try:
+    DIRECT_ORTHO_SEEDS=json.loads(DIRECT_ORTHO_SEED_PATH.read_text(encoding="utf-8")).get("species",{})
+except Exception:
+    DIRECT_ORTHO_SEEDS={}
 
 def norm(x):
     return re.sub(r"[^a-z0-9]+"," ",(x or "").lower()).strip()
@@ -992,6 +997,91 @@ def oma_bridges_for_candidate(candidate,max_uniprots=10):
         "uniprot_species_gene_candidates":len(species_resolved)
     }
 
+def direct_orthology_seed_records(candidate):
+    rows=DIRECT_ORTHO_SEEDS.get(candidate_name(candidate),[])
+    return [x for x in rows if isinstance(x,dict)]
+
+def validate_direct_orthology_paper(pmid,species,gene):
+    text=norm(_paper_text(pmid))
+    if not text:
+        return False
+    species_ok=norm(species) in text
+    gene_ok=norm(gene) in text
+    relation_ok=("ortholog" in text or "orthologue" in text)
+    return species_ok and gene_ok and relation_ok
+
+def direct_peer_reviewed_bridges_for_candidate(candidate):
+    """Strict species-level orthology anchors from explicit peer-reviewed gene-family orthology.
+    These anchors do not claim that the ortholog is the mechanism of the phenotype/claim.
+    """
+    name=candidate_name(candidate)
+    bridges=[]; checked=0; validated=0
+    for seed in direct_orthology_seed_records(candidate):
+        checked+=1
+        required=[
+            seed.get("animal_gene"),seed.get("animal_taxon_id"),
+            seed.get("orthology_pmid"),seed.get("orthology_doi"),
+            seed.get("human_symbol"),seed.get("human_ensembl_id"),
+            seed.get("relation"),seed.get("bridge_scope")
+        ]
+        if not all(required):
+            continue
+        if not seed.get("human_in_phylogeny"):
+            continue
+        methods=seed.get("phylogeny_methods") or []
+        if len(methods)<2:
+            continue
+        if not seed.get("paralog_discrimination"):
+            continue
+        if not validate_direct_orthology_paper(
+            seed["orthology_pmid"],name,seed["animal_gene"]
+        ):
+            continue
+        try:
+            human=opentarget_context(seed["human_ensembl_id"])
+        except Exception:
+            human=None
+        if not human or _gene_norm(human.get("approved_symbol"))!=_gene_norm(seed["human_symbol"]):
+            continue
+        validated+=1
+        bridges.append({
+            "animal_species":name,
+            "animal_ensembl_species":None,
+            "animal_gene":seed["animal_gene"],
+            "animal_taxon_id":seed["animal_taxon_id"],
+            "human_ensembl_id":seed["human_ensembl_id"],
+            "human_symbol":human.get("approved_symbol"),
+            "human_name":human.get("approved_name"),
+            "human_biotype":human.get("biotype"),
+            "orthology":{
+                "provider":"Peer-reviewed direct orthology",
+                "relation":seed["relation"],
+                "orthology_pmid":str(seed["orthology_pmid"]),
+                "orthology_doi":seed["orthology_doi"],
+                "phylogeny_methods":methods,
+                "human_in_phylogeny":True,
+                "paralog_discrimination":seed.get("paralog_discrimination")
+            },
+            "bridge_scope":seed["bridge_scope"],
+            "tractability":human.get("tractability",[]),
+            "source_claim_pmids":candidate.get("pmid_sources",[]),
+            "bridge_evidence_pmids":[str(seed["orthology_pmid"])],
+            "bridge_seed_rationale":seed.get("rationale"),
+            "source_chain":[
+                "replicated exact-species research claim",
+                "peer-reviewed exact-species orthology paper",
+                "Maximum Likelihood + Bayesian gene-family phylogenies",
+                "Homo sapiens sequences included in the same orthology analysis",
+                "Open Targets human Ensembl target validation"
+            ],
+            "translation_status":"ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
+            "clinical_efficacy_claim":False
+        })
+    return bridges,{
+        "direct_orthology_seed_records_checked":checked,
+        "direct_orthology_strict_bridges":validated
+    }
+
 def build_human_bridges(portfolio,max_candidates=20,max_genes=10):
     try:
         species_index=ensembl_species_index()
@@ -1074,6 +1164,10 @@ def build_human_bridges(portfolio,max_candidates=20,max_genes=10):
         bridges.extend(functional_new)
         row.update(functional_stats)
 
+        direct_new,direct_stats=direct_peer_reviewed_bridges_for_candidate(c)
+        bridges.extend(direct_new)
+        row.update(direct_stats)
+
         oma_new,oma_stats=oma_bridges_for_candidate(c)
         bridges.extend(oma_new)
         row.update(oma_stats)
@@ -1085,7 +1179,8 @@ def build_human_bridges(portfolio,max_candidates=20,max_genes=10):
         elif (not ens_species and row.get("oma_species_matched",0)==0
               and row.get("ncbi_exact_genes",0)==0 and row.get("orthodb_exact_genes",0)==0
               and row.get("phylogenetic_strict_bridges",0)==0
-              and row.get("functional_orthology_strict_bridges",0)==0):
+              and row.get("functional_orthology_strict_bridges",0)==0
+              and row.get("direct_orthology_strict_bridges",0)==0):
             row["status"]="NO_SUPPORTED_ORTHOLOGY_PROVIDER_MATCH"
         elif not genes and not row.get("uniprot_candidates",0):
             row["status"]="NO_GENE_OR_PROTEIN_ANNOTATION"
@@ -1113,8 +1208,9 @@ def build_human_bridges(portfolio,max_candidates=20,max_genes=10):
     orthodb_bridge_count=sum(1 for b in bridges if (b.get("orthology") or {}).get("provider")=="OrthoDB v12")
     phylo_bridge_count=sum(1 for b in bridges if (b.get("orthology") or {}).get("provider")=="Peer-reviewed phylogenetic orthology")
     functional_bridge_count=sum(1 for b in bridges if (b.get("orthology") or {}).get("provider")=="Peer-reviewed functional orthology")
+    direct_bridge_count=sum(1 for b in bridges if (b.get("orthology") or {}).get("provider")=="Peer-reviewed direct orthology")
     verified_human_targets=len({(b["animal_species"],b["human_ensembl_id"]) for b in bridges})
-    total_orthologue_hits=orth_hits+oma_bridge_count+ncbi_bridge_count+orthodb_bridge_count+phylo_bridge_count+functional_bridge_count
+    total_orthologue_hits=orth_hits+oma_bridge_count+ncbi_bridge_count+orthodb_bridge_count+phylo_bridge_count+functional_bridge_count+direct_bridge_count
 
     # PASS means all replicated claims got at least one verified human bridge.
     # Anything less is explicitly PARTIAL rather than hidden.
@@ -1129,6 +1225,7 @@ def build_human_bridges(portfolio,max_candidates=20,max_genes=10):
             "OrthoDB v12":"PASS" if orthodb_bridge_count else "PARTIAL",
             "Peer-reviewed phylogenetic orthology":"PASS" if phylo_bridge_count else "PARTIAL",
             "Peer-reviewed functional orthology":"PASS" if functional_bridge_count else "PARTIAL",
+            "Peer-reviewed direct orthology":"PASS" if direct_bridge_count else "PARTIAL",
             "Ensembl homology":"PASS" if orth_hits else "PARTIAL",
             "Open Targets":"PASS" if verified_human_targets else "PARTIAL"
         },
@@ -1144,6 +1241,7 @@ def build_human_bridges(portfolio,max_candidates=20,max_genes=10):
         "orthodb_orthologue_hits":orthodb_bridge_count,
         "phylogenetic_orthologue_hits":phylo_bridge_count,
         "functional_orthology_hits":functional_bridge_count,
+        "direct_orthology_hits":direct_bridge_count,
         "bridges":bridges,
         "candidate_status":candidate_status,
         "errors":errors[:50]
