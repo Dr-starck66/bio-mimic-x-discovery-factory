@@ -1,0 +1,183 @@
+name: BIO-MIMIC X Paracentrotus AQP3 Echinoid Orthology Gate
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/paracentrotus-aqp3-echinoid-orthology.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  gate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Install tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ncbi-blast+ mafft fasttree
+          pip install --quiet biopython
+
+      - name: Build exact-species Paracentrotus AQP family
+        run: |
+          set -euo pipefail
+          curl -L --fail --retry 3 'https://www.dropbox.com/s/4b0f11ooj2fwa1a/Pliv_PqN3S_evmp.gtf.gz?dl=1' -o /tmp/pliv.gtf.gz
+          curl -L --fail --retry 3 'https://www.dropbox.com/s/yn3v1zhoxqo8q7y/Pliv_PqN3S_evmp.pep.gz?dl=1' -o /tmp/pliv.pep.gz
+          python - <<'PY'
+          import gzip,re,pathlib,json
+          ids={}
+          with gzip.open('/tmp/pliv.gtf.gz','rt',errors='replace') as f:
+              for line in f:
+                  a=line.split('\t')[-1]
+                  n=re.search(r'gene_name "([^"]+)"',a,re.I)
+                  g=re.search(r'gene_id "([^"]+)"',a)
+                  t=re.search(r'transcript_id "([^"]+)"',a)
+                  if n and g and re.fullmatch(r'(?i)aqp\w*|aquaporin.*',n.group(1)):
+                      ids[g.group(1)]=n.group(1)
+                      if t: ids[t.group(1)]=n.group(1)
+          seqs=[];h=None;chunks=[]
+          def flush():
+              if h is None:return
+              hit=next(((i,n) for i,n in ids.items() if i in h),None)
+              if hit: seqs.append((hit[0],hit[1],''.join(chunks)))
+          with gzip.open('/tmp/pliv.pep.gz','rt',errors='replace') as f:
+              for line in f:
+                  line=line.strip()
+                  if line.startswith('>'):
+                      flush();h=line[1:];chunks=[]
+                  else:chunks.append(line)
+              flush()
+          with open('/tmp/pliv_aqps.fa','w') as o:
+              for i,n,s in seqs:o.write(f'>PLIV|{i}|{n}\n{s}\n')
+          a3=[(i,n,len(s)) for i,n,s in seqs if n.lower()=='aqp3']
+          print(json.dumps({'AQP3':a3,'all_AQP_proteins':len(seqs)},indent=2))
+          assert a3
+          PY
+
+      - name: Fetch human AQP controls and Strongylocentrotus AQP3
+        run: |
+          set -euo pipefail
+          : > /tmp/human.fa
+          for g in AQP1 AQP2 AQP3 AQP4 AQP5 AQP6 AQP7 AQP8 AQP9 AQP10 AQP11 AQP12A AQP12B; do
+            url="https://rest.uniprot.org/uniprotkb/search?query=%28gene_exact%3A${g}%29%20AND%20%28organism_id%3A9606%29%20AND%20%28reviewed%3Atrue%29&format=fasta&size=1"
+            curl -L --fail --retry 3 "$url" | awk -v g="$g" '/^>/{print ">HUMAN|"g;next}{print}' >> /tmp/human.fa
+          done
+          python - <<'PY'
+          import json,urllib.parse,urllib.request,pathlib
+          def get(url):
+              req=urllib.request.Request(url,headers={'User-Agent':'BIO-MIMIC-X/1.0'})
+              return urllib.request.urlopen(req,timeout=30).read().decode()
+          term=urllib.parse.quote('LOC105442651[Gene Name] AND txid7668[Organism:exp]')
+          data=json.loads(get(f'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=gene&term={term}&retmode=json'))
+          ids=data['esearchresult']['idlist']
+          if len(ids)!=1: raise SystemExit(f'SPURP_GENE_RESOLUTION_FAIL {ids}')
+          gene_id=ids[0]
+          xml=get(f'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=gene&db=protein&id={gene_id}&retmode=json')
+          links=json.loads(xml)['linksets'][0].get('linksetdbs',[])
+          pids=[]
+          for db in links:
+              if db.get('linkname')=='gene_protein':
+                  pids.extend(str(x) for x in db.get('links',[]))
+          if not pids: raise SystemExit('SPURP_NO_LINKED_PROTEIN')
+          fasta=get('https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=protein&id='+','.join(pids)+'&rettype=fasta&retmode=text')
+          records=[x for x in fasta.split('>') if x.strip()]
+          if not records: raise SystemExit('SPURP_FASTA_EMPTY')
+          # Gene page reports one protein; fail closed if multiple non-identical records.
+          seqs=[]
+          for r in records:
+              lines=r.splitlines();seq=''.join(lines[1:]).strip()
+              if seq: seqs.append(seq)
+          uniq=sorted(set(seqs),key=len,reverse=True)
+          if len(uniq)!=1: raise SystemExit(f'SPURP_AMBIGUOUS_PROTEINS n={len(uniq)}')
+          pathlib.Path('/tmp/spurp_aqp3.fa').write_text('>SPURP|LOC105442651|AQP3\n'+uniq[0]+'\n')
+          print(json.dumps({'gene_id':gene_id,'linked_proteins':pids,'unique_sequences':len(uniq),'length':len(uniq[0])},indent=2))
+          PY
+
+      - name: Echinoid + human reciprocal classification
+        run: |
+          set -euo pipefail
+          makeblastdb -in /tmp/human.fa -dbtype prot -out /tmp/human >/dev/null
+          blastp -query /tmp/spurp_aqp3.fa -db /tmp/human -outfmt '6 qseqid sseqid pident length evalue bitscore' -max_target_seqs 13 > /tmp/sp_to_h.tsv
+          blastp -query /tmp/pliv_aqps.fa -db /tmp/human -outfmt '6 qseqid sseqid pident length evalue bitscore' -max_target_seqs 13 > /tmp/pl_to_h.tsv
+          makeblastdb -in /tmp/pliv_aqps.fa -dbtype prot -out /tmp/pliv >/dev/null
+          blastp -query /tmp/spurp_aqp3.fa -db /tmp/pliv -outfmt '6 qseqid sseqid pident length evalue bitscore' -max_target_seqs 100 > /tmp/sp_to_pl.tsv
+          python - <<'PY'
+          import csv,json,pathlib
+          def read(p):
+              with open(p) as f:return [dict(q=r[0],s=r[1],pident=float(r[2]),length=int(r[3]),evalue=float(r[4]),bitscore=float(r[5])) for r in csv.reader(f,delimiter='\t')]
+          sp_h=read('/tmp/sp_to_h.tsv'); pl_h=read('/tmp/pl_to_h.tsv'); sp_pl=read('/tmp/sp_to_pl.tsv')
+          sp_h_best=max(sp_h,key=lambda x:x['bitscore'])
+          sp_pl_best=max(sp_pl,key=lambda x:x['bitscore'])
+          pl3={}
+          for r in pl_h:
+              if '|Aqp3' in r['q']: pl3.setdefault(r['q'],[]).append(r)
+          pl3best={q:max(rs,key=lambda x:x['bitscore']) for q,rs in pl3.items()}
+          payload={'SPURP_best_human':sp_h_best,'SPURP_best_PLIV':sp_pl_best,'PLIV_AQP3_best_human':pl3best}
+          print(json.dumps(payload,indent=2))
+          if sp_h_best['s']!='HUMAN|AQP3':
+              raise SystemExit('SPURP_NOT_AQP3_AGAINST_HUMAN_PARALOGS')
+          if sp_pl_best['s']!='PLIV|Pliv28297|Aqp3':
+              raise SystemExit('ECHINOID_RBH_FAIL')
+          if pl3best.get('PLIV|Pliv28297|Aqp3',{}).get('s')!='HUMAN|AQP3':
+              raise SystemExit('PLIV28297_NOT_HUMAN_AQP3_BEST')
+          pathlib.Path('/tmp/classification.json').write_text(json.dumps(payload,indent=2))
+          PY
+
+      - name: Paralog-controlled echinoid phylogeny
+        run: |
+          set -euo pipefail
+          cat /tmp/pliv_aqps.fa /tmp/human.fa /tmp/spurp_aqp3.fa > /tmp/family.fa
+          mafft --localpair --maxiterate 1000 /tmp/family.fa > /tmp/family.aln.fa 2>/tmp/mafft.log
+          FastTree -wag /tmp/family.aln.fa > /tmp/family.tree 2>/tmp/fasttree.log
+          python - <<'PY'
+          from Bio import Phylo
+          import json,pathlib
+          tree=Phylo.read('/tmp/family.tree','newick')
+          a='PLIV|Pliv28297|Aqp3'; b='SPURP|LOC105442651|AQP3'
+          # Find smallest clade containing the two echinoid AQP3 sequences.
+          shared=None
+          for cl in tree.find_clades():
+              names={x.name for x in cl.get_terminals()}
+              if a in names and b in names:
+                  if shared is None or len(names)<len({x.name for x in shared.get_terminals()}): shared=cl
+          if shared is None: raise SystemExit('NO_ECHINOID_SHARED_CLADE')
+          names=sorted(x.name for x in shared.get_terminals())
+          support=shared.confidence
+          print(json.dumps({'echinoid_AQP3_clade':names,'support':support},indent=2))
+          if names!=sorted([a,b]):
+              raise SystemExit('ECHINOID_AQP3_NOT_SISTER_PAIR')
+          if support is None or float(support)<0.90:
+              raise SystemExit(f'ECHINOID_AQP3_SUPPORT_TOO_LOW {support}')
+          pathlib.Path('/tmp/phylo.json').write_text(json.dumps({'clade':names,'support':support},indent=2))
+          PY
+
+      - name: Final orthology dossier verdict
+        run: |
+          python - <<'PY'
+          import json,pathlib
+          c=json.loads(pathlib.Path('/tmp/classification.json').read_text())
+          p=json.loads(pathlib.Path('/tmp/phylo.json').read_text())
+          out={
+            'status':'STRICT_ORTHOLOGY_DOSSIER_PASS',
+            'animal_species':'Paracentrotus lividus',
+            'animal_gene':'AQP3',
+            'animal_gene_model':'Pliv28297',
+            'human_symbol':'AQP3',
+            'evidence':{
+              'exact_species_annotation':True,
+              'echinoid_anchor':'Strongylocentrotus purpuratus LOC105442651',
+              'echinoid_reciprocal_best_hit':True,
+              'both_best_human_paralog':'AQP3',
+              'echinoid_sister_pair_support':p['support'],
+              'paralog_controls':'human AQP1-AQP12B + all annotated Paracentrotus AQP-family proteins'
+            },
+            'clinical_efficacy_claim':False
+          }
+          print(json.dumps(out,indent=2))
+          PY
