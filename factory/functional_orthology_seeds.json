@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "policy": "Peer-reviewed functional orthology is accepted only when an exact-species gene is independently resolved, the species-specific biological context is experimentally supported, cross-species complementation or equivalent functional evidence explicitly supports orthology, and the selected human target is independently validated. One-to-many relationships must remain explicit.",
+  "species": {
+    "Caenorhabditis elegans": [
+      {
+        "animal_gene": "daf-16",
+        "animal_ncbi_gene_id": "172981",
+        "animal_taxon_id": 6239,
+        "preservation_evidence_pmids": ["26635120"],
+        "functional_orthology_pmid": "11747821",
+        "functional_orthology_doi": "10.1016/S0960-9822(01)00595-4",
+        "human_symbol": "FOXO3",
+        "human_alias_in_paper": "FKHRL1",
+        "human_ensembl_id": "ENSG00000118689",
+        "human_uniprot": "O43524",
+        "relation": "one_to_many_functional_orthology",
+        "human_paralog_context": ["FOXO1", "FOXO3", "FOXO4"],
+        "bridge_scope": "endogenous freeze-tolerance mechanism; independent of the exogenous ice-binding-protein intervention",
+        "rationale": "Exact-species freeze-thaw genetics requires DAF-16 downstream of daf-2, while independent human-to-worm complementation work demonstrates that human FKHRL1/FOXO3 can partially replace DAF-16. This supports a conserved FOXO-family relationship without asserting one-to-one orthology or human clinical efficacy."
+      }
+    ]
+  }
+}
