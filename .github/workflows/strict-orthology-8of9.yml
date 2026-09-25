@@ -1,0 +1,111 @@
+name: BIO-MIMIC X Strict Orthology 8of9 Gate
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/strict-orthology-8of9.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: biomimic-strict-orthology-8of9
+  cancel-in-progress: true
+
+jobs:
+  gate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Full regression suite
+        run: |
+          python -m unittest discover -s tests -v
+          python factory/brick_audit.py
+          python -m py_compile factory/human_bridge.py human_bridge_refresh.py factory/translation_paths.py
+
+      - name: Refresh Human Bridge with live providers
+        run: python human_bridge_refresh.py
+
+      - name: Validate strict 8of9 without false promotion
+        run: |
+          python - <<'PY'
+          import json,pathlib
+          p=pathlib.Path("state/factory/latest.json")
+          x=json.loads(p.read_text(encoding="utf-8"))
+          br=x.get("bridge_refresh") or {}
+          hbr=x.get("human_bridge_result") or {}
+          tr=x.get("human_translation_result") or {}
+
+          assert br.get("supported_claims")==9, br
+          assert br.get("strict_orthology_candidates")==8, br
+          assert br.get("translation_verified_candidates")==9, br
+          assert tr.get("strict_orthology_candidates")==8, tr
+          assert tr.get("translation_verified_candidates")==9, tr
+          assert tr.get("status")=="PASS", tr
+
+          bridges=hbr.get("bridges") or []
+          ce=[b for b in bridges if b.get("animal_species")=="Caenorhabditis elegans"]
+          assert ce, "C. elegans has no strict bridge"
+          daf=[b for b in ce if str(b.get("animal_gene") or "").lower()=="daf-16"]
+          assert daf, ce
+          live=[b for b in daf if b.get("verification_mode")!="LAST_KNOWN_GOOD_CACHE"]
+          assert live, "DAF-16 bridge is cache-only"
+
+          b=live[0]
+          o=b.get("orthology") or {}
+          assert o.get("provider")=="Peer-reviewed functional orthology", o
+          assert o.get("relation")=="one_to_many_functional_orthology", o
+          assert b.get("animal_ncbi_gene_id")=="172981", b
+          assert b.get("human_symbol")=="FOXO3", b
+          assert b.get("human_ensembl_id")=="ENSG00000118689", b
+          assert b.get("clinical_efficacy_claim") is False
+          assert "independent" in str(b.get("bridge_scope") or "").lower()
+
+          paths={z.get("subject"):z for z in tr.get("paths") or []}
+          assert paths["Caenorhabditis elegans"]["path_type"]=="STRICT_ORTHOLOGY_TARGET", paths["Caenorhabditis elegans"]
+          assert paths["Paracentrotus lividus"]["path_type"]=="FUNCTIONAL_CRYOPRESERVATION_INTERVENTION", paths["Paracentrotus lividus"]
+
+          strict_subjects={z.get("subject") for z in tr.get("paths") or [] if z.get("path_type")=="STRICT_ORTHOLOGY_TARGET"}
+          expected={
+            "Somniosus microcephalus","Acomys cahirinus","Danio rerio",
+            "Cynops pyrrhogaster","Eublepharis macularius","Drosophila melanogaster",
+            "Nothobranchius furzeri","Caenorhabditis elegans"
+          }
+          assert strict_subjects==expected, {"actual":sorted(strict_subjects),"expected":sorted(expected)}
+
+          print(json.dumps({
+            "status":"PASS",
+            "supported_claims":9,
+            "strict_orthology_candidates":8,
+            "translation_verified_candidates":9,
+            "new_strict_subject":"Caenorhabditis elegans",
+            "animal_gene":"daf-16",
+            "human_target":"FOXO3",
+            "provider":o.get("provider"),
+            "relation":o.get("relation"),
+            "paracentrotus_remains_fallback":True,
+            "clinical_efficacy_claim":False
+          },indent=2))
+          PY
+
+      - name: Persist only after strict gate PASS
+        run: |
+          set -euo pipefail
+          git config user.name "BIO-MIMIC-X-STRICT-GATE"
+          git config user.email "biomimic-x-strict-gate@users.noreply.github.com"
+          git add state/factory/latest.json public/data/factory/latest.json reports/factory/HUMAN-BRIDGE-LATEST.md
+          if git diff --cached --quiet; then
+            echo "No state change."
+          else
+            git commit -m "factory: promote validated C elegans DAF16 bridge to strict 8of9"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
