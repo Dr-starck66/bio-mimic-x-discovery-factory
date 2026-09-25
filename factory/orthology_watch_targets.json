@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "policy": "Fail closed. A watched target becomes PROMOTION_READY only when the existing Human Bridge strict provider chain independently returns an exact-species orthologue with validated human target context. Sequence similarity, antibody cross-reactivity, nearby species, or genome presence alone never count as strict orthology.",
   "targets": [
     {
@@ -19,7 +19,24 @@
         "GCA_940671915.1"
       ],
       "genome_notes": "GCA_984792215.1 is a chromosome-scale 2026 Paracentrotus lividus assembly; genome availability is a discovery aid, not itself orthology proof.",
-      "promotion_rule": "Require the existing strict Human Bridge chain to return Paracentrotus lividus AQP3 -> human AQP3 via an accepted orthology provider plus Open Targets validation."
+      "promotion_rule": "Require exact Paracentrotus lividus sequence identity/provenance plus a paralogue-aware orthology chain to human AQP3 from an accepted provider or an explicit phylogenetic dossier, followed by Open Targets validation. Genome presence, inherited Strongylocentrotus gene_name, BLAST similarity, antibody cross-reactivity, or AQP-family membership alone must fail closed.",
+      "discovery_sources": {
+        "2026_chromosome_assembly": {
+          "accession": "GCA_984792215.1",
+          "bioproject": "PRJEB114056",
+          "taxon_id": 7656,
+          "assembly_level": "Chromosome",
+          "release_date": "2026-07-17",
+          "role": "exact-species discovery substrate only; not orthology proof"
+        },
+        "consortium_annotation": {
+          "assembly": "Pliv_v1 / Pliv_PqN3S",
+          "gtf": "Pliv_PqN3S_evmp.gtf",
+          "proteins": "Pliv_PqN3S_evmp.pep",
+          "annotation_note": "gene_name may be inherited from Strongylocentrotus BLAST similarity; therefore names alone cannot promote strict orthology",
+          "role": "candidate discovery and paralogue enumeration only"
+        }
+      }
     }
   ],
   "explicitly_not_targets": [
