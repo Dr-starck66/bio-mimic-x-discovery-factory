@@ -1,0 +1,71 @@
+name: BIO-MIMIC X DAF16 Functional Orthology Micro Gate
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/daf16-functional-orthology-micro-gate.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Validate DAF16 functional orthology chain
+        run: |
+          python - <<'PY'
+          import json,sys
+          sys.path.insert(0,"factory")
+          import human_bridge
+
+          c={"subject":"Caenorhabditis elegans","pmid_sources":["PMID:42169464","PMID:42208364"]}
+          seeds=human_bridge.functional_orthology_seed_records(c)
+          assert len(seeds)==1, seeds
+          s=seeds[0]
+
+          exact=human_bridge.ncbi_exact_gene("Caenorhabditis elegans","daf-16")
+          assert exact, "exact NCBI daf-16 unresolved"
+          assert str(exact.get("gene_id"))=="172981", exact
+          assert str(exact.get("tax_id"))=="6239", exact
+
+          preservation=[
+              human_bridge.validate_preservation_context_paper(
+                  p,"Caenorhabditis elegans","daf-16"
+              ) for p in s["preservation_evidence_pmids"]
+          ]
+          assert all(preservation), preservation
+
+          functional=human_bridge.validate_functional_orthology_paper(
+              s["functional_orthology_pmid"],"daf-16","FOXO3","FKHRL1"
+          )
+          assert functional, "functional complementation paper did not validate"
+
+          target=human_bridge.opentarget_context("ENSG00000118689")
+          assert target and target.get("approved_symbol")=="FOXO3", target
+
+          bridges,stats=human_bridge.functional_orthology_bridges_for_candidate(c)
+          assert len(bridges)==1, {"bridges":bridges,"stats":stats}
+          b=bridges[0]
+          assert b["orthology"]["provider"]=="Peer-reviewed functional orthology"
+          assert b["orthology"]["relation"]=="one_to_many_functional_orthology"
+          assert b["clinical_efficacy_claim"] is False
+
+          print(json.dumps({
+              "status":"PASS",
+              "animal_gene_id":exact["gene_id"],
+              "animal_taxon_id":exact["tax_id"],
+              "preservation_paper_validated":preservation,
+              "functional_orthology_paper_validated":functional,
+              "human_target":target["approved_symbol"],
+              "provider":b["orthology"]["provider"],
+              "relation":b["orthology"]["relation"],
+              "clinical_efficacy_claim":False
+          },indent=2))
+          PY
