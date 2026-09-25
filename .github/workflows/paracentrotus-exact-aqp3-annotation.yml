@@ -1,0 +1,99 @@
+name: BIO-MIMIC X Paracentrotus Exact AQP3 Annotation Probe
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/paracentrotus-exact-aqp3-annotation.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Download official Paracentrotus consortium annotation
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -L --fail --retry 3 --connect-timeout 20 \
+            'https://www.dropbox.com/s/4b0f11ooj2fwa1a/Pliv_PqN3S_evmp.gtf.gz?dl=1' \
+            -o /tmp/Pliv_PqN3S_evmp.gtf.gz
+          curl -L --fail --retry 3 --connect-timeout 20 \
+            'https://www.dropbox.com/s/yn3v1zhoxqo8q7y/Pliv_PqN3S_evmp.pep.gz?dl=1' \
+            -o /tmp/Pliv_PqN3S_evmp.pep.gz
+          gzip -t /tmp/Pliv_PqN3S_evmp.gtf.gz
+          gzip -t /tmp/Pliv_PqN3S_evmp.pep.gz
+          echo "DOWNLOAD_PASS"
+
+      - name: Locate exact-species AQP-family annotations
+        shell: bash
+        run: |
+          set -euo pipefail
+          zgrep -Ei 'LOC105442651|AQP3|aquaporin.?3|aquaporin' /tmp/Pliv_PqN3S_evmp.gtf.gz > /tmp/aqp_hits.gtf || true
+          echo "=== AQP GTF HITS ==="
+          cat /tmp/aqp_hits.gtf || true
+          python - <<'PY'
+          import gzip,re,json,pathlib
+          p=pathlib.Path("/tmp/aqp_hits.gtf")
+          rows=p.read_text(errors="replace").splitlines() if p.exists() else []
+          exact=[x for x in rows if re.search(r'LOC105442651|AQP3|aquaporin.?3',x,re.I)]
+          ids=[]
+          for line in exact:
+              attrs=line.split("\t")[-1]
+              for key in ("gene_id","transcript_id"):
+                  m=re.search(rf'{key} "([^"]+)"',attrs)
+                  if m: ids.append(m.group(1))
+          ids=sorted(set(ids))
+          print(json.dumps({"all_aqp_lines":len(rows),"exact_aqp3_like_lines":len(exact),"ids":ids},indent=2))
+          pathlib.Path("/tmp/exact_ids.txt").write_text("\n".join(ids))
+          if not exact:
+              raise SystemExit("NO_EXACT_AQP3_ANNOTATION_MATCH")
+          PY
+
+      - name: Extract exact-species candidate proteins
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import gzip,pathlib,re,json
+          ids=[x.strip() for x in pathlib.Path("/tmp/exact_ids.txt").read_text().splitlines() if x.strip()]
+          seqs={}
+          header=None; chunks=[]
+          def flush():
+              global header,chunks
+              if header is None:return
+              text=header+" "+"".join(chunks)
+              if any(i in text for i in ids):
+                  seqs[header]="".join(chunks)
+          with gzip.open("/tmp/Pliv_PqN3S_evmp.pep.gz","rt",errors="replace") as f:
+              for line in f:
+                  line=line.rstrip()
+                  if line.startswith(">"):
+                      flush(); header=line[1:]; chunks=[]
+                  else:
+                      chunks.append(line.strip())
+              flush()
+          with open("/tmp/pliv_aqp3_candidates.fasta","w") as out:
+              for h,s in seqs.items():
+                  out.write(f">{h}\n{s}\n")
+          print(json.dumps({"candidate_proteins":len(seqs),"lengths":{h:len(s) for h,s in seqs.items()}},indent=2))
+          if not seqs:
+              raise SystemExit("AQP3_GTF_MATCH_WITHOUT_PROTEIN_SEQUENCE")
+          PY
+          cat /tmp/pliv_aqp3_candidates.fasta
+
+      - name: Fail-closed verdict
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "ANNOTATION_EVIDENCE=PASS"
+          echo "ORTHOLOGY_PROMOTION=NOT_YET"
+          echo "NEXT=phylogenetic/paralog discrimination required"
