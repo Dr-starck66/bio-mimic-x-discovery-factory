@@ -1,7 +1,7 @@
-# BIO-MIMIC X V7 Discovery Factory — 2026-09-24T08:36:48.595668+00:00
+# BIO-MIMIC X V7 Discovery Factory — 2026-09-25T08:59:11.270149+00:00
 
 **Status:** PASS
-**Replay SHA-256:** `ec969da1d8e684a0ad7c5248cbda1402c87adc31aa3c9db0b07793c58101ffce`
+**Replay SHA-256:** `622fb13f2086c371c67f57e636e64c589a62efa814158140e4aca479053dae50`
 
 ## Active programs
 - PRG-4514111357 · Somniosus microcephalus · score 61 · labs longevity
@@ -28,7 +28,7 @@
 - Experiment Designer + Ω-EXPERIMENT: PASS · programs_with_explicit_kill_criteria=6 · output=experiments
 - Ω Scientific Reasoning Engine: PASS · reasoning_dossiers_generated=6 · output=scientific_reasoning
 - Ω Hypothesis Engine: PASS · falsifiable_hypotheses_generated=18 · output=scientific_reasoning
-- Ω Debate / Contradiction Engine: PASS · hypotheses_surviving_adversarial_review=18 · output=scientific_reasoning
+- Ω Debate / Contradiction Engine: PASS · hypotheses_surviving_adversarial_review=12 · output=scientific_reasoning
 - Ω Experiment Planner: PASS · conceptual_experiment_plans_generated=12 · output=scientific_reasoning
 - BENCHMARK-X10: PASS · delta_vs_baseline=1.6172 · output=benchmark
 - Ω-FOUNDRY + MAP-Elites/Novelty: PASS · policy_variant_diversity=8 · output=policy_variants
