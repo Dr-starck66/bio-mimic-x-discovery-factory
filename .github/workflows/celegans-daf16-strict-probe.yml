@@ -1,0 +1,36 @@
+name: BIO-MIMIC X C elegans DAF16 Strict Bridge Probe
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/celegans-daf16-strict-probe.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Probe exact DAF-16 orthology
+        run: |
+          python - <<'PY'
+          import json,sys,pathlib
+          sys.path.insert(0,"factory")
+          import human_bridge
+          state=json.loads(pathlib.Path("state/factory/latest.json").read_text())
+          claim=next(c for c in state["claims"] if c["subject"]=="Caenorhabditis elegans")
+          r=human_bridge.build_human_bridges([claim],max_candidates=1,max_genes=12)
+          print(json.dumps(r,indent=2))
+          bridges=[b for b in r.get("bridges",[]) if b.get("animal_species")=="Caenorhabditis elegans" and str(b.get("animal_gene","")).lower()=="daf-16"]
+          assert bridges, "NO_EXACT_DAF16_STRICT_BRIDGE"
+          assert all(b.get("clinical_efficacy_claim") is False for b in bridges)
+          assert any(b.get("human_symbol") in {"FOXO1","FOXO3","FOXO4"} for b in bridges)
+          print({"status":"PASS","strict_bridges":len(bridges),"human_targets":sorted({b.get("human_symbol") for b in bridges}),"providers":sorted({(b.get("orthology") or {}).get("provider") for b in bridges})})
+          PY
