@@ -28,6 +28,7 @@ STRICT_PROVIDERS={
     "OrthoDB v12",
     "Peer-reviewed phylogenetic orthology",
     "Peer-reviewed functional orthology",
+    "Peer-reviewed direct orthology",
 }
 
 def _parse_time(x):
