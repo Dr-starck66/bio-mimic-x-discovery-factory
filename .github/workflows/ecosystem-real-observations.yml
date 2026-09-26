@@ -1,0 +1,100 @@
+name: BIO-MIMIC X Real Ecosystem Observations
+
+on:
+  pull_request:
+    paths:
+      - 'factory/ecosystem_gbif_ingest.py'
+      - 'factory/ecosystem_mimic.py'
+      - 'data/ecosystem_sources.json'
+      - 'tests/test_ecosystem_gbif_ingest.py'
+      - '.github/workflows/ecosystem-real-observations.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'factory/ecosystem_gbif_ingest.py'
+      - 'factory/ecosystem_mimic.py'
+      - 'data/ecosystem_sources.json'
+      - 'tests/test_ecosystem_gbif_ingest.py'
+      - '.github/workflows/ecosystem-real-observations.yml'
+  workflow_dispatch:
+  schedule:
+    - cron: '47 2 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ecosystem-real-observations-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ingest-and-validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event_name == 'schedule' && 'main' || github.ref }}
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Unit tests for GBIF adapter
+        run: python -m unittest tests.test_ecosystem_gbif_ingest -v
+
+      - name: Retrieve real GBIF observations
+        shell: bash
+        run: |
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            OUT="/tmp/ecosystem_mimic_observations.json"
+          else
+            OUT="data/ecosystem_mimic_observations.json"
+          fi
+          python factory/ecosystem_gbif_ingest.py --config data/ecosystem_sources.json --out "$OUT"
+          echo "ECO_OUT=$OUT" >> "$GITHUB_ENV"
+
+      - name: Evidence semantics gate
+        run: |
+          python - <<'PY'
+          import json, os, pathlib, sys
+          root=pathlib.Path(".").resolve()
+          sys.path.insert(0,str(root/"factory"))
+          from ecosystem_mimic import analyze_ecosystem
+
+          p=pathlib.Path(os.environ["ECO_OUT"])
+          x=json.loads(p.read_text(encoding="utf-8"))
+          assert x["source"]["provider"]=="GBIF"
+          assert x["measurement_semantics"]=="GBIF_OCCURRENCE_RECORD_COUNT_NOT_ABUNDANCE"
+          assert len(x["observations"]) >= 12
+          assert all(o["provenance"]["provider"]=="GBIF" for o in x["observations"])
+          assert all(len(o["provenance"]["record_id_sha256"])==64 for o in x["observations"])
+          assert all(o["measurement_semantics"].endswith("NOT_ABUNDANCE") for o in x["observations"])
+
+          result=analyze_ecosystem(x)
+          assert result["status"]=="ANALYZED"
+          assert result["causal_inference"] is False
+          assert result["interaction_inference"] is False
+          assert result["measurement_semantics"].endswith("NOT_ABUNDANCE")
+          assert result["metrics"]["latest_richness"] > 0
+          print({
+              "status":"PASS",
+              "months":len(x["observations"]),
+              "latest_richness":result["metrics"]["latest_richness"],
+              "mean_turnover":result["metrics"]["mean_bray_curtis_turnover"],
+              "source_sha256":x["sha256"]
+          })
+          PY
+
+      - name: Commit refreshed real observations
+        if: ${{ github.event_name != 'pull_request' }}
+        run: |
+          git config user.name "BIO-MIMIC-X-ECOSYSTEM-BOT"
+          git config user.email "biomimic-x-ecosystem@users.noreply.github.com"
+          git add data/ecosystem_mimic_observations.json
+          if git diff --cached --quiet; then
+            echo "No observation change."
+          else
+            git commit -m "data: refresh real GBIF ecosystem observations"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
