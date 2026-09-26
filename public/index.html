@@ -39,7 +39,7 @@ button{background:#123340;color:var(--text);border:1px solid #285466;padding:8px
     <section class="card kpi"><div class="label">Briques</div><div class="value" id="bricks">—</div><div class="sub">actives / utilisées</div></section>
     <section class="card kpi"><div class="label">Programmes</div><div class="value" id="programs">—</div><div class="sub">recherche active</div></section>
     <section class="card kpi"><div class="label">Claims</div><div class="value" id="claims">—</div><div class="sub">avec provenance</div></section>
-    <section class="card kpi"><div class="label">Human Bridge</div><div class="value" id="human">—</div><div class="sub">ponts vérifiés</div></section>
+    <section class="card kpi"><div class="label">Human Bridge</div><div class="value" id="human">—</div><div class="sub">claims reconnectés</div></section>
 
     <section class="card wide4">
       <h2>⏱ Automatisation</h2>
@@ -63,8 +63,10 @@ button{background:#123340;color:var(--text);border:1px solid #285466;padding:8px
 
     <section class="card wide4">
       <h2>🧬 Human Bridge</h2>
+      <div class="row"><span>Claims reconnectés</span><b id="bridgedClaims">—</b></div>
+      <div class="row"><span>Couverture traduction</span><b id="bridgeCoverage">—</b></div>
       <div class="row"><span>Espèces résolues Ensembl</span><b id="resolvedSpecies">—</b></div>
-      <div class="row"><span>Orthologues humains</span><b id="orthHits">—</b></div>
+      <div class="row"><span>Orthologues humains vérifiés</span><b id="orthHits">—</b></div>
       <div class="row"><span>Cibles Open Targets</span><b id="otHits">—</b></div>
       <div class="row"><span>Statut</span><span class="pill" id="humanStatus">—</span></div>
     </section>
@@ -153,7 +155,11 @@ async function get(path){const r=await fetch(path+'?v='+Date.now(),{cache:'no-st
     $('#programs').textContent=(f.programs||[]).length;
     $('#claims').textContent=(f.claims||[]).length;
     const verifiedBridges=(hb.bridges||[]).length;
-    $('#human').textContent=verifiedBridges;
+    const bridgedClaims=Number(hb.bridged_candidates||0);
+    const attemptedClaims=Number(hb.attempted_candidates||(f.claims||[]).length||0);
+    $('#human').textContent=`${bridgedClaims}/${attemptedClaims}`;
+    $('#bridgedClaims').textContent=`${bridgedClaims}/${attemptedClaims}`;
+    $('#bridgeCoverage').textContent=pct(hb.coverage_ratio||0);
     $('#resolvedSpecies').textContent=safe(hb.resolved_species,0);
     $('#orthHits').textContent=safe(hb.orthologue_hits,0);
     $('#otHits').textContent=safe(hb.open_targets_hits,0);
