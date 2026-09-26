@@ -393,6 +393,25 @@
         "reasoning change events"
       ],
       "metric": "reasoning_hypotheses_retained"
+    },
+    {
+      "id": "ecosystem-mimic",
+      "name": "ECOSYSTEM-MIMIC / Ecological Self-Organization Engine",
+      "stage": "REASON",
+      "purpose": "Analyse des séries temporelles écologiques pour quantifier succession, diversité, stabilité, cofluctuations et récupération après perturbation sans transformer corrélation en causalité.",
+      "entrypoint": "factory/ecosystem_mimic.py::analyze_ecosystem",
+      "inputs": [
+        "ecosystem observation time series",
+        "taxon abundance observations",
+        "labeled perturbations"
+      ],
+      "outputs": [
+        "succession metrics",
+        "cofluctuation network",
+        "perturbation recovery metrics",
+        "falsifiable ecological hypotheses"
+      ],
+      "metric": "ecosystem_timepoints_analyzed"
     }
   ],
   "excluded": [
