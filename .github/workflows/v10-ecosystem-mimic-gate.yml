@@ -1,0 +1,55 @@
+name: BIO-MIMIC X V10 ECOSYSTEM-MIMIC Gate
+
+on:
+  pull_request:
+    paths:
+      - 'factory/ecosystem_mimic.py'
+      - 'factory/control_plane.py'
+      - 'factory/brick_registry.json'
+      - 'tests/test_ecosystem_mimic.py'
+      - 'data/ecosystem_mimic_observations.json'
+      - '.github/workflows/v10-ecosystem-mimic-gate.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'factory/ecosystem_mimic.py'
+      - 'factory/control_plane.py'
+      - 'factory/brick_registry.json'
+      - 'tests/test_ecosystem_mimic.py'
+      - 'data/ecosystem_mimic_observations.json'
+      - '.github/workflows/v10-ecosystem-mimic-gate.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Compile
+        run: python -m py_compile factory/ecosystem_mimic.py factory/control_plane.py
+
+      - name: ECOSYSTEM-MIMIC unit tests
+        run: python -m unittest tests.test_ecosystem_mimic -v
+
+      - name: Full repository tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Brick audit
+        run: python factory/brick_audit.py
+
+      - name: Fail-closed production scaffold
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path("data/ecosystem_mimic_observations.json").read_text(encoding="utf-8"))
+          assert x["observations"] == [], "Do not ship synthetic observations as production evidence"
+          print("PASS: production ecology input is empty until real observations are supplied")
+          PY

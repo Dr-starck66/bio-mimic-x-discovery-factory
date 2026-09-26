@@ -17,6 +17,7 @@ from policy_foundry import propose_variants, select_safe_variant
 from human_bridge import build_human_bridges
 from reasoning_engine import reason_program
 from scientific_memory import update_scientific_memory
+from ecosystem_mimic import analyze_ecosystem
 
 REG=json.loads((FACTORY/"brick_registry.json").read_text(encoding="utf-8"))
 ACTIVE={x["id"]:x for x in REG["active"]}
@@ -275,6 +276,12 @@ def run_cycle(committee_path):
     usage.use("experiment-planner","scientific_reasoning","conceptual_experiment_plans_generated",reasoning_plan_count,
               "PASS" if reasoning_plan_count else "PARTIAL")
 
+    ecosystem_input=load(ROOT/"data"/"ecosystem_mimic_observations.json",{"ecosystem_id":"unconfigured","observations":[]})
+    ecosystem_result=analyze_ecosystem(ecosystem_input)
+    usage.use("ecosystem-mimic","ecosystem_mimic","ecosystem_timepoints_analyzed",
+              ecosystem_result.get("observation_count",0),
+              "PASS" if ecosystem_result.get("status")=="ANALYZED" else "PARTIAL")
+
     metrics={
         "provenance_ratio":prov,
         "falsification_depth":min(1.0,sum(len(x["flags"]) for x in audits)/max(1,len(audits)*8)),
@@ -310,6 +317,7 @@ def run_cycle(committee_path):
         "audits":audits,"causal_plans":causal_plans,"human_translation":human,
         "human_bridge_result":human_bridge_result,
         "experiments":experiments,"scientific_reasoning":reasoning_dossiers,
+        "ecosystem_mimic":ecosystem_result,
         "benchmark":bench,"policy_gate":gate
     }
     cycle["sha256"]=hashlib.sha256(json.dumps(cycle,sort_keys=True,ensure_ascii=False).encode()).hexdigest()
