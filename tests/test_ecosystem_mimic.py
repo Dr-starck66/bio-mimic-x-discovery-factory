@@ -46,6 +46,17 @@ class TestEcosystemMimic(unittest.TestCase):
         for edge in result["cofluctuation_network"]["edges"]:
             self.assertIn("INTERACTION_NOT_INFERRED", edge["semantics"])
 
+    def test_occurrence_counts_are_not_relabelled_as_abundance(self):
+        doc = dict(DEMO)
+        doc["measurement_semantics"] = "GBIF_OCCURRENCE_RECORD_COUNT_NOT_ABUNDANCE"
+        doc["source"] = {"provider": "GBIF"}
+        result = ecosystem_mimic.analyze_ecosystem(doc)
+        self.assertEqual(result["measurement_semantics"], "GBIF_OCCURRENCE_RECORD_COUNT_NOT_ABUNDANCE")
+        self.assertIn("total_measurement", result["time_series"][0])
+        self.assertNotIn("total_abundance", result["time_series"][0])
+        self.assertIn("temporal_stability_inverse_cv_total_measurement", result["metrics"])
+        self.assertTrue(any("not organism abundance" in x for x in result["limitations"]))
+
     def test_deterministic_fingerprint(self):
         a = ecosystem_mimic.analyze_ecosystem(DEMO)
         b = ecosystem_mimic.analyze_ecosystem(DEMO)
