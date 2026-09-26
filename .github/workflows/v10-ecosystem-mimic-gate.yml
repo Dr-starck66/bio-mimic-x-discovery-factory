@@ -4,6 +4,9 @@ on:
   pull_request:
     paths:
       - 'factory/ecosystem_mimic.py'
+      - 'factory/ecosystem_gbif_ingest.py'
+      - 'data/ecosystem_sources.json'
+      - 'tests/test_ecosystem_gbif_ingest.py'
       - 'factory/control_plane.py'
       - 'factory/brick_registry.json'
       - 'tests/test_ecosystem_mimic.py'
@@ -13,6 +16,9 @@ on:
     branches: [main]
     paths:
       - 'factory/ecosystem_mimic.py'
+      - 'factory/ecosystem_gbif_ingest.py'
+      - 'data/ecosystem_sources.json'
+      - 'tests/test_ecosystem_gbif_ingest.py'
       - 'factory/control_plane.py'
       - 'factory/brick_registry.json'
       - 'tests/test_ecosystem_mimic.py'
@@ -44,12 +50,22 @@ jobs:
       - name: Brick audit
         run: python factory/brick_audit.py
 
-      - name: Fail-closed production scaffold
+      - name: Production evidence provenance gate
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
           x=json.loads(Path("data/ecosystem_mimic_observations.json").read_text(encoding="utf-8"))
-          assert x["observations"] == [], "Do not ship synthetic observations as production evidence"
-          print("PASS: production ecology input is empty until real observations are supplied")
+          obs=x.get("observations",[])
+          if not obs:
+              assert x.get("ecosystem_id")=="unconfigured"
+              print("PASS: empty bootstrap scaffold; no synthetic production evidence")
+          else:
+              assert x.get("generated_by")=="factory/ecosystem_gbif_ingest.py"
+              assert x.get("source",{}).get("provider")=="GBIF"
+              assert x.get("measurement_semantics")=="GBIF_OCCURRENCE_RECORD_COUNT_NOT_ABUNDANCE"
+              assert all(o.get("provenance",{}).get("provider")=="GBIF" for o in obs)
+              assert all(len(o.get("provenance",{}).get("record_id_sha256",""))==64 for o in obs)
+              assert all(o.get("measurement_semantics","").endswith("NOT_ABUNDANCE") for o in obs)
+              print(f"PASS: {len(obs)} source-traceable GBIF monthly observations")
           PY
