@@ -1,7 +1,7 @@
-# BIO-MIMIC X V7 Discovery Factory — 2026-09-25T08:59:11.270149+00:00
+# BIO-MIMIC X V7 Discovery Factory — 2026-09-26T08:45:54.217778+00:00
 
 **Status:** PASS
-**Replay SHA-256:** `622fb13f2086c371c67f57e636e64c589a62efa814158140e4aca479053dae50`
+**Replay SHA-256:** `5e49d1215737397aa28a9e3bee300c1bc43824cc34991b02a7d4e3bcc27f6af6`
 
 ## Active programs
 - PRG-4514111357 · Somniosus microcephalus · score 61 · labs longevity
@@ -24,12 +24,13 @@
 - Morpheus Adversarial Engine: PASS · falsifiable_failure_modes_per_program=5.167 · output=morpheus_audits
 - Ω-CAUSAL + Uncertainty Engine: PASS · claims_with_counterfactual_test=6 · output=causal_plans
 - Negative Knowledge Graph: PASS · repeated_dead_ends_prevented=0 · output=negative_filter
-- Human Bridge: PARTIAL · supported_claim_bridge_coverage=0.7778 · output=human_bridge_result
+- Human Bridge: PARTIAL · supported_claim_bridge_coverage=0.8889 · output=human_bridge_result
 - Experiment Designer + Ω-EXPERIMENT: PASS · programs_with_explicit_kill_criteria=6 · output=experiments
 - Ω Scientific Reasoning Engine: PASS · reasoning_dossiers_generated=6 · output=scientific_reasoning
 - Ω Hypothesis Engine: PASS · falsifiable_hypotheses_generated=18 · output=scientific_reasoning
 - Ω Debate / Contradiction Engine: PASS · hypotheses_surviving_adversarial_review=12 · output=scientific_reasoning
 - Ω Experiment Planner: PASS · conceptual_experiment_plans_generated=12 · output=scientific_reasoning
+- ECOSYSTEM-MIMIC / Ecological Self-Organization Engine: PASS · ecosystem_timepoints_analyzed=18 · output=ecosystem_mimic
 - BENCHMARK-X10: PASS · delta_vs_baseline=1.6172 · output=benchmark
 - Ω-FOUNDRY + MAP-Elites/Novelty: PASS · policy_variant_diversity=8 · output=policy_variants
 - Model Immune System / Self-Improvement Gate: PASS · unsafe_policy_changes_blocked=1 · output=policy_gate
