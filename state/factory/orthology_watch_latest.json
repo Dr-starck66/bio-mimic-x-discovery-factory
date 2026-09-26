@@ -3,16 +3,23 @@
   "pending_targets": 1,
   "promotion_ready_targets": 0,
   "schema": "biomimic-orthology-watch-v1",
-  "sha256": "bc2de8e52dcddc88967424ec5c5acac9c2d77bdc833b34d612d4414094d58b80",
+  "sha256": "93c879b358121dd592145178e6a01affec88e7c63c305fba64645cae6a8d6cc4",
   "status": "WATCHING",
   "targets": [
     {
       "bridges": [],
       "candidate_status": [
         {
-          "bridges": 0,
+          "bridges": 1,
           "candidate": "Paracentrotus lividus",
+          "direct_orthology_seed_records_checked": 1,
+          "direct_orthology_strict_bridges": 1,
           "ensembl_species": null,
+          "functional_orthology_context_validated": 0,
+          "functional_orthology_evidence_validated": 0,
+          "functional_orthology_exact_genes": 0,
+          "functional_orthology_seed_records_checked": 0,
+          "functional_orthology_strict_bridges": 0,
           "gene_candidates": 12,
           "ncbi_exact_genes": 0,
           "ncbi_human_orthologs": 0,
@@ -24,7 +31,7 @@
           "orthodb_seed_genes_checked": 1,
           "phylogenetic_seed_records_checked": 0,
           "phylogenetic_strict_bridges": 0,
-          "status": "NO_SUPPORTED_ORTHOLOGY_PROVIDER_MATCH",
+          "status": "BRIDGED",
           "uniprot_annotation_candidates": 10,
           "uniprot_candidates": 10,
           "uniprot_species_gene_candidates": 0,
@@ -47,15 +54,17 @@
       "human_ensembl_id": "ENSG00000165272",
       "human_symbol": "AQP3",
       "promotion_ready": false,
-      "promotion_rule": "Require the existing strict Human Bridge chain to return Paracentrotus lividus AQP3 -> human AQP3 via an accepted orthology provider plus Open Targets validation.",
+      "promotion_rule": "Require exact Paracentrotus lividus sequence identity/provenance plus a paralogue-aware orthology chain to human AQP3 from an accepted provider or an explicit phylogenetic dossier, followed by Open Targets validation. Genome presence, inherited Strongylocentrotus gene_name, BLAST similarity, antibody cross-reactivity, or AQP-family membership alone must fail closed.",
       "provider_status": {
         "Ensembl homology": "PARTIAL",
-        "Ensembl species": "FAIL: HTTP Error 500: Internal Server Error",
+        "Ensembl species": "PASS",
         "Europe PMC annotations": "PASS",
         "NCBI Ortholog": "PARTIAL",
         "OMA orthology": "PARTIAL",
-        "Open Targets": "PARTIAL",
+        "Open Targets": "PASS",
         "OrthoDB v12": "PARTIAL",
+        "Peer-reviewed direct orthology": "PASS",
+        "Peer-reviewed functional orthology": "PARTIAL",
         "Peer-reviewed phylogenetic orthology": "PARTIAL"
       },
       "species": "Paracentrotus lividus",
@@ -64,5 +73,5 @@
       "strict_providers": []
     }
   ],
-  "time": "2026-09-25T09:33:16.614772+00:00"
+  "time": "2026-09-26T09:18:03.087062+00:00"
 }
