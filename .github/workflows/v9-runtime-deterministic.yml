@@ -53,7 +53,7 @@ jobs:
           reasoning=cycle.get("scientific_reasoning",[])
 
           assert used==active, {"missing":sorted(active-used),"unexpected":sorted(used-active)}
-          assert len(active)==25
+          assert len(active)==26
           assert reasoning
           assert len(reasoning)==len(cycle["experiments"])
           assert all(d["hypotheses"] for d in reasoning)
