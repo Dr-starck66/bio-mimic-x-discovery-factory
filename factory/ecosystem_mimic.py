@@ -83,6 +83,7 @@ def _pearson(xs, ys):
 
 def _normalize_observations(document):
     normalized, rejected = [], []
+    default_semantics = str(document.get("measurement_semantics") or "UNSPECIFIED_POSITIVE_COUNT")
     for index, raw in enumerate(document.get("observations", [])):
         if not isinstance(raw, dict):
             rejected.append({"index": index, "reason": "observation_not_object"})
@@ -99,6 +100,8 @@ def _normalize_observations(document):
                 "taxa": taxa,
                 "environment": raw.get("environment", {}) if isinstance(raw.get("environment", {}), dict) else {},
                 "perturbation": raw.get("perturbation"),
+                "measurement_semantics": str(raw.get("measurement_semantics") or default_semantics),
+                "provenance": raw.get("provenance", {}) if isinstance(raw.get("provenance", {}), dict) else {},
             }
         )
     normalized.sort(key=lambda x: (x["_time"] is None, x["_time"] or datetime.max, x["_index"]))
@@ -158,8 +161,8 @@ def _perturbation_responses(observations, totals, baseline_window=3, recovery_to
         record = {
             "time": obs["time"],
             "perturbation": obs["perturbation"],
-            "baseline_total_abundance": round(baseline, 6),
-            "event_total_abundance": round(totals[i], 6),
+            "baseline_total_measurement": round(baseline, 6),
+            "event_total_measurement": round(totals[i], 6),
             "resistance_complement": round(resistance, 6),
             "recovery_tolerance_fraction": recovery_tolerance,
             "metric_semantics": "Descriptive complement-of-deviation metric; not a probability.",
@@ -188,8 +191,9 @@ def _perturbation_responses(observations, totals, baseline_window=3, recovery_to
     return out
 
 
-def _hypotheses(points, network, perturbations):
+def _hypotheses(points, network, perturbations, measurement_semantics="UNSPECIFIED_POSITIVE_COUNT"):
     hypotheses = []
+    occurrence_counts = "NOT_ABUNDANCE" in measurement_semantics
     mean_turnover = mean([p["turnover_from_previous"] for p in points[1:]]) if len(points) > 1 else 0.0
     richness_change = points[-1]["richness"] - points[0]["richness"] if len(points) > 1 else 0
     if len(points) >= 3 and mean_turnover >= 0.20 and richness_change != 0:
@@ -197,9 +201,17 @@ def _hypotheses(points, network, perturbations):
             {
                 "id": "ECO-H1-SUCCESSION",
                 "status": "HYPOTHESIS",
-                "statement": "Community composition is undergoing directional succession rather than remaining compositionally static.",
-                "prediction": "Additional observations should preserve a directional richness/composition trend beyond short-term sampling noise.",
-                "falsifier": "The apparent trend disappears with denser sampling or reverses without an identified disturbance.",
+                "statement": (
+                    "Observed occurrence-record composition shows directional change that may reflect ecological succession or changing observation effort."
+                    if occurrence_counts
+                    else "Community composition is undergoing directional succession rather than remaining compositionally static."
+                ),
+                "prediction": (
+                    "The directional pattern should persist after controlling for observation effort, seasonality, and dataset composition."
+                    if occurrence_counts
+                    else "Additional observations should preserve a directional richness/composition trend beyond short-term sampling noise."
+                ),
+                "falsifier": "The apparent trend disappears with denser sampling, effort controls, or an independent time window.",
             }
         )
     recovered = [p for p in perturbations if p.get("status") == "RECOVERED_WITHIN_TOLERANCE"]
@@ -218,7 +230,11 @@ def _hypotheses(points, network, perturbations):
             {
                 "id": "ECO-H3-COFLUCTUATION",
                 "status": "HYPOTHESIS",
-                "statement": "Some taxa share repeatable temporal covariance that may reflect shared drivers or ecological coupling.",
+                "statement": (
+                    "Some taxa share temporal covariance in occurrence records; shared observer effort, shared environmental drivers, and ecological coupling are competing explanations."
+                    if occurrence_counts
+                    else "Some taxa share repeatable temporal covariance that may reflect shared drivers or ecological coupling."
+                ),
                 "prediction": "Covariance should persist after controlling for measured environmental drivers and sampling effort.",
                 "falsifier": "Associations vanish after environmental/sampling controls or fail in an independent time window.",
             }
@@ -231,6 +247,7 @@ def analyze_ecosystem(document):
         raise TypeError("document must be a dict")
     observations, rejected = _normalize_observations(document)
     ecosystem_id = str(document.get("ecosystem_id") or "unidentified")
+    measurement_semantics = str(document.get("measurement_semantics") or "UNSPECIFIED_POSITIVE_COUNT")
     points, totals = [], []
     previous = None
     for obs in observations:
@@ -247,7 +264,8 @@ def analyze_ecosystem(document):
             {
                 "time": obs["time"],
                 "richness": len(taxa),
-                "total_abundance": round(total, 6),
+                "total_measurement": round(total, 6),
+                "measurement_semantics": obs.get("measurement_semantics", measurement_semantics),
                 "shannon_diversity": round(shannon_diversity(taxa), 6),
                 "pielou_evenness": round(pielou_evenness(taxa), 6),
                 "colonizations": colonizations,
@@ -270,7 +288,7 @@ def analyze_ecosystem(document):
         "latest_richness": points[-1]["richness"] if points else 0,
         "richness_trend_per_observation": None if len(points) < 2 else round(_slope([p["richness"] for p in points]), 6),
         "mean_bray_curtis_turnover": None if not valid_turnovers else round(mean(valid_turnovers), 6),
-        "temporal_stability_inverse_cv_total_abundance": None if temporal_stability is None else round(temporal_stability, 6),
+        "temporal_stability_inverse_cv_total_measurement": None if temporal_stability is None else round(temporal_stability, 6),
         "colonization_events": sum(len(p["colonizations"]) for p in points),
         "local_loss_events": sum(len(p["local_losses"]) for p in points),
     }
@@ -279,13 +297,17 @@ def analyze_ecosystem(document):
         "ecosystem_id": ecosystem_id,
         "status": "ANALYZED" if len(observations) >= 2 else "INSUFFICIENT_DATA",
         "epistemic_status": "OBSERVATIONAL_ANALYSIS",
+        "measurement_semantics": measurement_semantics,
+        "source": document.get("source"),
+        "study_area": document.get("study_area"),
+        "sampling_bias_note": document.get("sampling_bias_note"),
         "observation_count": len(observations),
         "rejected_observations": rejected,
         "metrics": metrics,
         "time_series": points,
         "cofluctuation_network": network,
         "perturbation_responses": perturbations,
-        "hypotheses": _hypotheses(points, network, perturbations),
+        "hypotheses": _hypotheses(points, network, perturbations, measurement_semantics),
         "causal_inference": False,
         "interaction_inference": False,
         "claims_established_truth": False,
@@ -293,8 +315,14 @@ def analyze_ecosystem(document):
             "Observational time series cannot by itself establish causality.",
             "Cofluctuation edges are not species-interaction claims.",
             "Recovery metrics depend on sampling frequency, baseline choice, and perturbation labeling.",
-            "Species richness and abundance metrics are sensitive to observation effort and detectability.",
-        ],
+            "Species richness and count-based metrics are sensitive to observation effort and detectability.",
+        ] + (
+            [
+                "GBIF occurrence-record counts are not organism abundance, density, occupancy, or standardized sampling effort.",
+                "Changes in record counts can be caused by observer effort, platform/dataset coverage, seasonality, or reporting behavior."
+            ]
+            if "NOT_ABUNDANCE" in measurement_semantics else []
+        ),
     }
     result["sha256"] = hashlib.sha256(
         json.dumps(result, sort_keys=True, ensure_ascii=False, separators=(",", ":")).encode()
