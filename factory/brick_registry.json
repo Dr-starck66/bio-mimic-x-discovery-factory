@@ -398,12 +398,12 @@
       "id": "ecosystem-mimic",
       "name": "ECOSYSTEM-MIMIC / Ecological Self-Organization Engine",
       "stage": "REASON",
-      "purpose": "Analyse des séries temporelles écologiques pour quantifier succession, diversité, stabilité, cofluctuations et récupération après perturbation sans transformer corrélation en causalité.",
+      "purpose": "Analyse des séries temporelles écologiques traçables pour quantifier diversité, turnover, stabilité, cofluctuations et récupération sans confondre comptage d'observations, abondance, interaction ou causalité.",
       "entrypoint": "factory/ecosystem_mimic.py::analyze_ecosystem",
       "inputs": [
-        "ecosystem observation time series",
-        "taxon abundance observations",
-        "labeled perturbations"
+        "source-traceable ecosystem observation time series",
+        "taxon measurement counts with explicit semantics",
+        "labeled perturbations when independently observed"
       ],
       "outputs": [
         "succession metrics",
