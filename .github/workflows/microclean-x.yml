@@ -1,0 +1,60 @@
+name: MICROCLEAN-X Evidence Gate
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'factory/microclean_x.py'
+      - 'factory/microclean_x_candidates.json'
+      - 'tests/test_microclean_x.py'
+      - 'docs/MICROCLEAN-X.md'
+      - '.github/workflows/microclean-x.yml'
+  schedule:
+    - cron: '41 5 * * 1'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: microclean-x-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  evidence-gate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Anti-false-PASS tests
+        run: python -m unittest tests.test_microclean_x -v
+      - name: Build MICROCLEAN-X evidence report
+        run: python factory/microclean_x.py
+      - name: Verify generated evidence gate
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path("reports/microclean-x/latest.json")
+          assert p.exists()
+          x=json.loads(p.read_text(encoding="utf-8"))
+          assert x["status"]=="PASS"
+          assert x["evidence_policy"]["fail_closed"] is True
+          assert x["promoted_candidates"]==[], "unexpected candidate promotion"
+          assert len(x["sha256"])==64
+          print("PASS: MICROCLEAN-X produced a fail-closed evidence report")
+          PY
+      - name: Persist generated report
+        run: |
+          git config user.name "BIO-MIMIC-X-MICROCLEAN"
+          git config user.email "biomimic-x-microclean@users.noreply.github.com"
+          git add reports/microclean-x public/data/microclean-x
+          if git diff --cached --quiet; then
+            echo "No report change."
+          else
+            git commit -m "microclean-x: refresh evidence gate"
+            git push
+          fi
