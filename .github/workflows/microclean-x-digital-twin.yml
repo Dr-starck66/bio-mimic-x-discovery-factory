@@ -1,0 +1,77 @@
+name: MICROCLEAN-X Digital Twin
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '51 5 * * *'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'factory/microclean_x_digital_twin.py'
+      - 'factory/microclean_x_digital_twin_assumptions.json'
+      - 'factory/microclean_x_composites.json'
+      - 'tests/test_microclean_x_digital_twin.py'
+      - 'docs/MICROCLEAN-X-DIGITAL-TWIN.md'
+      - '.github/workflows/microclean-x-digital-twin.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'factory/microclean_x_digital_twin.py'
+      - 'factory/microclean_x_digital_twin_assumptions.json'
+      - 'factory/microclean_x_composites.json'
+      - 'tests/test_microclean_x_digital_twin.py'
+      - 'docs/MICROCLEAN-X-DIGITAL-TWIN.md'
+      - '.github/workflows/microclean-x-digital-twin.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: microclean-x-digital-twin-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  digital-twin:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Anti-false-PASS tests
+        run: python -m unittest tests.test_microclean_x_digital_twin -v
+      - name: Simulate 25,000 virtual variants
+        run: python factory/microclean_x_digital_twin.py --variants-per-architecture 5000
+      - name: Verify simulation integrity
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path("reports/microclean-x/digital_twin_latest.json")
+          assert p.exists()
+          x=json.loads(p.read_text(encoding="utf-8"))
+          assert x["status"]=="PASS"
+          assert x["simulation_only"] is True
+          assert x["total_variants_simulated"]==25000
+          assert x["safe_or_field_ready_promotions"]==[]
+          assert x["claims"]["physical_validation"] is False
+          assert x["claims"]["measured_new_data"] is False
+          assert len(x["global_shortlist"])==5
+          assert all(v["status"]=="SIMULATION_ONLY" for v in x["global_shortlist"])
+          assert all(c["pass"] for c in x["baseline_calibration"])
+          assert len(x["sha256"])==64
+          print("PASS: 25,000 variants simulated; no empirical or safety claims fabricated")
+          PY
+      - name: Persist Digital Twin report
+        if: github.event_name != 'pull_request'
+        run: |
+          git config user.name "BIO-MIMIC-X-DIGITAL-TWIN"
+          git config user.email "biomimic-x-digital-twin@users.noreply.github.com"
+          git add reports/microclean-x public/data/microclean-x state/microclean-x
+          if git diff --cached --quiet; then
+            echo "No digital-twin state change."
+          else
+            git commit -m "microclean-x: refresh digital twin"
+            git push
+          fi
