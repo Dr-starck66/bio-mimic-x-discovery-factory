@@ -111,6 +111,27 @@
       "reasoning_sha256": "ec6f1ce7631003a9b39a3013d00772dd6879c90b0cd7b15fbbdb5a9df8910632",
       "subject": "Cynops pyrrhogaster",
       "time": "2026-09-27T09:25:51.052777+00:00"
+    },
+    {
+      "event": "REASONING_DOSSIER_UPDATED",
+      "program_id": "PRG-5fdcf74e81",
+      "reasoning_sha256": "75b12e723a63efe488c89fc306013c9187c05a9a6d20cb48b621f9a1e90ca49d",
+      "subject": "Danio rerio",
+      "time": "2026-09-28T09:58:57.966310+00:00"
+    },
+    {
+      "event": "REASONING_DOSSIER_UPDATED",
+      "program_id": "PRG-70175ca5b4",
+      "reasoning_sha256": "20020641c7aefa5ab15bbb361d96ae321c5a1d1e3e5381ce38060b1ad0341f13",
+      "subject": "Drosophila melanogaster",
+      "time": "2026-09-28T09:58:57.966310+00:00"
+    },
+    {
+      "event": "REASONING_DOSSIER_UPDATED",
+      "program_id": "PRG-28a10135e4",
+      "reasoning_sha256": "840814f9d51383a56d2192893d5851f5b4cc27fe0a16feea854d933f63d4f26b",
+      "subject": "Paracentrotus lividus",
+      "time": "2026-09-28T09:58:57.966310+00:00"
     }
   ],
   "hypotheses": {
@@ -154,7 +175,21 @@
       "statement": "In Somniosus microcephalus, DNA repair is a downstream marker or correlate rather than a causal driver.",
       "status": "HYPOTHESIS",
       "subject": "Somniosus microcephalus",
-      "updated_at": "2026-09-27T09:25:51.052777+00:00"
+      "updated_at": "2026-09-28T09:58:57.966310+00:00"
+    },
+    "HYP-34b5b85952ae": {
+      "clinical_efficacy_claim": false,
+      "kind": "PRIMARY_CAUSAL",
+      "program_id": "PRG-28a10135e4",
+      "source_pmids": [
+        "PMID:38622199",
+        "PMID:42208364",
+        "PMID:42738576"
+      ],
+      "statement": "In Paracentrotus lividus, NIH- contributes causally to the reported phenotype rather than merely correlating with it.",
+      "status": "HYPOTHESIS",
+      "subject": "Paracentrotus lividus",
+      "updated_at": "2026-09-28T09:58:57.966310+00:00"
     },
     "HYP-3750a79bb034": {
       "clinical_efficacy_claim": false,
@@ -224,7 +259,35 @@
       "statement": "In Cynops pyrrhogaster, fibrosis contributes causally to the reported phenotype rather than merely correlating with it.",
       "status": "HYPOTHESIS",
       "subject": "Cynops pyrrhogaster",
-      "updated_at": "2026-09-27T09:25:51.052777+00:00"
+      "updated_at": "2026-09-28T09:58:57.966310+00:00"
+    },
+    "HYP-51ddf74e5b5c": {
+      "clinical_efficacy_claim": false,
+      "kind": "PRIMARY_CAUSAL",
+      "program_id": "PRG-5fdcf74e81",
+      "source_pmids": [
+        "PMID:42690612",
+        "PMID:42755729",
+        "PMID:42797691"
+      ],
+      "statement": "In Danio rerio, Wnt contributes causally to the reported phenotype rather than merely correlating with it.",
+      "status": "HYPOTHESIS",
+      "subject": "Danio rerio",
+      "updated_at": "2026-09-28T09:58:57.966310+00:00"
+    },
+    "HYP-5800546b6cc1": {
+      "clinical_efficacy_claim": false,
+      "kind": "MARKER_ONLY_ALTERNATIVE",
+      "program_id": "PRG-70175ca5b4",
+      "source_pmids": [
+        "PMID:42208364",
+        "PMID:42686794",
+        "PMID:42782463"
+      ],
+      "statement": "In Drosophila melanogaster, NIH- is a downstream marker or correlate rather than a causal driver.",
+      "status": "HYPOTHESIS",
+      "subject": "Drosophila melanogaster",
+      "updated_at": "2026-09-28T09:58:57.966310+00:00"
     },
     "HYP-5ea31822d209": {
       "clinical_efficacy_claim": false,
@@ -324,6 +387,62 @@
       "subject": "Danio rerio",
       "updated_at": "2026-09-27T09:25:51.052777+00:00"
     },
+    "HYP-941996f585fa": {
+      "clinical_efficacy_claim": false,
+      "kind": "CONTEXT_DEPENDENT_ALTERNATIVE",
+      "program_id": "PRG-28a10135e4",
+      "source_pmids": [
+        "PMID:38622199",
+        "PMID:42208364",
+        "PMID:42738576"
+      ],
+      "statement": "In Paracentrotus lividus, the effect associated with NIH- depends on biological context or interacting pathways.",
+      "status": "HYPOTHESIS",
+      "subject": "Paracentrotus lividus",
+      "updated_at": "2026-09-28T09:58:57.966310+00:00"
+    },
+    "HYP-94e2bd0b7d46": {
+      "clinical_efficacy_claim": false,
+      "kind": "CONTEXT_DEPENDENT_ALTERNATIVE",
+      "program_id": "PRG-5fdcf74e81",
+      "source_pmids": [
+        "PMID:42690612",
+        "PMID:42755729",
+        "PMID:42797691"
+      ],
+      "statement": "In Danio rerio, the effect associated with Wnt depends on biological context or interacting pathways.",
+      "status": "HYPOTHESIS",
+      "subject": "Danio rerio",
+      "updated_at": "2026-09-28T09:58:57.966310+00:00"
+    },
+    "HYP-96f51a802fb6": {
+      "clinical_efficacy_claim": false,
+      "kind": "PRIMARY_CAUSAL",
+      "program_id": "PRG-70175ca5b4",
+      "source_pmids": [
+        "PMID:42208364",
+        "PMID:42686794",
+        "PMID:42782463"
+      ],
+      "statement": "In Drosophila melanogaster, NIH- contributes causally to the reported phenotype rather than merely correlating with it.",
+      "status": "HYPOTHESIS",
+      "subject": "Drosophila melanogaster",
+      "updated_at": "2026-09-28T09:58:57.966310+00:00"
+    },
+    "HYP-9a262f365297": {
+      "clinical_efficacy_claim": false,
+      "kind": "CONTEXT_DEPENDENT_ALTERNATIVE",
+      "program_id": "PRG-70175ca5b4",
+      "source_pmids": [
+        "PMID:42208364",
+        "PMID:42686794",
+        "PMID:42782463"
+      ],
+      "statement": "In Drosophila melanogaster, the effect associated with NIH- depends on biological context or interacting pathways.",
+      "status": "HYPOTHESIS",
+      "subject": "Drosophila melanogaster",
+      "updated_at": "2026-09-28T09:58:57.966310+00:00"
+    },
     "HYP-a69c3afc3bfe": {
       "clinical_efficacy_claim": false,
       "kind": "PRIMARY_CAUSAL",
@@ -336,7 +455,7 @@
       "statement": "In Somniosus microcephalus, DNA repair contributes causally to the reported phenotype rather than merely correlating with it.",
       "status": "HYPOTHESIS",
       "subject": "Somniosus microcephalus",
-      "updated_at": "2026-09-27T09:25:51.052777+00:00"
+      "updated_at": "2026-09-28T09:58:57.966310+00:00"
     },
     "HYP-ba329885d20c": {
       "clinical_efficacy_claim": false,
@@ -364,7 +483,7 @@
       "statement": "In Eublepharis macularius, immune contributes causally to the reported phenotype rather than merely correlating with it.",
       "status": "HYPOTHESIS",
       "subject": "Eublepharis macularius",
-      "updated_at": "2026-09-27T09:25:51.052777+00:00"
+      "updated_at": "2026-09-28T09:58:57.966310+00:00"
     },
     "HYP-beae69173d53": {
       "clinical_efficacy_claim": false,
@@ -378,7 +497,7 @@
       "statement": "In Somniosus microcephalus, the effect associated with DNA repair depends on biological context or interacting pathways.",
       "status": "HYPOTHESIS",
       "subject": "Somniosus microcephalus",
-      "updated_at": "2026-09-27T09:25:51.052777+00:00"
+      "updated_at": "2026-09-28T09:58:57.966310+00:00"
     },
     "HYP-c42f51c8d06e": {
       "clinical_efficacy_claim": false,
@@ -392,7 +511,21 @@
       "statement": "In Cynops pyrrhogaster, the effect associated with fibrosis depends on biological context or interacting pathways.",
       "status": "HYPOTHESIS",
       "subject": "Cynops pyrrhogaster",
-      "updated_at": "2026-09-27T09:25:51.052777+00:00"
+      "updated_at": "2026-09-28T09:58:57.966310+00:00"
+    },
+    "HYP-c7157bfe54b9": {
+      "clinical_efficacy_claim": false,
+      "kind": "MARKER_ONLY_ALTERNATIVE",
+      "program_id": "PRG-5fdcf74e81",
+      "source_pmids": [
+        "PMID:42690612",
+        "PMID:42755729",
+        "PMID:42797691"
+      ],
+      "statement": "In Danio rerio, Wnt is a downstream marker or correlate rather than a causal driver.",
+      "status": "HYPOTHESIS",
+      "subject": "Danio rerio",
+      "updated_at": "2026-09-28T09:58:57.966310+00:00"
     },
     "HYP-d37198a34f9b": {
       "clinical_efficacy_claim": false,
@@ -408,6 +541,20 @@
       "subject": "Drosophila melanogaster",
       "updated_at": "2026-09-27T09:25:51.052777+00:00"
     },
+    "HYP-e0e8f6f5a1b5": {
+      "clinical_efficacy_claim": false,
+      "kind": "MARKER_ONLY_ALTERNATIVE",
+      "program_id": "PRG-28a10135e4",
+      "source_pmids": [
+        "PMID:38622199",
+        "PMID:42208364",
+        "PMID:42738576"
+      ],
+      "statement": "In Paracentrotus lividus, NIH- is a downstream marker or correlate rather than a causal driver.",
+      "status": "HYPOTHESIS",
+      "subject": "Paracentrotus lividus",
+      "updated_at": "2026-09-28T09:58:57.966310+00:00"
+    },
     "HYP-eb10cff9de04": {
       "clinical_efficacy_claim": false,
       "kind": "MARKER_ONLY_ALTERNATIVE",
@@ -420,7 +567,7 @@
       "statement": "In Cynops pyrrhogaster, fibrosis is a downstream marker or correlate rather than a causal driver.",
       "status": "HYPOTHESIS",
       "subject": "Cynops pyrrhogaster",
-      "updated_at": "2026-09-27T09:25:51.052777+00:00"
+      "updated_at": "2026-09-28T09:58:57.966310+00:00"
     },
     "HYP-ec295aaca7bb": {
       "clinical_efficacy_claim": false,
@@ -434,7 +581,7 @@
       "statement": "In Eublepharis macularius, immune is a downstream marker or correlate rather than a causal driver.",
       "status": "HYPOTHESIS",
       "subject": "Eublepharis macularius",
-      "updated_at": "2026-09-27T09:25:51.052777+00:00"
+      "updated_at": "2026-09-28T09:58:57.966310+00:00"
     },
     "HYP-fc8a0c1bdddc": {
       "clinical_efficacy_claim": false,
@@ -448,7 +595,7 @@
       "statement": "In Eublepharis macularius, the effect associated with immune depends on biological context or interacting pathways.",
       "status": "HYPOTHESIS",
       "subject": "Eublepharis macularius",
-      "updated_at": "2026-09-27T09:25:51.052777+00:00"
+      "updated_at": "2026-09-28T09:58:57.966310+00:00"
     }
   },
   "programs": {
@@ -456,31 +603,37 @@
       "latest_reasoning_sha256": "ec6f1ce7631003a9b39a3013d00772dd6879c90b0cd7b15fbbdb5a9df8910632",
       "latest_status": "PROPOSED_AND_FALSIFIABLE",
       "subject": "Cynops pyrrhogaster",
-      "updated_at": "2026-09-27T09:25:51.052777+00:00"
+      "updated_at": "2026-09-28T09:58:57.966310+00:00"
+    },
+    "PRG-28a10135e4": {
+      "latest_reasoning_sha256": "840814f9d51383a56d2192893d5851f5b4cc27fe0a16feea854d933f63d4f26b",
+      "latest_status": "PROPOSED_AND_FALSIFIABLE",
+      "subject": "Paracentrotus lividus",
+      "updated_at": "2026-09-28T09:58:57.966310+00:00"
     },
     "PRG-4514111357": {
       "latest_reasoning_sha256": "a60e7cc2aa3118a559fcf2845af2a5cc8a4d34548480b8c7359786ce417b7447",
       "latest_status": "PROPOSED_AND_FALSIFIABLE",
       "subject": "Somniosus microcephalus",
-      "updated_at": "2026-09-27T09:25:51.052777+00:00"
+      "updated_at": "2026-09-28T09:58:57.966310+00:00"
     },
     "PRG-5fdcf74e81": {
-      "latest_reasoning_sha256": "140835e128578d0d7b539df96fceb0c30ad525a5ee817fbaa1a4fe17de7ab87c",
+      "latest_reasoning_sha256": "75b12e723a63efe488c89fc306013c9187c05a9a6d20cb48b621f9a1e90ca49d",
       "latest_status": "PROPOSED_AND_FALSIFIABLE",
       "subject": "Danio rerio",
-      "updated_at": "2026-09-27T09:25:51.052777+00:00"
+      "updated_at": "2026-09-28T09:58:57.966310+00:00"
     },
     "PRG-70175ca5b4": {
-      "latest_reasoning_sha256": "72f6a464a350872ad4701f37440ef126f40358660eac968dfea627973799c1f4",
+      "latest_reasoning_sha256": "20020641c7aefa5ab15bbb361d96ae321c5a1d1e3e5381ce38060b1ad0341f13",
       "latest_status": "PROPOSED_AND_FALSIFIABLE",
       "subject": "Drosophila melanogaster",
-      "updated_at": "2026-09-27T09:25:51.052777+00:00"
+      "updated_at": "2026-09-28T09:58:57.966310+00:00"
     },
     "PRG-7cd7bdba92": {
       "latest_reasoning_sha256": "99b1237882491077254c9c4a8807b7f311fafb0b0a79282d1f7e22c3445e3a90",
       "latest_status": "PROPOSED_AND_FALSIFIABLE",
       "subject": "Eublepharis macularius",
-      "updated_at": "2026-09-27T09:25:51.052777+00:00"
+      "updated_at": "2026-09-28T09:58:57.966310+00:00"
     },
     "PRG-c73037fcfb": {
       "latest_reasoning_sha256": "27835040877b739511ed26b56af2ba1092a1047bba99976cceba3973b1464db5",
@@ -490,5 +643,5 @@
     }
   },
   "schema": "biomimic-scientific-memory-v1",
-  "updated_at": "2026-09-27T09:25:51.052777+00:00"
+  "updated_at": "2026-09-28T09:58:57.966310+00:00"
 }

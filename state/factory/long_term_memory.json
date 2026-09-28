@@ -160,15 +160,15 @@
         "regeneration"
       ],
       "pmid_sources": [
-        "PMID:42370366",
         "PMID:42690612",
-        "PMID:42755729"
+        "PMID:42755729",
+        "PMID:42797691"
       ],
       "source_count": 3,
       "sources": [
-        "PMID:42370366",
         "PMID:42690612",
-        "PMID:42755729"
+        "PMID:42755729",
+        "PMID:42797691"
       ],
       "status": "SUPPORTED",
       "subject": "Danio rerio",
@@ -198,14 +198,14 @@
       "mechanisms": [],
       "pmid_sources": [
         "PMID:42208364",
-        "PMID:42217062",
-        "PMID:42686794"
+        "PMID:42686794",
+        "PMID:42782463"
       ],
       "source_count": 3,
       "sources": [
         "PMID:42208364",
-        "PMID:42217062",
-        "PMID:42686794"
+        "PMID:42686794",
+        "PMID:42782463"
       ],
       "status": "SUPPORTED",
       "subject": "Drosophila melanogaster",
@@ -1510,7 +1510,7 @@
       "subject": "Wound healing"
     }
   },
-  "cycles": 11,
+  "cycles": 12,
   "experiments": {
     "PRG-14a8494d89": {
       "counterfactual_tests": [
@@ -1577,6 +1577,36 @@
         "test human-relevant model only after conservation check"
       ],
       "subject": "Cynops pyrrhogaster"
+    },
+    "PRG-28a10135e4": {
+      "counterfactual_tests": [
+        "compare a close species lacking the phenotype",
+        "perturb candidate mechanism and perform rescue",
+        "test same mechanism in an evolutionarily distant species with similar phenotype",
+        "test human orthologue/pathway in disease-relevant human cells"
+      ],
+      "hypothesis": "A mechanism associated with Paracentrotus lividus may causally contribute to the target phenotype.",
+      "kill_criteria": [
+        "no reproducible phenotype",
+        "no conserved mechanism",
+        "human perturbation does not reproduce direction of effect",
+        "unacceptable toxicity or contradictory evidence"
+      ],
+      "program_id": "PRG-28a10135e4",
+      "sha256": "7062f333dee6004c42a6bb701f8d0ff9356bf25dcd5dc29f711e633fead0750e",
+      "sources": [
+        "PMID:38622199",
+        "PMID:42208364",
+        "PMID:42738576"
+      ],
+      "steps": [
+        "replicate phenotype under controlled conditions",
+        "perturb candidate mechanism",
+        "perform rescue experiment",
+        "test evolutionarily close negative control",
+        "test human-relevant model only after conservation check"
+      ],
+      "subject": "Paracentrotus lividus"
     },
     "PRG-4514111357": {
       "counterfactual_tests": [
@@ -1697,11 +1727,11 @@
         "unacceptable toxicity or contradictory evidence"
       ],
       "program_id": "PRG-5fdcf74e81",
-      "sha256": "cf0f1035b6ea7cbcded219296f95b895a9c30584c074b40d3237fbe5b9a52ded",
+      "sha256": "df76c1808b12777c20af63b41118c51c484e0539d0a24ddd77b57491b95e533e",
       "sources": [
-        "PMID:42370366",
         "PMID:42690612",
-        "PMID:42755729"
+        "PMID:42755729",
+        "PMID:42797691"
       ],
       "steps": [
         "replicate phenotype under controlled conditions",
@@ -1755,11 +1785,11 @@
         "unacceptable toxicity or contradictory evidence"
       ],
       "program_id": "PRG-70175ca5b4",
-      "sha256": "8965d7b35f7e0cf3bad8d25618a4864af08db2de6098801568d7dfbf97999e4d",
+      "sha256": "38d65243c2620fe4bfcd8f3b41314c01d4b42e32b611f02c233d5fd3f134c365",
       "sources": [
         "PMID:42208364",
-        "PMID:42217062",
-        "PMID:42686794"
+        "PMID:42686794",
+        "PMID:42782463"
       ],
       "steps": [
         "replicate phenotype under controlled conditions",
@@ -2234,6 +2264,18 @@
         "PRG-70175ca5b4"
       ],
       "time": "2026-09-27T09:25:50.945078+00:00"
+    },
+    {
+      "cycle_sha256": "ebb6984e38e365a5117f4a197c4db3937b258597704d694be9edf56beae14170",
+      "programs": [
+        "PRG-4514111357",
+        "PRG-5fdcf74e81",
+        "PRG-14c747bea5",
+        "PRG-70175ca5b4",
+        "PRG-28a10135e4",
+        "PRG-7cd7bdba92"
+      ],
+      "time": "2026-09-28T09:58:57.860400+00:00"
     }
   ]
 }
