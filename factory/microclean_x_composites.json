@@ -1,0 +1,165 @@
+{
+  "campaign_id": "MICROCLEAN-X",
+  "phase": 3,
+  "name": "Composite Hunter",
+  "policy": {
+    "score_semantics": "research-priority heuristic only; not a safety, efficacy, or field-readiness score",
+    "fail_closed": true,
+    "requires_direct_microplastic_or_nanoplastic_evidence": true,
+    "requires_doi_or_pmid": true,
+    "never_auto_declares_safe": true
+  },
+  "candidates": [
+    {
+      "id": "fe3o4_pda",
+      "architecture": "Fe3O4@PDA",
+      "display_name": "Polydopamine-coated magnetite",
+      "target": "polystyrene microplastics in water",
+      "direct_evidence": true,
+      "doi": "10.1016/j.molstruc.2026.145829",
+      "pmid": null,
+      "year": 2026,
+      "metrics": {
+        "max_removal_pct": 90.0,
+        "metric_qualifier": ">90% removal maintained across five capture-release cycles",
+        "reuse_cycles": 5,
+        "retained_removal_pct_after_reuse": 90.0,
+        "real_matrix_tested": false,
+        "magnetic_recovery": true,
+        "magnetization_emu_g": 53.5
+      },
+      "advantages": [
+        "direct microplastic evidence",
+        "magnetic recovery",
+        "five-cycle reuse evidence",
+        "pH-responsive release enables regeneration"
+      ],
+      "risks": [
+        "evidence centered on polystyrene rather than broad mixed-plastic matrices",
+        "field and ecotoxicity validation remain open",
+        "regeneration relies on strong pH changes"
+      ]
+    },
+    {
+      "id": "chitosan_fe3o4_tio2_microalgae",
+      "architecture": "Fe3O4/TiO2@chitosan-microalgae",
+      "display_name": "Chitosan-based magnetic microalgae hybrid microrobot",
+      "target": "polystyrene nanoplastics in water",
+      "direct_evidence": true,
+      "doi": "10.1016/j.ijbiomac.2026.151593",
+      "pmid": "41905696",
+      "year": 2026,
+      "metrics": {
+        "max_removal_pct": 99.0,
+        "metric_qualifier": "98-99% under reported optimal concentration range",
+        "reuse_cycles": 5,
+        "retained_removal_pct_after_reuse": 70.0,
+        "real_matrix_tested": false,
+        "magnetic_recovery": true,
+        "magnetization_emu_g": null
+      },
+      "advantages": [
+        "highest reported removal in this seed set",
+        "magnetically recoverable",
+        "biopolymer and microalgae components",
+        "five-cycle reuse data"
+      ],
+      "risks": [
+        "evidence is for nanoplastics, not the full microplastic size range",
+        "performance falls after repeated reuse",
+        "complex multi-component fabrication",
+        "TiO2 and nanoparticle fate require ecotoxicity and release assessment"
+      ]
+    },
+    {
+      "id": "fe3o4_mil101cr",
+      "architecture": "Fe3O4/MIL-101(Cr)",
+      "display_name": "Magnetic chromium MOF composite",
+      "target": "microplastics in aqueous matrices",
+      "direct_evidence": true,
+      "doi": "10.1016/j.jenvman.2026.129935",
+      "pmid": null,
+      "year": 2026,
+      "metrics": {
+        "max_removal_pct": 80.0,
+        "metric_qualifier": ">80% removal after five cycles; reported adsorption capacity 794-10285 mg/g",
+        "reuse_cycles": 5,
+        "retained_removal_pct_after_reuse": 80.0,
+        "real_matrix_tested": true,
+        "magnetic_recovery": true,
+        "magnetization_emu_g": null
+      },
+      "advantages": [
+        "high reported adsorption capacity",
+        "magnetic separability",
+        "five-cycle reuse",
+        "tested across pH 3-8 and complex water matrices"
+      ],
+      "risks": [
+        "contains chromium-bearing MOF and therefore requires metal-leaching assessment",
+        "fabrication complexity and cost may be material",
+        "ecotoxicity and end-of-life handling remain open"
+      ]
+    },
+    {
+      "id": "stearic_magnetic_biochar",
+      "architecture": "stearic-acid modified magnetic biochar",
+      "display_name": "Hydrophobically modified magnetic biochar",
+      "target": "microplastics in water",
+      "direct_evidence": true,
+      "doi": "10.1016/j.jiec.2026.02.036",
+      "pmid": null,
+      "year": 2026,
+      "metrics": {
+        "max_removal_pct": 94.0,
+        "metric_qualifier": "~94% reported removal efficiency",
+        "reuse_cycles": null,
+        "retained_removal_pct_after_reuse": null,
+        "real_matrix_tested": false,
+        "magnetic_recovery": true,
+        "magnetization_emu_g": null
+      },
+      "advantages": [
+        "high reported removal",
+        "biochar-based route",
+        "magnetically recoverable",
+        "circular-economy framing"
+      ],
+      "risks": [
+        "reuse evidence is incomplete in this seed",
+        "performance across polymer classes and natural waters needs direct comparison",
+        "surface modifier persistence and release require measurement"
+      ]
+    },
+    {
+      "id": "fe3o4_carbon_black_fatty_acids",
+      "architecture": "oleic/stearic-acid modified Fe3O4/carbon black",
+      "display_name": "Fatty-acid modified magnetite/carbon-black composite",
+      "target": "polyethylene microplastics in wastewater pathways",
+      "direct_evidence": true,
+      "doi": "10.1177/03091333261434935",
+      "pmid": null,
+      "year": 2026,
+      "metrics": {
+        "max_removal_pct": 98.6,
+        "metric_qualifier": "98.6% in synthetic wastewater; 94.2% in real washing-machine effluent",
+        "reuse_cycles": null,
+        "retained_removal_pct_after_reuse": null,
+        "real_matrix_tested": true,
+        "magnetic_recovery": true,
+        "magnetization_emu_g": null
+      },
+      "advantages": [
+        "very high synthetic-wastewater removal",
+        "real washing-machine effluent evidence",
+        "magnetically recoverable",
+        "targets polyethylene rather than only polystyrene"
+      ],
+      "risks": [
+        "reuse-cycle durability not established in this seed",
+        "carbon-black release and recovery mass balance require direct measurement",
+        "fatty-acid coating durability and secondary pollution need assessment"
+      ]
+    }
+  ]
+}

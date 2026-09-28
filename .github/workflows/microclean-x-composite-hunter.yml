@@ -1,0 +1,72 @@
+name: MICROCLEAN-X Composite Hunter
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '31 5 * * *'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'factory/microclean_x_composites.json'
+      - 'factory/microclean_x_composite_hunter.py'
+      - 'tests/test_microclean_x_composite_hunter.py'
+      - 'docs/MICROCLEAN-X-COMPOSITE-HUNTER.md'
+      - '.github/workflows/microclean-x-composite-hunter.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'factory/microclean_x_composites.json'
+      - 'factory/microclean_x_composite_hunter.py'
+      - 'tests/test_microclean_x_composite_hunter.py'
+      - 'docs/MICROCLEAN-X-COMPOSITE-HUNTER.md'
+      - '.github/workflows/microclean-x-composite-hunter.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: microclean-x-composite-hunter-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  composite-hunter:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Anti-false-PASS unit tests
+        run: python -m unittest tests.test_microclean_x_composite_hunter -v
+      - name: Build exact-composite ranking
+        run: python factory/microclean_x_composite_hunter.py
+      - name: Verify fail-closed report
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path("reports/microclean-x/composite_hunter_latest.json")
+          assert p.exists()
+          x=json.loads(p.read_text(encoding="utf-8"))
+          assert x["status"]=="PASS"
+          assert x["candidate_count"]==5
+          assert x["promoted_safe_or_field_ready"]==[]
+          assert x["policy"]["fail_closed"] is True
+          assert x["research_champion"]
+          assert len(x["sha256"])==64
+          assert all("not safety" in c["score_semantics"] for c in x["ranked_candidates"])
+          print("PASS: exact composite ranking generated without false safety/field-readiness promotion")
+          PY
+      - name: Persist Composite Hunter report
+        if: github.event_name != 'pull_request'
+        run: |
+          git config user.name "BIO-MIMIC-X-COMPOSITE-HUNTER"
+          git config user.email "biomimic-x-composite-hunter@users.noreply.github.com"
+          git add reports/microclean-x public/data/microclean-x state/microclean-x
+          if git diff --cached --quiet; then
+            echo "No composite-hunter state change."
+          else
+            git commit -m "microclean-x: refresh composite hunter"
+            git push
+          fi
