@@ -227,12 +227,12 @@
     },
     {
       "brick_id": "human-bridge",
-      "metric": "supported_claim_bridge_coverage",
+      "metric": "verified_human_translation_coverage",
       "name": "Human Bridge",
-      "output_ref": "human_bridge_result",
+      "output_ref": "human_translation_result",
       "stage": "TRANSLATE",
       "status": "PASS",
-      "time": "2026-09-28T09:58:42.776052+00:00",
+      "time": "2026-09-28T10:13:02.614019+00:00",
       "value": 1.0
     },
     {
@@ -366,6 +366,16 @@
       "value": 1.0
     }
   ],
+  "bridge_refresh": {
+    "previous_cycle_sha256": "00ae3a35776828a2dc7f7ce495c1d67695a7565f5d229907cfbb18f5d8737f52",
+    "status": "PASS",
+    "strict_orthology_candidates": 7,
+    "strict_orthology_coverage_ratio": 1.0,
+    "supported_claims": 7,
+    "time": "2026-09-28T10:13:02.614019+00:00",
+    "translation_coverage_ratio": 1.0,
+    "translation_verified_candidates": 7
+  },
   "causal_plans": [
     {
       "association_only": true,
@@ -370834,6 +370844,8 @@
         "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
       }
     ],
+    "cached_bridged_candidates": 0,
+    "cached_subjects": [],
     "candidate_status": [
       {
         "bridges": 1,
@@ -371039,6 +371051,7 @@
     "ensembl_orthologue_hits": 1,
     "errors": [],
     "functional_orthology_hits": 1,
+    "live_bridged_candidates": 7,
     "ncbi_orthologue_hits": 3,
     "oma_orthologue_hits": 9,
     "open_targets_hits": 13,
@@ -371049,6 +371062,7 @@
       "Ensembl homology": "PASS",
       "Ensembl species": "PASS",
       "Europe PMC annotations": "PASS",
+      "Last-known-good cache": "IDLE",
       "NCBI Ortholog": "PASS",
       "OMA orthology": "PASS",
       "Open Targets": "PASS",
@@ -371138,13 +371152,100 @@
           "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
         }
       ],
-      "remaining": [
-        "disease-specific human evidence",
-        "causal perturbation",
-        "toxicity check"
+      "claim_pmids": [
+        "PMID:41491153",
+        "PMID:42154556",
+        "PMID:42402335"
       ],
+      "remaining": [],
       "status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
-      "subject": "Somniosus microcephalus"
+      "subject": "Somniosus microcephalus",
+      "translation_path": {
+        "bridges": [
+          {
+            "animal_ensembl_species": null,
+            "animal_gene": "tp53",
+            "animal_ncbi_gene_id": "147091098",
+            "animal_species": "Somniosus microcephalus",
+            "bridge_evidence_pmids": [
+              "42402335"
+            ],
+            "bridge_seed_rationale": "Greenland shark longevity review summarizes genomic evidence of structural variation in tumor suppressor p53 in the context of genome maintenance and extreme longevity.",
+            "clinical_efficacy_claim": false,
+            "human_biotype": "protein_coding",
+            "human_ensembl_id": "ENSG00000141510",
+            "human_name": "tumor protein p53",
+            "human_symbol": "TP53",
+            "orthology": {
+              "human_ncbi_gene_id": "7157",
+              "method": "NCBI Ortholog",
+              "provider": "NCBI Ortholog",
+              "source_tax_id": "191813"
+            },
+            "source_chain": [
+              "replicated PMID species claim",
+              "literature-backed exact-species mechanism seed",
+              "NCBI Datasets exact species + gene resolution",
+              "NCBI Ortholog to Homo sapiens",
+              "NCBI human Ensembl Gene ID",
+              "Open Targets human target annotation"
+            ],
+            "source_claim_pmids": [
+              "PMID:41491153",
+              "PMID:42154556",
+              "PMID:42402335"
+            ],
+            "tractability": [
+              {
+                "label": "Advanced Clinical",
+                "modality": "SM"
+              },
+              {
+                "label": "Structure with Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "High-Quality Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "Med-Quality Pocket",
+                "modality": "SM"
+              },
+              {
+                "label": "Druggable Family",
+                "modality": "SM"
+              },
+              {
+                "label": "UniProt Ubiquitination",
+                "modality": "PR"
+              },
+              {
+                "label": "Database Ubiquitination",
+                "modality": "PR"
+              },
+              {
+                "label": "Small Molecule Binder",
+                "modality": "PR"
+              },
+              {
+                "label": "Advanced Clinical",
+                "modality": "OC"
+              }
+            ],
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+          }
+        ],
+        "clinical_efficacy_claim": false,
+        "path_type": "STRICT_ORTHOLOGY_TARGET",
+        "source_chain": [
+          "provider-verified animal-to-human orthology",
+          "Open Targets human target validation"
+        ],
+        "status": "VERIFIED",
+        "strict_bridge_count": 1,
+        "subject": "Somniosus microcephalus"
+      }
     },
     {
       "animal_claim_not_promoted_to_human_efficacy": true,
@@ -371289,13 +371390,166 @@
           "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
         }
       ],
-      "remaining": [
-        "disease-specific human evidence",
-        "causal perturbation",
-        "toxicity check"
+      "claim_pmids": [
+        "PMID:42690612",
+        "PMID:42755729",
+        "PMID:42797691"
       ],
+      "remaining": [],
       "status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
-      "subject": "Danio rerio"
+      "subject": "Danio rerio",
+      "translation_path": {
+        "bridges": [
+          {
+            "animal_ensembl_species": "danio_rerio",
+            "animal_gene": "VEGF",
+            "animal_species": "Danio rerio",
+            "clinical_efficacy_claim": false,
+            "human_biotype": "protein_coding",
+            "human_ensembl_id": "ENSG00000112715",
+            "human_name": "vascular endothelial growth factor A",
+            "human_symbol": "VEGFA",
+            "orthology": {
+              "ensembl_id": "ENSG00000112715",
+              "perc_id": 27.0886,
+              "perc_pos": 34.6835,
+              "protein_id": "ENSP00000500082",
+              "taxon_id": 9606
+            },
+            "source_chain": [
+              "replicated PMID claim",
+              "Europe PMC gene/protein annotation or claim gene",
+              "Ensembl Compara orthology",
+              "Open Targets human target annotation"
+            ],
+            "source_claim_pmids": [
+              "PMID:42690612",
+              "PMID:42755729",
+              "PMID:42797691"
+            ],
+            "tractability": [
+              {
+                "label": "Structure with Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "High-Quality Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "Med-Quality Pocket",
+                "modality": "SM"
+              },
+              {
+                "label": "Approved Drug",
+                "modality": "AB"
+              },
+              {
+                "label": "UniProt loc high conf",
+                "modality": "AB"
+              },
+              {
+                "label": "GO CC high conf",
+                "modality": "AB"
+              },
+              {
+                "label": "UniProt loc med conf",
+                "modality": "AB"
+              },
+              {
+                "label": "Small Molecule Binder",
+                "modality": "PR"
+              },
+              {
+                "label": "Approved Drug",
+                "modality": "OC"
+              }
+            ],
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+          },
+          {
+            "animal_ensembl_species": null,
+            "animal_gene": "O73682",
+            "animal_species": "Danio rerio",
+            "animal_uniprot": "O73682",
+            "clinical_efficacy_claim": false,
+            "human_biotype": "protein_coding",
+            "human_ensembl_id": "ENSG00000112715",
+            "human_name": "vascular endothelial growth factor A",
+            "human_symbol": "VEGFA",
+            "orthology": {
+              "distance": 52.0,
+              "human_canonicalid": "NP_001165095.1",
+              "human_omaid": "HUMAN84993",
+              "provider": "OMA",
+              "rel_type": "1:1",
+              "score": 964.219970703125
+            },
+            "source_chain": [
+              "replicated PMID claim",
+              "Europe PMC Gene_Proteins term extraction",
+              "UniProt exact-species gene/protein resolution",
+              "OMA source-protein species verification",
+              "OMA pairwise orthology to Homo sapiens",
+              "OMA human Ensembl xref",
+              "Open Targets human target annotation"
+            ],
+            "source_claim_pmids": [
+              "PMID:42690612",
+              "PMID:42755729",
+              "PMID:42797691"
+            ],
+            "tractability": [
+              {
+                "label": "Structure with Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "High-Quality Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "Med-Quality Pocket",
+                "modality": "SM"
+              },
+              {
+                "label": "Approved Drug",
+                "modality": "AB"
+              },
+              {
+                "label": "UniProt loc high conf",
+                "modality": "AB"
+              },
+              {
+                "label": "GO CC high conf",
+                "modality": "AB"
+              },
+              {
+                "label": "UniProt loc med conf",
+                "modality": "AB"
+              },
+              {
+                "label": "Small Molecule Binder",
+                "modality": "PR"
+              },
+              {
+                "label": "Approved Drug",
+                "modality": "OC"
+              }
+            ],
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+          }
+        ],
+        "clinical_efficacy_claim": false,
+        "path_type": "STRICT_ORTHOLOGY_TARGET",
+        "source_chain": [
+          "provider-verified animal-to-human orthology",
+          "Open Targets human target validation"
+        ],
+        "status": "VERIFIED",
+        "strict_bridge_count": 2,
+        "subject": "Danio rerio"
+      }
     },
     {
       "animal_claim_not_promoted_to_human_efficacy": true,
@@ -371380,13 +371634,106 @@
           "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
         }
       ],
-      "remaining": [
-        "disease-specific human evidence",
-        "causal perturbation",
-        "toxicity check"
+      "claim_pmids": [
+        "PMID:40230354",
+        "PMID:41751333",
+        "PMID:42702818"
       ],
+      "remaining": [],
       "status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
-      "subject": "Cynops pyrrhogaster"
+      "subject": "Cynops pyrrhogaster",
+      "translation_path": {
+        "bridges": [
+          {
+            "animal_ensembl_species": null,
+            "animal_genbank_nucleotide": "D63339",
+            "animal_genbank_protein": "BAA09657.1",
+            "animal_gene": "SHH",
+            "animal_species": "Cynops pyrrhogaster",
+            "animal_taxon_id": 8330,
+            "animal_uniprot": "Q90385",
+            "bridge_evidence_pmids": [
+              "17318658",
+              "39595071"
+            ],
+            "bridge_seed_rationale": "Peer-reviewed Hedgehog-family phylogeny explicitly includes Cynops pyrrhogaster SHH Q90385 alongside human SHH, IHH and DHH, providing paralog discrimination. A 2024 Cynops regeneration study independently cloned the species' Shh transcript (PQ306330) from limb blastema.",
+            "clinical_efficacy_claim": false,
+            "human_biotype": "protein_coding",
+            "human_ensembl_id": "ENSG00000164690",
+            "human_name": "sonic hedgehog signaling molecule",
+            "human_symbol": "SHH",
+            "modern_transcript_genbank": "PQ306330",
+            "orthology": {
+              "exact_species_accession": "Q90385",
+              "human_target_in_phylogeny": "human SHH",
+              "method": "Neighbor-joining phylogeny of 21 Hedgehog-family proteins after Clustal X alignment; 500 bootstrap replicates; Poisson-corrected distances.",
+              "paralog_controls": [
+                "human IHH",
+                "human DHH"
+              ],
+              "phylogeny_doi": "10.1007/s00427-007-0139-2",
+              "phylogeny_pmid": "17318658",
+              "provider": "Peer-reviewed phylogenetic orthology"
+            },
+            "source_chain": [
+              "replicated PMID species claim",
+              "reviewed UniProt exact-species protein",
+              "peer-reviewed Hedgehog-family phylogeny with human SHH/IHH/DHH paralog discrimination",
+              "independent modern exact-species Shh transcript cloning in regenerative tissue",
+              "Open Targets human Ensembl target validation"
+            ],
+            "source_claim_pmids": [
+              "PMID:40230354",
+              "PMID:41751333",
+              "PMID:42702818"
+            ],
+            "tractability": [
+              {
+                "label": "Structure with Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "High-Quality Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "Druggable Family",
+                "modality": "SM"
+              },
+              {
+                "label": "UniProt loc high conf",
+                "modality": "AB"
+              },
+              {
+                "label": "GO CC high conf",
+                "modality": "AB"
+              },
+              {
+                "label": "UniProt loc med conf",
+                "modality": "AB"
+              },
+              {
+                "label": "UniProt SigP or TMHMM",
+                "modality": "AB"
+              },
+              {
+                "label": "Small Molecule Binder",
+                "modality": "PR"
+              }
+            ],
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+          }
+        ],
+        "clinical_efficacy_claim": false,
+        "path_type": "STRICT_ORTHOLOGY_TARGET",
+        "source_chain": [
+          "provider-verified animal-to-human orthology",
+          "Open Targets human target validation"
+        ],
+        "status": "VERIFIED",
+        "strict_bridge_count": 1,
+        "subject": "Cynops pyrrhogaster"
+      }
     },
     {
       "animal_claim_not_promoted_to_human_efficacy": true,
@@ -371820,13 +372167,455 @@
           "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
         }
       ],
-      "remaining": [
-        "disease-specific human evidence",
-        "causal perturbation",
-        "toxicity check"
+      "claim_pmids": [
+        "PMID:42208364",
+        "PMID:42686794",
+        "PMID:42782463"
       ],
+      "remaining": [],
       "status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
-      "subject": "Drosophila melanogaster"
+      "subject": "Drosophila melanogaster",
+      "translation_path": {
+        "bridges": [
+          {
+            "animal_ensembl_species": null,
+            "animal_gene": "A0A0B4KEJ3",
+            "animal_species": "Drosophila melanogaster",
+            "animal_uniprot": "A0A0B4KEJ3",
+            "clinical_efficacy_claim": false,
+            "human_biotype": "protein_coding",
+            "human_ensembl_id": "ENSG00000069667",
+            "human_name": "RAR related orphan receptor A",
+            "human_symbol": "RORA",
+            "orthology": {
+              "distance": 102.0,
+              "human_canonicalid": "RORA_HUMAN",
+              "human_omaid": "HUMAN23449",
+              "provider": "OMA",
+              "rel_type": "1:n",
+              "score": 1061.47998046875
+            },
+            "source_chain": [
+              "replicated PMID claim",
+              "Europe PMC Gene_Proteins term extraction",
+              "UniProt exact-species gene/protein resolution",
+              "OMA source-protein species verification",
+              "OMA pairwise orthology to Homo sapiens",
+              "OMA human Ensembl xref",
+              "Open Targets human target annotation"
+            ],
+            "source_claim_pmids": [
+              "PMID:42208364",
+              "PMID:42686794",
+              "PMID:42782463"
+            ],
+            "tractability": [
+              {
+                "label": "Structure with Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "High-Quality Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "Med-Quality Pocket",
+                "modality": "SM"
+              },
+              {
+                "label": "Druggable Family",
+                "modality": "SM"
+              },
+              {
+                "label": "UniProt Ubiquitination",
+                "modality": "PR"
+              },
+              {
+                "label": "Database Ubiquitination",
+                "modality": "PR"
+              },
+              {
+                "label": "Small Molecule Binder",
+                "modality": "PR"
+              }
+            ],
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+          },
+          {
+            "animal_ensembl_species": null,
+            "animal_gene": "A0A0B4KEJ3",
+            "animal_species": "Drosophila melanogaster",
+            "animal_uniprot": "A0A0B4KEJ3",
+            "clinical_efficacy_claim": false,
+            "human_biotype": "protein_coding",
+            "human_ensembl_id": "ENSG00000198963",
+            "human_name": "RAR related orphan receptor B",
+            "human_symbol": "RORB",
+            "orthology": {
+              "distance": 95.0,
+              "human_canonicalid": "RORB_HUMAN",
+              "human_omaid": "HUMAN97300",
+              "provider": "OMA",
+              "rel_type": "1:n",
+              "score": 1128.6700439453125
+            },
+            "source_chain": [
+              "replicated PMID claim",
+              "Europe PMC Gene_Proteins term extraction",
+              "UniProt exact-species gene/protein resolution",
+              "OMA source-protein species verification",
+              "OMA pairwise orthology to Homo sapiens",
+              "OMA human Ensembl xref",
+              "Open Targets human target annotation"
+            ],
+            "source_claim_pmids": [
+              "PMID:42208364",
+              "PMID:42686794",
+              "PMID:42782463"
+            ],
+            "tractability": [
+              {
+                "label": "High-Quality Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "Druggable Family",
+                "modality": "SM"
+              },
+              {
+                "label": "Database Ubiquitination",
+                "modality": "PR"
+              },
+              {
+                "label": "Small Molecule Binder",
+                "modality": "PR"
+              }
+            ],
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+          },
+          {
+            "animal_ensembl_species": null,
+            "animal_gene": "Q94545",
+            "animal_species": "Drosophila melanogaster",
+            "animal_uniprot": "Q94545",
+            "clinical_efficacy_claim": false,
+            "human_biotype": "protein_coding",
+            "human_ensembl_id": "ENSG00000129691",
+            "human_name": "ASH2 like, histone lysine methyltransferase complex subunit",
+            "human_symbol": "ASH2L",
+            "orthology": {
+              "distance": 77.0,
+              "human_canonicalid": "ASH2L_HUMAN",
+              "human_omaid": "HUMAN93412",
+              "provider": "OMA",
+              "rel_type": "1:1",
+              "score": 1901.8900146484375
+            },
+            "source_chain": [
+              "replicated PMID claim",
+              "Europe PMC Gene_Proteins term extraction",
+              "UniProt exact-species gene/protein resolution",
+              "OMA source-protein species verification",
+              "OMA pairwise orthology to Homo sapiens",
+              "OMA human Ensembl xref",
+              "Open Targets human target annotation"
+            ],
+            "source_claim_pmids": [
+              "PMID:42208364",
+              "PMID:42686794",
+              "PMID:42782463"
+            ],
+            "tractability": [
+              {
+                "label": "Structure with Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "High-Quality Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "Human Protein Atlas loc",
+                "modality": "AB"
+              },
+              {
+                "label": "Database Ubiquitination",
+                "modality": "PR"
+              },
+              {
+                "label": "Half-life Data",
+                "modality": "PR"
+              },
+              {
+                "label": "Small Molecule Binder",
+                "modality": "PR"
+              }
+            ],
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+          },
+          {
+            "animal_ensembl_species": null,
+            "animal_gene": "P04412",
+            "animal_species": "Drosophila melanogaster",
+            "animal_uniprot": "P04412",
+            "clinical_efficacy_claim": false,
+            "human_biotype": "protein_coding",
+            "human_ensembl_id": "ENSG00000141736",
+            "human_name": "erb-b2 receptor tyrosine kinase 2",
+            "human_symbol": "ERBB2",
+            "orthology": {
+              "distance": 99.0,
+              "human_canonicalid": "ERBB2_HUMAN",
+              "human_omaid": "HUMAN33374",
+              "provider": "OMA",
+              "rel_type": "1:n",
+              "score": 2635.64990234375
+            },
+            "source_chain": [
+              "replicated PMID claim",
+              "Europe PMC Gene_Proteins term extraction",
+              "UniProt exact-species gene/protein resolution",
+              "OMA source-protein species verification",
+              "OMA pairwise orthology to Homo sapiens",
+              "OMA human Ensembl xref",
+              "Open Targets human target annotation"
+            ],
+            "source_claim_pmids": [
+              "PMID:42208364",
+              "PMID:42686794",
+              "PMID:42782463"
+            ],
+            "tractability": [
+              {
+                "label": "Approved Drug",
+                "modality": "SM"
+              },
+              {
+                "label": "Structure with Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "High-Quality Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "High-Quality Pocket",
+                "modality": "SM"
+              },
+              {
+                "label": "Druggable Family",
+                "modality": "SM"
+              },
+              {
+                "label": "Approved Drug",
+                "modality": "AB"
+              },
+              {
+                "label": "UniProt loc high conf",
+                "modality": "AB"
+              },
+              {
+                "label": "GO CC high conf",
+                "modality": "AB"
+              },
+              {
+                "label": "UniProt SigP or TMHMM",
+                "modality": "AB"
+              },
+              {
+                "label": "Human Protein Atlas loc",
+                "modality": "AB"
+              },
+              {
+                "label": "Literature",
+                "modality": "PR"
+              },
+              {
+                "label": "Database Ubiquitination",
+                "modality": "PR"
+              }
+            ],
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+          },
+          {
+            "animal_ensembl_species": null,
+            "animal_gene": "P04412",
+            "animal_species": "Drosophila melanogaster",
+            "animal_uniprot": "P04412",
+            "clinical_efficacy_claim": false,
+            "human_biotype": "protein_coding",
+            "human_ensembl_id": "ENSG00000178568",
+            "human_name": "erb-b2 receptor tyrosine kinase 4",
+            "human_symbol": "ERBB4",
+            "orthology": {
+              "distance": 92.0,
+              "human_canonicalid": "ERBB4_HUMAN",
+              "human_omaid": "HUMAN66728",
+              "provider": "OMA",
+              "rel_type": "1:n",
+              "score": 3124.550048828125
+            },
+            "source_chain": [
+              "replicated PMID claim",
+              "Europe PMC Gene_Proteins term extraction",
+              "UniProt exact-species gene/protein resolution",
+              "OMA source-protein species verification",
+              "OMA pairwise orthology to Homo sapiens",
+              "OMA human Ensembl xref",
+              "Open Targets human target annotation"
+            ],
+            "source_claim_pmids": [
+              "PMID:42208364",
+              "PMID:42686794",
+              "PMID:42782463"
+            ],
+            "tractability": [
+              {
+                "label": "Approved Drug",
+                "modality": "SM"
+              },
+              {
+                "label": "Structure with Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "High-Quality Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "High-Quality Pocket",
+                "modality": "SM"
+              },
+              {
+                "label": "Druggable Family",
+                "modality": "SM"
+              },
+              {
+                "label": "UniProt loc high conf",
+                "modality": "AB"
+              },
+              {
+                "label": "GO CC high conf",
+                "modality": "AB"
+              },
+              {
+                "label": "UniProt SigP or TMHMM",
+                "modality": "AB"
+              },
+              {
+                "label": "UniProt Ubiquitination",
+                "modality": "PR"
+              },
+              {
+                "label": "Database Ubiquitination",
+                "modality": "PR"
+              },
+              {
+                "label": "Half-life Data",
+                "modality": "PR"
+              },
+              {
+                "label": "Small Molecule Binder",
+                "modality": "PR"
+              }
+            ],
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+          },
+          {
+            "animal_ensembl_species": null,
+            "animal_gene": "P04412",
+            "animal_species": "Drosophila melanogaster",
+            "animal_uniprot": "P04412",
+            "clinical_efficacy_claim": false,
+            "human_biotype": "protein_coding",
+            "human_ensembl_id": "ENSG00000146648",
+            "human_name": "epidermal growth factor receptor",
+            "human_symbol": "EGFR",
+            "orthology": {
+              "distance": 90.0,
+              "human_canonicalid": "EGFR_HUMAN",
+              "human_omaid": "HUMAN89021",
+              "provider": "OMA",
+              "rel_type": "1:n",
+              "score": 3084.7900390625
+            },
+            "source_chain": [
+              "replicated PMID claim",
+              "Europe PMC Gene_Proteins term extraction",
+              "UniProt exact-species gene/protein resolution",
+              "OMA source-protein species verification",
+              "OMA pairwise orthology to Homo sapiens",
+              "OMA human Ensembl xref",
+              "Open Targets human target annotation"
+            ],
+            "source_claim_pmids": [
+              "PMID:42208364",
+              "PMID:42686794",
+              "PMID:42782463"
+            ],
+            "tractability": [
+              {
+                "label": "Approved Drug",
+                "modality": "SM"
+              },
+              {
+                "label": "Structure with Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "High-Quality Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "High-Quality Pocket",
+                "modality": "SM"
+              },
+              {
+                "label": "Druggable Family",
+                "modality": "SM"
+              },
+              {
+                "label": "Approved Drug",
+                "modality": "AB"
+              },
+              {
+                "label": "UniProt loc high conf",
+                "modality": "AB"
+              },
+              {
+                "label": "GO CC high conf",
+                "modality": "AB"
+              },
+              {
+                "label": "UniProt loc med conf",
+                "modality": "AB"
+              },
+              {
+                "label": "UniProt SigP or TMHMM",
+                "modality": "AB"
+              },
+              {
+                "label": "Human Protein Atlas loc",
+                "modality": "AB"
+              },
+              {
+                "label": "Literature",
+                "modality": "PR"
+              }
+            ],
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+          }
+        ],
+        "clinical_efficacy_claim": false,
+        "path_type": "STRICT_ORTHOLOGY_TARGET",
+        "source_chain": [
+          "provider-verified animal-to-human orthology",
+          "Open Targets human target validation"
+        ],
+        "status": "VERIFIED",
+        "strict_bridge_count": 6,
+        "subject": "Drosophila melanogaster"
+      }
     },
     {
       "animal_claim_not_promoted_to_human_efficacy": true,
@@ -371887,13 +372676,82 @@
           "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
         }
       ],
-      "remaining": [
-        "disease-specific human evidence",
-        "causal perturbation",
-        "toxicity check"
+      "claim_pmids": [
+        "PMID:38622199",
+        "PMID:42208364",
+        "PMID:42738576"
       ],
+      "remaining": [],
       "status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
-      "subject": "Paracentrotus lividus"
+      "subject": "Paracentrotus lividus",
+      "translation_path": {
+        "bridges": [
+          {
+            "animal_ensembl_species": null,
+            "animal_gene": "WNT2",
+            "animal_species": "Paracentrotus lividus",
+            "animal_taxon_id": 7656,
+            "bridge_evidence_pmids": [
+              "31479176"
+            ],
+            "bridge_scope": "species-level strict orthology anchor only; the preservation/cryopreservation translation path remains the separate DMSO/trehalose functional bridge",
+            "bridge_seed_rationale": "Robert et al. 2019 explicitly identify a WNT2 ortholog in Paracentrotus lividus and report both Maximum Likelihood and Bayesian phylogenetic analyses with Homo sapiens WNT sequences included.",
+            "clinical_efficacy_claim": false,
+            "human_biotype": "protein_coding",
+            "human_ensembl_id": "ENSG00000105989",
+            "human_name": "Wnt family member 2",
+            "human_symbol": "WNT2",
+            "orthology": {
+              "human_in_phylogeny": true,
+              "orthology_doi": "10.1002/dvg.23331",
+              "orthology_pmid": "31479176",
+              "paralog_discrimination": "Bilaterian WNT subfamilies were resolved; P. lividus WNT2 was highlighted inside the WNT2 subfamily while Homo sapiens WNT sequences were included in the same analyses.",
+              "phylogeny_methods": [
+                "unrooted Maximum Likelihood WNT-family phylogeny",
+                "unrooted Bayesian Inference WNT-family phylogeny"
+              ],
+              "provider": "Peer-reviewed direct orthology",
+              "relation": "peer_reviewed_gene_family_orthology"
+            },
+            "source_chain": [
+              "replicated exact-species research claim",
+              "peer-reviewed exact-species orthology paper",
+              "Maximum Likelihood + Bayesian gene-family phylogenies",
+              "Homo sapiens sequences included in the same orthology analysis",
+              "Open Targets human Ensembl target validation"
+            ],
+            "source_claim_pmids": [
+              "PMID:38622199",
+              "PMID:42208364",
+              "PMID:42738576"
+            ],
+            "tractability": [
+              {
+                "label": "UniProt loc high conf",
+                "modality": "AB"
+              },
+              {
+                "label": "GO CC high conf",
+                "modality": "AB"
+              },
+              {
+                "label": "UniProt SigP or TMHMM",
+                "modality": "AB"
+              }
+            ],
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+          }
+        ],
+        "clinical_efficacy_claim": false,
+        "path_type": "STRICT_ORTHOLOGY_TARGET",
+        "source_chain": [
+          "provider-verified animal-to-human orthology",
+          "Open Targets human target validation"
+        ],
+        "status": "VERIFIED",
+        "strict_bridge_count": 1,
+        "subject": "Paracentrotus lividus"
+      }
     },
     {
       "animal_claim_not_promoted_to_human_efficacy": true,
@@ -372085,15 +372943,1529 @@
           "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
         }
       ],
-      "remaining": [
-        "disease-specific human evidence",
-        "causal perturbation",
-        "toxicity check"
+      "claim_pmids": [
+        "PMID:32950659",
+        "PMID:42615433",
+        "PMID:42746048"
       ],
+      "remaining": [],
       "status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
-      "subject": "Eublepharis macularius"
+      "subject": "Eublepharis macularius",
+      "translation_path": {
+        "bridges": [
+          {
+            "animal_ensembl_species": null,
+            "animal_gene": "SOX2",
+            "animal_ncbi_gene_id": "129332189",
+            "animal_species": "Eublepharis macularius",
+            "bridge_evidence_pmids": [
+              "29941970"
+            ],
+            "bridge_seed_rationale": "SOX2-positive radial glial neural stem/progenitor cells were identified in the leopard gecko neurogenic niche.",
+            "clinical_efficacy_claim": false,
+            "human_biotype": "protein_coding",
+            "human_ensembl_id": "ENSG00000181449",
+            "human_name": "SRY-box transcription factor 2",
+            "human_symbol": "SOX2",
+            "orthology": {
+              "human_ncbi_gene_id": "6657",
+              "method": "NCBI Ortholog",
+              "provider": "NCBI Ortholog",
+              "source_tax_id": "481883"
+            },
+            "source_chain": [
+              "replicated PMID species claim",
+              "literature-backed exact-species mechanism seed",
+              "NCBI Datasets exact species + gene resolution",
+              "NCBI Ortholog to Homo sapiens",
+              "NCBI human Ensembl Gene ID",
+              "Open Targets human target annotation"
+            ],
+            "source_claim_pmids": [
+              "PMID:32950659",
+              "PMID:42615433",
+              "PMID:42746048"
+            ],
+            "tractability": [
+              {
+                "label": "Structure with Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "UniProt Ubiquitination",
+                "modality": "PR"
+              },
+              {
+                "label": "Database Ubiquitination",
+                "modality": "PR"
+              }
+            ],
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+          },
+          {
+            "animal_ensembl_species": null,
+            "animal_gene": "SOX9",
+            "animal_ncbi_gene_id": "129328384",
+            "animal_species": "Eublepharis macularius",
+            "bridge_evidence_pmids": [
+              "21846350"
+            ],
+            "bridge_seed_rationale": "SOX9 expression was reported during leopard gecko tail regeneration and skeletal tissue differentiation.",
+            "clinical_efficacy_claim": false,
+            "human_biotype": "protein_coding",
+            "human_ensembl_id": "ENSG00000125398",
+            "human_name": "SRY-box transcription factor 9",
+            "human_symbol": "SOX9",
+            "orthology": {
+              "human_ncbi_gene_id": "6662",
+              "method": "NCBI Ortholog",
+              "provider": "NCBI Ortholog",
+              "source_tax_id": "481883"
+            },
+            "source_chain": [
+              "replicated PMID species claim",
+              "literature-backed exact-species mechanism seed",
+              "NCBI Datasets exact species + gene resolution",
+              "NCBI Ortholog to Homo sapiens",
+              "NCBI human Ensembl Gene ID",
+              "Open Targets human target annotation"
+            ],
+            "source_claim_pmids": [
+              "PMID:32950659",
+              "PMID:42615433",
+              "PMID:42746048"
+            ],
+            "tractability": [
+              {
+                "label": "UniProt Ubiquitination",
+                "modality": "PR"
+              },
+              {
+                "label": "Database Ubiquitination",
+                "modality": "PR"
+              }
+            ],
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+          },
+          {
+            "animal_ensembl_species": null,
+            "animal_gene": "A0AA97JIK7",
+            "animal_species": "Eublepharis macularius",
+            "animal_uniprot": "A0AA97JIK7",
+            "clinical_efficacy_claim": false,
+            "human_biotype": "protein_coding",
+            "human_ensembl_id": "ENSG00000181449",
+            "human_name": "SRY-box transcription factor 2",
+            "human_symbol": "SOX2",
+            "orthology": {
+              "distance": 12.577199935913086,
+              "human_canonicalid": "SOX2_HUMAN",
+              "human_omaid": "HUMAN73593",
+              "provider": "OMA",
+              "rel_type": "1:1",
+              "score": 3033.949951171875
+            },
+            "source_chain": [
+              "replicated PMID claim",
+              "Europe PMC Gene_Proteins term extraction",
+              "UniProt exact-species gene/protein resolution",
+              "OMA source-protein species verification",
+              "OMA pairwise orthology to Homo sapiens",
+              "OMA human Ensembl xref",
+              "Open Targets human target annotation"
+            ],
+            "source_claim_pmids": [
+              "PMID:32950659",
+              "PMID:42615433",
+              "PMID:42746048"
+            ],
+            "tractability": [
+              {
+                "label": "Structure with Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "UniProt Ubiquitination",
+                "modality": "PR"
+              },
+              {
+                "label": "Database Ubiquitination",
+                "modality": "PR"
+              }
+            ],
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+          },
+          {
+            "animal_ensembl_species": null,
+            "animal_gene": "A0AA97J9C2",
+            "animal_species": "Eublepharis macularius",
+            "animal_uniprot": "A0AA97J9C2",
+            "clinical_efficacy_claim": false,
+            "human_biotype": "protein_coding",
+            "human_ensembl_id": "ENSG00000125398",
+            "human_name": "SRY-box transcription factor 9",
+            "human_symbol": "SOX9",
+            "orthology": {
+              "distance": 9.044899940490723,
+              "human_canonicalid": "SOX9_HUMAN",
+              "human_omaid": "HUMAN35942",
+              "provider": "OMA",
+              "rel_type": "1:1",
+              "score": 5077.85986328125
+            },
+            "source_chain": [
+              "replicated PMID claim",
+              "Europe PMC Gene_Proteins term extraction",
+              "UniProt exact-species gene/protein resolution",
+              "OMA source-protein species verification",
+              "OMA pairwise orthology to Homo sapiens",
+              "OMA human Ensembl xref",
+              "Open Targets human target annotation"
+            ],
+            "source_claim_pmids": [
+              "PMID:32950659",
+              "PMID:42615433",
+              "PMID:42746048"
+            ],
+            "tractability": [
+              {
+                "label": "UniProt Ubiquitination",
+                "modality": "PR"
+              },
+              {
+                "label": "Database Ubiquitination",
+                "modality": "PR"
+              }
+            ],
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+          }
+        ],
+        "clinical_efficacy_claim": false,
+        "path_type": "STRICT_ORTHOLOGY_TARGET",
+        "source_chain": [
+          "provider-verified animal-to-human orthology",
+          "Open Targets human target validation"
+        ],
+        "status": "VERIFIED",
+        "strict_bridge_count": 4,
+        "subject": "Eublepharis macularius"
+      }
+    },
+    {
+      "animal_claim_not_promoted_to_human_efficacy": true,
+      "bridges": [
+        {
+          "animal_ensembl_species": null,
+          "animal_gene": "daf-16",
+          "animal_ncbi_gene_id": "172981",
+          "animal_species": "Caenorhabditis elegans",
+          "animal_taxon_id": "6239",
+          "bridge_evidence_pmids": [
+            "26635120",
+            "11747821"
+          ],
+          "bridge_scope": "endogenous freeze-tolerance mechanism; independent of the exogenous ice-binding-protein intervention",
+          "bridge_seed_rationale": "Exact-species freeze-thaw genetics requires DAF-16 downstream of daf-2, while independent human-to-worm complementation work demonstrates that human FKHRL1/FOXO3 can partially replace DAF-16. This supports a conserved FOXO-family relationship without asserting one-to-one orthology or human clinical efficacy.",
+          "clinical_efficacy_claim": false,
+          "human_biotype": "protein_coding",
+          "human_ensembl_id": "ENSG00000118689",
+          "human_name": "forkhead box O3",
+          "human_symbol": "FOXO3",
+          "orthology": {
+            "functional_orthology_doi": "10.1016/S0960-9822(01)00595-4",
+            "functional_orthology_pmid": "11747821",
+            "human_paralog_context": [
+              "FOXO1",
+              "FOXO3",
+              "FOXO4"
+            ],
+            "method": "exact-species genetics + cross-species functional complementation",
+            "provider": "Peer-reviewed functional orthology",
+            "relation": "one_to_many_functional_orthology",
+            "selected_human_target": "FOXO3",
+            "source_ncbi_gene_id": "172981"
+          },
+          "source_chain": [
+            "replicated exact-species research claim",
+            "NCBI Datasets exact Caenorhabditis elegans daf-16 gene",
+            "exact-species freeze-thaw genetics requiring DAF-16/FOXO",
+            "peer-reviewed human FKHRL1/FOXO3-to-DAF-16 functional complementation",
+            "Open Targets human FOXO3 target validation"
+          ],
+          "source_claim_pmids": [
+            "PMID:42169464",
+            "PMID:42208364"
+          ],
+          "tractability": [
+            {
+              "label": "Structure with Ligand",
+              "modality": "SM"
+            },
+            {
+              "label": "UniProt loc high conf",
+              "modality": "AB"
+            },
+            {
+              "label": "UniProt Ubiquitination",
+              "modality": "PR"
+            },
+            {
+              "label": "Database Ubiquitination",
+              "modality": "PR"
+            }
+          ],
+          "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+        }
+      ],
+      "claim_pmids": [
+        "PMID:42169464",
+        "PMID:42208364"
+      ],
+      "remaining": [],
+      "status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
+      "subject": "Caenorhabditis elegans",
+      "translation_path": {
+        "bridges": [
+          {
+            "animal_ensembl_species": null,
+            "animal_gene": "daf-16",
+            "animal_ncbi_gene_id": "172981",
+            "animal_species": "Caenorhabditis elegans",
+            "animal_taxon_id": "6239",
+            "bridge_evidence_pmids": [
+              "26635120",
+              "11747821"
+            ],
+            "bridge_scope": "endogenous freeze-tolerance mechanism; independent of the exogenous ice-binding-protein intervention",
+            "bridge_seed_rationale": "Exact-species freeze-thaw genetics requires DAF-16 downstream of daf-2, while independent human-to-worm complementation work demonstrates that human FKHRL1/FOXO3 can partially replace DAF-16. This supports a conserved FOXO-family relationship without asserting one-to-one orthology or human clinical efficacy.",
+            "clinical_efficacy_claim": false,
+            "human_biotype": "protein_coding",
+            "human_ensembl_id": "ENSG00000118689",
+            "human_name": "forkhead box O3",
+            "human_symbol": "FOXO3",
+            "orthology": {
+              "functional_orthology_doi": "10.1016/S0960-9822(01)00595-4",
+              "functional_orthology_pmid": "11747821",
+              "human_paralog_context": [
+                "FOXO1",
+                "FOXO3",
+                "FOXO4"
+              ],
+              "method": "exact-species genetics + cross-species functional complementation",
+              "provider": "Peer-reviewed functional orthology",
+              "relation": "one_to_many_functional_orthology",
+              "selected_human_target": "FOXO3",
+              "source_ncbi_gene_id": "172981"
+            },
+            "source_chain": [
+              "replicated exact-species research claim",
+              "NCBI Datasets exact Caenorhabditis elegans daf-16 gene",
+              "exact-species freeze-thaw genetics requiring DAF-16/FOXO",
+              "peer-reviewed human FKHRL1/FOXO3-to-DAF-16 functional complementation",
+              "Open Targets human FOXO3 target validation"
+            ],
+            "source_claim_pmids": [
+              "PMID:42169464",
+              "PMID:42208364"
+            ],
+            "tractability": [
+              {
+                "label": "Structure with Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "UniProt loc high conf",
+                "modality": "AB"
+              },
+              {
+                "label": "UniProt Ubiquitination",
+                "modality": "PR"
+              },
+              {
+                "label": "Database Ubiquitination",
+                "modality": "PR"
+              }
+            ],
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+          }
+        ],
+        "clinical_efficacy_claim": false,
+        "path_type": "STRICT_ORTHOLOGY_TARGET",
+        "source_chain": [
+          "provider-verified animal-to-human orthology",
+          "Open Targets human target validation"
+        ],
+        "status": "VERIFIED",
+        "strict_bridge_count": 1,
+        "subject": "Caenorhabditis elegans"
+      }
     }
   ],
+  "human_translation_result": {
+    "attempted_candidates": 7,
+    "candidate_status": [
+      {
+        "candidate": "Somniosus microcephalus",
+        "path_type": "STRICT_ORTHOLOGY_TARGET",
+        "status": "VERIFIED"
+      },
+      {
+        "candidate": "Danio rerio",
+        "path_type": "STRICT_ORTHOLOGY_TARGET",
+        "status": "VERIFIED"
+      },
+      {
+        "candidate": "Cynops pyrrhogaster",
+        "path_type": "STRICT_ORTHOLOGY_TARGET",
+        "status": "VERIFIED"
+      },
+      {
+        "candidate": "Drosophila melanogaster",
+        "path_type": "STRICT_ORTHOLOGY_TARGET",
+        "status": "VERIFIED"
+      },
+      {
+        "candidate": "Paracentrotus lividus",
+        "path_type": "STRICT_ORTHOLOGY_TARGET",
+        "status": "VERIFIED"
+      },
+      {
+        "candidate": "Eublepharis macularius",
+        "path_type": "STRICT_ORTHOLOGY_TARGET",
+        "status": "VERIFIED"
+      },
+      {
+        "candidate": "Caenorhabditis elegans",
+        "path_type": "STRICT_ORTHOLOGY_TARGET",
+        "status": "VERIFIED"
+      }
+    ],
+    "errors": [],
+    "fallback_verified_candidates": 0,
+    "path_type_counts": {
+      "STRICT_ORTHOLOGY_TARGET": 7
+    },
+    "paths": [
+      {
+        "bridges": [
+          {
+            "animal_ensembl_species": null,
+            "animal_gene": "tp53",
+            "animal_ncbi_gene_id": "147091098",
+            "animal_species": "Somniosus microcephalus",
+            "bridge_evidence_pmids": [
+              "42402335"
+            ],
+            "bridge_seed_rationale": "Greenland shark longevity review summarizes genomic evidence of structural variation in tumor suppressor p53 in the context of genome maintenance and extreme longevity.",
+            "clinical_efficacy_claim": false,
+            "human_biotype": "protein_coding",
+            "human_ensembl_id": "ENSG00000141510",
+            "human_name": "tumor protein p53",
+            "human_symbol": "TP53",
+            "orthology": {
+              "human_ncbi_gene_id": "7157",
+              "method": "NCBI Ortholog",
+              "provider": "NCBI Ortholog",
+              "source_tax_id": "191813"
+            },
+            "source_chain": [
+              "replicated PMID species claim",
+              "literature-backed exact-species mechanism seed",
+              "NCBI Datasets exact species + gene resolution",
+              "NCBI Ortholog to Homo sapiens",
+              "NCBI human Ensembl Gene ID",
+              "Open Targets human target annotation"
+            ],
+            "source_claim_pmids": [
+              "PMID:41491153",
+              "PMID:42154556",
+              "PMID:42402335"
+            ],
+            "tractability": [
+              {
+                "label": "Advanced Clinical",
+                "modality": "SM"
+              },
+              {
+                "label": "Structure with Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "High-Quality Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "Med-Quality Pocket",
+                "modality": "SM"
+              },
+              {
+                "label": "Druggable Family",
+                "modality": "SM"
+              },
+              {
+                "label": "UniProt Ubiquitination",
+                "modality": "PR"
+              },
+              {
+                "label": "Database Ubiquitination",
+                "modality": "PR"
+              },
+              {
+                "label": "Small Molecule Binder",
+                "modality": "PR"
+              },
+              {
+                "label": "Advanced Clinical",
+                "modality": "OC"
+              }
+            ],
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+          }
+        ],
+        "clinical_efficacy_claim": false,
+        "path_type": "STRICT_ORTHOLOGY_TARGET",
+        "source_chain": [
+          "provider-verified animal-to-human orthology",
+          "Open Targets human target validation"
+        ],
+        "status": "VERIFIED",
+        "strict_bridge_count": 1,
+        "subject": "Somniosus microcephalus"
+      },
+      {
+        "bridges": [
+          {
+            "animal_ensembl_species": "danio_rerio",
+            "animal_gene": "VEGF",
+            "animal_species": "Danio rerio",
+            "clinical_efficacy_claim": false,
+            "human_biotype": "protein_coding",
+            "human_ensembl_id": "ENSG00000112715",
+            "human_name": "vascular endothelial growth factor A",
+            "human_symbol": "VEGFA",
+            "orthology": {
+              "ensembl_id": "ENSG00000112715",
+              "perc_id": 27.0886,
+              "perc_pos": 34.6835,
+              "protein_id": "ENSP00000500082",
+              "taxon_id": 9606
+            },
+            "source_chain": [
+              "replicated PMID claim",
+              "Europe PMC gene/protein annotation or claim gene",
+              "Ensembl Compara orthology",
+              "Open Targets human target annotation"
+            ],
+            "source_claim_pmids": [
+              "PMID:42690612",
+              "PMID:42755729",
+              "PMID:42797691"
+            ],
+            "tractability": [
+              {
+                "label": "Structure with Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "High-Quality Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "Med-Quality Pocket",
+                "modality": "SM"
+              },
+              {
+                "label": "Approved Drug",
+                "modality": "AB"
+              },
+              {
+                "label": "UniProt loc high conf",
+                "modality": "AB"
+              },
+              {
+                "label": "GO CC high conf",
+                "modality": "AB"
+              },
+              {
+                "label": "UniProt loc med conf",
+                "modality": "AB"
+              },
+              {
+                "label": "Small Molecule Binder",
+                "modality": "PR"
+              },
+              {
+                "label": "Approved Drug",
+                "modality": "OC"
+              }
+            ],
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+          },
+          {
+            "animal_ensembl_species": null,
+            "animal_gene": "O73682",
+            "animal_species": "Danio rerio",
+            "animal_uniprot": "O73682",
+            "clinical_efficacy_claim": false,
+            "human_biotype": "protein_coding",
+            "human_ensembl_id": "ENSG00000112715",
+            "human_name": "vascular endothelial growth factor A",
+            "human_symbol": "VEGFA",
+            "orthology": {
+              "distance": 52.0,
+              "human_canonicalid": "NP_001165095.1",
+              "human_omaid": "HUMAN84993",
+              "provider": "OMA",
+              "rel_type": "1:1",
+              "score": 964.219970703125
+            },
+            "source_chain": [
+              "replicated PMID claim",
+              "Europe PMC Gene_Proteins term extraction",
+              "UniProt exact-species gene/protein resolution",
+              "OMA source-protein species verification",
+              "OMA pairwise orthology to Homo sapiens",
+              "OMA human Ensembl xref",
+              "Open Targets human target annotation"
+            ],
+            "source_claim_pmids": [
+              "PMID:42690612",
+              "PMID:42755729",
+              "PMID:42797691"
+            ],
+            "tractability": [
+              {
+                "label": "Structure with Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "High-Quality Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "Med-Quality Pocket",
+                "modality": "SM"
+              },
+              {
+                "label": "Approved Drug",
+                "modality": "AB"
+              },
+              {
+                "label": "UniProt loc high conf",
+                "modality": "AB"
+              },
+              {
+                "label": "GO CC high conf",
+                "modality": "AB"
+              },
+              {
+                "label": "UniProt loc med conf",
+                "modality": "AB"
+              },
+              {
+                "label": "Small Molecule Binder",
+                "modality": "PR"
+              },
+              {
+                "label": "Approved Drug",
+                "modality": "OC"
+              }
+            ],
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+          }
+        ],
+        "clinical_efficacy_claim": false,
+        "path_type": "STRICT_ORTHOLOGY_TARGET",
+        "source_chain": [
+          "provider-verified animal-to-human orthology",
+          "Open Targets human target validation"
+        ],
+        "status": "VERIFIED",
+        "strict_bridge_count": 2,
+        "subject": "Danio rerio"
+      },
+      {
+        "bridges": [
+          {
+            "animal_ensembl_species": null,
+            "animal_genbank_nucleotide": "D63339",
+            "animal_genbank_protein": "BAA09657.1",
+            "animal_gene": "SHH",
+            "animal_species": "Cynops pyrrhogaster",
+            "animal_taxon_id": 8330,
+            "animal_uniprot": "Q90385",
+            "bridge_evidence_pmids": [
+              "17318658",
+              "39595071"
+            ],
+            "bridge_seed_rationale": "Peer-reviewed Hedgehog-family phylogeny explicitly includes Cynops pyrrhogaster SHH Q90385 alongside human SHH, IHH and DHH, providing paralog discrimination. A 2024 Cynops regeneration study independently cloned the species' Shh transcript (PQ306330) from limb blastema.",
+            "clinical_efficacy_claim": false,
+            "human_biotype": "protein_coding",
+            "human_ensembl_id": "ENSG00000164690",
+            "human_name": "sonic hedgehog signaling molecule",
+            "human_symbol": "SHH",
+            "modern_transcript_genbank": "PQ306330",
+            "orthology": {
+              "exact_species_accession": "Q90385",
+              "human_target_in_phylogeny": "human SHH",
+              "method": "Neighbor-joining phylogeny of 21 Hedgehog-family proteins after Clustal X alignment; 500 bootstrap replicates; Poisson-corrected distances.",
+              "paralog_controls": [
+                "human IHH",
+                "human DHH"
+              ],
+              "phylogeny_doi": "10.1007/s00427-007-0139-2",
+              "phylogeny_pmid": "17318658",
+              "provider": "Peer-reviewed phylogenetic orthology"
+            },
+            "source_chain": [
+              "replicated PMID species claim",
+              "reviewed UniProt exact-species protein",
+              "peer-reviewed Hedgehog-family phylogeny with human SHH/IHH/DHH paralog discrimination",
+              "independent modern exact-species Shh transcript cloning in regenerative tissue",
+              "Open Targets human Ensembl target validation"
+            ],
+            "source_claim_pmids": [
+              "PMID:40230354",
+              "PMID:41751333",
+              "PMID:42702818"
+            ],
+            "tractability": [
+              {
+                "label": "Structure with Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "High-Quality Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "Druggable Family",
+                "modality": "SM"
+              },
+              {
+                "label": "UniProt loc high conf",
+                "modality": "AB"
+              },
+              {
+                "label": "GO CC high conf",
+                "modality": "AB"
+              },
+              {
+                "label": "UniProt loc med conf",
+                "modality": "AB"
+              },
+              {
+                "label": "UniProt SigP or TMHMM",
+                "modality": "AB"
+              },
+              {
+                "label": "Small Molecule Binder",
+                "modality": "PR"
+              }
+            ],
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+          }
+        ],
+        "clinical_efficacy_claim": false,
+        "path_type": "STRICT_ORTHOLOGY_TARGET",
+        "source_chain": [
+          "provider-verified animal-to-human orthology",
+          "Open Targets human target validation"
+        ],
+        "status": "VERIFIED",
+        "strict_bridge_count": 1,
+        "subject": "Cynops pyrrhogaster"
+      },
+      {
+        "bridges": [
+          {
+            "animal_ensembl_species": null,
+            "animal_gene": "A0A0B4KEJ3",
+            "animal_species": "Drosophila melanogaster",
+            "animal_uniprot": "A0A0B4KEJ3",
+            "clinical_efficacy_claim": false,
+            "human_biotype": "protein_coding",
+            "human_ensembl_id": "ENSG00000069667",
+            "human_name": "RAR related orphan receptor A",
+            "human_symbol": "RORA",
+            "orthology": {
+              "distance": 102.0,
+              "human_canonicalid": "RORA_HUMAN",
+              "human_omaid": "HUMAN23449",
+              "provider": "OMA",
+              "rel_type": "1:n",
+              "score": 1061.47998046875
+            },
+            "source_chain": [
+              "replicated PMID claim",
+              "Europe PMC Gene_Proteins term extraction",
+              "UniProt exact-species gene/protein resolution",
+              "OMA source-protein species verification",
+              "OMA pairwise orthology to Homo sapiens",
+              "OMA human Ensembl xref",
+              "Open Targets human target annotation"
+            ],
+            "source_claim_pmids": [
+              "PMID:42208364",
+              "PMID:42686794",
+              "PMID:42782463"
+            ],
+            "tractability": [
+              {
+                "label": "Structure with Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "High-Quality Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "Med-Quality Pocket",
+                "modality": "SM"
+              },
+              {
+                "label": "Druggable Family",
+                "modality": "SM"
+              },
+              {
+                "label": "UniProt Ubiquitination",
+                "modality": "PR"
+              },
+              {
+                "label": "Database Ubiquitination",
+                "modality": "PR"
+              },
+              {
+                "label": "Small Molecule Binder",
+                "modality": "PR"
+              }
+            ],
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+          },
+          {
+            "animal_ensembl_species": null,
+            "animal_gene": "A0A0B4KEJ3",
+            "animal_species": "Drosophila melanogaster",
+            "animal_uniprot": "A0A0B4KEJ3",
+            "clinical_efficacy_claim": false,
+            "human_biotype": "protein_coding",
+            "human_ensembl_id": "ENSG00000198963",
+            "human_name": "RAR related orphan receptor B",
+            "human_symbol": "RORB",
+            "orthology": {
+              "distance": 95.0,
+              "human_canonicalid": "RORB_HUMAN",
+              "human_omaid": "HUMAN97300",
+              "provider": "OMA",
+              "rel_type": "1:n",
+              "score": 1128.6700439453125
+            },
+            "source_chain": [
+              "replicated PMID claim",
+              "Europe PMC Gene_Proteins term extraction",
+              "UniProt exact-species gene/protein resolution",
+              "OMA source-protein species verification",
+              "OMA pairwise orthology to Homo sapiens",
+              "OMA human Ensembl xref",
+              "Open Targets human target annotation"
+            ],
+            "source_claim_pmids": [
+              "PMID:42208364",
+              "PMID:42686794",
+              "PMID:42782463"
+            ],
+            "tractability": [
+              {
+                "label": "High-Quality Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "Druggable Family",
+                "modality": "SM"
+              },
+              {
+                "label": "Database Ubiquitination",
+                "modality": "PR"
+              },
+              {
+                "label": "Small Molecule Binder",
+                "modality": "PR"
+              }
+            ],
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+          },
+          {
+            "animal_ensembl_species": null,
+            "animal_gene": "Q94545",
+            "animal_species": "Drosophila melanogaster",
+            "animal_uniprot": "Q94545",
+            "clinical_efficacy_claim": false,
+            "human_biotype": "protein_coding",
+            "human_ensembl_id": "ENSG00000129691",
+            "human_name": "ASH2 like, histone lysine methyltransferase complex subunit",
+            "human_symbol": "ASH2L",
+            "orthology": {
+              "distance": 77.0,
+              "human_canonicalid": "ASH2L_HUMAN",
+              "human_omaid": "HUMAN93412",
+              "provider": "OMA",
+              "rel_type": "1:1",
+              "score": 1901.8900146484375
+            },
+            "source_chain": [
+              "replicated PMID claim",
+              "Europe PMC Gene_Proteins term extraction",
+              "UniProt exact-species gene/protein resolution",
+              "OMA source-protein species verification",
+              "OMA pairwise orthology to Homo sapiens",
+              "OMA human Ensembl xref",
+              "Open Targets human target annotation"
+            ],
+            "source_claim_pmids": [
+              "PMID:42208364",
+              "PMID:42686794",
+              "PMID:42782463"
+            ],
+            "tractability": [
+              {
+                "label": "Structure with Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "High-Quality Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "Human Protein Atlas loc",
+                "modality": "AB"
+              },
+              {
+                "label": "Database Ubiquitination",
+                "modality": "PR"
+              },
+              {
+                "label": "Half-life Data",
+                "modality": "PR"
+              },
+              {
+                "label": "Small Molecule Binder",
+                "modality": "PR"
+              }
+            ],
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+          },
+          {
+            "animal_ensembl_species": null,
+            "animal_gene": "P04412",
+            "animal_species": "Drosophila melanogaster",
+            "animal_uniprot": "P04412",
+            "clinical_efficacy_claim": false,
+            "human_biotype": "protein_coding",
+            "human_ensembl_id": "ENSG00000141736",
+            "human_name": "erb-b2 receptor tyrosine kinase 2",
+            "human_symbol": "ERBB2",
+            "orthology": {
+              "distance": 99.0,
+              "human_canonicalid": "ERBB2_HUMAN",
+              "human_omaid": "HUMAN33374",
+              "provider": "OMA",
+              "rel_type": "1:n",
+              "score": 2635.64990234375
+            },
+            "source_chain": [
+              "replicated PMID claim",
+              "Europe PMC Gene_Proteins term extraction",
+              "UniProt exact-species gene/protein resolution",
+              "OMA source-protein species verification",
+              "OMA pairwise orthology to Homo sapiens",
+              "OMA human Ensembl xref",
+              "Open Targets human target annotation"
+            ],
+            "source_claim_pmids": [
+              "PMID:42208364",
+              "PMID:42686794",
+              "PMID:42782463"
+            ],
+            "tractability": [
+              {
+                "label": "Approved Drug",
+                "modality": "SM"
+              },
+              {
+                "label": "Structure with Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "High-Quality Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "High-Quality Pocket",
+                "modality": "SM"
+              },
+              {
+                "label": "Druggable Family",
+                "modality": "SM"
+              },
+              {
+                "label": "Approved Drug",
+                "modality": "AB"
+              },
+              {
+                "label": "UniProt loc high conf",
+                "modality": "AB"
+              },
+              {
+                "label": "GO CC high conf",
+                "modality": "AB"
+              },
+              {
+                "label": "UniProt SigP or TMHMM",
+                "modality": "AB"
+              },
+              {
+                "label": "Human Protein Atlas loc",
+                "modality": "AB"
+              },
+              {
+                "label": "Literature",
+                "modality": "PR"
+              },
+              {
+                "label": "Database Ubiquitination",
+                "modality": "PR"
+              }
+            ],
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+          },
+          {
+            "animal_ensembl_species": null,
+            "animal_gene": "P04412",
+            "animal_species": "Drosophila melanogaster",
+            "animal_uniprot": "P04412",
+            "clinical_efficacy_claim": false,
+            "human_biotype": "protein_coding",
+            "human_ensembl_id": "ENSG00000178568",
+            "human_name": "erb-b2 receptor tyrosine kinase 4",
+            "human_symbol": "ERBB4",
+            "orthology": {
+              "distance": 92.0,
+              "human_canonicalid": "ERBB4_HUMAN",
+              "human_omaid": "HUMAN66728",
+              "provider": "OMA",
+              "rel_type": "1:n",
+              "score": 3124.550048828125
+            },
+            "source_chain": [
+              "replicated PMID claim",
+              "Europe PMC Gene_Proteins term extraction",
+              "UniProt exact-species gene/protein resolution",
+              "OMA source-protein species verification",
+              "OMA pairwise orthology to Homo sapiens",
+              "OMA human Ensembl xref",
+              "Open Targets human target annotation"
+            ],
+            "source_claim_pmids": [
+              "PMID:42208364",
+              "PMID:42686794",
+              "PMID:42782463"
+            ],
+            "tractability": [
+              {
+                "label": "Approved Drug",
+                "modality": "SM"
+              },
+              {
+                "label": "Structure with Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "High-Quality Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "High-Quality Pocket",
+                "modality": "SM"
+              },
+              {
+                "label": "Druggable Family",
+                "modality": "SM"
+              },
+              {
+                "label": "UniProt loc high conf",
+                "modality": "AB"
+              },
+              {
+                "label": "GO CC high conf",
+                "modality": "AB"
+              },
+              {
+                "label": "UniProt SigP or TMHMM",
+                "modality": "AB"
+              },
+              {
+                "label": "UniProt Ubiquitination",
+                "modality": "PR"
+              },
+              {
+                "label": "Database Ubiquitination",
+                "modality": "PR"
+              },
+              {
+                "label": "Half-life Data",
+                "modality": "PR"
+              },
+              {
+                "label": "Small Molecule Binder",
+                "modality": "PR"
+              }
+            ],
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+          },
+          {
+            "animal_ensembl_species": null,
+            "animal_gene": "P04412",
+            "animal_species": "Drosophila melanogaster",
+            "animal_uniprot": "P04412",
+            "clinical_efficacy_claim": false,
+            "human_biotype": "protein_coding",
+            "human_ensembl_id": "ENSG00000146648",
+            "human_name": "epidermal growth factor receptor",
+            "human_symbol": "EGFR",
+            "orthology": {
+              "distance": 90.0,
+              "human_canonicalid": "EGFR_HUMAN",
+              "human_omaid": "HUMAN89021",
+              "provider": "OMA",
+              "rel_type": "1:n",
+              "score": 3084.7900390625
+            },
+            "source_chain": [
+              "replicated PMID claim",
+              "Europe PMC Gene_Proteins term extraction",
+              "UniProt exact-species gene/protein resolution",
+              "OMA source-protein species verification",
+              "OMA pairwise orthology to Homo sapiens",
+              "OMA human Ensembl xref",
+              "Open Targets human target annotation"
+            ],
+            "source_claim_pmids": [
+              "PMID:42208364",
+              "PMID:42686794",
+              "PMID:42782463"
+            ],
+            "tractability": [
+              {
+                "label": "Approved Drug",
+                "modality": "SM"
+              },
+              {
+                "label": "Structure with Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "High-Quality Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "High-Quality Pocket",
+                "modality": "SM"
+              },
+              {
+                "label": "Druggable Family",
+                "modality": "SM"
+              },
+              {
+                "label": "Approved Drug",
+                "modality": "AB"
+              },
+              {
+                "label": "UniProt loc high conf",
+                "modality": "AB"
+              },
+              {
+                "label": "GO CC high conf",
+                "modality": "AB"
+              },
+              {
+                "label": "UniProt loc med conf",
+                "modality": "AB"
+              },
+              {
+                "label": "UniProt SigP or TMHMM",
+                "modality": "AB"
+              },
+              {
+                "label": "Human Protein Atlas loc",
+                "modality": "AB"
+              },
+              {
+                "label": "Literature",
+                "modality": "PR"
+              }
+            ],
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+          }
+        ],
+        "clinical_efficacy_claim": false,
+        "path_type": "STRICT_ORTHOLOGY_TARGET",
+        "source_chain": [
+          "provider-verified animal-to-human orthology",
+          "Open Targets human target validation"
+        ],
+        "status": "VERIFIED",
+        "strict_bridge_count": 6,
+        "subject": "Drosophila melanogaster"
+      },
+      {
+        "bridges": [
+          {
+            "animal_ensembl_species": null,
+            "animal_gene": "WNT2",
+            "animal_species": "Paracentrotus lividus",
+            "animal_taxon_id": 7656,
+            "bridge_evidence_pmids": [
+              "31479176"
+            ],
+            "bridge_scope": "species-level strict orthology anchor only; the preservation/cryopreservation translation path remains the separate DMSO/trehalose functional bridge",
+            "bridge_seed_rationale": "Robert et al. 2019 explicitly identify a WNT2 ortholog in Paracentrotus lividus and report both Maximum Likelihood and Bayesian phylogenetic analyses with Homo sapiens WNT sequences included.",
+            "clinical_efficacy_claim": false,
+            "human_biotype": "protein_coding",
+            "human_ensembl_id": "ENSG00000105989",
+            "human_name": "Wnt family member 2",
+            "human_symbol": "WNT2",
+            "orthology": {
+              "human_in_phylogeny": true,
+              "orthology_doi": "10.1002/dvg.23331",
+              "orthology_pmid": "31479176",
+              "paralog_discrimination": "Bilaterian WNT subfamilies were resolved; P. lividus WNT2 was highlighted inside the WNT2 subfamily while Homo sapiens WNT sequences were included in the same analyses.",
+              "phylogeny_methods": [
+                "unrooted Maximum Likelihood WNT-family phylogeny",
+                "unrooted Bayesian Inference WNT-family phylogeny"
+              ],
+              "provider": "Peer-reviewed direct orthology",
+              "relation": "peer_reviewed_gene_family_orthology"
+            },
+            "source_chain": [
+              "replicated exact-species research claim",
+              "peer-reviewed exact-species orthology paper",
+              "Maximum Likelihood + Bayesian gene-family phylogenies",
+              "Homo sapiens sequences included in the same orthology analysis",
+              "Open Targets human Ensembl target validation"
+            ],
+            "source_claim_pmids": [
+              "PMID:38622199",
+              "PMID:42208364",
+              "PMID:42738576"
+            ],
+            "tractability": [
+              {
+                "label": "UniProt loc high conf",
+                "modality": "AB"
+              },
+              {
+                "label": "GO CC high conf",
+                "modality": "AB"
+              },
+              {
+                "label": "UniProt SigP or TMHMM",
+                "modality": "AB"
+              }
+            ],
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+          }
+        ],
+        "clinical_efficacy_claim": false,
+        "path_type": "STRICT_ORTHOLOGY_TARGET",
+        "source_chain": [
+          "provider-verified animal-to-human orthology",
+          "Open Targets human target validation"
+        ],
+        "status": "VERIFIED",
+        "strict_bridge_count": 1,
+        "subject": "Paracentrotus lividus"
+      },
+      {
+        "bridges": [
+          {
+            "animal_ensembl_species": null,
+            "animal_gene": "SOX2",
+            "animal_ncbi_gene_id": "129332189",
+            "animal_species": "Eublepharis macularius",
+            "bridge_evidence_pmids": [
+              "29941970"
+            ],
+            "bridge_seed_rationale": "SOX2-positive radial glial neural stem/progenitor cells were identified in the leopard gecko neurogenic niche.",
+            "clinical_efficacy_claim": false,
+            "human_biotype": "protein_coding",
+            "human_ensembl_id": "ENSG00000181449",
+            "human_name": "SRY-box transcription factor 2",
+            "human_symbol": "SOX2",
+            "orthology": {
+              "human_ncbi_gene_id": "6657",
+              "method": "NCBI Ortholog",
+              "provider": "NCBI Ortholog",
+              "source_tax_id": "481883"
+            },
+            "source_chain": [
+              "replicated PMID species claim",
+              "literature-backed exact-species mechanism seed",
+              "NCBI Datasets exact species + gene resolution",
+              "NCBI Ortholog to Homo sapiens",
+              "NCBI human Ensembl Gene ID",
+              "Open Targets human target annotation"
+            ],
+            "source_claim_pmids": [
+              "PMID:32950659",
+              "PMID:42615433",
+              "PMID:42746048"
+            ],
+            "tractability": [
+              {
+                "label": "Structure with Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "UniProt Ubiquitination",
+                "modality": "PR"
+              },
+              {
+                "label": "Database Ubiquitination",
+                "modality": "PR"
+              }
+            ],
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+          },
+          {
+            "animal_ensembl_species": null,
+            "animal_gene": "SOX9",
+            "animal_ncbi_gene_id": "129328384",
+            "animal_species": "Eublepharis macularius",
+            "bridge_evidence_pmids": [
+              "21846350"
+            ],
+            "bridge_seed_rationale": "SOX9 expression was reported during leopard gecko tail regeneration and skeletal tissue differentiation.",
+            "clinical_efficacy_claim": false,
+            "human_biotype": "protein_coding",
+            "human_ensembl_id": "ENSG00000125398",
+            "human_name": "SRY-box transcription factor 9",
+            "human_symbol": "SOX9",
+            "orthology": {
+              "human_ncbi_gene_id": "6662",
+              "method": "NCBI Ortholog",
+              "provider": "NCBI Ortholog",
+              "source_tax_id": "481883"
+            },
+            "source_chain": [
+              "replicated PMID species claim",
+              "literature-backed exact-species mechanism seed",
+              "NCBI Datasets exact species + gene resolution",
+              "NCBI Ortholog to Homo sapiens",
+              "NCBI human Ensembl Gene ID",
+              "Open Targets human target annotation"
+            ],
+            "source_claim_pmids": [
+              "PMID:32950659",
+              "PMID:42615433",
+              "PMID:42746048"
+            ],
+            "tractability": [
+              {
+                "label": "UniProt Ubiquitination",
+                "modality": "PR"
+              },
+              {
+                "label": "Database Ubiquitination",
+                "modality": "PR"
+              }
+            ],
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+          },
+          {
+            "animal_ensembl_species": null,
+            "animal_gene": "A0AA97JIK7",
+            "animal_species": "Eublepharis macularius",
+            "animal_uniprot": "A0AA97JIK7",
+            "clinical_efficacy_claim": false,
+            "human_biotype": "protein_coding",
+            "human_ensembl_id": "ENSG00000181449",
+            "human_name": "SRY-box transcription factor 2",
+            "human_symbol": "SOX2",
+            "orthology": {
+              "distance": 12.577199935913086,
+              "human_canonicalid": "SOX2_HUMAN",
+              "human_omaid": "HUMAN73593",
+              "provider": "OMA",
+              "rel_type": "1:1",
+              "score": 3033.949951171875
+            },
+            "source_chain": [
+              "replicated PMID claim",
+              "Europe PMC Gene_Proteins term extraction",
+              "UniProt exact-species gene/protein resolution",
+              "OMA source-protein species verification",
+              "OMA pairwise orthology to Homo sapiens",
+              "OMA human Ensembl xref",
+              "Open Targets human target annotation"
+            ],
+            "source_claim_pmids": [
+              "PMID:32950659",
+              "PMID:42615433",
+              "PMID:42746048"
+            ],
+            "tractability": [
+              {
+                "label": "Structure with Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "UniProt Ubiquitination",
+                "modality": "PR"
+              },
+              {
+                "label": "Database Ubiquitination",
+                "modality": "PR"
+              }
+            ],
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+          },
+          {
+            "animal_ensembl_species": null,
+            "animal_gene": "A0AA97J9C2",
+            "animal_species": "Eublepharis macularius",
+            "animal_uniprot": "A0AA97J9C2",
+            "clinical_efficacy_claim": false,
+            "human_biotype": "protein_coding",
+            "human_ensembl_id": "ENSG00000125398",
+            "human_name": "SRY-box transcription factor 9",
+            "human_symbol": "SOX9",
+            "orthology": {
+              "distance": 9.044899940490723,
+              "human_canonicalid": "SOX9_HUMAN",
+              "human_omaid": "HUMAN35942",
+              "provider": "OMA",
+              "rel_type": "1:1",
+              "score": 5077.85986328125
+            },
+            "source_chain": [
+              "replicated PMID claim",
+              "Europe PMC Gene_Proteins term extraction",
+              "UniProt exact-species gene/protein resolution",
+              "OMA source-protein species verification",
+              "OMA pairwise orthology to Homo sapiens",
+              "OMA human Ensembl xref",
+              "Open Targets human target annotation"
+            ],
+            "source_claim_pmids": [
+              "PMID:32950659",
+              "PMID:42615433",
+              "PMID:42746048"
+            ],
+            "tractability": [
+              {
+                "label": "UniProt Ubiquitination",
+                "modality": "PR"
+              },
+              {
+                "label": "Database Ubiquitination",
+                "modality": "PR"
+              }
+            ],
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+          }
+        ],
+        "clinical_efficacy_claim": false,
+        "path_type": "STRICT_ORTHOLOGY_TARGET",
+        "source_chain": [
+          "provider-verified animal-to-human orthology",
+          "Open Targets human target validation"
+        ],
+        "status": "VERIFIED",
+        "strict_bridge_count": 4,
+        "subject": "Eublepharis macularius"
+      },
+      {
+        "bridges": [
+          {
+            "animal_ensembl_species": null,
+            "animal_gene": "daf-16",
+            "animal_ncbi_gene_id": "172981",
+            "animal_species": "Caenorhabditis elegans",
+            "animal_taxon_id": "6239",
+            "bridge_evidence_pmids": [
+              "26635120",
+              "11747821"
+            ],
+            "bridge_scope": "endogenous freeze-tolerance mechanism; independent of the exogenous ice-binding-protein intervention",
+            "bridge_seed_rationale": "Exact-species freeze-thaw genetics requires DAF-16 downstream of daf-2, while independent human-to-worm complementation work demonstrates that human FKHRL1/FOXO3 can partially replace DAF-16. This supports a conserved FOXO-family relationship without asserting one-to-one orthology or human clinical efficacy.",
+            "clinical_efficacy_claim": false,
+            "human_biotype": "protein_coding",
+            "human_ensembl_id": "ENSG00000118689",
+            "human_name": "forkhead box O3",
+            "human_symbol": "FOXO3",
+            "orthology": {
+              "functional_orthology_doi": "10.1016/S0960-9822(01)00595-4",
+              "functional_orthology_pmid": "11747821",
+              "human_paralog_context": [
+                "FOXO1",
+                "FOXO3",
+                "FOXO4"
+              ],
+              "method": "exact-species genetics + cross-species functional complementation",
+              "provider": "Peer-reviewed functional orthology",
+              "relation": "one_to_many_functional_orthology",
+              "selected_human_target": "FOXO3",
+              "source_ncbi_gene_id": "172981"
+            },
+            "source_chain": [
+              "replicated exact-species research claim",
+              "NCBI Datasets exact Caenorhabditis elegans daf-16 gene",
+              "exact-species freeze-thaw genetics requiring DAF-16/FOXO",
+              "peer-reviewed human FKHRL1/FOXO3-to-DAF-16 functional complementation",
+              "Open Targets human FOXO3 target validation"
+            ],
+            "source_claim_pmids": [
+              "PMID:42169464",
+              "PMID:42208364"
+            ],
+            "tractability": [
+              {
+                "label": "Structure with Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "UniProt loc high conf",
+                "modality": "AB"
+              },
+              {
+                "label": "UniProt Ubiquitination",
+                "modality": "PR"
+              },
+              {
+                "label": "Database Ubiquitination",
+                "modality": "PR"
+              }
+            ],
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+          }
+        ],
+        "clinical_efficacy_claim": false,
+        "path_type": "STRICT_ORTHOLOGY_TARGET",
+        "source_chain": [
+          "provider-verified animal-to-human orthology",
+          "Open Targets human target validation"
+        ],
+        "status": "VERIFIED",
+        "strict_bridge_count": 1,
+        "subject": "Caenorhabditis elegans"
+      }
+    ],
+    "status": "PASS",
+    "strict_orthology_candidates": 7,
+    "strict_orthology_coverage_ratio": 1.0,
+    "translation_coverage_ratio": 1.0,
+    "translation_verified_candidates": 7
+  },
   "mission_graphs": [
     {
       "edges": [
@@ -375363,7 +377735,7 @@
       "taxon_verified": true
     }
   ],
-  "sha256": "00ae3a35776828a2dc7f7ce495c1d67695a7565f5d229907cfbb18f5d8737f52",
+  "sha256": "55b06f6ca16902fc4e143d8e1a5a53a93c0dca2a6d50c3aadee5c74dc53a08b6",
   "status": "PASS",
   "telemetry": {
     "brick_observability_ratio": 1.0,
