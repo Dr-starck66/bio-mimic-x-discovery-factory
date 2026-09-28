@@ -1,0 +1,605 @@
+{
+  "campaign_id": "MICROCLEAN-X",
+  "claims": {
+    "experiment_selection_is_simulation_informed": true,
+    "experiments_have_been_run": false,
+    "results_are_known": false,
+    "safety_is_established": false
+  },
+  "decision_rule": "Run the selected experiments only after pre-registration; use measured outcomes to update or falsify the Digital Twin.",
+  "full_experiment_queue": [
+    {
+      "candidate_scope": [
+        {
+          "architecture": "Fe3O4@PDA",
+          "doi": "10.1016/j.molstruc.2026.145829",
+          "id": "fe3o4_pda"
+        },
+        {
+          "architecture": "Fe3O4/MIL-101(Cr)",
+          "doi": "10.1016/j.jenvman.2026.129935",
+          "id": "fe3o4_mil101cr"
+        },
+        {
+          "architecture": "stearic-acid modified magnetic biochar",
+          "doi": "10.1016/j.jiec.2026.02.036",
+          "id": "stearic_magnetic_biochar"
+        },
+        {
+          "architecture": "oleic/stearic-acid modified Fe3O4/carbon black",
+          "doi": "10.1177/03091333261434935",
+          "id": "fe3o4_carbon_black_fatty_acids"
+        },
+        {
+          "architecture": "Fe3O4/TiO2@chitosan-microalgae",
+          "doi": "10.1016/j.ijbiomac.2026.151593",
+          "id": "chitosan_fe3o4_tio2_microalgae"
+        }
+      ],
+      "controls": [
+        "fresh-material control at matched cycle checkpoints",
+        "published regeneration condition where available"
+      ],
+      "id": "ten_cycle_durability",
+      "kill_criteria": [
+        "material performance falls below the pre-registered retention threshold",
+        "magnetic recovery deteriorates materially across cycles",
+        "cumulative material loss becomes unacceptable"
+      ],
+      "objective": "Resolve whether high single-run performance survives repeated use.",
+      "pre_registration_requirements": [
+        "define primary endpoint before data collection",
+        "define replicate count and exclusion criteria before data collection",
+        "define acceptance/kill thresholds before data collection",
+        "preserve raw measurements and material mass-balance data",
+        "report negative and contradictory results"
+      ],
+      "primary_axis": "durability",
+      "rank": null,
+      "readouts": [
+        "removal fraction by cycle",
+        "magnetic recovery by cycle",
+        "capacity retention at cycle 10",
+        "material loss accumulated across cycles"
+      ],
+      "selection_metrics": {
+        "cost_proxy": 0.75,
+        "coverage_proxy": 1.0,
+        "discrimination_proxy": 0.82,
+        "expected_information_gain_proxy": 59.956,
+        "need_proxy": 0.4871
+      },
+      "selection_semantics": "heuristic expected-information-gain proxy; not measured information gain",
+      "status": "PROPOSED_NOT_EXECUTED",
+      "title": "Ten-cycle capture/recovery/regeneration challenge"
+    },
+    {
+      "candidate_scope": [
+        {
+          "architecture": "Fe3O4@PDA",
+          "doi": "10.1016/j.molstruc.2026.145829",
+          "id": "fe3o4_pda"
+        },
+        {
+          "architecture": "Fe3O4/MIL-101(Cr)",
+          "doi": "10.1016/j.jenvman.2026.129935",
+          "id": "fe3o4_mil101cr"
+        },
+        {
+          "architecture": "stearic-acid modified magnetic biochar",
+          "doi": "10.1016/j.jiec.2026.02.036",
+          "id": "stearic_magnetic_biochar"
+        },
+        {
+          "architecture": "oleic/stearic-acid modified Fe3O4/carbon black",
+          "doi": "10.1177/03091333261434935",
+          "id": "fe3o4_carbon_black_fatty_acids"
+        },
+        {
+          "architecture": "Fe3O4/TiO2@chitosan-microalgae",
+          "doi": "10.1016/j.ijbiomac.2026.151593",
+          "id": "chitosan_fe3o4_tio2_microalgae"
+        }
+      ],
+      "controls": [
+        "matrix control",
+        "microplastic-only control",
+        "candidate-material blank",
+        "positive assay control"
+      ],
+      "id": "ecotoxicity_matched_screen",
+      "kill_criteria": [
+        "candidate or leachate produces a reproducible adverse effect above the pre-registered threshold",
+        "post-use leachate is materially worse than matched controls"
+      ],
+      "objective": "Test whether candidate materials or their post-use leachates create a biological hazard signal.",
+      "pre_registration_requirements": [
+        "define primary endpoint before data collection",
+        "define replicate count and exclusion criteria before data collection",
+        "define acceptance/kill thresholds before data collection",
+        "preserve raw measurements and material mass-balance data",
+        "report negative and contradictory results"
+      ],
+      "primary_axis": "safety",
+      "rank": null,
+      "readouts": [
+        "matched organism/cell viability or growth endpoint appropriate to the environmental matrix",
+        "pre-use versus post-use leachate effect",
+        "dose-response direction",
+        "relationship between observed effect and measured material release"
+      ],
+      "selection_metrics": {
+        "cost_proxy": 0.85,
+        "coverage_proxy": 1.0,
+        "discrimination_proxy": 0.613,
+        "expected_information_gain_proxy": 53.655,
+        "need_proxy": 0.5093
+      },
+      "selection_semantics": "heuristic expected-information-gain proxy; not measured information gain",
+      "status": "PROPOSED_NOT_EXECUTED",
+      "title": "Matched ecotoxicity + leachate screen"
+    },
+    {
+      "candidate_scope": [
+        {
+          "architecture": "Fe3O4@PDA",
+          "doi": "10.1016/j.molstruc.2026.145829",
+          "id": "fe3o4_pda"
+        },
+        {
+          "architecture": "Fe3O4/MIL-101(Cr)",
+          "doi": "10.1016/j.jenvman.2026.129935",
+          "id": "fe3o4_mil101cr"
+        },
+        {
+          "architecture": "stearic-acid modified magnetic biochar",
+          "doi": "10.1016/j.jiec.2026.02.036",
+          "id": "stearic_magnetic_biochar"
+        },
+        {
+          "architecture": "oleic/stearic-acid modified Fe3O4/carbon black",
+          "doi": "10.1177/03091333261434935",
+          "id": "fe3o4_carbon_black_fatty_acids"
+        },
+        {
+          "architecture": "Fe3O4/TiO2@chitosan-microalgae",
+          "doi": "10.1016/j.ijbiomac.2026.151593",
+          "id": "chitosan_fe3o4_tio2_microalgae"
+        }
+      ],
+      "controls": [
+        "no-adsorbent blank",
+        "published/reference architecture under matched conditions",
+        "matrix-only control"
+      ],
+      "id": "cross_polymer_real_matrix",
+      "kill_criteria": [
+        "advantage disappears outside one polymer",
+        "advantage disappears in realistic matrix",
+        "replicates fail to reproduce the effect direction"
+      ],
+      "objective": "Test whether apparent removal advantages survive changes in polymer chemistry and water matrix.",
+      "pre_registration_requirements": [
+        "define primary endpoint before data collection",
+        "define replicate count and exclusion criteria before data collection",
+        "define acceptance/kill thresholds before data collection",
+        "preserve raw measurements and material mass-balance data",
+        "report negative and contradictory results"
+      ],
+      "primary_axis": "generalization",
+      "rank": null,
+      "readouts": [
+        "removal fraction for PS, PET and PE",
+        "uncertainty across independent replicates",
+        "performance shift between controlled water and real wastewater/natural-water matrix",
+        "rank-order stability across polymers and matrices"
+      ],
+      "selection_metrics": {
+        "cost_proxy": 0.7,
+        "coverage_proxy": 1.0,
+        "discrimination_proxy": 0.4266,
+        "expected_information_gain_proxy": 51.821,
+        "need_proxy": 0.5484
+      },
+      "selection_semantics": "heuristic expected-information-gain proxy; not measured information gain",
+      "status": "PROPOSED_NOT_EXECUTED",
+      "title": "Cross-polymer + real-matrix head-to-head"
+    },
+    {
+      "candidate_scope": [
+        {
+          "architecture": "Fe3O4@PDA",
+          "doi": "10.1016/j.molstruc.2026.145829",
+          "id": "fe3o4_pda"
+        },
+        {
+          "architecture": "Fe3O4/MIL-101(Cr)",
+          "doi": "10.1016/j.jenvman.2026.129935",
+          "id": "fe3o4_mil101cr"
+        },
+        {
+          "architecture": "stearic-acid modified magnetic biochar",
+          "doi": "10.1016/j.jiec.2026.02.036",
+          "id": "stearic_magnetic_biochar"
+        },
+        {
+          "architecture": "oleic/stearic-acid modified Fe3O4/carbon black",
+          "doi": "10.1177/03091333261434935",
+          "id": "fe3o4_carbon_black_fatty_acids"
+        },
+        {
+          "architecture": "Fe3O4/TiO2@chitosan-microalgae",
+          "doi": "10.1016/j.ijbiomac.2026.151593",
+          "id": "chitosan_fe3o4_tio2_microalgae"
+        }
+      ],
+      "controls": [
+        "material blank without microplastics",
+        "no-field recovery control",
+        "matched pristine-water control"
+      ],
+      "id": "magnetic_recovery_release_mass_balance",
+      "kill_criteria": [
+        "material loss exceeds the pre-registered tolerance",
+        "secondary release negates the remediation advantage",
+        "recovery is not reproducible across independent runs"
+      ],
+      "objective": "Measure whether removal is offset by unrecovered sorbent, coating, metal or particle release.",
+      "pre_registration_requirements": [
+        "define primary endpoint before data collection",
+        "define replicate count and exclusion criteria before data collection",
+        "define acceptance/kill thresholds before data collection",
+        "preserve raw measurements and material mass-balance data",
+        "report negative and contradictory results"
+      ],
+      "primary_axis": "containment",
+      "rank": null,
+      "readouts": [
+        "fraction of sorbent magnetically recovered",
+        "unrecovered material mass balance",
+        "material-specific metal/particle/coating release",
+        "microplastic removal after accounting for unrecovered sorbent"
+      ],
+      "selection_metrics": {
+        "cost_proxy": 0.6,
+        "coverage_proxy": 1.0,
+        "discrimination_proxy": 0.4551,
+        "expected_information_gain_proxy": 47.11,
+        "need_proxy": 0.4131
+      },
+      "selection_semantics": "heuristic expected-information-gain proxy; not measured information gain",
+      "status": "PROPOSED_NOT_EXECUTED",
+      "title": "Magnetic recovery + secondary-release mass balance"
+    },
+    {
+      "candidate_scope": [
+        {
+          "architecture": "Fe3O4@PDA",
+          "doi": "10.1016/j.molstruc.2026.145829",
+          "id": "fe3o4_pda"
+        },
+        {
+          "architecture": "Fe3O4/MIL-101(Cr)",
+          "doi": "10.1016/j.jenvman.2026.129935",
+          "id": "fe3o4_mil101cr"
+        },
+        {
+          "architecture": "stearic-acid modified magnetic biochar",
+          "doi": "10.1016/j.jiec.2026.02.036",
+          "id": "stearic_magnetic_biochar"
+        }
+      ],
+      "controls": [
+        "reference pH condition",
+        "matrix-matched blank"
+      ],
+      "id": "operating_window_ph_matrix",
+      "kill_criteria": [
+        "ranking reverses under modest operating-window changes",
+        "release risk rises sharply inside the intended operating window"
+      ],
+      "objective": "Determine whether the candidate ranking is stable across realistic operating-window perturbations.",
+      "pre_registration_requirements": [
+        "define primary endpoint before data collection",
+        "define replicate count and exclusion criteria before data collection",
+        "define acceptance/kill thresholds before data collection",
+        "preserve raw measurements and material mass-balance data",
+        "report negative and contradictory results"
+      ],
+      "primary_axis": "operating_window",
+      "rank": null,
+      "readouts": [
+        "removal fraction across pH window",
+        "recovery across pH window",
+        "release across pH window",
+        "interaction between pH and matrix complexity"
+      ],
+      "selection_metrics": {
+        "cost_proxy": 0.55,
+        "coverage_proxy": 0.7,
+        "discrimination_proxy": 0.4337,
+        "expected_information_gain_proxy": 41.12,
+        "need_proxy": 0.4142
+      },
+      "selection_semantics": "heuristic expected-information-gain proxy; not measured information gain",
+      "status": "PROPOSED_NOT_EXECUTED",
+      "title": "pH × matrix robustness map"
+    },
+    {
+      "candidate_scope": [
+        {
+          "architecture": "Fe3O4@PDA",
+          "doi": "10.1016/j.molstruc.2026.145829",
+          "id": "fe3o4_pda"
+        }
+      ],
+      "controls": [
+        "published/reference material formulation",
+        "no-adsorbent blank"
+      ],
+      "id": "champion_reference_replay",
+      "kill_criteria": [
+        "published-anchor behavior cannot be reproduced",
+        "digital-twin baseline error exceeds the pre-registered tolerance"
+      ],
+      "objective": "Test whether the top virtual candidate reproduces the published anchor before any optimization claim is considered.",
+      "pre_registration_requirements": [
+        "define primary endpoint before data collection",
+        "define replicate count and exclusion criteria before data collection",
+        "define acceptance/kill thresholds before data collection",
+        "preserve raw measurements and material mass-balance data",
+        "report negative and contradictory results"
+      ],
+      "primary_axis": "reproducibility",
+      "rank": null,
+      "readouts": [
+        "removal fraction under published-anchor conditions",
+        "magnetic recovery",
+        "variance across independent replicates",
+        "difference between measured result and digital-twin baseline"
+      ],
+      "selection_metrics": {
+        "cost_proxy": 0.35,
+        "coverage_proxy": 0.3,
+        "discrimination_proxy": 0.314,
+        "expected_information_gain_proxy": 26.211,
+        "need_proxy": 0.2998
+      },
+      "selection_semantics": "heuristic expected-information-gain proxy; not measured information gain",
+      "status": "PROPOSED_NOT_EXECUTED",
+      "title": "Champion versus published-reference replay"
+    }
+  ],
+  "generated_at": "2026-09-28T18:32:20.917924+00:00",
+  "name": "Experiment Selector",
+  "new_measured_results": 0,
+  "phase": 5,
+  "physical_experiments_executed": 0,
+  "selected_experiments": [
+    {
+      "candidate_scope": [
+        {
+          "architecture": "Fe3O4@PDA",
+          "doi": "10.1016/j.molstruc.2026.145829",
+          "id": "fe3o4_pda"
+        },
+        {
+          "architecture": "Fe3O4/MIL-101(Cr)",
+          "doi": "10.1016/j.jenvman.2026.129935",
+          "id": "fe3o4_mil101cr"
+        },
+        {
+          "architecture": "stearic-acid modified magnetic biochar",
+          "doi": "10.1016/j.jiec.2026.02.036",
+          "id": "stearic_magnetic_biochar"
+        },
+        {
+          "architecture": "oleic/stearic-acid modified Fe3O4/carbon black",
+          "doi": "10.1177/03091333261434935",
+          "id": "fe3o4_carbon_black_fatty_acids"
+        },
+        {
+          "architecture": "Fe3O4/TiO2@chitosan-microalgae",
+          "doi": "10.1016/j.ijbiomac.2026.151593",
+          "id": "chitosan_fe3o4_tio2_microalgae"
+        }
+      ],
+      "controls": [
+        "fresh-material control at matched cycle checkpoints",
+        "published regeneration condition where available"
+      ],
+      "id": "ten_cycle_durability",
+      "kill_criteria": [
+        "material performance falls below the pre-registered retention threshold",
+        "magnetic recovery deteriorates materially across cycles",
+        "cumulative material loss becomes unacceptable"
+      ],
+      "objective": "Resolve whether high single-run performance survives repeated use.",
+      "pre_registration_requirements": [
+        "define primary endpoint before data collection",
+        "define replicate count and exclusion criteria before data collection",
+        "define acceptance/kill thresholds before data collection",
+        "preserve raw measurements and material mass-balance data",
+        "report negative and contradictory results"
+      ],
+      "primary_axis": "durability",
+      "rank": 1,
+      "readouts": [
+        "removal fraction by cycle",
+        "magnetic recovery by cycle",
+        "capacity retention at cycle 10",
+        "material loss accumulated across cycles"
+      ],
+      "selection_metrics": {
+        "cost_proxy": 0.75,
+        "coverage_proxy": 1.0,
+        "discrimination_proxy": 0.82,
+        "expected_information_gain_proxy": 59.956,
+        "need_proxy": 0.4871
+      },
+      "selection_semantics": "heuristic expected-information-gain proxy; not measured information gain",
+      "status": "PROPOSED_NOT_EXECUTED",
+      "title": "Ten-cycle capture/recovery/regeneration challenge"
+    },
+    {
+      "candidate_scope": [
+        {
+          "architecture": "Fe3O4@PDA",
+          "doi": "10.1016/j.molstruc.2026.145829",
+          "id": "fe3o4_pda"
+        },
+        {
+          "architecture": "Fe3O4/MIL-101(Cr)",
+          "doi": "10.1016/j.jenvman.2026.129935",
+          "id": "fe3o4_mil101cr"
+        },
+        {
+          "architecture": "stearic-acid modified magnetic biochar",
+          "doi": "10.1016/j.jiec.2026.02.036",
+          "id": "stearic_magnetic_biochar"
+        },
+        {
+          "architecture": "oleic/stearic-acid modified Fe3O4/carbon black",
+          "doi": "10.1177/03091333261434935",
+          "id": "fe3o4_carbon_black_fatty_acids"
+        },
+        {
+          "architecture": "Fe3O4/TiO2@chitosan-microalgae",
+          "doi": "10.1016/j.ijbiomac.2026.151593",
+          "id": "chitosan_fe3o4_tio2_microalgae"
+        }
+      ],
+      "controls": [
+        "matrix control",
+        "microplastic-only control",
+        "candidate-material blank",
+        "positive assay control"
+      ],
+      "id": "ecotoxicity_matched_screen",
+      "kill_criteria": [
+        "candidate or leachate produces a reproducible adverse effect above the pre-registered threshold",
+        "post-use leachate is materially worse than matched controls"
+      ],
+      "objective": "Test whether candidate materials or their post-use leachates create a biological hazard signal.",
+      "pre_registration_requirements": [
+        "define primary endpoint before data collection",
+        "define replicate count and exclusion criteria before data collection",
+        "define acceptance/kill thresholds before data collection",
+        "preserve raw measurements and material mass-balance data",
+        "report negative and contradictory results"
+      ],
+      "primary_axis": "safety",
+      "rank": 2,
+      "readouts": [
+        "matched organism/cell viability or growth endpoint appropriate to the environmental matrix",
+        "pre-use versus post-use leachate effect",
+        "dose-response direction",
+        "relationship between observed effect and measured material release"
+      ],
+      "selection_metrics": {
+        "cost_proxy": 0.85,
+        "coverage_proxy": 1.0,
+        "discrimination_proxy": 0.613,
+        "expected_information_gain_proxy": 53.655,
+        "need_proxy": 0.5093
+      },
+      "selection_semantics": "heuristic expected-information-gain proxy; not measured information gain",
+      "status": "PROPOSED_NOT_EXECUTED",
+      "title": "Matched ecotoxicity + leachate screen"
+    },
+    {
+      "candidate_scope": [
+        {
+          "architecture": "Fe3O4@PDA",
+          "doi": "10.1016/j.molstruc.2026.145829",
+          "id": "fe3o4_pda"
+        },
+        {
+          "architecture": "Fe3O4/MIL-101(Cr)",
+          "doi": "10.1016/j.jenvman.2026.129935",
+          "id": "fe3o4_mil101cr"
+        },
+        {
+          "architecture": "stearic-acid modified magnetic biochar",
+          "doi": "10.1016/j.jiec.2026.02.036",
+          "id": "stearic_magnetic_biochar"
+        },
+        {
+          "architecture": "oleic/stearic-acid modified Fe3O4/carbon black",
+          "doi": "10.1177/03091333261434935",
+          "id": "fe3o4_carbon_black_fatty_acids"
+        },
+        {
+          "architecture": "Fe3O4/TiO2@chitosan-microalgae",
+          "doi": "10.1016/j.ijbiomac.2026.151593",
+          "id": "chitosan_fe3o4_tio2_microalgae"
+        }
+      ],
+      "controls": [
+        "no-adsorbent blank",
+        "published/reference architecture under matched conditions",
+        "matrix-only control"
+      ],
+      "id": "cross_polymer_real_matrix",
+      "kill_criteria": [
+        "advantage disappears outside one polymer",
+        "advantage disappears in realistic matrix",
+        "replicates fail to reproduce the effect direction"
+      ],
+      "objective": "Test whether apparent removal advantages survive changes in polymer chemistry and water matrix.",
+      "pre_registration_requirements": [
+        "define primary endpoint before data collection",
+        "define replicate count and exclusion criteria before data collection",
+        "define acceptance/kill thresholds before data collection",
+        "preserve raw measurements and material mass-balance data",
+        "report negative and contradictory results"
+      ],
+      "primary_axis": "generalization",
+      "rank": 3,
+      "readouts": [
+        "removal fraction for PS, PET and PE",
+        "uncertainty across independent replicates",
+        "performance shift between controlled water and real wastewater/natural-water matrix",
+        "rank-order stability across polymers and matrices"
+      ],
+      "selection_metrics": {
+        "cost_proxy": 0.7,
+        "coverage_proxy": 1.0,
+        "discrimination_proxy": 0.4266,
+        "expected_information_gain_proxy": 51.821,
+        "need_proxy": 0.5484
+      },
+      "selection_semantics": "heuristic expected-information-gain proxy; not measured information gain",
+      "status": "PROPOSED_NOT_EXECUTED",
+      "title": "Cross-polymer + real-matrix head-to-head"
+    }
+  ],
+  "selected_primary_axes": [
+    "durability",
+    "safety",
+    "generalization"
+  ],
+  "selection_policy": {
+    "minimum_selected_experiments": 3,
+    "physical_result_claims_forbidden": true,
+    "proposed_not_executed": true,
+    "require_distinct_primary_axes": true,
+    "selection_semantics": "heuristic expected-information-gain proxy; not measured information gain"
+  },
+  "sha256": "861899b6accd5c8752cfc1c76bdb6442cc059c97bd79c4dbc631317090c398ce",
+  "source_digital_twin_sha256": "8d39c2cd43d12c67527b1354891053886e1f5b8f2d62b60df3f1ffbab7acc09f",
+  "status": "PASS",
+  "uncertainty_features": {
+    "durability_disagreement": 1.0,
+    "durability_gap": 0.2917,
+    "mean_uncertainty": 0.3432,
+    "polymer_scope_gap": 1.0,
+    "real_matrix_gap": 0.6,
+    "recovery_disagreement": 0.0802,
+    "recovery_gap": 0.1907,
+    "release_burden": 0.4809,
+    "release_disagreement": 0.6571,
+    "removal_disagreement": 0.2848,
+    "reuse_gap": 0.4
+  }
+}
