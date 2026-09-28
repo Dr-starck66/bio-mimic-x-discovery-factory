@@ -1,0 +1,153 @@
+{
+  "campaign_id": "MICROCLEAN-X",
+  "phase": 5,
+  "name": "Experiment Selector",
+  "policy": {
+    "selection_semantics": "heuristic expected-information-gain proxy; not measured information gain",
+    "proposed_not_executed": true,
+    "physical_result_claims_forbidden": true,
+    "minimum_selected_experiments": 3,
+    "require_distinct_primary_axes": true
+  },
+  "experiments": [
+    {
+      "id": "cross_polymer_real_matrix",
+      "primary_axis": "generalization",
+      "title": "Cross-polymer + real-matrix head-to-head",
+      "objective": "Test whether apparent removal advantages survive changes in polymer chemistry and water matrix.",
+      "candidate_scope": "ALL",
+      "readouts": [
+        "removal fraction for PS, PET and PE",
+        "uncertainty across independent replicates",
+        "performance shift between controlled water and real wastewater/natural-water matrix",
+        "rank-order stability across polymers and matrices"
+      ],
+      "controls": [
+        "no-adsorbent blank",
+        "published/reference architecture under matched conditions",
+        "matrix-only control"
+      ],
+      "kill_criteria": [
+        "advantage disappears outside one polymer",
+        "advantage disappears in realistic matrix",
+        "replicates fail to reproduce the effect direction"
+      ],
+      "cost_proxy": 0.70
+    },
+    {
+      "id": "magnetic_recovery_release_mass_balance",
+      "primary_axis": "containment",
+      "title": "Magnetic recovery + secondary-release mass balance",
+      "objective": "Measure whether removal is offset by unrecovered sorbent, coating, metal or particle release.",
+      "candidate_scope": "ALL",
+      "readouts": [
+        "fraction of sorbent magnetically recovered",
+        "unrecovered material mass balance",
+        "material-specific metal/particle/coating release",
+        "microplastic removal after accounting for unrecovered sorbent"
+      ],
+      "controls": [
+        "material blank without microplastics",
+        "no-field recovery control",
+        "matched pristine-water control"
+      ],
+      "kill_criteria": [
+        "material loss exceeds the pre-registered tolerance",
+        "secondary release negates the remediation advantage",
+        "recovery is not reproducible across independent runs"
+      ],
+      "cost_proxy": 0.60
+    },
+    {
+      "id": "ten_cycle_durability",
+      "primary_axis": "durability",
+      "title": "Ten-cycle capture/recovery/regeneration challenge",
+      "objective": "Resolve whether high single-run performance survives repeated use.",
+      "candidate_scope": "ALL",
+      "readouts": [
+        "removal fraction by cycle",
+        "magnetic recovery by cycle",
+        "capacity retention at cycle 10",
+        "material loss accumulated across cycles"
+      ],
+      "controls": [
+        "fresh-material control at matched cycle checkpoints",
+        "published regeneration condition where available"
+      ],
+      "kill_criteria": [
+        "material performance falls below the pre-registered retention threshold",
+        "magnetic recovery deteriorates materially across cycles",
+        "cumulative material loss becomes unacceptable"
+      ],
+      "cost_proxy": 0.75
+    },
+    {
+      "id": "ecotoxicity_matched_screen",
+      "primary_axis": "safety",
+      "title": "Matched ecotoxicity + leachate screen",
+      "objective": "Test whether candidate materials or their post-use leachates create a biological hazard signal.",
+      "candidate_scope": "ALL",
+      "readouts": [
+        "matched organism/cell viability or growth endpoint appropriate to the environmental matrix",
+        "pre-use versus post-use leachate effect",
+        "dose-response direction",
+        "relationship between observed effect and measured material release"
+      ],
+      "controls": [
+        "matrix control",
+        "microplastic-only control",
+        "candidate-material blank",
+        "positive assay control"
+      ],
+      "kill_criteria": [
+        "candidate or leachate produces a reproducible adverse effect above the pre-registered threshold",
+        "post-use leachate is materially worse than matched controls"
+      ],
+      "cost_proxy": 0.85
+    },
+    {
+      "id": "operating_window_ph_matrix",
+      "primary_axis": "operating_window",
+      "title": "pH × matrix robustness map",
+      "objective": "Determine whether the candidate ranking is stable across realistic operating-window perturbations.",
+      "candidate_scope": "TOP3",
+      "readouts": [
+        "removal fraction across pH window",
+        "recovery across pH window",
+        "release across pH window",
+        "interaction between pH and matrix complexity"
+      ],
+      "controls": [
+        "reference pH condition",
+        "matrix-matched blank"
+      ],
+      "kill_criteria": [
+        "ranking reverses under modest operating-window changes",
+        "release risk rises sharply inside the intended operating window"
+      ],
+      "cost_proxy": 0.55
+    },
+    {
+      "id": "champion_reference_replay",
+      "primary_axis": "reproducibility",
+      "title": "Champion versus published-reference replay",
+      "objective": "Test whether the top virtual candidate reproduces the published anchor before any optimization claim is considered.",
+      "candidate_scope": "CHAMPION",
+      "readouts": [
+        "removal fraction under published-anchor conditions",
+        "magnetic recovery",
+        "variance across independent replicates",
+        "difference between measured result and digital-twin baseline"
+      ],
+      "controls": [
+        "published/reference material formulation",
+        "no-adsorbent blank"
+      ],
+      "kill_criteria": [
+        "published-anchor behavior cannot be reproduced",
+        "digital-twin baseline error exceeds the pre-registered tolerance"
+      ],
+      "cost_proxy": 0.35
+    }
+  ]
+}
