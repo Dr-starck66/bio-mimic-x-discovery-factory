@@ -1,0 +1,54 @@
+{
+  "campaign_id": "MICROCLEAN-X",
+  "phase": 4,
+  "name": "Digital Twin",
+  "model_class": "dimensionless heuristic surrogate",
+  "simulation_only": true,
+  "parameter_space": {
+    "dose_ratio": [0.6, 1.4],
+    "contact_time_ratio": [0.5, 1.5],
+    "magnetic_fraction_ratio": [0.75, 1.25],
+    "surface_affinity_ratio": [0.8, 1.2],
+    "pH_offset_from_reference": [-2.0, 2.0],
+    "matrix_complexity": [0.0, 1.0]
+  },
+  "architecture_priors": {
+    "fe3o4_pda": {
+      "release_risk_prior": 0.20,
+      "complexity_prior": 0.25,
+      "pH_sensitivity": 0.22,
+      "notes": "PDA is pH-responsive; published Fe3O4@PDA shows strong PS release at extreme pH."
+    },
+    "chitosan_fe3o4_tio2_microalgae": {
+      "release_risk_prior": 0.35,
+      "complexity_prior": 0.70,
+      "pH_sensitivity": 0.08,
+      "notes": "Multi-component microrobot with Fe3O4/TiO2, chitosan and microalgae; nanoparticle fate remains an uncertainty."
+    },
+    "fe3o4_mil101cr": {
+      "release_risk_prior": 0.55,
+      "complexity_prior": 0.60,
+      "pH_sensitivity": 0.05,
+      "notes": "Chromium-bearing MOF receives an explicit material-hazard prior despite strong adsorption evidence."
+    },
+    "stearic_magnetic_biochar": {
+      "release_risk_prior": 0.25,
+      "complexity_prior": 0.30,
+      "pH_sensitivity": 0.08,
+      "notes": "Magnetic biochar with hydrophobic surface modification; reuse evidence remains sparse."
+    },
+    "fe3o4_carbon_black_fatty_acids": {
+      "release_risk_prior": 0.40,
+      "complexity_prior": 0.45,
+      "pH_sensitivity": 0.07,
+      "notes": "Real washing-machine effluent evidence exists, but carbon-black and coating mass balance remain open."
+    }
+  },
+  "interpretation": {
+    "predicted_removal_pct": "surrogate estimate anchored to published maximum removal; not a measured result",
+    "magnetic_recovery_proxy": "dimensionless recovery proxy; not a measured capture fraction",
+    "cycle10_retention_proxy": "extrapolated durability proxy; not a measured ten-cycle result unless future evidence exists",
+    "release_risk_proxy": "relative risk-screening proxy; not a toxicology result",
+    "robust_score": "research prioritization heuristic only"
+  }
+}
