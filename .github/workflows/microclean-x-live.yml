@@ -1,0 +1,66 @@
+name: MICROCLEAN-X Live Evidence Radar
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '11 5 * * *'
+  push:
+    branches: [main]
+    paths:
+      - 'factory/microclean_x_live.py'
+      - 'tests/test_microclean_x_live.py'
+      - '.github/workflows/microclean-x-live.yml'
+      - 'docs/MICROCLEAN-X-LIVE.md'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'factory/microclean_x_live.py'
+      - 'tests/test_microclean_x_live.py'
+      - '.github/workflows/microclean-x-live.yml'
+      - 'docs/MICROCLEAN-X-LIVE.md'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: microclean-x-live-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  live-radar:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Unit tests
+        run: python -m unittest tests.test_microclean_x_live -v
+      - name: Live literature scan
+        run: python factory/microclean_x_live.py --rows-per-query 12
+      - name: Evidence integrity gate
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path("reports/microclean-x/live_latest.json").read_text(encoding="utf-8"))
+          assert x["policy"]["fail_closed"] is True
+          assert x["policy"]["auto_promote_to_validated"] is False
+          assert x["counts"]["microplastic_records"] > 0
+          assert len(x["sha256"]) == 64
+          assert all(s["status"] in ("SCOUT","REVIEW_QUEUE") for s in x["material_signals"])
+          print("PASS: live evidence radar generated without auto-validation")
+          PY
+      - name: Persist live radar
+        if: github.event_name != 'pull_request'
+        run: |
+          git config user.name "BIO-MIMIC-X-MICROCLEAN-LIVE"
+          git config user.email "biomimic-x-microclean-live@users.noreply.github.com"
+          git add state/microclean-x reports/microclean-x public/data/microclean-x
+          if git diff --cached --quiet; then
+            echo "No live-radar change."
+          else
+            git commit -m "microclean-x: refresh live evidence radar"
+            git push
+          fi
