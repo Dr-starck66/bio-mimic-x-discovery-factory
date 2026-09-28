@@ -1,0 +1,144 @@
+{
+  "campaign": {
+    "id": "MICROCLEAN-X",
+    "mission": "Identify magnetically recoverable microplastic-remediation designs that can outperform or de-risk the Ti3C2Tx@Ni reference without promoting unvalidated safety claims.",
+    "reference_doi": "10.1038/s41427-026-00670-7",
+    "reference_lab_metrics": {
+      "water_polystyrene_removal_pct": 94.0,
+      "water_pet_removal_pct": 89.2,
+      "soil_polystyrene_removal_pct": 80.6,
+      "soil_pet_removal_pct": 72.2
+    }
+  },
+  "sources": {
+    "mxene_ni_2026": {
+      "type": "primary",
+      "citation": "Kim J, Mallick A, Song S-J, Pumera M. Magnetic MXene-based microrobots for soil microplastics removal. NPG Asia Materials (2026).",
+      "doi": "10.1038/s41427-026-00670-7"
+    },
+    "iron_oxide_water_review": {
+      "type": "review",
+      "pmid": "33302040",
+      "doi": "10.1016/j.jenvman.2020.111921"
+    },
+    "fe3o4_contaminants_review": {
+      "type": "review",
+      "pmid": "33398745",
+      "doi": "10.1007/s11356-020-11877-8"
+    },
+    "iron_oxide_soil_risk_review": {
+      "type": "review",
+      "pmid": "37515989",
+      "doi": "10.1016/j.jhazmat.2023.132107"
+    },
+    "iron_oxide_environment_health_review": {
+      "type": "review",
+      "pmid": "39617545",
+      "doi": "10.1016/j.jes.2024.04.045"
+    },
+    "magnetic_composites_water_review": {
+      "type": "review",
+      "pmcid": "PMC10421488"
+    },
+    "silica_fe3o4_water": {
+      "type": "article",
+      "doi": "10.1016/j.cej.2016.07.068"
+    }
+  },
+  "candidates": [
+    {
+      "id": "reference_mxene_ni",
+      "label": "Ti3C2Tx@Ni reference",
+      "role": "REFERENCE",
+      "microplastic_direct_evidence": true,
+      "magnetic_recovery_precedent": true,
+      "water_remediation_precedent": true,
+      "soil_fate_reviewed": false,
+      "reusability_precedent": false,
+      "contains_nickel": true,
+      "contains_cobalt": false,
+      "nanoparticle_release_risk_open": true,
+      "sources": ["mxene_ni_2026"],
+      "risk_flags": [
+        "nickel ion release / secondary pollution requires resolution",
+        "complete magnetic retrieval is not guaranteed",
+        "field soil, natural water, mixed-pollutant and repeated-cycle validation remain open"
+      ]
+    },
+    {
+      "id": "mxene_fe3o4",
+      "label": "Ti3C2Tx + Fe3O4",
+      "role": "HYPOTHESIS",
+      "microplastic_direct_evidence": false,
+      "magnetic_recovery_precedent": true,
+      "water_remediation_precedent": true,
+      "soil_fate_reviewed": true,
+      "reusability_precedent": false,
+      "contains_nickel": false,
+      "contains_cobalt": false,
+      "nanoparticle_release_risk_open": true,
+      "sources": ["iron_oxide_water_review", "fe3o4_contaminants_review", "iron_oxide_soil_risk_review", "iron_oxide_environment_health_review"],
+      "risk_flags": [
+        "no direct MXene-Fe3O4 microplastic-removal validation in this evidence seed",
+        "iron-oxide nanoparticle fate and ecotoxicity remain matrix- and dose-dependent",
+        "particle loss must be quantified by mass balance"
+      ]
+    },
+    {
+      "id": "mxene_maghemite",
+      "label": "Ti3C2Tx + gamma-Fe2O3",
+      "role": "HYPOTHESIS",
+      "microplastic_direct_evidence": false,
+      "magnetic_recovery_precedent": true,
+      "water_remediation_precedent": true,
+      "soil_fate_reviewed": true,
+      "reusability_precedent": false,
+      "contains_nickel": false,
+      "contains_cobalt": false,
+      "nanoparticle_release_risk_open": true,
+      "sources": ["iron_oxide_water_review", "iron_oxide_soil_risk_review", "iron_oxide_environment_health_review"],
+      "risk_flags": [
+        "no direct MXene-gamma-Fe2O3 microplastic-removal validation in this evidence seed",
+        "environmental transformation and biotoxic effects require direct measurement"
+      ]
+    },
+    {
+      "id": "mxene_fe3o4_chitosan",
+      "label": "Ti3C2Tx + chitosan-stabilized Fe3O4",
+      "role": "HYPOTHESIS",
+      "microplastic_direct_evidence": false,
+      "magnetic_recovery_precedent": true,
+      "water_remediation_precedent": true,
+      "soil_fate_reviewed": true,
+      "reusability_precedent": true,
+      "contains_nickel": false,
+      "contains_cobalt": false,
+      "nanoparticle_release_risk_open": true,
+      "sources": ["magnetic_composites_water_review", "iron_oxide_soil_risk_review", "iron_oxide_environment_health_review"],
+      "risk_flags": [
+        "coating may alter MXene adsorption and swarm dynamics",
+        "no direct microplastic-removal validation for this composite",
+        "coating durability and Fe release require repeated-cycle testing"
+      ]
+    },
+    {
+      "id": "mxene_fe3o4_silica",
+      "label": "Ti3C2Tx + silica-coated Fe3O4",
+      "role": "HYPOTHESIS",
+      "microplastic_direct_evidence": false,
+      "magnetic_recovery_precedent": true,
+      "water_remediation_precedent": true,
+      "soil_fate_reviewed": true,
+      "reusability_precedent": true,
+      "contains_nickel": false,
+      "contains_cobalt": false,
+      "nanoparticle_release_risk_open": true,
+      "sources": ["silica_fe3o4_water", "iron_oxide_soil_risk_review", "iron_oxide_environment_health_review"],
+      "risk_flags": [
+        "silica shell may reduce magnetic response or alter surface capture",
+        "no direct microplastic-removal validation for this composite",
+        "shell integrity and particle loss require measurement"
+      ]
+    }
+  ]
+}
