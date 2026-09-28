@@ -56,6 +56,7 @@ jobs:
           print("PASS: MICROCLEAN-X produced a fail-closed evidence report")
           PY
       - name: Persist generated report
+        if: github.event_name != 'pull_request'
         run: |
           git config user.name "BIO-MIMIC-X-MICROCLEAN"
           git config user.email "biomimic-x-microclean@users.noreply.github.com"
