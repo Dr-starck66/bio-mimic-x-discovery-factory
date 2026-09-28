@@ -1,0 +1,77 @@
+name: MICROCLEAN-X Experiment Selector
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '7 6 * * *'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'factory/microclean_x_experiment_library.json'
+      - 'factory/microclean_x_experiment_selector.py'
+      - 'reports/microclean-x/digital_twin_latest.json'
+      - 'factory/microclean_x_composites.json'
+      - 'tests/test_microclean_x_experiment_selector.py'
+      - 'docs/MICROCLEAN-X-EXPERIMENT-SELECTOR.md'
+      - '.github/workflows/microclean-x-experiment-selector.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'factory/microclean_x_experiment_library.json'
+      - 'factory/microclean_x_experiment_selector.py'
+      - 'reports/microclean-x/digital_twin_latest.json'
+      - 'factory/microclean_x_composites.json'
+      - 'tests/test_microclean_x_experiment_selector.py'
+      - 'docs/MICROCLEAN-X-EXPERIMENT-SELECTOR.md'
+      - '.github/workflows/microclean-x-experiment-selector.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: microclean-x-experiment-selector-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  experiment-selector:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Anti-false-PASS tests
+        run: python -m unittest tests.test_microclean_x_experiment_selector -v
+      - name: Select three highest-value experiments
+        run: python factory/microclean_x_experiment_selector.py
+      - name: Verify selector integrity
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path("reports/microclean-x/experiment_selector_latest.json")
+          assert p.exists()
+          x=json.loads(p.read_text(encoding="utf-8"))
+          assert x["status"]=="PASS"
+          assert len(x["selected_experiments"])==3
+          assert len(set(x["selected_primary_axes"]))==3
+          assert x["physical_experiments_executed"]==0
+          assert x["new_measured_results"]==0
+          assert all(e["status"]=="PROPOSED_NOT_EXECUTED" for e in x["selected_experiments"])
+          assert x["claims"]["experiments_have_been_run"] is False
+          assert len(x["sha256"])==64
+          print("PASS: three diverse experiments selected; no physical result fabricated")
+          PY
+      - name: Persist Experiment Selector report
+        if: github.event_name != 'pull_request'
+        run: |
+          git config user.name "BIO-MIMIC-X-EXPERIMENT-SELECTOR"
+          git config user.email "biomimic-x-experiment-selector@users.noreply.github.com"
+          git add reports/microclean-x public/data/microclean-x state/microclean-x
+          if git diff --cached --quiet; then
+            echo "No experiment-selector state change."
+          else
+            git commit -m "microclean-x: refresh experiment selector"
+            git push
+          fi
