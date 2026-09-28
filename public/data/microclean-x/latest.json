@@ -1,0 +1,184 @@
+{
+  "campaign": {
+    "id": "MICROCLEAN-X",
+    "mission": "Identify magnetically recoverable microplastic-remediation designs that can outperform or de-risk the Ti3C2Tx@Ni reference without promoting unvalidated safety claims.",
+    "reference_doi": "10.1038/s41427-026-00670-7",
+    "reference_lab_metrics": {
+      "soil_pet_removal_pct": 72.2,
+      "soil_polystyrene_removal_pct": 80.6,
+      "water_pet_removal_pct": 89.2,
+      "water_polystyrene_removal_pct": 94.0
+    }
+  },
+  "candidates": [
+    {
+      "gate": "REFERENCE_NOT_DEPLOYABLE",
+      "id": "reference_mxene_ni",
+      "label": "Ti3C2Tx@Ni reference",
+      "research_priority_score": 15,
+      "risk_flags": [
+        "nickel ion release / secondary pollution requires resolution",
+        "complete magnetic retrieval is not guaranteed",
+        "field soil, natural water, mixed-pollutant and repeated-cycle validation remain open"
+      ],
+      "role": "REFERENCE",
+      "score_semantics": "heuristic research-priority score; not efficacy or safety",
+      "source_count": 1,
+      "validation_plan": null
+    },
+    {
+      "gate": "SCOUT_NEEDS_DIRECT_VALIDATION",
+      "id": "mxene_fe3o4",
+      "label": "Ti3C2Tx + Fe3O4",
+      "research_priority_score": 40,
+      "risk_flags": [
+        "no direct MXene-Fe3O4 microplastic-removal validation in this evidence seed",
+        "iron-oxide nanoparticle fate and ecotoxicity remain matrix- and dose-dependent",
+        "particle loss must be quantified by mass balance"
+      ],
+      "role": "HYPOTHESIS",
+      "score_semantics": "heuristic research-priority score; not efficacy or safety",
+      "source_count": 4,
+      "validation_plan": {
+        "candidate_id": "mxene_fe3o4",
+        "kill_criteria": [
+          "microplastic removal fails to reproduce above passive-adsorbent control",
+          "material recovery is incomplete beyond a pre-registered tolerance",
+          "measurable secondary contamination exceeds the pre-registered safety threshold",
+          "performance collapses during repeated cycles",
+          "ecotoxicity signal is materially worse than matched controls"
+        ],
+        "sequence": [
+          "water capture benchmark against Ti3C2Tx@Ni using polystyrene and PET controls",
+          "water-permeated soil extraction benchmark using the same polymer classes",
+          "magnetic retrieval mass balance: quantify unrecovered robot material after each run",
+          "metal/particle release assay before and after actuation",
+          "ten-cycle capture/recovery/reuse durability test",
+          "ecotoxicity screen on environmentally relevant organisms and matrix controls",
+          "mixed-polymer and natural-water challenge only after the preceding gates pass"
+        ],
+        "status": "PROPOSED_NOT_EXECUTED"
+      }
+    },
+    {
+      "gate": "SCOUT_NEEDS_DIRECT_VALIDATION",
+      "id": "mxene_maghemite",
+      "label": "Ti3C2Tx + gamma-Fe2O3",
+      "research_priority_score": 40,
+      "risk_flags": [
+        "no direct MXene-gamma-Fe2O3 microplastic-removal validation in this evidence seed",
+        "environmental transformation and biotoxic effects require direct measurement"
+      ],
+      "role": "HYPOTHESIS",
+      "score_semantics": "heuristic research-priority score; not efficacy or safety",
+      "source_count": 3,
+      "validation_plan": {
+        "candidate_id": "mxene_maghemite",
+        "kill_criteria": [
+          "microplastic removal fails to reproduce above passive-adsorbent control",
+          "material recovery is incomplete beyond a pre-registered tolerance",
+          "measurable secondary contamination exceeds the pre-registered safety threshold",
+          "performance collapses during repeated cycles",
+          "ecotoxicity signal is materially worse than matched controls"
+        ],
+        "sequence": [
+          "water capture benchmark against Ti3C2Tx@Ni using polystyrene and PET controls",
+          "water-permeated soil extraction benchmark using the same polymer classes",
+          "magnetic retrieval mass balance: quantify unrecovered robot material after each run",
+          "metal/particle release assay before and after actuation",
+          "ten-cycle capture/recovery/reuse durability test",
+          "ecotoxicity screen on environmentally relevant organisms and matrix controls",
+          "mixed-polymer and natural-water challenge only after the preceding gates pass"
+        ],
+        "status": "PROPOSED_NOT_EXECUTED"
+      }
+    },
+    {
+      "gate": "SCOUT_NEEDS_DIRECT_VALIDATION",
+      "id": "mxene_fe3o4_chitosan",
+      "label": "Ti3C2Tx + chitosan-stabilized Fe3O4",
+      "research_priority_score": 50,
+      "risk_flags": [
+        "coating may alter MXene adsorption and swarm dynamics",
+        "no direct microplastic-removal validation for this composite",
+        "coating durability and Fe release require repeated-cycle testing"
+      ],
+      "role": "HYPOTHESIS",
+      "score_semantics": "heuristic research-priority score; not efficacy or safety",
+      "source_count": 3,
+      "validation_plan": {
+        "candidate_id": "mxene_fe3o4_chitosan",
+        "kill_criteria": [
+          "microplastic removal fails to reproduce above passive-adsorbent control",
+          "material recovery is incomplete beyond a pre-registered tolerance",
+          "measurable secondary contamination exceeds the pre-registered safety threshold",
+          "performance collapses during repeated cycles",
+          "ecotoxicity signal is materially worse than matched controls"
+        ],
+        "sequence": [
+          "water capture benchmark against Ti3C2Tx@Ni using polystyrene and PET controls",
+          "water-permeated soil extraction benchmark using the same polymer classes",
+          "magnetic retrieval mass balance: quantify unrecovered robot material after each run",
+          "metal/particle release assay before and after actuation",
+          "ten-cycle capture/recovery/reuse durability test",
+          "ecotoxicity screen on environmentally relevant organisms and matrix controls",
+          "mixed-polymer and natural-water challenge only after the preceding gates pass"
+        ],
+        "status": "PROPOSED_NOT_EXECUTED"
+      }
+    },
+    {
+      "gate": "SCOUT_NEEDS_DIRECT_VALIDATION",
+      "id": "mxene_fe3o4_silica",
+      "label": "Ti3C2Tx + silica-coated Fe3O4",
+      "research_priority_score": 50,
+      "risk_flags": [
+        "silica shell may reduce magnetic response or alter surface capture",
+        "no direct microplastic-removal validation for this composite",
+        "shell integrity and particle loss require measurement"
+      ],
+      "role": "HYPOTHESIS",
+      "score_semantics": "heuristic research-priority score; not efficacy or safety",
+      "source_count": 3,
+      "validation_plan": {
+        "candidate_id": "mxene_fe3o4_silica",
+        "kill_criteria": [
+          "microplastic removal fails to reproduce above passive-adsorbent control",
+          "material recovery is incomplete beyond a pre-registered tolerance",
+          "measurable secondary contamination exceeds the pre-registered safety threshold",
+          "performance collapses during repeated cycles",
+          "ecotoxicity signal is materially worse than matched controls"
+        ],
+        "sequence": [
+          "water capture benchmark against Ti3C2Tx@Ni using polystyrene and PET controls",
+          "water-permeated soil extraction benchmark using the same polymer classes",
+          "magnetic retrieval mass balance: quantify unrecovered robot material after each run",
+          "metal/particle release assay before and after actuation",
+          "ten-cycle capture/recovery/reuse durability test",
+          "ecotoxicity screen on environmentally relevant organisms and matrix controls",
+          "mixed-polymer and natural-water challenge only after the preceding gates pass"
+        ],
+        "status": "PROPOSED_NOT_EXECUTED"
+      }
+    }
+  ],
+  "evidence_policy": {
+    "fail_closed": true,
+    "no_unvalidated_efficacy_claims": true,
+    "no_unvalidated_safety_claims": true,
+    "promotion_requires_closed_release_risk": true,
+    "promotion_requires_direct_microplastic_evidence": true,
+    "promotion_requires_reuse_evidence": true
+  },
+  "generated_at": "2026-09-28T15:06:22.586979+00:00",
+  "interpretation": "No nickel-free hypothesis is treated as validated merely because iron-oxide or coating precedents exist. The queue prioritizes experiments, not deployment.",
+  "next_validation_queue": [
+    "mxene_fe3o4_chitosan",
+    "mxene_fe3o4_silica",
+    "mxene_fe3o4",
+    "mxene_maghemite"
+  ],
+  "promoted_candidates": [],
+  "sha256": "1dd816ab2ff426630e19dffc444ecc7afb5e2560f83e2da15583319b7d463daa",
+  "status": "PASS"
+}
