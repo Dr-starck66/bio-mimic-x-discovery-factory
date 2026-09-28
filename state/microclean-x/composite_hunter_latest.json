@@ -1,0 +1,346 @@
+{
+  "campaign_id": "MICROCLEAN-X",
+  "candidate_count": 5,
+  "generated_at": "2026-09-28T17:17:14.602566+00:00",
+  "interpretation": "Ranking selects what to test first. It does not certify safety, efficacy, scalability or field readiness.",
+  "name": "Composite Hunter",
+  "phase": 3,
+  "policy": {
+    "fail_closed": true,
+    "never_auto_declares_safe": true,
+    "requires_direct_microplastic_or_nanoplastic_evidence": true,
+    "requires_doi_or_pmid": true,
+    "score_semantics": "research-priority heuristic only; not a safety, efficacy, or field-readiness score"
+  },
+  "promoted_safe_or_field_ready": [],
+  "ranked_candidates": [
+    {
+      "advantages": [
+        "direct microplastic evidence",
+        "magnetic recovery",
+        "five-cycle reuse evidence",
+        "pH-responsive release enables regeneration"
+      ],
+      "architecture": "Fe3O4@PDA",
+      "display_name": "Polydopamine-coated magnetite",
+      "doi": "10.1016/j.molstruc.2026.145829",
+      "evidence_checks": {
+        "direct_evidence": true,
+        "magnetic_recovery": true,
+        "persistent_identifier": true,
+        "real_matrix": false,
+        "removal_metric": true,
+        "reuse_metric": true,
+        "risk_ledger": true
+      },
+      "evidence_completeness": 0.8571,
+      "id": "fe3o4_pda",
+      "metrics": {
+        "magnetic_recovery": true,
+        "magnetization_emu_g": 53.5,
+        "max_removal_pct": 90.0,
+        "metric_qualifier": ">90% removal maintained across five capture-release cycles",
+        "real_matrix_tested": false,
+        "retained_removal_pct_after_reuse": 90.0,
+        "reuse_cycles": 5
+      },
+      "pmid": null,
+      "research_priority_score": 70.0,
+      "risk_burden": [
+        "strong-pH-regeneration"
+      ],
+      "risks": [
+        "evidence centered on polystyrene rather than broad mixed-plastic matrices",
+        "field and ecotoxicity validation remain open",
+        "regeneration relies on strong pH changes"
+      ],
+      "score_semantics": "heuristic research priority; not safety, efficacy or field readiness",
+      "target": "polystyrene microplastics in water",
+      "validation_plan": {
+        "candidate_id": "fe3o4_pda",
+        "kill_criteria": [
+          "removal is not reproducible across independent replicates",
+          "magnetic recovery leaves material above a pre-registered loss threshold",
+          "secondary contaminant release exceeds the pre-registered threshold",
+          "performance collapses materially by cycle 10",
+          "candidate is materially more ecotoxic than the reference/control",
+          "advantage disappears outside a single polymer or idealised matrix"
+        ],
+        "must_test": [
+          "head-to-head removal against the Ti3C2Tx@Ni reference under identical polymer loading",
+          "magnetic recovery mass balance after each run",
+          "metal/particle/coating release before and after actuation",
+          "performance across at least PS, PET and PE",
+          "natural-water or wastewater matrix challenge",
+          "ten-cycle reuse challenge",
+          "matched ecotoxicity controls"
+        ],
+        "status": "PROPOSED_NOT_EXECUTED"
+      }
+    },
+    {
+      "advantages": [
+        "high reported adsorption capacity",
+        "magnetic separability",
+        "five-cycle reuse",
+        "tested across pH 3-8 and complex water matrices"
+      ],
+      "architecture": "Fe3O4/MIL-101(Cr)",
+      "display_name": "Magnetic chromium MOF composite",
+      "doi": "10.1016/j.jenvman.2026.129935",
+      "evidence_checks": {
+        "direct_evidence": true,
+        "magnetic_recovery": true,
+        "persistent_identifier": true,
+        "real_matrix": true,
+        "removal_metric": true,
+        "reuse_metric": true,
+        "risk_ledger": true
+      },
+      "evidence_completeness": 1.0,
+      "id": "fe3o4_mil101cr",
+      "metrics": {
+        "magnetic_recovery": true,
+        "magnetization_emu_g": null,
+        "max_removal_pct": 80.0,
+        "metric_qualifier": ">80% removal after five cycles; reported adsorption capacity 794-10285 mg/g",
+        "real_matrix_tested": true,
+        "retained_removal_pct_after_reuse": 80.0,
+        "reuse_cycles": 5
+      },
+      "pmid": null,
+      "research_priority_score": 68.0,
+      "risk_burden": [
+        "chromium-bearing-material"
+      ],
+      "risks": [
+        "contains chromium-bearing MOF and therefore requires metal-leaching assessment",
+        "fabrication complexity and cost may be material",
+        "ecotoxicity and end-of-life handling remain open"
+      ],
+      "score_semantics": "heuristic research priority; not safety, efficacy or field readiness",
+      "target": "microplastics in aqueous matrices",
+      "validation_plan": {
+        "candidate_id": "fe3o4_mil101cr",
+        "kill_criteria": [
+          "removal is not reproducible across independent replicates",
+          "magnetic recovery leaves material above a pre-registered loss threshold",
+          "secondary contaminant release exceeds the pre-registered threshold",
+          "performance collapses materially by cycle 10",
+          "candidate is materially more ecotoxic than the reference/control",
+          "advantage disappears outside a single polymer or idealised matrix"
+        ],
+        "must_test": [
+          "head-to-head removal against the Ti3C2Tx@Ni reference under identical polymer loading",
+          "magnetic recovery mass balance after each run",
+          "metal/particle/coating release before and after actuation",
+          "performance across at least PS, PET and PE",
+          "natural-water or wastewater matrix challenge",
+          "ten-cycle reuse challenge",
+          "matched ecotoxicity controls"
+        ],
+        "status": "PROPOSED_NOT_EXECUTED"
+      }
+    },
+    {
+      "advantages": [
+        "highest reported removal in this seed set",
+        "magnetically recoverable",
+        "biopolymer and microalgae components",
+        "five-cycle reuse data"
+      ],
+      "architecture": "Fe3O4/TiO2@chitosan-microalgae",
+      "display_name": "Chitosan-based magnetic microalgae hybrid microrobot",
+      "doi": "10.1016/j.ijbiomac.2026.151593",
+      "evidence_checks": {
+        "direct_evidence": true,
+        "magnetic_recovery": true,
+        "persistent_identifier": true,
+        "real_matrix": false,
+        "removal_metric": true,
+        "reuse_metric": true,
+        "risk_ledger": true
+      },
+      "evidence_completeness": 0.8571,
+      "id": "chitosan_fe3o4_tio2_microalgae",
+      "metrics": {
+        "magnetic_recovery": true,
+        "magnetization_emu_g": null,
+        "max_removal_pct": 99.0,
+        "metric_qualifier": "98-99% under reported optimal concentration range",
+        "real_matrix_tested": false,
+        "retained_removal_pct_after_reuse": 70.0,
+        "reuse_cycles": 5
+      },
+      "pmid": "41905696",
+      "research_priority_score": 67.15,
+      "risk_burden": [
+        "tio2-nanoparticle-fate"
+      ],
+      "risks": [
+        "evidence is for nanoplastics, not the full microplastic size range",
+        "performance falls after repeated reuse",
+        "complex multi-component fabrication",
+        "TiO2 and nanoparticle fate require ecotoxicity and release assessment"
+      ],
+      "score_semantics": "heuristic research priority; not safety, efficacy or field readiness",
+      "target": "polystyrene nanoplastics in water",
+      "validation_plan": {
+        "candidate_id": "chitosan_fe3o4_tio2_microalgae",
+        "kill_criteria": [
+          "removal is not reproducible across independent replicates",
+          "magnetic recovery leaves material above a pre-registered loss threshold",
+          "secondary contaminant release exceeds the pre-registered threshold",
+          "performance collapses materially by cycle 10",
+          "candidate is materially more ecotoxic than the reference/control",
+          "advantage disappears outside a single polymer or idealised matrix"
+        ],
+        "must_test": [
+          "head-to-head removal against the Ti3C2Tx@Ni reference under identical polymer loading",
+          "magnetic recovery mass balance after each run",
+          "metal/particle/coating release before and after actuation",
+          "performance across at least PS, PET and PE",
+          "natural-water or wastewater matrix challenge",
+          "ten-cycle reuse challenge",
+          "matched ecotoxicity controls"
+        ],
+        "status": "PROPOSED_NOT_EXECUTED"
+      }
+    },
+    {
+      "advantages": [
+        "very high synthetic-wastewater removal",
+        "real washing-machine effluent evidence",
+        "magnetically recoverable",
+        "targets polyethylene rather than only polystyrene"
+      ],
+      "architecture": "oleic/stearic-acid modified Fe3O4/carbon black",
+      "display_name": "Fatty-acid modified magnetite/carbon-black composite",
+      "doi": "10.1177/03091333261434935",
+      "evidence_checks": {
+        "direct_evidence": true,
+        "magnetic_recovery": true,
+        "persistent_identifier": true,
+        "real_matrix": true,
+        "removal_metric": true,
+        "reuse_metric": false,
+        "risk_ledger": true
+      },
+      "evidence_completeness": 0.8571,
+      "id": "fe3o4_carbon_black_fatty_acids",
+      "metrics": {
+        "magnetic_recovery": true,
+        "magnetization_emu_g": null,
+        "max_removal_pct": 98.6,
+        "metric_qualifier": "98.6% in synthetic wastewater; 94.2% in real washing-machine effluent",
+        "real_matrix_tested": true,
+        "retained_removal_pct_after_reuse": null,
+        "reuse_cycles": null
+      },
+      "pmid": null,
+      "research_priority_score": 55.51,
+      "risk_burden": [
+        "carbon-black-release"
+      ],
+      "risks": [
+        "reuse-cycle durability not established in this seed",
+        "carbon-black release and recovery mass balance require direct measurement",
+        "fatty-acid coating durability and secondary pollution need assessment"
+      ],
+      "score_semantics": "heuristic research priority; not safety, efficacy or field readiness",
+      "target": "polyethylene microplastics in wastewater pathways",
+      "validation_plan": {
+        "candidate_id": "fe3o4_carbon_black_fatty_acids",
+        "kill_criteria": [
+          "removal is not reproducible across independent replicates",
+          "magnetic recovery leaves material above a pre-registered loss threshold",
+          "secondary contaminant release exceeds the pre-registered threshold",
+          "performance collapses materially by cycle 10",
+          "candidate is materially more ecotoxic than the reference/control",
+          "advantage disappears outside a single polymer or idealised matrix"
+        ],
+        "must_test": [
+          "head-to-head removal against the Ti3C2Tx@Ni reference under identical polymer loading",
+          "magnetic recovery mass balance after each run",
+          "metal/particle/coating release before and after actuation",
+          "performance across at least PS, PET and PE",
+          "natural-water or wastewater matrix challenge",
+          "ten-cycle reuse challenge",
+          "matched ecotoxicity controls"
+        ],
+        "status": "PROPOSED_NOT_EXECUTED"
+      }
+    },
+    {
+      "advantages": [
+        "high reported removal",
+        "biochar-based route",
+        "magnetically recoverable",
+        "circular-economy framing"
+      ],
+      "architecture": "stearic-acid modified magnetic biochar",
+      "display_name": "Hydrophobically modified magnetic biochar",
+      "doi": "10.1016/j.jiec.2026.02.036",
+      "evidence_checks": {
+        "direct_evidence": true,
+        "magnetic_recovery": true,
+        "persistent_identifier": true,
+        "real_matrix": false,
+        "removal_metric": true,
+        "reuse_metric": false,
+        "risk_ledger": true
+      },
+      "evidence_completeness": 0.7143,
+      "id": "stearic_magnetic_biochar",
+      "metrics": {
+        "magnetic_recovery": true,
+        "magnetization_emu_g": null,
+        "max_removal_pct": 94.0,
+        "metric_qualifier": "~94% reported removal efficiency",
+        "real_matrix_tested": false,
+        "retained_removal_pct_after_reuse": null,
+        "reuse_cycles": null
+      },
+      "pmid": null,
+      "research_priority_score": 42.9,
+      "risk_burden": [
+        "surface-modifier-release"
+      ],
+      "risks": [
+        "reuse evidence is incomplete in this seed",
+        "performance across polymer classes and natural waters needs direct comparison",
+        "surface modifier persistence and release require measurement"
+      ],
+      "score_semantics": "heuristic research priority; not safety, efficacy or field readiness",
+      "target": "microplastics in water",
+      "validation_plan": {
+        "candidate_id": "stearic_magnetic_biochar",
+        "kill_criteria": [
+          "removal is not reproducible across independent replicates",
+          "magnetic recovery leaves material above a pre-registered loss threshold",
+          "secondary contaminant release exceeds the pre-registered threshold",
+          "performance collapses materially by cycle 10",
+          "candidate is materially more ecotoxic than the reference/control",
+          "advantage disappears outside a single polymer or idealised matrix"
+        ],
+        "must_test": [
+          "head-to-head removal against the Ti3C2Tx@Ni reference under identical polymer loading",
+          "magnetic recovery mass balance after each run",
+          "metal/particle/coating release before and after actuation",
+          "performance across at least PS, PET and PE",
+          "natural-water or wastewater matrix challenge",
+          "ten-cycle reuse challenge",
+          "matched ecotoxicity controls"
+        ],
+        "status": "PROPOSED_NOT_EXECUTED"
+      }
+    }
+  ],
+  "research_champion": {
+    "architecture": "Fe3O4@PDA",
+    "id": "fe3o4_pda",
+    "reason": "highest current research-priority heuristic among direct-evidence candidates; requires falsification before any deployment claim"
+  },
+  "sha256": "f70e9154181fdec4021f77220e5eceb1ab15e03faa80f2b907f8102abe8f4b72",
+  "status": "PASS"
+}
