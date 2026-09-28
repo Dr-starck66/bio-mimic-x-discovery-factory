@@ -2,6 +2,14 @@ name: MICROCLEAN-X Evidence Gate
 
 on:
   workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'factory/microclean_x.py'
+      - 'factory/microclean_x_candidates.json'
+      - 'tests/test_microclean_x.py'
+      - 'docs/MICROCLEAN-X.md'
+      - '.github/workflows/microclean-x.yml'
   push:
     branches: [main]
     paths:
