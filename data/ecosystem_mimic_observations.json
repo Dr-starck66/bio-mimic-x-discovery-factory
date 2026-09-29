@@ -1,6 +1,6 @@
 {
   "ecosystem_id": "camargue-vaccares-gbif-pilot",
-  "generated_at": "2026-09-28T08:59:02.332808+00:00",
+  "generated_at": "2026-09-29T09:03:52.995246+00:00",
   "generated_by": "factory/ecosystem_gbif_ingest.py",
   "measurement_semantics": "GBIF_OCCURRENCE_RECORD_COUNT_NOT_ABUNDANCE",
   "observations": [
@@ -2419,15 +2419,15 @@
           "5935511784",
           "5935654885"
         ],
-        "gbif_query_count": 102,
+        "gbif_query_count": 103,
         "licenses": [
           "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
           "http://creativecommons.org/publicdomain/zero/1.0/legalcode"
         ],
         "provider": "GBIF",
         "query_sha256": "7ac2d202823c5bab5ac271049eddf53cc1d708c432bb36adacea2e3d29ea4095",
-        "record_id_sha256": "c8be965cd54221551ac0ea851551ec1f943323c1315bf42d6fc4037ef3024582",
-        "records_used": 100,
+        "record_id_sha256": "5a0f7b26f04b9fb79e131bff2d9085a38afb699eb0957bfa3a56fc5f94652676",
+        "records_used": 101,
         "records_without_species_resolution": 2,
         "window_end": "2025-12-31",
         "window_start": "2025-12-01"
@@ -2439,7 +2439,7 @@
         "Alcedo atthis": 1,
         "Allophyes oxyacanthae": 1,
         "Anas platyrhynchos": 1,
-        "Anthus hodgsoni": 3,
+        "Anthus hodgsoni": 4,
         "Anthus pratensis": 2,
         "Aquila clanga": 1,
         "Ardea cinerea": 1,
@@ -3718,7 +3718,8 @@
         "api": "https://api.gbif.org/v1/occurrence/search",
         "dataset_keys": [
           "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
-          "8a863029-f435-446a-821e-275f4f641165"
+          "8a863029-f435-446a-821e-275f4f641165",
+          "b1047888-ae52-4179-9dd5-5448ea342a24"
         ],
         "gbif_id_examples": [
           "6430784567",
@@ -3747,15 +3748,15 @@
           "6441692759",
           "6447553816"
         ],
-        "gbif_query_count": 213,
+        "gbif_query_count": 216,
         "licenses": [
           "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
           "http://creativecommons.org/licenses/by/4.0/legalcode"
         ],
         "provider": "GBIF",
         "query_sha256": "b97dcfd876721810903e438e1cd25f36229c0f1081efbae94a085a202e9b348e",
-        "record_id_sha256": "55e1193bf55fee19fe43da3d69a6d3c30eb39947af3bead40fff1dcd97db7219",
-        "records_used": 212,
+        "record_id_sha256": "bbd2bba573f4bf54c059aea398522bc7ff619816b42931283ce87591b814d94e",
+        "records_used": 215,
         "records_without_species_resolution": 1,
         "window_end": "2026-07-31",
         "window_start": "2026-07-01"
@@ -3780,7 +3781,7 @@
         "Centaurea calcitrapa": 1,
         "Cettia cetti": 3,
         "Chiasmia clathrata": 1,
-        "Chlidonias hybrida": 1,
+        "Chlidonias hybrida": 2,
         "Chroicocephalus ridibundus": 3,
         "Ciconia ciconia": 6,
         "Circaetus gallicus": 2,
@@ -3804,6 +3805,7 @@
         "Galerida cristata": 2,
         "Gallinula chloropus": 3,
         "Gelochelidon nilotica": 1,
+        "Glareola pratincola": 2,
         "Himantopus himantopus": 13,
         "Hippolais polyglotta": 2,
         "Hirundo rustica": 2,
@@ -4004,7 +4006,7 @@
   ],
   "sampling_bias_note": "Monthly taxon values are counts of GBIF occurrence records inside the configured observation window. They are not organism abundance, density, occupancy, or standardized sampling effort.",
   "schema": "biomimic-ecosystem-observations-v2",
-  "sha256": "39a131c532edcf1d1b1099e5406c12a6eb5e5179480d4dfe6e4961537d3cec9f",
+  "sha256": "cc9902f0f8598a70f9beee968a52b896649b7659f37631c995037a80c2987864",
   "source": {
     "api": "https://api.gbif.org/v1/occurrence/search",
     "authentication_required": false,
