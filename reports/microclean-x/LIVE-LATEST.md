@@ -2,10 +2,10 @@
 
 - Status: **PASS**
 - Microplastic records: **73**
-- Material signals: **9**
+- Material signals: **10**
 - Review queue signals: **5**
 - Source errors: **0**
-- Evidence fingerprint: `f92833d38be07a25a0208aa2f16237ee110852dfeaa15c17560a50315971fd6a`
+- Evidence fingerprint: `0b278fd6ac251de092bc77d21d8b850198082100afe84d4c8d77f7f0c6f3b0e5`
 
 ## Highest-evidence material signals
 
