@@ -397,6 +397,78 @@
       "taxon_proofs": [],
       "taxon_verified": false
     },
+    "Hydra oligactis": {
+      "claim": "Hydra oligactis is a replicated cross-species research candidate; this is not a human efficacy claim.",
+      "genes": [],
+      "independent_source_count": 2,
+      "labs": [
+        "longevity"
+      ],
+      "mechanisms": [
+        "autophagy",
+        "senescence"
+      ],
+      "pmid_sources": [
+        "PMID:37156860",
+        "PMID:42793312"
+      ],
+      "source_count": 2,
+      "sources": [
+        "PMID:37156860",
+        "PMID:42793312"
+      ],
+      "status": "SUPPORTED",
+      "subject": "Hydra oligactis",
+      "taxon_proofs": [
+        {
+          "canonical_name": "Hydra oligactis",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 5185751
+        }
+      ],
+      "taxon_verified": true
+    },
+    "Hydra vulgaris": {
+      "claim": "Hydra vulgaris is a replicated cross-species research candidate; this is not a human efficacy claim.",
+      "genes": [],
+      "independent_source_count": 3,
+      "labs": [
+        "longevity"
+      ],
+      "mechanisms": [
+        "autophagy",
+        "senescence"
+      ],
+      "pmid_sources": [
+        "PMID:40731202",
+        "PMID:41983916",
+        "PMID:42793312"
+      ],
+      "source_count": 3,
+      "sources": [
+        "PMID:40731202",
+        "PMID:41983916",
+        "PMID:42793312"
+      ],
+      "status": "SUPPORTED",
+      "subject": "Hydra vulgaris",
+      "taxon_proofs": [
+        {
+          "canonical_name": "Hydra vulgaris",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 5185782
+        }
+      ],
+      "taxon_verified": true
+    },
     "Insulin resistance": {
       "claim": "Insulin resistance is a cross-species research candidate; this is not a human efficacy claim.",
       "genes": [
@@ -1510,8 +1582,37 @@
       "subject": "Wound healing"
     }
   },
-  "cycles": 12,
+  "cycles": 13,
   "experiments": {
+    "PRG-0e95826bc8": {
+      "counterfactual_tests": [
+        "compare a close species lacking the phenotype",
+        "perturb candidate mechanism and perform rescue",
+        "test same mechanism in an evolutionarily distant species with similar phenotype",
+        "test human orthologue/pathway in disease-relevant human cells"
+      ],
+      "hypothesis": "A mechanism associated with Hydra oligactis may causally contribute to the target phenotype.",
+      "kill_criteria": [
+        "no reproducible phenotype",
+        "no conserved mechanism",
+        "human perturbation does not reproduce direction of effect",
+        "unacceptable toxicity or contradictory evidence"
+      ],
+      "program_id": "PRG-0e95826bc8",
+      "sha256": "50ac290214db66f6ccea1573b6a722166847e3ab3a9d83ff853078a8f7525e68",
+      "sources": [
+        "PMID:37156860",
+        "PMID:42793312"
+      ],
+      "steps": [
+        "replicate phenotype under controlled conditions",
+        "perturb candidate mechanism",
+        "perform rescue experiment",
+        "test evolutionarily close negative control",
+        "test human-relevant model only after conservation check"
+      ],
+      "subject": "Hydra oligactis"
+    },
     "PRG-14a8494d89": {
       "counterfactual_tests": [
         "compare a close species lacking the phenotype",
@@ -2022,6 +2123,36 @@
       ],
       "subject": "These findings"
     },
+    "PRG-bc3797f8a9": {
+      "counterfactual_tests": [
+        "compare a close species lacking the phenotype",
+        "perturb candidate mechanism and perform rescue",
+        "test same mechanism in an evolutionarily distant species with similar phenotype",
+        "test human orthologue/pathway in disease-relevant human cells"
+      ],
+      "hypothesis": "A mechanism associated with Hydra vulgaris may causally contribute to the target phenotype.",
+      "kill_criteria": [
+        "no reproducible phenotype",
+        "no conserved mechanism",
+        "human perturbation does not reproduce direction of effect",
+        "unacceptable toxicity or contradictory evidence"
+      ],
+      "program_id": "PRG-bc3797f8a9",
+      "sha256": "e9d33ee39c9cef5add6279995e282bdf46629b919c864a4024c4f7dda915a81a",
+      "sources": [
+        "PMID:40731202",
+        "PMID:41983916",
+        "PMID:42793312"
+      ],
+      "steps": [
+        "replicate phenotype under controlled conditions",
+        "perturb candidate mechanism",
+        "perform rescue experiment",
+        "test evolutionarily close negative control",
+        "test human-relevant model only after conservation check"
+      ],
+      "subject": "Hydra vulgaris"
+    },
     "PRG-c73037fcfb": {
       "counterfactual_tests": [
         "compare a close species lacking the phenotype",
@@ -2276,6 +2407,18 @@
         "PRG-7cd7bdba92"
       ],
       "time": "2026-09-28T09:58:57.860400+00:00"
+    },
+    {
+      "cycle_sha256": "61ff5e86b35e2aa6b57acefd7ba46ac9600f983c1caf976e2be94615b19bdc0e",
+      "programs": [
+        "PRG-4514111357",
+        "PRG-5fdcf74e81",
+        "PRG-14c747bea5",
+        "PRG-bc3797f8a9",
+        "PRG-0e95826bc8",
+        "PRG-70175ca5b4"
+      ],
+      "time": "2026-09-29T09:58:53.080646+00:00"
     }
   ]
 }
