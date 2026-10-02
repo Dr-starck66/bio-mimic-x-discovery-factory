@@ -1,9 +1,9 @@
 # BIO-MIMIC X — Human Bridge Refresh
 
-Time: 2026-10-01T10:33:05.252528+00:00
-Supported claims: 10
-Strict orthology: 8/10 (80.0%)
-Verified human translation: 8/10 (80.0%)
+Time: 2026-10-02T10:06:10.692833+00:00
+Supported claims: 12
+Strict orthology: 7/12 (58.3%)
+Verified human translation: 7/12 (58.3%)
 Translation status: PARTIAL
 
 ## Translation status
@@ -12,7 +12,9 @@ Translation status: PARTIAL
 - Danio rerio: VERIFIED · STRICT_ORTHOLOGY_TARGET
 - Cynops pyrrhogaster: VERIFIED · STRICT_ORTHOLOGY_TARGET
 - Hydra vulgaris: NO_TRANSLATION_PATH · none
-- Eublepharis macularius: VERIFIED · STRICT_ORTHOLOGY_TARGET
+- Rousettus aegyptiacus: NO_TRANSLATION_PATH · none
+- Tadarida brasiliensis: NO_TRANSLATION_PATH · none
+- Eptesicus fuscus: NO_TRANSLATION_PATH · none
 - Hydra oligactis: NO_TRANSLATION_PATH · none
 - Drosophila melanogaster: VERIFIED · STRICT_ORTHOLOGY_TARGET
 - Paracentrotus lividus: VERIFIED · STRICT_ORTHOLOGY_TARGET
