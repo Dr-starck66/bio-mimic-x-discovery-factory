@@ -160,15 +160,15 @@
         "regeneration"
       ],
       "pmid_sources": [
+        "PMID:42370366",
         "PMID:42690612",
-        "PMID:42755729",
-        "PMID:42797691"
+        "PMID:42755729"
       ],
       "source_count": 3,
       "sources": [
+        "PMID:42370366",
         "PMID:42690612",
-        "PMID:42755729",
-        "PMID:42797691"
+        "PMID:42755729"
       ],
       "status": "SUPPORTED",
       "subject": "Danio rerio",
@@ -270,6 +270,47 @@
       ],
       "status": "PLAUSIBLE",
       "subject": "Emerging evidence"
+    },
+    "Eptesicus fuscus": {
+      "claim": "Eptesicus fuscus is a replicated cross-species research candidate; this is not a human efficacy claim.",
+      "genes": [
+        "EIS",
+        "IAV",
+        "ICTV",
+        "RABV"
+      ],
+      "independent_source_count": 3,
+      "labs": [
+        "immunology"
+      ],
+      "mechanisms": [
+        "immune"
+      ],
+      "pmid_sources": [
+        "PMID:42013170",
+        "PMID:42525754",
+        "PMID:42807344"
+      ],
+      "source_count": 3,
+      "sources": [
+        "PMID:42013170",
+        "PMID:42525754",
+        "PMID:42807344"
+      ],
+      "status": "SUPPORTED",
+      "subject": "Eptesicus fuscus",
+      "taxon_proofs": [
+        {
+          "canonical_name": "Eptesicus fuscus",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 2432352
+        }
+      ],
+      "taxon_verified": true
     },
     "Eublepharis macularius": {
       "claim": "Eublepharis macularius is a replicated cross-species research candidate; this is not a human efficacy claim.",
@@ -941,6 +982,47 @@
       "status": "PLAUSIBLE",
       "subject": "Recent advances"
     },
+    "Rousettus aegyptiacus": {
+      "claim": "Rousettus aegyptiacus is a replicated cross-species research candidate; this is not a human efficacy claim.",
+      "genes": [
+        "EIS",
+        "IAV",
+        "ICTV",
+        "RABV"
+      ],
+      "independent_source_count": 3,
+      "labs": [
+        "immunology"
+      ],
+      "mechanisms": [
+        "immune"
+      ],
+      "pmid_sources": [
+        "PMID:41790810",
+        "PMID:41942604",
+        "PMID:42807344"
+      ],
+      "source_count": 3,
+      "sources": [
+        "PMID:41790810",
+        "PMID:41942604",
+        "PMID:42807344"
+      ],
+      "status": "SUPPORTED",
+      "subject": "Rousettus aegyptiacus",
+      "taxon_proofs": [
+        {
+          "canonical_name": "Rousettus aegyptiacus",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 2432953
+        }
+      ],
+      "taxon_verified": true
+    },
     "Saccharomyces cerevisiae": {
       "claim": "Saccharomyces cerevisiae is a cross-species research candidate; this is not a human efficacy claim.",
       "genes": [
@@ -1075,6 +1157,47 @@
       ],
       "status": "PLAUSIBLE",
       "subject": "Synergistic effects"
+    },
+    "Tadarida brasiliensis": {
+      "claim": "Tadarida brasiliensis is a replicated cross-species research candidate; this is not a human efficacy claim.",
+      "genes": [
+        "EIS",
+        "IAV",
+        "ICTV",
+        "RABV"
+      ],
+      "independent_source_count": 3,
+      "labs": [
+        "immunology"
+      ],
+      "mechanisms": [
+        "immune"
+      ],
+      "pmid_sources": [
+        "PMID:40108733",
+        "PMID:40815262",
+        "PMID:42807344"
+      ],
+      "source_count": 3,
+      "sources": [
+        "PMID:40108733",
+        "PMID:40815262",
+        "PMID:42807344"
+      ],
+      "status": "SUPPORTED",
+      "subject": "Tadarida brasiliensis",
+      "taxon_proofs": [
+        {
+          "canonical_name": "Tadarida brasiliensis",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 2433011
+        }
+      ],
+      "taxon_verified": true
     },
     "The ability": {
       "claim": "The ability is a cross-species research candidate; this is not a human efficacy claim.",
@@ -1582,7 +1705,7 @@
       "subject": "Wound healing"
     }
   },
-  "cycles": 15,
+  "cycles": 16,
   "experiments": {
     "PRG-0e95826bc8": {
       "counterfactual_tests": [
@@ -1612,6 +1735,36 @@
         "test human-relevant model only after conservation check"
       ],
       "subject": "Hydra oligactis"
+    },
+    "PRG-10e9bb2f67": {
+      "counterfactual_tests": [
+        "compare a close species lacking the phenotype",
+        "perturb candidate mechanism and perform rescue",
+        "test same mechanism in an evolutionarily distant species with similar phenotype",
+        "test human orthologue/pathway in disease-relevant human cells"
+      ],
+      "hypothesis": "A mechanism associated with Rousettus aegyptiacus may causally contribute to the target phenotype.",
+      "kill_criteria": [
+        "no reproducible phenotype",
+        "no conserved mechanism",
+        "human perturbation does not reproduce direction of effect",
+        "unacceptable toxicity or contradictory evidence"
+      ],
+      "program_id": "PRG-10e9bb2f67",
+      "sha256": "72048c119ef80937c09dd559f8acb8c1a63f2b5a85842fda788f9b5063e11fea",
+      "sources": [
+        "PMID:41790810",
+        "PMID:41942604",
+        "PMID:42807344"
+      ],
+      "steps": [
+        "replicate phenotype under controlled conditions",
+        "perturb candidate mechanism",
+        "perform rescue experiment",
+        "test evolutionarily close negative control",
+        "test human-relevant model only after conservation check"
+      ],
+      "subject": "Rousettus aegyptiacus"
     },
     "PRG-14a8494d89": {
       "counterfactual_tests": [
@@ -1828,11 +1981,11 @@
         "unacceptable toxicity or contradictory evidence"
       ],
       "program_id": "PRG-5fdcf74e81",
-      "sha256": "df76c1808b12777c20af63b41118c51c484e0539d0a24ddd77b57491b95e533e",
+      "sha256": "cf0f1035b6ea7cbcded219296f95b895a9c30584c074b40d3237fbe5b9a52ded",
       "sources": [
+        "PMID:42370366",
         "PMID:42690612",
-        "PMID:42755729",
-        "PMID:42797691"
+        "PMID:42755729"
       ],
       "steps": [
         "replicate phenotype under controlled conditions",
@@ -2443,6 +2596,18 @@
         "PRG-7cd7bdba92"
       ],
       "time": "2026-10-01T10:19:10.279560+00:00"
+    },
+    {
+      "cycle_sha256": "b468b1955a48dbaf3e7ff2a98d79ddf07243f64ac286c0730d25d5d188696f5f",
+      "programs": [
+        "PRG-4514111357",
+        "PRG-c73037fcfb",
+        "PRG-5fdcf74e81",
+        "PRG-14c747bea5",
+        "PRG-bc3797f8a9",
+        "PRG-10e9bb2f67"
+      ],
+      "time": "2026-10-02T09:56:57.134038+00:00"
     }
   ]
 }

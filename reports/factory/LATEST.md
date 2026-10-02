@@ -1,7 +1,7 @@
-# BIO-MIMIC X V7 Discovery Factory — 2026-10-01T10:19:10.279560+00:00
+# BIO-MIMIC X V7 Discovery Factory — 2026-10-02T09:56:57.134038+00:00
 
 **Status:** PASS
-**Replay SHA-256:** `a26a1f8be17c80aaecee940be2bf49c2c4698724c83f193977b28729056beac2`
+**Replay SHA-256:** `80351ffff463ca1442f46e7e6a8a15ea4029929e96c9ae61047928295b0d9e42`
 
 ## Active programs
 - PRG-4514111357 · Somniosus microcephalus · score 61 · labs longevity
@@ -9,7 +9,7 @@
 - PRG-5fdcf74e81 · Danio rerio · score 55 · labs regeneration
 - PRG-14c747bea5 · Cynops pyrrhogaster · score 55 · labs regeneration
 - PRG-bc3797f8a9 · Hydra vulgaris · score 54 · labs longevity
-- PRG-7cd7bdba92 · Eublepharis macularius · score 50 · labs immunology
+- PRG-10e9bb2f67 · Rousettus aegyptiacus · score 51 · labs immunology
 
 ## Brick utilization
 - Ω-OS Control Plane: PASS · planned_stages_completed=15 · output=cycle_plan
@@ -17,14 +17,14 @@
 - AION-NEXUS Mission Graph: PASS · missions_with_no_unresolved_dependency=6 · output=mission_graphs
 - DEVOPS-X Data Fusion Engine: PASS · valid_artifact_ratio=1.0 · output=normalized_bundle
 - AgentShield Trust Gateway: PASS · rejected_untrusted_records=0 · output=trusted_bundle
-- Novel Species Hunter: PASS · novel_candidate_yield=13 · output=committee.portfolio
+- Novel Species Hunter: PASS · novel_candidate_yield=12 · output=committee.portfolio
 - Deterministic Decision Engine / Scientific Investment Committee: PASS · credits_sum_to_100=100 · output=committee.allocations
 - Evidence Network / Claim Ledger: PASS · replicated_claims_with_provenance_ratio=1.0 · output=claim_ledger
-- DUALITY-X + Arbiter: PASS · mean_disagreement=8.538 · output=committee.portfolio
+- DUALITY-X + Arbiter: PASS · mean_disagreement=10.583 · output=committee.portfolio
 - Morpheus Adversarial Engine: PASS · falsifiable_failure_modes_per_program=5.0 · output=morpheus_audits
 - Ω-CAUSAL + Uncertainty Engine: PASS · claims_with_counterfactual_test=6 · output=causal_plans
 - Negative Knowledge Graph: PASS · repeated_dead_ends_prevented=0 · output=negative_filter
-- Human Bridge: PARTIAL · supported_claim_bridge_coverage=0.8 · output=human_bridge_result
+- Human Bridge: PARTIAL · supported_claim_bridge_coverage=0.5833 · output=human_bridge_result
 - Experiment Designer + Ω-EXPERIMENT: PASS · programs_with_explicit_kill_criteria=6 · output=experiments
 - Ω Scientific Reasoning Engine: PASS · reasoning_dossiers_generated=6 · output=scientific_reasoning
 - Ω Hypothesis Engine: PASS · falsifiable_hypotheses_generated=18 · output=scientific_reasoning
@@ -34,8 +34,8 @@
 - BENCHMARK-X10: PASS · delta_vs_baseline=1.5964 · output=benchmark
 - Ω-FOUNDRY + MAP-Elites/Novelty: PASS · policy_variant_diversity=8 · output=policy_variants
 - Model Immune System / Self-Improvement Gate: PASS · unsafe_policy_changes_blocked=1 · output=policy_gate
-- Ω-MEMORY / Knowledge Graph: PASS · new_provenance_edges=19 · output=state/factory/long_term_memory.json
-- Ω Scientific Discovery Memory: PASS · reasoning_hypotheses_retained=42 · output=state/factory/scientific_reasoning_memory.json
+- Ω-MEMORY / Knowledge Graph: PASS · new_provenance_edges=18 · output=state/factory/long_term_memory.json
+- Ω Scientific Discovery Memory: PASS · reasoning_hypotheses_retained=45 · output=state/factory/scientific_reasoning_memory.json
 - Ω-TELEMETRY: PASS · brick_observability_ratio=1.0 · output=telemetry
 - DEVOPS-X Reliability Layer: PASS · successful_daily_cycle_ratio=1.0 · output=validated_state
 
