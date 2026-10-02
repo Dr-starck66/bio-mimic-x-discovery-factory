@@ -14,7 +14,7 @@
         "regeneration"
       ],
       "name": "Acomys cahirinus",
-      "research_credits": 9
+      "research_credits": 10
     },
     {
       "committee_score": 55,
@@ -41,11 +41,27 @@
       "research_credits": 9
     },
     {
-      "committee_score": 50,
+      "committee_score": 51,
       "labs": [
         "immunology"
       ],
-      "name": "Eublepharis macularius",
+      "name": "Rousettus aegyptiacus",
+      "research_credits": 8
+    },
+    {
+      "committee_score": 51,
+      "labs": [
+        "immunology"
+      ],
+      "name": "Tadarida brasiliensis",
+      "research_credits": 8
+    },
+    {
+      "committee_score": 51,
+      "labs": [
+        "immunology"
+      ],
+      "name": "Eptesicus fuscus",
       "research_credits": 8
     },
     {
@@ -78,31 +94,7 @@
         "preservation"
       ],
       "name": "Caenorhabditis elegans",
-      "research_credits": 6
-    },
-    {
-      "committee_score": 40,
-      "labs": [
-        "immunology"
-      ],
-      "name": "Tiliqua scincoides",
-      "research_credits": 6
-    },
-    {
-      "committee_score": 40,
-      "labs": [
-        "immunology"
-      ],
-      "name": "Pantherophis guttatus",
-      "research_credits": 6
-    },
-    {
-      "committee_score": 40,
-      "labs": [
-        "immunology"
-      ],
-      "name": "Python regius",
-      "research_credits": 6
+      "research_credits": 7
     }
   ],
   "committee_rules": {
@@ -160,15 +152,15 @@
       "id": "cancer",
       "name": "ONCO-X Lab",
       "paper_count": 35,
-      "sha256": "e7d76178b7b7f75de234a9a8b8b5f80b554b7fc2943931936ccef60e8e068632",
+      "sha256": "70246e931f25b26d42e056cf9e529bbbe041b4c4897050728f9442fdc252aea5",
       "status": "PASS"
     },
     {
-      "candidate_count": 4,
+      "candidate_count": 3,
       "id": "immunology",
       "name": "IMMUNO-X Lab",
-      "paper_count": 32,
-      "sha256": "719edd700e77450c24ff7e9d945182b07479aae279636dab64e87c2866521e01",
+      "paper_count": 35,
+      "sha256": "80be065c1eb6a6eb750bfe9b30c025834f926abce23f2ce40633102fcdae4347",
       "status": "PASS"
     },
     {
@@ -176,7 +168,7 @@
       "id": "longevity",
       "name": "LONGEVITY-X Lab",
       "paper_count": 35,
-      "sha256": "102cb4227b5eed3de97fd5176bd161c3d05d64539236a54e5dec7f9fd1c7b77d",
+      "sha256": "7850fd4399462cb5fb69f80ff3a51fb38b2ebab5d6e091035de6e20923409899",
       "status": "PASS"
     },
     {
@@ -184,7 +176,7 @@
       "id": "metabolism",
       "name": "METABOLIC-X Lab",
       "paper_count": 35,
-      "sha256": "90242ef9b0972effe8b0f3f9a3a4c576c27288c664a4ebe5cb8899de717b9f5d",
+      "sha256": "5fbdf9a85f9ffb0add89946f7cd9c9c994072817c04b67ba2c8f0d2550cf4a1e",
       "status": "PASS"
     },
     {
@@ -192,15 +184,15 @@
       "id": "neuro",
       "name": "NEURO-X Lab",
       "paper_count": 35,
-      "sha256": "63567e2d54c726d5cae582ddddb21b2864c5b40dd17ad00f003bbc9f26563478",
+      "sha256": "b569ea50f2eea92d24b32d984080e75a40e8768af56e2dcce689e1837ac1d1f8",
       "status": "PASS"
     },
     {
       "candidate_count": 3,
       "id": "preservation",
       "name": "PRESERVE-X Lab",
-      "paper_count": 34,
-      "sha256": "ee3a10de64922190dc2a6d22027a08a2ea85281006e59803caf670f0714bb04e",
+      "paper_count": 35,
+      "sha256": "ff7af503003c4ce62859096e60fac0ba4d319594984161cfcc065823c0d532e5",
       "status": "PASS"
     },
     {
@@ -208,7 +200,7 @@
       "id": "regeneration",
       "name": "REGEN-X Lab",
       "paper_count": 35,
-      "sha256": "efbc23a89d5b3d61d682bf22325ab2d6081487afdb9e2f60e4f16e2f3b21ee22",
+      "sha256": "738211e8d09229732cb41e6fe11e48281c6b39cf7ccc0205e2dc826ad66c67e0",
       "status": "PASS"
     }
   ],
@@ -339,15 +331,15 @@
       ],
       "name": "Danio rerio",
       "pmid_sources": [
+        "PMID:42370366",
         "PMID:42690612",
-        "PMID:42755729",
-        "PMID:42797691"
+        "PMID:42755729"
       ],
       "source_count": 3,
       "sources": [
+        "PMID:42370366",
         "PMID:42690612",
-        "PMID:42755729",
-        "PMID:42797691"
+        "PMID:42755729"
       ],
       "taxon_proofs": [
         {
@@ -466,42 +458,146 @@
         "correlation does not prove causation",
         "human functional divergence remains possible",
         "immune pathology tradeoffs",
-        "no gene symbol candidate",
         "pathogen-specific adaptation",
         "reservoir-host confounding"
       ],
-      "committee_score": 50,
-      "genes": [],
+      "committee_score": 51,
+      "genes": [
+        "EIS",
+        "IAV",
+        "ICTV",
+        "RABV"
+      ],
       "independent_source_count": 3,
       "lab_count": 1,
       "labs": [
         "immunology"
       ],
-      "mean_arbiter": 61.0,
+      "mean_arbiter": 63.0,
       "mechanisms": [
         "immune"
       ],
-      "name": "Eublepharis macularius",
+      "name": "Rousettus aegyptiacus",
       "pmid_sources": [
-        "PMID:32950659",
-        "PMID:42615433",
-        "PMID:42746048"
+        "PMID:41790810",
+        "PMID:41942604",
+        "PMID:42807344"
       ],
       "source_count": 3,
       "sources": [
-        "PMID:32950659",
-        "PMID:42615433",
-        "PMID:42746048"
+        "PMID:41790810",
+        "PMID:41942604",
+        "PMID:42807344"
       ],
       "taxon_proofs": [
         {
-          "canonical_name": "Eublepharis macularius",
+          "canonical_name": "Rousettus aegyptiacus",
           "kingdom": "Animalia",
           "match_type": "EXACT",
           "provider": "GBIF",
           "rank": "SPECIES",
           "status": "ACCEPTED",
-          "taxon_key": 5221283
+          "taxon_key": 2432953
+        }
+      ],
+      "taxon_verified": true
+    },
+    {
+      "annotation_support": true,
+      "challenges": [
+        "correlation does not prove causation",
+        "human functional divergence remains possible",
+        "immune pathology tradeoffs",
+        "pathogen-specific adaptation",
+        "reservoir-host confounding"
+      ],
+      "committee_score": 51,
+      "genes": [
+        "EIS",
+        "IAV",
+        "ICTV",
+        "RABV"
+      ],
+      "independent_source_count": 3,
+      "lab_count": 1,
+      "labs": [
+        "immunology"
+      ],
+      "mean_arbiter": 63.0,
+      "mechanisms": [
+        "immune"
+      ],
+      "name": "Tadarida brasiliensis",
+      "pmid_sources": [
+        "PMID:40108733",
+        "PMID:40815262",
+        "PMID:42807344"
+      ],
+      "source_count": 3,
+      "sources": [
+        "PMID:40108733",
+        "PMID:40815262",
+        "PMID:42807344"
+      ],
+      "taxon_proofs": [
+        {
+          "canonical_name": "Tadarida brasiliensis",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 2433011
+        }
+      ],
+      "taxon_verified": true
+    },
+    {
+      "annotation_support": true,
+      "challenges": [
+        "correlation does not prove causation",
+        "human functional divergence remains possible",
+        "immune pathology tradeoffs",
+        "pathogen-specific adaptation",
+        "reservoir-host confounding"
+      ],
+      "committee_score": 51,
+      "genes": [
+        "EIS",
+        "IAV",
+        "ICTV",
+        "RABV"
+      ],
+      "independent_source_count": 3,
+      "lab_count": 1,
+      "labs": [
+        "immunology"
+      ],
+      "mean_arbiter": 63.0,
+      "mechanisms": [
+        "immune"
+      ],
+      "name": "Eptesicus fuscus",
+      "pmid_sources": [
+        "PMID:42013170",
+        "PMID:42525754",
+        "PMID:42807344"
+      ],
+      "source_count": 3,
+      "sources": [
+        "PMID:42013170",
+        "PMID:42525754",
+        "PMID:42807344"
+      ],
+      "taxon_proofs": [
+        {
+          "canonical_name": "Eptesicus fuscus",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 2432352
         }
       ],
       "taxon_verified": true
@@ -690,138 +786,9 @@
         }
       ],
       "taxon_verified": true
-    },
-    {
-      "annotation_support": true,
-      "challenges": [
-        "correlation does not prove causation",
-        "human functional divergence remains possible",
-        "immune pathology tradeoffs",
-        "no gene symbol candidate",
-        "pathogen-specific adaptation",
-        "reservoir-host confounding",
-        "single-paper dependence"
-      ],
-      "committee_score": 40,
-      "genes": [],
-      "independent_source_count": 1,
-      "lab_count": 1,
-      "labs": [
-        "immunology"
-      ],
-      "mean_arbiter": 43.0,
-      "mechanisms": [
-        "immune"
-      ],
-      "name": "Tiliqua scincoides",
-      "pmid_sources": [
-        "PMID:42746048"
-      ],
-      "source_count": 1,
-      "sources": [
-        "PMID:42746048"
-      ],
-      "taxon_proofs": [
-        {
-          "canonical_name": "Tiliqua scincoides",
-          "kingdom": "Animalia",
-          "match_type": "EXACT",
-          "provider": "GBIF",
-          "rank": "SPECIES",
-          "status": "ACCEPTED",
-          "taxon_key": 2462503
-        }
-      ],
-      "taxon_verified": true
-    },
-    {
-      "annotation_support": true,
-      "challenges": [
-        "correlation does not prove causation",
-        "human functional divergence remains possible",
-        "immune pathology tradeoffs",
-        "no gene symbol candidate",
-        "pathogen-specific adaptation",
-        "reservoir-host confounding",
-        "single-paper dependence"
-      ],
-      "committee_score": 40,
-      "genes": [],
-      "independent_source_count": 1,
-      "lab_count": 1,
-      "labs": [
-        "immunology"
-      ],
-      "mean_arbiter": 43.0,
-      "mechanisms": [
-        "immune"
-      ],
-      "name": "Pantherophis guttatus",
-      "pmid_sources": [
-        "PMID:42746048"
-      ],
-      "source_count": 1,
-      "sources": [
-        "PMID:42746048"
-      ],
-      "taxon_proofs": [
-        {
-          "canonical_name": "Pantherophis guttatus",
-          "kingdom": "Animalia",
-          "match_type": "EXACT",
-          "provider": "GBIF",
-          "rank": "SPECIES",
-          "status": "ACCEPTED",
-          "taxon_key": 2455615
-        }
-      ],
-      "taxon_verified": true
-    },
-    {
-      "annotation_support": true,
-      "challenges": [
-        "correlation does not prove causation",
-        "human functional divergence remains possible",
-        "immune pathology tradeoffs",
-        "no gene symbol candidate",
-        "pathogen-specific adaptation",
-        "reservoir-host confounding",
-        "single-paper dependence"
-      ],
-      "committee_score": 40,
-      "genes": [],
-      "independent_source_count": 1,
-      "lab_count": 1,
-      "labs": [
-        "immunology"
-      ],
-      "mean_arbiter": 43.0,
-      "mechanisms": [
-        "immune"
-      ],
-      "name": "Python regius",
-      "pmid_sources": [
-        "PMID:42746048"
-      ],
-      "source_count": 1,
-      "sources": [
-        "PMID:42746048"
-      ],
-      "taxon_proofs": [
-        {
-          "canonical_name": "Python regius",
-          "kingdom": "Animalia",
-          "match_type": "EXACT",
-          "provider": "GBIF",
-          "rank": "SPECIES",
-          "status": "ACCEPTED",
-          "taxon_key": 2465380
-        }
-      ],
-      "taxon_verified": true
     }
   ],
   "schema": "biomimic-v6-org-run-v1",
-  "sha256": "d8aa6c3756dbf8669ee1345f3bef8755f9a6e9521358f99b25fac90f711b737e",
-  "time": "2026-10-01T10:15:12.318932+00:00"
+  "sha256": "640b4e65b5193ff201d024b2e68150a9a4993525a35f98d4319dad126811d591",
+  "time": "2026-10-02T09:49:53.997382+00:00"
 }
