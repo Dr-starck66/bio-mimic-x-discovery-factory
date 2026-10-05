@@ -10,10 +10,13 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Mapping, Tuple
 
+from factory.external_validation_gate import build_report as build_external_validation_report
+
 ROOT = Path(__file__).resolve().parents[1]
 PROGRAMS_PATH = ROOT / "state" / "factory" / "programs.json"
 MEMORY_PATH = ROOT / "state" / "factory" / "long_term_memory.json"
 REGISTRY_PATH = ROOT / "factory" / "million_euro_validation_registry.json"
+EXTERNAL_VALIDATION_PATH = ROOT / "factory" / "external_validation_registry.json"
 REPORT_DIR = ROOT / "reports" / "million-euro-evidence"
 PUBLIC_DIR = ROOT / "public" / "data" / "million-euro-evidence"
 
@@ -167,11 +170,15 @@ def memory_hygiene(memory: Mapping[str, Any]) -> Dict[str, Any]:
     }
 
 
-def readiness(flagship: Mapping[str, Any], hygiene: Mapping[str, Any]) -> Dict[str, Any]:
+def readiness(flagship: Mapping[str, Any], hygiene: Mapping[str, Any], external_validation: Mapping[str, Any]) -> Dict[str, Any]:
     reg = flagship["registry"]
     literature = reg.get("literature_evidence") or []
     primary_count = sum(1 for s in literature if s.get("role") == "primary")
     recent_count = sum(1 for s in literature if int(s.get("year") or 0) >= 2024)
+
+    external_report = build_external_validation_report(external_validation)
+    external_status = external_report["status"]
+    external_evidence = f"{external_report['accepted_supporting_validations']} supporting validation(s); report {external_report['sha256']}"
 
     gates = [
         {"gate": "working_product", "status": "PASS", "evidence": "BIO-MIMIC X V4 interface + automated research pipeline"},
@@ -180,7 +187,7 @@ def readiness(flagship: Mapping[str, Any], hygiene: Mapping[str, Any]) -> Dict[s
         {"gate": "recent_independent_support", "status": "PASS" if recent_count >= 1 else "PARTIAL", "evidence": f"{recent_count} registry studies from 2024+"},
         {"gate": "portfolio_data_hygiene", "status": "PARTIAL" if hygiene["suspicious_subject_count"] else "PASS", "evidence": f"{hygiene['suspicious_subject_count']} known suspicious memory subjects isolated from investor package"},
         {"gate": "provider_backed_human_bridge", "status": "PARTIAL" if reg.get("human_bridge") else "UNVERIFIED", "evidence": reg.get("human_bridge", {}).get("status", "not available")},
-        {"gate": "independent_lab_validation_of_biomimic_output", "status": "FAIL", "evidence": "no signed external validation received yet"},
+        {"gate": "independent_lab_validation_of_biomimic_output", "status": external_status, "evidence": external_evidence},
         {"gate": "formal_ip_novelty_freedom_to_operate", "status": "UNVERIFIED", "evidence": "requires professional prior-art/FTO review"},
         {"gate": "paying_customers_or_contracts", "status": "FAIL", "evidence": "no verified commercial traction in repository"},
     ]
@@ -205,11 +212,12 @@ def readiness(flagship: Mapping[str, Any], hygiene: Mapping[str, Any]) -> Dict[s
     }
 
 
-def build_package(programs: Mapping[str, Any], memory: Mapping[str, Any], registry: Mapping[str, Any]) -> Dict[str, Any]:
+def build_package(programs: Mapping[str, Any], memory: Mapping[str, Any], registry: Mapping[str, Any], external_validation: Mapping[str, Any] | None = None) -> Dict[str, Any]:
     rows = [classify_program(p) for p in programs.get("programs") or []]
     flagship = select_flagship(rows, registry)
     hygiene = memory_hygiene(memory)
-    readiness_result = readiness(flagship, hygiene)
+    external_validation = external_validation or {"validations": []}
+    readiness_result = readiness(flagship, hygiene, external_validation)
 
     package = {
         "package": "BIO-MIMIC X — MILLION-EURO EVIDENCE PACKAGE",
@@ -225,6 +233,7 @@ def build_package(programs: Mapping[str, Any], memory: Mapping[str, Any], regist
             "cleaned_rows": rows,
         },
         "memory_hygiene": hygiene,
+        "external_validation": build_external_validation_report(external_validation),
         "claim_boundaries": [
             "BIO-MIMIC X prioritizes scientific hypotheses; it does not establish clinical efficacy.",
             "Literature support is not independent validation of a BIO-MIMIC X-generated prediction.",
@@ -386,10 +395,11 @@ def main() -> int:
     parser.add_argument("--programs", default=str(PROGRAMS_PATH))
     parser.add_argument("--memory", default=str(MEMORY_PATH))
     parser.add_argument("--registry", default=str(REGISTRY_PATH))
+    parser.add_argument("--external-validation", default=str(EXTERNAL_VALIDATION_PATH))
     parser.add_argument("--no-write", action="store_true")
     args = parser.parse_args()
 
-    pkg = build_package(load_json(Path(args.programs)), load_json(Path(args.memory)), load_json(Path(args.registry)))
+    pkg = build_package(load_json(Path(args.programs)), load_json(Path(args.memory)), load_json(Path(args.registry)), load_json(Path(args.external_validation)))
     if not args.no_write:
         write_outputs(pkg)
     print(json.dumps({
