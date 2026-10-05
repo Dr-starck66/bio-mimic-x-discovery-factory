@@ -1,0 +1,55 @@
+{
+  "brick": "ASTRA TARDIGRADE Ω",
+  "mapping": {
+    "Dsup": {
+      "claim_boundary": "analogy only; software behavior does not reproduce Dsup biochemistry",
+      "engineering_analogy": "integrity shielding: hashes, immutable checkpoints, redundant validation",
+      "evidence_role": "radiation-associated DNA protection in biological systems"
+    },
+    "SAHS_CAHS": {
+      "claim_boundary": "analogy only; resource dormancy is not biological anhydrobiosis",
+      "engineering_analogy": "dormancy: freeze mutable state and reduce operation to a minimal survival set",
+      "evidence_role": "desiccation-associated stabilization/preservation mechanisms"
+    },
+    "recovery": {
+      "claim_boundary": "engineering analogy/design principle, not a biological equivalence claim",
+      "engineering_analogy": "fail-closed recovery gates before resuming full execution",
+      "evidence_role": "return from extreme-stress survival states requires restored conditions"
+    }
+  },
+  "policy": {
+    "checkpoint_integrity_required": true,
+    "fail_closed_recovery": true,
+    "no_biological_equivalence_claims": true,
+    "pass_requires_all_configured_resume_gates": true
+  },
+  "sha256": "b4d8184a8ed8201d67e56e9659ad39b61a1904d422462ca77a29e53823835d8d",
+  "sources": [
+    {
+      "doi": "10.1038/ncomms12808",
+      "id": "HASHIMOTO_2016_DSUP",
+      "role": "primary",
+      "supports": [
+        "Dsup radiation-associated DNA protection"
+      ]
+    },
+    {
+      "doi": "10.1038/s42003-024-06336-w",
+      "id": "LIM_2024_SAHS",
+      "role": "primary",
+      "supports": [
+        "SAHS protection of biological structures during desiccation"
+      ]
+    },
+    {
+      "doi": "10.1038/s41551-025-01360-5",
+      "id": "KIRTANE_2025_DSUP_MRNA",
+      "role": "primary",
+      "supports": [
+        "local transient Dsup expression reduced radiation damage in mouse tissues"
+      ]
+    }
+  ],
+  "status": "SUPPORTED_ANALOGY",
+  "version": "1.0.0"
+}

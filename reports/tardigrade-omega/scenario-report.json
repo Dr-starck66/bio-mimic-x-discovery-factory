@@ -1,0 +1,106 @@
+{
+  "brick": "ASTRA TARDIGRADE Ω",
+  "scenarios": [
+    {
+      "decision": {
+        "actions": [
+          "continue normal execution",
+          "refresh checkpoint on normal cadence"
+        ],
+        "can_execute_nonessential_work": true,
+        "mode": "ACTIVE",
+        "reasons": [
+          "all configured resilience gates pass"
+        ],
+        "status": "PASS"
+      },
+      "id": "healthy",
+      "signals": {
+        "dependencies_ok": true,
+        "energy_ratio": 0.9,
+        "integrity_errors": 0,
+        "network_ok": true,
+        "network_required": false,
+        "recent_failures": 0,
+        "thermal_ok": true
+      }
+    },
+    {
+      "decision": {
+        "actions": [
+          "persist integrity checkpoint",
+          "suspend nonessential workload",
+          "keep only watchdog and recovery probes alive"
+        ],
+        "can_execute_nonessential_work": false,
+        "mode": "DORMANT",
+        "reasons": [
+          "available energy is below dormancy threshold"
+        ],
+        "status": "PARTIAL"
+      },
+      "id": "low-energy",
+      "signals": {
+        "dependencies_ok": true,
+        "energy_ratio": 0.1,
+        "integrity_errors": 0,
+        "network_ok": true,
+        "network_required": false,
+        "recent_failures": 0,
+        "thermal_ok": true
+      }
+    },
+    {
+      "decision": {
+        "actions": [
+          "route reads to last verified state where safe",
+          "block destructive writes",
+          "increase integrity verification frequency"
+        ],
+        "can_execute_nonessential_work": false,
+        "mode": "SHIELDED",
+        "reasons": [
+          "dependency health or recent failure budget is outside the normal envelope"
+        ],
+        "status": "PARTIAL"
+      },
+      "id": "dependency-failure",
+      "signals": {
+        "dependencies_ok": false,
+        "energy_ratio": 0.9,
+        "integrity_errors": 0,
+        "network_ok": true,
+        "network_required": false,
+        "recent_failures": 0,
+        "thermal_ok": true
+      }
+    },
+    {
+      "decision": {
+        "actions": [
+          "stop nonessential execution",
+          "isolate mutable state",
+          "verify last trusted checkpoint before any recovery"
+        ],
+        "can_execute_nonessential_work": false,
+        "mode": "QUARANTINED",
+        "reasons": [
+          "integrity errors exceed allowed threshold"
+        ],
+        "status": "FAIL"
+      },
+      "id": "integrity-failure",
+      "signals": {
+        "dependencies_ok": true,
+        "energy_ratio": 0.9,
+        "integrity_errors": 1,
+        "network_ok": true,
+        "network_required": false,
+        "recent_failures": 0,
+        "thermal_ok": true
+      }
+    }
+  ],
+  "schema": "ASTRA-TARDIGRADE-OMEGA/REPORT-1",
+  "sha256": "ab2e41ca0c548dc6dee3159c9ac536ef07c371f1358c7caa8b3cd5b34ae39907"
+}
