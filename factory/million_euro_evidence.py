@@ -10,8 +10,12 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Mapping, Tuple
 
-from factory.external_validation_gate import build_report as build_external_validation_report
-from factory.commercial_evidence_gate import build_report as build_commercial_evidence_report
+try:
+    from factory.external_validation_gate import build_report as build_external_validation_report
+    from factory.commercial_evidence_gate import build_report as build_commercial_evidence_report
+except ModuleNotFoundError:
+    from external_validation_gate import build_report as build_external_validation_report
+    from commercial_evidence_gate import build_report as build_commercial_evidence_report
 
 ROOT = Path(__file__).resolve().parents[1]
 PROGRAMS_PATH = ROOT / "state" / "factory" / "programs.json"
