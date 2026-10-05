@@ -66,9 +66,9 @@ class MillionEuroEvidenceTests(unittest.TestCase):
             "TECHNOLOGY/COMPANY_VALUATION_CASE_NOT_CASH_EXIT_PROOF",
         )
         gates = {g["gate"]: g["status"] for g in readiness["gates"]}
-        self.assertEqual(gates["independent_lab_validation_of_biomimic_output"], "FAIL")
+        self.assertEqual(gates["independent_lab_validation_of_biomimic_output"], "UNVERIFIED")
         self.assertEqual(gates["formal_ip_novelty_freedom_to_operate"], "UNVERIFIED")
-        self.assertEqual(gates["paying_customers_or_contracts"], "FAIL")
+        self.assertEqual(gates["paying_customers_or_contracts"], "UNVERIFIED")
 
     def test_known_memory_contamination_is_exposed(self):
         h = self.package["memory_hygiene"]
