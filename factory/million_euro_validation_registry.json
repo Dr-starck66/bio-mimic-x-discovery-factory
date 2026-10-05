@@ -1,0 +1,90 @@
+{
+  "schema": "BIO-MIMIC-X/MILLION-EURO-VALIDATION-REGISTRY-1",
+  "candidates": {
+    "Acomys cahirinus": {
+      "thesis": "Acomys cahirinus is a strong mammalian regeneration flagship because scar-free repair is repeatedly observed across tissues and is associated with a coordinated extracellular-matrix plus immune-state program. IL10 is treated only as a translational anchor, not as a sufficient causal explanation.",
+      "external_validation_question": "Does the published Acomys evidence justify a pre-registered causal experiment testing a coordinated ECM/immune regeneration program, rather than a single anti-inflammatory mechanism, and which perturbation would most efficiently falsify that thesis?",
+      "human_bridge": {
+        "animal_anchor": "Acomys cahirinus IL10 / regenerative immune context",
+        "human_symbol": "IL10",
+        "status": "PARTIAL_PROVIDER_CHAIN_RECORDED_REVALIDATION_REQUIRED",
+        "boundary": "The platform has previously resolved an Acomys-to-human IL10 provider chain, but this package does not treat that as proof that IL10 causes regeneration or fibrosis reversal in humans."
+      },
+      "literature_evidence": [
+        {
+          "id": "PMID:29892004",
+          "year": 2018,
+          "role": "primary",
+          "title": "Perfect chronic skeletal muscle regeneration in adult spiny mice, Acomys cahirinus",
+          "doi": "10.1038/s41598-018-27178-7",
+          "supports": "Repeated adult mammalian skeletal-muscle regeneration with reduced inflammatory/fibrotic signatures."
+        },
+        {
+          "id": "PMID:31141508",
+          "year": 2019,
+          "role": "primary",
+          "title": "Comparative transcriptomic analysis of dermal wound healing reveals de novo skeletal muscle regeneration in Acomys cahirinus",
+          "doi": "10.1371/journal.pone.0216228",
+          "supports": "De novo skeletal-muscle regeneration; differential ECM, Wnt and immune programs; higher Il10 expression."
+        },
+        {
+          "id": "PMID:32849592",
+          "year": 2020,
+          "role": "primary",
+          "title": "Complex Tissue Regeneration in Mammals Is Associated With Reduced Inflammatory Cytokines and an Influx of T Cells",
+          "doi": "10.3389/fimmu.2020.01697",
+          "supports": "Regeneration differs from fibrotic repair in immune-state composition; COX-2 suppression alone was insufficient, arguing against a simplistic anti-inflammatory explanation."
+        },
+        {
+          "id": "PMID:40534468",
+          "year": 2025,
+          "role": "primary",
+          "title": "ECM-Focused Proteomic Analysis of Ear Punch Regeneration in Acomys cahirinus",
+          "supports": "Proteomic evidence that extracellular-matrix composition differs during regenerative versus fibrotic repair."
+        },
+        {
+          "id": "PMID:40883787",
+          "year": 2025,
+          "role": "primary",
+          "title": "Acomys cahirinus develop lung stroma distortion but not fibrosis after bleomycin-induced injury",
+          "doi": "10.1186/s41232-025-00391-4",
+          "supports": "Independent recent organ-level evidence consistent with an unusual anti-fibrotic injury response."
+        }
+      ],
+      "proposed_falsification": {
+        "status": "PROPOSED_NOT_EXECUTED",
+        "hypothesis": "A coordinated ECM/immune state is required for the Acomys regenerative phenotype; manipulating one anti-inflammatory node alone will not reproduce the full phenotype.",
+        "minimum_test": [
+          "Define a matched Acomys-versus-Mus wound model and pre-register outcome metrics.",
+          "Perturb a candidate immune anchor and an ECM/remodeling anchor separately and jointly.",
+          "Measure regeneration, fibrosis, ECM composition and immune-cell/cytokine state.",
+          "Require the joint model to outperform single-node explanations under pre-registered criteria."
+        ],
+        "kill_criteria": [
+          "A single-node perturbation fully explains the regenerative phenotype.",
+          "The proposed combined signature fails to reproduce across independent Acomys datasets.",
+          "The effect disappears under matched injury/timepoint controls."
+        ]
+      }
+    },
+    "Somniosus microcephalus": {
+      "thesis": "Greenland shark longevity is a promising comparative-genomics program, but the currently curated evidence package is less experimentally direct than Acomys regeneration.",
+      "external_validation_question": "Which Greenland-shark longevity mechanism has the strongest causal evidence suitable for direct experimental falsification?",
+      "human_bridge": {
+        "animal_anchor": "Somniosus microcephalus genome-maintenance context",
+        "human_symbol": "TP53",
+        "status": "PARTIAL_PROVIDER_CHAIN_RECORDED_REVALIDATION_REQUIRED"
+      },
+      "literature_evidence": [
+        {
+          "id": "PMID:42402335",
+          "year": 2026,
+          "role": "review",
+          "title": "Potential factors contributing to extreme longevity in the Greenland shark",
+          "doi": "10.1111/jfb.70562",
+          "supports": "Current synthesis of candidate longevity mechanisms including genome-maintenance pathways."
+        }
+      ]
+    }
+  }
+}
