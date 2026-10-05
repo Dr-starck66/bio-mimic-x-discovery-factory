@@ -10,6 +10,9 @@ on:
       - 'factory/external_validation_gate.py'
       - 'factory/external_validation_registry.json'
       - 'tests/test_external_validation_gate.py'
+      - 'factory/commercial_evidence_gate.py'
+      - 'factory/commercial_evidence_registry.json'
+      - 'tests/test_commercial_evidence_gate.py'
       - 'tests/test_million_euro_evidence.py'
       - 'docs/MILLION-EURO-EVIDENCE-PACKAGE.md'
       - 'state/factory/programs.json'
@@ -45,7 +48,7 @@ jobs:
       - name: Syntax gate
         run: python -m py_compile factory/million_euro_evidence.py tests/test_million_euro_evidence.py
       - name: Anti-false-PASS tests
-        run: python -m unittest tests.test_million_euro_evidence tests.test_external_validation_gate -v
+        run: python -m unittest tests.test_million_euro_evidence tests.test_external_validation_gate tests.test_commercial_evidence_gate -v
       - name: Build diligence package
         run: python factory/million_euro_evidence.py
       - name: Verify valuation boundary and flagship
@@ -66,7 +69,7 @@ jobs:
           gates = {g["gate"]: g["status"] for g in x["valuation_readiness"]["gates"]}
           assert gates["independent_lab_validation_of_biomimic_output"] == "UNVERIFIED"
           assert gates["formal_ip_novelty_freedom_to_operate"] == "UNVERIFIED"
-          assert gates["paying_customers_or_contracts"] == "FAIL"
+          assert gates["paying_customers_or_contracts"] == "UNVERIFIED"
 
           assert x["portfolio"]["excluded_programs"] >= 1
           assert len(x["sha256"]) == 64
