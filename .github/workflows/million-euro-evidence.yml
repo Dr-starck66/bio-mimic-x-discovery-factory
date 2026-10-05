@@ -1,0 +1,83 @@
+name: BIO-MIMIC X Million-Euro Evidence Gate
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'factory/million_euro_evidence.py'
+      - 'factory/million_euro_validation_registry.json'
+      - 'tests/test_million_euro_evidence.py'
+      - 'docs/MILLION-EURO-EVIDENCE-PACKAGE.md'
+      - 'state/factory/programs.json'
+      - 'state/factory/long_term_memory.json'
+      - '.github/workflows/million-euro-evidence.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'factory/million_euro_evidence.py'
+      - 'factory/million_euro_validation_registry.json'
+      - 'tests/test_million_euro_evidence.py'
+      - 'docs/MILLION-EURO-EVIDENCE-PACKAGE.md'
+      - 'state/factory/programs.json'
+      - 'state/factory/long_term_memory.json'
+      - '.github/workflows/million-euro-evidence.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: million-euro-evidence-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  diligence-gate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Syntax gate
+        run: python -m py_compile factory/million_euro_evidence.py tests/test_million_euro_evidence.py
+      - name: Anti-false-PASS tests
+        run: python -m unittest tests.test_million_euro_evidence -v
+      - name: Build diligence package
+        run: python factory/million_euro_evidence.py
+      - name: Verify valuation boundary and flagship
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          p = Path("reports/million-euro-evidence/latest.json")
+          assert p.exists()
+          x = json.loads(p.read_text(encoding="utf-8"))
+
+          assert x["status"] == "PARTIAL"
+          assert x["flagship"]["title"] == "Acomys cahirinus"
+          assert x["flagship"]["suspect_genes"] == []
+          assert x["valuation_readiness"]["valuation_statement"] == "TECHNOLOGY/COMPANY_VALUATION_CASE_NOT_CASH_EXIT_PROOF"
+
+          gates = {g["gate"]: g["status"] for g in x["valuation_readiness"]["gates"]}
+          assert gates["independent_lab_validation_of_biomimic_output"] == "FAIL"
+          assert gates["formal_ip_novelty_freedom_to_operate"] == "UNVERIFIED"
+          assert gates["paying_customers_or_contracts"] == "FAIL"
+
+          assert x["portfolio"]["excluded_programs"] >= 1
+          assert len(x["sha256"]) == 64
+          print("PASS: diligence artifact is evidence-first and does not fabricate a 1M cash-exit proof")
+          PY
+      - name: Persist diligence artifacts
+        if: github.event_name != 'pull_request'
+        run: |
+          git config user.name "BIO-MIMIC-X-DILIGENCE"
+          git config user.email "biomimic-x-diligence@users.noreply.github.com"
+          git add reports/million-euro-evidence public/data/million-euro-evidence
+          if git diff --cached --quiet; then
+            echo "No diligence artifact change."
+          else
+            git commit -m "diligence: refresh million-euro evidence package"
+            git push
+          fi
