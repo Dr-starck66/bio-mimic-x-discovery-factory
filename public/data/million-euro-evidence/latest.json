@@ -5,6 +5,39 @@
     "A provider-backed orthology/target bridge is not proof of therapeutic efficacy.",
     "No patentability, freedom-to-operate or company valuation is asserted by this package."
   ],
+  "commercial_evidence": {
+    "brick": "BIO-MIMIC X COMMERCIAL EVIDENCE GATE",
+    "evidence": [],
+    "policy": {
+      "immutable_source_reference_required": true,
+      "paid_or_contractual_commitment_required_for_pass": true,
+      "unsigned_templates_do_not_count": true
+    },
+    "sha256": "3d491e104caff0e1c1a767e8bca6ed91d13f02062bf0f4464628a10f4fb9fc4a",
+    "status": "UNVERIFIED",
+    "verified_entries": 0
+  },
+  "external_validation": {
+    "accepted_supporting_validations": 0,
+    "brick": "BIO-MIMIC X EXTERNAL VALIDATION GATE",
+    "generated_at": "2026-10-05T05:32:54.042850+00:00",
+    "partial_validations": 0,
+    "policy": {
+      "immutable_source_reference_required": true,
+      "no_self_authored_validation": true,
+      "one_positive_review_is_not_experimental_validation": true,
+      "verdict_whitelist": [
+        "INTERESTING_BUT_WEAK",
+        "NOT_NOVEL",
+        "SCIENTIFICALLY_FLAWED",
+        "SUPPORTS_FURTHER_TESTING"
+      ]
+    },
+    "rejected_validations": 0,
+    "sha256": "659a8bc2d9680f991f6dffb0c5211e539b7f227f76dc0b77d98b61b09730ccb5",
+    "status": "UNVERIFIED",
+    "validations": []
+  },
   "flagship": {
     "clean_genes": [],
     "committee_score": 59,
@@ -95,7 +128,7 @@
     "taxon_verified": true,
     "title": "Acomys cahirinus"
   },
-  "generated_at": "2026-10-05T05:22:28.678001+00:00",
+  "generated_at": "2026-10-05T05:32:54.042840+00:00",
   "memory_hygiene": {
     "claim_count": 64,
     "suspicious_subject_count": 12,
@@ -976,7 +1009,7 @@
     "excluded_programs": 12,
     "total_programs": 20
   },
-  "sha256": "a7450a33142db7f285497d101a87debe3ea28a220a7a092c6691773a88d70f3f",
+  "sha256": "bfb800766dfe2504e5ba09069bdaa1f676144f4ab8eff3fe6db00ff00bb52d1e",
   "status": "PARTIAL",
   "valuation_readiness": {
     "gates": [
@@ -1011,9 +1044,9 @@
         "status": "PARTIAL"
       },
       {
-        "evidence": "no signed external validation received yet",
+        "evidence": "0 supporting validation(s); report 659a8bc2d9680f991f6dffb0c5211e539b7f227f76dc0b77d98b61b09730ccb5",
         "gate": "independent_lab_validation_of_biomimic_output",
-        "status": "FAIL"
+        "status": "UNVERIFIED"
       },
       {
         "evidence": "requires professional prior-art/FTO review",
@@ -1021,9 +1054,9 @@
         "status": "UNVERIFIED"
       },
       {
-        "evidence": "no verified commercial traction in repository",
+        "evidence": "0 verified commercial evidence entrie(s); report 3d491e104caff0e1c1a767e8bca6ed91d13f02062bf0f4464628a10f4fb9fc4a",
         "gate": "paying_customers_or_contracts",
-        "status": "FAIL"
+        "status": "UNVERIFIED"
       }
     ],
     "score_100": 65,

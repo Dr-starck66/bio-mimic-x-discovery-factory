@@ -10,7 +10,7 @@
 
 - Candidate: **Acomys cahirinus**
 - Thesis: Acomys cahirinus is a strong mammalian regeneration flagship because scar-free repair is repeatedly observed across tissues and is associated with a coordinated extracellular-matrix plus immune-state program. IL10 is treated only as a translational anchor, not as a sufficient causal explanation.
-- Package SHA-256: `a7450a33142db7f285497d101a87debe3ea28a220a7a092c6691773a88d70f3f`
+- Package SHA-256: `bfb800766dfe2504e5ba09069bdaa1f676144f4ab8eff3fe6db00ff00bb52d1e`
 
 ## Current status
 
