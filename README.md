@@ -14,6 +14,7 @@ V4 conserve l'atlas et le moteur de convergence de V3 et ajoute un système de d
 - Ω-EXPERIMENT replay SHA-256
 - BENCHMARK-X10 lens
 - DEVOPS-X + Data Fusion Engine
+- ASTRA TARDIGRADE Ω — TARDI-SHIELD / TARDI-DORMANCY / TARDI-RECOVERY, avec checkpoints SHA-256 et reprise fail-closed
 
 ### Sources live
 - Europe PMC REST + Annotations

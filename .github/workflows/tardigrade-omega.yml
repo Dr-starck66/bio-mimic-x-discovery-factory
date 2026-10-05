@@ -1,0 +1,78 @@
+name: ASTRA TARDIGRADE Ω Resilience Gate
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'factory/tardigrade_omega.py'
+      - 'tests/test_tardigrade_omega.py'
+      - 'docs/ASTRA-TARDIGRADE-OMEGA.md'
+      - '.github/workflows/tardigrade-omega.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'factory/tardigrade_omega.py'
+      - 'tests/test_tardigrade_omega.py'
+      - 'docs/ASTRA-TARDIGRADE-OMEGA.md'
+      - '.github/workflows/tardigrade-omega.yml'
+  schedule:
+    - cron: '23 4 * * 1'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tardigrade-omega-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  resilience-gate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Syntax gate
+        run: python -m py_compile factory/tardigrade_omega.py tests/test_tardigrade_omega.py
+      - name: Anti-false-PASS tests
+        run: python -m unittest tests.test_tardigrade_omega -v
+      - name: Emit evidence and fault matrix
+        run: python factory/tardigrade_omega.py --emit reports/tardigrade-omega
+      - name: Verify emitted evidence
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          evidence = json.loads(Path("reports/tardigrade-omega/evidence.json").read_text(encoding="utf-8"))
+          report = json.loads(Path("reports/tardigrade-omega/scenario-report.json").read_text(encoding="utf-8"))
+
+          assert evidence["status"] == "SUPPORTED_ANALOGY"
+          assert evidence["policy"]["no_biological_equivalence_claims"] is True
+          assert evidence["policy"]["fail_closed_recovery"] is True
+          assert len(evidence["sha256"]) == 64
+          assert len(report["sha256"]) == 64
+
+          decisions = {row["id"]: row["decision"] for row in report["scenarios"]}
+          assert decisions["healthy"]["status"] == "PASS"
+          assert decisions["low-energy"]["mode"] == "DORMANT"
+          assert decisions["dependency-failure"]["mode"] == "SHIELDED"
+          assert decisions["integrity-failure"]["status"] == "FAIL"
+
+          print("PASS: ASTRA TARDIGRADE Ω evidence + fault matrix verified")
+          PY
+      - name: Persist generated report
+        if: github.event_name != 'pull_request'
+        run: |
+          git config user.name "BIO-MIMIC-X-TARDIGRADE"
+          git config user.email "biomimic-x-tardigrade@users.noreply.github.com"
+          git add reports/tardigrade-omega
+          if git diff --cached --quiet; then
+            echo "No report change."
+          else
+            git commit -m "tardigrade-omega: refresh resilience evidence"
+            git push
+          fi
