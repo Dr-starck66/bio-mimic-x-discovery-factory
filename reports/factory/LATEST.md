@@ -1,7 +1,7 @@
-# BIO-MIMIC X V7 Discovery Factory — 2026-10-05T10:39:13.489396+00:00
+# BIO-MIMIC X V7 Discovery Factory — 2026-10-06T10:30:38.975322+00:00
 
 **Status:** PASS
-**Replay SHA-256:** `c6fffd037bd09fdb0269b9abbbc354565b34c07d929aa7681c9fb7ef56ec6f5f`
+**Replay SHA-256:** `b293f44029325a3043c4f32e143f1812c37743efa0b418f0c1b2ecc02465704a`
 
 ## Active programs
 - PRG-4514111357 · Somniosus microcephalus · score 61 · labs longevity
@@ -20,11 +20,11 @@
 - Novel Species Hunter: PASS · novel_candidate_yield=12 · output=committee.portfolio
 - Deterministic Decision Engine / Scientific Investment Committee: PASS · credits_sum_to_100=100 · output=committee.allocations
 - Evidence Network / Claim Ledger: PASS · replicated_claims_with_provenance_ratio=1.0 · output=claim_ledger
-- DUALITY-X + Arbiter: PASS · mean_disagreement=10.583 · output=committee.portfolio
+- DUALITY-X + Arbiter: PASS · mean_disagreement=10.167 · output=committee.portfolio
 - Morpheus Adversarial Engine: PASS · falsifiable_failure_modes_per_program=5.0 · output=morpheus_audits
 - Ω-CAUSAL + Uncertainty Engine: PASS · claims_with_counterfactual_test=6 · output=causal_plans
 - Negative Knowledge Graph: PASS · repeated_dead_ends_prevented=0 · output=negative_filter
-- Human Bridge: PARTIAL · supported_claim_bridge_coverage=0.5833 · output=human_bridge_result
+- Human Bridge: PARTIAL · supported_claim_bridge_coverage=0.6364 · output=human_bridge_result
 - Experiment Designer + Ω-EXPERIMENT: PASS · programs_with_explicit_kill_criteria=6 · output=experiments
 - Ω Scientific Reasoning Engine: PASS · reasoning_dossiers_generated=6 · output=scientific_reasoning
 - Ω Hypothesis Engine: PASS · falsifiable_hypotheses_generated=18 · output=scientific_reasoning
