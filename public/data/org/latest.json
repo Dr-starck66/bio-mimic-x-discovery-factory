@@ -65,14 +65,6 @@
       "research_credits": 8
     },
     {
-      "committee_score": 50,
-      "labs": [
-        "longevity"
-      ],
-      "name": "Hydra oligactis",
-      "research_credits": 8
-    },
-    {
       "committee_score": 45,
       "labs": [
         "preservation"
@@ -89,12 +81,20 @@
       "research_credits": 7
     },
     {
+      "committee_score": 44,
+      "labs": [
+        "longevity"
+      ],
+      "name": "Hydra oligactis",
+      "research_credits": 7
+    },
+    {
       "committee_score": 41,
       "labs": [
         "preservation"
       ],
       "name": "Caenorhabditis elegans",
-      "research_credits": 7
+      "research_credits": 8
     }
   ],
   "committee_rules": {
@@ -152,7 +152,7 @@
       "id": "cancer",
       "name": "ONCO-X Lab",
       "paper_count": 35,
-      "sha256": "80aea843c9b22a856c95a2a6b1b85f431ed0b9b339db6c787061e0022e32c599",
+      "sha256": "0f0992e3150a9703177f4a5a3dd02ad3afe34cc36a43c9db2bda696f412dd566",
       "status": "PASS"
     },
     {
@@ -160,7 +160,7 @@
       "id": "immunology",
       "name": "IMMUNO-X Lab",
       "paper_count": 35,
-      "sha256": "88235a2d34989d91244cdbc3132c568a20824a48a05210092cd4c8739a39d053",
+      "sha256": "5264c593fb3f2735b1927bc8cb041a5cfa39a3a8be44bb81ccbd123ca7256961",
       "status": "PASS"
     },
     {
@@ -168,7 +168,7 @@
       "id": "longevity",
       "name": "LONGEVITY-X Lab",
       "paper_count": 35,
-      "sha256": "b32f05f9f71679b040c6e28385adaff745e8bd7b81210c1d40708548591606f8",
+      "sha256": "d6ff766d071c85df9bea34786ed3bff4a47e1c1d509347e9f9adefa515f77507",
       "status": "PASS"
     },
     {
@@ -176,7 +176,7 @@
       "id": "metabolism",
       "name": "METABOLIC-X Lab",
       "paper_count": 35,
-      "sha256": "f95ee7f91fef8290b51e6f1535eeae297fe0d84c193734b9b60a92c01a963028",
+      "sha256": "a01f4dd62e38b6348737c379923c79faef773007dfdcb7a42dcb627909f2565a",
       "status": "PASS"
     },
     {
@@ -184,7 +184,7 @@
       "id": "neuro",
       "name": "NEURO-X Lab",
       "paper_count": 35,
-      "sha256": "de10dd5186689c1a2765600adb613c6646947d39e59d36d46becbba5339da742",
+      "sha256": "09aec349346ce29bd0c9fe4805ed2c451fe31fcb904194f0684f547abd2809d9",
       "status": "PASS"
     },
     {
@@ -192,7 +192,7 @@
       "id": "preservation",
       "name": "PRESERVE-X Lab",
       "paper_count": 35,
-      "sha256": "439a7466d966d4c4d8ef0a469833a589fc9147ca28503700af20e65ca646dd09",
+      "sha256": "3a7ab4b2f08284c2dbcb1c3eca5488e2235687ea020627840d18728d1bb14f20",
       "status": "PASS"
     },
     {
@@ -200,7 +200,7 @@
       "id": "regeneration",
       "name": "REGEN-X Lab",
       "paper_count": 35,
-      "sha256": "5bd83b6bd66e745c56b90606490e161266da8c49a34a52a48344b092c7eb19ac",
+      "sha256": "116e10c4cf5cd9be53eee249acd2fe335789957546b22548a87c1dd0b1a42ce1",
       "status": "PASS"
     }
   ],
@@ -271,7 +271,7 @@
       "labs": [
         "regeneration"
       ],
-      "mean_arbiter": 71.0,
+      "mean_arbiter": 72.0,
       "mechanisms": [
         "extracellular matrix",
         "fibrosis",
@@ -579,14 +579,14 @@
       ],
       "name": "Eptesicus fuscus",
       "pmid_sources": [
-        "PMID:40590902",
         "PMID:42013170",
+        "PMID:42525754",
         "PMID:42807344"
       ],
       "source_count": 3,
       "sources": [
-        "PMID:40590902",
         "PMID:42013170",
+        "PMID:42525754",
         "PMID:42807344"
       ],
       "taxon_proofs": [
@@ -598,51 +598,6 @@
           "rank": "SPECIES",
           "status": "ACCEPTED",
           "taxon_key": 2432352
-        }
-      ],
-      "taxon_verified": true
-    },
-    {
-      "annotation_support": true,
-      "challenges": [
-        "body-size confounding",
-        "correlation does not prove causation",
-        "human functional divergence remains possible",
-        "lifespan data quality",
-        "no gene symbol candidate",
-        "phylogeny confounding"
-      ],
-      "committee_score": 50,
-      "genes": [],
-      "independent_source_count": 2,
-      "lab_count": 1,
-      "labs": [
-        "longevity"
-      ],
-      "mean_arbiter": 59.0,
-      "mechanisms": [
-        "autophagy",
-        "senescence"
-      ],
-      "name": "Hydra oligactis",
-      "pmid_sources": [
-        "PMID:37156860",
-        "PMID:42793312"
-      ],
-      "source_count": 2,
-      "sources": [
-        "PMID:37156860",
-        "PMID:42793312"
-      ],
-      "taxon_proofs": [
-        {
-          "canonical_name": "Hydra oligactis",
-          "kingdom": "Animalia",
-          "match_type": "EXACT",
-          "provider": "GBIF",
-          "rank": "SPECIES",
-          "status": "ACCEPTED",
-          "taxon_key": 5185751
         }
       ],
       "taxon_verified": true
@@ -744,6 +699,50 @@
     {
       "annotation_support": true,
       "challenges": [
+        "body-size confounding",
+        "correlation does not prove causation",
+        "human functional divergence remains possible",
+        "lifespan data quality",
+        "no gene symbol candidate",
+        "phylogeny confounding",
+        "single-paper dependence"
+      ],
+      "committee_score": 44,
+      "genes": [],
+      "independent_source_count": 1,
+      "lab_count": 1,
+      "labs": [
+        "longevity"
+      ],
+      "mean_arbiter": 47.0,
+      "mechanisms": [
+        "autophagy",
+        "senescence"
+      ],
+      "name": "Hydra oligactis",
+      "pmid_sources": [
+        "PMID:42793312"
+      ],
+      "source_count": 1,
+      "sources": [
+        "PMID:42793312"
+      ],
+      "taxon_proofs": [
+        {
+          "canonical_name": "Hydra oligactis",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 5185751
+        }
+      ],
+      "taxon_verified": true
+    },
+    {
+      "annotation_support": true,
+      "challenges": [
         "correlation does not prove causation",
         "cryoprotectant toxicity",
         "human functional divergence remains possible",
@@ -789,6 +788,6 @@
     }
   ],
   "schema": "biomimic-v6-org-run-v1",
-  "sha256": "ae245c3fbed462f3cde45784b21c2b6daf37959cdd40f6199916b6f0f0adaa70",
-  "time": "2026-10-05T10:34:57.915528+00:00"
+  "sha256": "00803cda6e45cdf181a14d8000374b5b68de4c53778ae96f8c87fa8080f76986",
+  "time": "2026-10-06T10:23:00.111443+00:00"
 }
