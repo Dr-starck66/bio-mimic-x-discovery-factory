@@ -1,9 +1,9 @@
 # BIO-MIMIC X — Human Bridge Refresh
 
-Time: 2026-10-05T10:54:21.478612+00:00
-Supported claims: 12
-Strict orthology: 7/12 (58.3%)
-Verified human translation: 7/12 (58.3%)
+Time: 2026-10-06T10:49:58.997820+00:00
+Supported claims: 11
+Strict orthology: 7/11 (63.6%)
+Verified human translation: 7/11 (63.6%)
 Translation status: PARTIAL
 
 ## Translation status
@@ -15,7 +15,6 @@ Translation status: PARTIAL
 - Rousettus aegyptiacus: NO_TRANSLATION_PATH · none
 - Tadarida brasiliensis: NO_TRANSLATION_PATH · none
 - Eptesicus fuscus: NO_TRANSLATION_PATH · none
-- Hydra oligactis: NO_TRANSLATION_PATH · none
 - Drosophila melanogaster: VERIFIED · STRICT_ORTHOLOGY_TARGET
 - Paracentrotus lividus: VERIFIED · STRICT_ORTHOLOGY_TARGET
 - Caenorhabditis elegans: VERIFIED · STRICT_ORTHOLOGY_TARGET
