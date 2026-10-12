@@ -1,109 +1,109 @@
-# BIO-MIMIC X Daily Lab — 20261011T084930Z
+# BIO-MIMIC X Daily Lab — 20261012T091122Z
 
-**SHA-256:** `e8b156e1861108ea12e4815d2462f3a24ab073aa72a5478979d03323057b8787`
+**SHA-256:** `34c2bd83e32ec1cd878d6579553484e2a0ad3a93101b8e7995c56ef287db210d`
 
 ## Run
-- Tracks: thrombosis_immobility, regeneration, infection_tolerance, hypoxia_ischemia
+- Tracks: pain_neuro, organ_preservation, thrombosis_immobility, longevity_dna
 - Papers: 120
 - Novel candidates: 100
 - Verified candidates: 0
 - Plausible candidates: 1
-- Knowledge graph: 1687 nodes / 7092 edges
-- Mean Arbiter score: 36.96
+- Knowledge graph: 1689 nodes / 7097 edges
+- Mean Arbiter score: 37.03
 
 ## Top candidates
-### Wound healing — PLAUSIBLE_CANDIDATE — Arbiter 68
-- Papers: 5 | citations signal: 0
-- Annotation support: True | Ensembl verified: False
-- Mechanisms: Wnt, angiogenesis, antioxidant, extracellular matrix, fibrosis, immune, inflammation, oxidative stress
-- Genes: MAPK, MSC-, NF-, OCTA, PI3K, SD-OCT, TGF-, VEGF
-- Sources: PMID:42450167, PMID:42599176, PMID:42713281, PMID:42755729, PMID:42797230
-- Morpheus: taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
-
 ### This review — UNVERIFIED_CANDIDATE — Arbiter 58
-- Papers: 44 | citations signal: 13
+- Papers: 38 | citations signal: 14
 - Annotation support: False | Ensembl verified: False
-- Mechanisms: Wnt, angiogenesis, antimicrobial peptide, antioxidant, apoptosis, autophagy, circadian, coagulation
-- Genes: ACLD, AM, AMP, AMP-, BCR-ABL, C-, CAR-T-, CAT
-- Sources: PMID:40699681, PMID:41154837, PMID:41732917, PMID:41810075, PMID:41823836, PMID:42196445
+- Mechanisms: DNA repair, angiogenesis, antimicrobial peptide, antioxidant, apoptosis, autophagy, circadian, coagulation
+- Genes: ACLD, AGAP, AI, ALD, AM, B-, BCR-ABL, BER
+- Sources: PMID:40699681, PMID:41154837, PMID:41263971, PMID:41296427, PMID:41888060, PMID:41893543
 - Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
 
-### Ictidomys tridecemlineatus — UNVERIFIED_CANDIDATE — Arbiter 55
-- Papers: 1 | citations signal: 1
-- Annotation support: True | Ensembl verified: True
-- Mechanisms: immune, neuroprotection
-- Genes: FOXO, RBM20, RBM3-
-- Sources: PMID:41154837
-- Morpheus: single-paper dependence, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
-
-### These findings — UNVERIFIED_CANDIDATE — Arbiter 51
-- Papers: 11 | citations signal: 2
+### Insights into — UNVERIFIED_CANDIDATE — Arbiter 57
+- Papers: 4 | citations signal: 6
 - Annotation support: False | Ensembl verified: False
-- Mechanisms: Wnt, angiogenesis, apoptosis, coagulation, extracellular matrix, fibrosis, hypoxia, immune
-- Genes: A-, AD, AD-, AKAP1, BSNF, C3, CMP-, CYBB
-- Sources: PMID:41154837, PMID:41598274, PMID:41934824, PMID:42305812, PMID:42450167, PMID:42490403
-- Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
+- Mechanisms: DNA repair, autophagy, genome maintenance, immune, mitochondria, senescence
+- Genes: AI, DNA-, EIF2AK2, PKR, RNA-
+- Sources: PMID:41960904, PMID:42225652, PMID:42649300, PMID:42655835
+- Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
 
 ### This study — UNVERIFIED_CANDIDATE — Arbiter 51
-- Papers: 7 | citations signal: 2
+- Papers: 12 | citations signal: 2
 - Annotation support: False | Ensembl verified: False
-- Mechanisms: angiogenesis, antioxidant, extracellular matrix, fibrosis, hypoxia, immune, inflammation, interferon
-- Genes: A-, ACE-, AD, AD-, ADP, BSNF, ECM, HI
-- Sources: PMID:41636017, PMID:41934824, PMID:42050536, PMID:42305812, PMID:42353412, PMID:42460425
+- Mechanisms: Wnt, antioxidant, circadian, cryoprotectant, extracellular matrix, heat shock, hyaluronan, immune
+- Genes: ACE-, ADP, AQP, AQP0, AQP1, AQP2, AQP3, AQP5
+- Sources: PMID:41009943, PMID:41253017, PMID:41463528, PMID:41463925, PMID:42072673, PMID:42121758
 - Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
 
-### Our results — UNVERIFIED_CANDIDATE — Arbiter 50
-- Papers: 5 | citations signal: 0
+### These findings — UNVERIFIED_CANDIDATE — Arbiter 51
+- Papers: 9 | citations signal: 1
 - Annotation support: False | Ensembl verified: False
-- Mechanisms: Wnt, coagulation, hypoxia, metabolic suppression, regeneration, stem cell, thrombosis
-- Genes: A2, ADP, CYBB, NO, NOX2, P-, PAC-1, PKC
-- Sources: PMID:41598274, PMID:42353412, PMID:42546520, PMID:42793169, PPR:PPR1324708
+- Mechanisms: antioxidant, circadian, coagulation, extracellular matrix, heat shock, hyaluronan, immune, inflammation
+- Genes: C0, C1, C2, C3, C4, CMP-, CTK01512-, FOXO
+- Sources: PMID:41154837, PMID:41463925, PMID:42121758, PMID:42169464, PMID:42369963, PMID:42383434
 - Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
 
-### Emerging evidence — UNVERIFIED_CANDIDATE — Arbiter 50
+### Insights from — UNVERIFIED_CANDIDATE — Arbiter 51
+- Papers: 5 | citations signal: 2
+- Annotation support: False | Ensembl verified: False
+- Mechanisms: autophagy, coagulation, hypoxia, immune, inflammation, mitochondria, proteostasis, senescence
+- Genes: CAT, CVD, D-, DIC, F2, HIT, MEDLINE, PF4
+- Sources: PMID:41263971, PMID:42510690, PMID:42653312, PMID:42653457, PMID:42793312
+- Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
+
+### Scorpion venom — UNVERIFIED_CANDIDATE — Arbiter 50
 - Papers: 5 | citations signal: 0
 - Annotation support: False | Ensembl verified: False
-- Mechanisms: angiogenesis, circadian, coagulation, immune, inflammation, interferon, thrombosis
-- Genes: CAT, EDC, IBD, LMWH, MEDLINE, NF-, OV, OV-
-- Sources: PMID:42197398, PMID:42568801, PMID:42583033, PMID:42602543, PMID:42796285
+- Mechanisms: antimicrobial peptide, antioxidant, extracellular matrix, fibrosis, hyaluronan, immune, inflammation, ion channel
+- Genes: AI-, ALD, D-, FPDC, GDWW, GWGS, HBV, HCV
+- Sources: PMID:42352053, PMID:42369963, PMID:42634581, PMID:42699082, PMID:42769669
 - Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
 
 ### The present — UNVERIFIED_CANDIDATE — Arbiter 50
 - Papers: 4 | citations signal: 0
 - Annotation support: False | Ensembl verified: False
-- Mechanisms: coagulation, immune, regeneration, thrombosis
-- Genes: A2, ADP, AUC, D-, DVT, ML, NET, NO
-- Sources: PMID:41598274, PMID:42359710, PMID:42577738, PMID:42793169
+- Mechanisms: coagulation, immune, inflammation, ion channel, thrombosis
+- Genes: A2, ADP, AUC, CIIMET, D-, DVT, ML, MS
+- Sources: PMID:42359710, PMID:42577738, PMID:42741776, PMID:42793169
 - Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
 
-### Recent advances — UNVERIFIED_CANDIDATE — Arbiter 50
-- Papers: 4 | citations signal: 0
+### Our findings — UNVERIFIED_CANDIDATE — Arbiter 50
+- Papers: 4 | citations signal: 2
 - Annotation support: False | Ensembl verified: False
-- Mechanisms: Wnt, angiogenesis, antioxidant, apoptosis, extracellular matrix, fibrosis, heat shock, immune
-- Genes: AKT, III, KLF2-, LSEC, MAPK, NO, PI3K, SMAD
-- Sources: PMID:42343448, PMID:42606689, PMID:42609872, PMID:42614741
+- Mechanisms: antioxidant, cryoprotectant, heat shock, ion channel
+- Genes: II, RNA-, S3-S4
+- Sources: PMID:41527028, PMID:42072673, PMID:42455049, PMID:42600100
 - Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
 
-### Willebrand factor — UNVERIFIED_CANDIDATE — Arbiter 48
+### Implications for — UNVERIFIED_CANDIDATE — Arbiter 50
+- Papers: 3 | citations signal: 5
+- Annotation support: False | Ensembl verified: False
+- Mechanisms: DNA repair, ion channel
+- Genes: BER, DDR, MNP, NER, NHEJ, VBNC
+- Sources: PMID:41296427, PMID:42506706, PMID:42608715
+- Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
+
+### Within this — UNVERIFIED_CANDIDATE — Arbiter 48
 - Papers: 3 | citations signal: 0
 - Annotation support: False | Ensembl verified: False
-- Mechanisms: coagulation, fibrosis, immune, inflammation, oxidative stress, stem cell, thrombosis
-- Genes: ACLD, BCR-ABL, CAR-T-, D-, DIC, HIT, PF4, PVT
-- Sources: PMID:42653457, PMID:42713243, PMID:42783235
+- Mechanisms: antioxidant, ion channel, senescence
+- Genes: TOR-
+- Sources: PMID:41745735, PMID:42280674, PMID:42375388
 - Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
 
-### The review — UNVERIFIED_CANDIDATE — Arbiter 48
+### Future research — UNVERIFIED_CANDIDATE — Arbiter 48
 - Papers: 3 | citations signal: 0
 - Annotation support: False | Ensembl verified: False
-- Mechanisms: coagulation, extracellular matrix, fibrosis, immune, inflammation, interferon, oxidative stress, regeneration
-- Genes: ACLD, ECM, PVT, VIII
-- Sources: PMID:42381215, PMID:42713243, PMID:42799204
+- Mechanisms: antimicrobial peptide, immune, ion channel, thrombosis
+- Genes: D-, PIT
+- Sources: PMID:41463925, PMID:42769669, PMID:42794532
 - Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
 
-### These changes — UNVERIFIED_CANDIDATE — Arbiter 48
-- Papers: 3 | citations signal: 0
+### Rather than — UNVERIFIED_CANDIDATE — Arbiter 48
+- Papers: 3 | citations signal: 1
 - Annotation support: False | Ensembl verified: False
-- Mechanisms: coagulation, hypoxia, immune, inflammation, metabolic suppression, oxidative stress, stem cell, thrombosis
-- Genes: AD, AD-, BCR-ABL, CAR-T-, EDC, HI, MEDLINE, PFAS
-- Sources: PMID:42197398, PMID:42305812, PMID:42783235
+- Mechanisms: inflammation, oxidative stress, thrombosis
+- Genes: DCI, VBNC
+- Sources: PMID:42499004, PMID:42600100, PMID:42608715
 - Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
