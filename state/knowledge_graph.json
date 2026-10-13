@@ -4192,6 +4192,14 @@
       "source": "paper:PMID:42641002",
       "target": "species:conotoxins_offer"
     },
+    "138ab4aa42c3077c": {
+      "id": "138ab4aa42c3077c",
+      "provenance": "PMC:PMC13649886",
+      "relation": "mentions",
+      "score": 1.0,
+      "source": "paper:PMC:PMC13649886",
+      "target": "species:carcinoma_via"
+    },
     "13a028ddeab44e9e": {
       "id": "13a028ddeab44e9e",
       "provenance": "PMID:42518764",
@@ -29768,6 +29776,14 @@
       "source": "species:this_innovative",
       "target": "phenotype:regeneration"
     },
+    "85e633e35ea5b340": {
+      "id": "85e633e35ea5b340",
+      "provenance": "PMC:PMC13649886",
+      "relation": "studies",
+      "score": 1.0,
+      "source": "paper:PMC:PMC13649886",
+      "target": "phenotype:cancer_resistance"
+    },
     "85f1a48c38fad108": {
       "id": "85f1a48c38fad108",
       "provenance": "PMID:42774813",
@@ -54272,6 +54288,14 @@
       "source": "species:epigenetics_modulates",
       "target": "mechanism:immune"
     },
+    "f570226727d2dd68": {
+      "id": "f570226727d2dd68",
+      "provenance": "PMC:PMC13649886",
+      "relation": "candidate_for",
+      "score": 0.5,
+      "source": "species:carcinoma_via",
+      "target": "phenotype:cancer_resistance"
+    },
     "f573f740af66def1": {
       "id": "f573f740af66def1",
       "provenance": "PMID:42528845",
@@ -57152,6 +57176,14 @@
       "label": "Trained immunity-based mucosal immunotherapies for preventing respiratory infections: a translational, evidence-graded appraisal of platforms, populations, and the protection–immunopathology balance",
       "type": "paper"
     },
+    "paper:PMC:PMC13649886": {
+      "attrs": {
+        "year": "2026"
+      },
+      "id": "paper:PMC:PMC13649886",
+      "label": "DKK1 Promotes Cisplatin Resistance in Oral Squamous Cell Carcinoma via SLC3A2‐Dependent Ferroptosis Suppression",
+      "type": "paper"
+    },
     "paper:PMC:PMC13651633": {
       "attrs": {
         "year": null
@@ -59550,7 +59582,7 @@
     },
     "species:accumulating_evidence": {
       "attrs": {
-        "arbiter": 27,
+        "arbiter": 24,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -59900,7 +59932,7 @@
     },
     "species:aging_and": {
       "attrs": {
-        "arbiter": 42,
+        "arbiter": 27,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -60150,7 +60182,7 @@
     },
     "species:although_the": {
       "attrs": {
-        "arbiter": 6,
+        "arbiter": 26,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -60470,7 +60502,7 @@
     },
     "species:background_and": {
       "attrs": {
-        "arbiter": 42,
+        "arbiter": 27,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -61056,6 +61088,16 @@
       },
       "id": "species:carassius_carassius",
       "label": "Carassius carassius",
+      "type": "species"
+    },
+    "species:carcinoma_via": {
+      "attrs": {
+        "arbiter": 12,
+        "ensembl_species": null,
+        "status": "UNVERIFIED_CANDIDATE"
+      },
+      "id": "species:carcinoma_via",
+      "label": "Carcinoma via",
       "type": "species"
     },
     "species:cardiovascular_disease": {
@@ -62060,7 +62102,7 @@
     },
     "species:despite_the": {
       "attrs": {
-        "arbiter": 35,
+        "arbiter": 48,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -62310,7 +62352,7 @@
     },
     "species:during_the": {
       "attrs": {
-        "arbiter": 27,
+        "arbiter": 18,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -62550,7 +62592,7 @@
     },
     "species:emerging_evidence": {
       "attrs": {
-        "arbiter": 42,
+        "arbiter": 48,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -62860,9 +62902,9 @@
     },
     "species:escherichia_coli": {
       "attrs": {
-        "arbiter": 12,
+        "arbiter": 58,
         "ensembl_species": null,
-        "status": "UNVERIFIED_CANDIDATE"
+        "status": "PLAUSIBLE_CANDIDATE"
       },
       "id": "species:escherichia_coli",
       "label": "Escherichia coli",
@@ -63000,7 +63042,7 @@
     },
     "species:experimental_studies": {
       "attrs": {
-        "arbiter": 48,
+        "arbiter": 27,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -63250,7 +63292,7 @@
     },
     "species:for_example": {
       "attrs": {
-        "arbiter": 25,
+        "arbiter": 18,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -63480,7 +63522,7 @@
     },
     "species:further_clinical": {
       "attrs": {
-        "arbiter": 27,
+        "arbiter": 24,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -63550,7 +63592,7 @@
     },
     "species:future_efforts": {
       "attrs": {
-        "arbiter": 24,
+        "arbiter": 20,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -63610,7 +63652,7 @@
     },
     "species:future_research": {
       "attrs": {
-        "arbiter": 48,
+        "arbiter": 42,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -64270,7 +64312,7 @@
     },
     "species:implications_for": {
       "attrs": {
-        "arbiter": 50,
+        "arbiter": 41,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -64310,7 +64352,7 @@
     },
     "species:increasing_evidence": {
       "attrs": {
-        "arbiter": 21,
+        "arbiter": 24,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -64430,7 +64472,7 @@
     },
     "species:insights_into": {
       "attrs": {
-        "arbiter": 57,
+        "arbiter": 18,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -65320,7 +65362,7 @@
     },
     "species:materials_and": {
       "attrs": {
-        "arbiter": 42,
+        "arbiter": 27,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -65350,7 +65392,7 @@
     },
     "species:mechanisms_and": {
       "attrs": {
-        "arbiter": 27,
+        "arbiter": 42,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -66320,7 +66362,7 @@
     },
     "species:our_findings": {
       "attrs": {
-        "arbiter": 50,
+        "arbiter": 48,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -66330,7 +66372,7 @@
     },
     "species:our_results": {
       "attrs": {
-        "arbiter": 26,
+        "arbiter": 42,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -66380,7 +66422,7 @@
     },
     "species:oxidative_stress": {
       "attrs": {
-        "arbiter": 42,
+        "arbiter": 21,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -66440,7 +66482,7 @@
     },
     "species:particular_attention": {
       "attrs": {
-        "arbiter": 42,
+        "arbiter": 12,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -66450,7 +66492,7 @@
     },
     "species:particular_emphasis": {
       "attrs": {
-        "arbiter": 24,
+        "arbiter": 42,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -66850,8 +66892,8 @@
     },
     "species:podarcis_muralis": {
       "attrs": {
-        "arbiter": 26,
-        "ensembl_species": null,
+        "arbiter": 38,
+        "ensembl_species": "podarcis_muralis",
         "status": "UNVERIFIED_CANDIDATE"
       },
       "id": "species:podarcis_muralis",
@@ -67340,7 +67382,7 @@
     },
     "species:recent_advances": {
       "attrs": {
-        "arbiter": 45,
+        "arbiter": 50,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -67370,7 +67412,7 @@
     },
     "species:recent_evidence": {
       "attrs": {
-        "arbiter": 12,
+        "arbiter": 24,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -67430,7 +67472,7 @@
     },
     "species:recent_studies": {
       "attrs": {
-        "arbiter": 26,
+        "arbiter": 27,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -67670,7 +67712,7 @@
     },
     "species:saccharomyces_cerevisiae": {
       "attrs": {
-        "arbiter": 27,
+        "arbiter": 42,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -68620,7 +68662,7 @@
     },
     "species:taken_together": {
       "attrs": {
-        "arbiter": 24,
+        "arbiter": 27,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -69590,7 +69632,7 @@
     },
     "species:the_literature": {
       "attrs": {
-        "arbiter": 42,
+        "arbiter": 24,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -69690,7 +69732,7 @@
     },
     "species:the_molecular": {
       "attrs": {
-        "arbiter": 42,
+        "arbiter": 26,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -69730,7 +69772,7 @@
     },
     "species:the_objective": {
       "attrs": {
-        "arbiter": 39,
+        "arbiter": 28,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -69860,7 +69902,7 @@
     },
     "species:the_present": {
       "attrs": {
-        "arbiter": 50,
+        "arbiter": 18,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -70000,7 +70042,7 @@
     },
     "species:the_results": {
       "attrs": {
-        "arbiter": 42,
+        "arbiter": 29,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -70020,7 +70062,7 @@
     },
     "species:the_review": {
       "attrs": {
-        "arbiter": 48,
+        "arbiter": 42,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -70360,7 +70402,7 @@
     },
     "species:therapeutic_strategies": {
       "attrs": {
-        "arbiter": 28,
+        "arbiter": 27,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -70470,7 +70512,7 @@
     },
     "species:these_changes": {
       "attrs": {
-        "arbiter": 42,
+        "arbiter": 24,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -70560,7 +70602,7 @@
     },
     "species:these_effects": {
       "attrs": {
-        "arbiter": 27,
+        "arbiter": 42,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -70660,7 +70702,7 @@
     },
     "species:these_mechanisms": {
       "attrs": {
-        "arbiter": 27,
+        "arbiter": 20,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -70780,7 +70822,7 @@
     },
     "species:these_processes": {
       "attrs": {
-        "arbiter": 21,
+        "arbiter": 26,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -70950,7 +70992,7 @@
     },
     "species:this_approach": {
       "attrs": {
-        "arbiter": 6,
+        "arbiter": 20,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -70960,7 +71002,7 @@
     },
     "species:this_article": {
       "attrs": {
-        "arbiter": 40,
+        "arbiter": 18,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -71120,7 +71162,7 @@
     },
     "species:this_framework": {
       "attrs": {
-        "arbiter": 42,
+        "arbiter": 39,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -71280,7 +71322,7 @@
     },
     "species:this_narrative": {
       "attrs": {
-        "arbiter": 42,
+        "arbiter": 27,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -71480,7 +71522,7 @@
     },
     "species:this_synthesis": {
       "attrs": {
-        "arbiter": 12,
+        "arbiter": 35,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -71520,7 +71562,7 @@
     },
     "species:this_work": {
       "attrs": {
-        "arbiter": 42,
+        "arbiter": 27,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -71880,7 +71922,7 @@
     },
     "species:transcriptomic_analysis": {
       "attrs": {
-        "arbiter": 27,
+        "arbiter": 18,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -72140,7 +72182,7 @@
     },
     "species:understanding_this": {
       "attrs": {
-        "arbiter": 18,
+        "arbiter": 27,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -72680,7 +72722,7 @@
     },
     "species:while_the": {
       "attrs": {
-        "arbiter": 26,
+        "arbiter": 48,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -72800,7 +72842,7 @@
     },
     "species:within_this": {
       "attrs": {
-        "arbiter": 48,
+        "arbiter": 20,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
