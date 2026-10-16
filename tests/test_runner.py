@@ -11,6 +11,18 @@ class TestBioMimic(unittest.TestCase):
         self.assertIn("Ambystoma mexicanum",got)
         self.assertIn("Heterocephalus glaber",got)
 
+    def test_latin_mentions_rejects_prose_false_positives(self):
+        mentions = runner.latin_mentions(
+            "This review compares Wound healing. "
+            "Synthetic fixture and Observational fibrosis are not species. "
+            "Acomys cahirinus is a real comparative biology model."
+        )
+        self.assertIn("Acomys cahirinus", mentions)
+        self.assertNotIn("This review", mentions)
+        self.assertNotIn("Wound healing", mentions)
+        self.assertNotIn("Synthetic fixture", mentions)
+        self.assertNotIn("Observational fibrosis", mentions)
+
     def test_mechanisms(self):
         got=runner.mechanisms("DNA repair and metabolic suppression may protect mitochondria.")
         self.assertIn("DNA repair",got)
