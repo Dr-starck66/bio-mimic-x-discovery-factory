@@ -49,7 +49,7 @@ try{
 
   await page.locator('#problem').fill('Synthetic fibrosis test');
   await page.locator('#runHunter').click();
-  await page.locator('#dlReplay').waitFor({timeout:30000});
+  await page.locator('#dlReplay').waitFor({state:'attached',timeout:30000});
   assert.ok((await text('#candidateGrid')).includes('Ficticia exemplaris'),'Hunter missed fixture species');
   assert.ok((await text('#paperGrid')).includes('fixture-001')===false,'Test must render paper title, not internal identifier');
   assert.ok((await text('#experimentOut')).includes('Ficticia exemplaris'),'Experiment forge failed');
