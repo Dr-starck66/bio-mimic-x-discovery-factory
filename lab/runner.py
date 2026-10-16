@@ -62,7 +62,8 @@ GENUS_STOP = {
     "Natural","European","American","Medical","Science","Biology","Molecular",
     "Cellular","Genomic","Genome","Protein","Disease","Research","Journal",
     "Effects","Evidence","Target","System","Animal","Animals","Study","Studies",
-    "Long","High","Low","Open","Results","Review","Reviews","Methods"
+    "Long","High","Low","Open","Results","Review","Reviews","Methods",
+    "This","These","Wound","Synthetic","Fixture","Observational"
 }
 
 def now_iso():
