@@ -63,7 +63,7 @@ GENUS_STOP = {
     "Cellular","Genomic","Genome","Protein","Disease","Research","Journal",
     "Effects","Evidence","Target","System","Animal","Animals","Study","Studies",
     "Long","High","Low","Open","Results","Review","Reviews","Methods",
-    "This","These","Wound","Synthetic","Fixture","Observational"
+    "This","These","Wound","Synthetic","Fixture","Observational","Wnt"
 }
 
 def now_iso():
