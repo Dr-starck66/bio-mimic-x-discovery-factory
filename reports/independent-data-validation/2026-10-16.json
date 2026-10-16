@@ -1,0 +1,83 @@
+{
+  "run_id": 38961739243,
+  "job_id": 117178221379,
+  "workflow_url": "https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/38961739243",
+  "source_accessions": [
+    "GSE74387",
+    "GSE113081"
+  ],
+  "preregistration_path": "validation/PREREG-GEO-2026-10-16.md",
+  "status": "FAIL_PRE_REGISTERED_HYPOTHESIS",
+  "results": [
+    {
+      "all_measured_features_Acomys": 41345,
+      "all_measured_features_Mus": 41345,
+      "biological_sample_bootstrap_95ci": [
+        -0.07249126020127254,
+        0.19307710812259618
+      ],
+      "bootstrap_iterations": 1000,
+      "cohort": "GSE74387_microarray",
+      "day7_responsive_features_Acomys": 12846,
+      "day7_responsive_features_Mus": 18904,
+      "delta": 0.10063676948102762,
+      "input_sha256": {
+        "GSE74387": "fddb2ea279e3850d3a9ce98a1ad42f3bcf6a6f26de00a6478f20709b10e675a9"
+      },
+      "negative_control_time_label_permutation_p_descriptive": 0.6633663366336634,
+      "negative_permutations": 100,
+      "response_resolution_fraction_Acomys": 0.8001712595360424,
+      "response_resolution_fraction_Mus": 0.6995344900550148,
+      "samples_per_cell_Acomys": {
+        "0": 5,
+        "7": 5,
+        "14": 5
+      },
+      "samples_per_cell_Mus": {
+        "0": 6,
+        "7": 6,
+        "14": 6
+      },
+      "status": "FAIL_PRE_REGISTERED"
+    },
+    {
+      "all_measured_features_Acomys": 26313,
+      "all_measured_features_Mus": 15290,
+      "biological_sample_bootstrap_95ci": [
+        0.02945860191106085,
+        0.18971694396884983
+      ],
+      "bootstrap_iterations": 1000,
+      "cohort": "GSE113081_RNAseq",
+      "day7_responsive_features_Acomys": 17507,
+      "day7_responsive_features_Mus": 10673,
+      "delta": 0.1234107419793925,
+      "input_sha256": {
+        "GSE113081_aco": "e382b5906ba5d82c81d249dc2e6cc52b473d4054ba1be13608110fee78e99c02",
+        "GSE113081_mus": "1bea0150d3e343465de1b6fbd2e7c6c0ad656a218052bf46e9d399105139ec9f"
+      },
+      "negative_control_time_label_permutation_p_descriptive": 0.31683168316831684,
+      "negative_permutations": 100,
+      "response_resolution_fraction_Acomys": 0.8575998172159708,
+      "response_resolution_fraction_Mus": 0.7341890752365783,
+      "samples_per_cell_Acomys": {
+        "0": 4,
+        "7": 4,
+        "14": 4
+      },
+      "samples_per_cell_Mus": {
+        "0": 3,
+        "7": 4,
+        "14": 4
+      },
+      "status": "PASS_PRE_REGISTERED"
+    }
+  ],
+  "claim_boundaries": [
+    "Retrospective analysis of public experiments conducted by other labs.",
+    "Reanalyzing published observations is not a new wet-lab experiment.",
+    "No independently replicated discovery, causal mechanism, new therapeutic outcome, or 1M EUR valuation established.",
+    "GSE74387 and GSE113081 vary by technology; Acomys and Mus gene sets differ; no direct cross-species expression-intensity interpretation.",
+    "Permutation p values descriptive and not a primary preregistered success criterion."
+  ]
+}
