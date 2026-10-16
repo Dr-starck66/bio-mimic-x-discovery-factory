@@ -39,7 +39,7 @@ const mechanismLex=[
 const geneStop=new Set(["DNA","RNA","ATP","NAD","ROS","ACE","MRI","PET","COVID","SARS","HIV","USA","PCR","ELISA","WT","KO","HR","CI","OR","AND","THE"]);
 function detectMechanisms(txt){const h=norm(txt);return mechanismLex.filter(x=>h.includes(norm(x)))}
 function detectGenes(txt){const m=(txt||"").match(/\b[A-Z][A-Z0-9-]{1,8}\b/g)||[];return uniq(m.filter(x=>!geneStop.has(x)&&!/^\d/.test(x))).slice(0,20)}
-const genusStop=new Set(["Cancer","Nature","Human","Novel","Clinical","Current","Comparative","Natural","European","American","Medical","Science","Biology","Molecular","Cellular","Genomic","Genome","Protein","Disease","Research","Journal","Effects","Evidence","Target","System","Animal","Animals","Study","Studies","Long","High","Low","Open","Results","Review","Reviews","This","These","Wound","Synthetic","Fixture","Observational"]);
+const genusStop=new Set(["Cancer","Nature","Human","Novel","Clinical","Current","Comparative","Natural","European","American","Medical","Science","Biology","Molecular","Cellular","Genomic","Genome","Protein","Disease","Research","Journal","Effects","Evidence","Target","System","Animal","Animals","Study","Studies","Long","High","Low","Open","Results","Review","Reviews","This","These","Wound","Synthetic","Fixture","Observational","Wnt"]);
 function latinMentions(txt){
   const out=[];const re=/\b([A-Z][a-z]{2,})\s([a-z][a-z-]{2,})\b/g;let m;
   while((m=re.exec(txt||""))!==null){if(!genusStop.has(m[1]))out.push(m[1]+" "+m[2])}
