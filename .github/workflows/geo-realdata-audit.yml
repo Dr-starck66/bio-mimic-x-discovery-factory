@@ -19,11 +19,17 @@ jobs:
           python-version: '3.12'
       - name: Acquire actual experimental GEO data and audit shapes (no conclusion testing)
         run: python validation/probe_geo.py
+      - name: Prepare numerical analysis environment (numpy)
+        run: python -m pip install --disable-pip-version-check numpy==2.2.6
+      - name: Test preregistered hypothesis against real biological samples in two GEO cohorts
+        run: python validation/run_geo_validation.py
       - name: Save immutable dataset file checksums and headers
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: geo-raw-inputs
-          path: validation/cache
+          path: |
+            validation/cache
+            validation/results
           retention-days: 1
           if-no-files-found: warn
