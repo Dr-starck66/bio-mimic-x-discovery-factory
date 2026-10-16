@@ -130,7 +130,7 @@ def prepare(data, labels,kind):
         y=data
     else:
         y,_=normalized_counts(data)
-    idx={d:np.asarray(groups[("Acomys" if kind=="aco" else "Mus",d)],dtype=int) for d in [0,7,14]}
+    idx={d:np.asarray(groups[("Acomys" if kind in ("aco","array") else "Mus",d)],dtype=int) for d in [0,7,14]}
     if any(len(v)<3 for v in idx.values()):
         raise ValueError("Under 3 independent biological samples in cell")
     if y.shape[0]<1000:
