@@ -14,7 +14,7 @@ class TestBioMimic(unittest.TestCase):
     def test_latin_mentions_rejects_prose_false_positives(self):
         mentions = runner.latin_mentions(
             "This review compares Wound healing. "
-            "Synthetic fixture and Observational fibrosis are not species. "
+            "Synthetic fixture, Wnt pathways and Observational fibrosis are not species. "
             "Acomys cahirinus is a real comparative biology model."
         )
         self.assertIn("Acomys cahirinus", mentions)
@@ -22,6 +22,7 @@ class TestBioMimic(unittest.TestCase):
         self.assertNotIn("Wound healing", mentions)
         self.assertNotIn("Synthetic fixture", mentions)
         self.assertNotIn("Observational fibrosis", mentions)
+        self.assertNotIn("Wnt pathways", mentions)
 
     def test_mechanisms(self):
         got=runner.mechanisms("DNA repair and metabolic suppression may protect mitochondria.")
