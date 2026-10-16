@@ -50,8 +50,8 @@ def parse_matrix(path, is_geo_array=False):
     started = not is_geo_array
     with gzip.open(path, "rt", encoding="utf8",errors="replace") as stream:
         for line in stream:
-            line=line.strip()
-            if not line:
+            line=line.rstrip("\r\n")
+            if not line.strip():
                 continue
             if is_geo_array:
                 if line.startswith("!Sample_title"):
