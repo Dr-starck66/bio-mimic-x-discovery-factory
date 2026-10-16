@@ -195,8 +195,8 @@ def main():
 
     rows,arr,labels=matrices["array"]
     ga=groups_from(labels,"array")
-    xa=arr[:,np.asarray([j for j,k in enumerate(labels) if k.startswith("Aco"))]]
-    xm=arr[:,np.asarray([j for j,k in enumerate(labels) if k.startswith("Mus"))]]
+    xa=arr[:,np.asarray([j for j,k in enumerate(labels) if k.startswith("Aco")])]
+    xm=arr[:,np.asarray([j for j,k in enumerate(labels) if k.startswith("Mus")])]
     la=[k for k in labels if k.startswith("Aco")]
     lm=[k for k in labels if k.startswith("Mus")]
     ya,ga=prepare(xa,la,"array") # groups_from array returns Acomys; prepare expects Acomys for both: see below
