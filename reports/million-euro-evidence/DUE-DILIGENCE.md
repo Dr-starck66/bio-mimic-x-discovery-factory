@@ -4,7 +4,7 @@
 - Readiness score: **65/100**
 - Flagship: **Acomys cahirinus**
 - Investor evidence score: **134**
-- Evidence fingerprint: `bfb800766dfe2504e5ba09069bdaa1f676144f4ab8eff3fe6db00ff00bb52d1e`
+- Evidence fingerprint: `3bd96191ba613b4d984590e95f50573788f35109c756312767ec3fc54d2a737d`
 
 ## Flagship thesis
 
