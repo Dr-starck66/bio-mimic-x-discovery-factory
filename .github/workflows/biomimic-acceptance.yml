@@ -1,0 +1,70 @@
+name: BIO-MIMIC X — UI and Scientific Acceptance
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'qa/**'
+      - 'public/hunter*'
+      - 'public/index.html'
+      - 'app.js'
+      - 'factory/million_euro_evidence.py'
+      - '.github/workflows/biomimic-acceptance.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  reproducible-science:
+    name: Deterministic Acomys replay and negative controls
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: All project unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Reproducible scientific evidence demonstration — two separate processes
+        run: |
+          set -euo pipefail
+          PYTHONHASHSEED=17 python qa/repro_acomys.py --out qa-artifacts/replay-seed17.json
+          sleep 2
+          PYTHONHASHSEED=101 python qa/repro_acomys.py --out qa-artifacts/replay-seed101.json
+          cmp qa-artifacts/replay-seed17.json qa-artifacts/replay-seed101.json
+          echo 'PASS: deterministic evidence replay across processes/time/hash-seeds'
+      - name: Save scientific evidence artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: biomimic-science-replay
+          path: qa-artifacts/
+          if-no-files-found: warn
+
+  browser-acceptance:
+    name: Chromium end-to-end (mocked providers)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Playwright-core without downloading browsers
+        run: npm install --no-save --no-package-lock playwright-core@1.55.1
+      - name: Chromium test of actual published public folder
+        run: |
+          set -euo pipefail
+          which google-chrome
+          python3 -m http.server 8765 --bind 127.0.0.1 --directory public >/tmp/biomimic-server.log 2>&1 &
+          echo $! >/tmp/biomimic-server.pid
+          sleep 2
+          node qa/browser-smoke.mjs
+      - name: Save browser failure screenshot
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: biomimic-ui-browser-evidence
+          path: qa-artifacts/
+          if-no-files-found: warn
