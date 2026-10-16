@@ -258,7 +258,9 @@ def build_package(programs: Mapping[str, Any], memory: Mapping[str, Any], regist
             "secure at least one paid pilot, LOI or research collaboration",
         ],
     }
-    package["sha256"] = sha256_json({k: v for k, v in package.items() if k not in {"generated_at", "sha256"}})
+    stable_payload = {k: v for k, v in package.items() if k not in {"generated_at", "sha256"}}
+    stable_payload["external_validation"] = {k: v for k, v in package["external_validation"].items() if k != "generated_at"}
+    package["sha256"] = sha256_json(stable_payload)
     return package
 
 
