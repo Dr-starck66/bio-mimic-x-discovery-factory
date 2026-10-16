@@ -138,7 +138,7 @@ function buildClaims(){
  STATE.claims=STATE.candidates.slice(0,12).map(c=>{
    let status="SPECULATIVE";
    if(c.annotVerified&&c.paperCount>=2&&c.mechanisms.length)status="PLAUSIBLE";
-   if(c.annotVerified&&c.paperCount>=3&&c.mechanisms.length>=2)status="VERIFIED";
+   if(c.annotVerified&&c.taxonVerified===true&&c.independentValidation===true&&c.paperCount>=3&&c.mechanisms.length>=2)status="VERIFIED";
    if(!c.paperCount||c.blocked)status="UNSUPPORTED";
    return{id:"C-"+Math.random().toString(36).slice(2,8),subject:c.name,status,claim:`${c.name} est un candidat de biologie comparative pour « ${STATE.query} »`,mechanisms:c.mechanisms,sources:candidateSourceIds(c),papers:c.paperCount,annotVerified:c.annotVerified,blocked:!!c.blocked}
  });
