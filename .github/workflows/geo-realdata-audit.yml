@@ -1,0 +1,29 @@
+name: BIO-MIMIC X — External GEO Data Audit
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'validation/**'
+      - '.github/workflows/geo-realdata-audit.yml'
+permissions:
+  contents: read
+jobs:
+  geo-data-audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Acquire actual experimental GEO data and audit shapes (no conclusion testing)
+        run: python validation/probe_geo.py
+      - name: Save immutable dataset file checksums and headers
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: geo-raw-inputs
+          path: validation/cache
+          retention-days: 1
+          if-no-files-found: warn
