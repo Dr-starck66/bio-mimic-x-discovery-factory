@@ -234,8 +234,10 @@ function buildExperiment(){
 }
 async function createReplay(){
  const pack={app:MANIFEST,query:STATE.query,mission:structuredClone(STATE.mission),papers:STATE.papers.map(p=>({id:p.id,pmid:p.pmid,pmcid:p.pmcid,title:p.title,pubYear:p.pubYear,citedByCount:p.citedByCount})),candidates:STATE.candidates.map(c=>({name:c.name,papers:c.paperCount,mechanisms:c.mechanisms,genes:c.genes,annotVerified:c.annotVerified,arbiter:c.arbiter,sources:candidateSourceIds(c)})),claims:structuredClone(STATE.claims),humanChecks:structuredClone(STATE.humanChecks),negativeKnowledge:structuredClone(NEG),providerEvents:structuredClone(STATE.providerEvents),timestamp:new Date().toISOString()};
- const hash=await sha256(pack);STATE.runHash=hash;pack.sha256=hash;RUNS.unshift({time:pack.timestamp,query:STATE.query,hash,candidates:STATE.candidates.length,papers:STATE.papers.length});RUNS=RUNS.slice(0,20);localStorage.setItem("biomimic_v4_runs",JSON.stringify(RUNS));
- setMission("REPLAY","PASS",`SHA-256 ${hash.slice(0,16)}…`);document.getElementById("replayOut").innerHTML=`<div class="panel"><h3>Ω-EXPERIMENT replay</h3><div class="code">${hash}</div><div class="chips"><button id="dlReplay" class="primary">Exporter le replay JSON</button></div></div>`;document.getElementById("dlReplay").onclick=()=>download("biomimic-v4-replay.json",pack);renderRuns();
+ // Freeze the exact JSON payload before hashing: later UI enrichment must not mutate the export.
+ const snapshot=JSON.parse(JSON.stringify(pack));
+ const hash=await sha256(snapshot);STATE.runHash=hash;snapshot.sha256=hash;RUNS.unshift({time:pack.timestamp,query:STATE.query,hash,candidates:STATE.candidates.length,papers:STATE.papers.length});RUNS=RUNS.slice(0,20);localStorage.setItem("biomimic_v4_runs",JSON.stringify(RUNS));
+ setMission("REPLAY","PASS",`SHA-256 ${hash.slice(0,16)}…`);document.getElementById("replayOut").innerHTML=`<div class="panel"><h3>Ω-EXPERIMENT replay</h3><div class="code">${hash}</div><div class="chips"><button id="dlReplay" class="primary">Exporter le replay JSON</button></div></div>`;document.getElementById("dlReplay").onclick=()=>download("biomimic-v4-replay.json",snapshot);renderRuns();
 }
 function runBenchmark(){
  const baseline={papers:STATE.papers.length?1:0,species:STATE.papers[0]?latinMentions(STATE.papers[0]._text).length:0,claims:STATE.papers.length?1:0,provenance:STATE.papers.length?1:0,adversarial:0};
