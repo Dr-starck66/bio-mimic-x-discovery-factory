@@ -230,7 +230,7 @@
       "output_ref": "human_translation_result",
       "stage": "TRANSLATE",
       "status": "PARTIAL",
-      "time": "2026-10-16T08:33:52.643603+00:00",
+      "time": "2026-10-17T08:04:45.968465+00:00",
       "value": 0.6364
     },
     {
@@ -365,12 +365,12 @@
     }
   ],
   "bridge_refresh": {
-    "previous_cycle_sha256": "0f7aa7b1b323cf8b95d1fd58b1858fcd59c33a9e658fcc69436a7853c9be6bc1",
+    "previous_cycle_sha256": "edab0b1e68dbdb78163c831bcaea3026a0da1af6b91babab62b5fc94d9f278f1",
     "status": "PARTIAL",
     "strict_orthology_candidates": 7,
     "strict_orthology_coverage_ratio": 0.6364,
     "supported_claims": 11,
-    "time": "2026-10-16T08:33:52.643603+00:00",
+    "time": "2026-10-17T08:04:45.968465+00:00",
     "translation_coverage_ratio": 0.6364,
     "translation_verified_candidates": 7
   },
@@ -380222,73 +380222,6 @@
         "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
       },
       {
-        "animal_ensembl_species": "danio_rerio",
-        "animal_gene": "VEGF",
-        "animal_species": "Danio rerio",
-        "clinical_efficacy_claim": false,
-        "human_biotype": "protein_coding",
-        "human_ensembl_id": "ENSG00000112715",
-        "human_name": "vascular endothelial growth factor A",
-        "human_symbol": "VEGFA",
-        "orthology": {
-          "ensembl_id": "ENSG00000112715",
-          "perc_id": 27.0886,
-          "perc_pos": 34.6835,
-          "protein_id": "ENSP00000500082",
-          "taxon_id": 9606
-        },
-        "source_chain": [
-          "replicated PMID claim",
-          "Europe PMC gene/protein annotation or claim gene",
-          "Ensembl Compara orthology",
-          "Open Targets human target annotation"
-        ],
-        "source_claim_pmids": [
-          "PMID:42370366",
-          "PMID:42690612",
-          "PMID:42755729"
-        ],
-        "tractability": [
-          {
-            "label": "Structure with Ligand",
-            "modality": "SM"
-          },
-          {
-            "label": "High-Quality Ligand",
-            "modality": "SM"
-          },
-          {
-            "label": "Med-Quality Pocket",
-            "modality": "SM"
-          },
-          {
-            "label": "Approved Drug",
-            "modality": "AB"
-          },
-          {
-            "label": "UniProt loc high conf",
-            "modality": "AB"
-          },
-          {
-            "label": "GO CC high conf",
-            "modality": "AB"
-          },
-          {
-            "label": "UniProt loc med conf",
-            "modality": "AB"
-          },
-          {
-            "label": "Small Molecule Binder",
-            "modality": "PR"
-          },
-          {
-            "label": "Approved Drug",
-            "modality": "OC"
-          }
-        ],
-        "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
-      },
-      {
         "animal_ensembl_species": null,
         "animal_gene": "O73682",
         "animal_species": "Danio rerio",
@@ -381045,11 +380978,11 @@
         "validated_gene_candidates": []
       },
       {
-        "bridges": 2,
+        "bridges": 1,
         "candidate": "Danio rerio",
         "direct_orthology_seed_records_checked": 0,
         "direct_orthology_strict_bridges": 0,
-        "ensembl_species": "danio_rerio",
+        "ensembl_species": null,
         "functional_orthology_context_validated": 0,
         "functional_orthology_evidence_validated": 0,
         "functional_orthology_exact_genes": 0,
@@ -381070,9 +381003,7 @@
         "uniprot_annotation_candidates": 10,
         "uniprot_candidates": 14,
         "uniprot_species_gene_candidates": 4,
-        "validated_gene_candidates": [
-          "VEGF"
-        ]
+        "validated_gene_candidates": []
       },
       {
         "bridges": 1,
@@ -381301,7 +381232,7 @@
     ],
     "coverage_ratio": 0.6364,
     "direct_orthology_hits": 1,
-    "ensembl_orthologue_hits": 1,
+    "ensembl_orthologue_hits": 0,
     "errors": [],
     "functional_orthology_hits": 1,
     "live_bridged_candidates": 7,
@@ -381309,11 +381240,11 @@
     "oma_orthologue_hits": 7,
     "open_targets_hits": 12,
     "orthodb_orthologue_hits": 1,
-    "orthologue_hits": 13,
+    "orthologue_hits": 12,
     "phylogenetic_orthologue_hits": 1,
     "provider_status": {
-      "Ensembl homology": "PASS",
-      "Ensembl species": "PASS",
+      "Ensembl homology": "PARTIAL",
+      "Ensembl species": "FAIL: The read operation timed out",
       "Europe PMC annotations": "PASS",
       "Last-known-good cache": "IDLE",
       "NCBI Ortholog": "PASS",
@@ -381324,7 +381255,7 @@
       "Peer-reviewed functional orthology": "PASS",
       "Peer-reviewed phylogenetic orthology": "PASS"
     },
-    "resolved_species": 1,
+    "resolved_species": 0,
     "status": "PARTIAL"
   },
   "human_translation": [
@@ -381646,73 +381577,6 @@
       "animal_claim_not_promoted_to_human_efficacy": true,
       "bridges": [
         {
-          "animal_ensembl_species": "danio_rerio",
-          "animal_gene": "VEGF",
-          "animal_species": "Danio rerio",
-          "clinical_efficacy_claim": false,
-          "human_biotype": "protein_coding",
-          "human_ensembl_id": "ENSG00000112715",
-          "human_name": "vascular endothelial growth factor A",
-          "human_symbol": "VEGFA",
-          "orthology": {
-            "ensembl_id": "ENSG00000112715",
-            "perc_id": 27.0886,
-            "perc_pos": 34.6835,
-            "protein_id": "ENSP00000500082",
-            "taxon_id": 9606
-          },
-          "source_chain": [
-            "replicated PMID claim",
-            "Europe PMC gene/protein annotation or claim gene",
-            "Ensembl Compara orthology",
-            "Open Targets human target annotation"
-          ],
-          "source_claim_pmids": [
-            "PMID:42370366",
-            "PMID:42690612",
-            "PMID:42755729"
-          ],
-          "tractability": [
-            {
-              "label": "Structure with Ligand",
-              "modality": "SM"
-            },
-            {
-              "label": "High-Quality Ligand",
-              "modality": "SM"
-            },
-            {
-              "label": "Med-Quality Pocket",
-              "modality": "SM"
-            },
-            {
-              "label": "Approved Drug",
-              "modality": "AB"
-            },
-            {
-              "label": "UniProt loc high conf",
-              "modality": "AB"
-            },
-            {
-              "label": "GO CC high conf",
-              "modality": "AB"
-            },
-            {
-              "label": "UniProt loc med conf",
-              "modality": "AB"
-            },
-            {
-              "label": "Small Molecule Binder",
-              "modality": "PR"
-            },
-            {
-              "label": "Approved Drug",
-              "modality": "OC"
-            }
-          ],
-          "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
-        },
-        {
           "animal_ensembl_species": null,
           "animal_gene": "O73682",
           "animal_species": "Danio rerio",
@@ -381796,73 +381660,6 @@
       "translation_path": {
         "bridges": [
           {
-            "animal_ensembl_species": "danio_rerio",
-            "animal_gene": "VEGF",
-            "animal_species": "Danio rerio",
-            "clinical_efficacy_claim": false,
-            "human_biotype": "protein_coding",
-            "human_ensembl_id": "ENSG00000112715",
-            "human_name": "vascular endothelial growth factor A",
-            "human_symbol": "VEGFA",
-            "orthology": {
-              "ensembl_id": "ENSG00000112715",
-              "perc_id": 27.0886,
-              "perc_pos": 34.6835,
-              "protein_id": "ENSP00000500082",
-              "taxon_id": 9606
-            },
-            "source_chain": [
-              "replicated PMID claim",
-              "Europe PMC gene/protein annotation or claim gene",
-              "Ensembl Compara orthology",
-              "Open Targets human target annotation"
-            ],
-            "source_claim_pmids": [
-              "PMID:42370366",
-              "PMID:42690612",
-              "PMID:42755729"
-            ],
-            "tractability": [
-              {
-                "label": "Structure with Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "High-Quality Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "Med-Quality Pocket",
-                "modality": "SM"
-              },
-              {
-                "label": "Approved Drug",
-                "modality": "AB"
-              },
-              {
-                "label": "UniProt loc high conf",
-                "modality": "AB"
-              },
-              {
-                "label": "GO CC high conf",
-                "modality": "AB"
-              },
-              {
-                "label": "UniProt loc med conf",
-                "modality": "AB"
-              },
-              {
-                "label": "Small Molecule Binder",
-                "modality": "PR"
-              },
-              {
-                "label": "Approved Drug",
-                "modality": "OC"
-              }
-            ],
-            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
-          },
-          {
             "animal_ensembl_species": null,
             "animal_gene": "O73682",
             "animal_species": "Danio rerio",
@@ -381942,7 +381739,7 @@
           "Open Targets human target validation"
         ],
         "status": "VERIFIED",
-        "strict_bridge_count": 2,
+        "strict_bridge_count": 1,
         "subject": "Danio rerio"
       }
     },
@@ -383600,73 +383397,6 @@
       {
         "bridges": [
           {
-            "animal_ensembl_species": "danio_rerio",
-            "animal_gene": "VEGF",
-            "animal_species": "Danio rerio",
-            "clinical_efficacy_claim": false,
-            "human_biotype": "protein_coding",
-            "human_ensembl_id": "ENSG00000112715",
-            "human_name": "vascular endothelial growth factor A",
-            "human_symbol": "VEGFA",
-            "orthology": {
-              "ensembl_id": "ENSG00000112715",
-              "perc_id": 27.0886,
-              "perc_pos": 34.6835,
-              "protein_id": "ENSP00000500082",
-              "taxon_id": 9606
-            },
-            "source_chain": [
-              "replicated PMID claim",
-              "Europe PMC gene/protein annotation or claim gene",
-              "Ensembl Compara orthology",
-              "Open Targets human target annotation"
-            ],
-            "source_claim_pmids": [
-              "PMID:42370366",
-              "PMID:42690612",
-              "PMID:42755729"
-            ],
-            "tractability": [
-              {
-                "label": "Structure with Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "High-Quality Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "Med-Quality Pocket",
-                "modality": "SM"
-              },
-              {
-                "label": "Approved Drug",
-                "modality": "AB"
-              },
-              {
-                "label": "UniProt loc high conf",
-                "modality": "AB"
-              },
-              {
-                "label": "GO CC high conf",
-                "modality": "AB"
-              },
-              {
-                "label": "UniProt loc med conf",
-                "modality": "AB"
-              },
-              {
-                "label": "Small Molecule Binder",
-                "modality": "PR"
-              },
-              {
-                "label": "Approved Drug",
-                "modality": "OC"
-              }
-            ],
-            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
-          },
-          {
             "animal_ensembl_species": null,
             "animal_gene": "O73682",
             "animal_species": "Danio rerio",
@@ -383746,7 +383476,7 @@
           "Open Targets human target validation"
         ],
         "status": "VERIFIED",
-        "strict_bridge_count": 2,
+        "strict_bridge_count": 1,
         "subject": "Danio rerio"
       },
       {
@@ -387628,7 +387358,7 @@
       "taxon_verified": true
     }
   ],
-  "sha256": "edab0b1e68dbdb78163c831bcaea3026a0da1af6b91babab62b5fc94d9f278f1",
+  "sha256": "5c51bac7cf706dcebae8d9dfbb1d3fcbe761a8c155d9440d1be1c47f2bf4a994",
   "status": "PASS",
   "telemetry": {
     "brick_observability_ratio": 1.0,
