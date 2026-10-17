@@ -1,0 +1,66 @@
+{
+  "schema": "BIO-MIMIC-X/ANIMAL-PHENOTYPE-EVIDENCE/1",
+  "as_of": "2026-10-18",
+  "morphology_source": {
+    "url": "https://github.com/javarhol/AcomysWhiskerRegeneration/blob/main/data/acomys_regenerated_axon_counts.xlsx",
+    "git_blob_sha": "726f6e3469020d20a494aee5bcf7818d142b1b9e",
+    "measurement": "paired regenerated versus uninjured whisker axon counts",
+    "animals": 4,
+    "whisker_pairs": 20
+  },
+  "animal_measures": [
+    {
+      "animal_id": "1343610-1",
+      "day_post_injury": 44,
+      "whisker_pairs": 12,
+      "regen_axons": 715,
+      "uninjured_axons": 1371,
+      "regen_over_uninjured_pct": 52.152
+    },
+    {
+      "animal_id": "wp1",
+      "day_post_injury": 90,
+      "whisker_pairs": 3,
+      "regen_axons": 548,
+      "uninjured_axons": 479,
+      "regen_over_uninjured_pct": 114.405
+    },
+    {
+      "animal_id": "wp2",
+      "day_post_injury": 90,
+      "whisker_pairs": 2,
+      "regen_axons": 287,
+      "uninjured_axons": 296,
+      "regen_over_uninjured_pct": 96.959
+    },
+    {
+      "animal_id": "wp3",
+      "day_post_injury": 90,
+      "whisker_pairs": 3,
+      "regen_axons": 504,
+      "uninjured_axons": 505,
+      "regen_over_uninjured_pct": 99.802
+    }
+  ],
+  "rna_source": {
+    "geo": "GSE224879",
+    "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE224879",
+    "independent_sample_count": 17,
+    "data_downloaded": false,
+    "group_counts": {
+      "D15_MEK_ERK_inhibitor": 5,
+      "D15_DMSO": 5,
+      "D1_MEK_ERK_inhibitor": 3,
+      "D1_DMSO": 4
+    }
+  },
+  "molecular_to_regeneration_matched_animals": 0,
+  "matching_status": "NOT_LINKED_INDIVIDUALS_FROM_DIFFERENT_STUDIES",
+  "rigor": {
+    "animal_is_statistical_unit": true,
+    "separate_timepoint_strata": true,
+    "cannot_train_paired_model": true,
+    "novelty": "UNVERIFIED"
+  },
+  "source_audit": "validation/ANIMAL-LEVEL-DATA-ACQUISITION-2026-10-18.md"
+}
