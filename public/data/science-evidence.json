@@ -1,0 +1,206 @@
+{
+  "schema": "BIO-MIMIC-X/SCIENCE-EVIDENCE-PORTAL/1",
+  "as_of": "2026-10-17",
+  "source_reports": {
+    "original": "https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/blob/main/reports/independent-data-validation/2026-10-16.json",
+    "geo159938": "https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/blob/main/reports/independent-data-validation/GSE159938-2026-10-17-preflight.json"
+  },
+  "original": {
+    "run_id": 38961739243,
+    "workflow_url": "https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/38961739243",
+    "status": "FAIL_PRE_REGISTERED_HYPOTHESIS",
+    "cohorts": [
+      {
+        "name": "GSE74387_microarray",
+        "status": "FAIL_PRE_REGISTERED",
+        "delta": 0.10063676948102762,
+        "ci95": [
+          -0.07249126020127254,
+          0.19307710812259618
+        ],
+        "samples_Acomys": {
+          "0": 5,
+          "7": 5,
+          "14": 5
+        },
+        "samples_Mus": {
+          "0": 6,
+          "7": 6,
+          "14": 6
+        },
+        "input_sha256": {
+          "GSE74387": "fddb2ea279e3850d3a9ce98a1ad42f3bcf6a6f26de00a6478f20709b10e675a9"
+        }
+      },
+      {
+        "name": "GSE113081_RNAseq",
+        "status": "PASS_PRE_REGISTERED",
+        "delta": 0.1234107419793925,
+        "ci95": [
+          0.02945860191106085,
+          0.18971694396884983
+        ],
+        "samples_Acomys": {
+          "0": 4,
+          "7": 4,
+          "14": 4
+        },
+        "samples_Mus": {
+          "0": 3,
+          "7": 4,
+          "14": 4
+        },
+        "input_sha256": {
+          "GSE113081_aco": "e382b5906ba5d82c81d249dc2e6cc52b473d4054ba1be13608110fee78e99c02",
+          "GSE113081_mus": "1bea0150d3e343465de1b6fbd2e7c6c0ad656a218052bf46e9d399105139ec9f"
+        }
+      }
+    ]
+  },
+  "preflight": {
+    "accession": "GSE159938",
+    "source": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE159nnn/GSE159938/soft/GSE159938_family.soft.gz",
+    "sha256": "7ce73283c99262985e4e1448d95f8155c118e03231a5ee60e651aa1b15971458",
+    "status": "NOT_COMPARABLE_ORIGINAL_TIMEPOINTS_AND_STRATA",
+    "samples": 25,
+    "Acomys": 12,
+    "Mus": 13,
+    "eligible": 0,
+    "strata": [
+      {
+        "accessions_per_cell_NOT_confirmed_biological_donors": {
+          "Acomys": {
+            "0": 0,
+            "7": 0,
+            "14": 0
+          },
+          "Mus": {
+            "0": 0,
+            "7": 0,
+            "14": 2
+          }
+        },
+        "all_six_cells_at_least_three_GSM": false,
+        "genotype": "KO",
+        "region": "center",
+        "tissue": "dorsal dermis"
+      },
+      {
+        "accessions_per_cell_NOT_confirmed_biological_donors": {
+          "Acomys": {
+            "0": 0,
+            "7": 0,
+            "14": 0
+          },
+          "Mus": {
+            "0": 0,
+            "7": 0,
+            "14": 5
+          }
+        },
+        "all_six_cells_at_least_three_GSM": false,
+        "genotype": "WT",
+        "region": "center",
+        "tissue": "dorsal dermis"
+      },
+      {
+        "accessions_per_cell_NOT_confirmed_biological_donors": {
+          "Acomys": {
+            "0": 0,
+            "7": 0,
+            "14": 0
+          },
+          "Mus": {
+            "0": 0,
+            "7": 0,
+            "14": 2
+          }
+        },
+        "all_six_cells_at_least_three_GSM": false,
+        "genotype": "WT",
+        "region": "margin",
+        "tissue": "dorsal dermis"
+      },
+      {
+        "accessions_per_cell_NOT_confirmed_biological_donors": {
+          "Acomys": {
+            "0": 2,
+            "7": 0,
+            "14": 1
+          },
+          "Mus": {
+            "0": 0,
+            "7": 0,
+            "14": 0
+          }
+        },
+        "all_six_cells_at_least_three_GSM": false,
+        "genotype": "WT",
+        "region": "n.a.",
+        "tissue": "dorsal dermis"
+      },
+      {
+        "accessions_per_cell_NOT_confirmed_biological_donors": {
+          "Acomys": {
+            "0": 0,
+            "7": 0,
+            "14": 0
+          },
+          "Mus": {
+            "0": 0,
+            "7": 0,
+            "14": 2
+          }
+        },
+        "all_six_cells_at_least_three_GSM": false,
+        "genotype": "WT",
+        "region": "center",
+        "tissue": "dorsal epidermis"
+      },
+      {
+        "accessions_per_cell_NOT_confirmed_biological_donors": {
+          "Acomys": {
+            "0": 0,
+            "7": 0,
+            "14": 0
+          },
+          "Mus": {
+            "0": 0,
+            "7": 0,
+            "14": 2
+          }
+        },
+        "all_six_cells_at_least_three_GSM": false,
+        "genotype": "WT",
+        "region": "margin",
+        "tissue": "dorsal epidermis"
+      },
+      {
+        "accessions_per_cell_NOT_confirmed_biological_donors": {
+          "Acomys": {
+            "0": 1,
+            "7": 0,
+            "14": 2
+          },
+          "Mus": {
+            "0": 0,
+            "7": 0,
+            "14": 0
+          }
+        },
+        "all_six_cells_at_least_three_GSM": false,
+        "genotype": "WT",
+        "region": "n.a.",
+        "tissue": "dorsal epidermis"
+      }
+    ]
+  },
+  "constraints": {
+    "source_input_pinned": true,
+    "preregistration_locked": true,
+    "causal_confirmation": "UNVERIFIED",
+    "independent_wetlab": "NOT_PERFORMED",
+    "original_discovery": "UNVERIFIED",
+    "expert_letter_equivalent_to_experiment": false
+  }
+}
