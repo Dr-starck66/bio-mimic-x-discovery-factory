@@ -4,7 +4,7 @@
 - Readiness score: **65/100**
 - Flagship: **Acomys cahirinus**
 - Investor evidence score: **134**
-- Evidence fingerprint: `3bd96191ba613b4d984590e95f50573788f35109c756312767ec3fc54d2a737d`
+- Evidence fingerprint: `0ebc3fcaecffeecc86d58992dcc75087df45a5457eab0f93449aca909970dbeb`
 
 ## Flagship thesis
 
@@ -40,7 +40,10 @@ Acomys cahirinus is a strong mammalian regeneration flagship because scar-free r
 - **recent_independent_support** — PASS — 2 registry studies from 2024+
 - **portfolio_data_hygiene** — PARTIAL — 12 known suspicious memory subjects isolated from investor package
 - **provider_backed_human_bridge** — PARTIAL — PARTIAL_PROVIDER_CHAIN_RECORDED_REVALIDATION_REQUIRED
-- **independent_lab_validation_of_biomimic_output** — UNVERIFIED — 0 supporting validation(s); report 659a8bc2d9680f991f6dffb0c5211e539b7f227f76dc0b77d98b61b09730ccb5
+- **independent_expert_opinion_not_experiment** — UNVERIFIED — Expert opinion only; review package SHA256 659a8bc2d9680f991f6dffb0c5211e539b7f227f76dc0b77d98b61b09730ccb5
+- **independent_lab_validation_of_biomimic_output** — UNVERIFIED — Expert reviews: 0; no independently audited prospective biological experiment registered. Reviewer status: UNVERIFIED
+- **original_biological_discovery** — UNVERIFIED — No accepted independent new observation or independently verified prior-art review establishes novelty.
+- **acquisition_offer_at_least_1000000_eur** — UNVERIFIED — No independently authenticated arm's-length binding bid >= EUR 1,000,000 or executed sale in the registry.
 - **formal_ip_novelty_freedom_to_operate** — UNVERIFIED — requires professional prior-art/FTO review
 - **paying_customers_or_contracts** — UNVERIFIED — 0 verified commercial evidence entrie(s); report 3d491e104caff0e1c1a767e8bca6ed91d13f02062bf0f4464628a10f4fb9fc4a
 

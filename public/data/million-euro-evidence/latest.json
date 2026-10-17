@@ -20,7 +20,7 @@
   "external_validation": {
     "accepted_supporting_validations": 0,
     "brick": "BIO-MIMIC X EXTERNAL VALIDATION GATE",
-    "generated_at": "2026-10-16T17:14:38.731476+00:00",
+    "generated_at": "2026-10-17T05:10:53.764972+00:00",
     "partial_validations": 0,
     "policy": {
       "immutable_source_reference_required": true,
@@ -128,7 +128,7 @@
     "taxon_verified": true,
     "title": "Acomys cahirinus"
   },
-  "generated_at": "2026-10-16T17:14:38.731466+00:00",
+  "generated_at": "2026-10-17T05:10:53.764962+00:00",
   "memory_hygiene": {
     "claim_count": 64,
     "suspicious_subject_count": 12,
@@ -1009,7 +1009,7 @@
     "excluded_programs": 12,
     "total_programs": 20
   },
-  "sha256": "3bd96191ba613b4d984590e95f50573788f35109c756312767ec3fc54d2a737d",
+  "sha256": "0ebc3fcaecffeecc86d58992dcc75087df45a5457eab0f93449aca909970dbeb",
   "status": "PARTIAL",
   "valuation_readiness": {
     "gates": [
@@ -1044,8 +1044,23 @@
         "status": "PARTIAL"
       },
       {
-        "evidence": "0 supporting validation(s); report 659a8bc2d9680f991f6dffb0c5211e539b7f227f76dc0b77d98b61b09730ccb5",
+        "evidence": "Expert opinion only; review package SHA256 659a8bc2d9680f991f6dffb0c5211e539b7f227f76dc0b77d98b61b09730ccb5",
+        "gate": "independent_expert_opinion_not_experiment",
+        "status": "UNVERIFIED"
+      },
+      {
+        "evidence": "Expert reviews: 0; no independently audited prospective biological experiment registered. Reviewer status: UNVERIFIED",
         "gate": "independent_lab_validation_of_biomimic_output",
+        "status": "UNVERIFIED"
+      },
+      {
+        "evidence": "No accepted independent new observation or independently verified prior-art review establishes novelty.",
+        "gate": "original_biological_discovery",
+        "status": "UNVERIFIED"
+      },
+      {
+        "evidence": "No independently authenticated arm's-length binding bid >= EUR 1,000,000 or executed sale in the registry.",
+        "gate": "acquisition_offer_at_least_1000000_eur",
         "status": "UNVERIFIED"
       },
       {
