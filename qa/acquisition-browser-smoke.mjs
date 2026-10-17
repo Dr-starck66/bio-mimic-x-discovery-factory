@@ -44,6 +44,7 @@ try{
   assert.equal(await page.locator('#export').isDisabled(),true,'No report before user file verification');
   await page.locator('#upload').setInputFiles({name:'fake.soft.gz',mimeType:'application/gzip',buffer:Buffer.from('FAKE_GEO_DATA')});
   await page.locator('#verify').click();
+  await page.waitForFunction(()=>document.querySelector('#localStatus')?.textContent?.includes('UNVERIFIED'),null,{timeout:10000});
   assert.ok((await page.locator('#localStatus').innerText()).includes('UNVERIFIED'),'Tampered input must be rejected');
   assert.equal(await page.locator('#export').isDisabled(),true,'Tampered input must not enable export');
   checks.push('geo_science_evidence_viewer','geo_sha256_negative_control');
