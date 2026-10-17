@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="noindex,nofollow">
+<title>BIO-MIMIC X — Audit scientifique reproductible</title>
+<meta name="description" content="Auditer sur votre appareil la provenance d'un fichier GEO et distinguer le fonctionnement logiciel d'une validation biologique.">
+<style>
+:root{color-scheme:dark;--bg:#08151d;--card:#102b37;--stroke:#345465;--text:#eaf5f8;--muted:#b2c9d2;--ok:#7ce8d0;--fail:#ffb3ab;--warn:#ffe0a2}
+*{box-sizing:border-box}body{font:16px/1.5 system-ui,Arial,sans-serif;background:radial-gradient(circle at 85% 0,#1c4356,transparent 46%),var(--bg);color:var(--text);margin:0}
+main{max-width:1130px;padding:28px 18px 60px;margin:auto}a{color:var(--ok)}header{display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+small,.muted{color:var(--muted)}h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.12;margin:35px 0 14px;letter-spacing:-.03em}h2{font-size:1.35rem;margin:0 0 12px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.card{background:var(--card);border:1px solid var(--stroke);border-radius:15px;padding:22px;margin:14px 0;min-width:0}
+.kpi{font-size:1.5rem;font-weight:800}.bad{color:var(--fail)}.warn{color:var(--warn)}.ok{color:var(--ok)}
+.pill{display:inline-block;border-radius:8px;padding:5px 9px;background:#31414a;font-size:12px;font-weight:800}
+.pill.bad{background:#552d35}.pill.warn{background:#4e422c}.pill.ok{background:#234639}
+table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:12px 8px;border-bottom:1px solid var(--stroke)}th{color:var(--muted)}.scroll{overflow-x:auto}
+button,.button{background:var(--ok);color:#06242b;border:0;border-radius:9px;padding:12px 16px;font-weight:800;cursor:pointer;display:inline-block;text-decoration:none}
+button:disabled{opacity:.55;cursor:not-allowed}input[type=file]{padding:10px;width:100%;border:1px dashed #6697a9;border-radius:9px}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#071923;border-radius:8px;padding:12px;font:12px/1.5 ui-monospace,monospace;max-height:300px;overflow-y:auto}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.row>*{max-width:100%}
+code{overflow-wrap:anywhere}ul{padding-left:19px}li{margin-bottom:6px}
+@media(max-width:750px){.grid{grid-template-columns:1fr}main{padding:17px 12px 45px}th,td{padding:10px 5px;font-size:13px}}
+</style>
+</head>
+<body><main>
+<header><b>BIO-MIMIC X · SCIENCE EVIDENCE GATE</b><nav><a href="./index.html">Centre de contrôle</a> · <a href="./buyer-demo.html">Démonstration</a></nav></header>
+<h1>Vérifier les données, <span class="ok">pas inventer une découverte.</span></h1>
+<p class="muted">Module utilisable sans compte ni abonnement. Chargez un fichier GEO sur votre appareil : il n'est jamais envoyé vers un serveur. La provenance SHA-256 et la comparabilité des échantillons sont contrôlées avant toute affirmation biologique.</p>
+<div class="grid" aria-label="Statuts de preuve">
+<section class="card"><h2>Hypothèse originale</h2><div id="originalStatus" class="kpi warn">Chargement…</div><p>GSE74387 + GSE113081 : ancien critère fixé avant analyse. <strong>Le résultat n'est pas réécrit.</strong></p><a id="originalSource" href="#">Données et calculs originaux ↗</a></section>
+<section class="card"><h2>Contrôle indépendant des métadonnées</h2><div id="preflightStatus" class="kpi warn">Chargement…</div><p id="preflightSummary">Lecture de la preuve enregistrée…</p><a id="preflightSource" href="#">Manifest GEO complet ↗</a></section>
+</div>
+<section class="card"><h2>Résultats de la comparaison originale</h2><div class="scroll"><table><thead><tr><th>Cohorte</th><th>Différence Acomys − Mus</th><th>IC 95 %</th><th>Statut</th></tr></thead><tbody id="cohortRows"><tr><td colspan="4">Chargement…</td></tr></tbody></table></div><p class="muted">Un PASS d'exécution GitHub ou une valeur positive n'est pas une preuve de mécanisme causal ni une nouvelle expérience biologique.</p></section>
+<section class="card" id="audit">
+<h2>Tester vous-même le fichier GEO officiel</h2>
+<p>Téléchargez <a id="downloadGeo" target="_blank" rel="noopener noreferrer" href="https://ftp.ncbi.nlm.nih.gov/geo/series/GSE159nnn/GSE159938/soft/GSE159938_family.soft.gz">GSE159938_family.soft.gz (NCBI)</a>, puis choisissez-le ci-dessous. Le contrôle refuse un autre fichier ou un contenu altéré.</p>
+<label for="upload"><strong>Fichier local GEO .soft.gz ou .soft</strong></label>
+<input id="upload" type="file" accept=".soft,.gz,.txt,.soft.gz">
+<div class="row" style="margin:14px 0"><button id="verify" type="button">Vérifier les échantillons et SHA-256</button><button id="export" type="button" disabled>Exporter le rapport JSON</button></div>
+<p id="localStatus" role="status" aria-live="polite" class="warn">Aucun fichier contrôlé localement.</p>
+<pre id="localDetails">Statut local : UNVERIFIED</pre>
+<p class="muted">Ce contrôle vérifie les métadonnées de 25 échantillons. Il ne mesure ni expression génétique ni cicatrisation. Zéro échantillon J7 signifie « non comparable » pour le protocole J0/J7/J14, et non « échec biologique ».</p>
+</section>
+<section class="card"><h2>Frontière des preuves</h2><ul>
+<li><strong class="ok">PASS logiciel :</strong> import, intégrité, audit des étiquettes et export quand les contrôles réussissent.</li>
+<li><strong class="bad">FAIL de l'hypothèse historique :</strong> GSE74387 n'atteint pas le critère de confiance initial.</li>
+<li><strong class="warn">UNVERIFIED biologique :</strong> aucune validation causale prospective indépendante de BIO-MIMIC X n'est démontrée.</li>
+</ul>
+<div class="row"><a href="https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/blob/main/science/geo159938_preflight.py" target="_blank" rel="noopener noreferrer">Code Python de référence</a><a href="https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/blob/main/validation/PREREG-GEO-2026-10-16.md" target="_blank" rel="noopener noreferrer">Préenregistrement original</a></div></section>
+</main>
+<script>
+'use strict';
+const el=(id)=>document.getElementById(id);
+const expectedSchema='BIO-MIMIC-X/SCIENCE-EVIDENCE-PORTAL/1';
+let snapshot=null, lastExport=null;
+const fmt=(x)=>Number(x*100).toFixed(2).replace('.',',')+' points';
+const fill=(node, text)=>{node.textContent=text;};
+const pill=(word)=>{const span=document.createElement('span');span.className='pill '+(word==='PASS'?'ok':word==='FAIL'?'bad':'warn');span.textContent=word;return span;};
+async function getSnapshot(){
+  try{
+    const response=await fetch('./data/science-evidence.json',{cache:'no-store'});
+    if(!response.ok)throw new Error('HTTP '+response.status);
+    const data=await response.json();
+    if(data.schema!==expectedSchema||!Array.isArray(data.original.cohorts)||!data.preflight.sha256)throw new Error('Schéma de preuve invalide');
+    if(data.original.status!=='FAIL_PRE_REGISTERED_HYPOTHESIS'||
+       data.preflight.status!=='NOT_COMPARABLE_ORIGINAL_TIMEPOINTS_AND_STRATA')throw new Error('Statut inattendu; vérifier la source');
+    snapshot=data;
+    fill(el('originalStatus'),'FAIL · hypothèse préenregistrée');el('originalStatus').className='kpi bad';
+    fill(el('preflightStatus'),'NOT COMPARABLE · GSE159938');el('preflightStatus').className='kpi warn';
+    fill(el('preflightSummary'),String(data.preflight.samples)+' échantillons : '+data.preflight.Acomys+' Acomys, '+data.preflight.Mus+' Mus. Groupes complets compatibles : '+data.preflight.eligible+'.');
+    el('originalSource').href=data.source_reports.original;
+    el('preflightSource').href=data.source_reports.geo159938;
+    const tbody=el('cohortRows');tbody.replaceChildren();
+    for(const r of data.original.cohorts){
+      const row=document.createElement('tr');
+      for(const s of [r.name,fmt(r.delta),fmt(r.ci95[0])+' à '+fmt(r.ci95[1])]){
+        const td=document.createElement('td');td.textContent=s;row.append(td);
+      }
+      const td=document.createElement('td');td.append(pill(r.status==='PASS_PRE_REGISTERED'?'PASS':'FAIL'));row.append(td);tbody.append(row);
+    }
+  }catch(e){
+    fill(el('originalStatus'),'UNVERIFIED · preuve inaccessible');fill(el('preflightStatus'),'UNVERIFIED · preuve inaccessible');
+    fill(el('preflightSummary'),String(e.message));fill(el('cohortRows'),'');
+  }
+}
+function validateSampleText(content){
+  const records=[];let item=null;
+  for(const line of content.split(/\r?\n/)){
+    if(line.startsWith('^SAMPLE =')){
+      if(item)records.push(item);
+      item={gsm:line.slice(line.indexOf('=')+1).trim(),attrs:{}};
+    }else if(line.startsWith('^')){
+      if(item)records.push(item);item=null;
+    }else if(item&&line.startsWith('!Sample_')&&line.includes(' = ')){
+      const pos=line.indexOf(' = '),key=line.slice(0,pos),value=line.slice(pos+3).trim();
+      if(key==='!Sample_organism_ch1')item.organism=value;
+      else if(key.startsWith('!Sample_characteristics_ch1')){
+        const colon=value.indexOf(':');if(colon<0)throw Error('Caractéristique non analysable');
+        const name=value.slice(0,colon).trim().toLowerCase(),val=value.slice(colon+1).trim();
+        if(item.attrs[name]&&item.attrs[name]!==val)throw Error('Caractéristique contradictoire : '+item.gsm);
+        item.attrs[name]=val;
+      }
+    }
+  }
+  if(item)records.push(item);
+  if(records.length!==25)throw Error('Nombre de prélèvements GEO incorrect : '+records.length);
+  const unique=new Set(records.map(r=>r.gsm));
+  if(unique.size!==25||records.some(r=>!/^GSM[0-9]+$/.test(r.gsm)))throw Error('Identifiant GSM absent ou dupliqué');
+  const speciesCount={Acomys:0,Mus:0};
+  let day7=0;
+  const strata=new Map();
+  for(const r of records){
+    const sp=r.organism==='Acomys cahirinus'?'Acomys':r.organism==='Mus musculus'?'Mus':null;
+    if(!sp)throw Error('Espèce non reconnue : '+r.gsm);
+    const tissue=(r.attrs.tissue||'').toLowerCase();
+    if(!['dorsal dermis','dorsal epidermis'].includes(tissue))throw Error('Tissu non reconnu : '+r.gsm);
+    const d=(r.attrs['post-wound day (pwd)']||'');
+    if(!/^\d+$/.test(d))throw Error('Jour de prélèvement invalide : '+r.gsm);
+    const day=Number(d);
+    const genotype=(r.attrs.genotype||'').toUpperCase();
+    const region=(r.attrs.region||'').toLowerCase();
+    if(!['WT','KO'].includes(genotype)||!region)throw Error('Génotype ou zone absent : '+r.gsm);
+    speciesCount[sp]++;if(day===7)day7++;
+    const k=[sp,tissue,genotype,region,day].join('|');strata.set(k,(strata.get(k)||0)+1);
+  }
+  const groups=new Set([...strata.keys()].map(k=>k.split('|').slice(1,4).join('|')));
+  let eligible=0;
+  for(const g of groups){
+    const [tissue,genotype,region]=g.split('|');
+    if(['Acomys','Mus'].every(sp=>[0,7,14].every(d=>(strata.get([sp,tissue,genotype,region,d].join('|'))||0)>=3)))eligible++;
+  }
+  return {sample_count:records.length,by_species:speciesCount,day7_accessions:day7,
+    compatible_six_cell_strata:eligible,
+    status:eligible>0?'UNVERIFIED_BIOLOGICAL_DONOR_INDEPENDENCE':'NOT_COMPARABLE_ORIGINAL_TIMEPOINTS_AND_STRATA'};
+}
+async function verify(){
+  lastExport=null;el('export').disabled=true;
+  const f=el('upload').files[0];if(!f){fill(el('localStatus'),'Choisissez un fichier GEO.');return;}
+  el('verify').disabled=true;
+  try{
+    if(!snapshot)throw Error('La preuve de référence est indisponible.');
+    if(f.size>10_000_000)throw Error('Taille maximale : 10 Mo.');
+    const bytes=await f.arrayBuffer();
+    const hash=[...new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))].map(b=>b.toString(16).padStart(2,'0')).join('');
+    if(hash!==snapshot.preflight.sha256)throw Error('SHA-256 différent du fichier officiel archivé : '+hash);
+    let text;
+    if(new Uint8Array(bytes)[0]===31&&new Uint8Array(bytes)[1]===139){
+      if(typeof DecompressionStream==='undefined')throw Error('Décompression gzip non prise en charge; utiliser un fichier .soft après extraction.');
+      const decompressed=await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))).text();
+      text=decompressed;
+    }else text=new TextDecoder('utf-8',{fatal:true}).decode(bytes);
+    const audited=validateSampleText(text);
+    if(audited.status!==snapshot.preflight.status||
+      audited.sample_count!==snapshot.preflight.samples||
+      audited.compatible_six_cell_strata!==snapshot.preflight.eligible||
+      audited.by_species.Acomys!==snapshot.preflight.Acomys||
+      audited.by_species.Mus!==snapshot.preflight.Mus)throw Error('Divergence entre audit local et rapport de référence');
+    lastExport={schema:'BIO-MIMIC-X/GEO-CLIENT-QC/1',input_sha256:hash,source:snapshot.preflight.source,
+      ...audited,biological_validation:'UNVERIFIED',original_preregistration:snapshot.original.status,
+      claim:'Metadata preflight only; NOT a new biological experiment'};
+    fill(el('localStatus'),'AUDIT LOCAL TERMINÉ · '+audited.status);
+    fill(el('localDetails'),JSON.stringify(lastExport,null,2));el('export').disabled=false;
+  }catch(e){
+    fill(el('localStatus'),'UNVERIFIED · '+e.message);
+    fill(el('localDetails'),'Le fichier n’a pas satisfait le contrôle d’intégrité ou de métadonnées. Aucun PASS.');
+  }finally{el('verify').disabled=false;}
+}
+el('verify').addEventListener('click',verify);
+el('export').addEventListener('click',()=>{
+  if(!lastExport)return;
+  const u=URL.createObjectURL(new Blob([JSON.stringify(lastExport,null,2)+'\n'],{type:'application/json'}));
+  const a=document.createElement('a');a.href=u;a.download='biomimic-geo-metadata-audit.json';a.click();setTimeout(()=>URL.revokeObjectURL(u),500);
+});
+getSnapshot();
+</script>
+</body></html>
