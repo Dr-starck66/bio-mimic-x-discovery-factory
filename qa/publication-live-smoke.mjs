@@ -8,7 +8,7 @@ import {chromium} from 'playwright-core';
 
 const base='https://duality-x-eco.floot.app';
 const endpoint=base+'/_api/biomimic?path=';
-const expectedSha='9bf75259a1853fe4a8efe5ce66cc9b309361a027';
+const expectedSha='790378bf759f421b103bfeb3f39bc273a3652cc8';
 const fixture=[1,2,3].map(n=>({
   id:'fixture-00'+n,source:'TEST',
   title:'Synthetic fixture '+n+': comparative Wnt and Ficticia exemplaris',
@@ -55,6 +55,17 @@ try{
   assert.equal(await link.count(),1,'Hosted internal Hunter link broken');
   await link.click();
   assert.match(await page.locator('h1').textContent(),/BIO-MIMIC X/);
+  const bio=await page.goto(endpoint+'science-validation.html',{waitUntil:'load',timeout:30000});
+  assert.equal(bio?.status(),200,'Scientific audit product publicly accessible');
+  assert.equal(bio?.headers()['x-biomimic-source-commit'],expectedSha);
+  await page.waitForFunction(()=>document.querySelector('#originalStatus')?.textContent?.includes('FAIL'),null,{timeout:15000});
+  assert.ok((await page.locator('#preflightStatus').textContent()).includes('NOT COMPARABLE'),
+    'No false scientific PASS in publicly hosted evidence audit');
+  assert.equal(await page.locator('#cohortRows tr').count(),2,'Both preregistered cohorts must be visible');
+  await page.locator('#upload').setInputFiles({name:'tampered.soft.gz',mimeType:'application/gzip',buffer:Buffer.from('NOT_GEO')});
+  await page.locator('#verify').click();
+  await page.waitForFunction(()=>document.querySelector('#localStatus')?.textContent?.includes('UNVERIFIED'),null,{timeout:10000});
+  assert.equal(await page.locator('#export').isDisabled(),true,'Tampered file must not be downloadable as verified');
   const original=await page.goto(base+'/',{waitUntil:'load',timeout:30000});
   assert.equal(original?.status(),200);
   assert.ok((await page.locator('body').textContent()).includes('DUALITY'),'Original host app was changed');
@@ -63,7 +74,7 @@ try{
   console.log(JSON.stringify({
     status:'PASS',kind:'PUBLICATION_BROWSER_FLOOT_EXISTING_HOST',sourceSha:expectedSha,
     checks:['https_200','mime_and_sha_header','hunter_init','fixture_search','replay_sha256',
-      'dashboard_live_json','dashboard_link','original_host_unmodified'],
+      'dashboard_live_json','dashboard_link','geo_science_audit_live','geo_negative_sha_guard','original_host_unmodified'],
     independent_scientific_validation:false
   }));
 }catch(e){
