@@ -83,5 +83,24 @@ jobs:
             echo "No state change."
           else
             git commit -m "factory: autonomous daily scientific program cycle"
-            git push
+            # GitHub's branch may advance while independent ASTRA workflows run.
+            # Reconcile non-conflicting commits; never force-push scientific evidence.
+            for attempt in 1 2 3 4; do
+              if git push origin HEAD:main; then
+                echo "Scientific state published (attempt ${attempt})."
+                break
+              fi
+              if [ "$attempt" -eq 4 ]; then
+                echo "::error::Publication rejected after four attempts; no force push."
+                exit 1
+              fi
+              git fetch --no-tags origin main
+              if ! git rebase origin/main; then
+                git rebase --abort || true
+                echo "::error::Concurrent changes conflict; remote evidence preserved."
+                exit 1
+              fi
+              # Recheck code compatibility after integrating concurrent changes.
+              python -m unittest discover -s tests -q
+            done
           fi
