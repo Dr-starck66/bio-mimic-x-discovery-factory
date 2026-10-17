@@ -66,6 +66,27 @@ try{
   await page.locator('#verify').click();
   await page.waitForFunction(()=>document.querySelector('#localStatus')?.textContent?.includes('UNVERIFIED'),null,{timeout:10000});
   assert.equal(await page.locator('#export').isDisabled(),true,'Tampered file must not be downloadable as verified');
+  const official='https://ftp.ncbi.nlm.nih.gov/geo/series/GSE159nnn/GSE159938/soft/GSE159938_family.soft.gz';
+  const officialFetch=await fetch(official,{signal:AbortSignal.timeout(20000),headers:{'User-Agent':'BIO-MIMIC-X-live-browser-QA'}});
+  assert.equal(officialFetch.status,200,'Real GEO source required for positive E2E');
+  const officialBytes=Buffer.from(await officialFetch.arrayBuffer());
+  assert.ok(officialBytes.length>1000&&officialBytes.length<10000000,'Official GEO gzip unexpected length');
+  await page.locator('#upload').setInputFiles({name:'GSE159938_family.soft.gz',mimeType:'application/gzip',buffer:officialBytes});
+  await page.locator('#verify').click();
+  await page.waitForFunction(()=>document.querySelector('#localStatus')?.textContent?.includes('AUDIT LOCAL TERMINÉ'),null,{timeout:10000});
+  const verified=JSON.parse(await page.locator('#localDetails').textContent());
+  assert.equal(verified.status,'NOT_COMPARABLE_ORIGINAL_TIMEPOINTS_AND_STRATA');
+  assert.equal(verified.sample_count,25);
+  assert.equal(verified.by_species.Acomys,12);
+  assert.equal(verified.by_species.Mus,13);
+  assert.equal(verified.compatible_six_cell_strata,0);
+  assert.equal(verified.biological_validation,'UNVERIFIED');
+  assert.equal(await page.locator('#export').isDisabled(),false,'Verified GEO input must enable report export');
+  const [auditDownload]=await Promise.all([page.waitForEvent('download',{timeout:20000}),page.locator('#export').click()]);
+  const exported=JSON.parse(await readFile(await auditDownload.path(),'utf8'));
+  assert.equal(exported.input_sha256,verified.input_sha256);
+  assert.equal(exported.status,verified.status,'Export status must equal displayed conclusion');
+
   const original=await page.goto(base+'/',{waitUntil:'load',timeout:30000});
   assert.equal(original?.status(),200);
   assert.ok((await page.locator('body').textContent()).includes('DUALITY'),'Original host app was changed');
@@ -74,7 +95,7 @@ try{
   console.log(JSON.stringify({
     status:'PASS',kind:'PUBLICATION_BROWSER_FLOOT_EXISTING_HOST',sourceSha:expectedSha,
     checks:['https_200','mime_and_sha_header','hunter_init','fixture_search','replay_sha256',
-      'dashboard_live_json','dashboard_link','geo_science_audit_live','geo_negative_sha_guard','original_host_unmodified'],
+      'dashboard_live_json','dashboard_link','geo_science_audit_live','geo_negative_sha_guard','geo_real_ncbi_upload_25_samples','geo_report_export_integrity','original_host_unmodified'],
     independent_scientific_validation:false
   }));
 }catch(e){
