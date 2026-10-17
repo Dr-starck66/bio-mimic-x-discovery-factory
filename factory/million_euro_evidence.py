@@ -183,8 +183,10 @@ def readiness(flagship: Mapping[str, Any], hygiene: Mapping[str, Any], external_
     recent_count = sum(1 for s in literature if int(s.get("year") or 0) >= 2024)
 
     external_report = build_external_validation_report(external_validation)
-    external_status = external_report["status"]
-    external_evidence = f"{external_report['accepted_supporting_validations']} supporting validation(s); report {external_report['sha256']}"
+    # A supportive expert review is not new wet-lab experimental validation.
+    reviewer_status = external_report["status"]
+    external_status = "UNVERIFIED"
+    external_evidence = f"Expert reviews: {external_report['accepted_supporting_validations']}; no independently audited prospective biological experiment registered. Reviewer status: {reviewer_status}"
     commercial_report = build_commercial_evidence_report(commercial_evidence)
     commercial_status = commercial_report["status"]
     commercial_evidence_text = f"{commercial_report['verified_entries']} verified commercial evidence entrie(s); report {commercial_report['sha256']}"
@@ -196,7 +198,10 @@ def readiness(flagship: Mapping[str, Any], hygiene: Mapping[str, Any], external_
         {"gate": "recent_independent_support", "status": "PASS" if recent_count >= 1 else "PARTIAL", "evidence": f"{recent_count} registry studies from 2024+"},
         {"gate": "portfolio_data_hygiene", "status": "PARTIAL" if hygiene["suspicious_subject_count"] else "PASS", "evidence": f"{hygiene['suspicious_subject_count']} known suspicious memory subjects isolated from investor package"},
         {"gate": "provider_backed_human_bridge", "status": "PARTIAL" if reg.get("human_bridge") else "UNVERIFIED", "evidence": reg.get("human_bridge", {}).get("status", "not available")},
+        {"gate": "independent_expert_opinion_not_experiment", "status": reviewer_status, "evidence": f"Expert opinion only; review package SHA256 {external_report['sha256']}"},
         {"gate": "independent_lab_validation_of_biomimic_output", "status": external_status, "evidence": external_evidence},
+        {"gate": "original_biological_discovery", "status": "UNVERIFIED", "evidence": "No accepted independent new observation or independently verified prior-art review establishes novelty."},
+        {"gate": "acquisition_offer_at_least_1000000_eur", "status": "UNVERIFIED", "evidence": "No independently authenticated arm's-length binding bid >= EUR 1,000,000 or executed sale in the registry."},
         {"gate": "formal_ip_novelty_freedom_to_operate", "status": "UNVERIFIED", "evidence": "requires professional prior-art/FTO review"},
         {"gate": "paying_customers_or_contracts", "status": commercial_status, "evidence": commercial_evidence_text},
     ]
@@ -214,7 +219,14 @@ def readiness(flagship: Mapping[str, Any], hygiene: Mapping[str, Any], external_
     factor = {"PASS": 1.0, "PARTIAL": 0.5, "UNVERIFIED": 0.0, "FAIL": 0.0}
     score = round(sum(weights[g["gate"]] * factor[g["status"]] for g in gates))
     return {
-        "status": "PASS" if score >= 85 and all(g["status"] != "FAIL" for g in gates) else "PARTIAL",
+        "status": "PASS" if (score >= 85 and all(g["status"] != "FAIL" for g in gates)
+                          and all(next(g["status"] for g in gates if g["gate"] == mandatory) == "PASS"
+                                  for mandatory in (
+                                      "independent_lab_validation_of_biomimic_output",
+                                      "original_biological_discovery",
+                                      "formal_ip_novelty_freedom_to_operate",
+                                      "acquisition_offer_at_least_1000000_eur")))
+                  else "PARTIAL",
         "score_100": score,
         "valuation_statement": "TECHNOLOGY/COMPANY_VALUATION_CASE_NOT_CASH_EXIT_PROOF",
         "gates": gates,
