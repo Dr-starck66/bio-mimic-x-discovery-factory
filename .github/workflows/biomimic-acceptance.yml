@@ -7,6 +7,7 @@ on:
       - 'qa/**'
       - 'public/hunter*'
       - 'public/index.html'
+      - 'public/buyer-demo.html'
       - 'app.js'
       - 'factory/million_euro_evidence.py'
       - '.github/workflows/biomimic-acceptance.yml'
@@ -62,6 +63,7 @@ jobs:
           sleep 2
           node qa/browser-smoke.mjs
           node qa/live-browser-smoke.mjs
+          node qa/acquisition-browser-smoke.mjs
       - name: Save browser failure screenshot
         if: always()
         uses: actions/upload-artifact@v4
