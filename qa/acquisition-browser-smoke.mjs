@@ -35,6 +35,23 @@ try{
   assert.ok(overflow<=2,'Horizontal mobile overflow: '+overflow);
   assert.ok(await mobile.locator('#openHunter').isVisible());
   checks.push('mobile_no_horizontal_overflow');
+  // GEO evidence is a separate product feature, not a new scientific PASS.
+  await page.goto(origin+'/science-validation.html',{waitUntil:'load'});
+  await page.waitForFunction(()=>document.querySelector('#originalStatus')?.textContent?.includes('FAIL'),{timeout:10000});
+  assert.ok((await page.locator('#preflightStatus').innerText()).includes('NOT COMPARABLE'),'GSE159938 must not be falsely passed');
+  const rows=await page.locator('#cohortRows tr').count();
+  assert.equal(rows,2,'Both historical cohorts must be shown');
+  assert.equal(await page.locator('#export').isDisabled(),true,'No report before user file verification');
+  await page.locator('#upload').setInputFiles({name:'fake.soft.gz',mimeType:'application/gzip',buffer:Buffer.from('FAKE_GEO_DATA')});
+  await page.locator('#verify').click();
+  assert.ok((await page.locator('#localStatus').innerText()).includes('UNVERIFIED'),'Tampered input must be rejected');
+  assert.equal(await page.locator('#export').isDisabled(),true,'Tampered input must not enable export');
+  checks.push('geo_science_evidence_viewer','geo_sha256_negative_control');
+  await page.goto(origin+'/buyer-demo.html');
+  assert.equal(await page.locator('#openScienceAudit').count(),1,'Buyer must be able to open science audit');
+  await page.goto(origin+'/');
+  assert.equal(await page.locator('#scienceEvidenceLink').count(),1,'Dashboard must link to GEO evidence audit');
+  checks.push('geo_audit_navigation');
   assert.equal(errors.length,0,'JS errors '+errors.join('; '));
   checks.push('no_runtime_errors');
   console.log(JSON.stringify({status:'PASS',kind:'ACQUISITION_TECHNICAL_DEMO',checks,real_lab_validation_claim:false,third_party_valuation_claim:false}));
