@@ -217,7 +217,7 @@ def readiness(flagship: Mapping[str, Any], hygiene: Mapping[str, Any], external_
         "paying_customers_or_contracts": 5,
     }
     factor = {"PASS": 1.0, "PARTIAL": 0.5, "UNVERIFIED": 0.0, "FAIL": 0.0}
-    score = round(sum(weights[g["gate"]] * factor[g["status"]] for g in gates))
+    score = round(sum(weights.get(g["gate"], 0) * factor[g["status"]] for g in gates))
     return {
         "status": "PASS" if (score >= 85 and all(g["status"] != "FAIL" for g in gates)
                           and all(next(g["status"] for g in gates if g["gate"] == mandatory) == "PASS"
