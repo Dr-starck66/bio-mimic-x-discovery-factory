@@ -70,6 +70,38 @@ class MillionEuroEvidenceTests(unittest.TestCase):
         self.assertEqual(gates["formal_ip_novelty_freedom_to_operate"], "UNVERIFIED")
         self.assertEqual(gates["paying_customers_or_contracts"], "UNVERIFIED")
 
+    def test_positive_expert_letter_cannot_qualify_as_lab_discovery_or_1m_sale(self):
+        favorable_opinion = {
+            "validations": [{
+                "validator_name": "External Scientist",
+                "validator_affiliation": "Independent Lab",
+                "received_at": "2026-10-16T00:00:00Z",
+                "verdict": "SUPPORTS_FURTHER_TESTING",
+                "rationale": "Worth a prospective wet-lab study.",
+                "evidence_source": "email",
+                "source_message_id": "example-review-id",
+                "self_reported": True,
+            }]
+        }
+        # This object is a synthetic regression fixture, not a real paid customer.
+        pilot_fixture = {
+            "evidence": [{
+                "counterparty": "Simulated Company",
+                "evidence_type": "PAID_PILOT",
+                "received_at": "2026-10-16",
+                "evidence_source": "contract",
+                "source_file_sha256": "a" * 64,
+            }]
+        }
+        r = build_package(self.programs, self.memory, self.registry,
+                          favorable_opinion, pilot_fixture)
+        gates = {g["gate"]: g["status"] for g in r["valuation_readiness"]["gates"]}
+        self.assertEqual(gates["independent_expert_opinion_not_experiment"], "PASS")
+        self.assertEqual(gates["independent_lab_validation_of_biomimic_output"], "UNVERIFIED")
+        self.assertEqual(gates["original_biological_discovery"], "UNVERIFIED")
+        self.assertEqual(gates["acquisition_offer_at_least_1000000_eur"], "UNVERIFIED")
+        self.assertEqual(r["valuation_readiness"]["status"], "PARTIAL")
+
     def test_known_memory_contamination_is_exposed(self):
         h = self.package["memory_hygiene"]
         self.assertGreaterEqual(h["suspicious_subject_count"], 1)
