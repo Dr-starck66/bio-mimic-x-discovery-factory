@@ -2,7 +2,7 @@
 **Date:** 18 October 2026 · **Status:** Independent computational work; prospective biology **not performed**
 
 ## Correspondent and project
-**Dr Starck** is the correspondent and developer presenting **BIO-MIMIC X**, an independent, publicly inspectable computational project for evidence-linked comparative-regeneration hypothesis screening, reproducible analysis and falsification. This description does **not** claim an academic appointment, medical credentials, peer-reviewed authorship, or institutional endorsement. A fuller personal biography, qualifications and any previous peer-reviewed publication list have **not been independently supplied or verified**; this GitHub repository is a public project record, **not** a substitute for a CV.
+**Dr Starck** is a web-development-community nickname used by the project's self-taught independent developer, **not a medical or academic title or claim to hold a doctorate**. The developer presents **BIO-MIMIC X**, an independent, publicly inspectable computational project for evidence-linked comparative-regeneration hypothesis screening, reproducible analysis and falsification. This description does **not** claim an academic appointment, medical credentials, peer-reviewed authorship, or institutional endorsement. A fuller personal biography, qualifications and any previous peer-reviewed publication list have **not been independently supplied or verified**; this GitHub repository is a public project record, **not** a substitute for a CV.
 
 Public project: https://github.com/Dr-starck66/bio-mimic-x-discovery-factory
 
