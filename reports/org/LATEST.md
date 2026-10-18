@@ -1,6 +1,6 @@
-# BIO-MIMIC X V6 Scientific Investment Committee — 2026-10-16T08:16:40.732568+00:00
+# BIO-MIMIC X V6 Scientific Investment Committee — 2026-10-18T08:05:47.870880+00:00
 
-**Organization replay SHA-256:** `6362957647db01ad578650079dd7496e0504ed3163cbd859ff47449556b5d609`
+**Organization replay SHA-256:** `100ab9460d00f5f7aa9ce697e97da58bca5b2282cc6d2c4d53cb5949b5f3cf1c`
 
 ## Laboratory status
 - ONCO-X Lab: PASS · 35 papers · 0 candidates
@@ -32,7 +32,7 @@
 - Sources: 3 · mechanisms: fibrosis, regeneration
 - Challenge flags: correlation does not prove causation, developmental-stage confounding, fibrosis tradeoffs, human functional divergence remains possible, regeneration-vs-repair ambiguity
 
-### Hydra vulgaris — Committee 54/100
+### Hydra vulgaris — Committee 48/100
 - Labs: longevity
 - Sources: 3 · mechanisms: autophagy, senescence
 - Challenge flags: body-size confounding, correlation does not prove causation, human functional divergence remains possible, lifespan data quality, no gene symbol candidate, phylogeny confounding
@@ -64,7 +64,7 @@
 
 ### Hydra oligactis — Committee 44/100
 - Labs: longevity
-- Sources: 1 · mechanisms: autophagy, senescence
+- Sources: 2 · mechanisms: autophagy, senescence
 - Challenge flags: body-size confounding, correlation does not prove causation, human functional divergence remains possible, lifespan data quality, no gene symbol candidate, phylogeny confounding
 
 ### Caenorhabditis elegans — Committee 41/100
@@ -77,14 +77,14 @@
 - Acomys cahirinus: 10 credits
 - Danio rerio: 9 credits
 - Cynops pyrrhogaster: 9 credits
-- Hydra vulgaris: 9 credits
+- Hydra vulgaris: 8 credits
 - Rousettus aegyptiacus: 8 credits
 - Tadarida brasiliensis: 8 credits
 - Eptesicus fuscus: 8 credits
 - Drosophila melanogaster: 8 credits
 - Paracentrotus lividus: 8 credits
 - Hydra oligactis: 7 credits
-- Caenorhabditis elegans: 6 credits
+- Caenorhabditis elegans: 7 credits
 
 ## Cross-lab challenge plan
 - immunology challenges cancer: Re-audit the top hypothesis using the challenger lab's confounders and require at least one falsifiable counter-test.

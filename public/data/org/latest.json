@@ -33,12 +33,12 @@
       "research_credits": 9
     },
     {
-      "committee_score": 54,
+      "committee_score": 48,
       "labs": [
         "longevity"
       ],
       "name": "Hydra vulgaris",
-      "research_credits": 9
+      "research_credits": 8
     },
     {
       "committee_score": 45,
@@ -94,7 +94,7 @@
         "preservation"
       ],
       "name": "Caenorhabditis elegans",
-      "research_credits": 6
+      "research_credits": 7
     }
   ],
   "committee_rules": {
@@ -152,7 +152,7 @@
       "id": "cancer",
       "name": "ONCO-X Lab",
       "paper_count": 35,
-      "sha256": "f01342f2ad3a670b5db1962435a66e540423187a0e6c29aa3d50f797aadfcc94",
+      "sha256": "b52da90d6c38067c64d598a6ea41e42cad12c5adef5911cafb33f2892bdc9aab",
       "status": "PASS"
     },
     {
@@ -160,7 +160,7 @@
       "id": "immunology",
       "name": "IMMUNO-X Lab",
       "paper_count": 35,
-      "sha256": "27023641b8801165c3d070404b8948723de47e906e4d96c698c3f549a7911d1e",
+      "sha256": "4c8cdc4e785df8dcc08a1ef559aa193aef6bf1e1dfa0d292b85f18c9416b1de4",
       "status": "PASS"
     },
     {
@@ -168,7 +168,7 @@
       "id": "longevity",
       "name": "LONGEVITY-X Lab",
       "paper_count": 35,
-      "sha256": "2f39722bc2e9e8185e431b5a3e1fa047fbdd75affa62c4648703969f3b5a4c7d",
+      "sha256": "7f09aeaf9c64733140b4a0316d6816bdd94e04cddc3809bf0665100c626b647f",
       "status": "PASS"
     },
     {
@@ -176,7 +176,7 @@
       "id": "metabolism",
       "name": "METABOLIC-X Lab",
       "paper_count": 35,
-      "sha256": "7ed2e1150c0ddb6359ed1f98a6f3377ddf6bcf24281eec9835c4c005606687e2",
+      "sha256": "28987c12c92b2078060aa63b5a1c12b0feb39ad49aabb37635c6dccd683e3c8f",
       "status": "PASS"
     },
     {
@@ -184,7 +184,7 @@
       "id": "neuro",
       "name": "NEURO-X Lab",
       "paper_count": 35,
-      "sha256": "d56805c089e7113c22e14ed60100ff95d9753cc4b58d44d84606d4e73b975e7a",
+      "sha256": "a038d329d6a7eac07d4c90968182dc7c376272d21568345d9419f49c4b1b2857",
       "status": "PASS"
     },
     {
@@ -192,7 +192,7 @@
       "id": "preservation",
       "name": "PRESERVE-X Lab",
       "paper_count": 35,
-      "sha256": "7619aec3bce862c38672f6faa6ce1b051768a3e2ce799fcaf7418e6e9988fc5a",
+      "sha256": "1b5ec4ccc200b2a3e08fe97ae4ff490759cd8ca401dbc88aecc2dc1886788b8b",
       "status": "PASS"
     },
     {
@@ -200,7 +200,7 @@
       "id": "regeneration",
       "name": "REGEN-X Lab",
       "paper_count": 35,
-      "sha256": "315ea17b2a2c3d19aebe3260f6358acc073c2f34c58dd7630f71e45a88a9817a",
+      "sha256": "ae8034abb014a42482ae722a4b70f681462dbabb3472734ac4b98abedc22fa3c",
       "status": "PASS"
     }
   ],
@@ -406,38 +406,39 @@
       "taxon_verified": true
     },
     {
-      "annotation_support": true,
+      "annotation_support": false,
       "challenges": [
         "body-size confounding",
         "correlation does not prove causation",
         "human functional divergence remains possible",
         "lifespan data quality",
         "no gene symbol candidate",
-        "phylogeny confounding"
+        "phylogeny confounding",
+        "taxonomy not annotation-supported"
       ],
-      "committee_score": 54,
+      "committee_score": 48,
       "genes": [],
       "independent_source_count": 3,
       "lab_count": 1,
       "labs": [
         "longevity"
       ],
-      "mean_arbiter": 65.0,
+      "mean_arbiter": 50.0,
       "mechanisms": [
         "autophagy",
         "senescence"
       ],
       "name": "Hydra vulgaris",
       "pmid_sources": [
-        "PMID:40731202",
         "PMID:41983916",
-        "PMID:42793312"
+        "PMID:42793312",
+        "PMID:42833632"
       ],
       "source_count": 3,
       "sources": [
-        "PMID:40731202",
         "PMID:41983916",
-        "PMID:42793312"
+        "PMID:42793312",
+        "PMID:42833632"
       ],
       "taxon_proofs": [
         {
@@ -582,14 +583,14 @@
       ],
       "name": "Eptesicus fuscus",
       "pmid_sources": [
+        "PMID:40590902",
         "PMID:42013170",
-        "PMID:42525754",
         "PMID:42807344"
       ],
       "source_count": 3,
       "sources": [
+        "PMID:40590902",
         "PMID:42013170",
-        "PMID:42525754",
         "PMID:42807344"
       ],
       "taxon_proofs": [
@@ -700,7 +701,7 @@
       "taxon_verified": true
     },
     {
-      "annotation_support": true,
+      "annotation_support": false,
       "challenges": [
         "body-size confounding",
         "correlation does not prove causation",
@@ -708,27 +709,29 @@
         "lifespan data quality",
         "no gene symbol candidate",
         "phylogeny confounding",
-        "single-paper dependence"
+        "taxonomy not annotation-supported"
       ],
       "committee_score": 44,
       "genes": [],
-      "independent_source_count": 1,
+      "independent_source_count": 2,
       "lab_count": 1,
       "labs": [
         "longevity"
       ],
-      "mean_arbiter": 47.0,
+      "mean_arbiter": 44.0,
       "mechanisms": [
         "autophagy",
         "senescence"
       ],
       "name": "Hydra oligactis",
       "pmid_sources": [
-        "PMID:42793312"
+        "PMID:42793312",
+        "PMID:42833632"
       ],
-      "source_count": 1,
+      "source_count": 2,
       "sources": [
-        "PMID:42793312"
+        "PMID:42793312",
+        "PMID:42833632"
       ],
       "taxon_proofs": [
         {
@@ -791,6 +794,6 @@
     }
   ],
   "schema": "biomimic-v6-org-run-v1",
-  "sha256": "6362957647db01ad578650079dd7496e0504ed3163cbd859ff47449556b5d609",
-  "time": "2026-10-16T08:16:40.732568+00:00"
+  "sha256": "100ab9460d00f5f7aa9ce697e97da58bca5b2282cc6d2c4d53cb5949b5f3cf1c",
+  "time": "2026-10-18T08:05:47.870880+00:00"
 }
