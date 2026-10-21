@@ -1,6 +1,6 @@
-# BIO-MIMIC X V6 Scientific Investment Committee — 2026-10-20T08:39:17.775139+00:00
+# BIO-MIMIC X V6 Scientific Investment Committee — 2026-10-21T08:38:10.772260+00:00
 
-**Organization replay SHA-256:** `f48a1c1367a109102ea976c2872f576c255b60418fbfe15bcdbb4bdfa1c5e520`
+**Organization replay SHA-256:** `065113bacd8040a444b78d50b1674685c744093fd2959c1cf77d402fdc2101f2`
 
 ## Laboratory status
 - ONCO-X Lab: PASS · 35 papers · 0 candidates
@@ -32,9 +32,14 @@
 - Sources: 3 · mechanisms: fibrosis, regeneration
 - Challenge flags: correlation does not prove causation, developmental-stage confounding, fibrosis tradeoffs, human functional divergence remains possible, regeneration-vs-repair ambiguity
 
-### Hydra vulgaris — Committee 48/100
+### Hydra vulgaris — Committee 54/100
 - Labs: longevity
 - Sources: 3 · mechanisms: autophagy, senescence
+- Challenge flags: body-size confounding, correlation does not prove causation, human functional divergence remains possible, lifespan data quality, no gene symbol candidate, phylogeny confounding
+
+### Hydra oligactis — Committee 50/100
+- Labs: longevity
+- Sources: 2 · mechanisms: autophagy, senescence
 - Challenge flags: body-size confounding, correlation does not prove causation, human functional divergence remains possible, lifespan data quality, no gene symbol candidate, phylogeny confounding
 
 ### Rousettus aegyptiacus — Committee 45/100
@@ -62,11 +67,6 @@
 - Sources: 3 · mechanisms: none extracted
 - Challenge flags: correlation does not prove causation, cryoprotectant toxicity, human functional divergence remains possible, phenotype without extracted mechanism, reperfusion injury, whole-animal vs isolated-organ mismatch
 
-### Hydra oligactis — Committee 44/100
-- Labs: longevity
-- Sources: 2 · mechanisms: autophagy, senescence
-- Challenge flags: body-size confounding, correlation does not prove causation, human functional divergence remains possible, lifespan data quality, no gene symbol candidate, phylogeny confounding
-
 ### Caenorhabditis elegans — Committee 41/100
 - Labs: preservation
 - Sources: 2 · mechanisms: none extracted
@@ -77,14 +77,14 @@
 - Acomys cahirinus: 10 credits
 - Danio rerio: 9 credits
 - Cynops pyrrhogaster: 9 credits
-- Hydra vulgaris: 8 credits
+- Hydra vulgaris: 9 credits
+- Hydra oligactis: 8 credits
 - Rousettus aegyptiacus: 8 credits
 - Tadarida brasiliensis: 8 credits
 - Eptesicus fuscus: 8 credits
 - Drosophila melanogaster: 8 credits
 - Paracentrotus lividus: 8 credits
-- Hydra oligactis: 7 credits
-- Caenorhabditis elegans: 7 credits
+- Caenorhabditis elegans: 5 credits
 
 ## Cross-lab challenge plan
 - immunology challenges cancer: Re-audit the top hypothesis using the challenger lab's confounders and require at least one falsifiable counter-test.

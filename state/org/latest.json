@@ -33,11 +33,19 @@
       "research_credits": 9
     },
     {
-      "committee_score": 48,
+      "committee_score": 54,
       "labs": [
         "longevity"
       ],
       "name": "Hydra vulgaris",
+      "research_credits": 9
+    },
+    {
+      "committee_score": 50,
+      "labs": [
+        "longevity"
+      ],
+      "name": "Hydra oligactis",
       "research_credits": 8
     },
     {
@@ -81,20 +89,12 @@
       "research_credits": 8
     },
     {
-      "committee_score": 44,
-      "labs": [
-        "longevity"
-      ],
-      "name": "Hydra oligactis",
-      "research_credits": 7
-    },
-    {
       "committee_score": 41,
       "labs": [
         "preservation"
       ],
       "name": "Caenorhabditis elegans",
-      "research_credits": 7
+      "research_credits": 5
     }
   ],
   "committee_rules": {
@@ -152,7 +152,7 @@
       "id": "cancer",
       "name": "ONCO-X Lab",
       "paper_count": 35,
-      "sha256": "193e85a5f5b4141d58bb7901eed6aa60bf6fbaf3eed55a0e590a0def2359e263",
+      "sha256": "3ebf7d1601929e73f52e73969a5def641120533f43e64e9c10ac8cf39c3c6756",
       "status": "PASS"
     },
     {
@@ -160,7 +160,7 @@
       "id": "immunology",
       "name": "IMMUNO-X Lab",
       "paper_count": 35,
-      "sha256": "b27148b3db657adf5a27c6b66a499e6a14c2ae7e247614008c63d2e8394b0334",
+      "sha256": "817f09fc2f5a402daf60ba9537494866d1cb7f5256f0576377ca6a24aa49ae6c",
       "status": "PASS"
     },
     {
@@ -168,7 +168,7 @@
       "id": "longevity",
       "name": "LONGEVITY-X Lab",
       "paper_count": 35,
-      "sha256": "35c82d4cb8d6c414ce58297ff92331611ec7f38b8d566593ab29fb89798ea0a3",
+      "sha256": "7425406d6a97f88637da674927b133c8e22567fb61b76fe9d054c671ffdc2c70",
       "status": "PASS"
     },
     {
@@ -176,7 +176,7 @@
       "id": "metabolism",
       "name": "METABOLIC-X Lab",
       "paper_count": 35,
-      "sha256": "4792d9fb31a9d061aa6086eb2c92a322971e4b2b83a8e33ebc6cbe42ce4aa0bd",
+      "sha256": "fc64f7c256b4063a38f0189ba23ba1a979d2f880b08d1640d6be41950c79770a",
       "status": "PASS"
     },
     {
@@ -184,7 +184,7 @@
       "id": "neuro",
       "name": "NEURO-X Lab",
       "paper_count": 35,
-      "sha256": "1197bfb44f985b9b6a1356cc053081624f39e2eb436f7dabf16fefb1ab9af12f",
+      "sha256": "0b17091c7c718b6a3a9a567bc4d7a3eead532f0a381978fe55e3ec9614f88c1d",
       "status": "PASS"
     },
     {
@@ -192,7 +192,7 @@
       "id": "preservation",
       "name": "PRESERVE-X Lab",
       "paper_count": 35,
-      "sha256": "f7b2d755ca101406aebcd9eb0940c110d6c676d833802c9c988e843317c8a44d",
+      "sha256": "e89ec3d0db5d4e73fabe17510775bb2a59088a185a33d33a61e4df5cf546e33b",
       "status": "PASS"
     },
     {
@@ -200,7 +200,7 @@
       "id": "regeneration",
       "name": "REGEN-X Lab",
       "paper_count": 35,
-      "sha256": "29eac8081b41177c4aabf602c71c0b5c749617e601a6bf77d294110b1fc6e8c9",
+      "sha256": "6f5f47a0a8d8856fc4be29bd749e0cae3b744336e59a87dcf1ed58e70c9f6320",
       "status": "PASS"
     }
   ],
@@ -406,24 +406,23 @@
       "taxon_verified": true
     },
     {
-      "annotation_support": false,
+      "annotation_support": true,
       "challenges": [
         "body-size confounding",
         "correlation does not prove causation",
         "human functional divergence remains possible",
         "lifespan data quality",
         "no gene symbol candidate",
-        "phylogeny confounding",
-        "taxonomy not annotation-supported"
+        "phylogeny confounding"
       ],
-      "committee_score": 48,
+      "committee_score": 54,
       "genes": [],
       "independent_source_count": 3,
       "lab_count": 1,
       "labs": [
         "longevity"
       ],
-      "mean_arbiter": 50.0,
+      "mean_arbiter": 65.0,
       "mechanisms": [
         "autophagy",
         "senescence"
@@ -449,6 +448,51 @@
           "rank": "SPECIES",
           "status": "ACCEPTED",
           "taxon_key": 5185782
+        }
+      ],
+      "taxon_verified": true
+    },
+    {
+      "annotation_support": true,
+      "challenges": [
+        "body-size confounding",
+        "correlation does not prove causation",
+        "human functional divergence remains possible",
+        "lifespan data quality",
+        "no gene symbol candidate",
+        "phylogeny confounding"
+      ],
+      "committee_score": 50,
+      "genes": [],
+      "independent_source_count": 2,
+      "lab_count": 1,
+      "labs": [
+        "longevity"
+      ],
+      "mean_arbiter": 59.0,
+      "mechanisms": [
+        "autophagy",
+        "senescence"
+      ],
+      "name": "Hydra oligactis",
+      "pmid_sources": [
+        "PMID:42793312",
+        "PMID:42833632"
+      ],
+      "source_count": 2,
+      "sources": [
+        "PMID:42793312",
+        "PMID:42833632"
+      ],
+      "taxon_proofs": [
+        {
+          "canonical_name": "Hydra oligactis",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 5185751
         }
       ],
       "taxon_verified": true
@@ -701,52 +745,6 @@
       "taxon_verified": true
     },
     {
-      "annotation_support": false,
-      "challenges": [
-        "body-size confounding",
-        "correlation does not prove causation",
-        "human functional divergence remains possible",
-        "lifespan data quality",
-        "no gene symbol candidate",
-        "phylogeny confounding",
-        "taxonomy not annotation-supported"
-      ],
-      "committee_score": 44,
-      "genes": [],
-      "independent_source_count": 2,
-      "lab_count": 1,
-      "labs": [
-        "longevity"
-      ],
-      "mean_arbiter": 44.0,
-      "mechanisms": [
-        "autophagy",
-        "senescence"
-      ],
-      "name": "Hydra oligactis",
-      "pmid_sources": [
-        "PMID:42793312",
-        "PMID:42833632"
-      ],
-      "source_count": 2,
-      "sources": [
-        "PMID:42793312",
-        "PMID:42833632"
-      ],
-      "taxon_proofs": [
-        {
-          "canonical_name": "Hydra oligactis",
-          "kingdom": "Animalia",
-          "match_type": "EXACT",
-          "provider": "GBIF",
-          "rank": "SPECIES",
-          "status": "ACCEPTED",
-          "taxon_key": 5185751
-        }
-      ],
-      "taxon_verified": true
-    },
-    {
       "annotation_support": true,
       "challenges": [
         "correlation does not prove causation",
@@ -794,6 +792,6 @@
     }
   ],
   "schema": "biomimic-v6-org-run-v1",
-  "sha256": "f48a1c1367a109102ea976c2872f576c255b60418fbfe15bcdbb4bdfa1c5e520",
-  "time": "2026-10-20T08:39:17.775139+00:00"
+  "sha256": "065113bacd8040a444b78d50b1674685c744093fd2959c1cf77d402fdc2101f2",
+  "time": "2026-10-21T08:38:10.772260+00:00"
 }
