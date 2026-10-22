@@ -14,7 +14,7 @@
         "regeneration"
       ],
       "name": "Acomys cahirinus",
-      "research_credits": 10
+      "research_credits": 9
     },
     {
       "committee_score": 55,
@@ -33,19 +33,11 @@
       "research_credits": 9
     },
     {
-      "committee_score": 54,
+      "committee_score": 48,
       "labs": [
         "longevity"
       ],
       "name": "Hydra vulgaris",
-      "research_credits": 9
-    },
-    {
-      "committee_score": 50,
-      "labs": [
-        "longevity"
-      ],
-      "name": "Hydra oligactis",
       "research_credits": 8
     },
     {
@@ -54,7 +46,7 @@
         "immunology"
       ],
       "name": "Rousettus aegyptiacus",
-      "research_credits": 8
+      "research_credits": 7
     },
     {
       "committee_score": 45,
@@ -62,7 +54,7 @@
         "immunology"
       ],
       "name": "Tadarida brasiliensis",
-      "research_credits": 8
+      "research_credits": 7
     },
     {
       "committee_score": 45,
@@ -70,7 +62,7 @@
         "immunology"
       ],
       "name": "Eptesicus fuscus",
-      "research_credits": 8
+      "research_credits": 7
     },
     {
       "committee_score": 45,
@@ -78,7 +70,7 @@
         "preservation"
       ],
       "name": "Drosophila melanogaster",
-      "research_credits": 8
+      "research_credits": 7
     },
     {
       "committee_score": 45,
@@ -86,7 +78,15 @@
         "preservation"
       ],
       "name": "Paracentrotus lividus",
-      "research_credits": 8
+      "research_credits": 7
+    },
+    {
+      "committee_score": 44,
+      "labs": [
+        "longevity"
+      ],
+      "name": "Hydra oligactis",
+      "research_credits": 7
     },
     {
       "committee_score": 41,
@@ -94,7 +94,15 @@
         "preservation"
       ],
       "name": "Caenorhabditis elegans",
-      "research_credits": 5
+      "research_credits": 7
+    },
+    {
+      "committee_score": 35,
+      "labs": [
+        "preservation"
+      ],
+      "name": "Neophocaena asiaeorientalis",
+      "research_credits": 6
     }
   ],
   "committee_rules": {
@@ -152,7 +160,7 @@
       "id": "cancer",
       "name": "ONCO-X Lab",
       "paper_count": 35,
-      "sha256": "62626f8a8ed6606d64759375d570071910af1f56668fbb3d8edbf7debe333e4b",
+      "sha256": "ca94e00034ec2cd39d83fb06d155e917ec5156642aa948131e1de6ae2e711ca9",
       "status": "PASS"
     },
     {
@@ -160,7 +168,7 @@
       "id": "immunology",
       "name": "IMMUNO-X Lab",
       "paper_count": 35,
-      "sha256": "e9f157ddb6ac45a389fcfdd7c62116f80b6712d81d5774e7d1daaadecd71d1a6",
+      "sha256": "c4967ce7e26b02bfbc5ecaf497e66ca116034f372794ec1976ce77763e0a2e81",
       "status": "PASS"
     },
     {
@@ -168,7 +176,7 @@
       "id": "longevity",
       "name": "LONGEVITY-X Lab",
       "paper_count": 35,
-      "sha256": "82e6e7b6df96673beb06913a8992cb333a62d475bb5cd4567d3217555c653381",
+      "sha256": "803d9590ae6dcde2b781b1bec4c56cfa01ece525a9ef68ba9e36506aad75076d",
       "status": "PASS"
     },
     {
@@ -176,7 +184,7 @@
       "id": "metabolism",
       "name": "METABOLIC-X Lab",
       "paper_count": 35,
-      "sha256": "469c6d828b2c5dce35410318376383f498f53853c9a8d2fcf6c967a21c2b0fa1",
+      "sha256": "a736040bfb6351dffae8a18a8decde92f4e52753d76021fc353cb382b26a16e4",
       "status": "PASS"
     },
     {
@@ -184,15 +192,15 @@
       "id": "neuro",
       "name": "NEURO-X Lab",
       "paper_count": 35,
-      "sha256": "8dc40cde959734610e8aa891bb6777faf33f7120dafc8e7ccd70a60fab495b06",
+      "sha256": "8a56c5ec36af665a9520d85ac3bcf99bb6372e2dd40d80d4592fbffa4ebb10ec",
       "status": "PASS"
     },
     {
-      "candidate_count": 3,
+      "candidate_count": 4,
       "id": "preservation",
       "name": "PRESERVE-X Lab",
       "paper_count": 35,
-      "sha256": "f77442ae0bea0dce860969459e6a3d10c97a9dec0353aa62bd0c9183f3a0a38f",
+      "sha256": "c6ab29fbf4478f986ea30cf82e9c4a00452e8d66547b320d2aaca04fe00d73ad",
       "status": "PASS"
     },
     {
@@ -200,7 +208,7 @@
       "id": "regeneration",
       "name": "REGEN-X Lab",
       "paper_count": 35,
-      "sha256": "3eb6603df062772b9db7a1d345c88dec495df3db8afd51f400a12b5178f55894",
+      "sha256": "bb30a205d697258c0e0c954c9cc5c64fdb6ad0d62fc82ca362a6bc336a85a4f2",
       "status": "PASS"
     }
   ],
@@ -406,23 +414,24 @@
       "taxon_verified": true
     },
     {
-      "annotation_support": true,
+      "annotation_support": false,
       "challenges": [
         "body-size confounding",
         "correlation does not prove causation",
         "human functional divergence remains possible",
         "lifespan data quality",
         "no gene symbol candidate",
-        "phylogeny confounding"
+        "phylogeny confounding",
+        "taxonomy not annotation-supported"
       ],
-      "committee_score": 54,
+      "committee_score": 48,
       "genes": [],
       "independent_source_count": 3,
       "lab_count": 1,
       "labs": [
         "longevity"
       ],
-      "mean_arbiter": 65.0,
+      "mean_arbiter": 50.0,
       "mechanisms": [
         "autophagy",
         "senescence"
@@ -448,51 +457,6 @@
           "rank": "SPECIES",
           "status": "ACCEPTED",
           "taxon_key": 5185782
-        }
-      ],
-      "taxon_verified": true
-    },
-    {
-      "annotation_support": true,
-      "challenges": [
-        "body-size confounding",
-        "correlation does not prove causation",
-        "human functional divergence remains possible",
-        "lifespan data quality",
-        "no gene symbol candidate",
-        "phylogeny confounding"
-      ],
-      "committee_score": 50,
-      "genes": [],
-      "independent_source_count": 2,
-      "lab_count": 1,
-      "labs": [
-        "longevity"
-      ],
-      "mean_arbiter": 59.0,
-      "mechanisms": [
-        "autophagy",
-        "senescence"
-      ],
-      "name": "Hydra oligactis",
-      "pmid_sources": [
-        "PMID:42793312",
-        "PMID:42833632"
-      ],
-      "source_count": 2,
-      "sources": [
-        "PMID:42793312",
-        "PMID:42833632"
-      ],
-      "taxon_proofs": [
-        {
-          "canonical_name": "Hydra oligactis",
-          "kingdom": "Animalia",
-          "match_type": "EXACT",
-          "provider": "GBIF",
-          "rank": "SPECIES",
-          "status": "ACCEPTED",
-          "taxon_key": 5185751
         }
       ],
       "taxon_verified": true
@@ -745,6 +709,52 @@
       "taxon_verified": true
     },
     {
+      "annotation_support": false,
+      "challenges": [
+        "body-size confounding",
+        "correlation does not prove causation",
+        "human functional divergence remains possible",
+        "lifespan data quality",
+        "no gene symbol candidate",
+        "phylogeny confounding",
+        "taxonomy not annotation-supported"
+      ],
+      "committee_score": 44,
+      "genes": [],
+      "independent_source_count": 2,
+      "lab_count": 1,
+      "labs": [
+        "longevity"
+      ],
+      "mean_arbiter": 44.0,
+      "mechanisms": [
+        "autophagy",
+        "senescence"
+      ],
+      "name": "Hydra oligactis",
+      "pmid_sources": [
+        "PMID:42793312",
+        "PMID:42833632"
+      ],
+      "source_count": 2,
+      "sources": [
+        "PMID:42793312",
+        "PMID:42833632"
+      ],
+      "taxon_proofs": [
+        {
+          "canonical_name": "Hydra oligactis",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 5185751
+        }
+      ],
+      "taxon_verified": true
+    },
+    {
       "annotation_support": true,
       "challenges": [
         "correlation does not prove causation",
@@ -789,9 +799,54 @@
         }
       ],
       "taxon_verified": true
+    },
+    {
+      "annotation_support": false,
+      "challenges": [
+        "correlation does not prove causation",
+        "cryoprotectant toxicity",
+        "human functional divergence remains possible",
+        "reperfusion injury",
+        "single-paper dependence",
+        "taxonomy not annotation-supported",
+        "whole-animal vs isolated-organ mismatch"
+      ],
+      "committee_score": 35,
+      "genes": [
+        "CNKI"
+      ],
+      "independent_source_count": 1,
+      "lab_count": 1,
+      "labs": [
+        "preservation"
+      ],
+      "mean_arbiter": 30.0,
+      "mechanisms": [
+        "cryoprotectant"
+      ],
+      "name": "Neophocaena asiaeorientalis",
+      "pmid_sources": [
+        "PMID:42511070"
+      ],
+      "source_count": 1,
+      "sources": [
+        "PMID:42511070"
+      ],
+      "taxon_proofs": [
+        {
+          "canonical_name": "Neophocaena asiaeorientalis",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 4352040
+        }
+      ],
+      "taxon_verified": true
     }
   ],
   "schema": "biomimic-v6-org-run-v1",
-  "sha256": "85e5d54f4211d39ca70a07d42b1d582cb0513ed0d539272a30bec5917faac3a5",
-  "time": "2026-10-21T08:40:51.742921+00:00"
+  "sha256": "1af1f573424ab657105f370bc776ff212a795144dedc252d29b026c694ffcb08",
+  "time": "2026-10-22T08:40:15.904783+00:00"
 }

@@ -1,6 +1,6 @@
-# BIO-MIMIC X V6 Scientific Investment Committee — 2026-10-21T08:40:51.742921+00:00
+# BIO-MIMIC X V6 Scientific Investment Committee — 2026-10-22T08:40:15.904783+00:00
 
-**Organization replay SHA-256:** `85e5d54f4211d39ca70a07d42b1d582cb0513ed0d539272a30bec5917faac3a5`
+**Organization replay SHA-256:** `1af1f573424ab657105f370bc776ff212a795144dedc252d29b026c694ffcb08`
 
 ## Laboratory status
 - ONCO-X Lab: PASS · 35 papers · 0 candidates
@@ -8,7 +8,7 @@
 - LONGEVITY-X Lab: PASS · 35 papers · 3 candidates
 - METABOLIC-X Lab: PASS · 35 papers · 0 candidates
 - NEURO-X Lab: PASS · 35 papers · 0 candidates
-- PRESERVE-X Lab: PASS · 35 papers · 3 candidates
+- PRESERVE-X Lab: PASS · 35 papers · 4 candidates
 - REGEN-X Lab: PASS · 35 papers · 3 candidates
 
 ## Top portfolio
@@ -32,14 +32,9 @@
 - Sources: 3 · mechanisms: fibrosis, regeneration
 - Challenge flags: correlation does not prove causation, developmental-stage confounding, fibrosis tradeoffs, human functional divergence remains possible, regeneration-vs-repair ambiguity
 
-### Hydra vulgaris — Committee 54/100
+### Hydra vulgaris — Committee 48/100
 - Labs: longevity
 - Sources: 3 · mechanisms: autophagy, senescence
-- Challenge flags: body-size confounding, correlation does not prove causation, human functional divergence remains possible, lifespan data quality, no gene symbol candidate, phylogeny confounding
-
-### Hydra oligactis — Committee 50/100
-- Labs: longevity
-- Sources: 2 · mechanisms: autophagy, senescence
 - Challenge flags: body-size confounding, correlation does not prove causation, human functional divergence remains possible, lifespan data quality, no gene symbol candidate, phylogeny confounding
 
 ### Rousettus aegyptiacus — Committee 45/100
@@ -67,24 +62,35 @@
 - Sources: 3 · mechanisms: none extracted
 - Challenge flags: correlation does not prove causation, cryoprotectant toxicity, human functional divergence remains possible, phenotype without extracted mechanism, reperfusion injury, whole-animal vs isolated-organ mismatch
 
+### Hydra oligactis — Committee 44/100
+- Labs: longevity
+- Sources: 2 · mechanisms: autophagy, senescence
+- Challenge flags: body-size confounding, correlation does not prove causation, human functional divergence remains possible, lifespan data quality, no gene symbol candidate, phylogeny confounding
+
 ### Caenorhabditis elegans — Committee 41/100
 - Labs: preservation
 - Sources: 2 · mechanisms: none extracted
 - Challenge flags: correlation does not prove causation, cryoprotectant toxicity, human functional divergence remains possible, phenotype without extracted mechanism, reperfusion injury, whole-animal vs isolated-organ mismatch
 
+### Neophocaena asiaeorientalis — Committee 35/100
+- Labs: preservation
+- Sources: 1 · mechanisms: cryoprotectant
+- Challenge flags: correlation does not prove causation, cryoprotectant toxicity, human functional divergence remains possible, reperfusion injury, single-paper dependence, taxonomy not annotation-supported
+
 ## Research-credit allocation
 - Somniosus microcephalus: 10 credits
-- Acomys cahirinus: 10 credits
+- Acomys cahirinus: 9 credits
 - Danio rerio: 9 credits
 - Cynops pyrrhogaster: 9 credits
-- Hydra vulgaris: 9 credits
-- Hydra oligactis: 8 credits
-- Rousettus aegyptiacus: 8 credits
-- Tadarida brasiliensis: 8 credits
-- Eptesicus fuscus: 8 credits
-- Drosophila melanogaster: 8 credits
-- Paracentrotus lividus: 8 credits
-- Caenorhabditis elegans: 5 credits
+- Hydra vulgaris: 8 credits
+- Rousettus aegyptiacus: 7 credits
+- Tadarida brasiliensis: 7 credits
+- Eptesicus fuscus: 7 credits
+- Drosophila melanogaster: 7 credits
+- Paracentrotus lividus: 7 credits
+- Hydra oligactis: 7 credits
+- Caenorhabditis elegans: 7 credits
+- Neophocaena asiaeorientalis: 6 credits
 
 ## Cross-lab challenge plan
 - immunology challenges cancer: Re-audit the top hypothesis using the challenger lab's confounders and require at least one falsifiable counter-test.
