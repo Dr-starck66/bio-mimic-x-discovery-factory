@@ -5,11 +5,11 @@
 - Material signals: **10**
 - Review queue signals: **5**
 - Source errors: **0**
-- Evidence fingerprint: `b378245c7eec11d197b1e90010b44442ee0468fdb62f2ac88c25c277a366f673`
+- Evidence fingerprint: `b1a793d5686783a598de903fbbd46e24ec66102e0da77ded2bbd53f10881484a`
 
 ## Highest-evidence material signals
 
-- **biochar** — REVIEW_QUEUE — 13 independent records, 3 magnetic-context records
+- **biochar** — REVIEW_QUEUE — 13 independent records, 2 magnetic-context records
 - **MOF** — REVIEW_QUEUE — 5 independent records, 4 magnetic-context records
 - **ferrite** — REVIEW_QUEUE — 4 independent records, 4 magnetic-context records
 - **chitosan** — REVIEW_QUEUE — 3 independent records, 1 magnetic-context records
