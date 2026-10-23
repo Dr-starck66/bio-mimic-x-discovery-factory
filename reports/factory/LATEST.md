@@ -1,15 +1,15 @@
-# BIO-MIMIC X V7 Discovery Factory — 2026-10-22T08:47:00.812782+00:00
+# BIO-MIMIC X V7 Discovery Factory — 2026-10-23T08:41:53.091040+00:00
 
 **Status:** PASS
-**Replay SHA-256:** `58d816b9035bb4258d51890c9865fe1943baaeda8b3c13075250b6a5657bcafa`
+**Replay SHA-256:** `36fd1d176bfa7c0b415ab8f8c4f69645e776ca4dbc7ead575c5de05f4c75c865`
 
 ## Active programs
 - PRG-4514111357 · Somniosus microcephalus · score 61 · labs longevity
 - PRG-c73037fcfb · Acomys cahirinus · score 59 · labs regeneration
 - PRG-5fdcf74e81 · Danio rerio · score 55 · labs regeneration
 - PRG-14c747bea5 · Cynops pyrrhogaster · score 55 · labs regeneration
-- PRG-bc3797f8a9 · Hydra vulgaris · score 48 · labs longevity
-- PRG-10e9bb2f67 · Rousettus aegyptiacus · score 45 · labs immunology
+- PRG-bc3797f8a9 · Hydra vulgaris · score 54 · labs longevity
+- PRG-0e95826bc8 · Hydra oligactis · score 50 · labs longevity
 
 ## Brick utilization
 - Ω-OS Control Plane: PASS · planned_stages_completed=15 · output=cycle_plan
@@ -20,7 +20,7 @@
 - Novel Species Hunter: PASS · novel_candidate_yield=13 · output=committee.portfolio
 - Deterministic Decision Engine / Scientific Investment Committee: PASS · credits_sum_to_100=100 · output=committee.allocations
 - Evidence Network / Claim Ledger: PASS · replicated_claims_with_provenance_ratio=1.0 · output=claim_ledger
-- DUALITY-X + Arbiter: PASS · mean_disagreement=6.538 · output=committee.portfolio
+- DUALITY-X + Arbiter: PASS · mean_disagreement=7.923 · output=committee.portfolio
 - Morpheus Adversarial Engine: PASS · falsifiable_failure_modes_per_program=5.0 · output=morpheus_audits
 - Ω-CAUSAL + Uncertainty Engine: PASS · claims_with_counterfactual_test=6 · output=causal_plans
 - Negative Knowledge Graph: PASS · repeated_dead_ends_prevented=0 · output=negative_filter

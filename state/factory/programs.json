@@ -77,7 +77,7 @@
       ],
       "taxon_verified": true,
       "title": "Somniosus microcephalus",
-      "updated_at": "2026-10-22T08:42:55.081180+00:00"
+      "updated_at": "2026-10-23T08:38:33.411087+00:00"
     },
     {
       "age_days": 0,
@@ -155,7 +155,7 @@
       ],
       "taxon_verified": true,
       "title": "Acomys cahirinus",
-      "updated_at": "2026-10-22T08:42:55.081197+00:00"
+      "updated_at": "2026-10-23T08:38:33.411106+00:00"
     },
     {
       "age_days": 0,
@@ -238,7 +238,7 @@
       ],
       "taxon_verified": true,
       "title": "Danio rerio",
-      "updated_at": "2026-10-22T08:42:55.081206+00:00"
+      "updated_at": "2026-10-23T08:38:33.411116+00:00"
     },
     {
       "age_days": 0,
@@ -320,11 +320,11 @@
       ],
       "taxon_verified": true,
       "title": "Cynops pyrrhogaster",
-      "updated_at": "2026-10-22T08:42:55.081213+00:00"
+      "updated_at": "2026-10-23T08:38:33.411123+00:00"
     },
     {
       "age_days": 0,
-      "committee_score": 48,
+      "committee_score": 54,
       "created_at": "2026-09-29T09:56:24.046474+00:00",
       "credit_history": [],
       "genes": [],
@@ -397,7 +397,82 @@
       ],
       "taxon_verified": true,
       "title": "Hydra vulgaris",
-      "updated_at": "2026-10-22T08:42:55.081218+00:00"
+      "updated_at": "2026-10-23T08:38:33.411129+00:00"
+    },
+    {
+      "age_days": 0,
+      "committee_score": 50,
+      "created_at": "2026-09-29T09:56:24.046488+00:00",
+      "credit_history": [],
+      "genes": [],
+      "id": "PRG-0e95826bc8",
+      "independent_source_count": 2,
+      "key": "hydra oligactis",
+      "labs": [
+        "longevity"
+      ],
+      "mechanisms": [
+        "autophagy",
+        "senescence"
+      ],
+      "milestones": [
+        {
+          "id": "M1",
+          "kill": "<2 independent sources",
+          "name": "Replicate evidence",
+          "status": "PENDING"
+        },
+        {
+          "id": "M2",
+          "kill": "no causal mechanism candidate",
+          "name": "Resolve mechanism",
+          "status": "PENDING"
+        },
+        {
+          "id": "M3",
+          "kill": "no relevant conserved human context",
+          "name": "Human bridge",
+          "status": "PENDING"
+        },
+        {
+          "id": "M4",
+          "kill": "critical Morpheus failure unresolved",
+          "name": "Adversarial survival",
+          "status": "PENDING"
+        },
+        {
+          "id": "M5",
+          "kill": "no falsifiable perturbation test",
+          "name": "Experiment specification",
+          "status": "PENDING"
+        }
+      ],
+      "pmid_sources": [
+        "PMID:42793312",
+        "PMID:42833632"
+      ],
+      "priority_rank": 6,
+      "source_count": 2,
+      "sources": [
+        "PMID:42793312",
+        "PMID:42833632"
+      ],
+      "stage": "DISCOVERY",
+      "status": "ACTIVE",
+      "taxon_proofs": [
+        {
+          "canonical_name": "Hydra oligactis",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 5185751
+        }
+      ],
+      "taxon_verified": true,
+      "title": "Hydra oligactis",
+      "updated_at": "2026-10-23T08:38:33.411136+00:00"
     },
     {
       "age_days": 0,
@@ -464,7 +539,7 @@
         "PMID:42807344"
       ],
       "stage": "DISCOVERY",
-      "status": "ACTIVE",
+      "status": "PAUSED",
       "taxon_proofs": [
         {
           "canonical_name": "Rousettus aegyptiacus",
@@ -478,82 +553,7 @@
       ],
       "taxon_verified": true,
       "title": "Rousettus aegyptiacus",
-      "updated_at": "2026-10-22T08:42:55.081223+00:00"
-    },
-    {
-      "age_days": 0,
-      "committee_score": 50,
-      "created_at": "2026-09-29T09:56:24.046488+00:00",
-      "credit_history": [],
-      "genes": [],
-      "id": "PRG-0e95826bc8",
-      "independent_source_count": 2,
-      "key": "hydra oligactis",
-      "labs": [
-        "longevity"
-      ],
-      "mechanisms": [
-        "autophagy",
-        "senescence"
-      ],
-      "milestones": [
-        {
-          "id": "M1",
-          "kill": "<2 independent sources",
-          "name": "Replicate evidence",
-          "status": "PENDING"
-        },
-        {
-          "id": "M2",
-          "kill": "no causal mechanism candidate",
-          "name": "Resolve mechanism",
-          "status": "PENDING"
-        },
-        {
-          "id": "M3",
-          "kill": "no relevant conserved human context",
-          "name": "Human bridge",
-          "status": "PENDING"
-        },
-        {
-          "id": "M4",
-          "kill": "critical Morpheus failure unresolved",
-          "name": "Adversarial survival",
-          "status": "PENDING"
-        },
-        {
-          "id": "M5",
-          "kill": "no falsifiable perturbation test",
-          "name": "Experiment specification",
-          "status": "PENDING"
-        }
-      ],
-      "pmid_sources": [
-        "PMID:42793312",
-        "PMID:42833632"
-      ],
-      "priority_rank": 6,
-      "source_count": 2,
-      "sources": [
-        "PMID:42793312",
-        "PMID:42833632"
-      ],
-      "stage": "DISCOVERY",
-      "status": "PAUSED",
-      "taxon_proofs": [
-        {
-          "canonical_name": "Hydra oligactis",
-          "kingdom": "Animalia",
-          "match_type": "EXACT",
-          "provider": "GBIF",
-          "rank": "SPECIES",
-          "status": "ACCEPTED",
-          "taxon_key": 5185751
-        }
-      ],
-      "taxon_verified": true,
-      "title": "Hydra oligactis",
-      "updated_at": "2026-10-22T08:42:55.081230+00:00"
+      "updated_at": "2026-10-23T08:38:33.411143+00:00"
     },
     {
       "age_days": 0,
@@ -629,7 +629,7 @@
       ],
       "taxon_verified": true,
       "title": "Eublepharis macularius",
-      "updated_at": "2026-10-22T08:42:55.081232+00:00"
+      "updated_at": "2026-10-23T08:38:33.411146+00:00"
     },
     {
       "age_days": 0,
@@ -706,7 +706,7 @@
       ],
       "taxon_verified": true,
       "title": "Drosophila melanogaster",
-      "updated_at": "2026-10-22T08:42:55.081234+00:00"
+      "updated_at": "2026-10-23T08:38:33.411148+00:00"
     },
     {
       "age_days": 0,
@@ -783,7 +783,7 @@
       ],
       "taxon_verified": true,
       "title": "Paracentrotus lividus",
-      "updated_at": "2026-10-22T08:42:55.081236+00:00"
+      "updated_at": "2026-10-23T08:38:33.411150+00:00"
     },
     {
       "age_days": 0,
@@ -854,7 +854,7 @@
       ],
       "taxon_verified": true,
       "title": "Caenorhabditis elegans",
-      "updated_at": "2026-10-22T08:42:55.081238+00:00"
+      "updated_at": "2026-10-23T08:38:33.411152+00:00"
     },
     {
       "age_days": 0,
@@ -921,7 +921,7 @@
       "stage": "DISCOVERY",
       "status": "PAUSED",
       "title": "Insulin resistance",
-      "updated_at": "2026-10-22T08:42:55.081240+00:00"
+      "updated_at": "2026-10-23T08:38:33.411154+00:00"
     },
     {
       "age_days": 0,
@@ -986,7 +986,7 @@
       "stage": "DISCOVERY",
       "status": "PAUSED",
       "title": "Neurological disorders",
-      "updated_at": "2026-10-22T08:42:55.081241+00:00"
+      "updated_at": "2026-10-23T08:38:33.411156+00:00"
     },
     {
       "age_days": 0,
@@ -1050,7 +1050,7 @@
       "stage": "DISCOVERY",
       "status": "PAUSED",
       "title": "Pituitary adenylate",
-      "updated_at": "2026-10-22T08:42:55.081243+00:00"
+      "updated_at": "2026-10-23T08:38:33.411157+00:00"
     },
     {
       "age_days": 0,
@@ -1247,7 +1247,7 @@
       "stage": "DISCOVERY",
       "status": "PAUSED",
       "title": "This review",
-      "updated_at": "2026-10-22T08:42:55.081245+00:00"
+      "updated_at": "2026-10-23T08:38:33.411159+00:00"
     },
     {
       "age_days": 0,
@@ -1357,7 +1357,7 @@
       "stage": "DISCOVERY",
       "status": "PAUSED",
       "title": "These findings",
-      "updated_at": "2026-10-22T08:42:55.081247+00:00"
+      "updated_at": "2026-10-23T08:38:33.411161+00:00"
     },
     {
       "age_days": 0,
@@ -1470,7 +1470,7 @@
       "stage": "DISCOVERY",
       "status": "PAUSED",
       "title": "This study",
-      "updated_at": "2026-10-22T08:42:55.081248+00:00"
+      "updated_at": "2026-10-23T08:38:33.411163+00:00"
     },
     {
       "age_days": 0,
@@ -1539,7 +1539,7 @@
       "stage": "DISCOVERY",
       "status": "PAUSED",
       "title": "Wound healing",
-      "updated_at": "2026-10-22T08:42:55.081250+00:00"
+      "updated_at": "2026-10-23T08:38:33.411165+00:00"
     },
     {
       "age_days": 0,
@@ -1624,7 +1624,7 @@
       "stage": "DISCOVERY",
       "status": "PAUSED",
       "title": "Emerging evidence",
-      "updated_at": "2026-10-22T08:42:55.081252+00:00"
+      "updated_at": "2026-10-23T08:38:33.411166+00:00"
     },
     {
       "age_days": 0,
@@ -1723,8 +1723,8 @@
       "stage": "DISCOVERY",
       "status": "PAUSED",
       "title": "This narrative",
-      "updated_at": "2026-10-22T08:42:55.081253+00:00"
+      "updated_at": "2026-10-23T08:38:33.411168+00:00"
     }
   ],
-  "updated_at": "2026-10-22T08:42:55.081255+00:00"
+  "updated_at": "2026-10-23T08:38:33.411170+00:00"
 }
