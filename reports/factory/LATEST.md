@@ -1,7 +1,7 @@
-# BIO-MIMIC X V7 Discovery Factory — 2026-10-23T08:41:53.091040+00:00
+# BIO-MIMIC X V7 Discovery Factory — 2026-10-25T08:35:18.982027+00:00
 
 **Status:** PASS
-**Replay SHA-256:** `36fd1d176bfa7c0b415ab8f8c4f69645e776ca4dbc7ead575c5de05f4c75c865`
+**Replay SHA-256:** `df54c0077a5607001f4b2952ef60a967efb51e60ed2b756b3ac5f57194472050`
 
 ## Active programs
 - PRG-4514111357 · Somniosus microcephalus · score 61 · labs longevity
@@ -17,10 +17,10 @@
 - AION-NEXUS Mission Graph: PASS · missions_with_no_unresolved_dependency=6 · output=mission_graphs
 - DEVOPS-X Data Fusion Engine: PASS · valid_artifact_ratio=1.0 · output=normalized_bundle
 - AgentShield Trust Gateway: PASS · rejected_untrusted_records=0 · output=trusted_bundle
-- Novel Species Hunter: PASS · novel_candidate_yield=13 · output=committee.portfolio
+- Novel Species Hunter: PASS · novel_candidate_yield=14 · output=committee.portfolio
 - Deterministic Decision Engine / Scientific Investment Committee: PASS · credits_sum_to_100=100 · output=committee.allocations
 - Evidence Network / Claim Ledger: PASS · replicated_claims_with_provenance_ratio=1.0 · output=claim_ledger
-- DUALITY-X + Arbiter: PASS · mean_disagreement=7.923 · output=committee.portfolio
+- DUALITY-X + Arbiter: PASS · mean_disagreement=7.714 · output=committee.portfolio
 - Morpheus Adversarial Engine: PASS · falsifiable_failure_modes_per_program=5.0 · output=morpheus_audits
 - Ω-CAUSAL + Uncertainty Engine: PASS · claims_with_counterfactual_test=6 · output=causal_plans
 - Negative Knowledge Graph: PASS · repeated_dead_ends_prevented=0 · output=negative_filter
@@ -34,7 +34,7 @@
 - BENCHMARK-X10: PASS · delta_vs_baseline=1.5964 · output=benchmark
 - Ω-FOUNDRY + MAP-Elites/Novelty: PASS · policy_variant_diversity=8 · output=policy_variants
 - Model Immune System / Self-Improvement Gate: PASS · unsafe_policy_changes_blocked=1 · output=policy_gate
-- Ω-MEMORY / Knowledge Graph: PASS · new_provenance_edges=19 · output=state/factory/long_term_memory.json
+- Ω-MEMORY / Knowledge Graph: PASS · new_provenance_edges=20 · output=state/factory/long_term_memory.json
 - Ω Scientific Discovery Memory: PASS · reasoning_hypotheses_retained=51 · output=state/factory/scientific_reasoning_memory.json
 - Ω-TELEMETRY: PASS · brick_observability_ratio=1.0 · output=telemetry
 - DEVOPS-X Reliability Layer: PASS · successful_daily_cycle_ratio=1.0 · output=validated_state
