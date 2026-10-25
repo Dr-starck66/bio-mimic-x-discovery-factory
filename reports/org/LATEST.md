@@ -1,6 +1,6 @@
-# BIO-MIMIC X V6 Scientific Investment Committee — 2026-10-23T08:38:33.309575+00:00
+# BIO-MIMIC X V6 Scientific Investment Committee — 2026-10-25T08:28:34.207431+00:00
 
-**Organization replay SHA-256:** `722f958777744dcb7ed728f1eb003c66ccdee978b5344548a71126f62b840aef`
+**Organization replay SHA-256:** `3c2692e531b5da73951d9ef3f2e97f11e854a620eb9ef5ec98c09173703bb43e`
 
 ## Laboratory status
 - ONCO-X Lab: PASS · 35 papers · 0 candidates
@@ -8,7 +8,7 @@
 - LONGEVITY-X Lab: PASS · 35 papers · 3 candidates
 - METABOLIC-X Lab: PASS · 35 papers · 0 candidates
 - NEURO-X Lab: PASS · 35 papers · 0 candidates
-- PRESERVE-X Lab: PASS · 35 papers · 4 candidates
+- PRESERVE-X Lab: PASS · 35 papers · 5 candidates
 - REGEN-X Lab: PASS · 35 papers · 3 candidates
 
 ## Top portfolio
@@ -77,13 +77,18 @@
 - Sources: 1 · mechanisms: cryoprotectant
 - Challenge flags: correlation does not prove causation, cryoprotectant toxicity, human functional divergence remains possible, reperfusion injury, single-paper dependence, taxonomy not annotation-supported
 
+### Tursiops truncatus — Committee 35/100
+- Labs: preservation
+- Sources: 1 · mechanisms: cryoprotectant
+- Challenge flags: correlation does not prove causation, cryoprotectant toxicity, human functional divergence remains possible, reperfusion injury, single-paper dependence, taxonomy not annotation-supported
+
 ## Research-credit allocation
-- Somniosus microcephalus: 10 credits
+- Somniosus microcephalus: 9 credits
 - Acomys cahirinus: 9 credits
-- Danio rerio: 9 credits
-- Cynops pyrrhogaster: 9 credits
-- Hydra vulgaris: 9 credits
-- Hydra oligactis: 8 credits
+- Danio rerio: 8 credits
+- Cynops pyrrhogaster: 8 credits
+- Hydra vulgaris: 8 credits
+- Hydra oligactis: 7 credits
 - Rousettus aegyptiacus: 7 credits
 - Tadarida brasiliensis: 7 credits
 - Eptesicus fuscus: 7 credits
@@ -91,6 +96,7 @@
 - Paracentrotus lividus: 7 credits
 - Caenorhabditis elegans: 6 credits
 - Neophocaena asiaeorientalis: 5 credits
+- Tursiops truncatus: 5 credits
 
 ## Cross-lab challenge plan
 - immunology challenges cancer: Re-audit the top hypothesis using the challenger lab's confounders and require at least one falsifiable counter-test.

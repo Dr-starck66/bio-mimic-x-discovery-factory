@@ -6,7 +6,7 @@
         "longevity"
       ],
       "name": "Somniosus microcephalus",
-      "research_credits": 10
+      "research_credits": 9
     },
     {
       "committee_score": 59,
@@ -22,7 +22,7 @@
         "regeneration"
       ],
       "name": "Danio rerio",
-      "research_credits": 9
+      "research_credits": 8
     },
     {
       "committee_score": 55,
@@ -30,7 +30,7 @@
         "regeneration"
       ],
       "name": "Cynops pyrrhogaster",
-      "research_credits": 9
+      "research_credits": 8
     },
     {
       "committee_score": 54,
@@ -38,7 +38,7 @@
         "longevity"
       ],
       "name": "Hydra vulgaris",
-      "research_credits": 9
+      "research_credits": 8
     },
     {
       "committee_score": 50,
@@ -46,7 +46,7 @@
         "longevity"
       ],
       "name": "Hydra oligactis",
-      "research_credits": 8
+      "research_credits": 7
     },
     {
       "committee_score": 45,
@@ -102,6 +102,14 @@
         "preservation"
       ],
       "name": "Neophocaena asiaeorientalis",
+      "research_credits": 5
+    },
+    {
+      "committee_score": 35,
+      "labs": [
+        "preservation"
+      ],
+      "name": "Tursiops truncatus",
       "research_credits": 5
     }
   ],
@@ -160,7 +168,7 @@
       "id": "cancer",
       "name": "ONCO-X Lab",
       "paper_count": 35,
-      "sha256": "e0b227ecb112d620a44c7cc824c1c59254a6b941d42c8162a2165fa651c6fcd4",
+      "sha256": "a5e0e76b782435c68c37a1339209093da79b784157e595889b1b11ad31c61f17",
       "status": "PASS"
     },
     {
@@ -168,7 +176,7 @@
       "id": "immunology",
       "name": "IMMUNO-X Lab",
       "paper_count": 35,
-      "sha256": "02ff33e1bc469e136df2bd44162672a1b61bc113a04b2108a23879632e86563e",
+      "sha256": "d9d80f43e682434d684327dadb8b5bba69da6bace8427c92c3190563be0ad2b1",
       "status": "PASS"
     },
     {
@@ -176,7 +184,7 @@
       "id": "longevity",
       "name": "LONGEVITY-X Lab",
       "paper_count": 35,
-      "sha256": "d0f9f4a21c5fd00076a44a9448283154912f50fd66d34769517dc8daca61119e",
+      "sha256": "ac1ddcfa606facfacb16c4e1833174d87705c87dac58e7805a41b0a72f800d4f",
       "status": "PASS"
     },
     {
@@ -184,7 +192,7 @@
       "id": "metabolism",
       "name": "METABOLIC-X Lab",
       "paper_count": 35,
-      "sha256": "e3786281440e4c0e1036675f6dd16363936a90ff20f9fbd56efc6e158ad4335e",
+      "sha256": "6b488edb15a983c700b7c58206bdfc61771d1b4a2d14d2de2cc5f5498e0e11fa",
       "status": "PASS"
     },
     {
@@ -192,15 +200,15 @@
       "id": "neuro",
       "name": "NEURO-X Lab",
       "paper_count": 35,
-      "sha256": "fc054e209973d78a7d5c80ba20929aa1557521a600f3258c6edf2e1529cfd87f",
+      "sha256": "6a79c757a6012ac0b5eae6c6996a8df021b2f6e2177ccf1ad8c27cd44b4c6345",
       "status": "PASS"
     },
     {
-      "candidate_count": 4,
+      "candidate_count": 5,
       "id": "preservation",
       "name": "PRESERVE-X Lab",
       "paper_count": 35,
-      "sha256": "211891fc6cd9517be98c59a83c57b7bf96dd25cd07d1ce2c0022629c5251c4df",
+      "sha256": "0c0a28a05ff96948b68a6f0ecf9095da04962f000cd82fd196488eb2e5cc02fa",
       "status": "PASS"
     },
     {
@@ -208,7 +216,7 @@
       "id": "regeneration",
       "name": "REGEN-X Lab",
       "paper_count": 35,
-      "sha256": "c885cdde2dc1a6f22c799287c553b70f699235e093d5f5832f48fd174e9f44a6",
+      "sha256": "78925357cc10a2a04b48b220b377fa8c6874a5d44c320dba5d110cc584875762",
       "status": "PASS"
     }
   ],
@@ -842,9 +850,54 @@
         }
       ],
       "taxon_verified": true
+    },
+    {
+      "annotation_support": false,
+      "challenges": [
+        "correlation does not prove causation",
+        "cryoprotectant toxicity",
+        "human functional divergence remains possible",
+        "reperfusion injury",
+        "single-paper dependence",
+        "taxonomy not annotation-supported",
+        "whole-animal vs isolated-organ mismatch"
+      ],
+      "committee_score": 35,
+      "genes": [
+        "CNKI"
+      ],
+      "independent_source_count": 1,
+      "lab_count": 1,
+      "labs": [
+        "preservation"
+      ],
+      "mean_arbiter": 30.0,
+      "mechanisms": [
+        "cryoprotectant"
+      ],
+      "name": "Tursiops truncatus",
+      "pmid_sources": [
+        "PMID:42511070"
+      ],
+      "source_count": 1,
+      "sources": [
+        "PMID:42511070"
+      ],
+      "taxon_proofs": [
+        {
+          "canonical_name": "Tursiops truncatus",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 2440447
+        }
+      ],
+      "taxon_verified": true
     }
   ],
   "schema": "biomimic-v6-org-run-v1",
-  "sha256": "722f958777744dcb7ed728f1eb003c66ccdee978b5344548a71126f62b840aef",
-  "time": "2026-10-23T08:38:33.309575+00:00"
+  "sha256": "3c2692e531b5da73951d9ef3f2e97f11e854a620eb9ef5ec98c09173703bb43e",
+  "time": "2026-10-25T08:28:34.207431+00:00"
 }
