@@ -2,12 +2,12 @@
 16 octobre 2026 — proposition de protocole pour discussion avec un laboratoire spécialisé.
 
 ## Diagnostic actuel (ne pas masquer les résultats)
-Deux jeux de mesures biologiques réels ont été retraités par le logiciel, avec une hypothèse consignée **avant** inspection : GSE74387 et GSE113081. Le test préenregistré **ne passe pas dans les deux cohortes**. La validation causale et la découverte originale restent non prouvées. Réf. `validation/PREREG-GEO-2026-10-16.md`; sorties machine dans les artefacts du workflow `geo-realdata-audit`.
+Deux jeux de mesures biologiques réels ont été retraités par le logiciel, avec une hypothèse consignée **avant** inspection : GSE74387 et GSE113081. Le **critère global de réplication préenregistré n'est pas atteint** : la cohorte GSE113081 satisfait individuellement le critère, contrairement à GSE74387. La validation causale et la découverte originale restent non prouvées. Réf. `validation/PREREG-GEO-2026-10-16.md`; sorties machine dans les artefacts du workflow `geo-realdata-audit`.
 
 ## Nouvelle hypothèse causale, prospectivement falsifiable
 **Une matrice extracellulaire issue d'Acomys et des facteurs solubles issus de macrophages d'Acomys interagissent de manière non additive pour réduire la différenciation myofibroblastique des fibroblastes de Mus.**
 
-Ceci est une **proposition** d'hypothèse, pas une découverte revendiquée. Avant brevetabilité ou commercialisation, réaliser une revue d'antériorité ciblée. L'effet de sécrétions macrophagiques d'Acomys sur des fibroblastes (Adam et al., Developmental Cell, 2024), et des ECM d'Acomys sur des macrophages (ACS Biomaterials, 2025) sont déjà publiés. Notre hypothèse concerne une **interaction croisée factorielle** dont la nouveauté reste à vérifier.
+Ceci est une **proposition** d'hypothèse, pas une découverte revendiquée. Avant brevetabilité ou commercialisation, réaliser une revue d'antériorité ciblée. L'effet de sécrétions macrophagiques d'Acomys sur des fibroblastes (Simkin et al., *Developmental Cell*, 2024, DOI : 10.1016/j.devcel.2023.12.017), et des ECM d'Acomys sur des macrophages (Dill et al., *ACS Biomaterials Science & Engineering*, 2025, DOI : 10.1021/acsbiomaterials.5c00810) sont déjà publiés. Notre hypothèse concerne une **interaction croisée factorielle** dont la nouveauté reste à vérifier.
 
 ## Expérience proposée par laboratoire tiers
 Système *in vitro* idéalement alimenté par matériaux existants (limiter coûts et nouveaux animaux) ; fibroblastes primaires de Mus dans les quatre conditions factoriellement randomisées :
@@ -42,3 +42,7 @@ Critères secondaires séparés (non requalifiables en critère primaire si éch
 - Recherche collaborative sans financement initial souhaitée, mais **aucune gratuité ou acceptation présumée**.
 
 Références : PMID 38228141 (macrophages), PMID 40407745 (ECM cell-derived), PMID 40534468 (protéomique ECM), GSE74387, GSE113081.
+
+
+---
+**Note éditoriale du 27 octobre 2026 (sans modification du plan préenregistré du 16 octobre) :** précision du résultat relatif aux deux cohortes et correction des références des premières autrices (Simkin 2024 ; Dill 2025). Les résultats défavorables, les critères scientifiques et les exigences de validation restent inchangés. Voir [l'audit chiffré du 27 octobre](NOTE-INTERPRETATION-GEO-2026-10-27.md).
