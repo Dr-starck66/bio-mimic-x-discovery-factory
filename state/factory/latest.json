@@ -230,7 +230,7 @@
       "output_ref": "human_translation_result",
       "stage": "TRANSLATE",
       "status": "PARTIAL",
-      "time": "2026-10-26T09:24:17.916621+00:00",
+      "time": "2026-10-27T09:24:45.418400+00:00",
       "value": 0.5833
     },
     {
@@ -365,12 +365,12 @@
     }
   ],
   "bridge_refresh": {
-    "previous_cycle_sha256": "7d05777eb6794cc59fb375a83c1468acbdcb910a40680d78101abbdb43deb170",
+    "previous_cycle_sha256": "a1c5e47fc4e1d6768b032a335725ec18bb115bec05f0c283b78044838e882cbe",
     "status": "PARTIAL",
     "strict_orthology_candidates": 7,
     "strict_orthology_coverage_ratio": 0.5833,
     "supported_claims": 12,
-    "time": "2026-10-26T09:24:17.916621+00:00",
+    "time": "2026-10-27T09:24:45.418400+00:00",
     "translation_coverage_ratio": 0.5833,
     "translation_verified_candidates": 7
   },
@@ -380329,85 +380329,6 @@
       },
       {
         "animal_ensembl_species": null,
-        "animal_genbank_nucleotide": "D63339",
-        "animal_genbank_protein": "BAA09657.1",
-        "animal_gene": "SHH",
-        "animal_species": "Cynops pyrrhogaster",
-        "animal_taxon_id": 8330,
-        "animal_uniprot": "Q90385",
-        "bridge_evidence_pmids": [
-          "17318658",
-          "39595071"
-        ],
-        "bridge_seed_rationale": "Peer-reviewed Hedgehog-family phylogeny explicitly includes Cynops pyrrhogaster SHH Q90385 alongside human SHH, IHH and DHH, providing paralog discrimination. A 2024 Cynops regeneration study independently cloned the species' Shh transcript (PQ306330) from limb blastema.",
-        "clinical_efficacy_claim": false,
-        "human_biotype": "protein_coding",
-        "human_ensembl_id": "ENSG00000164690",
-        "human_name": "sonic hedgehog signaling molecule",
-        "human_symbol": "SHH",
-        "modern_transcript_genbank": "PQ306330",
-        "orthology": {
-          "exact_species_accession": "Q90385",
-          "human_target_in_phylogeny": "human SHH",
-          "method": "Neighbor-joining phylogeny of 21 Hedgehog-family proteins after Clustal X alignment; 500 bootstrap replicates; Poisson-corrected distances.",
-          "paralog_controls": [
-            "human IHH",
-            "human DHH"
-          ],
-          "phylogeny_doi": "10.1007/s00427-007-0139-2",
-          "phylogeny_pmid": "17318658",
-          "provider": "Peer-reviewed phylogenetic orthology"
-        },
-        "source_chain": [
-          "replicated PMID species claim",
-          "reviewed UniProt exact-species protein",
-          "peer-reviewed Hedgehog-family phylogeny with human SHH/IHH/DHH paralog discrimination",
-          "independent modern exact-species Shh transcript cloning in regenerative tissue",
-          "Open Targets human Ensembl target validation"
-        ],
-        "source_claim_pmids": [
-          "PMID:40230354",
-          "PMID:41751333",
-          "PMID:42702818"
-        ],
-        "tractability": [
-          {
-            "label": "Structure with Ligand",
-            "modality": "SM"
-          },
-          {
-            "label": "High-Quality Ligand",
-            "modality": "SM"
-          },
-          {
-            "label": "Druggable Family",
-            "modality": "SM"
-          },
-          {
-            "label": "UniProt loc high conf",
-            "modality": "AB"
-          },
-          {
-            "label": "GO CC high conf",
-            "modality": "AB"
-          },
-          {
-            "label": "UniProt loc med conf",
-            "modality": "AB"
-          },
-          {
-            "label": "UniProt SigP or TMHMM",
-            "modality": "AB"
-          },
-          {
-            "label": "Small Molecule Binder",
-            "modality": "PR"
-          }
-        ],
-        "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
-      },
-      {
-        "animal_ensembl_species": null,
         "animal_gene": "A0A0B4KEJ3",
         "animal_species": "Drosophila melanogaster",
         "animal_uniprot": "A0A0B4KEJ3",
@@ -380836,6 +380757,89 @@
       },
       {
         "animal_ensembl_species": null,
+        "animal_genbank_nucleotide": "D63339",
+        "animal_genbank_protein": "BAA09657.1",
+        "animal_gene": "SHH",
+        "animal_species": "Cynops pyrrhogaster",
+        "animal_taxon_id": 8330,
+        "animal_uniprot": "Q90385",
+        "bridge_evidence_pmids": [
+          "17318658",
+          "39595071"
+        ],
+        "bridge_seed_rationale": "Peer-reviewed Hedgehog-family phylogeny explicitly includes Cynops pyrrhogaster SHH Q90385 alongside human SHH, IHH and DHH, providing paralog discrimination. A 2024 Cynops regeneration study independently cloned the species' Shh transcript (PQ306330) from limb blastema.",
+        "cache_miss_count": 1,
+        "cache_reason": "Current live providers did not reproduce this previously verified strict bridge; retained temporarily pending revalidation.",
+        "clinical_efficacy_claim": false,
+        "human_biotype": "protein_coding",
+        "human_ensembl_id": "ENSG00000164690",
+        "human_name": "sonic hedgehog signaling molecule",
+        "human_symbol": "SHH",
+        "last_live_verified_at": "2026-10-26T09:24:17.916621+00:00",
+        "modern_transcript_genbank": "PQ306330",
+        "orthology": {
+          "exact_species_accession": "Q90385",
+          "human_target_in_phylogeny": "human SHH",
+          "method": "Neighbor-joining phylogeny of 21 Hedgehog-family proteins after Clustal X alignment; 500 bootstrap replicates; Poisson-corrected distances.",
+          "paralog_controls": [
+            "human IHH",
+            "human DHH"
+          ],
+          "phylogeny_doi": "10.1007/s00427-007-0139-2",
+          "phylogeny_pmid": "17318658",
+          "provider": "Peer-reviewed phylogenetic orthology"
+        },
+        "source_chain": [
+          "replicated PMID species claim",
+          "reviewed UniProt exact-species protein",
+          "peer-reviewed Hedgehog-family phylogeny with human SHH/IHH/DHH paralog discrimination",
+          "independent modern exact-species Shh transcript cloning in regenerative tissue",
+          "Open Targets human Ensembl target validation"
+        ],
+        "source_claim_pmids": [
+          "PMID:40230354",
+          "PMID:41751333",
+          "PMID:42702818"
+        ],
+        "tractability": [
+          {
+            "label": "Structure with Ligand",
+            "modality": "SM"
+          },
+          {
+            "label": "High-Quality Ligand",
+            "modality": "SM"
+          },
+          {
+            "label": "Druggable Family",
+            "modality": "SM"
+          },
+          {
+            "label": "UniProt loc high conf",
+            "modality": "AB"
+          },
+          {
+            "label": "GO CC high conf",
+            "modality": "AB"
+          },
+          {
+            "label": "UniProt loc med conf",
+            "modality": "AB"
+          },
+          {
+            "label": "UniProt SigP or TMHMM",
+            "modality": "AB"
+          },
+          {
+            "label": "Small Molecule Binder",
+            "modality": "PR"
+          }
+        ],
+        "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
+        "verification_mode": "LAST_KNOWN_GOOD_CACHE"
+      },
+      {
+        "animal_ensembl_species": null,
         "animal_gene": "WNT2",
         "animal_species": "Paracentrotus lividus",
         "animal_taxon_id": 7656,
@@ -380844,11 +380848,14 @@
         ],
         "bridge_scope": "species-level strict orthology anchor only; the preservation/cryopreservation translation path remains the separate DMSO/trehalose functional bridge",
         "bridge_seed_rationale": "Robert et al. 2019 explicitly identify a WNT2 ortholog in Paracentrotus lividus and report both Maximum Likelihood and Bayesian phylogenetic analyses with Homo sapiens WNT sequences included.",
+        "cache_miss_count": 1,
+        "cache_reason": "Current live providers did not reproduce this previously verified strict bridge; retained temporarily pending revalidation.",
         "clinical_efficacy_claim": false,
         "human_biotype": "protein_coding",
         "human_ensembl_id": "ENSG00000105989",
         "human_name": "Wnt family member 2",
         "human_symbol": "WNT2",
+        "last_live_verified_at": "2026-10-26T09:24:17.916621+00:00",
         "orthology": {
           "human_in_phylogeny": true,
           "orthology_doi": "10.1002/dvg.23331",
@@ -380887,7 +380894,8 @@
             "modality": "AB"
           }
         ],
-        "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+        "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
+        "verification_mode": "LAST_KNOWN_GOOD_CACHE"
       },
       {
         "animal_ensembl_species": null,
@@ -380901,11 +380909,14 @@
         ],
         "bridge_scope": "endogenous freeze-tolerance mechanism; independent of the exogenous ice-binding-protein intervention",
         "bridge_seed_rationale": "Exact-species freeze-thaw genetics requires DAF-16 downstream of daf-2, while independent human-to-worm complementation work demonstrates that human FKHRL1/FOXO3 can partially replace DAF-16. This supports a conserved FOXO-family relationship without asserting one-to-one orthology or human clinical efficacy.",
+        "cache_miss_count": 1,
+        "cache_reason": "Current live providers did not reproduce this previously verified strict bridge; retained temporarily pending revalidation.",
         "clinical_efficacy_claim": false,
         "human_biotype": "protein_coding",
         "human_ensembl_id": "ENSG00000118689",
         "human_name": "forkhead box O3",
         "human_symbol": "FOXO3",
+        "last_live_verified_at": "2026-10-26T09:24:17.916621+00:00",
         "orthology": {
           "functional_orthology_doi": "10.1016/S0960-9822(01)00595-4",
           "functional_orthology_pmid": "11747821",
@@ -380949,11 +380960,16 @@
             "modality": "PR"
           }
         ],
-        "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+        "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
+        "verification_mode": "LAST_KNOWN_GOOD_CACHE"
       }
     ],
-    "cached_bridged_candidates": 0,
-    "cached_subjects": [],
+    "cached_bridged_candidates": 3,
+    "cached_subjects": [
+      "Caenorhabditis elegans",
+      "Cynops pyrrhogaster",
+      "Paracentrotus lividus"
+    ],
     "candidate_status": [
       {
         "bridges": 1,
@@ -381016,7 +381032,7 @@
         "candidate": "Danio rerio",
         "direct_orthology_seed_records_checked": 0,
         "direct_orthology_strict_bridges": 0,
-        "ensembl_species": null,
+        "ensembl_species": "danio_rerio",
         "functional_orthology_context_validated": 0,
         "functional_orthology_evidence_validated": 0,
         "functional_orthology_exact_genes": 0,
@@ -381041,6 +381057,7 @@
       },
       {
         "bridges": 1,
+        "cache_miss_count": 1,
         "candidate": "Cynops pyrrhogaster",
         "direct_orthology_seed_records_checked": 0,
         "direct_orthology_strict_bridges": 0,
@@ -381060,8 +381077,8 @@
         "orthodb_human_orthologs": 0,
         "orthodb_seed_genes_checked": 1,
         "phylogenetic_seed_records_checked": 1,
-        "phylogenetic_strict_bridges": 1,
-        "status": "BRIDGED",
+        "phylogenetic_strict_bridges": 0,
+        "status": "BRIDGED_CACHED",
         "uniprot_annotation_candidates": 10,
         "uniprot_candidates": 11,
         "uniprot_species_gene_candidates": 1,
@@ -381237,9 +381254,10 @@
       },
       {
         "bridges": 1,
+        "cache_miss_count": 1,
         "candidate": "Paracentrotus lividus",
         "direct_orthology_seed_records_checked": 1,
-        "direct_orthology_strict_bridges": 1,
+        "direct_orthology_strict_bridges": 0,
         "ensembl_species": null,
         "functional_orthology_context_validated": 0,
         "functional_orthology_evidence_validated": 0,
@@ -381257,7 +381275,7 @@
         "orthodb_seed_genes_checked": 1,
         "phylogenetic_seed_records_checked": 0,
         "phylogenetic_strict_bridges": 0,
-        "status": "BRIDGED",
+        "status": "BRIDGED_CACHED",
         "uniprot_annotation_candidates": 10,
         "uniprot_candidates": 10,
         "uniprot_species_gene_candidates": 0,
@@ -381265,15 +381283,16 @@
       },
       {
         "bridges": 1,
+        "cache_miss_count": 1,
         "candidate": "Caenorhabditis elegans",
         "direct_orthology_seed_records_checked": 0,
         "direct_orthology_strict_bridges": 0,
         "ensembl_species": null,
-        "functional_orthology_context_validated": 1,
-        "functional_orthology_evidence_validated": 1,
+        "functional_orthology_context_validated": 0,
+        "functional_orthology_evidence_validated": 0,
         "functional_orthology_exact_genes": 1,
         "functional_orthology_seed_records_checked": 1,
-        "functional_orthology_strict_bridges": 1,
+        "functional_orthology_strict_bridges": 0,
         "gene_candidates": 10,
         "ncbi_exact_genes": 1,
         "ncbi_human_orthologs": 0,
@@ -381285,7 +381304,7 @@
         "orthodb_seed_genes_checked": 1,
         "phylogenetic_seed_records_checked": 0,
         "phylogenetic_strict_bridges": 0,
-        "status": "BRIDGED",
+        "status": "BRIDGED_CACHED",
         "uniprot_annotation_candidates": 10,
         "uniprot_candidates": 14,
         "uniprot_species_gene_candidates": 4,
@@ -381293,31 +381312,31 @@
       }
     ],
     "coverage_ratio": 0.5833,
-    "direct_orthology_hits": 1,
+    "direct_orthology_hits": 0,
     "ensembl_orthologue_hits": 0,
     "errors": [],
-    "functional_orthology_hits": 1,
-    "live_bridged_candidates": 7,
+    "functional_orthology_hits": 0,
+    "live_bridged_candidates": 4,
     "ncbi_orthologue_hits": 1,
     "oma_orthologue_hits": 7,
-    "open_targets_hits": 12,
+    "open_targets_hits": 9,
     "orthodb_orthologue_hits": 1,
-    "orthologue_hits": 12,
-    "phylogenetic_orthologue_hits": 1,
+    "orthologue_hits": 9,
+    "phylogenetic_orthologue_hits": 0,
     "provider_status": {
       "Ensembl homology": "PARTIAL",
-      "Ensembl species": "FAIL: The read operation timed out",
+      "Ensembl species": "PASS",
       "Europe PMC annotations": "PASS",
-      "Last-known-good cache": "IDLE",
+      "Last-known-good cache": "PASS",
       "NCBI Ortholog": "PASS",
       "OMA orthology": "PASS",
       "Open Targets": "PASS",
       "OrthoDB v12": "PASS",
-      "Peer-reviewed direct orthology": "PASS",
-      "Peer-reviewed functional orthology": "PASS",
-      "Peer-reviewed phylogenetic orthology": "PASS"
+      "Peer-reviewed direct orthology": "PARTIAL",
+      "Peer-reviewed functional orthology": "PARTIAL",
+      "Peer-reviewed phylogenetic orthology": "PARTIAL"
     },
-    "resolved_species": 0,
+    "resolved_species": 1,
     "status": "PARTIAL"
   },
   "human_translation": [
@@ -381821,11 +381840,14 @@
             "39595071"
           ],
           "bridge_seed_rationale": "Peer-reviewed Hedgehog-family phylogeny explicitly includes Cynops pyrrhogaster SHH Q90385 alongside human SHH, IHH and DHH, providing paralog discrimination. A 2024 Cynops regeneration study independently cloned the species' Shh transcript (PQ306330) from limb blastema.",
+          "cache_miss_count": 1,
+          "cache_reason": "Current live providers did not reproduce this previously verified strict bridge; retained temporarily pending revalidation.",
           "clinical_efficacy_claim": false,
           "human_biotype": "protein_coding",
           "human_ensembl_id": "ENSG00000164690",
           "human_name": "sonic hedgehog signaling molecule",
           "human_symbol": "SHH",
+          "last_live_verified_at": "2026-10-26T09:24:17.916621+00:00",
           "modern_transcript_genbank": "PQ306330",
           "orthology": {
             "exact_species_accession": "Q90385",
@@ -381885,7 +381907,8 @@
               "modality": "PR"
             }
           ],
-          "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+          "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
+          "verification_mode": "LAST_KNOWN_GOOD_CACHE"
         }
       ],
       "claim_pmids": [
@@ -381911,11 +381934,14 @@
               "39595071"
             ],
             "bridge_seed_rationale": "Peer-reviewed Hedgehog-family phylogeny explicitly includes Cynops pyrrhogaster SHH Q90385 alongside human SHH, IHH and DHH, providing paralog discrimination. A 2024 Cynops regeneration study independently cloned the species' Shh transcript (PQ306330) from limb blastema.",
+            "cache_miss_count": 1,
+            "cache_reason": "Current live providers did not reproduce this previously verified strict bridge; retained temporarily pending revalidation.",
             "clinical_efficacy_claim": false,
             "human_biotype": "protein_coding",
             "human_ensembl_id": "ENSG00000164690",
             "human_name": "sonic hedgehog signaling molecule",
             "human_symbol": "SHH",
+            "last_live_verified_at": "2026-10-26T09:24:17.916621+00:00",
             "modern_transcript_genbank": "PQ306330",
             "orthology": {
               "exact_species_accession": "Q90385",
@@ -381975,7 +382001,8 @@
                 "modality": "PR"
               }
             ],
-            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
+            "verification_mode": "LAST_KNOWN_GOOD_CACHE"
           }
         ],
         "clinical_efficacy_claim": false,
@@ -382958,11 +382985,14 @@
           ],
           "bridge_scope": "species-level strict orthology anchor only; the preservation/cryopreservation translation path remains the separate DMSO/trehalose functional bridge",
           "bridge_seed_rationale": "Robert et al. 2019 explicitly identify a WNT2 ortholog in Paracentrotus lividus and report both Maximum Likelihood and Bayesian phylogenetic analyses with Homo sapiens WNT sequences included.",
+          "cache_miss_count": 1,
+          "cache_reason": "Current live providers did not reproduce this previously verified strict bridge; retained temporarily pending revalidation.",
           "clinical_efficacy_claim": false,
           "human_biotype": "protein_coding",
           "human_ensembl_id": "ENSG00000105989",
           "human_name": "Wnt family member 2",
           "human_symbol": "WNT2",
+          "last_live_verified_at": "2026-10-26T09:24:17.916621+00:00",
           "orthology": {
             "human_in_phylogeny": true,
             "orthology_doi": "10.1002/dvg.23331",
@@ -383001,7 +383031,8 @@
               "modality": "AB"
             }
           ],
-          "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+          "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
+          "verification_mode": "LAST_KNOWN_GOOD_CACHE"
         }
       ],
       "claim_pmids": [
@@ -383024,11 +383055,14 @@
             ],
             "bridge_scope": "species-level strict orthology anchor only; the preservation/cryopreservation translation path remains the separate DMSO/trehalose functional bridge",
             "bridge_seed_rationale": "Robert et al. 2019 explicitly identify a WNT2 ortholog in Paracentrotus lividus and report both Maximum Likelihood and Bayesian phylogenetic analyses with Homo sapiens WNT sequences included.",
+            "cache_miss_count": 1,
+            "cache_reason": "Current live providers did not reproduce this previously verified strict bridge; retained temporarily pending revalidation.",
             "clinical_efficacy_claim": false,
             "human_biotype": "protein_coding",
             "human_ensembl_id": "ENSG00000105989",
             "human_name": "Wnt family member 2",
             "human_symbol": "WNT2",
+            "last_live_verified_at": "2026-10-26T09:24:17.916621+00:00",
             "orthology": {
               "human_in_phylogeny": true,
               "orthology_doi": "10.1002/dvg.23331",
@@ -383067,7 +383101,8 @@
                 "modality": "AB"
               }
             ],
-            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
+            "verification_mode": "LAST_KNOWN_GOOD_CACHE"
           }
         ],
         "clinical_efficacy_claim": false,
@@ -383096,11 +383131,14 @@
           ],
           "bridge_scope": "endogenous freeze-tolerance mechanism; independent of the exogenous ice-binding-protein intervention",
           "bridge_seed_rationale": "Exact-species freeze-thaw genetics requires DAF-16 downstream of daf-2, while independent human-to-worm complementation work demonstrates that human FKHRL1/FOXO3 can partially replace DAF-16. This supports a conserved FOXO-family relationship without asserting one-to-one orthology or human clinical efficacy.",
+          "cache_miss_count": 1,
+          "cache_reason": "Current live providers did not reproduce this previously verified strict bridge; retained temporarily pending revalidation.",
           "clinical_efficacy_claim": false,
           "human_biotype": "protein_coding",
           "human_ensembl_id": "ENSG00000118689",
           "human_name": "forkhead box O3",
           "human_symbol": "FOXO3",
+          "last_live_verified_at": "2026-10-26T09:24:17.916621+00:00",
           "orthology": {
             "functional_orthology_doi": "10.1016/S0960-9822(01)00595-4",
             "functional_orthology_pmid": "11747821",
@@ -383144,7 +383182,8 @@
               "modality": "PR"
             }
           ],
-          "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+          "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
+          "verification_mode": "LAST_KNOWN_GOOD_CACHE"
         }
       ],
       "claim_pmids": [
@@ -383168,11 +383207,14 @@
             ],
             "bridge_scope": "endogenous freeze-tolerance mechanism; independent of the exogenous ice-binding-protein intervention",
             "bridge_seed_rationale": "Exact-species freeze-thaw genetics requires DAF-16 downstream of daf-2, while independent human-to-worm complementation work demonstrates that human FKHRL1/FOXO3 can partially replace DAF-16. This supports a conserved FOXO-family relationship without asserting one-to-one orthology or human clinical efficacy.",
+            "cache_miss_count": 1,
+            "cache_reason": "Current live providers did not reproduce this previously verified strict bridge; retained temporarily pending revalidation.",
             "clinical_efficacy_claim": false,
             "human_biotype": "protein_coding",
             "human_ensembl_id": "ENSG00000118689",
             "human_name": "forkhead box O3",
             "human_symbol": "FOXO3",
+            "last_live_verified_at": "2026-10-26T09:24:17.916621+00:00",
             "orthology": {
               "functional_orthology_doi": "10.1016/S0960-9822(01)00595-4",
               "functional_orthology_pmid": "11747821",
@@ -383216,7 +383258,8 @@
                 "modality": "PR"
               }
             ],
-            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
+            "verification_mode": "LAST_KNOWN_GOOD_CACHE"
           }
         ],
         "clinical_efficacy_claim": false,
@@ -383579,11 +383622,14 @@
               "39595071"
             ],
             "bridge_seed_rationale": "Peer-reviewed Hedgehog-family phylogeny explicitly includes Cynops pyrrhogaster SHH Q90385 alongside human SHH, IHH and DHH, providing paralog discrimination. A 2024 Cynops regeneration study independently cloned the species' Shh transcript (PQ306330) from limb blastema.",
+            "cache_miss_count": 1,
+            "cache_reason": "Current live providers did not reproduce this previously verified strict bridge; retained temporarily pending revalidation.",
             "clinical_efficacy_claim": false,
             "human_biotype": "protein_coding",
             "human_ensembl_id": "ENSG00000164690",
             "human_name": "sonic hedgehog signaling molecule",
             "human_symbol": "SHH",
+            "last_live_verified_at": "2026-10-26T09:24:17.916621+00:00",
             "modern_transcript_genbank": "PQ306330",
             "orthology": {
               "exact_species_accession": "Q90385",
@@ -383643,7 +383689,8 @@
                 "modality": "PR"
               }
             ],
-            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
+            "verification_mode": "LAST_KNOWN_GOOD_CACHE"
           }
         ],
         "clinical_efficacy_claim": false,
@@ -384109,11 +384156,14 @@
             ],
             "bridge_scope": "species-level strict orthology anchor only; the preservation/cryopreservation translation path remains the separate DMSO/trehalose functional bridge",
             "bridge_seed_rationale": "Robert et al. 2019 explicitly identify a WNT2 ortholog in Paracentrotus lividus and report both Maximum Likelihood and Bayesian phylogenetic analyses with Homo sapiens WNT sequences included.",
+            "cache_miss_count": 1,
+            "cache_reason": "Current live providers did not reproduce this previously verified strict bridge; retained temporarily pending revalidation.",
             "clinical_efficacy_claim": false,
             "human_biotype": "protein_coding",
             "human_ensembl_id": "ENSG00000105989",
             "human_name": "Wnt family member 2",
             "human_symbol": "WNT2",
+            "last_live_verified_at": "2026-10-26T09:24:17.916621+00:00",
             "orthology": {
               "human_in_phylogeny": true,
               "orthology_doi": "10.1002/dvg.23331",
@@ -384152,7 +384202,8 @@
                 "modality": "AB"
               }
             ],
-            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
+            "verification_mode": "LAST_KNOWN_GOOD_CACHE"
           }
         ],
         "clinical_efficacy_claim": false,
@@ -384179,11 +384230,14 @@
             ],
             "bridge_scope": "endogenous freeze-tolerance mechanism; independent of the exogenous ice-binding-protein intervention",
             "bridge_seed_rationale": "Exact-species freeze-thaw genetics requires DAF-16 downstream of daf-2, while independent human-to-worm complementation work demonstrates that human FKHRL1/FOXO3 can partially replace DAF-16. This supports a conserved FOXO-family relationship without asserting one-to-one orthology or human clinical efficacy.",
+            "cache_miss_count": 1,
+            "cache_reason": "Current live providers did not reproduce this previously verified strict bridge; retained temporarily pending revalidation.",
             "clinical_efficacy_claim": false,
             "human_biotype": "protein_coding",
             "human_ensembl_id": "ENSG00000118689",
             "human_name": "forkhead box O3",
             "human_symbol": "FOXO3",
+            "last_live_verified_at": "2026-10-26T09:24:17.916621+00:00",
             "orthology": {
               "functional_orthology_doi": "10.1016/S0960-9822(01)00595-4",
               "functional_orthology_pmid": "11747821",
@@ -384227,7 +384281,8 @@
                 "modality": "PR"
               }
             ],
-            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
+            "verification_mode": "LAST_KNOWN_GOOD_CACHE"
           }
         ],
         "clinical_efficacy_claim": false,
@@ -387455,7 +387510,7 @@
       "taxon_verified": true
     }
   ],
-  "sha256": "a1c5e47fc4e1d6768b032a335725ec18bb115bec05f0c283b78044838e882cbe",
+  "sha256": "8b7d953584fcd068f363e13a52b78d13c5cd92ad46eea9af1b899f12f0486789",
   "status": "PASS",
   "telemetry": {
     "brick_observability_ratio": 1.0,
