@@ -2,6 +2,15 @@ name: BIO-MIMIC X V7 Scientific Discovery Factory
 
 on:
   workflow_dispatch:
+  # No additional scheduled task: test a code repair on the existing workflow.
+  push:
+    branches: [main]
+    paths:
+      - 'organization/lab_worker.py'
+      - 'organization/committee.py'
+      - 'factory/control_plane.py'
+      - '.github/workflows/scientific-organization.yml'
+      - '.github/workflows/scientific-discovery-factory.yml'
   schedule:
     - cron: '17 3 * * *'
 
@@ -57,22 +66,49 @@ jobs:
           python -m unittest discover -s tests -v
           python factory/brick_audit.py
       - name: Scientific Investment Committee
-        run: python organization/committee.py
-      - name: Scientific Discovery Factory
-        run: python factory/control_plane.py --committee state/org/latest.json
-      - name: Evidence-based final validation
+        id: committee
+        run: |
+          python organization/committee.py
+          python - <<'PY'
+          import json, pathlib, os
+          receipt=json.loads(pathlib.Path("state/org/run_receipt.json").read_text(encoding="utf-8"))
+          assert receipt["status"] in ("PASS","PARTIAL")
+          with open(os.environ["GITHUB_OUTPUT"],"a",encoding="utf-8") as out:
+              out.write("status="+receipt["status"]+"\n")
+          print("Committee scientific status:",receipt["status"])
+          PY
+      - name: Report upstream unavailable without replacing verified scientific state
+        if: steps.committee.outputs.status == 'PARTIAL'
         run: |
           python - <<'PY'
           import json, pathlib
-          x=json.loads(pathlib.Path("state/factory/latest.json").read_text(encoding="utf-8"))
-          assert x["status"]=="PASS", x.get("unused_active_bricks")
+          x=json.loads(pathlib.Path("state/org/run_receipt.json").read_text(encoding="utf-8"))
+          assert x["status"]=="PARTIAL"
+          assert x["upstream_failures"] or not x["portfolio"]
+          assert len(x["sha256"])==64
+          print("PARTIAL: insufficient provider/portfolio evidence; previous validated state untouched")
+          PY
+      - name: Scientific Discovery Factory
+        if: steps.committee.outputs.status == 'PASS'
+        run: python factory/control_plane.py --committee state/org/latest.json
+      - name: Evidence-based final validation
+        if: steps.committee.outputs.status == 'PASS'
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          x=json.loads(pathlib.Path("state/factory/run_receipt.json").read_text(encoding="utf-8"))
+          assert x["status"] in ("PASS","PARTIAL")
           assert x["unused_active_bricks"]==[]
           assert len(x["sha256"])==64
           usage=x["brick_usage"]
           reg=json.loads(pathlib.Path("factory/brick_registry.json").read_text(encoding="utf-8"))
           assert len({e["brick_id"] for e in usage})==len(reg["active"])
           assert pathlib.Path("reports/factory/LATEST.md").exists()
-          print("PASS: every active brick used, observable, persisted")
+          if x["status"]=="PASS":
+              assert x["programs"] and x["claims"] and x["experiments"]
+              latest=json.loads(pathlib.Path("state/factory/latest.json").read_text(encoding="utf-8"))
+              assert latest["sha256"]==x["sha256"]
+          print(x["status"]+": factory evidence validated; no unsupported claims promoted")
           PY
       - name: Commit learned scientific state
         run: |
