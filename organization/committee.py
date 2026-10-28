@@ -102,6 +102,14 @@ def challenge_matrix(outputs):
         })
     return pairs
 
+def scientific_run_status(outputs,portfolio,credits):
+    """An executed committee is not a scientifically successful discovery cycle."""
+    provider_ok=len(outputs)>=5 and all(o.get("status")=="PASS" for o in outputs)
+    funded=bool(portfolio) and bool(credits) and sum(
+        a.get("research_credits",0) for a in credits
+    )==100
+    return "PASS" if provider_ok and funded else "PARTIAL"
+
 def main():
     outputs=merge_outputs()
     if not outputs:
@@ -117,8 +125,12 @@ def main():
         if o.get("status")=="PASS": perf["success"]+=1
         perf["mean_candidates"]=round((perf["mean_candidates"]*(perf["runs"]-1)+o.get("candidate_count",0))/perf["runs"],3)
 
+    status=scientific_run_status(outputs,portfolio,credits)
     org_run={
         "schema":"biomimic-v6-org-run-v1","time":now(),
+        "status":status,
+        "upstream_failures":[{"lab":o.get("lab_id"),"status":o.get("status"),"failures":o.get("failures",[])}
+                             for o in outputs if o.get("status")!="PASS"],
         "labs":[{"id":o["lab_id"],"name":o["lab_name"],"status":o["status"],"paper_count":o["paper_count"],"candidate_count":o["candidate_count"],"sha256":o["sha256"]} for o in outputs],
         "portfolio":portfolio[:50],"allocations":credits,"cross_lab_challenges":challenges,
         "committee_rules":{
@@ -136,14 +148,20 @@ def main():
     })
     memory["committee_history"]=memory["committee_history"][:365]
 
-    save(STATE/"latest.json",org_run)
+    # Every attempt is auditable; an outage cannot overwrite the last valid discovery.
+    save(STATE/"run_receipt.json",org_run)
+    save(PUBLIC/"run_receipt.json",org_run)
+    if status=="PASS":
+        save(STATE/"latest.json",org_run)
+        save(PUBLIC/"latest.json",org_run)
     save(STATE/"organization_memory.json",memory)
-    save(PUBLIC/"latest.json",org_run)
     save(PUBLIC/"memory.json",memory)
 
     lines=[
         f"# BIO-MIMIC X V6 Scientific Investment Committee — {org_run['time']}",
         "",
+        f"**Scientific status:** {status} (not an efficacy claim)",
+        f"**Upstream provider failures:** {len(org_run['upstream_failures'])}",
         f"**Organization replay SHA-256:** `{org_run['sha256']}`",
         "",
         "## Laboratory status",
@@ -169,7 +187,7 @@ def main():
     (REPORTS/(org_run["time"][:10]+".md")).write_text("\n".join(lines),encoding="utf-8")
 
     print(json.dumps({
-        "status":"PASS","labs":len(outputs),"portfolio":len(portfolio),
+        "status":status,"labs":len(outputs),"portfolio":len(portfolio),
         "allocations":len(credits),"sha256":org_run["sha256"]
     }))
 if __name__=="__main__": main()
