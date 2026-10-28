@@ -5,6 +5,14 @@ sys.path.insert(0,str(ROOT/"factory"))
 import program_director, policy_foundry, control_plane
 
 class TestV7Factory(unittest.TestCase):
+    def test_zero_discovery_cannot_be_scientific_pass(self):
+        self.assertEqual(control_plane.scientific_run_status([],1.0,[],[],[]),"PARTIAL")
+        self.assertEqual(control_plane.scientific_run_status([],0.0,[1],[1],[1]),"PARTIAL")
+
+    def test_scientific_status_requires_real_outputs(self):
+        self.assertEqual(control_plane.scientific_run_status([],1.0,[1],[1],[1]),"PASS")
+        self.assertEqual(control_plane.scientific_run_status(["unused"],1.0,[1],[1],[1]),"PARTIAL")
+
     def test_no_decorative_active_brick(self):
         reg=json.loads((ROOT/"factory"/"brick_registry.json").read_text(encoding="utf-8"))
         self.assertGreaterEqual(len(reg["active"]),15)

@@ -1,10 +1,33 @@
-import json, sys, unittest, tempfile
+import json, sys, unittest, tempfile, urllib.error
+from unittest.mock import patch, MagicMock
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/"organization"))
 import lab_worker, committee
 
 class TestV6Organization(unittest.TestCase):
+    def test_provider_503_retries_then_succeeds(self):
+        outage=urllib.error.HTTPError("https://example.org",503,"provider unavailable",{},None)
+        response=MagicMock()
+        response.__enter__.return_value.read.return_value=b'{"resultList":{"result":[]}}'
+        with patch.object(lab_worker.urllib.request,"urlopen",side_effect=[outage,outage,response]) as urlopen, patch.object(lab_worker.time,"sleep") as sleep:
+            self.assertEqual(lab_worker.get_json("https://example.org")["resultList"]["result"],[])
+            self.assertEqual(urlopen.call_count,3)
+            self.assertEqual(sleep.call_count,2)
+
+    def test_provider_403_not_retried(self):
+        forbidden=urllib.error.HTTPError("https://example.org",403,"forbidden",{},None)
+        with patch.object(lab_worker.urllib.request,"urlopen",side_effect=forbidden) as urlopen, patch.object(lab_worker.time,"sleep") as sleep:
+            with self.assertRaises(urllib.error.HTTPError):
+                lab_worker.get_json("https://example.org")
+            self.assertEqual(urlopen.call_count,1)
+            sleep.assert_not_called()
+
+    def test_empty_portfolio_does_not_mint_research_credits(self):
+        self.assertEqual(committee.allocate_credits([]),[])
+        self.assertEqual(committee.scientific_run_status([{"status":"FAIL"}],[],[]),"PARTIAL")
+        self.assertEqual(committee.scientific_run_status([{"status":"PASS"}],[],[]),"PARTIAL")
+
     def test_all_labs_configured(self):
         labs=json.loads((ROOT/"organization"/"labs.json").read_text(encoding="utf-8"))
         self.assertEqual(len(labs),7)

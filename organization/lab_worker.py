@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import argparse, json, math, re, hashlib, urllib.parse, urllib.request, time
+import argparse, json, math, re, hashlib, urllib.parse, urllib.request, urllib.error, time
 from pathlib import Path
 from datetime import datetime, timezone
 
@@ -19,16 +19,24 @@ TAX_CACHE={}
 def now(): return datetime.now(timezone.utc).isoformat()
 def norm(x): return re.sub(r"\s+"," ",(x or "").lower()).strip()
 
-def get_json(url,retries=2):
+def get_json(url,retries=4):
+    """Retry transient provider outages, never bypassing evidence checks."""
     last=None
     for i in range(retries):
         try:
-            req=urllib.request.Request(url,headers={"User-Agent":"BIO-MIMIC-X-V6/1.0"})
+            req=urllib.request.Request(url,headers={
+                "User-Agent":"BIO-MIMIC-X-V6/1.0 (scientific provenance audit)",
+                "Accept":"application/json"
+            })
             with urllib.request.urlopen(req,timeout=TIMEOUT) as r:
                 return json.loads(r.read().decode("utf-8"))
-        except Exception as e:
+        except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError, OSError, ValueError) as e:
             last=e
-            if i<retries-1: time.sleep(0.6*(i+1))
+            transient=(not isinstance(e,urllib.error.HTTPError)
+                       or e.code in (429,500,502,503,504))
+            if not transient or i==retries-1:
+                break
+            time.sleep(min(8.0, 1.5*(2**i)))
     raise last
 
 def latin_mentions(text):
@@ -71,7 +79,7 @@ def validate_gbif_match(name):
     key=norm(name)
     if key in TAX_CACHE: return TAX_CACHE[key]
     try:
-        data=get_json(GBIF_MATCH+"?"+urllib.parse.urlencode({"name":name,"verbose":"true"}),1)
+        data=get_json(GBIF_MATCH+"?"+urllib.parse.urlencode({"name":name,"verbose":"true"}),3)
     except Exception:
         TAX_CACHE[key]=None
         return None

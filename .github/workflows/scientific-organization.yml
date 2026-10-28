@@ -86,13 +86,19 @@ jobs:
         run: |
           python - <<'PY'
           import json, pathlib
-          p=pathlib.Path("state/org/latest.json")
-          x=json.loads(p.read_text(encoding="utf-8"))
+          x=json.loads(pathlib.Path("state/org/run_receipt.json").read_text(encoding="utf-8"))
           assert len(x["labs"]) >= 5
           assert len(x["sha256"]) == 64
-          assert sum(a["research_credits"] for a in x["allocations"]) == 100
           assert pathlib.Path("reports/org/LATEST.md").exists()
-          print("PASS: committee + portfolio + credits + replay")
+          assert x["status"] in ("PASS","PARTIAL"), x["status"]
+          if x["status"]=="PASS":
+            assert x["portfolio"], "PASS cannot describe an empty portfolio"
+            assert sum(a["research_credits"] for a in x["allocations"]) == 100
+            latest=json.loads(pathlib.Path("state/org/latest.json").read_text(encoding="utf-8"))
+            assert latest["sha256"]==x["sha256"]
+            print("PASS: validated committee with funded portfolio")
+          else:
+            print("PARTIAL: upstream evidence unavailable or no eligible portfolio; last verified state preserved")
           PY
 
       - name: Commit new scientific state
@@ -104,5 +110,14 @@ jobs:
             echo "No organization-state change."
           else
             git commit -m "org: autonomous daily scientific cycle"
-            git push
+            for attempt in 1 2 3; do
+              if git push origin HEAD:main; then break; fi
+              if [ "$attempt" -eq 3 ]; then exit 1; fi
+              git fetch --no-tags origin main
+              if ! git rebase origin/main; then
+                git rebase --abort || true
+                exit 1
+              fi
+              python -m unittest discover -s tests -q
+            done
           fi
