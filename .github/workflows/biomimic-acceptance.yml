@@ -1,6 +1,16 @@
 name: BIO-MIMIC X — UI and Scientific Acceptance
 on:
   workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'organization/**'
+      - 'factory/control_plane.py'
+      - 'tests/test_v6_organization.py'
+      - 'tests/test_v7_factory.py'
+      - '.github/workflows/scientific-organization.yml'
+      - '.github/workflows/scientific-discovery-factory.yml'
+      - '.github/workflows/biomimic-acceptance.yml'
   push:
     branches: [main]
     paths:
