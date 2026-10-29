@@ -3,7 +3,7 @@
   "pending_targets": 1,
   "promotion_ready_targets": 0,
   "schema": "biomimic-orthology-watch-v1",
-  "sha256": "72c92643556b358c0aa82a969123b1f744062e311460d1f570cd653f4108f9dc",
+  "sha256": "5442a17c9e7b11fa67429bba58e22957eb24be94bb1cc1e86665254c82944cfa",
   "status": "WATCHING",
   "targets": [
     {
@@ -57,7 +57,7 @@
       "promotion_rule": "Require exact Paracentrotus lividus sequence identity/provenance plus a paralogue-aware orthology chain to human AQP3 from an accepted provider or an explicit phylogenetic dossier, followed by Open Targets validation. Genome presence, inherited Strongylocentrotus gene_name, BLAST similarity, antibody cross-reactivity, or AQP-family membership alone must fail closed.",
       "provider_status": {
         "Ensembl homology": "PARTIAL",
-        "Ensembl species": "PASS",
+        "Ensembl species": "FAIL: The read operation timed out",
         "Europe PMC annotations": "PASS",
         "NCBI Ortholog": "PARTIAL",
         "OMA orthology": "PARTIAL",
@@ -73,5 +73,5 @@
       "strict_providers": []
     }
   ],
-  "time": "2026-10-28T10:30:35.318879+00:00"
+  "time": "2026-10-29T10:51:07.171540+00:00"
 }
