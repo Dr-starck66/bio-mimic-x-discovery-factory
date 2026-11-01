@@ -80,7 +80,8 @@ def build_report(bridge_markdown: str, external_registry: dict, geo_note: str) -
             "supported_claims": total,
             "strict_orthology_candidates": strict,
             "translated_candidates": translated,
-            "interpretation": "Human target identification only; not functional human regeneration",
+            "axolotl_in_supported_claims": bool(re.search(r"^- Ambystoma mexicanum:", bridge_markdown, re.MULTILINE)),
+            "interpretation": "Translation paths include non-gene interventions; only strict orthology counts identified molecular targets, and none establishes human limb regrowth.",
         },
         "retro_geo": {
             "GSE74387": "FAIL_ORIGINAL_CI_INCLUDES_ZERO" if geo_has_failure else "UNVERIFIED",
@@ -126,8 +127,9 @@ def render_markdown(report: dict) -> str:
         "",
         "**Régénération complète d'un membre humain : UNVERIFIED**",
         "",
-        f"- Cibles humaines liées à des espèces du portefeuille : {b['translated_candidates']}/{b['supported_claims']} ; orthologie stricte : {b['strict_orthology_candidates']}/{b['supported_claims']}.",
-        "- Ces comptes ne mesurent ni activité régénératrice humaine ni homologie spécifique axolotl-humain.",
+        f"- Voies de traduction hétérogènes : {b['translated_candidates']}/{b['supported_claims']} ; orthologie stricte : {b['strict_orthology_candidates']}/{b['supported_claims']}.",
+        "- Ces comptes ne mesurent ni activité régénératrice humaine ni homologues axolotl-humain directement établis.",
+        f"- Axolotl directement représenté dans les revendications du rapport source : {b['axolotl_in_supported_claims']}.",
         "- Axolotl : macrophages indispensables, PMID 23690624 ; mémoire Hand2–Shh, PMID 40399677.",
         "- Contexte mammifères : revue PMID 42847253, régénération essentiellement des extrémités de doigts.",
         f"- Réplication rétrospective Acomys/Mus : {g['global_replication']} (GSE74387 FAIL, GSE113081 PASS individuel ; contrôles négatifs préservés).",
@@ -163,7 +165,7 @@ def main() -> int:
         "software_gate": "PASS",
         "human_limb_regeneration": report["human_limb_regeneration_status"],
         "retro_geo": report["retro_geo"]["global_replication"],
-        "verified_human_targets": report["human_bridge"]["translated_candidates"],
+        "translation_paths_count": report["human_bridge"]["translated_candidates"],
         "sha256": report["sha256"],
     }, sort_keys=True))
     return 0
