@@ -126,9 +126,40 @@ def audit_remote(part, timeout=120):
                     raise ValueError('download exceeded byte cap')
                 hasher.update(chunk)
                 output.write(chunk)
+        # Some FTP gateways terminate an otherwise HTTP-200 response early.
+        # Resume ONLY with independently verifiable RFC 7233 ranges and cap retries.
+        resume_log = []
         if expected and total != expected:
-            raise ValueError('Content-Length mismatch; likely truncated')
+            original = total
+            for attempt in range(5):
+                if total >= expected:
+                    break
+                req = urllib.request.Request(url, headers={
+                    'User-Agent':'BIO-MIMIC-X-GEO-integrity/1.0',
+                    'Range':f'bytes={total}-{expected - 1}',
+                    'Accept-Encoding':'identity'})
+                with urllib.request.urlopen(req, timeout=timeout) as rr, open(target,'ab') as output:
+                    range_head = rr.headers.get('Content-Range','')
+                    status = rr.status
+                    accepted = (status == 206 and
+                        range_head.startswith(f'bytes {total}-') and
+                        range_head.endswith(f'/{expected}'))
+                    if not accepted:
+                        raise ValueError(f'full response truncated: received={total}, expected={expected}; resume HTTP={status}, Content-Range={range_head!r}')
+                    before = total
+                    while chunk := rr.read(1024 * 1024):
+                        total += len(chunk)
+                        if total > expected or total > limit:
+                            raise ValueError('range body exceeds expected size')
+                        hasher.update(chunk)
+                        output.write(chunk)
+                    resume_log.append({'attempt': attempt+1, 'bytes':total-before})
+                if total == before:
+                    break
+            if total != expected:
+                raise ValueError(f'file truncated: received={total}, expected={expected}, initial={original}; range_resume={resume_log}')
         report = audit_local(target, url, expected_sha256=hasher.hexdigest())
+        report['resumption'] = resume_log
         report['source_content_length'] = expected or None
         return report
 
