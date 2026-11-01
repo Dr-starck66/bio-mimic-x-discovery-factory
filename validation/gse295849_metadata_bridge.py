@@ -21,7 +21,7 @@ BASE = "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE295nnn/GSE295849/"
 SERIES_URL = BASE + "matrix/GSE295849_series_matrix.txt.gz"
 FILELIST_URL = BASE + "suppl/filelist.txt"
 CLOCK_REPORT = Path(__file__).resolve().parents[1] / "reports/factory/GSE295849-HORVATH2018-REAL-CLOCK-3.json"
-CHIP_RE = re.compile(r"\b\d{12}_R\d{2}C\d{2}\b", flags=re.I)
+CHIP_RE = re.compile(r"(?<![A-Za-z0-9])\d{12}_R\d{2}C\d{2}(?![A-Za-z0-9])", flags=re.I)
 GSM_RE = re.compile(r"\bGSM\d+\b", flags=re.I)
 
 def retrieve(url, max_bytes=2_000_000):
