@@ -22,9 +22,26 @@ URLS={
  "GPL570":"https://ftp.ncbi.nlm.nih.gov/geo/platforms/GPLnnn/GPL570/annot/GPL570.annot.gz",
  "AmexT_v47":"https://www.axolotl-omics.org/dl/AmexT_v47-AmexG_v6.0-DD.gtf.gz",
 }
+EXPECTED_SHA256={
+ "GSE284768":"959ba8dbc7c681fb90489c0896df33650dde2f8496f3fd28c4f0e0d108f96efa",
+ "GSE28914":"b81da74c04ee8ec2f68f3b854b6dcff28297b87cd0282b807bdace41fe8fcb7e",
+ "GPL570":"d7cd44352127b1e34f3a720ebea86093ef255a38f1612a85a2962b71bde8f394",
+ "AmexT_v47":"cc0c3c4e39f3afedcbe2bc5aad1d63fc461714aeb75051f4d109390455874c5d",
+}
 PANEL=("HAND2","SHH","VEGFC","IL10","FSTL1","GPX7","CTHRC1","ACTA2","COL1A1","MMP9","TGFB1","CXCL8")
 ORTHO_CHECK=("HAND2","SHH","VEGFC","FSTL1")
 OUT=ROOT/"reports/factory/AXOLOTL-HUMAN-TRANSCRIPTOMIC-LATEST.json"
+
+
+def validate_source_bytes(name,body):
+    if name not in EXPECTED_SHA256:
+        raise ValueError("unknown source not on verified manifest")
+    if not body.startswith(b"\x1f\x8b"):
+        raise ValueError("missing gzip header")
+    sha=hashlib.sha256(body).hexdigest()
+    if sha!=EXPECTED_SHA256[name]:
+        raise ValueError("source SHA256 mismatch (possibly truncated or revised): "+name)
+    return sha
 
 
 def fetch(name,attempts=3):
@@ -37,9 +54,8 @@ def fetch(name,attempts=3):
                 body=response.read(62_000_001)
             if len(body)>62_000_000:
                 raise ValueError("download exceeds 62 MB cap")
-            if not body.startswith(b"\x1f\x8b"):
-                raise ValueError("missing gzip header (empty or invalid response)")
-            return body,{"source":url,"sha256":hashlib.sha256(body).hexdigest(),"bytes":len(body)}
+            sha=validate_source_bytes(name,body)
+            return body,{"source":url,"sha256":sha,"bytes":len(body)}
         except Exception as err:
             last=err
             if attempt+1<attempts:
@@ -82,6 +98,12 @@ def parse_gtf(data):
             hs=set(re.findall(r'([A-Za-z0-9-]+)\s*\[hs\]',names[0],re.I))
             if len(hs)!=1:continue
             symbol=next(iter(hs)).upper()
+            # Distinct cross-reference symbols, e.g. HAND1 [nr] and HAND2 [hs],
+            # make this locus ambiguous for gene-specific analysis.
+            all_symbols={v.upper() for v in re.findall(
+                r'([A-Za-z][A-Za-z0-9-]*)\s*\[(?:hs|nr)\]',names[0],re.I
+            )}
+            if all_symbols!={symbol}:continue
             if symbol in PANEL:
                 candidates.setdefault(symbol,set()).add(ids[0])
     return {k:sorted(v) for k,v in candidates.items()}
