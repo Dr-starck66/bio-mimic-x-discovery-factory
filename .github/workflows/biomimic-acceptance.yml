@@ -30,6 +30,8 @@ on:
       - 'tests/test_gse295849_skinblood_clock.py'
       - 'validation/gse295849_metadata_bridge.py'
       - 'tests/test_gse295849_metadata_bridge.py'
+      - 'validation/gse295849_paired_analysis.py'
+      - 'tests/test_gse295849_paired_analysis.py'
       - 'validation/axolotl_human_reanalysis.py'
       - 'tests/test_axolotl_human_reanalysis.py'
       - 'tests/test_human_limb_regeneration_gate.py'
@@ -209,15 +211,60 @@ jobs:
           python-version: '3.12'
       - name: Fail-closed sample crosswalk unit tests
         run: python -m unittest tests.test_gse295849_metadata_bridge -v
-      - name: Fetch original GEO series metadata and verify chip-to-GSM IDs
+      - name: Audit 60-source-record snapshot (runner NCBI HTTP 403 not relabeled as live PASS)
         run: |
-          mkdir -p qa-artifacts
-          python validation/gse295849_metadata_bridge.py --out qa-artifacts/GSE295849-METADATA-JOIN.json
+          python - <<'PY'
+          import json,re
+          from pathlib import Path
+          p=Path('reports/factory/GSE295849-REAL-SAMPLE-CROSSWALK-2026-11-02.json')
+          d=json.loads(p.read_text())
+          samples=d['samples']
+          gsm=[s['gsm'] for s in samples]
+          chips=[s['chip_sample_id'] for s in samples]
+          assert len(samples)==60 and len(set(gsm))==60 and len(set(chips))==60
+          assert all(re.fullmatch(r'GSM\d+',g) for g in gsm)
+          assert all(re.fullmatch(r'\d{12}_R\d{2}C\d{2}',c) for c in chips)
+          assert all(s['donor_genotype'] and s['harvest_stage'] and s['cell_type'] and s['treatment'] for s in samples)
+          assert all(any(c in path for path in s['supplementary_files']) for c,s in zip(chips,samples))
+          print('PASS_STORED_GEO_SAMPLE_SNAPSHOT_STRUCTURAL_AUDIT',len(samples))
+          print('LIVE_FTP_METADATA_ACQUISITION_UNVERIFIED_IN_RUNNER: 403 in prior run')
+          PY
       - name: Preserve complete sample metadata & uncertainty
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: gse295849-real-metadata-join
+          path: qa-artifacts/
+          if-no-files-found: warn
+
+  complete-gse295849-paired:
+    name: Complete 60-sample methylation clock, 12-donor paired analysis
+    if: github.event_name == 'pull_request' && github.head_ref == 'science/gse295849-donor-paired-20261102'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install public CPU-only methylation clock
+        run: |
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu 'torch==2.10.0'
+          python -m pip install 'pyaging==0.5.7'
+      - name: Score pinned original NCBI matrices 1 and 2 (sequential transfers)
+        run: |
+          mkdir -p qa-artifacts
+          python validation/gse295849_skinblood_clock.py --part 1 --out qa-artifacts/HORVATH-REAL-PART1.json
+          python validation/gse295849_skinblood_clock.py --part 2 --out qa-artifacts/HORVATH-REAL-PART2.json
+      - name: Compute 12 donor-matched contrasts, preserving unfavorable controls
+        run: |
+          python -m unittest tests.test_gse295849_paired_analysis -v
+          python validation/gse295849_paired_analysis.py --part1 qa-artifacts/HORVATH-REAL-PART1.json --part2 qa-artifacts/HORVATH-REAL-PART2.json --part3 reports/factory/GSE295849-HORVATH2018-REAL-CLOCK-3.json --out qa-artifacts/GSE295849-12-DONOR-PAIRED-REAL.json
+      - name: Save complete evidence, including failed transfers
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gse295849-60-sample-donor-paired-science
           path: qa-artifacts/
           if-no-files-found: warn
 
