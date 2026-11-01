@@ -2,10 +2,10 @@
 // Verify the independently hosted immutable release in an actual Chromium browser.
 // This is software/publication acceptance, NOT independent scientific validation.
 import assert from 'node:assert/strict';
-import {readFile} from 'node:fs/promises';
+import {readFile,writeFile,appendFile,mkdir} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {chromium} from 'playwright-core';
-import {fetchOfficialGeoGzip} from './official-geo-fetch.mjs';
+import {fetchOfficialGeoGzip,isTransientTransportError} from './official-geo-fetch.mjs';
 
 const base='https://duality-x-eco.floot.app';
 const endpoint=base+'/_api/biomimic?path=';
@@ -68,22 +68,55 @@ try{
   await page.waitForFunction(()=>document.querySelector('#localStatus')?.textContent?.includes('UNVERIFIED'),null,{timeout:10000});
   assert.equal(await page.locator('#export').isDisabled(),true,'Tampered file must not be downloadable as verified');
   const official='https://ftp.ncbi.nlm.nih.gov/geo/series/GSE159nnn/GSE159938/soft/GSE159938_family.soft.gz';
-  const officialBytes=await fetchOfficialGeoGzip(official);
-  await page.locator('#upload').setInputFiles({name:'GSE159938_family.soft.gz',mimeType:'application/gzip',buffer:officialBytes});
-  await page.locator('#verify').click();
-  await page.waitForFunction(()=>document.querySelector('#localStatus')?.textContent?.includes('AUDIT LOCAL TERMINÉ'),null,{timeout:10000});
-  const verified=JSON.parse(await page.locator('#localDetails').textContent());
-  assert.equal(verified.status,'NOT_COMPARABLE_ORIGINAL_TIMEPOINTS_AND_STRATA');
-  assert.equal(verified.sample_count,25);
-  assert.equal(verified.by_species.Acomys,12);
-  assert.equal(verified.by_species.Mus,13);
-  assert.equal(verified.compatible_six_cell_strata,0);
-  assert.equal(verified.biological_validation,'UNVERIFIED');
-  assert.equal(await page.locator('#export').isDisabled(),false,'Verified GEO input must enable report export');
-  const [auditDownload]=await Promise.all([page.waitForEvent('download',{timeout:20000}),page.locator('#export').click()]);
-  const exported=JSON.parse(await readFile(await auditDownload.path(),'utf8'));
-  assert.equal(exported.input_sha256,verified.input_sha256);
-  assert.equal(exported.status,verified.status,'Export status must equal displayed conclusion');
+  let geoInputStatus='PARTIAL_SOURCE_FAILURE';
+  let positiveGEOTest='SKIPPED_SOURCE_UNAVAILABLE';
+  let transportError=null;
+  let officialBytes=null;
+  try {
+    officialBytes=await fetchOfficialGeoGzip(official);
+  } catch (e) {
+    // Only an exhausted *network transport* failure is non-blocking for
+    // independent browser/software acceptance. Invalid gzip, HTTP responses,
+    // bad sample counts and other assertions MUST still fail the CI job.
+    if (!isTransientTransportError(e)) throw e;
+    transportError=String(e.message||e);
+    console.warn('::warning title=GEO live network acquisition unavailable::PARTIAL_SOURCE_FAILURE: '+transportError);
+  }
+  if (officialBytes) {
+    await page.locator('#upload').setInputFiles({name:'GSE159938_family.soft.gz',mimeType:'application/gzip',buffer:officialBytes});
+    await page.locator('#verify').click();
+    await page.waitForFunction(()=>document.querySelector('#localStatus')?.textContent?.includes('AUDIT LOCAL TERMINÉ'),null,{timeout:10000});
+    const verified=JSON.parse(await page.locator('#localDetails').textContent());
+    assert.equal(verified.status,'NOT_COMPARABLE_ORIGINAL_TIMEPOINTS_AND_STRATA');
+    assert.equal(verified.sample_count,25);
+    assert.equal(verified.by_species.Acomys,12);
+    assert.equal(verified.by_species.Mus,13);
+    assert.equal(verified.compatible_six_cell_strata,0);
+    assert.equal(verified.biological_validation,'UNVERIFIED');
+    assert.equal(await page.locator('#export').isDisabled(),false,'Verified GEO input must enable report export');
+    const [auditDownload]=await Promise.all([page.waitForEvent('download',{timeout:20000}),page.locator('#export').click()]);
+    const exported=JSON.parse(await readFile(await auditDownload.path(),'utf8'));
+    assert.equal(exported.input_sha256,verified.input_sha256);
+    assert.equal(exported.status,verified.status,'Export status must equal displayed conclusion');
+    geoInputStatus='SOURCE_GZIP_TRANSPORT_OK_SHA_UNPINNED';
+    positiveGEOTest='PASS_REAL_GEO_BROWSER_POSITIVE';
+  }
+  // Preserve machine-readable evidence even when CI can validate its other
+  // requirements. A green job does not claim full source or science PASS.
+  await mkdir('qa-artifacts',{recursive:true});
+  const geoReceipt={
+    status:geoInputStatus,positive_browser_test:positiveGEOTest,
+    url:official,sha256_reference_verified:false,
+    attempts_max:3,transport_error:transportError,
+    biological_validation:'UNVERIFIED',
+  };
+  await writeFile('qa-artifacts/publication-geo-source.json',JSON.stringify(geoReceipt,null,2)+'\\n');
+  if(process.env.GITHUB_STEP_SUMMARY) {
+    await appendFile(process.env.GITHUB_STEP_SUMMARY,
+      '\\n## GEO positive live browser gate\\n- Source: '+geoInputStatus+
+      '\\n- Positive browser test: '+positiveGEOTest+
+      '\\n- Scientific validation: UNVERIFIED\\n');
+  }
 
   const original=await page.goto(base+'/',{waitUntil:'load',timeout:30000});
   assert.equal(original?.status(),200);
@@ -93,7 +126,10 @@ try{
   console.log(JSON.stringify({
     status:'PASS',kind:'PUBLICATION_BROWSER_FLOOT_EXISTING_HOST',sourceSha:expectedSha,
     checks:['https_200','mime_and_sha_header','hunter_init','fixture_search','replay_sha256',
-      'dashboard_live_json','dashboard_link','geo_science_audit_live','geo_negative_sha_guard','geo_real_ncbi_upload_25_samples','geo_report_export_integrity','original_host_unmodified'],
+      'dashboard_live_json','dashboard_link','geo_science_audit_live','geo_negative_sha_guard',
+      ...(positiveGEOTest==='PASS_REAL_GEO_BROWSER_POSITIVE'?['geo_real_ncbi_upload_25_samples','geo_report_export_integrity']:[]),
+      'original_host_unmodified'],
+    geo_input_status:geoInputStatus,geo_positive_browser_test:positiveGEOTest,
     independent_scientific_validation:false
   }));
 }catch(e){
