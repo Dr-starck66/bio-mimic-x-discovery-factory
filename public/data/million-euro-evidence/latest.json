@@ -8,19 +8,24 @@
   "commercial_evidence": {
     "brick": "BIO-MIMIC X COMMERCIAL EVIDENCE GATE",
     "evidence": [],
+    "metadata_complete_entries": 0,
     "policy": {
-      "immutable_source_reference_required": true,
-      "paid_or_contractual_commitment_required_for_pass": true,
+      "document_hash_is_not_signature_or_funds_receipt": true,
+      "email_sent_is_not_delivered_or_interest": true,
+      "external_counterparty_and_payment_authentication_required_for_pass": true,
+      "live_provider_adapter_connected": false,
+      "self_asserted_payment_does_not_count": true,
       "unsigned_templates_do_not_count": true
     },
-    "sha256": "3d491e104caff0e1c1a767e8bca6ed91d13f02062bf0f4464628a10f4fb9fc4a",
+    "sha256": "a3981542b62d084c62494fa79f583d1e9d0dc9362e9bc1b116e199aad13ffb39",
     "status": "UNVERIFIED",
+    "unverified_local_claims": 0,
     "verified_entries": 0
   },
   "external_validation": {
     "accepted_supporting_validations": 0,
     "brick": "BIO-MIMIC X EXTERNAL VALIDATION GATE",
-    "generated_at": "2026-10-17T05:10:53.764972+00:00",
+    "generated_at": "2026-11-01T22:43:14.856526+00:00",
     "partial_validations": 0,
     "policy": {
       "immutable_source_reference_required": true,
@@ -128,7 +133,7 @@
     "taxon_verified": true,
     "title": "Acomys cahirinus"
   },
-  "generated_at": "2026-10-17T05:10:53.764962+00:00",
+  "generated_at": "2026-11-01T22:43:14.856515+00:00",
   "memory_hygiene": {
     "claim_count": 64,
     "suspicious_subject_count": 12,
@@ -171,9 +176,9 @@
         "quality_flags": [],
         "source_count": 3,
         "sources": [
-          "PMID:41491153",
           "PMID:42154556",
-          "PMID:42402335"
+          "PMID:42402335",
+          "PMID:42939468"
         ],
         "status": "ACTIVE",
         "suspect_genes": [],
@@ -277,14 +282,35 @@
         "quality_flags": [],
         "source_count": 3,
         "sources": [
-          "PMID:40731202",
           "PMID:41983916",
-          "PMID:42793312"
+          "PMID:42793312",
+          "PMID:42833632"
         ],
         "status": "ACTIVE",
         "suspect_genes": [],
         "taxon_verified": true,
         "title": "Hydra vulgaris"
+      },
+      {
+        "clean_genes": [],
+        "committee_score": 50,
+        "eligible_for_investor_package": true,
+        "id": "PRG-0e95826bc8",
+        "mechanisms": [
+          "autophagy",
+          "senescence"
+        ],
+        "priority_rank": 6,
+        "quality_flags": [],
+        "source_count": 2,
+        "sources": [
+          "PMID:42793312",
+          "PMID:42833632"
+        ],
+        "status": "ACTIVE",
+        "suspect_genes": [],
+        "taxon_verified": true,
+        "title": "Hydra oligactis"
       },
       {
         "clean_genes": [],
@@ -304,7 +330,7 @@
           "PMID:41942604",
           "PMID:42807344"
         ],
-        "status": "ACTIVE",
+        "status": "PAUSED",
         "suspect_genes": [
           "EIS",
           "IAV",
@@ -334,27 +360,6 @@
         "suspect_genes": [],
         "taxon_verified": true,
         "title": "Eublepharis macularius"
-      },
-      {
-        "clean_genes": [],
-        "committee_score": 50,
-        "eligible_for_investor_package": true,
-        "id": "PRG-0e95826bc8",
-        "mechanisms": [
-          "autophagy",
-          "senescence"
-        ],
-        "priority_rank": 5,
-        "quality_flags": [],
-        "source_count": 2,
-        "sources": [
-          "PMID:37156860",
-          "PMID:42793312"
-        ],
-        "status": "PAUSED",
-        "suspect_genes": [],
-        "taxon_verified": true,
-        "title": "Hydra oligactis"
       },
       {
         "clean_genes": [],
@@ -1009,7 +1014,7 @@
     "excluded_programs": 12,
     "total_programs": 20
   },
-  "sha256": "0ebc3fcaecffeecc86d58992dcc75087df45a5457eab0f93449aca909970dbeb",
+  "sha256": "c2f42c5fa3de0039a75dfa7bf310f3889043abff0be1cac3932078b2b152430a",
   "status": "PARTIAL",
   "valuation_readiness": {
     "gates": [
@@ -1069,7 +1074,7 @@
         "status": "UNVERIFIED"
       },
       {
-        "evidence": "0 verified commercial evidence entrie(s); report 3d491e104caff0e1c1a767e8bca6ed91d13f02062bf0f4464628a10f4fb9fc4a",
+        "evidence": "0 verified commercial evidence entrie(s); report a3981542b62d084c62494fa79f583d1e9d0dc9362e9bc1b116e199aad13ffb39",
         "gate": "paying_customers_or_contracts",
         "status": "UNVERIFIED"
       }

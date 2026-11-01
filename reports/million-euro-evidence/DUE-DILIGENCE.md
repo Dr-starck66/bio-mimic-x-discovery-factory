@@ -4,7 +4,7 @@
 - Readiness score: **65/100**
 - Flagship: **Acomys cahirinus**
 - Investor evidence score: **134**
-- Evidence fingerprint: `0ebc3fcaecffeecc86d58992dcc75087df45a5457eab0f93449aca909970dbeb`
+- Evidence fingerprint: `c2f42c5fa3de0039a75dfa7bf310f3889043abff0be1cac3932078b2b152430a`
 
 ## Flagship thesis
 
@@ -45,7 +45,7 @@ Acomys cahirinus is a strong mammalian regeneration flagship because scar-free r
 - **original_biological_discovery** — UNVERIFIED — No accepted independent new observation or independently verified prior-art review establishes novelty.
 - **acquisition_offer_at_least_1000000_eur** — UNVERIFIED — No independently authenticated arm's-length binding bid >= EUR 1,000,000 or executed sale in the registry.
 - **formal_ip_novelty_freedom_to_operate** — UNVERIFIED — requires professional prior-art/FTO review
-- **paying_customers_or_contracts** — UNVERIFIED — 0 verified commercial evidence entrie(s); report 3d491e104caff0e1c1a767e8bca6ed91d13f02062bf0f4464628a10f4fb9fc4a
+- **paying_customers_or_contracts** — UNVERIFIED — 0 verified commercial evidence entrie(s); report a3981542b62d084c62494fa79f583d1e9d0dc9362e9bc1b116e199aad13ffb39
 
 ## Excluded contamination
 

@@ -20,4 +20,4 @@ Acomys cahirinus is a strong mammalian regeneration flagship because scar-free r
 
 Please classify the dossier as one of: SUPPORTS_FURTHER_TESTING / INTERESTING_BUT_WEAK / NOT_NOVEL / SCIENTIFICALLY_FLAWED, and identify the single experiment that would most efficiently falsify the thesis.
 
-Package fingerprint: `0ebc3fcaecffeecc86d58992dcc75087df45a5457eab0f93449aca909970dbeb`
+Package fingerprint: `c2f42c5fa3de0039a75dfa7bf310f3889043abff0be1cac3932078b2b152430a`
