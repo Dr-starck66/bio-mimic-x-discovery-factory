@@ -5,6 +5,7 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {chromium} from 'playwright-core';
+import {fetchOfficialGeoGzip} from './official-geo-fetch.mjs';
 
 const base='https://duality-x-eco.floot.app';
 const endpoint=base+'/_api/biomimic?path=';
@@ -67,10 +68,7 @@ try{
   await page.waitForFunction(()=>document.querySelector('#localStatus')?.textContent?.includes('UNVERIFIED'),null,{timeout:10000});
   assert.equal(await page.locator('#export').isDisabled(),true,'Tampered file must not be downloadable as verified');
   const official='https://ftp.ncbi.nlm.nih.gov/geo/series/GSE159nnn/GSE159938/soft/GSE159938_family.soft.gz';
-  const officialFetch=await fetch(official,{signal:AbortSignal.timeout(20000),headers:{'User-Agent':'BIO-MIMIC-X-live-browser-QA'}});
-  assert.equal(officialFetch.status,200,'Real GEO source required for positive E2E');
-  const officialBytes=Buffer.from(await officialFetch.arrayBuffer());
-  assert.ok(officialBytes.length>1000&&officialBytes.length<10000000,'Official GEO gzip unexpected length');
+  const officialBytes=await fetchOfficialGeoGzip(official);
   await page.locator('#upload').setInputFiles({name:'GSE159938_family.soft.gz',mimeType:'application/gzip',buffer:officialBytes});
   await page.locator('#verify').click();
   await page.waitForFunction(()=>document.querySelector('#localStatus')?.textContent?.includes('AUDIT LOCAL TERMINÉ'),null,{timeout:10000});
