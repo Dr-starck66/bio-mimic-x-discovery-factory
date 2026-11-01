@@ -105,13 +105,14 @@ jobs:
 
   real-epigenetic-geo:
     name: Genuine GSE295849 beta matrix ${{ matrix.part }} — strict QC
-    if: github.event_name == 'pull_request' && github.head_ref == 'science/gse295849-real-qc-20261101'
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-24.04
     timeout-minutes: 18
     strategy:
       fail-fast: false
+      max-parallel: 1
       matrix:
-        part: ['2']  # Part 1 and 3 already PASS on separate official GEO runs
+        part: ['1', '2', '3']
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
