@@ -114,7 +114,7 @@ def predict_samples(path, model,features,weights,intercept):
     import torch
     header,matched=collect_clock_cpgs(path,features)
     values=[[matched[feature][sample_i] for feature in features] for sample_i in range(len(header))]
-    xs=torch.tensor(values,dtype=torch.float32)
+    xs=torch.tensor(values,dtype=model.base_model.linear.weight.dtype)
     with torch.no_grad():
         predicted=model(xs)
     predictions=predicted.detach().cpu().flatten().tolist()
