@@ -1,0 +1,208 @@
+{
+  "edlib_version": "1.3.9.post1",
+  "independent_curator_confirmation": "UNVERIFIED",
+  "limitations": [
+    "Only two modern gene windows; this is not a whole-genome reciprocal best-hit or unique-locus assignment.",
+    "HW comparisons with different gene-window lengths can be biased: compare edit counts and matched-base fractions with coverage context.",
+    "Gene-window identity is not transcript exon orthology and not biological/clinical efficacy.",
+    "A successful alignment does not resolve provenance rights, assay reproducibility or commercial valuation."
+  ],
+  "method": "edlib 1.3.9.post1 / HW both strands; NW global supplementary",
+  "old_locus_to_new_gene_exact_identity": "UNVERIFIED",
+  "results": {
+    "hand1": {
+      "global": {
+        "edit_distance": 95,
+        "global_aligned_identity": 0.996716,
+        "indel_bases": 89,
+        "matching_bases": 28830,
+        "mismatches": 6,
+        "strand": "+"
+      },
+      "local": {
+        "best": {
+          "aligned_columns": 28853,
+          "counts": {
+            "=": 28830,
+            "D": 3,
+            "I": 14,
+            "X": 6
+          },
+          "edit_distance": 23,
+          "fraction_matching_in_alignment": 0.999203,
+          "location_candidates": [
+            {
+              "end_0based_inclusive": 28901,
+              "start_0based": 63
+            }
+          ],
+          "locations_truncated": false,
+          "query_bases": 28850,
+          "strand": "+",
+          "target_bases": 28911
+        },
+        "other_strand": {
+          "aligned_columns": 30193,
+          "counts": {
+            "=": 15609,
+            "D": 1343,
+            "I": 6353,
+            "X": 6888
+          },
+          "edit_distance": 14584,
+          "fraction_matching_in_alignment": 0.516974,
+          "location_candidates": [
+            {
+              "end_0based_inclusive": 28675,
+              "start_0based": 4836
+            },
+            {
+              "end_0based_inclusive": 28676,
+              "start_0based": 4836
+            }
+          ],
+          "locations_truncated": false,
+          "query_bases": 28850,
+          "strand": "-",
+          "target_bases": 28911
+        }
+      }
+    },
+    "hand2": {
+      "global": {
+        "edit_distance": 24699,
+        "global_aligned_identity": 0.145688,
+        "indel_bases": 24699,
+        "matching_bases": 4212,
+        "mismatches": 0,
+        "strand": "+"
+      },
+      "local": {
+        "best": {
+          "aligned_columns": 4432,
+          "counts": {
+            "=": 2334,
+            "D": 220,
+            "I": 869,
+            "X": 1009
+          },
+          "edit_distance": 2098,
+          "fraction_matching_in_alignment": 0.526625,
+          "location_candidates": [
+            {
+              "end_0based_inclusive": 10401,
+              "start_0based": 6839
+            },
+            {
+              "end_0based_inclusive": 10402,
+              "start_0based": 6839
+            }
+          ],
+          "locations_truncated": false,
+          "query_bases": 4212,
+          "strand": "+",
+          "target_bases": 28911
+        },
+        "other_strand": {
+          "aligned_columns": 4377,
+          "counts": {
+            "=": 2272,
+            "D": 165,
+            "I": 983,
+            "X": 957
+          },
+          "edit_distance": 2105,
+          "fraction_matching_in_alignment": 0.519077,
+          "location_candidates": [
+            {
+              "end_0based_inclusive": 15521,
+              "start_0based": 12128
+            },
+            {
+              "end_0based_inclusive": 15522,
+              "start_0based": 12128
+            },
+            {
+              "end_0based_inclusive": 15523,
+              "start_0based": 12128
+            },
+            {
+              "end_0based_inclusive": 15524,
+              "start_0based": 12128
+            },
+            {
+              "end_0based_inclusive": 15525,
+              "start_0based": 12128
+            }
+          ],
+          "locations_truncated": false,
+          "query_bases": 4212,
+          "strand": "-",
+          "target_bases": 28911
+        }
+      }
+    }
+  },
+  "schema": "BIO-MIMIC-X/NCBI-HAND-LOCUS-ALIGNMENT/1",
+  "sequence_sources": {
+    "hand1": {
+      "accession": "NC_090926.1",
+      "assembly": "GCF_040938575.1",
+      "end": 348920140,
+      "gene": "138582569",
+      "sha256": "99058cb5ba540e21359efbdd2dd047efb692cb8f47d731ec775ba7cbfeef9d8c",
+      "start": 348891291
+    },
+    "hand2": {
+      "accession": "NC_090937.1",
+      "assembly": "GCF_040938575.1",
+      "end": 910032936,
+      "gene": "138516365",
+      "sha256": "eb707084770ecfd0c24538f10984563b8cddfc0fe467db96454a36fa516505b3",
+      "start": 910028725
+    },
+    "historic": {
+      "accession": "CM010932.2",
+      "assembly": "GCA_002915635.3",
+      "end": 632169448,
+      "gene": "AMEX60DD030069",
+      "sha256": "9d2c183a94e9feeb2ed6b413e1654e4d54a614f0ed5ada64b52db2dcaf2eb4ce",
+      "start": 632140538
+    }
+  },
+  "sha256": "6a6e4f7e2d4c951bbe7c8327767b174a3f603bbd545e0c8ffd1462b881c08427",
+  "sources": {
+    "hand1": {
+      "fasta": {
+        "content_type": "text/plain",
+        "sha256": "78565078424aac4e7038f3a0eb85af79f558827ea34c2155db0b33b431b54434",
+        "size": 29394,
+        "source": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NC_090926.1&seq_start=348891291&seq_stop=348920140&rettype=fasta&retmode=text"
+      },
+      "length": 28850,
+      "sha256": "99058cb5ba540e21359efbdd2dd047efb692cb8f47d731ec775ba7cbfeef9d8c"
+    },
+    "hand2": {
+      "fasta": {
+        "content_type": "text/plain",
+        "sha256": "491365347173b77b224a6a38d6115f29eb38c49d6b142c3440e4d047c4a78af7",
+        "size": 4404,
+        "source": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NC_090937.1&seq_start=910028725&seq_stop=910032936&rettype=fasta&retmode=text"
+      },
+      "length": 4212,
+      "sha256": "eb707084770ecfd0c24538f10984563b8cddfc0fe467db96454a36fa516505b3"
+    },
+    "historic": {
+      "fasta": {
+        "content_type": "text/plain",
+        "sha256": "15e2dadfb764d7143703fa2fdeab689234d15caac36e54f09b4c3d5a4487a4c0",
+        "size": 29436,
+        "source": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=CM010932.2&seq_start=632140538&seq_stop=632169448&rettype=fasta&retmode=text"
+      },
+      "length": 28911,
+      "sha256": "9d2c183a94e9feeb2ed6b413e1654e4d54a614f0ed5ada64b52db2dcaf2eb4ce"
+    }
+  },
+  "status": "PARTIAL_LOCUS_CANDIDATE_COMPARISON",
+  "stronger_local_alignment": "HAND1"
+}

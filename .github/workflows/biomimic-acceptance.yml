@@ -9,6 +9,8 @@ on:
       - 'factory/human_limb_regeneration_gate.py'
       - 'validation/hand2_legacy_crosswalk.py'
       - 'validation/hand2_assembly_sequence_probe.py'
+      - 'validation/hand1_hand2_global_alignment.py'
+      - 'tests/test_hand1_hand2_global_alignment.py'
       - 'tests/test_hand2_assembly_sequence_probe.py'
       - 'tests/test_hand2_legacy_crosswalk.py'
       - 'validation/geo_pair_probe.py'
@@ -56,6 +58,31 @@ jobs:
           python validation/hand2_assembly_sequence_probe.py --write
           mkdir -p qa-artifacts
           cp reports/factory/HAND2-ASSEMBLY-SEQUENCE-PROBE-LATEST.json qa-artifacts/HAND2-ASSEMBLY-SEQUENCE-PROBE.json
+      - name: Exact-locus HAND1/HAND2 sequence-window alignment with negative controls
+        run: |
+          set -euo pipefail
+          python -m pip install --only-binary=:all: --disable-pip-version-check edlib==1.3.9.post1
+          python -m unittest tests.test_hand1_hand2_global_alignment -v
+          python validation/hand1_hand2_global_alignment.py --write
+          mkdir -p qa-artifacts
+          cp reports/factory/HAND1-HAND2-ALIGNMENT-LATEST.json qa-artifacts/HAND1-HAND2-ALIGNMENT-LATEST.json
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          r=json.loads(Path("reports/factory/HAND1-HAND2-ALIGNMENT-LATEST.json").read_text())
+          assert r["old_locus_to_new_gene_exact_identity"]=="UNVERIFIED"
+          print("HAND1_HAND2_ALIGNMENT_STATUS",r["status"],r["sha256"])
+          with open(os.environ["GITHUB_STEP_SUMMARY"],"a",encoding="utf-8") as f:
+              f.write("\n## Real HAND1/HAND2 nucleotide alignment\n")
+              f.write("- Status: **"+r["status"]+"**\n")
+              if r.get("results"):
+                  for gene in ("hand1","hand2"):
+                      b=r["results"][gene]["local"]["best"]
+                      f.write("- "+gene+": local edit distance "+str(b["edit_distance"])+
+                              "; aligned identity "+str(b["fraction_matching_in_alignment"])+
+                              "; strand "+b["strand"]+"\n")
+              f.write("- Exact legacy-to-modern locus identity: **UNVERIFIED** (whole-genome reciprocal uniqueness not tested)\n")
+          PY
       - name: Verify HAND2 historic gene ID and NCBI orthology (fail-closed)
         run: |
           python validation/hand2_legacy_crosswalk.py --write
