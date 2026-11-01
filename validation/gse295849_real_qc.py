@@ -12,6 +12,7 @@ import gzip
 import hashlib
 import json
 import os
+import re
 from pathlib import Path
 import tempfile
 import urllib.request
@@ -59,7 +60,7 @@ def audit_local(path, source_url, expected_sha256=None, min_bytes=500):
                 continue
             if header is None:
                 header = [c.strip() for c in row]
-                if len(header) < 3:
+                if len(header) < 2 or (len(header) == 2 and not re.fullmatch(r'\d+_R\d{2}C\d{2}', header[0])):
                     raise ValueError('no multi-sample matrix header')
                 samples = header[1:]
                 sums = [0.0] * len(samples)
@@ -67,6 +68,15 @@ def audit_local(path, source_url, expected_sha256=None, min_bytes=500):
                 if len(set(samples)) != len(samples):
                     raise ValueError('duplicate sample column name')
                 continue
+            if (len(row) == len(header) + 1 and
+                    re.fullmatch(r'\d+_R\d{2}C\d{2}', header[0]) and
+                    re.fullmatch(r'(?:cg|ch|rs)\d+', row[0], re.I)):
+                # Author's real 2026 beta file lists only sample IDs in its header:
+                # data rows carry one additional CpG identifier. Do NOT discard it.
+                samples = header[:]
+                header = ['probe_id'] + header
+                sums = [0.0] * len(samples)
+                seen = [0] * len(samples)
             if len(row) != len(header):
                 raise ValueError('unexpected row width at row '+str(rows+2)+f'; header_columns={len(header)}, row_columns={len(row)}, header_first={header[:2]!r}, row_first={row[:2]!r}, delimiter={delimiter!r}')
             cpg = row[0].strip()
