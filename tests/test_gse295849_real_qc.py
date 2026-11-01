@@ -43,6 +43,15 @@ class GSE295849PublicBetaQCTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "row width"):
             audit_local(self.p, "synthetic-fixture", min_bytes=30)
 
+    def test_real_author_header_without_probe_label(self):
+        # Column-only header was observed in the authentic GSE295849 matrix.
+        self.fixture("204027260051_R01C01\t204027260051_R02C01\n" +
+                     "".join(f"cg{i:08}\t0.25\t0.75\n" for i in range(100)))
+        r = audit_local(self.p, "synthetic-real-format", min_bytes=30)
+        self.assertEqual(r["rows"], 100)
+        self.assertEqual(r["columns"], 2)
+        self.assertEqual([v["mean_beta"] for v in r["column_summary"]], [0.25, 0.75])
+
     def test_wrong_hash_is_rejected(self):
         self.fixture("CpG\tA\tB\n" +
                      "".join(f"cg{i}\t0.2\t0.3\n" for i in range(100)))
