@@ -17,6 +17,8 @@
 - Patentability: **UNVERIFIED**
 - Freedom to operate: **UNVERIFIED**
 - External inventor/lab contribution: **NONE RECORDED IN THIS PACKAGE**
-- Repository is private; no public-source-code license was found during the diligence build.
+- **Disclosure corrected 2026-11-01:** The GitHub repository is **PUBLIC**, as verified via the GitHub repository API. A root LICENSE/COPYING file was **not** found in the currently accessible main-branch tree. The earlier "Repository is private" statement was outdated/incorrect, not evidence of confidentiality.
+- **Commercial consequence:** Public availability means a prospective acquirer can examine the source; this does **not** by itself grant everyone an open-source license, prove exclusivity, or protect patent novelty. Do not describe the platform or data as confidential/proprietary without a verified rights assessment.
+- **Due diligence required:** Verify all repository contributors, code provenance, third-party dependencies and data licenses, any prior disclosure of innovations, assignment of rights, existing patents, freedom to operate, and independently measured software advantages. Preserve audit history. Do not execute a confidentiality or assignment agreement on the user's behalf.
 
 This register preserves provenance and questions for counsel. It is not legal advice and must not be represented as a patentability opinion.
