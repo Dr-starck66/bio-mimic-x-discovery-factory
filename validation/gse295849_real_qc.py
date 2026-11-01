@@ -15,6 +15,8 @@ import os
 import re
 from pathlib import Path
 import tempfile
+import time
+import urllib.error
 import urllib.request
 
 BASE = 'https://ftp.ncbi.nlm.nih.gov/geo/series/GSE295nnn/GSE295849/suppl/'
@@ -124,7 +126,7 @@ def audit_local(path, source_url, expected_sha256=None, min_bytes=500):
         'comment':'Per-column methylation mean is NOT epigenetic age.',
     }
 
-def audit_remote(part, timeout=120, on_file=None):
+def _audit_remote_once(part, timeout=120, on_file=None):
     name, limit = FILES[part]
     url = BASE + name
     request = urllib.request.Request(url, headers={'User-Agent':'BIO-MIMIC-X-GEO-integrity/1.0'})
@@ -182,6 +184,34 @@ def audit_remote(part, timeout=120, on_file=None):
         if on_file is not None:
             report['derivation'] = on_file(target, report)
         return report
+
+
+def audit_remote(part, timeout=120, on_file=None, attempts=4):
+    """Retry only network/truncation faults; always rerun the complete SHA+CRC gate."""
+    if attempts < 1 or attempts > 4:
+        raise ValueError("retry budget must be in [1,4]")
+    failures=[]
+    for attempt in range(attempts):
+        try:
+            out = _audit_remote_once(part, timeout=timeout, on_file=on_file)
+            out["acquisition_attempts"]=attempt+1
+            out["previous_transport_failures"]=failures
+            return out
+        except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError, ConnectionResetError, ValueError) as exc:
+            if isinstance(exc, urllib.error.HTTPError):
+                retryable=exc.code in (403,408,429,500,502,503,504)
+            elif isinstance(exc, ValueError):
+                retryable=str(exc).startswith(("file truncated:","full response truncated:"))
+            else:
+                retryable=True
+            if not retryable:
+                raise
+            failures.append({"attempt":attempt+1,"reason":str(exc)[:240]})
+            if attempt==attempts-1:
+                raise RuntimeError("GSE source transport failure after bounded retries: "+json.dumps(failures)) from exc
+            time.sleep(2*(attempt+1))
+    raise RuntimeError("unreachable retry state")
+
 
 def main():
     p=argparse.ArgumentParser()
