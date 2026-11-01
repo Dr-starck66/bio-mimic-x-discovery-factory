@@ -28,7 +28,26 @@ def probe(name,url,max_bytes=35_000_000):
       "row_count":len(head),
       "first_data":next((ln[:400] for ln in head if ln and not ln.startswith(("!", "#", "^"))), ""),
     },sort_keys=True))
+def probe_gtf():
+    url="https://www.axolotl-omics.org/dl/AmexT_v47-AmexG_v6.0-DD.gtf.gz"
+    try:
+        req=urllib.request.Request(url,headers={"User-Agent":"BIO-MIMIC-X/1.0 research"})
+        with urllib.request.urlopen(req,timeout=45) as r:
+            data=r.read(70_000_001)
+            if len(data)>70_000_000: raise ValueError("gtf exceeds budget")
+        if not data.startswith(b"\x1f\x8b"): raise ValueError("invalid gzip: "+repr(data[:100]))
+        with gzip.GzipFile(fileobj=io.BytesIO(data)) as fh:
+            rows=[]
+            for raw in fh:
+                line=raw.decode("utf-8",errors="replace")
+                if not line.startswith("#"):
+                    rows.append(line[:600])
+                if len(rows)>=5: break
+        print("AXOLOTL_ANNOTATION_GTF "+json.dumps({"bytes":len(data),"sha256":hashlib.sha256(data).hexdigest(),"first_rows":rows,"url":url},sort_keys=True))
+    except Exception as e: print("AXOLOTL_GTF_FAILURE "+json.dumps({"reason":type(e).__name__+": "+str(e)[:200]}))
+
 def main():
+    probe_gtf()
     for key,url in URLS.items():
         try:probe(key,url)
         except Exception as e:print("GEO_INPUT_FAILURE "+json.dumps({"dataset":key,"reason":type(e).__name__+": "+str(e)[:250]}))
