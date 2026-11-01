@@ -12,6 +12,8 @@ on:
       - 'tests/test_hand2_assembly_sequence_probe.py'
       - 'tests/test_hand2_legacy_crosswalk.py'
       - 'validation/geo_pair_probe.py'
+      - 'validation/gse295849_real_qc.py'
+      - 'tests/test_gse295849_real_qc.py'
       - 'validation/axolotl_human_reanalysis.py'
       - 'tests/test_axolotl_human_reanalysis.py'
       - 'tests/test_human_limb_regeneration_gate.py'
@@ -45,6 +47,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Original GSE295849 public beta matrix (full transfer and fail-closed QC)
+        if: github.event_name == 'pull_request' && github.head_ref == 'science/gse295849-real-qc-20261101'
+        run: |
+          mkdir -p qa-artifacts
+          python validation/gse295849_real_qc.py --part 3 --out qa-artifacts/GSE295849-BETA3-REAL-QC.json
       - name: All project unit tests
         run: python -m unittest discover -s tests -v
       - name: Fail-closed axolotl to human limb evidence audit
