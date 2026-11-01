@@ -60,9 +60,17 @@ def audit_local(path, source_url, expected_sha256=None, min_bytes=500):
                 continue
             if header is None:
                 header = [c.strip() for c in row]
-                if len(header) < 2 or (len(header) == 2 and not re.fullmatch(r'\d+_R\d{2}C\d{2}', header[0])):
-                    raise ValueError('no multi-sample matrix header')
-                samples = header[1:]
+                # GSE295849 file 1: a final blank HEADER field is present,
+                # but the 39 real sample identifiers precede it. Never
+                # shift labels one column or report a blank sample as valid.
+                if (len(header) > 2 and header[-1] == '' and
+                    all(re.fullmatch(r'\d+_R\d{2}C\d{2}', v) for v in header[:-1])):
+                    samples = header[:-1]
+                    header = ['probe_id'] + samples
+                else:
+                    if len(header) < 2 or (len(header) == 2 and not re.fullmatch(r'\d+_R\d{2}C\d{2}', header[0])):
+                        raise ValueError('no multi-sample matrix header')
+                    samples = header[1:]
                 sums = [0.0] * len(samples)
                 seen = [0] * len(samples)
                 if len(set(samples)) != len(samples):
