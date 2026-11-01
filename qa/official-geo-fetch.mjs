@@ -4,6 +4,10 @@ import assert from 'node:assert/strict';
 import {gunzipSync} from 'node:zlib';
 import {setTimeout as delay} from 'node:timers/promises';
 
+export const isTransientTransportError = error =>
+  error instanceof TypeError ||
+  error?.name === 'TimeoutError' || error?.name === 'AbortError';
+
 export async function fetchOfficialGeoGzip(url, {
   request = globalThis.fetch, sleep = delay, retries = 2, timeoutMs = 20000,
 } = {}) {
@@ -21,8 +25,7 @@ export async function fetchOfficialGeoGzip(url, {
       assert.doesNotThrow(() => gunzipSync(bytes), 'Official GEO gzip incomplete or corrupted');
       return bytes;
     } catch (error) {
-      const retryable = error instanceof TypeError ||
-        error?.name === 'TimeoutError' || error?.name === 'AbortError';
+      const retryable = isTransientTransportError(error);
       if (!retryable || attempt === retries) throw error;
       console.warn('GEO_SOURCE_TRANSPORT_RETRY', JSON.stringify({
         attempt: attempt + 1, error: error.name, message: error.message,
