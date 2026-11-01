@@ -1,21 +1,17 @@
 # MICROCLEAN-X Live Evidence Radar
 
 - Status: **PASS**
-- Microplastic records: **71**
-- Material signals: **10**
-- Review queue signals: **5**
-- Source errors: **0**
-- Evidence fingerprint: `77672f163b7d9d0f2cb8735c6dc71eaae3c041d972da84708c6c49cb66532cff`
+- Microplastic records: **29**
+- Material signals: **4**
+- Review queue signals: **1**
+- Source errors: **7**
+- Evidence fingerprint: `3e617c422c9429635d191339575fd263f8858326704ce4a64c59270b2728f63a`
 
 ## Highest-evidence material signals
 
-- **biochar** — REVIEW_QUEUE — 13 independent records, 3 magnetic-context records
-- **MOF** — REVIEW_QUEUE — 5 independent records, 4 magnetic-context records
-- **ferrite** — REVIEW_QUEUE — 4 independent records, 4 magnetic-context records
-- **chitosan** — REVIEW_QUEUE — 3 independent records, 1 magnetic-context records
-- **MXene** — REVIEW_QUEUE — 2 independent records, 1 magnetic-context records
+- **biochar** — REVIEW_QUEUE — 6 independent records, 1 magnetic-context records
 - **Fe3O4** — SCOUT — 1 independent records, 1 magnetic-context records
-- **gamma-Fe2O3** — SCOUT — 1 independent records, 1 magnetic-context records
-- **alginate** — SCOUT — 1 independent records, 0 magnetic-context records
+- **ferrite** — SCOUT — 1 independent records, 1 magnetic-context records
+- **silica** — SCOUT — 1 independent records, 0 magnetic-context records
 
 > REVIEW_QUEUE is a literature-review priority only. It is not a claim of efficacy, safety, or deployability.
