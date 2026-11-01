@@ -1,0 +1,73 @@
+{
+  "schema": "BIO-MIMIC-X/GSE295849-HORVATH2018-REAL-CLOCK/1",
+  "status": "PASS_INDEPENDENT_CLOCK_ESTIMATION_UNGROUPED",
+  "paper": "Berg et al. Aging Cell 2026",
+  "study_doi": "10.1111/acel.70751",
+  "series": "GSE295849",
+  "file": "GSE295849_Berg_et_al_beta_values_3.txt.gz",
+  "source_sha256": "fa92b4124a5bd7c69a878ae4557d2def91b1698203fc975fe63003de27640f2d",
+  "cpg_rows": 866091,
+  "sample_columns": 8,
+  "epigenetic_clock": "Horvath 2018 Skin & Blood",
+  "clock_doi": "10.18632/aging.101508",
+  "clock_features": 391,
+  "model_origin": "https://huggingface.co/pyaging/skinandblood",
+  "model_sha256": "56f8ce6567170ce5427f24803d30a2f0e3f6d3735b44100af02521fcd7c18027",
+  "computed_ages_years": [
+    {
+      "chip_sample_id": "204027260051_R01C01",
+      "age_years": 73.57041,
+      "clock_score": 2.55097192
+    },
+    {
+      "chip_sample_id": "204027260051_R02C01",
+      "age_years": 51.7148,
+      "clock_score": 1.51022835
+    },
+    {
+      "chip_sample_id": "204027260051_R03C01",
+      "age_years": 12.2981,
+      "clock_score": -0.45690111
+    },
+    {
+      "chip_sample_id": "204027260051_R04C01",
+      "age_years": 15.23967,
+      "clock_score": -0.25706524
+    },
+    {
+      "chip_sample_id": "204027260051_R05C01",
+      "age_years": 34.88853,
+      "clock_score": 0.70897759
+    },
+    {
+      "chip_sample_id": "204027260051_R06C01",
+      "age_years": 5.73309,
+      "clock_score": -1.13748891
+    },
+    {
+      "chip_sample_id": "204027260051_R07C01",
+      "age_years": 12.53862,
+      "clock_score": -0.43897587
+    },
+    {
+      "chip_sample_id": "204027260051_R08C01",
+      "age_years": 5.58458,
+      "clock_score": -1.15979192
+    }
+  ],
+  "status_details": {
+    "full_cpg_coverage": "PASS",
+    "model_feature_and_intercept_identity": "PASS",
+    "pyaging_prediction_agrees_with_independent_formula": "PASS",
+    "source_download_and_gzip_integrity": "PASS",
+    "donor_condition_time_mapping": "UNVERIFIED",
+    "original_paper_effect_size_61_years": "UNVERIFIED",
+    "human_therapy": "UNVERIFIED",
+    "axolotl_transfer": "UNVERIFIED",
+    "historical_GSE74387": "FAIL_RETAINED"
+  },
+  "evidence_run": "https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/41359779819",
+  "evidence_job_id": 125007500107,
+  "limitations": "Chip IDs have not been independently paired with donors, ages, cell states or passages. Values are biomarker outputs, not direct reversal of an organism's chronological age. Never subtract arbitrarily selected rows to claim rejuvenation.",
+  "next_required_analysis": "independent GEO sample metadata and full donor/condition/time mapping; contrast matched EPC and iNSC passages with statistical and technical controls"
+}

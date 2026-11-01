@@ -1,6 +1,16 @@
 name: BIO-MIMIC X — UI and Scientific Acceptance
 on:
   workflow_dispatch:
+    inputs:
+      science_mode:
+        description: 'Optional evidence-only GEO operation (no recurring run)'
+        required: false
+        type: choice
+        options:
+          - default
+          - gse295849_qc
+          - gse295849_clock
+        default: default
   pull_request:
     branches: [main]
     paths:
@@ -16,6 +26,8 @@ on:
       - 'validation/geo_pair_probe.py'
       - 'validation/gse295849_real_qc.py'
       - 'tests/test_gse295849_real_qc.py'
+      - 'validation/gse295849_skinblood_clock.py'
+      - 'tests/test_gse295849_skinblood_clock.py'
       - 'validation/axolotl_human_reanalysis.py'
       - 'tests/test_axolotl_human_reanalysis.py'
       - 'tests/test_human_limb_regeneration_gate.py'
@@ -132,7 +144,7 @@ jobs:
 
   real-epigenetic-geo:
     name: Genuine GSE295849 beta matrix ${{ matrix.part }} — strict QC
-    if: github.event_name == 'workflow_dispatch'
+    if: github.event_name == 'workflow_dispatch' && inputs.science_mode == 'gse295849_qc'
     runs-on: ubuntu-24.04
     timeout-minutes: 18
     strategy:
@@ -154,6 +166,32 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: gse295849-beta-${{ matrix.part }}-qc
+          path: qa-artifacts/
+          if-no-files-found: warn
+
+  real-epigenetic-clock:
+    name: GSE295849 Horvath2018 Skin&Blood 391-CpG real-data clock
+    if: github.event_name == 'workflow_dispatch' && inputs.science_mode == 'gse295849_clock'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install free open source CPU scientific dependencies
+        run: |
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu 'torch==2.10.0'
+          python -m pip install 'pyaging==0.5.7'
+      - name: Validate pinned 391-CpG clock and score original GEO beta matrix 3
+        run: |
+          mkdir -p qa-artifacts
+          python validation/gse295849_skinblood_clock.py --part 3 --out qa-artifacts/GSE295849-HORVATH2018-REAL-CLOCK-3.json
+      - name: Retain clock result even when data or model fails
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gse295849-horvath2018-real-clock
           path: qa-artifacts/
           if-no-files-found: warn
 

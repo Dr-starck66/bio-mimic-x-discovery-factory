@@ -116,7 +116,7 @@ def audit_local(path, source_url, expected_sha256=None, min_bytes=500):
         'comment':'Per-column methylation mean is NOT epigenetic age.',
     }
 
-def audit_remote(part, timeout=120):
+def audit_remote(part, timeout=120, on_file=None):
     name, limit = FILES[part]
     url = BASE + name
     request = urllib.request.Request(url, headers={'User-Agent':'BIO-MIMIC-X-GEO-integrity/1.0'})
@@ -171,6 +171,8 @@ def audit_remote(part, timeout=120):
         report = audit_local(target, url, expected_sha256=hasher.hexdigest())
         report['resumption'] = resume_log
         report['source_content_length'] = expected or None
+        if on_file is not None:
+            report['derivation'] = on_file(target, report)
         return report
 
 def main():
