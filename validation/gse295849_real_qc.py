@@ -68,7 +68,7 @@ def audit_local(path, source_url, expected_sha256=None, min_bytes=500):
                     raise ValueError('duplicate sample column name')
                 continue
             if len(row) != len(header):
-                raise ValueError('unexpected row width at row '+str(rows+2))
+                raise ValueError('unexpected row width at row '+str(rows+2)+f'; header_columns={len(header)}, row_columns={len(row)}, header_first={header[:2]!r}, row_first={row[:2]!r}, delimiter={delimiter!r}')
             cpg = row[0].strip()
             if not cpg:
                 raise ValueError('empty probe identifier')
