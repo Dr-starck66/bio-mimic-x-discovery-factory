@@ -124,7 +124,8 @@ try{
 
   assert.equal(errors.length,0,'Hosted browser JS exceptions: '+errors.join('; '));
   console.log(JSON.stringify({
-    status:'PASS',kind:'PUBLICATION_BROWSER_FLOOT_EXISTING_HOST',sourceSha:expectedSha,
+    status:geoInputStatus==='PARTIAL_SOURCE_FAILURE'?'PARTIAL':'PASS',
+    software_acceptance:'PASS',kind:'PUBLICATION_BROWSER_FLOOT_EXISTING_HOST',sourceSha:expectedSha,
     checks:['https_200','mime_and_sha_header','hunter_init','fixture_search','replay_sha256',
       'dashboard_live_json','dashboard_link','geo_science_audit_live','geo_negative_sha_guard',
       ...(positiveGEOTest==='PASS_REAL_GEO_BROWSER_POSITIVE'?['geo_real_ncbi_upload_25_samples','geo_report_export_integrity']:[]),
