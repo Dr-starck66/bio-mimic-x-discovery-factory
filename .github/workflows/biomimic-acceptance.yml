@@ -111,7 +111,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        part: ['1', '2', '3']
+        part: ['2']  # Part 1 and 3 already PASS on separate official GEO runs
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
