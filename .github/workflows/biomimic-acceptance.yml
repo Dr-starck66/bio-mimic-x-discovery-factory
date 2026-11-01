@@ -6,6 +6,7 @@ on:
     paths:
       - 'organization/**'
       - 'factory/human_limb_regeneration_gate.py'
+      - 'validation/geo_pair_probe.py'
       - 'tests/test_human_limb_regeneration_gate.py'
       - 'factory/control_plane.py'
       - 'tests/test_v6_organization.py'
@@ -41,6 +42,8 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Fail-closed axolotl to human limb evidence audit
         run: python factory/human_limb_regeneration_gate.py --no-write
+      - name: Probe genuine GEO expression matrices (read-only)
+        run: python validation/geo_pair_probe.py
       - name: Reproducible scientific evidence demonstration — two separate processes
         run: |
           set -euo pipefail
