@@ -6,6 +6,8 @@ on:
     branches: [main]
     paths:
       - 'human_bridge_refresh.py'
+      - 'factory/human_limb_regeneration_gate.py'
+      - 'tests/test_human_limb_regeneration_gate.py'
       - 'factory/human_bridge.py'
       - 'factory/direct_orthology_seeds.json'
       - 'factory/phylogenetic_orthology_seeds.json'
@@ -48,8 +50,10 @@ jobs:
             git reset --hard origin/main
 
             python human_bridge_refresh.py
+            python factory/human_limb_regeneration_gate.py
+            python -m unittest tests.test_human_limb_regeneration_gate -v
 
-            git add state/factory/latest.json public/data/factory/latest.json reports/factory/HUMAN-BRIDGE-LATEST.md
+            git add state/factory/latest.json public/data/factory/latest.json reports/factory/HUMAN-BRIDGE-LATEST.md reports/factory/HUMAN-LIMB-REGENERATION-GATE-LATEST.json reports/factory/HUMAN-LIMB-REGENERATION-GATE-LATEST.md
             if git diff --cached --quiet; then
               echo "No Human Bridge state change."
               ok=1
