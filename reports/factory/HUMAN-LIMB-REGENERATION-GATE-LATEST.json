@@ -1,0 +1,55 @@
+{
+  "animal_evidence": [
+    {
+      "endpoint": "Macrophage depletion blocks limb regrowth and promotes fibrosis",
+      "human_efficacy": false,
+      "level": "ANIMAL_CAUSAL_PERTURBATION",
+      "pmid": "23690624",
+      "species": "Ambystoma mexicanum"
+    },
+    {
+      "endpoint": "Hand2-Shh positional memory reprogramming in limb regeneration",
+      "human_efficacy": false,
+      "level": "ANIMAL_CAUSAL_PERTURBATION",
+      "pmid": "40399677",
+      "species": "Ambystoma mexicanum"
+    }
+  ],
+  "date": "2026-11-01",
+  "external_review_registry_entries": 0,
+  "human_bridge": {
+    "axolotl_in_supported_claims": false,
+    "interpretation": "Translation paths include non-gene interventions; only strict orthology counts identified molecular targets, and none establishes human limb regrowth.",
+    "strict_orthology_candidates": 7,
+    "supported_claims": 12,
+    "translated_candidates": 7
+  },
+  "human_context": {
+    "human_efficacy": false,
+    "interpretation": "Mammalian regeneration is largely limited to distal digit tips; a review does not demonstrate human whole-limb regrowth.",
+    "level": "COMPARATIVE_REVIEW",
+    "pmid": "42847253"
+  },
+  "human_limb_regeneration_status": "UNVERIFIED",
+  "human_primary_tissue_functional_perturbation": "UNVERIFIED",
+  "human_whole_limb_structural_and_functional_regrowth": "UNVERIFIED",
+  "negative_claims": [
+    "No human whole-limb regenerative efficacy inferred from orthology.",
+    "No successful two-cohort GEO replication inferred from one PASS.",
+    "No external review, even positive, substitutes for human biological experiments.",
+    "Human digit-tip repair or human fibroblast responses do not establish whole-limb regrowth."
+  ],
+  "next_falsifiable_test": "Institutionally supervised, preregistered human primary-cell study testing macrophage/ECM effects on fibrosis with matched negative controls; evaluate positional signalling separately and never equate an in-vitro response with limb regrowth.",
+  "prospective_independent_biological_replication": "UNVERIFIED",
+  "reason": "Animal perturbations and human molecular targets cannot establish human limb regeneration; no authenticated, independent human-tissue functional experiment or whole-limb regeneration outcome is present in the evaluated repository evidence.",
+  "retro_geo": {
+    "GSE113081": "PASS_SINGLE_COHORT_ONLY",
+    "GSE74387": "FAIL_ORIGINAL_CI_INCLUDES_ZERO",
+    "global_replication": "FAIL_PRE_REGISTERED_REPLICATION",
+    "negative_controls_preserved": true,
+    "source": "validation/NOTE-INTERPRETATION-GEO-2026-10-27.md"
+  },
+  "schema": "BIO-MIMIC-X/HUMAN-LIMB-REGENERATION-GATE/1",
+  "scientific_question": "Can known axolotl limb-regeneration mechanisms work in human tissues?",
+  "sha256": "bd9b8cce2a57e1e318ac591750b3f5c4564053c8a47d4ec06ce0a16351ee78bc"
+}
