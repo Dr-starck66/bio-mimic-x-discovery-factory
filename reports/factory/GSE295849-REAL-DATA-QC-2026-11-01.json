@@ -1,0 +1,77 @@
+{
+  "schema": "BIO-MIMIC-X/GSE295849-REAL-QC/1",
+  "study": "GSE295849",
+  "study_paper_doi": "10.1111/acel.70751",
+  "created_from": "first-party GitHub Actions logs 2026-11-01",
+  "status": "PASS_SOURCE_INTEGRITY_AND_BETA_QC_ONLY",
+  "files": [
+    {
+      "part": 1,
+      "file": "GSE295849_Berg_et_al_beta_values_1.txt.gz",
+      "bytes": 175548486,
+      "cpg_rows": 866091,
+      "sample_columns": 39,
+      "sha256": "c13d9efcb094e57d8f69f819440620de671bd398b45e8c24c29194aa7f228d32",
+      "run": 41358504571,
+      "job": 125003636232,
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE295nnn/GSE295849/suppl/GSE295849_Berg_et_al_beta_values_1.txt.gz",
+      "source": "NCBI GEO official supplemental",
+      "http_content_length_matches_bytes": true,
+      "gzip_crc_eof": "PASS",
+      "numeric_beta_range_0_1": "PASS",
+      "result": "PASS_INTEGRITY_AND_DESCRIPTIVE_QC_ONLY",
+      "proof_run_url": "https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/41358504571"
+    },
+    {
+      "part": 2,
+      "file": "GSE295849_Berg_et_al_beta_values_2.txt.gz",
+      "bytes": 97189030,
+      "cpg_rows": 866238,
+      "sample_columns": 13,
+      "sha256": "4ca091cef1128ddcea24e6c2b349c038ae1de8dc4eb302f7f218304e17479fcd",
+      "run": 41358652879,
+      "job": 125004084694,
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE295nnn/GSE295849/suppl/GSE295849_Berg_et_al_beta_values_2.txt.gz",
+      "source": "NCBI GEO official supplemental",
+      "http_content_length_matches_bytes": true,
+      "gzip_crc_eof": "PASS",
+      "numeric_beta_range_0_1": "PASS",
+      "result": "PASS_INTEGRITY_AND_DESCRIPTIVE_QC_ONLY",
+      "proof_run_url": "https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/41358652879"
+    },
+    {
+      "part": 3,
+      "file": "GSE295849_Berg_et_al_beta_values_3.txt.gz",
+      "bytes": 61426506,
+      "cpg_rows": 866091,
+      "sample_columns": 8,
+      "sha256": "fa92b4124a5bd7c69a878ae4557d2def91b1698203fc975fe63003de27640f2d",
+      "run": 41358264445,
+      "job": 125002917718,
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE295nnn/GSE295849/suppl/GSE295849_Berg_et_al_beta_values_3.txt.gz",
+      "source": "NCBI GEO official supplemental",
+      "http_content_length_matches_bytes": true,
+      "gzip_crc_eof": "PASS",
+      "numeric_beta_range_0_1": "PASS",
+      "result": "PASS_INTEGRITY_AND_DESCRIPTIVE_QC_ONLY",
+      "proof_run_url": "https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/41358264445"
+    }
+  ],
+  "total_compressed_bytes": 334164022,
+  "total_sample_columns": 60,
+  "sample_columns_not_unique_donors": true,
+  "reported_cpg_row_difference": "Matrix 2 has 866238 CpG rows vs 866091 in matrices 1 and 3. This report does not establish overlapping CpG IDs.",
+  "methylation_clock_age_reproduction": "UNVERIFIED",
+  "human_anti_aging_efficacy": "UNVERIFIED",
+  "axolotl_human_mechanism": "UNVERIFIED",
+  "historical_negative_controls": [
+    {
+      "dataset": "GSE74387",
+      "status": "FAIL",
+      "retained": true
+    }
+  ],
+  "prior_failed_transport_runs": "HTTP 200 with mismatched Content-Length and later HTTP 403 in parallel jobs; all retained in original GitHub run logs",
+  "security": "Public data only, ephemeral runner downloads, no controlled-access RNAseq, no new paid services",
+  "next_required_action": "Obtain auditable Horvath 2018 Skin&Blood 391 CpG clock coefficients and exact metadata mapping; compute and compare age estimates with negative controls and donor/time groups."
+}

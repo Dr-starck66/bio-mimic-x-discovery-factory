@@ -12,6 +12,8 @@ on:
       - 'tests/test_hand2_assembly_sequence_probe.py'
       - 'tests/test_hand2_legacy_crosswalk.py'
       - 'validation/geo_pair_probe.py'
+      - 'validation/gse295849_real_qc.py'
+      - 'tests/test_gse295849_real_qc.py'
       - 'validation/axolotl_human_reanalysis.py'
       - 'tests/test_axolotl_human_reanalysis.py'
       - 'tests/test_human_limb_regeneration_gate.py'
@@ -98,6 +100,33 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: biomimic-science-replay
+          path: qa-artifacts/
+          if-no-files-found: warn
+
+  real-epigenetic-geo:
+    name: Genuine GSE295849 beta matrix ${{ matrix.part }} — strict QC
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        part: ['1', '2', '3']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download and fully validate source part ${{ matrix.part }}
+        run: |
+          mkdir -p qa-artifacts
+          python validation/gse295849_real_qc.py --part "${{ matrix.part }}" --out "qa-artifacts/GSE295849-BETA-${{ matrix.part }}-REAL-QC.json"
+      - name: Preserve actual QC result, including failures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gse295849-beta-${{ matrix.part }}-qc
           path: qa-artifacts/
           if-no-files-found: warn
 
