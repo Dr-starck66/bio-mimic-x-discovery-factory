@@ -11,7 +11,11 @@ import hashlib
 import json
 import re
 from pathlib import Path
-from validation.hand2_assembly_sequence_probe import fasta_from_ncbi,reverse_complement
+try:
+    from validation.hand2_assembly_sequence_probe import fasta_from_ncbi,reverse_complement
+except ModuleNotFoundError:
+    # Direct CLI execution: python validation/hand1_hand2_global_alignment.py
+    from hand2_assembly_sequence_probe import fasta_from_ncbi,reverse_complement
 
 ROOT=Path(__file__).resolve().parents[1]
 OUTPUT=ROOT/"reports/factory/HAND1-HAND2-ALIGNMENT-LATEST.json"
