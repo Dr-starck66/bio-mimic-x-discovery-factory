@@ -28,6 +28,8 @@ on:
       - 'tests/test_gse295849_real_qc.py'
       - 'validation/gse295849_skinblood_clock.py'
       - 'tests/test_gse295849_skinblood_clock.py'
+      - 'validation/gse295849_metadata_bridge.py'
+      - 'tests/test_gse295849_metadata_bridge.py'
       - 'validation/axolotl_human_reanalysis.py'
       - 'tests/test_axolotl_human_reanalysis.py'
       - 'tests/test_human_limb_regeneration_gate.py'
@@ -192,6 +194,30 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: gse295849-horvath2018-real-clock
+          path: qa-artifacts/
+          if-no-files-found: warn
+
+  real-gse295849-metadata:
+    name: Official GEO sample and donor metadata provenance (GSE295849)
+    if: github.event_name == 'pull_request' && github.head_ref == 'science/gse295849-donor-paired-20261102'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fail-closed sample crosswalk unit tests
+        run: python -m unittest tests.test_gse295849_metadata_bridge -v
+      - name: Fetch original GEO series metadata and verify chip-to-GSM IDs
+        run: |
+          mkdir -p qa-artifacts
+          python validation/gse295849_metadata_bridge.py --out qa-artifacts/GSE295849-METADATA-JOIN.json
+      - name: Preserve complete sample metadata & uncertainty
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gse295849-real-metadata-join
           path: qa-artifacts/
           if-no-files-found: warn
 
