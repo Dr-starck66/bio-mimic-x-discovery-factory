@@ -110,12 +110,12 @@ try{
     attempts_max:3,transport_error:transportError,
     biological_validation:'UNVERIFIED',
   };
-  await writeFile('qa-artifacts/publication-geo-source.json',JSON.stringify(geoReceipt,null,2)+'\\n');
+  await writeFile('qa-artifacts/publication-geo-source.json',JSON.stringify(geoReceipt,null,2)+'\n');
   if(process.env.GITHUB_STEP_SUMMARY) {
     await appendFile(process.env.GITHUB_STEP_SUMMARY,
-      '\\n## GEO positive live browser gate\\n- Source: '+geoInputStatus+
-      '\\n- Positive browser test: '+positiveGEOTest+
-      '\\n- Scientific validation: UNVERIFIED\\n');
+      '\n## GEO positive live browser gate\n- Source: '+geoInputStatus+
+      '\n- Positive browser test: '+positiveGEOTest+
+      '\n- Scientific validation: UNVERIFIED\n');
   }
 
   const original=await page.goto(base+'/',{waitUntil:'load',timeout:30000});
