@@ -120,6 +120,20 @@ def make_preflight(hits,mapping):
                 "status":status,"historical":row,
                 "old_genbank_accession":mapping.get(row["chr"]) if row else None,
             })
+    # Distinct historical loci, not gene labels, are the observational units.
+    # Conflicting HAND1/HAND2 labels on one AMEX gene must not inflate N.
+    observed=set()
+    for case in cases:
+        row=case.get("historical") or {}
+        gid=row.get("legacy_gene_id")
+        if not gid:continue
+        if gid in observed:
+            case["duplicate_historic_id"]=True
+            if case["status"]=="ELIGIBLE":
+                case["status"]="DUPLICATE_OR_CONFLICTING_GENE_NAME_ON_SAME_HISTORIC_LOCUS"
+        else:
+            observed.add(gid)
+            case["duplicate_historic_id"]=False
     return cases
 
 def score_old_against_candidates(old,seqs,edlib):
