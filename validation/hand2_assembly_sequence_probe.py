@@ -29,6 +29,7 @@ UCSC_QUERY={"hubUrl":HUB,"genome":"AmexG.v6-DD",
 URLS={
     "ncbi_gene_report":f"{BASE}/gene/id/{GENE_ID}/dataset_report",
     "ncbi_old_assembly_report":f"{BASE}/genome/accession/{LEGACY['assembly']}/dataset_report",
+    "ncbi_old_sequence_report":f"{BASE}/genome/accession/{LEGACY['assembly']}/sequence_report?page_size=100",
     "ncbi_gene_xml":"https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?"
                     +urllib.parse.urlencode({"db":"gene","id":GENE_ID,"retmode":"xml"}),
     "ucsc_old_assembly_window":UCSC+"?"+urllib.parse.urlencode(UCSC_QUERY),
@@ -82,6 +83,21 @@ def parse_old_assembly_report(data:bytes)->dict:
     obj=arr[0]
     return {"status":"ASSEMBLY_REPORT_FOUND","selected_annotations":_string_matches(obj)}
 
+def parse_old_sequence_report(data:bytes)->dict:
+    j=json.loads(data)
+    arr=j.get("reports") or j.get("sequence_reports") or []
+    hits=[]
+    for item in arr:
+        if not isinstance(item,dict): continue
+        fields=" ".join(str(item.get(k) or "") for k in (
+            "chr_name","chromosome_name","sequence_name","ucsc_style_name","name","chromosome"))
+        if re.search(r"(?:^|[^0-9a-z])(?:chr)?3q(?:$|[^0-9a-z])",fields,re.I):
+            hits.append(item)
+    return {"status":"REPORT_PARSED","top_level_keys":sorted(j.keys()),
+        "records_in_page":len(arr),"candidate_chr3q_hits":hits[:5],
+        "next_page_token_present":bool(j.get("next_page_token")),
+        "first_record":arr[0] if arr else None}
+
 def parse_ncbi_gene_xml(data:bytes)->dict:
     root=ET.fromstring(data)
     accessions=[]
@@ -112,10 +128,47 @@ def parse_ucsc_window(data:bytes)->dict:
             "sequence_first_30":bases[:30],"source_assembly":LEGACY["assembly"],
             "note":"Local old assembly sequence only, not aligned to modern NCBI gene."}
 
+def fasta_from_ncbi(accession:str,start:int,end:int)->tuple[str,dict]:
+    if not re.fullmatch(r"(?:NC_|CM|CP|NW_|NZ_)[A-Z0-9_.]+",accession,re.I):
+        raise ValueError("invalid NCBI accession")
+    if not (1<=start<=end and end-start<100_000):
+        raise ValueError("invalid or excessive genomic window")
+    query=urllib.parse.urlencode({"db":"nuccore","id":accession,"seq_start":str(start),
+                                  "seq_stop":str(end),"rettype":"fasta","retmode":"text"})
+    data,meta=bounded_get("https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?"+query,150_000)
+    rows=data.decode("utf-8",errors="replace").splitlines()
+    if not rows or not rows[0].startswith(">"):
+        raise ValueError("NCBI did not return a FASTA record")
+    seq="".join(rows[1:]).upper()
+    if not re.fullmatch("[ACGTN]+",seq) or len(seq)!=end-start+1:
+        raise ValueError("FASTA bases missing or wrong length")
+    return seq,meta
+
+def reverse_complement(s:str)->str:
+    return s.translate(str.maketrans("ACGTN","TGCAN"))[::-1]
+
+def local_kmer_screen(old:str,modern:str,k:int=31)->dict:
+    # An indicative repeat-filtered locus-to-locus comparison. Not a genome-wide alignment.
+    if len(old)<k or len(modern)<k:raise ValueError("short input")
+    def kmers(s):
+        return {s[i:i+k] for i in range(len(s)-k+1) if "N" not in s[i:i+k]}
+    current=kmers(modern)
+    reverse=kmers(reverse_complement(modern))
+    prev=kmers(old)
+    matches_f=len(prev & current)
+    matches_r=len(prev & reverse)
+    return {"k":k,"old_unique_kmers":len(prev),
+        "modern_forward_unique_kmers":len(current),
+        "modern_reverse_unique_kmers":len(reverse),
+        "shared_kmers_forward":matches_f,"shared_kmers_reverse":matches_r,
+        "top_strand":"forward" if matches_f>matches_r else ("reverse" if matches_r>matches_f else "indeterminate"),
+        "not_exact_identity_proof":True}
+
 def build_probe(replies:dict,errors:dict)->dict:
     details={}
     parsers={"ncbi_gene_report":parse_ncbi_gene_report,
              "ncbi_old_assembly_report":parse_old_assembly_report,
+             "ncbi_old_sequence_report":parse_old_sequence_report,
              "ncbi_gene_xml":parse_ncbi_gene_xml,
              "ucsc_old_assembly_window":parse_ucsc_window}
     for k,(body,meta) in replies.items():
@@ -140,6 +193,33 @@ def main():
         try:replies[name]=bounded_get(url)
         except Exception as e:errors[name]=type(e).__name__+": "+str(e)[:250]
     out=build_probe(replies,errors)
+    try:
+        records=(out.get("resources",{}).get("ncbi_old_sequence_report",{})
+                 .get("parsed",{}).get("candidate_chr3q_hits") or [])
+        if records:
+            item=records[0]
+            old_acc=(item.get("genbank_accession") or item.get("genbank_accession_version")
+                     or item.get("genbank_seq_acc") or item.get("accession"))
+            if not old_acc:
+                raise ValueError("chr3q record has no GenBank nucleotide accession")
+            old_seq,old_meta=fasta_from_ncbi(
+                str(old_acc),LEGACY["start_1based"],LEGACY["end_1based"])
+            new_seq,new_meta=fasta_from_ncbi("NC_090937.1",910028725,910032936)
+            out["sequence_screen"]={
+                "old_chromosome_accession":old_acc,
+                "old_sequence_sha256":hashlib.sha256(old_seq.encode()).hexdigest(),
+                "new_gene_chromosome_accession":"NC_090937.1",
+                "new_sequence_sha256":hashlib.sha256(new_seq.encode()).hexdigest(),
+                "old_fetch_metadata":old_meta,"new_fetch_metadata":new_meta,
+                "kmer_comparison":local_kmer_screen(old_seq,new_seq),
+                "status":"EXPLORATORY_GENOMIC_SEQUENCE_COMPARISON",
+                "exact_identity":"UNVERIFIED",
+                "limitation":"Cannot prove exact identity absent independent transcript/CDS alignment, modern HAND1 negative control and reciprocal genome-wide uniqueness."
+            }
+        else:
+            out["sequence_screen"]={"status":"NOT_EXECUTED","reason":"No official chr3q GenBank accession in first page"}
+    except Exception as e:
+        out["sequence_screen"]={"status":"FAILED_CLOSED","reason":type(e).__name__+": "+str(e)[:200]}
     canon=json.dumps(out,sort_keys=True,ensure_ascii=False,separators=(",",":"))
     out["sha256"]=hashlib.sha256(canon.encode()).hexdigest()
     print("HAND2_SEQUENCE_PROBE "+json.dumps(out,ensure_ascii=False,sort_keys=True))
