@@ -1,6 +1,6 @@
 import json
 import unittest
-from validation.hand2_assembly_sequence_probe import build_probe,parse_ucsc_window,parse_ncbi_gene_report
+from validation.hand2_assembly_sequence_probe import build_probe,parse_ucsc_window,parse_ncbi_gene_report,parse_old_sequence_report,local_kmer_screen,reverse_complement
 
 class Hand2AssemblyProbeTests(unittest.TestCase):
     def test_no_inference_from_matching_symbols(self):
@@ -18,6 +18,21 @@ class Hand2AssemblyProbeTests(unittest.TestCase):
     def test_invalid_sequence_disallowed(self):
         res=parse_ucsc_window(json.dumps({"error":"hub not found"}).encode())
         self.assertEqual(res["status"],"NO_VALID_SEQUENCE")
+
+    def test_chromosome_accession_extracted_not_inferred(self):
+        payload={"reports":[
+            {"chr_name":"3q","genbank_accession":"CM000000.3","sequence_name":"3q"},
+            {"chr_name":"6q","genbank_accession":"CM000001.3","sequence_name":"6q"}
+        ]}
+        x=parse_old_sequence_report(json.dumps(payload).encode())
+        self.assertEqual(len(x["candidate_chr3q_hits"]),1)
+        self.assertEqual(x["candidate_chr3q_hits"][0]["genbank_accession"],"CM000000.3")
+
+    def test_reverse_complement_kmer_screen_is_not_exact_proof(self):
+        dna="ACGTACGTACGTACGTTACGTACGTACGTACGTTTGGCCAA"
+        x=local_kmer_screen(dna,reverse_complement(dna),k=15)
+        self.assertGreater(x["shared_kmers_reverse"],0)
+        self.assertTrue(x["not_exact_identity_proof"])
 
     def test_no_sources_fail_closed(self):
         x=build_probe({},{"ncbi":"timeout"})
