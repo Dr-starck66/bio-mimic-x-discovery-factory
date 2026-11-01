@@ -9,6 +9,7 @@ URLS={
  "axolotl_geo_243137": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE243nnn/GSE243137/suppl/GSE243137_MatrixCounts_allsamples.txt.gz",
  "axolotl_geo_185593": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE185nnn/GSE185593/suppl/GSE185593_10072021_normalized_and_filtered_for_analysis.txt.gz",
  "axolotl_geo_111213_small": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE111nnn/GSE111213/suppl/GSE111213_Dividing_cell-enriched_transcripts.csv.gz",
+ "axolotl_geo_237864": "https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE237864&format=file&file=GSE237864_count_matrix.txt.gz",
  "axolotl_counts_alt": "https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE284768&format=file&file=GSE284768_MatrixCounts.csv.gz",
 }
 def probe(name,url,max_bytes=35_000_000):
