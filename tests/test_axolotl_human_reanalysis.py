@@ -1,7 +1,7 @@
 import gzip
 import unittest
 
-from validation.axolotl_human_reanalysis import parse_gtf, read_axolotl, read_human, orthology_check
+from validation.axolotl_human_reanalysis import parse_gtf, read_axolotl, read_human, orthology_check, validate_source_bytes
 
 
 class RealDataParserSafetyTests(unittest.TestCase):
@@ -13,6 +13,16 @@ class RealDataParserSafetyTests(unittest.TestCase):
             'chr1\tsrc\tgene\t3\t4\t.\t+\t.\tgene_id "AMEX60DD000124"; gene_name "SHH [hs]|HAND2 [hs]";\n'
         )
         self.assertEqual(parse_gtf(gzip.compress(raw.encode())),{"HAND2":["AMEX60DD000123"]})
+
+    def test_truncated_or_changed_gzip_does_not_pass_sha(self):
+        # Syntactically gzip-compressed bytes are not the verified GEO source.
+        fake=gzip.compress(b"fragment")
+        with self.assertRaisesRegex(ValueError,"SHA256 mismatch"):
+            validate_source_bytes("GSE28914",fake)
+
+    def test_conflicting_hand1_hand2_source_locus_rejected(self):
+        source='chr3q\tsrc\tgene\t1\t10\t.\t+\t.\tgene_id "AMEX60DD030069"; gene_name "HAND1 [nr]|HAND2 [hs]";\n'
+        self.assertEqual(parse_gtf(gzip.compress(source.encode())),{})
 
     def test_axolotl_requires_four_replicates_each(self):
         groups=[f"AnteriorBlastemaHI_Rep{i}" for i in range(1,5)]+[f"PosteriorBlastemaHI_Rep{i}" for i in range(1,5)]
