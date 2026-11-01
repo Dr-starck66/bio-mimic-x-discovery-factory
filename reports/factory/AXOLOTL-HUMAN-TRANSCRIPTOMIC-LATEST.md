@@ -2,6 +2,8 @@
 
 **Statut scientifique : PARTIAL — contrastes biologiques non comparables.**
 
+> **RECTIFICATIF DU 1er NOVEMBRE 2026 — attribution HAND2 corrigée.** Dans l'analyse exploratoire initiale, la valeur axolotl `−0,0208` correspond au locus `AMEX60DD030069`, étiqueté HAND2 via `HAND2 [hs]`, alors que le fichier annotait aussi `HAND1 [nr]`. Une comparaison ultérieure de séquences génomiques NCBI a trouvé **26 858 31-mers communs avec le HAND1 moderne**, contre **8 avec le HAND2 moderne**. Par conséquent, cette valeur **ne doit plus être présentée comme une mesure établie du gène HAND2 axolotl**. L'ancienne observation est conservée comme archive d'analyse, et son identité de locus est encore `UNVERIFIED` jusqu'à alignement réciproque. Voir [audit de séquences et contrôles négatifs](HAND2-HAND1-SEQUENCE-CORRIGENDUM-2026-11-01.md).
+
 ## Preuves d'exécution
 
 - [Job scientifique du run #41316380241](https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/41316380241) : 150 tests de code **PASS**, données réelles téléchargées et relecture des échantillons et de l'annotation.
@@ -17,7 +19,8 @@ Les colonnes suivantes représentent des expériences **différentes**. Elles ne
 
 | Gène | Axolotl : log2(CPM + 1) postérieur − antérieur, 15 dpa | Humain : intensité log2 jour 3 − peau intacte (médiane des différences appariées) | Annotation |
 |---|---:|---:|---|
-| HAND2 | −0,0208 | −0,1378 | AMEX60DD030069, orthologie NCBI soutenue pour le symbole ; liaison d'identifiant exact AMEX→NCBI non démontrée |
+| Ancien locus `AMEX60DD030069` (**attribué HAND2 à tort dans le premier rapport**) | −0,0208 (observation archivée, **identité HAND1 probable**) | — | HAND1 moderne : 26 858 31-mers partagés ; HAND2 moderne : 8 ; pas de preuve d'identité définitive |
+| HAND2 **humain uniquement** | — | −0,1378 | Résultat humain inchangé ; aucune correspondance axolotl HAND2 vérifiée dans ce jeu |
 | IL10 | −0,7072 | +1,9511 | AMEX60DD009000, aucune orthologie indépendante vérifiée dans cette exécution |
 | CTHRC1 | +0,3777 | −0,3216 | AMEX60DD040253, aucune orthologie indépendante vérifiée dans cette exécution |
 | MMP9 | Non attribué de façon univoque | +3,8976 | Signal humain descriptif uniquement |
@@ -28,7 +31,7 @@ Les colonnes suivantes représentent des expériences **différentes**. Elles ne
 ## Sécurité méthodologique et limites
 
 - Les 12 gènes ont été fixés dans le code avant lecture des résultats du run. Le système refuse les annotations ambiguës, les bibliothèques nulles et les groupes de réplicats incomplets.
-- Les symboles `[hs]` du GTF axolotl ne constituent pas, seuls, une preuve d'orthologie un-à-un. HAND2 obtient un soutien NCBI orthology, mais le lien exact entre AMEX60DD030069 et le gène NCBI de référence reste à établir.
+- Les symboles `[hs]` du GTF ne constituent pas, seuls, une preuve d'orthologie un-à-un. **La chaîne NCBI moderne HAND2 axolotl ↔ HAND2 humain est vérifiée pour ses propres accès, mais le locus historique `AMEX60DD030069` ressemble fortement au gène HAND1 moderne** ; l'attribution initiale HAND2 est retirée des conclusions, sans modifier le JSON historique.
 - Les signaux humains proviennent de données microarray déjà normalisées : il ne faut pas les présenter comme du RNA-seq humain.
 - Le **FAIL préenregistré GSE74387** (16 octobre) est conservé ; il n'est pas « réparé » par une autre comparaison exploratoire.
 - Étude antérieure : PMID 31305215 rapporte déjà 95 signatures de variation inverse humain/axolotl ; aucune priorité de découverte originale n'est revendiquée.
