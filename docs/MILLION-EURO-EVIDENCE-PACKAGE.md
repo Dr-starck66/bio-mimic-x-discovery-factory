@@ -46,6 +46,14 @@ Generated files:
 - `reports/million-euro-evidence/IP-RISK-REGISTER.md`
 - `public/data/million-euro-evidence/latest.json`
 
+## Commercial proof correction (2026-11-01)
+
+The local-only commercial evidence registry formerly marked any `PAID_PILOT` or `RESEARCH_CONTRACT` entry with a source ID or 64-character hash as `PASS`. That allowed **false-positive commercial commitments** without confirming a real payer, signature, contract or inbound response.
+
+The new gate is **fail-closed**: local registry entries are screened for metadata but remain `UNVERIFIED` until an independently authenticated, provider-backed verification adapter exists and has been executed. The free-text fields `paid=true`, `signature_verified=true`, a Gmail `SENT` ID or a fake SHA-256 cannot by themselves promote a sale. `verified_entries=0` is intentional in the absence of connected verification evidence.
+
+This is a correction to the code's evidence standard, not a loss of a previously established sale: no customer order, payment or authenticated LOI had been recorded. The buyer-facing [non-confidential fact sheet](BIO-MIMIC-X-NONCONFIDENTIAL-BUYER-FACT-SHEET-2026-11-01.md) focuses on measured science-software behavior and preserves negative results. Do not confuse it with a binding commercial offer.
+
 ## Evidence boundary
 
 The package is not a medical claim, company valuation, patentability opinion, freedom-to-operate opinion or proof of clinical efficacy.
