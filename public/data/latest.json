@@ -65,10 +65,66 @@
       "arbiter": 50,
       "blocked": false,
       "citations": 0,
-      "disagreement": 13,
+      "disagreement": 10,
       "ensembl_species": null,
       "ensembl_verified": false,
-      "evidence_evaluator": 60,
+      "evidence_evaluator": 57,
+      "genes": [
+        "AKT",
+        "III",
+        "KLF2-",
+        "LSEC",
+        "MAPK",
+        "NO",
+        "PI3K",
+        "SMAD",
+        "TGF-"
+      ],
+      "mechanisms": [
+        "Wnt",
+        "angiogenesis",
+        "antioxidant",
+        "extracellular matrix",
+        "fibrosis",
+        "immune",
+        "inflammation",
+        "ion channel",
+        "regeneration"
+      ],
+      "morpheus_flags": [
+        "taxon not annotation-supported",
+        "taxon not Ensembl-verified",
+        "weak citation signal",
+        "phylogeny confound must be tested",
+        "correlation does not establish causality",
+        "human functional divergence remains possible"
+      ],
+      "name": "Recent advances",
+      "paper_count": 4,
+      "skeptic_evaluator": 47,
+      "sources": [
+        "PMC:PMC13673108",
+        "PMID:42343448",
+        "PMID:42506706",
+        "PMID:42606689"
+      ],
+      "status": "UNVERIFIED_CANDIDATE",
+      "tracks": [
+        "hypoxia_ischemia",
+        "pain_neuro",
+        "regeneration",
+        "thrombosis_immobility"
+      ]
+    },
+    {
+      "annotation_support": false,
+      "arbiter": 50,
+      "blocked": false,
+      "citations": 0,
+      "disagreement": 10,
+      "ensembl_species": null,
+      "ensembl_verified": false,
+      "evidence_evaluator": 57,
       "genes": [
         "A2",
         "ADP",
@@ -89,7 +145,6 @@
         "coagulation",
         "inflammation",
         "ion channel",
-        "mitochondria",
         "regeneration",
         "thrombosis"
       ],
@@ -102,18 +157,16 @@
         "human functional divergence remains possible"
       ],
       "name": "The present",
-      "paper_count": 5,
+      "paper_count": 4,
       "skeptic_evaluator": 47,
       "sources": [
         "PMID:41598274",
         "PMID:42741776",
         "PMID:42793169",
-        "PMID:42846789",
-        "PMID:42941783"
+        "PMID:42846789"
       ],
       "status": "UNVERIFIED_CANDIDATE",
       "tracks": [
-        "longevity_dna",
         "pain_neuro",
         "regeneration",
         "thrombosis_immobility"
@@ -186,14 +239,25 @@
       "ensembl_verified": false,
       "evidence_evaluator": 57,
       "genes": [
-        "TOR-"
+        "A2",
+        "ADP",
+        "CYBB",
+        "NO",
+        "NOX2",
+        "P-",
+        "PAC-1",
+        "PKC",
+        "PPT",
+        "U46619"
       ],
       "mechanisms": [
-        "antioxidant",
-        "immune",
-        "ion channel",
-        "senescence",
-        "stem cell"
+        "Wnt",
+        "coagulation",
+        "hypoxia",
+        "metabolic suppression",
+        "regeneration",
+        "stem cell",
+        "thrombosis"
       ],
       "morpheus_flags": [
         "taxon not annotation-supported",
@@ -203,20 +267,72 @@
         "correlation does not establish causality",
         "human functional divergence remains possible"
       ],
-      "name": "Within this",
+      "name": "Our results",
       "paper_count": 4,
       "skeptic_evaluator": 47,
       "sources": [
-        "PMID:41745735",
-        "PMID:42280674",
-        "PMID:42375388",
-        "PMID:42450167"
+        "PMID:41598274",
+        "PMID:42546520",
+        "PMID:42793169",
+        "PPR:PPR1324708"
       ],
       "status": "UNVERIFIED_CANDIDATE",
       "tracks": [
-        "longevity_dna",
-        "pain_neuro",
-        "regeneration"
+        "hypoxia_ischemia",
+        "regeneration",
+        "thrombosis_immobility"
+      ]
+    },
+    {
+      "annotation_support": false,
+      "arbiter": 48,
+      "blocked": false,
+      "citations": 0,
+      "disagreement": 2,
+      "ensembl_species": null,
+      "ensembl_verified": false,
+      "evidence_evaluator": 49,
+      "genes": [
+        "AI-",
+        "ALD",
+        "D-",
+        "HBV",
+        "HCV",
+        "IND",
+        "M1",
+        "MASH",
+        "SVHRSP",
+        "SVHRSP-"
+      ],
+      "mechanisms": [
+        "antimicrobial peptide",
+        "antioxidant",
+        "fibrosis",
+        "immune",
+        "inflammation",
+        "ion channel",
+        "neuroprotection",
+        "oxidative stress"
+      ],
+      "morpheus_flags": [
+        "taxon not annotation-supported",
+        "taxon not Ensembl-verified",
+        "weak citation signal",
+        "phylogeny confound must be tested",
+        "correlation does not establish causality",
+        "human functional divergence remains possible"
+      ],
+      "name": "Scorpion venom",
+      "paper_count": 3,
+      "skeptic_evaluator": 47,
+      "sources": [
+        "PMID:42352053",
+        "PMID:42699082",
+        "PMID:42769669"
+      ],
+      "status": "UNVERIFIED_CANDIDATE",
+      "tracks": [
+        "pain_neuro"
       ]
     },
     {
@@ -265,107 +381,6 @@
       "status": "UNVERIFIED_CANDIDATE",
       "tracks": [
         "pain_neuro",
-        "regeneration",
-        "thrombosis_immobility"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "arbiter": 48,
-      "blocked": false,
-      "citations": 0,
-      "disagreement": 2,
-      "ensembl_species": null,
-      "ensembl_verified": false,
-      "evidence_evaluator": 49,
-      "genes": [
-        "AKT",
-        "III",
-        "MAPK",
-        "PI3K",
-        "SMAD",
-        "TGF-"
-      ],
-      "mechanisms": [
-        "Wnt",
-        "angiogenesis",
-        "antioxidant",
-        "extracellular matrix",
-        "fibrosis",
-        "immune",
-        "inflammation",
-        "ion channel",
-        "regeneration"
-      ],
-      "morpheus_flags": [
-        "taxon not annotation-supported",
-        "taxon not Ensembl-verified",
-        "weak citation signal",
-        "phylogeny confound must be tested",
-        "correlation does not establish causality",
-        "human functional divergence remains possible"
-      ],
-      "name": "Recent advances",
-      "paper_count": 3,
-      "skeptic_evaluator": 47,
-      "sources": [
-        "PMC:PMC13673108",
-        "PMID:42343448",
-        "PMID:42506706"
-      ],
-      "status": "UNVERIFIED_CANDIDATE",
-      "tracks": [
-        "pain_neuro",
-        "regeneration",
-        "thrombosis_immobility"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "arbiter": 48,
-      "blocked": false,
-      "citations": 0,
-      "disagreement": 2,
-      "ensembl_species": null,
-      "ensembl_verified": false,
-      "evidence_evaluator": 49,
-      "genes": [
-        "A2",
-        "ADP",
-        "CYBB",
-        "NO",
-        "NOX2",
-        "P-",
-        "PAC-1",
-        "PKC",
-        "PPT",
-        "U46619"
-      ],
-      "mechanisms": [
-        "Wnt",
-        "coagulation",
-        "regeneration",
-        "stem cell",
-        "thrombosis"
-      ],
-      "morpheus_flags": [
-        "taxon not annotation-supported",
-        "taxon not Ensembl-verified",
-        "weak citation signal",
-        "phylogeny confound must be tested",
-        "correlation does not establish causality",
-        "human functional divergence remains possible"
-      ],
-      "name": "Our results",
-      "paper_count": 3,
-      "skeptic_evaluator": 47,
-      "sources": [
-        "PMID:41598274",
-        "PMID:42793169",
-        "PPR:PPR1324708"
-      ],
-      "status": "UNVERIFIED_CANDIDATE",
-      "tracks": [
         "regeneration",
         "thrombosis_immobility"
       ]
@@ -433,74 +448,23 @@
       "ensembl_verified": false,
       "evidence_evaluator": 49,
       "genes": [
-        "AI-",
-        "ALD",
         "D-",
-        "HBV",
-        "HCV",
-        "IND",
-        "M1",
-        "MASH",
-        "SVHRSP",
-        "SVHRSP-"
-      ],
-      "mechanisms": [
-        "antimicrobial peptide",
-        "antioxidant",
-        "fibrosis",
-        "immune",
-        "inflammation",
-        "ion channel",
-        "neuroprotection",
-        "oxidative stress"
-      ],
-      "morpheus_flags": [
-        "taxon not annotation-supported",
-        "taxon not Ensembl-verified",
-        "weak citation signal",
-        "phylogeny confound must be tested",
-        "correlation does not establish causality",
-        "human functional divergence remains possible"
-      ],
-      "name": "Scorpion venom",
-      "paper_count": 3,
-      "skeptic_evaluator": 47,
-      "sources": [
-        "PMID:42352053",
-        "PMID:42699082",
-        "PMID:42769669"
-      ],
-      "status": "UNVERIFIED_CANDIDATE",
-      "tracks": [
-        "pain_neuro"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "arbiter": 48,
-      "blocked": false,
-      "citations": 0,
-      "disagreement": 2,
-      "ensembl_species": null,
-      "ensembl_verified": false,
-      "evidence_evaluator": 49,
-      "genes": [
-        "D-",
+        "HIF-1",
+        "MIRI",
         "N-",
         "NMDAR",
         "NMDAR-",
-        "SIRT2",
         "TRPM",
         "TRPM-"
       ],
       "mechanisms": [
+        "antioxidant",
         "circadian",
         "coagulation",
-        "inflammation",
+        "hypoxia",
         "ion channel",
         "mitochondria",
         "oxidative stress",
-        "senescence",
         "thrombosis"
       ],
       "morpheus_flags": [
@@ -517,11 +481,11 @@
       "sources": [
         "PMID:42568801",
         "PMID:42897310",
-        "PMID:42928844"
+        "PMID:42959516"
       ],
       "status": "UNVERIFIED_CANDIDATE",
       "tracks": [
-        "longevity_dna",
+        "hypoxia_ischemia",
         "pain_neuro",
         "thrombosis_immobility"
       ]
@@ -536,75 +500,28 @@
       "ensembl_verified": false,
       "evidence_evaluator": 49,
       "genes": [
-        "AF",
-        "FXI",
-        "II",
-        "III",
-        "NET",
-        "NET-",
-        "PAD4",
-        "RNA-",
-        "TIA",
-        "VTE",
-        "XI"
+        "ADAMTS13",
+        "BCR-ABL",
+        "CAR-T-",
+        "COVID-19",
+        "COVID-19-",
+        "HIF-",
+        "IHD",
+        "SARS-",
+        "VWF",
+        "VWF-"
       ],
       "mechanisms": [
-        "autophagy",
+        "angiogenesis",
+        "antioxidant",
+        "apoptosis",
         "coagulation",
-        "extracellular matrix",
-        "immune",
-        "inflammation",
-        "thrombosis"
-      ],
-      "morpheus_flags": [
-        "taxon not annotation-supported",
-        "taxon not Ensembl-verified",
-        "weak citation signal",
-        "phylogeny confound must be tested",
-        "correlation does not establish causality",
-        "human functional divergence remains possible"
-      ],
-      "name": "Experimental studies",
-      "paper_count": 3,
-      "skeptic_evaluator": 47,
-      "sources": [
-        "PMID:42675480",
-        "PMID:42794511",
-        "PMID:42898680"
-      ],
-      "status": "UNVERIFIED_CANDIDATE",
-      "tracks": [
-        "longevity_dna",
-        "thrombosis_immobility"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "arbiter": 48,
-      "blocked": false,
-      "citations": 0,
-      "disagreement": 2,
-      "ensembl_species": null,
-      "ensembl_verified": false,
-      "evidence_evaluator": 49,
-      "genes": [
-        "CAT",
-        "D-",
-        "DIC",
-        "F2",
-        "HIT",
-        "MEDLINE",
-        "PF4",
-        "PRISMA",
-        "SERPINE1",
-        "VTE"
-      ],
-      "mechanisms": [
-        "coagulation",
+        "hypoxia",
         "immune",
         "inflammation",
         "mitochondria",
-        "proteostasis",
+        "oxidative stress",
+        "stem cell",
         "thrombosis"
       ],
       "morpheus_flags": [
@@ -615,59 +532,18 @@
         "correlation does not establish causality",
         "human functional divergence remains possible"
       ],
-      "name": "Insights from",
+      "name": "The role",
       "paper_count": 3,
       "skeptic_evaluator": 47,
       "sources": [
-        "PMID:42510690",
-        "PMID:42653312",
-        "PMID:42653457"
+        "PMID:42644087",
+        "PMID:42783235",
+        "PMID:42948609"
       ],
       "status": "UNVERIFIED_CANDIDATE",
       "tracks": [
-        "longevity_dna",
+        "hypoxia_ischemia",
         "thrombosis_immobility"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "arbiter": 48,
-      "blocked": false,
-      "citations": 4,
-      "disagreement": 6,
-      "ensembl_species": null,
-      "ensembl_verified": false,
-      "evidence_evaluator": 53,
-      "genes": [
-        "DNA-",
-        "EIF2AK2",
-        "PKR",
-        "RNA-"
-      ],
-      "mechanisms": [
-        "DNA repair",
-        "genome maintenance",
-        "immune"
-      ],
-      "morpheus_flags": [
-        "taxon not annotation-supported",
-        "taxon not Ensembl-verified",
-        "weak citation signal",
-        "phylogeny confound must be tested",
-        "correlation does not establish causality",
-        "human functional divergence remains possible"
-      ],
-      "name": "Insights into",
-      "paper_count": 3,
-      "skeptic_evaluator": 47,
-      "sources": [
-        "PMID:41960904",
-        "PMID:42649300",
-        "PMID:42655835"
-      ],
-      "status": "UNVERIFIED_CANDIDATE",
-      "tracks": [
-        "longevity_dna"
       ]
     },
     {
@@ -758,43 +634,6 @@
       "annotation_support": true,
       "arbiter": 45,
       "blocked": false,
-      "citations": 2,
-      "disagreement": 8,
-      "ensembl_species": null,
-      "ensembl_verified": false,
-      "evidence_evaluator": 51,
-      "genes": [
-        "ECM"
-      ],
-      "mechanisms": [
-        "extracellular matrix",
-        "fibrosis",
-        "immune",
-        "regeneration"
-      ],
-      "morpheus_flags": [
-        "single-paper dependence",
-        "taxon not Ensembl-verified",
-        "weak citation signal",
-        "phylogeny confound must be tested",
-        "correlation does not establish causality",
-        "human functional divergence remains possible"
-      ],
-      "name": "Acomys cahirinus",
-      "paper_count": 1,
-      "skeptic_evaluator": 43,
-      "sources": [
-        "PMID:41732917"
-      ],
-      "status": "UNVERIFIED_CANDIDATE",
-      "tracks": [
-        "regeneration"
-      ]
-    },
-    {
-      "annotation_support": true,
-      "arbiter": 45,
-      "blocked": false,
       "citations": 1,
       "disagreement": 7,
       "ensembl_species": null,
@@ -829,6 +668,43 @@
       "status": "UNVERIFIED_CANDIDATE",
       "tracks": [
         "pain_neuro"
+      ]
+    },
+    {
+      "annotation_support": true,
+      "arbiter": 45,
+      "blocked": false,
+      "citations": 2,
+      "disagreement": 8,
+      "ensembl_species": null,
+      "ensembl_verified": false,
+      "evidence_evaluator": 51,
+      "genes": [
+        "ECM"
+      ],
+      "mechanisms": [
+        "extracellular matrix",
+        "fibrosis",
+        "immune",
+        "regeneration"
+      ],
+      "morpheus_flags": [
+        "single-paper dependence",
+        "taxon not Ensembl-verified",
+        "weak citation signal",
+        "phylogeny confound must be tested",
+        "correlation does not establish causality",
+        "human functional divergence remains possible"
+      ],
+      "name": "Acomys cahirinus",
+      "paper_count": 1,
+      "skeptic_evaluator": 43,
+      "sources": [
+        "PMID:41732917"
+      ],
+      "status": "UNVERIFIED_CANDIDATE",
+      "tracks": [
+        "regeneration"
       ]
     },
     {
@@ -973,57 +849,19 @@
       "ensembl_verified": false,
       "evidence_evaluator": 41,
       "genes": [
-        "A-",
-        "AI-",
-        "M1",
-        "M2",
-        "PDA"
+        "CIIMET",
+        "HIF-",
+        "IHD",
+        "MS"
       ],
       "mechanisms": [
+        "angiogenesis",
         "antioxidant",
-        "extracellular matrix",
-        "fibrosis",
-        "immune",
-        "regeneration"
-      ],
-      "morpheus_flags": [
-        "taxon not annotation-supported",
-        "taxon not Ensembl-verified",
-        "weak citation signal",
-        "phylogeny confound must be tested",
-        "correlation does not establish causality",
-        "human functional divergence remains possible"
-      ],
-      "name": "Achieving scarless",
-      "paper_count": 2,
-      "skeptic_evaluator": 47,
-      "sources": [
-        "PMID:41636017",
-        "PMID:42781429"
-      ],
-      "status": "UNVERIFIED_CANDIDATE",
-      "tracks": [
-        "regeneration"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "arbiter": 42,
-      "blocked": false,
-      "citations": 0,
-      "disagreement": 6,
-      "ensembl_species": null,
-      "ensembl_verified": false,
-      "evidence_evaluator": 41,
-      "genes": [
-        "D-"
-      ],
-      "mechanisms": [
-        "antimicrobial peptide",
+        "apoptosis",
+        "hypoxia",
         "inflammation",
         "ion channel",
-        "regeneration",
-        "stem cell"
+        "mitochondria"
       ],
       "morpheus_flags": [
         "taxon not annotation-supported",
@@ -1033,17 +871,17 @@
         "correlation does not establish causality",
         "human functional divergence remains possible"
       ],
-      "name": "Future research",
+      "name": "Despite its",
       "paper_count": 2,
       "skeptic_evaluator": 47,
       "sources": [
-        "PMID:42599176",
-        "PMID:42769669"
+        "PMID:42644087",
+        "PMID:42741776"
       ],
       "status": "UNVERIFIED_CANDIDATE",
       "tracks": [
-        "pain_neuro",
-        "regeneration"
+        "hypoxia_ischemia",
+        "pain_neuro"
       ]
     },
     {
@@ -1056,24 +894,14 @@
       "ensembl_verified": false,
       "evidence_evaluator": 41,
       "genes": [
-        "AB",
-        "AB-",
-        "MN",
-        "PBD",
-        "PCNA",
-        "PCNA-",
-        "PLGA",
-        "QR",
-        "RT-PCR",
-        "SBECD",
-        "TGF-"
+        "GABAA",
+        "HCN1",
+        "NMDA"
       ],
       "mechanisms": [
-        "extracellular matrix",
-        "fibrosis",
-        "inflammation",
-        "oxidative stress",
-        "regeneration"
+        "immune",
+        "ion channel",
+        "senescence"
       ],
       "morpheus_flags": [
         "taxon not annotation-supported",
@@ -1083,16 +911,16 @@
         "correlation does not establish causality",
         "human functional divergence remains possible"
       ],
-      "name": "Burn wounds",
+      "name": "Their clinical",
       "paper_count": 2,
       "skeptic_evaluator": 47,
       "sources": [
-        "PMID:42702818",
-        "PMID:42949795"
+        "PMID:42641002",
+        "PMID:42938399"
       ],
       "status": "UNVERIFIED_CANDIDATE",
       "tracks": [
-        "regeneration"
+        "pain_neuro"
       ]
     },
     {
@@ -1152,15 +980,145 @@
       "ensembl_verified": false,
       "evidence_evaluator": 41,
       "genes": [
-        "CLSV-6",
-        "NK",
-        "NLRP3"
+        "D-"
       ],
       "mechanisms": [
-        "autophagy",
-        "immune",
+        "antimicrobial peptide",
         "inflammation",
-        "proteostasis",
+        "ion channel",
+        "regeneration",
+        "stem cell"
+      ],
+      "morpheus_flags": [
+        "taxon not annotation-supported",
+        "taxon not Ensembl-verified",
+        "weak citation signal",
+        "phylogeny confound must be tested",
+        "correlation does not establish causality",
+        "human functional divergence remains possible"
+      ],
+      "name": "Future research",
+      "paper_count": 2,
+      "skeptic_evaluator": 47,
+      "sources": [
+        "PMID:42599176",
+        "PMID:42769669"
+      ],
+      "status": "UNVERIFIED_CANDIDATE",
+      "tracks": [
+        "pain_neuro",
+        "regeneration"
+      ]
+    },
+    {
+      "annotation_support": false,
+      "arbiter": 42,
+      "blocked": false,
+      "citations": 0,
+      "disagreement": 6,
+      "ensembl_species": null,
+      "ensembl_verified": false,
+      "evidence_evaluator": 41,
+      "genes": [
+        "D-",
+        "N-",
+        "NET",
+        "NET-",
+        "NMDAR",
+        "NMDAR-",
+        "PAD4",
+        "TRPM",
+        "TRPM-"
+      ],
+      "mechanisms": [
+        "coagulation",
+        "immune",
+        "ion channel",
+        "oxidative stress",
+        "thrombosis"
+      ],
+      "morpheus_flags": [
+        "taxon not annotation-supported",
+        "taxon not Ensembl-verified",
+        "weak citation signal",
+        "phylogeny confound must be tested",
+        "correlation does not establish causality",
+        "human functional divergence remains possible"
+      ],
+      "name": "Ischemic stroke",
+      "paper_count": 2,
+      "skeptic_evaluator": 47,
+      "sources": [
+        "PMID:42675480",
+        "PMID:42897310"
+      ],
+      "status": "UNVERIFIED_CANDIDATE",
+      "tracks": [
+        "pain_neuro",
+        "thrombosis_immobility"
+      ]
+    },
+    {
+      "annotation_support": false,
+      "arbiter": 42,
+      "blocked": false,
+      "citations": 0,
+      "disagreement": 6,
+      "ensembl_species": null,
+      "ensembl_verified": false,
+      "evidence_evaluator": 41,
+      "genes": [
+        "ECMO",
+        "ECMO-",
+        "IHN"
+      ],
+      "mechanisms": [
+        "coagulation",
+        "inflammation",
+        "thrombosis"
+      ],
+      "morpheus_flags": [
+        "taxon not annotation-supported",
+        "taxon not Ensembl-verified",
+        "weak citation signal",
+        "phylogeny confound must be tested",
+        "correlation does not establish causality",
+        "human functional divergence remains possible"
+      ],
+      "name": "Its clinical",
+      "paper_count": 2,
+      "skeptic_evaluator": 47,
+      "sources": [
+        "PMID:42796305",
+        "PMID:42940760"
+      ],
+      "status": "UNVERIFIED_CANDIDATE",
+      "tracks": [
+        "pain_neuro",
+        "thrombosis_immobility"
+      ]
+    },
+    {
+      "annotation_support": false,
+      "arbiter": 42,
+      "blocked": false,
+      "citations": 0,
+      "disagreement": 6,
+      "ensembl_species": null,
+      "ensembl_verified": false,
+      "evidence_evaluator": 41,
+      "genes": [
+        "A-",
+        "AI-",
+        "M1",
+        "M2",
+        "PDA"
+      ],
+      "mechanisms": [
+        "antioxidant",
+        "extracellular matrix",
+        "fibrosis",
+        "immune",
         "regeneration"
       ],
       "morpheus_flags": [
@@ -1171,16 +1129,64 @@
         "correlation does not establish causality",
         "human functional divergence remains possible"
       ],
-      "name": "The exceptional",
+      "name": "Achieving scarless",
       "paper_count": 2,
       "skeptic_evaluator": 47,
       "sources": [
-        "PMID:42196445",
-        "PMID:42883061"
+        "PMID:41636017",
+        "PMID:42781429"
       ],
       "status": "UNVERIFIED_CANDIDATE",
       "tracks": [
-        "longevity_dna",
+        "regeneration"
+      ]
+    },
+    {
+      "annotation_support": false,
+      "arbiter": 42,
+      "blocked": false,
+      "citations": 0,
+      "disagreement": 6,
+      "ensembl_species": null,
+      "ensembl_verified": false,
+      "evidence_evaluator": 41,
+      "genes": [
+        "AB",
+        "AB-",
+        "MN",
+        "PBD",
+        "PCNA",
+        "PCNA-",
+        "PLGA",
+        "QR",
+        "RT-PCR",
+        "SBECD",
+        "TGF-"
+      ],
+      "mechanisms": [
+        "extracellular matrix",
+        "fibrosis",
+        "inflammation",
+        "oxidative stress",
+        "regeneration"
+      ],
+      "morpheus_flags": [
+        "taxon not annotation-supported",
+        "taxon not Ensembl-verified",
+        "weak citation signal",
+        "phylogeny confound must be tested",
+        "correlation does not establish causality",
+        "human functional divergence remains possible"
+      ],
+      "name": "Burn wounds",
+      "paper_count": 2,
+      "skeptic_evaluator": 47,
+      "sources": [
+        "PMID:42702818",
+        "PMID:42949795"
+      ],
+      "status": "UNVERIFIED_CANDIDATE",
+      "tracks": [
         "regeneration"
       ]
     },
@@ -1295,59 +1301,30 @@
       "ensembl_verified": false,
       "evidence_evaluator": 41,
       "genes": [
-        "GABAA",
-        "HCN1",
-        "NMDA"
+        "AMPK-",
+        "ATG",
+        "COVID-19",
+        "DENV",
+        "FOXO",
+        "JEV",
+        "LC3-II",
+        "NF-",
+        "NLRP3",
+        "SARS-",
+        "SQSTM1",
+        "TFEB-",
+        "ULK1",
+        "WNV",
+        "YFV",
+        "ZIKV"
       ],
       "mechanisms": [
-        "immune",
-        "ion channel",
-        "senescence"
-      ],
-      "morpheus_flags": [
-        "taxon not annotation-supported",
-        "taxon not Ensembl-verified",
-        "weak citation signal",
-        "phylogeny confound must be tested",
-        "correlation does not establish causality",
-        "human functional divergence remains possible"
-      ],
-      "name": "Their clinical",
-      "paper_count": 2,
-      "skeptic_evaluator": 47,
-      "sources": [
-        "PMID:42641002",
-        "PMID:42938399"
-      ],
-      "status": "UNVERIFIED_CANDIDATE",
-      "tracks": [
-        "pain_neuro"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "arbiter": 42,
-      "blocked": false,
-      "citations": 0,
-      "disagreement": 6,
-      "ensembl_species": null,
-      "ensembl_verified": false,
-      "evidence_evaluator": 41,
-      "genes": [
-        "D-",
-        "N-",
-        "NET",
-        "NET-",
-        "NMDAR",
-        "NMDAR-",
-        "PAD4",
-        "TRPM",
-        "TRPM-"
-      ],
-      "mechanisms": [
+        "autophagy",
         "coagulation",
+        "hypoxia",
         "immune",
-        "ion channel",
+        "inflammation",
+        "mitochondria",
         "oxidative stress",
         "thrombosis"
       ],
@@ -1359,98 +1336,16 @@
         "correlation does not establish causality",
         "human functional divergence remains possible"
       ],
-      "name": "Ischemic stroke",
+      "name": "The framework",
       "paper_count": 2,
       "skeptic_evaluator": 47,
       "sources": [
-        "PMID:42675480",
-        "PMID:42897310"
+        "PMID:42921200",
+        "PMID:42944079"
       ],
       "status": "UNVERIFIED_CANDIDATE",
       "tracks": [
-        "pain_neuro",
-        "thrombosis_immobility"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "arbiter": 42,
-      "blocked": false,
-      "citations": 0,
-      "disagreement": 6,
-      "ensembl_species": null,
-      "ensembl_verified": false,
-      "evidence_evaluator": 41,
-      "genes": [
-        "ECMO",
-        "ECMO-",
-        "IHN"
-      ],
-      "mechanisms": [
-        "coagulation",
-        "inflammation",
-        "thrombosis"
-      ],
-      "morpheus_flags": [
-        "taxon not annotation-supported",
-        "taxon not Ensembl-verified",
-        "weak citation signal",
-        "phylogeny confound must be tested",
-        "correlation does not establish causality",
-        "human functional divergence remains possible"
-      ],
-      "name": "Its clinical",
-      "paper_count": 2,
-      "skeptic_evaluator": 47,
-      "sources": [
-        "PMID:42796305",
-        "PMID:42940760"
-      ],
-      "status": "UNVERIFIED_CANDIDATE",
-      "tracks": [
-        "pain_neuro",
-        "thrombosis_immobility"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "arbiter": 42,
-      "blocked": false,
-      "citations": 0,
-      "disagreement": 6,
-      "ensembl_species": null,
-      "ensembl_verified": false,
-      "evidence_evaluator": 41,
-      "genes": [
-        "ECMO",
-        "ECMO-",
-        "IHN"
-      ],
-      "mechanisms": [
-        "autophagy",
-        "coagulation",
-        "inflammation",
-        "senescence",
-        "thrombosis"
-      ],
-      "morpheus_flags": [
-        "taxon not annotation-supported",
-        "taxon not Ensembl-verified",
-        "weak citation signal",
-        "phylogeny confound must be tested",
-        "correlation does not establish causality",
-        "human functional divergence remains possible"
-      ],
-      "name": "Framework for",
-      "paper_count": 2,
-      "skeptic_evaluator": 47,
-      "sources": [
-        "PMID:42776723",
-        "PMID:42940760"
-      ],
-      "status": "UNVERIFIED_CANDIDATE",
-      "tracks": [
-        "longevity_dna",
+        "hypoxia_ischemia",
         "thrombosis_immobility"
       ]
     },
@@ -1506,18 +1401,24 @@
       "ensembl_verified": false,
       "evidence_evaluator": 41,
       "genes": [
-        "DCS"
+        "AKT",
+        "DCS",
+        "HIF-",
+        "IL-6",
+        "IX",
+        "MC",
+        "MC-",
+        "PI3K",
+        "SH2-",
+        "SHIP1",
+        "TNF-"
       ],
       "mechanisms": [
         "coagulation",
-        "fibrosis",
+        "hypoxia",
         "immune",
         "inflammation",
-        "mitochondria",
         "oxidative stress",
-        "regeneration",
-        "senescence",
-        "stem cell",
         "thrombosis"
       ],
       "morpheus_flags": [
@@ -1532,12 +1433,12 @@
       "paper_count": 2,
       "skeptic_evaluator": 47,
       "sources": [
-        "PMID:42707763",
+        "PMID:42703957",
         "PMID:42793171"
       ],
       "status": "UNVERIFIED_CANDIDATE",
       "tracks": [
-        "longevity_dna",
+        "hypoxia_ischemia",
         "thrombosis_immobility"
       ]
     },
@@ -1551,21 +1452,20 @@
       "ensembl_verified": false,
       "evidence_evaluator": 41,
       "genes": [
-        "ADAMTS13",
-        "BCR-ABL",
-        "CAR-T-",
-        "COVID-19",
-        "COVID-19-",
-        "SARS-",
-        "VWF",
-        "VWF-"
+        "AF",
+        "FXI",
+        "II",
+        "III",
+        "NET",
+        "NET-",
+        "PAD4",
+        "TIA",
+        "VTE",
+        "XI"
       ],
       "mechanisms": [
         "coagulation",
         "immune",
-        "inflammation",
-        "oxidative stress",
-        "stem cell",
         "thrombosis"
       ],
       "morpheus_flags": [
@@ -1576,12 +1476,12 @@
         "correlation does not establish causality",
         "human functional divergence remains possible"
       ],
-      "name": "The role",
+      "name": "Experimental studies",
       "paper_count": 2,
       "skeptic_evaluator": 47,
       "sources": [
-        "PMID:42783235",
-        "PMID:42948609"
+        "PMID:42675480",
+        "PMID:42898680"
       ],
       "status": "UNVERIFIED_CANDIDATE",
       "tracks": [
@@ -1598,13 +1498,22 @@
       "ensembl_verified": false,
       "evidence_evaluator": 41,
       "genes": [
-        "RNA-"
+        "CAT",
+        "D-",
+        "DIC",
+        "F2",
+        "HIT",
+        "MEDLINE",
+        "PF4",
+        "PRISMA",
+        "SERPINE1",
+        "VTE"
       ],
       "mechanisms": [
-        "autophagy",
-        "extracellular matrix",
+        "coagulation",
+        "immune",
         "inflammation",
-        "senescence"
+        "thrombosis"
       ],
       "morpheus_flags": [
         "taxon not annotation-supported",
@@ -1614,58 +1523,53 @@
         "correlation does not establish causality",
         "human functional divergence remains possible"
       ],
-      "name": "The hallmarks",
+      "name": "Insights from",
       "paper_count": 2,
       "skeptic_evaluator": 47,
       "sources": [
-        "PMID:42776723",
-        "PMID:42794511"
+        "PMID:42653312",
+        "PMID:42653457"
       ],
       "status": "UNVERIFIED_CANDIDATE",
       "tracks": [
-        "longevity_dna"
+        "thrombosis_immobility"
       ]
     },
     {
       "annotation_support": false,
-      "arbiter": 41,
+      "arbiter": 40,
       "blocked": false,
       "citations": 0,
-      "disagreement": 8,
+      "disagreement": 2,
       "ensembl_species": null,
       "ensembl_verified": false,
-      "evidence_evaluator": 39,
-      "genes": [
-        "A2",
-        "HDP-1",
-        "HDP-2",
-        "IC",
-        "NCBI",
-        "PLA2",
-        "RGD"
-      ],
+      "evidence_evaluator": 41,
+      "genes": [],
       "mechanisms": [
-        "immune"
+        "immune",
+        "ion channel",
+        "stem cell"
       ],
       "morpheus_flags": [
         "taxon not annotation-supported",
         "taxon not Ensembl-verified",
+        "no gene symbol candidate",
         "weak citation signal",
         "phylogeny confound must be tested",
         "correlation does not establish causality",
         "human functional divergence remains possible"
       ],
-      "name": "Snake venom",
-      "paper_count": 3,
-      "skeptic_evaluator": 47,
+      "name": "Within this",
+      "paper_count": 2,
+      "skeptic_evaluator": 39,
       "sources": [
-        "PMID:42292853",
-        "PMID:42932090",
-        "PMID:42942125"
+        "PMID:41745735",
+        "PMID:42450167"
       ],
       "status": "UNVERIFIED_CANDIDATE",
       "tracks": [
-        "pain_neuro"
+        "pain_neuro",
+        "regeneration"
       ]
     },
     {
@@ -1745,6 +1649,43 @@
     },
     {
       "annotation_support": false,
+      "arbiter": 39,
+      "blocked": false,
+      "citations": 0,
+      "disagreement": 11,
+      "ensembl_species": null,
+      "ensembl_verified": false,
+      "evidence_evaluator": 36,
+      "genes": [
+        "IHC"
+      ],
+      "mechanisms": [
+        "hypoxia",
+        "regeneration"
+      ],
+      "morpheus_flags": [
+        "taxon not annotation-supported",
+        "taxon not Ensembl-verified",
+        "weak citation signal",
+        "phylogeny confound must be tested",
+        "correlation does not establish causality",
+        "human functional divergence remains possible"
+      ],
+      "name": "For example",
+      "paper_count": 2,
+      "skeptic_evaluator": 47,
+      "sources": [
+        "PMID:41799438",
+        "PMID:42666386"
+      ],
+      "status": "UNVERIFIED_CANDIDATE",
+      "tracks": [
+        "hypoxia_ischemia",
+        "regeneration"
+      ]
+    },
+    {
+      "annotation_support": false,
       "arbiter": 37,
       "blocked": false,
       "citations": 0,
@@ -1766,17 +1707,53 @@
         "correlation does not establish causality",
         "human functional divergence remains possible"
       ],
-      "name": "Strategies for",
+      "name": "Plants and",
       "paper_count": 2,
       "skeptic_evaluator": 39,
       "sources": [
-        "PMC:PMC13666682",
-        "PMID:42450167"
+        "PMID:42450167",
+        "PMID:42960741"
       ],
       "status": "UNVERIFIED_CANDIDATE",
       "tracks": [
-        "longevity_dna",
+        "hypoxia_ischemia",
         "regeneration"
+      ]
+    },
+    {
+      "annotation_support": false,
+      "arbiter": 37,
+      "blocked": false,
+      "citations": 0,
+      "disagreement": 1,
+      "ensembl_species": "bos_grunniens",
+      "ensembl_verified": true,
+      "evidence_evaluator": 38,
+      "genes": [
+        "A-",
+        "AKAP1"
+      ],
+      "mechanisms": [
+        "hypoxia",
+        "mitochondria"
+      ],
+      "morpheus_flags": [
+        "single-paper dependence",
+        "taxon not annotation-supported",
+        "weak citation signal",
+        "phylogeny confound must be tested",
+        "correlation does not establish causality",
+        "human functional divergence remains possible"
+      ],
+      "name": "Bos grunniens",
+      "paper_count": 1,
+      "skeptic_evaluator": 37,
+      "sources": [
+        "PMID:42624260"
+      ],
+      "status": "UNVERIFIED_CANDIDATE",
+      "tracks": [
+        "hypoxia_ischemia"
       ]
     },
     {
@@ -1827,36 +1804,40 @@
     },
     {
       "annotation_support": false,
-      "arbiter": 33,
+      "arbiter": 35,
       "blocked": false,
       "citations": 0,
-      "disagreement": 8,
+      "disagreement": 16,
       "ensembl_species": null,
       "ensembl_verified": false,
       "evidence_evaluator": 31,
-      "genes": [],
+      "genes": [
+        "A2",
+        "IC",
+        "NCBI",
+        "PLA2",
+        "RGD"
+      ],
       "mechanisms": [
-        "ion channel"
+        "immune"
       ],
       "morpheus_flags": [
         "taxon not annotation-supported",
         "taxon not Ensembl-verified",
-        "no gene symbol candidate",
         "weak citation signal",
         "phylogeny confound must be tested",
         "correlation does not establish causality",
         "human functional divergence remains possible"
       ],
-      "name": "Implications for",
+      "name": "Snake venom",
       "paper_count": 2,
-      "skeptic_evaluator": 39,
+      "skeptic_evaluator": 47,
       "sources": [
-        "PMC:PMC13666682",
-        "PMID:42506706"
+        "PMID:42292853",
+        "PMID:42932090"
       ],
       "status": "UNVERIFIED_CANDIDATE",
       "tracks": [
-        "longevity_dna",
         "pain_neuro"
       ]
     },
@@ -2110,6 +2091,416 @@
       "skeptic_evaluator": 28,
       "sources": [
         "PMID:42884120"
+      ],
+      "status": "UNVERIFIED_CANDIDATE",
+      "tracks": [
+        "pain_neuro"
+      ]
+    },
+    {
+      "annotation_support": false,
+      "arbiter": 28,
+      "blocked": false,
+      "citations": 1,
+      "disagreement": 10,
+      "ensembl_species": null,
+      "ensembl_verified": false,
+      "evidence_evaluator": 35,
+      "genes": [
+        "AGAP",
+        "BMK",
+        "CCI",
+        "LD50",
+        "SVHRP"
+      ],
+      "mechanisms": [
+        "immune",
+        "inflammation",
+        "ion channel"
+      ],
+      "morpheus_flags": [
+        "single-paper dependence",
+        "taxon not annotation-supported",
+        "taxon not Ensembl-verified",
+        "weak citation signal",
+        "phylogeny confound must be tested",
+        "correlation does not establish causality",
+        "human functional divergence remains possible"
+      ],
+      "name": "Peptides for",
+      "paper_count": 1,
+      "skeptic_evaluator": 25,
+      "sources": [
+        "PMID:41893543"
+      ],
+      "status": "UNVERIFIED_CANDIDATE",
+      "tracks": [
+        "pain_neuro"
+      ]
+    },
+    {
+      "annotation_support": false,
+      "arbiter": 28,
+      "blocked": false,
+      "citations": 1,
+      "disagreement": 10,
+      "ensembl_species": null,
+      "ensembl_verified": false,
+      "evidence_evaluator": 35,
+      "genes": [
+        "AGAP",
+        "BMK",
+        "CCI",
+        "LD50",
+        "SVHRP"
+      ],
+      "mechanisms": [
+        "immune",
+        "inflammation",
+        "ion channel"
+      ],
+      "morpheus_flags": [
+        "single-paper dependence",
+        "taxon not annotation-supported",
+        "taxon not Ensembl-verified",
+        "weak citation signal",
+        "phylogeny confound must be tested",
+        "correlation does not establish causality",
+        "human functional divergence remains possible"
+      ],
+      "name": "Peptides from",
+      "paper_count": 1,
+      "skeptic_evaluator": 25,
+      "sources": [
+        "PMID:41893543"
+      ],
+      "status": "UNVERIFIED_CANDIDATE",
+      "tracks": [
+        "pain_neuro"
+      ]
+    },
+    {
+      "annotation_support": false,
+      "arbiter": 28,
+      "blocked": false,
+      "citations": 1,
+      "disagreement": 10,
+      "ensembl_species": null,
+      "ensembl_verified": false,
+      "evidence_evaluator": 35,
+      "genes": [
+        "AGAP",
+        "BMK",
+        "CCI",
+        "LD50",
+        "SVHRP"
+      ],
+      "mechanisms": [
+        "immune",
+        "inflammation",
+        "ion channel"
+      ],
+      "morpheus_flags": [
+        "single-paper dependence",
+        "taxon not annotation-supported",
+        "taxon not Ensembl-verified",
+        "weak citation signal",
+        "phylogeny confound must be tested",
+        "correlation does not establish causality",
+        "human functional divergence remains possible"
+      ],
+      "name": "Olivierus martensii",
+      "paper_count": 1,
+      "skeptic_evaluator": 25,
+      "sources": [
+        "PMID:41893543"
+      ],
+      "status": "UNVERIFIED_CANDIDATE",
+      "tracks": [
+        "pain_neuro"
+      ]
+    },
+    {
+      "annotation_support": false,
+      "arbiter": 28,
+      "blocked": false,
+      "citations": 1,
+      "disagreement": 10,
+      "ensembl_species": null,
+      "ensembl_verified": false,
+      "evidence_evaluator": 35,
+      "genes": [
+        "AGAP",
+        "BMK",
+        "CCI",
+        "LD50",
+        "SVHRP"
+      ],
+      "mechanisms": [
+        "immune",
+        "inflammation",
+        "ion channel"
+      ],
+      "morpheus_flags": [
+        "single-paper dependence",
+        "taxon not annotation-supported",
+        "taxon not Ensembl-verified",
+        "weak citation signal",
+        "phylogeny confound must be tested",
+        "correlation does not establish causality",
+        "human functional divergence remains possible"
+      ],
+      "name": "Buthidae family",
+      "paper_count": 1,
+      "skeptic_evaluator": 25,
+      "sources": [
+        "PMID:41893543"
+      ],
+      "status": "UNVERIFIED_CANDIDATE",
+      "tracks": [
+        "pain_neuro"
+      ]
+    },
+    {
+      "annotation_support": false,
+      "arbiter": 28,
+      "blocked": false,
+      "citations": 1,
+      "disagreement": 10,
+      "ensembl_species": null,
+      "ensembl_verified": false,
+      "evidence_evaluator": 35,
+      "genes": [
+        "AGAP",
+        "BMK",
+        "CCI",
+        "LD50",
+        "SVHRP"
+      ],
+      "mechanisms": [
+        "immune",
+        "inflammation",
+        "ion channel"
+      ],
+      "morpheus_flags": [
+        "single-paper dependence",
+        "taxon not annotation-supported",
+        "taxon not Ensembl-verified",
+        "weak citation signal",
+        "phylogeny confound must be tested",
+        "correlation does not establish causality",
+        "human functional divergence remains possible"
+      ],
+      "name": "They work",
+      "paper_count": 1,
+      "skeptic_evaluator": 25,
+      "sources": [
+        "PMID:41893543"
+      ],
+      "status": "UNVERIFIED_CANDIDATE",
+      "tracks": [
+        "pain_neuro"
+      ]
+    },
+    {
+      "annotation_support": false,
+      "arbiter": 28,
+      "blocked": false,
+      "citations": 1,
+      "disagreement": 10,
+      "ensembl_species": null,
+      "ensembl_verified": false,
+      "evidence_evaluator": 35,
+      "genes": [
+        "AGAP",
+        "BMK",
+        "CCI",
+        "LD50",
+        "SVHRP"
+      ],
+      "mechanisms": [
+        "immune",
+        "inflammation",
+        "ion channel"
+      ],
+      "morpheus_flags": [
+        "single-paper dependence",
+        "taxon not annotation-supported",
+        "taxon not Ensembl-verified",
+        "weak citation signal",
+        "phylogeny confound must be tested",
+        "correlation does not establish causality",
+        "human functional divergence remains possible"
+      ],
+      "name": "Structural features",
+      "paper_count": 1,
+      "skeptic_evaluator": 25,
+      "sources": [
+        "PMID:41893543"
+      ],
+      "status": "UNVERIFIED_CANDIDATE",
+      "tracks": [
+        "pain_neuro"
+      ]
+    },
+    {
+      "annotation_support": false,
+      "arbiter": 28,
+      "blocked": false,
+      "citations": 1,
+      "disagreement": 10,
+      "ensembl_species": null,
+      "ensembl_verified": false,
+      "evidence_evaluator": 35,
+      "genes": [
+        "AGAP",
+        "BMK",
+        "CCI",
+        "LD50",
+        "SVHRP"
+      ],
+      "mechanisms": [
+        "immune",
+        "inflammation",
+        "ion channel"
+      ],
+      "morpheus_flags": [
+        "single-paper dependence",
+        "taxon not annotation-supported",
+        "taxon not Ensembl-verified",
+        "weak citation signal",
+        "phylogeny confound must be tested",
+        "correlation does not establish causality",
+        "human functional divergence remains possible"
+      ],
+      "name": "Pairings like",
+      "paper_count": 1,
+      "skeptic_evaluator": 25,
+      "sources": [
+        "PMID:41893543"
+      ],
+      "status": "UNVERIFIED_CANDIDATE",
+      "tracks": [
+        "pain_neuro"
+      ]
+    },
+    {
+      "annotation_support": false,
+      "arbiter": 28,
+      "blocked": false,
+      "citations": 1,
+      "disagreement": 10,
+      "ensembl_species": null,
+      "ensembl_verified": false,
+      "evidence_evaluator": 35,
+      "genes": [
+        "AGAP",
+        "BMK",
+        "CCI",
+        "LD50",
+        "SVHRP"
+      ],
+      "mechanisms": [
+        "immune",
+        "inflammation",
+        "ion channel"
+      ],
+      "morpheus_flags": [
+        "single-paper dependence",
+        "taxon not annotation-supported",
+        "taxon not Ensembl-verified",
+        "weak citation signal",
+        "phylogeny confound must be tested",
+        "correlation does not establish causality",
+        "human functional divergence remains possible"
+      ],
+      "name": "Issues crop",
+      "paper_count": 1,
+      "skeptic_evaluator": 25,
+      "sources": [
+        "PMID:41893543"
+      ],
+      "status": "UNVERIFIED_CANDIDATE",
+      "tracks": [
+        "pain_neuro"
+      ]
+    },
+    {
+      "annotation_support": false,
+      "arbiter": 28,
+      "blocked": false,
+      "citations": 1,
+      "disagreement": 10,
+      "ensembl_species": null,
+      "ensembl_verified": false,
+      "evidence_evaluator": 35,
+      "genes": [
+        "AGAP",
+        "BMK",
+        "CCI",
+        "LD50",
+        "SVHRP"
+      ],
+      "mechanisms": [
+        "immune",
+        "inflammation",
+        "ion channel"
+      ],
+      "morpheus_flags": [
+        "single-paper dependence",
+        "taxon not annotation-supported",
+        "taxon not Ensembl-verified",
+        "weak citation signal",
+        "phylogeny confound must be tested",
+        "correlation does not establish causality",
+        "human functional divergence remains possible"
+      ],
+      "name": "Engineered versions",
+      "paper_count": 1,
+      "skeptic_evaluator": 25,
+      "sources": [
+        "PMID:41893543"
+      ],
+      "status": "UNVERIFIED_CANDIDATE",
+      "tracks": [
+        "pain_neuro"
+      ]
+    },
+    {
+      "annotation_support": false,
+      "arbiter": 28,
+      "blocked": false,
+      "citations": 1,
+      "disagreement": 10,
+      "ensembl_species": null,
+      "ensembl_verified": false,
+      "evidence_evaluator": 35,
+      "genes": [
+        "AGAP",
+        "BMK",
+        "CCI",
+        "LD50",
+        "SVHRP"
+      ],
+      "mechanisms": [
+        "immune",
+        "inflammation",
+        "ion channel"
+      ],
+      "morpheus_flags": [
+        "single-paper dependence",
+        "taxon not annotation-supported",
+        "taxon not Ensembl-verified",
+        "weak citation signal",
+        "phylogeny confound must be tested",
+        "correlation does not establish causality",
+        "human functional divergence remains possible"
+      ],
+      "name": "Standardization plus",
+      "paper_count": 1,
+      "skeptic_evaluator": 25,
+      "sources": [
+        "PMID:41893543"
       ],
       "status": "UNVERIFIED_CANDIDATE",
       "tracks": [
@@ -2842,16 +3233,19 @@
       "ensembl_verified": false,
       "evidence_evaluator": 35,
       "genes": [
-        "AGAP",
-        "BMK",
-        "CCI",
-        "LD50",
-        "SVHRP"
+        "HO-1",
+        "HSP27",
+        "HSP70",
+        "NAMPT",
+        "SIRT1",
+        "SIRT5"
       ],
       "mechanisms": [
+        "heat shock",
         "immune",
-        "inflammation",
-        "ion channel"
+        "interferon",
+        "mitochondria",
+        "proteostasis"
       ],
       "morpheus_flags": [
         "single-paper dependence",
@@ -2862,15 +3256,15 @@
         "correlation does not establish causality",
         "human functional divergence remains possible"
       ],
-      "name": "Peptides for",
+      "name": "Blueprint for",
       "paper_count": 1,
       "skeptic_evaluator": 25,
       "sources": [
-        "PMID:41893543"
+        "PMID:42044228"
       ],
       "status": "UNVERIFIED_CANDIDATE",
       "tracks": [
-        "pain_neuro"
+        "hypoxia_ischemia"
       ]
     },
     {
@@ -2883,16 +3277,19 @@
       "ensembl_verified": false,
       "evidence_evaluator": 35,
       "genes": [
-        "AGAP",
-        "BMK",
-        "CCI",
-        "LD50",
-        "SVHRP"
+        "HO-1",
+        "HSP27",
+        "HSP70",
+        "NAMPT",
+        "SIRT1",
+        "SIRT5"
       ],
       "mechanisms": [
+        "heat shock",
         "immune",
-        "inflammation",
-        "ion channel"
+        "interferon",
+        "mitochondria",
+        "proteostasis"
       ],
       "morpheus_flags": [
         "single-paper dependence",
@@ -2903,15 +3300,15 @@
         "correlation does not establish causality",
         "human functional divergence remains possible"
       ],
-      "name": "Peptides from",
+      "name": "Preconditioning and",
       "paper_count": 1,
       "skeptic_evaluator": 25,
       "sources": [
-        "PMID:41893543"
+        "PMID:42044228"
       ],
       "status": "UNVERIFIED_CANDIDATE",
       "tracks": [
-        "pain_neuro"
+        "hypoxia_ischemia"
       ]
     },
     {
@@ -2924,16 +3321,19 @@
       "ensembl_verified": false,
       "evidence_evaluator": 35,
       "genes": [
-        "AGAP",
-        "BMK",
-        "CCI",
-        "LD50",
-        "SVHRP"
+        "HO-1",
+        "HSP27",
+        "HSP70",
+        "NAMPT",
+        "SIRT1",
+        "SIRT5"
       ],
       "mechanisms": [
+        "heat shock",
         "immune",
-        "inflammation",
-        "ion channel"
+        "interferon",
+        "mitochondria",
+        "proteostasis"
       ],
       "morpheus_flags": [
         "single-paper dependence",
@@ -2944,15 +3344,15 @@
         "correlation does not establish causality",
         "human functional divergence remains possible"
       ],
-      "name": "Olivierus martensii",
+      "name": "Ischemic tolerance",
       "paper_count": 1,
       "skeptic_evaluator": 25,
       "sources": [
-        "PMID:41893543"
+        "PMID:42044228"
       ],
       "status": "UNVERIFIED_CANDIDATE",
       "tracks": [
-        "pain_neuro"
+        "hypoxia_ischemia"
       ]
     },
     {
@@ -2965,16 +3365,19 @@
       "ensembl_verified": false,
       "evidence_evaluator": 35,
       "genes": [
-        "AGAP",
-        "BMK",
-        "CCI",
-        "LD50",
-        "SVHRP"
+        "HO-1",
+        "HSP27",
+        "HSP70",
+        "NAMPT",
+        "SIRT1",
+        "SIRT5"
       ],
       "mechanisms": [
+        "heat shock",
         "immune",
-        "inflammation",
-        "ion channel"
+        "interferon",
+        "mitochondria",
+        "proteostasis"
       ],
       "morpheus_flags": [
         "single-paper dependence",
@@ -2985,15 +3388,15 @@
         "correlation does not establish causality",
         "human functional divergence remains possible"
       ],
-      "name": "Buthidae family",
+      "name": "Across models",
       "paper_count": 1,
       "skeptic_evaluator": 25,
       "sources": [
-        "PMID:41893543"
+        "PMID:42044228"
       ],
       "status": "UNVERIFIED_CANDIDATE",
       "tracks": [
-        "pain_neuro"
+        "hypoxia_ischemia"
       ]
     },
     {
@@ -3006,16 +3409,19 @@
       "ensembl_verified": false,
       "evidence_evaluator": 35,
       "genes": [
-        "AGAP",
-        "BMK",
-        "CCI",
-        "LD50",
-        "SVHRP"
+        "HO-1",
+        "HSP27",
+        "HSP70",
+        "NAMPT",
+        "SIRT1",
+        "SIRT5"
       ],
       "mechanisms": [
+        "heat shock",
         "immune",
-        "inflammation",
-        "ion channel"
+        "interferon",
+        "mitochondria",
+        "proteostasis"
       ],
       "morpheus_flags": [
         "single-paper dependence",
@@ -3026,15 +3432,15 @@
         "correlation does not establish causality",
         "human functional divergence remains possible"
       ],
-      "name": "They work",
+      "name": "Both preconditioning",
       "paper_count": 1,
       "skeptic_evaluator": 25,
       "sources": [
-        "PMID:41893543"
+        "PMID:42044228"
       ],
       "status": "UNVERIFIED_CANDIDATE",
       "tracks": [
-        "pain_neuro"
+        "hypoxia_ischemia"
       ]
     },
     {
@@ -3047,11 +3453,141 @@
       "ensembl_verified": false,
       "evidence_evaluator": 35,
       "genes": [
-        "AGAP",
-        "BMK",
-        "CCI",
-        "LD50",
-        "SVHRP"
+        "HO-1",
+        "HSP27",
+        "HSP70",
+        "NAMPT",
+        "SIRT1",
+        "SIRT5"
+      ],
+      "mechanisms": [
+        "heat shock",
+        "immune",
+        "interferon",
+        "mitochondria",
+        "proteostasis"
+      ],
+      "morpheus_flags": [
+        "single-paper dependence",
+        "taxon not annotation-supported",
+        "taxon not Ensembl-verified",
+        "weak citation signal",
+        "phylogeny confound must be tested",
+        "correlation does not establish causality",
+        "human functional divergence remains possible"
+      ],
+      "name": "Future priorities",
+      "paper_count": 1,
+      "skeptic_evaluator": 25,
+      "sources": [
+        "PMID:42044228"
+      ],
+      "status": "UNVERIFIED_CANDIDATE",
+      "tracks": [
+        "hypoxia_ischemia"
+      ]
+    },
+    {
+      "annotation_support": false,
+      "arbiter": 27,
+      "blocked": false,
+      "citations": 0,
+      "disagreement": 8,
+      "ensembl_species": null,
+      "ensembl_verified": false,
+      "evidence_evaluator": 33,
+      "genes": [
+        "ALD",
+        "HBV",
+        "HCV",
+        "M1",
+        "MASH"
+      ],
+      "mechanisms": [
+        "fibrosis",
+        "immune",
+        "inflammation",
+        "ion channel"
+      ],
+      "morpheus_flags": [
+        "single-paper dependence",
+        "taxon not annotation-supported",
+        "taxon not Ensembl-verified",
+        "weak citation signal",
+        "phylogeny confound must be tested",
+        "correlation does not establish causality",
+        "human functional divergence remains possible"
+      ],
+      "name": "Chronic hepatic",
+      "paper_count": 1,
+      "skeptic_evaluator": 25,
+      "sources": [
+        "PMID:42699082"
+      ],
+      "status": "UNVERIFIED_CANDIDATE",
+      "tracks": [
+        "pain_neuro"
+      ]
+    },
+    {
+      "annotation_support": false,
+      "arbiter": 27,
+      "blocked": false,
+      "citations": 0,
+      "disagreement": 8,
+      "ensembl_species": null,
+      "ensembl_verified": false,
+      "evidence_evaluator": 33,
+      "genes": [
+        "ALD",
+        "HBV",
+        "HCV",
+        "M1",
+        "MASH"
+      ],
+      "mechanisms": [
+        "fibrosis",
+        "immune",
+        "inflammation",
+        "ion channel"
+      ],
+      "morpheus_flags": [
+        "single-paper dependence",
+        "taxon not annotation-supported",
+        "taxon not Ensembl-verified",
+        "weak citation signal",
+        "phylogeny confound must be tested",
+        "correlation does not establish causality",
+        "human functional divergence remains possible"
+      ],
+      "name": "Engineered hepatotropic",
+      "paper_count": 1,
+      "skeptic_evaluator": 25,
+      "sources": [
+        "PMID:42699082"
+      ],
+      "status": "UNVERIFIED_CANDIDATE",
+      "tracks": [
+        "pain_neuro"
+      ]
+    },
+    {
+      "annotation_support": false,
+      "arbiter": 27,
+      "blocked": false,
+      "citations": 0,
+      "disagreement": 8,
+      "ensembl_species": null,
+      "ensembl_verified": false,
+      "evidence_evaluator": 33,
+      "genes": [
+        "CPSP",
+        "IL-",
+        "IL-6",
+        "JAK",
+        "MAPK",
+        "NF-",
+        "TNF-"
       ],
       "mechanisms": [
         "immune",
@@ -3067,11 +3603,11 @@
         "correlation does not establish causality",
         "human functional divergence remains possible"
       ],
-      "name": "Structural features",
+      "name": "Chronic postsurgical",
       "paper_count": 1,
       "skeptic_evaluator": 25,
       "sources": [
-        "PMID:41893543"
+        "PMID:42904232"
       ],
       "status": "UNVERIFIED_CANDIDATE",
       "tracks": [
@@ -3080,19 +3616,21 @@
     },
     {
       "annotation_support": false,
-      "arbiter": 28,
+      "arbiter": 27,
       "blocked": false,
-      "citations": 1,
-      "disagreement": 10,
+      "citations": 0,
+      "disagreement": 8,
       "ensembl_species": null,
       "ensembl_verified": false,
-      "evidence_evaluator": 35,
+      "evidence_evaluator": 33,
       "genes": [
-        "AGAP",
-        "BMK",
-        "CCI",
-        "LD50",
-        "SVHRP"
+        "CPSP",
+        "IL-",
+        "IL-6",
+        "JAK",
+        "MAPK",
+        "NF-",
+        "TNF-"
       ],
       "mechanisms": [
         "immune",
@@ -3108,11 +3646,11 @@
         "correlation does not establish causality",
         "human functional divergence remains possible"
       ],
-      "name": "Pairings like",
+      "name": "Direct incision",
       "paper_count": 1,
       "skeptic_evaluator": 25,
       "sources": [
-        "PMID:41893543"
+        "PMID:42904232"
       ],
       "status": "UNVERIFIED_CANDIDATE",
       "tracks": [
@@ -3121,24 +3659,22 @@
     },
     {
       "annotation_support": false,
-      "arbiter": 28,
+      "arbiter": 27,
       "blocked": false,
-      "citations": 1,
-      "disagreement": 10,
+      "citations": 0,
+      "disagreement": 8,
       "ensembl_species": null,
       "ensembl_verified": false,
-      "evidence_evaluator": 35,
+      "evidence_evaluator": 33,
       "genes": [
-        "AGAP",
-        "BMK",
-        "CCI",
-        "LD50",
-        "SVHRP"
+        "GABAA",
+        "HCN1",
+        "NMDA"
       ],
       "mechanisms": [
         "immune",
-        "inflammation",
-        "ion channel"
+        "ion channel",
+        "senescence"
       ],
       "morpheus_flags": [
         "single-paper dependence",
@@ -3149,11 +3685,11 @@
         "correlation does not establish causality",
         "human functional divergence remains possible"
       ],
-      "name": "Issues crop",
+      "name": "Genetic and",
       "paper_count": 1,
       "skeptic_evaluator": 25,
       "sources": [
-        "PMID:41893543"
+        "PMID:42938399"
       ],
       "status": "UNVERIFIED_CANDIDATE",
       "tracks": [
@@ -3162,24 +3698,22 @@
     },
     {
       "annotation_support": false,
-      "arbiter": 28,
+      "arbiter": 27,
       "blocked": false,
-      "citations": 1,
-      "disagreement": 10,
+      "citations": 0,
+      "disagreement": 8,
       "ensembl_species": null,
       "ensembl_verified": false,
-      "evidence_evaluator": 35,
+      "evidence_evaluator": 33,
       "genes": [
-        "AGAP",
-        "BMK",
-        "CCI",
-        "LD50",
-        "SVHRP"
+        "GABAA",
+        "HCN1",
+        "NMDA"
       ],
       "mechanisms": [
         "immune",
-        "inflammation",
-        "ion channel"
+        "ion channel",
+        "senescence"
       ],
       "morpheus_flags": [
         "single-paper dependence",
@@ -3190,11 +3724,11 @@
         "correlation does not establish causality",
         "human functional divergence remains possible"
       ],
-      "name": "Engineered versions",
+      "name": "Anesthesia and",
       "paper_count": 1,
       "skeptic_evaluator": 25,
       "sources": [
-        "PMID:41893543"
+        "PMID:42938399"
       ],
       "status": "UNVERIFIED_CANDIDATE",
       "tracks": [
@@ -3203,24 +3737,22 @@
     },
     {
       "annotation_support": false,
-      "arbiter": 28,
+      "arbiter": 27,
       "blocked": false,
-      "citations": 1,
-      "disagreement": 10,
+      "citations": 0,
+      "disagreement": 8,
       "ensembl_species": null,
       "ensembl_verified": false,
-      "evidence_evaluator": 35,
+      "evidence_evaluator": 33,
       "genes": [
-        "AGAP",
-        "BMK",
-        "CCI",
-        "LD50",
-        "SVHRP"
+        "GABAA",
+        "HCN1",
+        "NMDA"
       ],
       "mechanisms": [
         "immune",
-        "inflammation",
-        "ion channel"
+        "ion channel",
+        "senescence"
       ],
       "morpheus_flags": [
         "single-paper dependence",
@@ -3231,11 +3763,11 @@
         "correlation does not establish causality",
         "human functional divergence remains possible"
       ],
-      "name": "Standardization plus",
+      "name": "Structural studies",
       "paper_count": 1,
       "skeptic_evaluator": 25,
       "sources": [
-        "PMID:41893543"
+        "PMID:42938399"
       ],
       "status": "UNVERIFIED_CANDIDATE",
       "tracks": [
@@ -3244,21 +3776,22 @@
     },
     {
       "annotation_support": false,
-      "arbiter": 28,
+      "arbiter": 27,
       "blocked": false,
-      "citations": 3,
-      "disagreement": 12,
+      "citations": 0,
+      "disagreement": 8,
       "ensembl_species": null,
       "ensembl_verified": false,
-      "evidence_evaluator": 37,
+      "evidence_evaluator": 33,
       "genes": [
-        "AKT",
-        "PI3K"
+        "GABAA",
+        "HCN1",
+        "NMDA"
       ],
       "mechanisms": [
-        "Wnt",
         "immune",
-        "p53"
+        "ion channel",
+        "senescence"
       ],
       "morpheus_flags": [
         "single-paper dependence",
@@ -3269,34 +3802,35 @@
         "correlation does not establish causality",
         "human functional divergence remains possible"
       ],
-      "name": "Neurodegeneration and",
+      "name": "Neuroimmune signaling",
       "paper_count": 1,
       "skeptic_evaluator": 25,
       "sources": [
-        "PMID:41977178"
+        "PMID:42938399"
       ],
       "status": "UNVERIFIED_CANDIDATE",
       "tracks": [
-        "longevity_dna"
+        "pain_neuro"
       ]
     },
     {
       "annotation_support": false,
-      "arbiter": 28,
+      "arbiter": 27,
       "blocked": false,
-      "citations": 3,
-      "disagreement": 12,
+      "citations": 0,
+      "disagreement": 8,
       "ensembl_species": null,
       "ensembl_verified": false,
-      "evidence_evaluator": 37,
+      "evidence_evaluator": 33,
       "genes": [
-        "AKT",
-        "PI3K"
+        "GABAA",
+        "HCN1",
+        "NMDA"
       ],
       "mechanisms": [
-        "Wnt",
         "immune",
-        "p53"
+        "ion channel",
+        "senescence"
       ],
       "morpheus_flags": [
         "single-paper dependence",
@@ -3307,34 +3841,35 @@
         "correlation does not establish causality",
         "human functional divergence remains possible"
       ],
-      "name": "Understanding the",
+      "name": "Chromatin regulation",
       "paper_count": 1,
       "skeptic_evaluator": 25,
       "sources": [
-        "PMID:41977178"
+        "PMID:42938399"
       ],
       "status": "UNVERIFIED_CANDIDATE",
       "tracks": [
-        "longevity_dna"
+        "pain_neuro"
       ]
     },
     {
       "annotation_support": false,
-      "arbiter": 28,
+      "arbiter": 27,
       "blocked": false,
-      "citations": 3,
-      "disagreement": 12,
+      "citations": 0,
+      "disagreement": 8,
       "ensembl_species": null,
       "ensembl_verified": false,
-      "evidence_evaluator": 37,
+      "evidence_evaluator": 33,
       "genes": [
-        "AKT",
-        "PI3K"
+        "GABAA",
+        "HCN1",
+        "NMDA"
       ],
       "mechanisms": [
-        "Wnt",
         "immune",
-        "p53"
+        "ion channel",
+        "senescence"
       ],
       "morpheus_flags": [
         "single-paper dependence",
@@ -3345,15 +3880,15 @@
         "correlation does not establish causality",
         "human functional divergence remains possible"
       ],
-      "name": "Pathways promoting",
+      "name": "The resulting",
       "paper_count": 1,
       "skeptic_evaluator": 25,
       "sources": [
-        "PMID:41977178"
+        "PMID:42938399"
       ],
       "status": "UNVERIFIED_CANDIDATE",
       "tracks": [
-        "longevity_dna"
+        "pain_neuro"
       ]
     },
     {
@@ -3727,518 +4262,6 @@
       "tracks": [
         "regeneration"
       ]
-    },
-    {
-      "annotation_support": false,
-      "arbiter": 27,
-      "blocked": false,
-      "citations": 0,
-      "disagreement": 8,
-      "ensembl_species": null,
-      "ensembl_verified": false,
-      "evidence_evaluator": 33,
-      "genes": [
-        "AO",
-        "HA",
-        "III",
-        "MRSA",
-        "MRSA-"
-      ],
-      "mechanisms": [
-        "angiogenesis",
-        "coagulation",
-        "extracellular matrix",
-        "immune",
-        "regeneration"
-      ],
-      "morpheus_flags": [
-        "single-paper dependence",
-        "taxon not annotation-supported",
-        "taxon not Ensembl-verified",
-        "weak citation signal",
-        "phylogeny confound must be tested",
-        "correlation does not establish causality",
-        "human functional divergence remains possible"
-      ],
-      "name": "Spatiotemporally programmed",
-      "paper_count": 1,
-      "skeptic_evaluator": 25,
-      "sources": [
-        "PMID:42762838"
-      ],
-      "status": "UNVERIFIED_CANDIDATE",
-      "tracks": [
-        "regeneration"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "arbiter": 27,
-      "blocked": false,
-      "citations": 0,
-      "disagreement": 8,
-      "ensembl_species": null,
-      "ensembl_verified": false,
-      "evidence_evaluator": 33,
-      "genes": [
-        "AO",
-        "HA",
-        "III",
-        "MRSA",
-        "MRSA-"
-      ],
-      "mechanisms": [
-        "angiogenesis",
-        "coagulation",
-        "extracellular matrix",
-        "immune",
-        "regeneration"
-      ],
-      "morpheus_flags": [
-        "single-paper dependence",
-        "taxon not annotation-supported",
-        "taxon not Ensembl-verified",
-        "weak citation signal",
-        "phylogeny confound must be tested",
-        "correlation does not establish causality",
-        "human functional divergence remains possible"
-      ],
-      "name": "Bacterially infected",
-      "paper_count": 1,
-      "skeptic_evaluator": 25,
-      "sources": [
-        "PMID:42762838"
-      ],
-      "status": "UNVERIFIED_CANDIDATE",
-      "tracks": [
-        "regeneration"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "arbiter": 27,
-      "blocked": false,
-      "citations": 0,
-      "disagreement": 8,
-      "ensembl_species": null,
-      "ensembl_verified": false,
-      "evidence_evaluator": 33,
-      "genes": [
-        "AO",
-        "HA",
-        "III",
-        "MRSA",
-        "MRSA-"
-      ],
-      "mechanisms": [
-        "angiogenesis",
-        "coagulation",
-        "extracellular matrix",
-        "immune",
-        "regeneration"
-      ],
-      "morpheus_flags": [
-        "single-paper dependence",
-        "taxon not annotation-supported",
-        "taxon not Ensembl-verified",
-        "weak citation signal",
-        "phylogeny confound must be tested",
-        "correlation does not establish causality",
-        "human functional divergence remains possible"
-      ],
-      "name": "The outer",
-      "paper_count": 1,
-      "skeptic_evaluator": 25,
-      "sources": [
-        "PMID:42762838"
-      ],
-      "status": "UNVERIFIED_CANDIDATE",
-      "tracks": [
-        "regeneration"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "arbiter": 27,
-      "blocked": false,
-      "citations": 0,
-      "disagreement": 8,
-      "ensembl_species": null,
-      "ensembl_verified": false,
-      "evidence_evaluator": 33,
-      "genes": [
-        "AO",
-        "HA",
-        "III",
-        "MRSA",
-        "MRSA-"
-      ],
-      "mechanisms": [
-        "angiogenesis",
-        "coagulation",
-        "extracellular matrix",
-        "immune",
-        "regeneration"
-      ],
-      "morpheus_flags": [
-        "single-paper dependence",
-        "taxon not annotation-supported",
-        "taxon not Ensembl-verified",
-        "weak citation signal",
-        "phylogeny confound must be tested",
-        "correlation does not establish causality",
-        "human functional divergence remains possible"
-      ],
-      "name": "The intermediate",
-      "paper_count": 1,
-      "skeptic_evaluator": 25,
-      "sources": [
-        "PMID:42762838"
-      ],
-      "status": "UNVERIFIED_CANDIDATE",
-      "tracks": [
-        "regeneration"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "arbiter": 27,
-      "blocked": false,
-      "citations": 0,
-      "disagreement": 8,
-      "ensembl_species": null,
-      "ensembl_verified": false,
-      "evidence_evaluator": 33,
-      "genes": [
-        "AO",
-        "HA",
-        "III",
-        "MRSA",
-        "MRSA-"
-      ],
-      "mechanisms": [
-        "angiogenesis",
-        "coagulation",
-        "extracellular matrix",
-        "immune",
-        "regeneration"
-      ],
-      "morpheus_flags": [
-        "single-paper dependence",
-        "taxon not annotation-supported",
-        "taxon not Ensembl-verified",
-        "weak citation signal",
-        "phylogeny confound must be tested",
-        "correlation does not establish causality",
-        "human functional divergence remains possible"
-      ],
-      "name": "The inner",
-      "paper_count": 1,
-      "skeptic_evaluator": 25,
-      "sources": [
-        "PMID:42762838"
-      ],
-      "status": "UNVERIFIED_CANDIDATE",
-      "tracks": [
-        "regeneration"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "arbiter": 27,
-      "blocked": false,
-      "citations": 0,
-      "disagreement": 8,
-      "ensembl_species": null,
-      "ensembl_verified": false,
-      "evidence_evaluator": 33,
-      "genes": [
-        "AO",
-        "HA",
-        "III",
-        "MRSA",
-        "MRSA-"
-      ],
-      "mechanisms": [
-        "angiogenesis",
-        "coagulation",
-        "extracellular matrix",
-        "immune",
-        "regeneration"
-      ],
-      "morpheus_flags": [
-        "single-paper dependence",
-        "taxon not annotation-supported",
-        "taxon not Ensembl-verified",
-        "weak citation signal",
-        "phylogeny confound must be tested",
-        "correlation does not establish causality",
-        "human functional divergence remains possible"
-      ],
-      "name": "Staphylococcus aureus",
-      "paper_count": 1,
-      "skeptic_evaluator": 25,
-      "sources": [
-        "PMID:42762838"
-      ],
-      "status": "UNVERIFIED_CANDIDATE",
-      "tracks": [
-        "regeneration"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "arbiter": 27,
-      "blocked": false,
-      "citations": 0,
-      "disagreement": 8,
-      "ensembl_species": null,
-      "ensembl_verified": false,
-      "evidence_evaluator": 33,
-      "genes": [
-        "AKT",
-        "III",
-        "MAPK",
-        "PI3K",
-        "SMAD",
-        "TGF-"
-      ],
-      "mechanisms": [
-        "Wnt",
-        "angiogenesis",
-        "antioxidant",
-        "extracellular matrix",
-        "fibrosis",
-        "immune",
-        "inflammation",
-        "regeneration"
-      ],
-      "morpheus_flags": [
-        "single-paper dependence",
-        "taxon not annotation-supported",
-        "taxon not Ensembl-verified",
-        "weak citation signal",
-        "phylogeny confound must be tested",
-        "correlation does not establish causality",
-        "human functional divergence remains possible"
-      ],
-      "name": "Scarring remains",
-      "paper_count": 1,
-      "skeptic_evaluator": 25,
-      "sources": [
-        "PMID:42343448"
-      ],
-      "status": "UNVERIFIED_CANDIDATE",
-      "tracks": [
-        "regeneration"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "arbiter": 27,
-      "blocked": false,
-      "citations": 0,
-      "disagreement": 8,
-      "ensembl_species": null,
-      "ensembl_verified": false,
-      "evidence_evaluator": 33,
-      "genes": [
-        "AKT",
-        "III",
-        "MAPK",
-        "PI3K",
-        "SMAD",
-        "TGF-"
-      ],
-      "mechanisms": [
-        "Wnt",
-        "angiogenesis",
-        "antioxidant",
-        "extracellular matrix",
-        "fibrosis",
-        "immune",
-        "inflammation",
-        "regeneration"
-      ],
-      "morpheus_flags": [
-        "single-paper dependence",
-        "taxon not annotation-supported",
-        "taxon not Ensembl-verified",
-        "weak citation signal",
-        "phylogeny confound must be tested",
-        "correlation does not establish causality",
-        "human functional divergence remains possible"
-      ],
-      "name": "The human",
-      "paper_count": 1,
-      "skeptic_evaluator": 25,
-      "sources": [
-        "PMID:42343448"
-      ],
-      "status": "UNVERIFIED_CANDIDATE",
-      "tracks": [
-        "regeneration"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "arbiter": 27,
-      "blocked": false,
-      "citations": 0,
-      "disagreement": 8,
-      "ensembl_species": null,
-      "ensembl_verified": false,
-      "evidence_evaluator": 33,
-      "genes": [
-        "AKT",
-        "FGF9-",
-        "IL-",
-        "TNF-",
-        "WIHN"
-      ],
-      "mechanisms": [
-        "Wnt",
-        "immune",
-        "regeneration",
-        "stem cell"
-      ],
-      "morpheus_flags": [
-        "single-paper dependence",
-        "taxon not annotation-supported",
-        "taxon not Ensembl-verified",
-        "weak citation signal",
-        "phylogeny confound must be tested",
-        "correlation does not establish causality",
-        "human functional divergence remains possible"
-      ],
-      "name": "Beyond scarring",
-      "paper_count": 1,
-      "skeptic_evaluator": 25,
-      "sources": [
-        "PMID:42529170"
-      ],
-      "status": "UNVERIFIED_CANDIDATE",
-      "tracks": [
-        "regeneration"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "arbiter": 27,
-      "blocked": false,
-      "citations": 0,
-      "disagreement": 8,
-      "ensembl_species": null,
-      "ensembl_verified": false,
-      "evidence_evaluator": 33,
-      "genes": [
-        "AKT",
-        "FGF9-",
-        "IL-",
-        "TNF-",
-        "WIHN"
-      ],
-      "mechanisms": [
-        "Wnt",
-        "immune",
-        "regeneration",
-        "stem cell"
-      ],
-      "morpheus_flags": [
-        "single-paper dependence",
-        "taxon not annotation-supported",
-        "taxon not Ensembl-verified",
-        "weak citation signal",
-        "phylogeny confound must be tested",
-        "correlation does not establish causality",
-        "human functional divergence remains possible"
-      ],
-      "name": "Notch signals",
-      "paper_count": 1,
-      "skeptic_evaluator": 25,
-      "sources": [
-        "PMID:42529170"
-      ],
-      "status": "UNVERIFIED_CANDIDATE",
-      "tracks": [
-        "regeneration"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "arbiter": 27,
-      "blocked": false,
-      "citations": 0,
-      "disagreement": 8,
-      "ensembl_species": null,
-      "ensembl_verified": false,
-      "evidence_evaluator": 33,
-      "genes": [
-        "MSC-"
-      ],
-      "mechanisms": [
-        "angiogenesis",
-        "extracellular matrix",
-        "inflammation",
-        "stem cell"
-      ],
-      "morpheus_flags": [
-        "single-paper dependence",
-        "taxon not annotation-supported",
-        "taxon not Ensembl-verified",
-        "weak citation signal",
-        "phylogeny confound must be tested",
-        "correlation does not establish causality",
-        "human functional divergence remains possible"
-      ],
-      "name": "Laden with",
-      "paper_count": 1,
-      "skeptic_evaluator": 25,
-      "sources": [
-        "PMID:42713281"
-      ],
-      "status": "UNVERIFIED_CANDIDATE",
-      "tracks": [
-        "regeneration"
-      ]
-    },
-    {
-      "annotation_support": false,
-      "arbiter": 27,
-      "blocked": false,
-      "citations": 0,
-      "disagreement": 8,
-      "ensembl_species": null,
-      "ensembl_verified": false,
-      "evidence_evaluator": 33,
-      "genes": [
-        "MSC-"
-      ],
-      "mechanisms": [
-        "angiogenesis",
-        "extracellular matrix",
-        "inflammation",
-        "stem cell"
-      ],
-      "morpheus_flags": [
-        "single-paper dependence",
-        "taxon not annotation-supported",
-        "taxon not Ensembl-verified",
-        "weak citation signal",
-        "phylogeny confound must be tested",
-        "correlation does not establish causality",
-        "human functional divergence remains possible"
-      ],
-      "name": "Among various",
-      "paper_count": 1,
-      "skeptic_evaluator": 25,
-      "sources": [
-        "PMID:42713281"
-      ],
-      "status": "UNVERIFIED_CANDIDATE",
-      "tracks": [
-        "regeneration"
-      ]
     }
   ],
   "claims": [
@@ -4264,7 +4287,27 @@
     },
     {
       "arbiter": 50,
-      "claim": "The present is a comparative-biology candidate for tracks: longevity_dna, pain_neuro, regeneration, thrombosis_immobility",
+      "claim": "Recent advances is a comparative-biology candidate for tracks: hypoxia_ischemia, pain_neuro, regeneration, thrombosis_immobility",
+      "limitations": [
+        "taxon not annotation-supported",
+        "taxon not Ensembl-verified",
+        "weak citation signal",
+        "phylogeny confound must be tested",
+        "correlation does not establish causality",
+        "human functional divergence remains possible"
+      ],
+      "sources": [
+        "PMC:PMC13673108",
+        "PMID:42343448",
+        "PMID:42506706",
+        "PMID:42606689"
+      ],
+      "status": "UNVERIFIED_CANDIDATE",
+      "subject": "Recent advances"
+    },
+    {
+      "arbiter": 50,
+      "claim": "The present is a comparative-biology candidate for tracks: pain_neuro, regeneration, thrombosis_immobility",
       "limitations": [
         "taxon not annotation-supported",
         "taxon not Ensembl-verified",
@@ -4277,8 +4320,7 @@
         "PMID:41598274",
         "PMID:42741776",
         "PMID:42793169",
-        "PMID:42846789",
-        "PMID:42941783"
+        "PMID:42846789"
       ],
       "status": "UNVERIFIED_CANDIDATE",
       "subject": "The present"
@@ -4305,65 +4347,7 @@
     },
     {
       "arbiter": 50,
-      "claim": "Within this is a comparative-biology candidate for tracks: longevity_dna, pain_neuro, regeneration",
-      "limitations": [
-        "taxon not annotation-supported",
-        "taxon not Ensembl-verified",
-        "weak citation signal",
-        "phylogeny confound must be tested",
-        "correlation does not establish causality",
-        "human functional divergence remains possible"
-      ],
-      "sources": [
-        "PMID:41745735",
-        "PMID:42280674",
-        "PMID:42375388",
-        "PMID:42450167"
-      ],
-      "status": "UNVERIFIED_CANDIDATE",
-      "subject": "Within this"
-    },
-    {
-      "arbiter": 48,
-      "claim": "Although the is a comparative-biology candidate for tracks: pain_neuro, regeneration, thrombosis_immobility",
-      "limitations": [
-        "taxon not annotation-supported",
-        "taxon not Ensembl-verified",
-        "weak citation signal",
-        "phylogeny confound must be tested",
-        "correlation does not establish causality",
-        "human functional divergence remains possible"
-      ],
-      "sources": [
-        "PMID:42646476",
-        "PMID:42702818",
-        "PMID:42948609"
-      ],
-      "status": "UNVERIFIED_CANDIDATE",
-      "subject": "Although the"
-    },
-    {
-      "arbiter": 48,
-      "claim": "Recent advances is a comparative-biology candidate for tracks: pain_neuro, regeneration, thrombosis_immobility",
-      "limitations": [
-        "taxon not annotation-supported",
-        "taxon not Ensembl-verified",
-        "weak citation signal",
-        "phylogeny confound must be tested",
-        "correlation does not establish causality",
-        "human functional divergence remains possible"
-      ],
-      "sources": [
-        "PMC:PMC13673108",
-        "PMID:42343448",
-        "PMID:42506706"
-      ],
-      "status": "UNVERIFIED_CANDIDATE",
-      "subject": "Recent advances"
-    },
-    {
-      "arbiter": 48,
-      "claim": "Our results is a comparative-biology candidate for tracks: regeneration, thrombosis_immobility",
+      "claim": "Our results is a comparative-biology candidate for tracks: hypoxia_ischemia, regeneration, thrombosis_immobility",
       "limitations": [
         "taxon not annotation-supported",
         "taxon not Ensembl-verified",
@@ -4374,30 +4358,12 @@
       ],
       "sources": [
         "PMID:41598274",
+        "PMID:42546520",
         "PMID:42793169",
         "PPR:PPR1324708"
       ],
       "status": "UNVERIFIED_CANDIDATE",
       "subject": "Our results"
-    },
-    {
-      "arbiter": 48,
-      "claim": "Despite the is a comparative-biology candidate for tracks: pain_neuro, regeneration",
-      "limitations": [
-        "taxon not annotation-supported",
-        "taxon not Ensembl-verified",
-        "weak citation signal",
-        "phylogeny confound must be tested",
-        "correlation does not establish causality",
-        "human functional divergence remains possible"
-      ],
-      "sources": [
-        "PMID:42164994",
-        "PMID:42450167",
-        "PMID:42797230"
-      ],
-      "status": "UNVERIFIED_CANDIDATE",
-      "subject": "Despite the"
     },
     {
       "arbiter": 48,
@@ -4420,7 +4386,45 @@
     },
     {
       "arbiter": 48,
-      "claim": "Emerging evidence is a comparative-biology candidate for tracks: longevity_dna, pain_neuro, thrombosis_immobility",
+      "claim": "Although the is a comparative-biology candidate for tracks: pain_neuro, regeneration, thrombosis_immobility",
+      "limitations": [
+        "taxon not annotation-supported",
+        "taxon not Ensembl-verified",
+        "weak citation signal",
+        "phylogeny confound must be tested",
+        "correlation does not establish causality",
+        "human functional divergence remains possible"
+      ],
+      "sources": [
+        "PMID:42646476",
+        "PMID:42702818",
+        "PMID:42948609"
+      ],
+      "status": "UNVERIFIED_CANDIDATE",
+      "subject": "Although the"
+    },
+    {
+      "arbiter": 48,
+      "claim": "Despite the is a comparative-biology candidate for tracks: pain_neuro, regeneration",
+      "limitations": [
+        "taxon not annotation-supported",
+        "taxon not Ensembl-verified",
+        "weak citation signal",
+        "phylogeny confound must be tested",
+        "correlation does not establish causality",
+        "human functional divergence remains possible"
+      ],
+      "sources": [
+        "PMID:42164994",
+        "PMID:42450167",
+        "PMID:42797230"
+      ],
+      "status": "UNVERIFIED_CANDIDATE",
+      "subject": "Despite the"
+    },
+    {
+      "arbiter": 48,
+      "claim": "Emerging evidence is a comparative-biology candidate for tracks: hypoxia_ischemia, pain_neuro, thrombosis_immobility",
       "limitations": [
         "taxon not annotation-supported",
         "taxon not Ensembl-verified",
@@ -4432,14 +4436,14 @@
       "sources": [
         "PMID:42568801",
         "PMID:42897310",
-        "PMID:42928844"
+        "PMID:42959516"
       ],
       "status": "UNVERIFIED_CANDIDATE",
       "subject": "Emerging evidence"
     },
     {
       "arbiter": 48,
-      "claim": "Experimental studies is a comparative-biology candidate for tracks: longevity_dna, thrombosis_immobility",
+      "claim": "The role is a comparative-biology candidate for tracks: hypoxia_ischemia, thrombosis_immobility",
       "limitations": [
         "taxon not annotation-supported",
         "taxon not Ensembl-verified",
@@ -4449,50 +4453,12 @@
         "human functional divergence remains possible"
       ],
       "sources": [
-        "PMID:42675480",
-        "PMID:42794511",
-        "PMID:42898680"
+        "PMID:42644087",
+        "PMID:42783235",
+        "PMID:42948609"
       ],
       "status": "UNVERIFIED_CANDIDATE",
-      "subject": "Experimental studies"
-    },
-    {
-      "arbiter": 48,
-      "claim": "Insights from is a comparative-biology candidate for tracks: longevity_dna, thrombosis_immobility",
-      "limitations": [
-        "taxon not annotation-supported",
-        "taxon not Ensembl-verified",
-        "weak citation signal",
-        "phylogeny confound must be tested",
-        "correlation does not establish causality",
-        "human functional divergence remains possible"
-      ],
-      "sources": [
-        "PMID:42510690",
-        "PMID:42653312",
-        "PMID:42653457"
-      ],
-      "status": "UNVERIFIED_CANDIDATE",
-      "subject": "Insights from"
-    },
-    {
-      "arbiter": 48,
-      "claim": "Insights into is a comparative-biology candidate for tracks: longevity_dna",
-      "limitations": [
-        "taxon not annotation-supported",
-        "taxon not Ensembl-verified",
-        "weak citation signal",
-        "phylogeny confound must be tested",
-        "correlation does not establish causality",
-        "human functional divergence remains possible"
-      ],
-      "sources": [
-        "PMID:41960904",
-        "PMID:42649300",
-        "PMID:42655835"
-      ],
-      "status": "UNVERIFIED_CANDIDATE",
-      "subject": "Insights into"
+      "subject": "The role"
     },
     {
       "arbiter": 46,
@@ -4532,23 +4498,6 @@
     },
     {
       "arbiter": 45,
-      "claim": "Acomys cahirinus is a comparative-biology candidate for tracks: regeneration",
-      "limitations": [
-        "single-paper dependence",
-        "taxon not Ensembl-verified",
-        "weak citation signal",
-        "phylogeny confound must be tested",
-        "correlation does not establish causality",
-        "human functional divergence remains possible"
-      ],
-      "sources": [
-        "PMID:41732917"
-      ],
-      "status": "UNVERIFIED_CANDIDATE",
-      "subject": "Acomys cahirinus"
-    },
-    {
-      "arbiter": 45,
       "claim": "Tityus serrulatus is a comparative-biology candidate for tracks: pain_neuro",
       "limitations": [
         "single-paper dependence",
@@ -4563,6 +4512,23 @@
       ],
       "status": "UNVERIFIED_CANDIDATE",
       "subject": "Tityus serrulatus"
+    },
+    {
+      "arbiter": 45,
+      "claim": "Acomys cahirinus is a comparative-biology candidate for tracks: regeneration",
+      "limitations": [
+        "single-paper dependence",
+        "taxon not Ensembl-verified",
+        "weak citation signal",
+        "phylogeny confound must be tested",
+        "correlation does not establish causality",
+        "human functional divergence remains possible"
+      ],
+      "sources": [
+        "PMID:41732917"
+      ],
+      "status": "UNVERIFIED_CANDIDATE",
+      "subject": "Acomys cahirinus"
     },
     {
       "arbiter": 44,
@@ -4618,7 +4584,7 @@
     },
     {
       "arbiter": 42,
-      "claim": "Achieving scarless is a comparative-biology candidate for tracks: regeneration",
+      "claim": "Despite its is a comparative-biology candidate for tracks: hypoxia_ischemia, pain_neuro",
       "limitations": [
         "taxon not annotation-supported",
         "taxon not Ensembl-verified",
@@ -4628,15 +4594,15 @@
         "human functional divergence remains possible"
       ],
       "sources": [
-        "PMID:41636017",
-        "PMID:42781429"
+        "PMID:42644087",
+        "PMID:42741776"
       ],
       "status": "UNVERIFIED_CANDIDATE",
-      "subject": "Achieving scarless"
+      "subject": "Despite its"
     },
     {
       "arbiter": 42,
-      "claim": "Future research is a comparative-biology candidate for tracks: pain_neuro, regeneration",
+      "claim": "Their clinical is a comparative-biology candidate for tracks: pain_neuro",
       "limitations": [
         "taxon not annotation-supported",
         "taxon not Ensembl-verified",
@@ -4646,29 +4612,11 @@
         "human functional divergence remains possible"
       ],
       "sources": [
-        "PMID:42599176",
-        "PMID:42769669"
+        "PMID:42641002",
+        "PMID:42938399"
       ],
       "status": "UNVERIFIED_CANDIDATE",
-      "subject": "Future research"
-    },
-    {
-      "arbiter": 42,
-      "claim": "Burn wounds is a comparative-biology candidate for tracks: regeneration",
-      "limitations": [
-        "taxon not annotation-supported",
-        "taxon not Ensembl-verified",
-        "weak citation signal",
-        "phylogeny confound must be tested",
-        "correlation does not establish causality",
-        "human functional divergence remains possible"
-      ],
-      "sources": [
-        "PMID:42702818",
-        "PMID:42949795"
-      ],
-      "status": "UNVERIFIED_CANDIDATE",
-      "subject": "Burn wounds"
+      "subject": "Their clinical"
     },
     {
       "arbiter": 42,
@@ -4690,7 +4638,7 @@
     },
     {
       "arbiter": 42,
-      "claim": "The exceptional is a comparative-biology candidate for tracks: longevity_dna, regeneration",
+      "claim": "Future research is a comparative-biology candidate for tracks: pain_neuro, regeneration",
       "limitations": [
         "taxon not annotation-supported",
         "taxon not Ensembl-verified",
@@ -4700,17 +4648,730 @@
         "human functional divergence remains possible"
       ],
       "sources": [
-        "PMID:42196445",
-        "PMID:42883061"
+        "PMID:42599176",
+        "PMID:42769669"
       ],
       "status": "UNVERIFIED_CANDIDATE",
-      "subject": "The exceptional"
+      "subject": "Future research"
+    },
+    {
+      "arbiter": 42,
+      "claim": "Ischemic stroke is a comparative-biology candidate for tracks: pain_neuro, thrombosis_immobility",
+      "limitations": [
+        "taxon not annotation-supported",
+        "taxon not Ensembl-verified",
+        "weak citation signal",
+        "phylogeny confound must be tested",
+        "correlation does not establish causality",
+        "human functional divergence remains possible"
+      ],
+      "sources": [
+        "PMID:42675480",
+        "PMID:42897310"
+      ],
+      "status": "UNVERIFIED_CANDIDATE",
+      "subject": "Ischemic stroke"
+    },
+    {
+      "arbiter": 42,
+      "claim": "Its clinical is a comparative-biology candidate for tracks: pain_neuro, thrombosis_immobility",
+      "limitations": [
+        "taxon not annotation-supported",
+        "taxon not Ensembl-verified",
+        "weak citation signal",
+        "phylogeny confound must be tested",
+        "correlation does not establish causality",
+        "human functional divergence remains possible"
+      ],
+      "sources": [
+        "PMID:42796305",
+        "PMID:42940760"
+      ],
+      "status": "UNVERIFIED_CANDIDATE",
+      "subject": "Its clinical"
+    },
+    {
+      "arbiter": 42,
+      "claim": "Achieving scarless is a comparative-biology candidate for tracks: regeneration",
+      "limitations": [
+        "taxon not annotation-supported",
+        "taxon not Ensembl-verified",
+        "weak citation signal",
+        "phylogeny confound must be tested",
+        "correlation does not establish causality",
+        "human functional divergence remains possible"
+      ],
+      "sources": [
+        "PMID:41636017",
+        "PMID:42781429"
+      ],
+      "status": "UNVERIFIED_CANDIDATE",
+      "subject": "Achieving scarless"
+    },
+    {
+      "arbiter": 42,
+      "claim": "Burn wounds is a comparative-biology candidate for tracks: regeneration",
+      "limitations": [
+        "taxon not annotation-supported",
+        "taxon not Ensembl-verified",
+        "weak citation signal",
+        "phylogeny confound must be tested",
+        "correlation does not establish causality",
+        "human functional divergence remains possible"
+      ],
+      "sources": [
+        "PMID:42702818",
+        "PMID:42949795"
+      ],
+      "status": "UNVERIFIED_CANDIDATE",
+      "subject": "Burn wounds"
     }
   ],
   "failures": [],
-  "finished_at": "2026-10-31T09:38:36.430612+00:00",
+  "finished_at": "2026-11-01T10:27:23.022919+00:00",
   "human_bridges": [],
   "papers": [
+    {
+      "citations": 0,
+      "genes": [
+        "LTX",
+        "IV"
+      ],
+      "mechanisms": [],
+      "source_id": "PMID:42941881",
+      "species_mentions": [
+        "Toxins and",
+        "Latrodectus tredecimguttatus",
+        "Eggs and",
+        "Conventional antivenoms",
+        "Preclinical studies",
+        "Recombinant human",
+        "Future development"
+      ],
+      "title": "Toxins and Antivenoms of &lt;i&gt;Latrodectus tredecimguttatus&lt;/i&gt;: Molecular Mechanisms, Antibody Development, and Evidence from Other &lt;i&gt;Latrodectus&lt;/i&gt; Species.",
+      "track": "pain_neuro",
+      "year": "2026"
+    },
+    {
+      "citations": 1,
+      "genes": [
+        "BMK",
+        "AGAP",
+        "SVHRP",
+        "CCI",
+        "LD50"
+      ],
+      "mechanisms": [
+        "inflammation",
+        "immune",
+        "ion channel"
+      ],
+      "source_id": "PMID:41893543",
+      "species_mentions": [
+        "Peptides for",
+        "Peptides from",
+        "Olivierus martensii",
+        "Tityus serrulatus",
+        "Buthidae family",
+        "They work",
+        "Structural features",
+        "Pairings like",
+        "Issues crop",
+        "Engineered versions",
+        "Standardization plus"
+      ],
+      "title": "Stinging Salvation: Harnessing Scorpion Venom Peptides for Revolutionary Pain Relief.",
+      "track": "pain_neuro",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [
+        "SVHRSP",
+        "AI-",
+        "SVHRSP-",
+        "IND"
+      ],
+      "mechanisms": [
+        "inflammation",
+        "oxidative stress",
+        "antioxidant",
+        "neuroprotection",
+        "ion channel"
+      ],
+      "source_id": "PMID:42352053",
+      "species_mentions": [
+        "Mechanisms and",
+        "Scorpion venom"
+      ],
+      "title": "Scorpion Venom Peptides: From Structural Scaffolds to Therapeutic Applications-A Focus on Antioxidant Mechanisms and Translational Perspectives.",
+      "track": "pain_neuro",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [],
+      "mechanisms": [
+        "ion channel"
+      ],
+      "source_id": "PMID:42506706",
+      "species_mentions": [
+        "Advances and",
+        "Implications for",
+        "Discovery and",
+        "Traditionally regarded",
+        "Special emphasis",
+        "Recent advances",
+        "Key challenges"
+      ],
+      "title": "Animal Venoms Targeting Cellular Mechanisms: Advances and Implications for Drug Discovery and Disease Therapy.",
+      "track": "pain_neuro",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [
+        "LTX",
+        "L1",
+        "ADGRL1",
+        "TRPV1",
+        "TRPA1"
+      ],
+      "mechanisms": [
+        "ion channel"
+      ],
+      "source_id": "PMID:42784317",
+      "species_mentions": [
+        "Latrotoxin and",
+        "Although its",
+        "The available",
+        "The transcript-level"
+      ],
+      "title": "α-Latrotoxin and Pain: A Nociceptor Perspective on Latrodectism.",
+      "track": "pain_neuro",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [
+        "G-50",
+        "HRMS",
+        "MS",
+        "BLAST-",
+        "PTM",
+        "FDR",
+        "BLAST",
+        "FASTA"
+      ],
+      "mechanisms": [],
+      "source_id": "PMID:42884120",
+      "species_mentions": [
+        "Fraction from",
+        "Buthus tunetanus",
+        "Scorpion venoms",
+        "African buthid",
+        "The workflow",
+        "Discoverer database",
+        "The analysis",
+        "The dominant",
+        "Buthus israelis",
+        "Mesobuthus eupeus"
+      ],
+      "title": "Evidence-Tiered Venomics of the BotG50 Toxic Fraction from &lt;i&gt;Buthus tunetanus&lt;/i&gt; Reveals a Diversified Neurotoxin Repertoire.",
+      "track": "pain_neuro",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [],
+      "mechanisms": [],
+      "source_id": "PMID:42346804",
+      "species_mentions": [
+        "Potential and",
+        "The bidirectional",
+        "Marine natural"
+      ],
+      "title": "The Potential and Prospects of Marine Drugs in Intervening Nerve-Tumor Crosstalk.",
+      "track": "pain_neuro",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [
+        "CAP"
+      ],
+      "mechanisms": [
+        "coagulation"
+      ],
+      "source_id": "PMID:42783899",
+      "species_mentions": [
+        "Discovery and",
+        "Their venoms",
+        "Toxins have",
+        "Cnidarian toxins",
+        "The first",
+        "Corallimorpharia and"
+      ],
+      "title": "Cnidarian Venoms in the Omics Era: Toxin Discovery and Bioactive Potential.",
+      "track": "pain_neuro",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [
+        "MS",
+        "CIIMET"
+      ],
+      "mechanisms": [
+        "inflammation",
+        "ion channel"
+      ],
+      "source_id": "PMID:42741776",
+      "species_mentions": [
+        "Proteomic characterization",
+        "Tityus championi",
+        "Rica and",
+        "Despite its",
+        "The present",
+        "Venom composition",
+        "Proteomic analysis",
+        "Among ion",
+        "Tityus discrepans",
+        "Tityus jaimei",
+        "Other relevant",
+        "Recombinant production"
+      ],
+      "title": "Proteomic characterization of &lt;i&gt;Tityus championi&lt;/i&gt; venom and recombinant expression of its major neurotoxin.",
+      "track": "pain_neuro",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [
+        "MASH",
+        "ALD",
+        "HBV",
+        "HCV",
+        "M1"
+      ],
+      "mechanisms": [
+        "inflammation",
+        "fibrosis",
+        "immune",
+        "ion channel"
+      ],
+      "source_id": "PMID:42699082",
+      "species_mentions": [
+        "Scorpion venom",
+        "Chronic hepatic",
+        "Engineered hepatotropic"
+      ],
+      "title": "Scorpion venom peptides: Novel therapeutic approaches for inflammatory and hepatic disorders.",
+      "track": "pain_neuro",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [],
+      "mechanisms": [
+        "ion channel"
+      ],
+      "source_id": "PMID:42641002",
+      "species_mentions": [
+        "The research",
+        "Their clinical",
+        "The therapeutic",
+        "Conotoxins offer",
+        "Bioactive peptides"
+      ],
+      "title": "From Marine Peptides to Oncology: The Therapeutic Potential of Conotoxins in Cancer Treatment.",
+      "track": "pain_neuro",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [],
+      "mechanisms": [
+        "ion channel"
+      ],
+      "source_id": "PMID:41745735",
+      "species_mentions": [
+        "Exploring the",
+        "Venoms and",
+        "Within this",
+        "The objective",
+        "The results",
+        "From these",
+        "The peptides"
+      ],
+      "title": "Exploring the Pain-Relieving Potential: Unveiling Antinociceptive Properties in Animal Venoms and Toxins.",
+      "track": "pain_neuro",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [],
+      "mechanisms": [
+        "ion channel"
+      ],
+      "source_id": "PMID:42480703",
+      "species_mentions": [
+        "Psalmopoeus pulcher",
+        "Spider venoms",
+        "Although individual",
+        "Psalmopoeus have",
+        "The molecular",
+        "Structural predictions",
+        "Functional exploration"
+      ],
+      "title": "Molecular and structural dissection of Psalmopoeus pulcher venom reveals cysteine-rich peptides that target acid-sensing ion channel 1a.",
+      "track": "pain_neuro",
+      "year": "2026"
+    },
+    {
+      "citations": 1,
+      "genes": [
+        "US",
+        "FDA-"
+      ],
+      "mechanisms": [
+        "neuroprotection",
+        "ion channel"
+      ],
+      "source_id": "PMID:41888060",
+      "species_mentions": [
+        "From marine",
+        "Conotoxin diversity",
+        "Cone snails",
+        "Mechanistic insights",
+        "Their significant",
+        "Future perspectives"
+      ],
+      "title": "From marine predator to pharmacology: Conotoxin diversity, discovery, and therapeutic potential.",
+      "track": "pain_neuro",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [],
+      "mechanisms": [],
+      "source_id": "PMID:42646476",
+      "species_mentions": [
+        "Diversity and",
+        "Proteins from",
+        "Heteractis magnifica",
+        "Sea anemone",
+        "Although the"
+      ],
+      "title": "Diversity and Bioprospection of Functional Proteins from Sea Anemone &lt;i&gt;Heteractis magnifica&lt;/i&gt; Based on Multi-Omics Approach.",
+      "track": "pain_neuro",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [
+        "CPSP",
+        "TNF-",
+        "IL-",
+        "IL-6",
+        "MAPK",
+        "NF-",
+        "JAK"
+      ],
+      "mechanisms": [
+        "inflammation",
+        "immune",
+        "ion channel"
+      ],
+      "source_id": "PMID:42904232",
+      "species_mentions": [
+        "Chronic postsurgical",
+        "Direct incision"
+      ],
+      "title": "Incision-triggered neuroimmune remodeling of nociceptor ion channels: from postoperative inflammation to pain chronification.",
+      "track": "pain_neuro",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [
+        "CTK01512-",
+        "N-",
+        "HEK-293",
+        "IC",
+        "MVIIA"
+      ],
+      "mechanisms": [],
+      "source_id": "PMID:42383434",
+      "species_mentions": [
+        "Brazilian spider",
+        "Phoneutria nigriventer"
+      ],
+      "title": "Pharmacological Inhibition of Cav2.2 Channels by Recombinant Phα1β Toxin (CTK01512-2).",
+      "track": "pain_neuro",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [
+        "FDA-",
+        "MARC",
+        "ESM"
+      ],
+      "mechanisms": [
+        "ion channel"
+      ],
+      "source_id": "PMID:42164994",
+      "species_mentions": [
+        "The diversity",
+        "Ion channels",
+        "Venom peptides",
+        "Despite the",
+        "Orthogonal validation",
+        "Taken together"
+      ],
+      "title": "Molecular arms race classifier for decrypting venom peptide and ion channel interactions.",
+      "track": "pain_neuro",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [],
+      "mechanisms": [],
+      "source_id": "PMID:42931500",
+      "species_mentions": [
+        "Lizards and",
+        "Debate over",
+        "The species-level",
+        "Arbuckle manuscript",
+        "Their inference",
+        "While they",
+        "Derived mucous",
+        "Scolecophidia cannot",
+        "Resolution requires",
+        "Iguania and"
+      ],
+      "title": "Venom Before Specialisation? A Layered Assessment of Early Venom Evolution in Lizards and Snakes.",
+      "track": "pain_neuro",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [
+        "D-"
+      ],
+      "mechanisms": [
+        "ion channel",
+        "antimicrobial peptide"
+      ],
+      "source_id": "PMID:42769669",
+      "species_mentions": [
+        "Scorpion venom",
+        "The escalating",
+        "Their physicochemical",
+        "Despite their",
+        "Notable candidates",
+        "Future research"
+      ],
+      "title": "Scorpion venom as a source of new antimicrobial agents.",
+      "track": "pain_neuro",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [
+        "NMDAR",
+        "TRPM",
+        "N-",
+        "D-",
+        "NMDAR-",
+        "TRPM-"
+      ],
+      "mechanisms": [
+        "oxidative stress",
+        "ion channel"
+      ],
+      "source_id": "PMID:42897310",
+      "species_mentions": [
+        "Ischemic stroke",
+        "Emerging evidence"
+      ],
+      "title": "ASIC1a as an integrating node in ischemic neurotoxicity: crosstalk with NMDAR and TRPM signaling.",
+      "track": "pain_neuro",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [
+        "A2",
+        "PLA2"
+      ],
+      "mechanisms": [
+        "immune"
+      ],
+      "source_id": "PMID:42292853",
+      "species_mentions": [
+        "Multidimensional toxicity",
+        "Snakebite envenomation",
+        "Snake venom",
+        "The core",
+        "Through synergistic",
+        "Beyond the",
+        "Existing research"
+      ],
+      "title": "Multidimensional toxicity of snake venom causes multi-organ damage and treatment challenges: a narrative review.",
+      "track": "pain_neuro",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [
+        "NCBI",
+        "IC",
+        "RGD"
+      ],
+      "mechanisms": [],
+      "source_id": "PMID:42932090",
+      "species_mentions": [
+        "Snake venom",
+        "Venom proteins",
+        "Despite their",
+        "The review",
+        "Given that",
+        "The scientific"
+      ],
+      "title": "Snake venom toxins in cancer therapy: advances in targeted delivery and peptide design.",
+      "track": "pain_neuro",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [
+        "GABAA",
+        "NMDA",
+        "HCN1"
+      ],
+      "mechanisms": [
+        "immune",
+        "senescence",
+        "ion channel"
+      ],
+      "source_id": "PMID:42938399",
+      "species_mentions": [
+        "Genetic and",
+        "Anesthesia and",
+        "Their clinical",
+        "Structural studies",
+        "Neuroimmune signaling",
+        "Chromatin regulation",
+        "The resulting"
+      ],
+      "title": "Genetic and Molecular Regulation of Neuronal Excitability in Anesthesia and Pain.",
+      "track": "pain_neuro",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [
+        "BP",
+        "LC-MS",
+        "MS"
+      ],
+      "mechanisms": [],
+      "source_id": "PMID:42311457",
+      "species_mentions": [
+        "Distinct pathophysiological",
+        "Heterometrus laoticus",
+        "Lychas mucronatus",
+        "Anesthetized male",
+        "White rabbits",
+        "Venom components",
+        "Renal hemodynamic"
+      ],
+      "title": "Distinct pathophysiological mechanisms of &lt;i&gt;Heterometrus laoticus&lt;/i&gt; and &lt;i&gt;Lychas mucronatus&lt;/i&gt; scorpion venoms on cardiovascular and renal functions.",
+      "track": "pain_neuro",
+      "year": "2026"
+    },
+    {
+      "citations": 1,
+      "genes": [],
+      "mechanisms": [
+        "ion channel"
+      ],
+      "source_id": "PMID:41554321",
+      "species_mentions": [
+        "Neuropeptide mimicry",
+        "Neuropeptides and",
+        "Many venomous"
+      ],
+      "title": "Toxins in disguise: Neuropeptide mimicry across animal venoms.",
+      "track": "pain_neuro",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [],
+      "mechanisms": [],
+      "source_id": "PMID:42796305",
+      "species_mentions": [
+        "Chasing the",
+        "Door for",
+        "Suzetrigine the",
+        "Its clinical",
+        "While suzetrigine"
+      ],
+      "title": "Chasing the Wrong Door for 30 Years: Is Suzetrigine the Key to Selective Pain Relief?",
+      "track": "pain_neuro",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [
+        "KOR",
+        "MALDI-TOF",
+        "MS",
+        "BRET-",
+        "GPCR"
+      ],
+      "mechanisms": [
+        "ion channel"
+      ],
+      "source_id": "PMID:41617740",
+      "species_mentions": [
+        "Peptidomics and",
+        "Odontobuthus doriae",
+        "Scorpion venoms",
+        "Buthidae and",
+        "Following pre-purification",
+        "Systematic investigation"
+      ],
+      "title": "Peptidomics and pharmacological profiling of Odontobuthus doriae (Buthidae) scorpion venom at the kappa opioid receptor.",
+      "track": "pain_neuro",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [],
+      "mechanisms": [],
+      "source_id": "PMID:42042010",
+      "species_mentions": [],
+      "title": "A Review of the Chemical Properties, Mechanisms of Action, and Structure-Activity Relationships of Jellyfish Toxins.",
+      "track": "pain_neuro",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [],
+      "mechanisms": [
+        "inflammation",
+        "immune"
+      ],
+      "source_id": "PMID:42883768",
+      "species_mentions": [],
+      "title": "Special Issue \"Molecular Links Between Sensory Nerves, Inflammation, and Pain 3.0\".",
+      "track": "pain_neuro",
+      "year": "2026"
+    },
     {
       "citations": 0,
       "genes": [
@@ -5405,655 +6066,6 @@
     {
       "citations": 0,
       "genes": [
-        "LTX",
-        "IV"
-      ],
-      "mechanisms": [],
-      "source_id": "PMID:42941881",
-      "species_mentions": [
-        "Toxins and",
-        "Latrodectus tredecimguttatus",
-        "Eggs and",
-        "Conventional antivenoms",
-        "Preclinical studies",
-        "Recombinant human",
-        "Future development"
-      ],
-      "title": "Toxins and Antivenoms of &lt;i&gt;Latrodectus tredecimguttatus&lt;/i&gt;: Molecular Mechanisms, Antibody Development, and Evidence from Other &lt;i&gt;Latrodectus&lt;/i&gt; Species.",
-      "track": "pain_neuro",
-      "year": "2026"
-    },
-    {
-      "citations": 1,
-      "genes": [
-        "BMK",
-        "AGAP",
-        "SVHRP",
-        "CCI",
-        "LD50"
-      ],
-      "mechanisms": [
-        "inflammation",
-        "immune",
-        "ion channel"
-      ],
-      "source_id": "PMID:41893543",
-      "species_mentions": [
-        "Peptides for",
-        "Peptides from",
-        "Olivierus martensii",
-        "Tityus serrulatus",
-        "Buthidae family",
-        "They work",
-        "Structural features",
-        "Pairings like",
-        "Issues crop",
-        "Engineered versions",
-        "Standardization plus"
-      ],
-      "title": "Stinging Salvation: Harnessing Scorpion Venom Peptides for Revolutionary Pain Relief.",
-      "track": "pain_neuro",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [],
-      "mechanisms": [
-        "ion channel"
-      ],
-      "source_id": "PMID:42506706",
-      "species_mentions": [
-        "Advances and",
-        "Implications for",
-        "Discovery and",
-        "Traditionally regarded",
-        "Special emphasis",
-        "Recent advances",
-        "Key challenges"
-      ],
-      "title": "Animal Venoms Targeting Cellular Mechanisms: Advances and Implications for Drug Discovery and Disease Therapy.",
-      "track": "pain_neuro",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [
-        "SVHRSP",
-        "AI-",
-        "SVHRSP-",
-        "IND"
-      ],
-      "mechanisms": [
-        "inflammation",
-        "oxidative stress",
-        "antioxidant",
-        "neuroprotection",
-        "ion channel"
-      ],
-      "source_id": "PMID:42352053",
-      "species_mentions": [
-        "Mechanisms and",
-        "Scorpion venom"
-      ],
-      "title": "Scorpion Venom Peptides: From Structural Scaffolds to Therapeutic Applications-A Focus on Antioxidant Mechanisms and Translational Perspectives.",
-      "track": "pain_neuro",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [
-        "LTX",
-        "L1",
-        "ADGRL1",
-        "TRPV1",
-        "TRPA1"
-      ],
-      "mechanisms": [
-        "ion channel"
-      ],
-      "source_id": "PMID:42784317",
-      "species_mentions": [
-        "Latrotoxin and",
-        "Although its",
-        "The available",
-        "The transcript-level"
-      ],
-      "title": "α-Latrotoxin and Pain: A Nociceptor Perspective on Latrodectism.",
-      "track": "pain_neuro",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [
-        "G-50",
-        "HRMS",
-        "MS",
-        "BLAST-",
-        "PTM",
-        "FDR",
-        "BLAST",
-        "FASTA"
-      ],
-      "mechanisms": [],
-      "source_id": "PMID:42884120",
-      "species_mentions": [
-        "Fraction from",
-        "Buthus tunetanus",
-        "Scorpion venoms",
-        "African buthid",
-        "The workflow",
-        "Discoverer database",
-        "The analysis",
-        "The dominant",
-        "Buthus israelis",
-        "Mesobuthus eupeus"
-      ],
-      "title": "Evidence-Tiered Venomics of the BotG50 Toxic Fraction from &lt;i&gt;Buthus tunetanus&lt;/i&gt; Reveals a Diversified Neurotoxin Repertoire.",
-      "track": "pain_neuro",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [],
-      "mechanisms": [],
-      "source_id": "PMID:42346804",
-      "species_mentions": [
-        "Potential and",
-        "The bidirectional",
-        "Marine natural"
-      ],
-      "title": "The Potential and Prospects of Marine Drugs in Intervening Nerve-Tumor Crosstalk.",
-      "track": "pain_neuro",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [
-        "CAP"
-      ],
-      "mechanisms": [
-        "coagulation"
-      ],
-      "source_id": "PMID:42783899",
-      "species_mentions": [
-        "Discovery and",
-        "Their venoms",
-        "Toxins have",
-        "Cnidarian toxins",
-        "The first",
-        "Corallimorpharia and"
-      ],
-      "title": "Cnidarian Venoms in the Omics Era: Toxin Discovery and Bioactive Potential.",
-      "track": "pain_neuro",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [
-        "MS",
-        "CIIMET"
-      ],
-      "mechanisms": [
-        "inflammation",
-        "ion channel"
-      ],
-      "source_id": "PMID:42741776",
-      "species_mentions": [
-        "Proteomic characterization",
-        "Tityus championi",
-        "Rica and",
-        "Despite its",
-        "The present",
-        "Venom composition",
-        "Proteomic analysis",
-        "Among ion",
-        "Tityus discrepans",
-        "Tityus jaimei",
-        "Other relevant",
-        "Recombinant production"
-      ],
-      "title": "Proteomic characterization of &lt;i&gt;Tityus championi&lt;/i&gt; venom and recombinant expression of its major neurotoxin.",
-      "track": "pain_neuro",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [
-        "MASH",
-        "ALD",
-        "HBV",
-        "HCV",
-        "M1"
-      ],
-      "mechanisms": [
-        "inflammation",
-        "fibrosis",
-        "immune",
-        "ion channel"
-      ],
-      "source_id": "PMID:42699082",
-      "species_mentions": [
-        "Scorpion venom",
-        "Chronic hepatic",
-        "Engineered hepatotropic"
-      ],
-      "title": "Scorpion venom peptides: Novel therapeutic approaches for inflammatory and hepatic disorders.",
-      "track": "pain_neuro",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [],
-      "mechanisms": [
-        "ion channel"
-      ],
-      "source_id": "PMID:42641002",
-      "species_mentions": [
-        "The research",
-        "Their clinical",
-        "The therapeutic",
-        "Conotoxins offer",
-        "Bioactive peptides"
-      ],
-      "title": "From Marine Peptides to Oncology: The Therapeutic Potential of Conotoxins in Cancer Treatment.",
-      "track": "pain_neuro",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [],
-      "mechanisms": [
-        "ion channel"
-      ],
-      "source_id": "PMID:41745735",
-      "species_mentions": [
-        "Exploring the",
-        "Venoms and",
-        "Within this",
-        "The objective",
-        "The results",
-        "From these",
-        "The peptides"
-      ],
-      "title": "Exploring the Pain-Relieving Potential: Unveiling Antinociceptive Properties in Animal Venoms and Toxins.",
-      "track": "pain_neuro",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [],
-      "mechanisms": [
-        "ion channel"
-      ],
-      "source_id": "PMID:42480703",
-      "species_mentions": [
-        "Psalmopoeus pulcher",
-        "Spider venoms",
-        "Although individual",
-        "Psalmopoeus have",
-        "The molecular",
-        "Structural predictions",
-        "Functional exploration"
-      ],
-      "title": "Molecular and structural dissection of Psalmopoeus pulcher venom reveals cysteine-rich peptides that target acid-sensing ion channel 1a.",
-      "track": "pain_neuro",
-      "year": "2026"
-    },
-    {
-      "citations": 1,
-      "genes": [
-        "US",
-        "FDA-"
-      ],
-      "mechanisms": [
-        "neuroprotection",
-        "ion channel"
-      ],
-      "source_id": "PMID:41888060",
-      "species_mentions": [
-        "From marine",
-        "Conotoxin diversity",
-        "Cone snails",
-        "Mechanistic insights",
-        "Their significant",
-        "Future perspectives"
-      ],
-      "title": "From marine predator to pharmacology: Conotoxin diversity, discovery, and therapeutic potential.",
-      "track": "pain_neuro",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [],
-      "mechanisms": [],
-      "source_id": "PMID:42646476",
-      "species_mentions": [
-        "Diversity and",
-        "Proteins from",
-        "Heteractis magnifica",
-        "Sea anemone",
-        "Although the"
-      ],
-      "title": "Diversity and Bioprospection of Functional Proteins from Sea Anemone &lt;i&gt;Heteractis magnifica&lt;/i&gt; Based on Multi-Omics Approach.",
-      "track": "pain_neuro",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [
-        "CPSP",
-        "TNF-",
-        "IL-",
-        "IL-6",
-        "MAPK",
-        "NF-",
-        "JAK"
-      ],
-      "mechanisms": [
-        "inflammation",
-        "immune",
-        "ion channel"
-      ],
-      "source_id": "PMID:42904232",
-      "species_mentions": [
-        "Chronic postsurgical",
-        "Direct incision"
-      ],
-      "title": "Incision-triggered neuroimmune remodeling of nociceptor ion channels: from postoperative inflammation to pain chronification.",
-      "track": "pain_neuro",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [
-        "CTK01512-",
-        "N-",
-        "HEK-293",
-        "IC",
-        "MVIIA"
-      ],
-      "mechanisms": [],
-      "source_id": "PMID:42383434",
-      "species_mentions": [
-        "Brazilian spider",
-        "Phoneutria nigriventer"
-      ],
-      "title": "Pharmacological Inhibition of Cav2.2 Channels by Recombinant Phα1β Toxin (CTK01512-2).",
-      "track": "pain_neuro",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [
-        "FDA-",
-        "MARC",
-        "ESM"
-      ],
-      "mechanisms": [
-        "ion channel"
-      ],
-      "source_id": "PMID:42164994",
-      "species_mentions": [
-        "The diversity",
-        "Ion channels",
-        "Venom peptides",
-        "Despite the",
-        "Orthogonal validation",
-        "Taken together"
-      ],
-      "title": "Molecular arms race classifier for decrypting venom peptide and ion channel interactions.",
-      "track": "pain_neuro",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [],
-      "mechanisms": [],
-      "source_id": "PMID:42931500",
-      "species_mentions": [
-        "Lizards and",
-        "Debate over",
-        "The species-level",
-        "Arbuckle manuscript",
-        "Their inference",
-        "While they",
-        "Derived mucous",
-        "Scolecophidia cannot",
-        "Resolution requires",
-        "Iguania and"
-      ],
-      "title": "Venom Before Specialisation? A Layered Assessment of Early Venom Evolution in Lizards and Snakes.",
-      "track": "pain_neuro",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [
-        "D-"
-      ],
-      "mechanisms": [
-        "ion channel",
-        "antimicrobial peptide"
-      ],
-      "source_id": "PMID:42769669",
-      "species_mentions": [
-        "Scorpion venom",
-        "The escalating",
-        "Their physicochemical",
-        "Despite their",
-        "Notable candidates",
-        "Future research"
-      ],
-      "title": "Scorpion venom as a source of new antimicrobial agents.",
-      "track": "pain_neuro",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [
-        "NMDAR",
-        "TRPM",
-        "N-",
-        "D-",
-        "NMDAR-",
-        "TRPM-"
-      ],
-      "mechanisms": [
-        "oxidative stress",
-        "ion channel"
-      ],
-      "source_id": "PMID:42897310",
-      "species_mentions": [
-        "Ischemic stroke",
-        "Emerging evidence"
-      ],
-      "title": "ASIC1a as an integrating node in ischemic neurotoxicity: crosstalk with NMDAR and TRPM signaling.",
-      "track": "pain_neuro",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [
-        "A2",
-        "PLA2"
-      ],
-      "mechanisms": [
-        "immune"
-      ],
-      "source_id": "PMID:42292853",
-      "species_mentions": [
-        "Multidimensional toxicity",
-        "Snakebite envenomation",
-        "Snake venom",
-        "The core",
-        "Through synergistic",
-        "Beyond the",
-        "Existing research"
-      ],
-      "title": "Multidimensional toxicity of snake venom causes multi-organ damage and treatment challenges: a narrative review.",
-      "track": "pain_neuro",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [
-        "NCBI",
-        "IC",
-        "RGD"
-      ],
-      "mechanisms": [],
-      "source_id": "PMID:42932090",
-      "species_mentions": [
-        "Snake venom",
-        "Venom proteins",
-        "Despite their",
-        "The review",
-        "Given that",
-        "The scientific"
-      ],
-      "title": "Snake venom toxins in cancer therapy: advances in targeted delivery and peptide design.",
-      "track": "pain_neuro",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [
-        "GABAA",
-        "NMDA",
-        "HCN1"
-      ],
-      "mechanisms": [
-        "immune",
-        "senescence",
-        "ion channel"
-      ],
-      "source_id": "PMID:42938399",
-      "species_mentions": [
-        "Genetic and",
-        "Anesthesia and",
-        "Their clinical",
-        "Structural studies",
-        "Neuroimmune signaling",
-        "Chromatin regulation",
-        "The resulting"
-      ],
-      "title": "Genetic and Molecular Regulation of Neuronal Excitability in Anesthesia and Pain.",
-      "track": "pain_neuro",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [
-        "BP",
-        "LC-MS",
-        "MS"
-      ],
-      "mechanisms": [],
-      "source_id": "PMID:42311457",
-      "species_mentions": [
-        "Distinct pathophysiological",
-        "Heterometrus laoticus",
-        "Lychas mucronatus",
-        "Anesthetized male",
-        "White rabbits",
-        "Venom components",
-        "Renal hemodynamic"
-      ],
-      "title": "Distinct pathophysiological mechanisms of &lt;i&gt;Heterometrus laoticus&lt;/i&gt; and &lt;i&gt;Lychas mucronatus&lt;/i&gt; scorpion venoms on cardiovascular and renal functions.",
-      "track": "pain_neuro",
-      "year": "2026"
-    },
-    {
-      "citations": 1,
-      "genes": [],
-      "mechanisms": [
-        "ion channel"
-      ],
-      "source_id": "PMID:41554321",
-      "species_mentions": [
-        "Neuropeptide mimicry",
-        "Neuropeptides and",
-        "Many venomous"
-      ],
-      "title": "Toxins in disguise: Neuropeptide mimicry across animal venoms.",
-      "track": "pain_neuro",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [
-        "KOR",
-        "MALDI-TOF",
-        "MS",
-        "BRET-",
-        "GPCR"
-      ],
-      "mechanisms": [
-        "ion channel"
-      ],
-      "source_id": "PMID:41617740",
-      "species_mentions": [
-        "Peptidomics and",
-        "Odontobuthus doriae",
-        "Scorpion venoms",
-        "Buthidae and",
-        "Following pre-purification",
-        "Systematic investigation"
-      ],
-      "title": "Peptidomics and pharmacological profiling of Odontobuthus doriae (Buthidae) scorpion venom at the kappa opioid receptor.",
-      "track": "pain_neuro",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [],
-      "mechanisms": [],
-      "source_id": "PMID:42042010",
-      "species_mentions": [],
-      "title": "A Review of the Chemical Properties, Mechanisms of Action, and Structure-Activity Relationships of Jellyfish Toxins.",
-      "track": "pain_neuro",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [
-        "A2",
-        "PLA2",
-        "HDP-1",
-        "HDP-2"
-      ],
-      "mechanisms": [],
-      "source_id": "PMID:42942125",
-      "species_mentions": [
-        "Vipera nikolskii",
-        "Snake venom",
-        "Cardiomyocytes were",
-        "Observer fluorescent",
-        "The observed"
-      ],
-      "title": "Isolated Rat Cardiomyocytes Differ in Their Sensitivity to the Action of Heterodimeric Phospholipase A2 from the Venom of the Viper &lt;i&gt;Vipera nikolskii&lt;/i&gt;.",
-      "track": "pain_neuro",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [],
-      "mechanisms": [],
-      "source_id": "PMID:42796305",
-      "species_mentions": [
-        "Chasing the",
-        "Door for",
-        "Suzetrigine the",
-        "Its clinical",
-        "While suzetrigine"
-      ],
-      "title": "Chasing the Wrong Door for 30 Years: Is Suzetrigine the Key to Selective Pain Relief?",
-      "track": "pain_neuro",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [
         "SARS-",
         "COVID-19",
         "DENV",
@@ -6411,6 +6423,28 @@
     {
       "citations": 0,
       "genes": [
+        "OHSS",
+        "VTE",
+        "IVF"
+      ],
+      "mechanisms": [
+        "thrombosis"
+      ],
+      "source_id": "PMID:42931041",
+      "species_mentions": [
+        "Thrombotic complications",
+        "The relationship",
+        "While antiphospholipid",
+        "Although routine",
+        "Future prospective"
+      ],
+      "title": "Thrombotic Complications in Women Undergoing Assisted Reproductive Technologies: Pathophysiology, Prevention, and Clinical Management-A Narrative Review.",
+      "track": "thrombosis_immobility",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [
         "D-",
         "PF4",
         "DIC",
@@ -6431,28 +6465,6 @@
         "Willebrand factor"
       ],
       "title": "Fulminant Thromboinflammatory Syndrome Following an Influenza-like Illness in an Adolescent: Clinical Insights from a Case Report.",
-      "track": "thrombosis_immobility",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [
-        "OHSS",
-        "VTE",
-        "IVF"
-      ],
-      "mechanisms": [
-        "thrombosis"
-      ],
-      "source_id": "PMID:42931041",
-      "species_mentions": [
-        "Thrombotic complications",
-        "The relationship",
-        "While antiphospholipid",
-        "Although routine",
-        "Future prospective"
-      ],
-      "title": "Thrombotic Complications in Women Undergoing Assisted Reproductive Technologies: Pathophysiology, Prevention, and Clinical Management-A Narrative Review.",
       "track": "thrombosis_immobility",
       "year": "2026"
     },
@@ -6510,32 +6522,25 @@
     {
       "citations": 0,
       "genes": [
-        "IU",
-        "PT",
-        "PT-",
-        "TT",
-        "VII",
+        "ACLD",
         "VIII",
-        "IX",
-        "FVIII",
-        "FIX"
+        "PVT"
       ],
       "mechanisms": [
+        "fibrosis",
+        "thrombosis",
         "coagulation"
       ],
-      "source_id": "PMID:42849506",
+      "source_id": "PMID:42713243",
       "species_mentions": [
-        "Branded versus",
-        "Several biosimilars",
-        "The aim",
-        "The following",
-        "Clauss fibrinogen",
-        "Positive correlations",
-        "Negative correlations",
-        "All enoxaparin",
-        "There were"
+        "Advanced chronic",
+        "Willebrand factor",
+        "Although rebalanced",
+        "Three developments",
+        "The review",
+        "Recent histopathological"
       ],
-      "title": "A Comparative In Vitro Study of the Anticoagulant Effects of Branded versus Biosimilar Preparations of Enoxaparin.",
+      "title": "Beyond Rebalanced Haemostasis: Haemostatic Phenotypes, Thrombin Generation, and Clinical Risk in Chronic Liver Disease.",
       "track": "thrombosis_immobility",
       "year": "2026"
     },
@@ -6571,25 +6576,42 @@
     {
       "citations": 0,
       "genes": [
-        "ACLD",
+        "IU",
+        "PT",
+        "PT-",
+        "TT",
+        "VII",
         "VIII",
-        "PVT"
+        "IX",
+        "FVIII",
+        "FIX"
       ],
       "mechanisms": [
-        "fibrosis",
-        "thrombosis",
         "coagulation"
       ],
-      "source_id": "PMID:42713243",
+      "source_id": "PMID:42849506",
       "species_mentions": [
-        "Advanced chronic",
-        "Willebrand factor",
-        "Although rebalanced",
-        "Three developments",
-        "The review",
-        "Recent histopathological"
+        "Branded versus",
+        "Several biosimilars",
+        "The aim",
+        "The following",
+        "Clauss fibrinogen",
+        "Positive correlations",
+        "Negative correlations",
+        "All enoxaparin",
+        "There were"
       ],
-      "title": "Beyond Rebalanced Haemostasis: Haemostatic Phenotypes, Thrombin Generation, and Clinical Risk in Chronic Liver Disease.",
+      "title": "A Comparative In Vitro Study of the Anticoagulant Effects of Branded versus Biosimilar Preparations of Enoxaparin.",
+      "track": "thrombosis_immobility",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [],
+      "mechanisms": [],
+      "source_id": "PMC:PMC13665943",
+      "species_mentions": [],
+      "title": "From Adipose Tissue Dysfunction to Venous Thromboembolism",
       "track": "thrombosis_immobility",
       "year": "2026"
     },
@@ -6615,16 +6637,6 @@
         "Compelling preclinical"
       ],
       "title": "Antithrombin in Hyperuricemic Nephropathy: Unveiling Its Noncanonical Renoprotective Roles and Therapeutic Repurposing Potential.",
-      "track": "thrombosis_immobility",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [],
-      "mechanisms": [],
-      "source_id": "PMC:PMC13665943",
-      "species_mentions": [],
-      "title": "From Adipose Tissue Dysfunction to Venous Thromboembolism",
       "track": "thrombosis_immobility",
       "year": "2026"
     },
@@ -6760,591 +6772,669 @@
       "year": "2026"
     },
     {
-      "citations": 1,
+      "citations": 0,
       "genes": [],
       "mechanisms": [
-        "DNA repair",
-        "genome maintenance"
+        "hypoxia"
       ],
-      "source_id": "PMID:41960904",
+      "source_id": "PMC:PMC13636429",
       "species_mentions": [
-        "Insights into",
-        "The case",
-        "The more"
+        "Waterlogging and"
       ],
-      "title": "Insights into a long life without cancer: The case of the bowhead whale.",
-      "track": "longevity_dna",
-      "year": "2026"
+      "title": "Waterlogging and hypoxia in plant abiotic stress",
+      "track": "hypoxia_ischemia",
+      "year": null
     },
     {
       "citations": 0,
       "genes": [
-        "SIRT2"
+        "HPC"
       ],
       "mechanisms": [
-        "inflammation",
-        "mitochondria",
-        "oxidative stress",
-        "senescence"
+        "hypoxia"
       ],
-      "source_id": "PMID:42928844",
+      "source_id": "PMID:42509770",
       "species_mentions": [
-        "Emerging evidence",
-        "Understanding these"
+        "Initially recognized"
       ],
-      "title": "SIRT2 in metabolism, aging, and longevity.",
-      "track": "longevity_dna",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [],
-      "mechanisms": [
-        "senescence",
-        "autophagy"
-      ],
-      "source_id": "PMID:42776723",
-      "species_mentions": [
-        "Framework for",
-        "Longevity science",
-        "The hallmarks",
-        "Correction fidelity"
-      ],
-      "title": "Aging as Loss of Biological Self-Correction: A Geroscience Framework for Longevity, Inflammaging, and Restored Resilience.",
-      "track": "longevity_dna",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [],
-      "mechanisms": [
-        "mitochondria",
-        "proteostasis"
-      ],
-      "source_id": "PMID:42510690",
-      "species_mentions": [
-        "Insights from",
-        "Oocyte aging",
-        "While most",
-        "Balbiani body"
-      ],
-      "title": "Oocyte Aging as a Systems-Level Failure of Cellular Quality Control Networks: Insights from Comparative Biology.",
-      "track": "longevity_dna",
+      "title": "Hypoxic Preconditioning: An Underestimated Endogenous Protective Strategy?",
+      "track": "hypoxia_ischemia",
       "year": "2026"
     },
     {
       "citations": 0,
       "genes": [],
       "mechanisms": [],
-      "source_id": "PMC:PMC13300023",
+      "source_id": "PMID:42897235",
       "species_mentions": [
-        "Nutrigenomics and"
+        "Standardizing deoxygenation",
+        "Such efforts",
+        "Waiting decades"
       ],
-      "title": "From Longevity Genetics to Precision Interventions: Integrating Nutrigenomics and Epigenetic Mechanisms of Ageing",
-      "track": "longevity_dna",
+      "title": "Standardizing deoxygenation studies in coral biology.",
+      "track": "hypoxia_ischemia",
       "year": "2026"
     },
     {
       "citations": 0,
-      "genes": [],
+      "genes": [
+        "LGF",
+        "AR",
+        "ROL",
+        "PCD"
+      ],
+      "mechanisms": [
+        "hypoxia"
+      ],
+      "source_id": "PMID:42939827",
+      "species_mentions": [
+        "Response and",
+        "Morphological and",
+        "The most",
+        "Rice has"
+      ],
+      "title": "Submergence Response and Tolerance of Rice: Morphological and Physiological Strategies, and Regulatory Mechanisms.",
+      "track": "hypoxia_ischemia",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [
+        "HIF",
+        "NF-",
+        "NRF2"
+      ],
       "mechanisms": [
         "inflammation",
-        "stem cell",
         "mitochondria",
-        "senescence",
-        "telomere",
-        "autophagy",
-        "proteostasis"
-      ],
-      "source_id": "PMID:42445133",
-      "species_mentions": [
-        "Mechanistic redundancy",
-        "Aging involves",
-        "Primary mechanisms",
-        "Although rarely",
-        "Mechanisms acting",
-        "Secondary mechanisms",
-        "Tertiary mechanisms",
-        "Complex preventive"
-      ],
-      "title": "Mechanistic redundancy and hierarchy of aging mechanisms: implications for strategies to extend healthspan and biomarker integration.",
-      "track": "longevity_dna",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [],
-      "mechanisms": [
-        "mitochondria"
-      ],
-      "source_id": "PMID:42941783",
-      "species_mentions": [
-        "Mitogenomes and",
-        "Mitochondrial genomes",
-        "The present",
-        "The paper"
-      ],
-      "title": "Eukaryotic Mitogenomes and Their Key Insights: Architecture, Evolution, and Mitonuclear Coevolution.",
-      "track": "longevity_dna",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [
-        "NK-",
-        "B-",
-        "CD8",
-        "CD4",
-        "GZMK",
-        "GZMB",
-        "NLRP3"
-      ],
-      "mechanisms": [
-        "inflammation",
-        "stem cell",
+        "hypoxia",
         "oxidative stress",
-        "immune"
-      ],
-      "source_id": "PMID:42794847",
-      "species_mentions": [
-        "Supercentenarians and",
-        "Findings from",
-        "Exceptional longevity"
-      ],
-      "title": "Why Some People Live Past 100: The Role of the Immune System in Centenarians, Semi-Supercentenarians and Supercentenarians.",
-      "track": "longevity_dna",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [
-        "CMLCA"
-      ],
-      "mechanisms": [],
-      "source_id": "PMID:41992042",
-      "species_mentions": [
-        "Organelle resilience",
-        "The past",
-        "Many age-associated",
-        "The pathways",
-        "Perspective proposes",
-        "Examining mammals"
-      ],
-      "title": "Organelle resilience as a comparative blueprint for longevity.",
-      "track": "longevity_dna",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [],
-      "mechanisms": [
-        "senescence",
+        "immune",
         "antioxidant"
       ],
-      "source_id": "PMID:42280674",
+      "source_id": "PMID:42812768",
       "species_mentions": [
-        "Drivers and",
-        "Within this"
+        "The connection",
+        "The literature",
+        "For instance"
       ],
-      "title": "Integrating Intrinsic Mechanisms, Environmental Drivers and Anthropogenic Influences in Long-Lived Tree Longevity.",
-      "track": "longevity_dna",
+      "title": "Low hypoxia tolerance as a determinant of the proinflammatory phenotype: a trained immunity perspective.",
+      "track": "hypoxia_ischemia",
       "year": "2026"
     },
     {
-      "citations": 3,
+      "citations": 0,
       "genes": [
-        "DNA-",
-        "RNA-",
-        "EIF2AK2",
-        "PKR"
+        "IHC"
       ],
       "mechanisms": [
+        "hypoxia"
+      ],
+      "source_id": "PMID:42666386",
+      "species_mentions": [
+        "Therapeutic hypoxia",
+        "Although hypoxia",
+        "Growing evidence",
+        "Significant progress",
+        "For example"
+      ],
+      "title": "Therapeutic hypoxia to protect and revive ischemic heart and brain.",
+      "track": "hypoxia_ischemia",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [
+        "BBB"
+      ],
+      "mechanisms": [
+        "hypoxia",
+        "oxidative stress"
+      ],
+      "source_id": "PMID:42490949",
+      "species_mentions": [
+        "Experimental hypoxic",
+        "Across neurovascular-unit"
+      ],
+      "title": "High-altitude hypoxic cues and cerebral ischemic tolerance: an evidence-graded translational framework for stroke research.",
+      "track": "hypoxia_ischemia",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [
+        "HIF-",
+        "HIF"
+      ],
+      "mechanisms": [
+        "inflammation",
+        "mitochondria",
+        "hypoxia",
         "immune"
       ],
-      "source_id": "PMID:42649300",
+      "source_id": "PMID:42936448",
       "species_mentions": [
-        "Insights into",
-        "Myotis bat",
-        "The genus",
-        "Myotis species",
-        "Using genome-wide",
-        "Myotis lucifugus"
+        "Metabolic flexibility",
+        "Persistent glycolysis",
+        "Differences among",
+        "Cell type-resolved"
       ],
-      "title": "Insights into longevity and virus-driven adaptation from Myotis bat genomes.",
-      "track": "longevity_dna",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [
-        "TOR-"
-      ],
-      "mechanisms": [],
-      "source_id": "PMID:42375388",
-      "species_mentions": [
-        "Integrating evolutionary",
-        "Despite decades",
-        "Soma and",
-        "Hyperfunction traditions",
-        "Within this",
-        "Onion can"
-      ],
-      "title": "Integrating evolutionary theory into a framework for the mechanistic evaluation of candidate anti-aging interventions.",
-      "track": "longevity_dna",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [
-        "RNA-"
-      ],
-      "mechanisms": [
-        "inflammation",
-        "extracellular matrix",
-        "autophagy"
-      ],
-      "source_id": "PMID:42794511",
-      "species_mentions": [
-        "The hallmarks",
-        "Experimental studies",
-        "Future geroscience"
-      ],
-      "title": "The Hallmarks of Aging: From Molecular Mechanisms to Clinical Translation.",
-      "track": "longevity_dna",
+      "title": "Hypoxia-inducible factor-1α-mediated metabolic reprogramming in sepsis-associated organ dysfunction: organ-specific metabolic mismatch and therapeutic perspectives.",
+      "track": "hypoxia_ischemia",
       "year": "2026"
     },
     {
       "citations": 0,
       "genes": [],
       "mechanisms": [],
-      "source_id": "PMID:41760805",
+      "source_id": "PMID:42960741",
       "species_mentions": [
-        "Many evolutionary"
+        "Plants and"
       ],
-      "title": "Molecular evolution of animal aging.",
-      "track": "longevity_dna",
+      "title": "Plants and low oxygen: from sensing and signalling to ecological adaptation and crop resilience.",
+      "track": "hypoxia_ischemia",
       "year": "2026"
     },
     {
-      "citations": 3,
+      "citations": 1,
       "genes": [
-        "PI3K",
-        "AKT"
+        "NAMPT",
+        "SIRT1",
+        "SIRT5",
+        "HSP70",
+        "HSP27",
+        "HO-1"
       ],
       "mechanisms": [
-        "p53",
-        "Wnt",
-        "immune"
-      ],
-      "source_id": "PMID:41977178",
-      "species_mentions": [
-        "Neurodegeneration and",
-        "Understanding the",
-        "Pathways promoting"
-      ],
-      "title": "Conserved Pathways, Divergent Outcomes: A Cross-Species Genomic Perspective on the Cancer-Neurodegeneration Paradox.",
-      "track": "longevity_dna",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [],
-      "mechanisms": [],
-      "source_id": "PMC:PMC12520858",
-      "species_mentions": [
-        "Genetic insights"
-      ],
-      "title": "Genetic insights from long-lived mammals: lessons for companion animal aging and health",
-      "track": "longevity_dna",
-      "year": "2025"
-    },
-    {
-      "citations": 0,
-      "genes": [],
-      "mechanisms": [
-        "DNA repair"
-      ],
-      "source_id": "PMID:42567915",
-      "species_mentions": [
-        "Somatic mutations",
-        "Since the",
-        "With the"
-      ],
-      "title": "Somatic mutations and genome mosaicism in aging and disease.",
-      "track": "longevity_dna",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [
-        "CLSV-6",
-        "NK",
-        "NLRP3"
-      ],
-      "mechanisms": [
-        "inflammation",
-        "immune",
-        "autophagy",
-        "proteostasis"
-      ],
-      "source_id": "PMID:42196445",
-      "species_mentions": [
-        "Management and",
-        "Modulation for",
-        "The exceptional",
-        "Despite high",
-        "The increased"
-      ],
-      "title": "Bat-Inspired Longevity: Immune Damage Management and Nutritional Modulation for Healthy Aging.",
-      "track": "longevity_dna",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [],
-      "mechanisms": [
-        "inflammation",
-        "fibrosis",
-        "regeneration",
-        "stem cell",
         "mitochondria",
         "immune",
-        "senescence"
+        "interferon",
+        "proteostasis",
+        "heat shock"
       ],
-      "source_id": "PMID:42707763",
+      "source_id": "PMID:42044228",
       "species_mentions": [
-        "Repair and",
-        "The capacity",
+        "Blueprint for",
+        "Preconditioning and",
+        "Ischemic tolerance",
+        "Across models",
+        "Both preconditioning",
+        "Future priorities"
+      ],
+      "title": "Thomas Willis Lecture Award: Nature's Blueprint for Ischemic Tolerance: Preconditioning and Postconditioning Strategies.",
+      "track": "hypoxia_ischemia",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [
+        "EVT",
+        "AIS",
+        "POM",
+        "BBB"
+      ],
+      "mechanisms": [
+        "inflammation",
+        "hypoxia",
+        "oxidative stress"
+      ],
+      "source_id": "PMID:42894448",
+      "species_mentions": [
+        "Conditioning and",
+        "Endovascular thrombectomy"
+      ],
+      "title": "Precision Oxygen Modulation in the Reperfusion Era: Conditioning and Therapeutic Strategies in Ischemic Stroke.",
+      "track": "hypoxia_ischemia",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [
+        "AMPK-",
+        "ULK1",
+        "TFEB-",
+        "FOXO",
+        "NLRP3",
+        "NF-",
+        "LC3-II",
+        "SQSTM1",
+        "ATG"
+      ],
+      "mechanisms": [
+        "inflammation",
+        "mitochondria",
+        "hypoxia",
+        "oxidative stress",
+        "immune",
+        "autophagy"
+      ],
+      "source_id": "PMID:42921200",
+      "species_mentions": [
+        "Autophagy and",
+        "Injury and",
+        "The framework",
+        "Translational studies",
+        "Major priorities"
+      ],
+      "title": "Autophagy and Inflammation in Cardiothoracic Surgery: The Mechanisms of Perioperative Lung Injury and Therapeutic Opportunities.",
+      "track": "hypoxia_ischemia",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [
+        "SHIP1",
+        "SH2-",
+        "MC",
+        "HIF-",
+        "IX",
+        "IL-6",
+        "TNF-",
+        "PI3K",
+        "AKT",
+        "MC-"
+      ],
+      "mechanisms": [
+        "hypoxia"
+      ],
+      "source_id": "PMID:42703957",
+      "species_mentions": [
+        "Mast cells",
+        "Their activation",
+        "Primary mouse",
+        "Hypoxia increased",
+        "Reoxygenation after",
+        "Our data",
         "Recognizing this"
       ],
-      "title": "Repair and regeneration across the lifespan: an ontogenetic perspective.",
-      "track": "longevity_dna",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [],
-      "mechanisms": [
-        "regeneration"
-      ],
-      "source_id": "PMID:42715610",
-      "species_mentions": [
-        "Organisms vary",
-        "Understanding this",
-        "Such mechanisms"
-      ],
-      "title": "How to live for centuries: common denominators of organisms with exceptional longevity.",
-      "track": "longevity_dna",
-      "year": "2026"
-    },
-    {
-      "citations": 1,
-      "genes": [
-        "A-"
-      ],
-      "mechanisms": [],
-      "source_id": "PMID:42693106",
-      "species_mentions": [
-        "While overall"
-      ],
-      "title": "Longer-lived mammals exhibit greater evolutionary conservatism and epigenetic modification at cancer-associated loci.",
-      "track": "longevity_dna",
-      "year": "2026"
-    },
-    {
-      "citations": 1,
-      "genes": [],
-      "mechanisms": [
-        "genome maintenance",
-        "inflammation"
-      ],
-      "source_id": "PMID:42414255",
-      "species_mentions": [
-        "Aging and",
-        "Deciphering the",
-        "Each pathway",
-        "Established and"
-      ],
-      "title": "Aging and cancer: current understandings and future perspectives.",
-      "track": "longevity_dna",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [
-        "N-",
-        "ENU"
-      ],
-      "mechanisms": [
-        "DNA repair"
-      ],
-      "source_id": "PMID:42245236",
-      "species_mentions": [
-        "Testing the",
-        "The average"
-      ],
-      "title": "Mutagen-induced somatic mutation rate in primary mammalian cells in relation to maximum life span.",
-      "track": "longevity_dna",
+      "title": "SHIP1 Restrains Hypoxia/Reoxygenation-Induced Cytokine Secretion in Mouse Bone Marrow-Derived Mast Cells.",
+      "track": "hypoxia_ischemia",
       "year": "2026"
     },
     {
       "citations": 0,
       "genes": [],
       "mechanisms": [],
-      "source_id": "PMC:PMC13666682",
+      "source_id": "PMC:PMC13655920",
       "species_mentions": [
-        "Strategies for",
-        "Ageing and",
-        "Implications for"
+        "Waterlogging tolerance"
       ],
-      "title": "Targeting Specific Sirtuin Modulation: Emerging Therapeutic Strategies for Healthy Cognitive Ageing and Potential Implications for Alzheimer’s Disease",
-      "track": "longevity_dna",
+      "title": "Waterlogging tolerance in pigeonpea: current understanding of physiological responses, genetic resources, and genomic prospects",
+      "track": "hypoxia_ischemia",
+      "year": null
+    },
+    {
+      "citations": 0,
+      "genes": [],
+      "mechanisms": [
+        "mitochondria",
+        "hypoxia",
+        "immune",
+        "proteostasis"
+      ],
+      "source_id": "PMID:42915405",
+      "species_mentions": [
+        "Adapting under",
+        "Heterogeneity and",
+        "Coastal oxygen",
+        "Whether these",
+        "Across three",
+        "Consistent hypoxia",
+        "Oxygen cycling",
+        "Anoxia reinforced"
+      ],
+      "title": "Adapting under Hypoxia: Cellular Heterogeneity and Metabolic Plasticity of Estuarine Oysters in Fluctuating Environments.",
+      "track": "hypoxia_ischemia",
       "year": "2026"
     },
     {
       "citations": 0,
       "genes": [],
       "mechanisms": [
+        "hypoxia",
+        "oxidative stress",
         "immune"
       ],
-      "source_id": "PMID:42655835",
+      "source_id": "PMID:42734464",
       "species_mentions": [
-        "Insights into",
-        "Under the",
-        "Although traditionally"
+        "Obstructive sleep",
+        "Chronic intermittent",
+        "Intermittent hypercapnia",
+        "Nitric oxide",
+        "Appropriately prioritizing"
       ],
-      "title": "Mechanistic Insights into Wildlife Cancer and Conservation Strategies Under the One Health Framework.",
-      "track": "longevity_dna",
+      "title": "Oxygen, carbon dioxide, and nitric oxide: role in the pathophysiology of obstructive sleep apnea.",
+      "track": "hypoxia_ischemia",
+      "year": "2027"
+    },
+    {
+      "citations": 0,
+      "genes": [
+        "HIF-1",
+        "MIRI"
+      ],
+      "mechanisms": [
+        "mitochondria",
+        "hypoxia",
+        "antioxidant"
+      ],
+      "source_id": "PMID:42959516",
+      "species_mentions": [
+        "Myocardial ischemia-reperfusion",
+        "Emerging evidence",
+        "Compared with",
+        "Pharmacological and"
+      ],
+      "title": "HIF-1&lt;i&gt;α&lt;/i&gt;-Nrf2 crosstalk in myocardial ischemia-reperfusion injury: a potential preconditioning-responsive protective network.",
+      "track": "hypoxia_ischemia",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [],
+      "mechanisms": [
+        "oxidative stress"
+      ],
+      "source_id": "PMID:42734462",
+      "species_mentions": [
+        "Hypertensive disorders",
+        "While this"
+      ],
+      "title": "Medical gases and hypertensive disorders of pregnancy: therapeutic mechanisms and research advances.",
+      "track": "hypoxia_ischemia",
+      "year": "2027"
+    },
+    {
+      "citations": 1,
+      "genes": [],
+      "mechanisms": [
+        "hypoxia"
+      ],
+      "source_id": "PMID:41709759",
+      "species_mentions": [
+        "Optimizing plant",
+        "Hypoxic conditions",
+        "While the",
+        "The likely"
+      ],
+      "title": "Optimizing plant nutrient acquisition under hypoxia: likely trade-offs, implications for breeders, and lessons from wetland species.",
+      "track": "hypoxia_ischemia",
       "year": "2026"
     },
     {
       "citations": 0,
       "genes": [
-        "AEP",
-        "JNIG"
+        "RNA-",
+        "GO",
+        "KEGG",
+        "TNF-"
+      ],
+      "mechanisms": [
+        "apoptosis",
+        "hypoxia",
+        "immune",
+        "angiogenesis"
+      ],
+      "source_id": "PMID:42893692",
+      "species_mentions": [
+        "Integrated transcriptomics",
+        "Micropterus salmoides",
+        "Largemouth bass",
+        "Given the",
+        "Seq and",
+        "Histological analyses"
+      ],
+      "title": "Integrated transcriptomics and histological analysis reveal gill adaptation mechanisms to hypoxic stress in largemouth bass (Micropterus salmoides).",
+      "track": "hypoxia_ischemia",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [
+        "WS40NE"
       ],
       "mechanisms": [
         "mitochondria"
       ],
-      "source_id": "PMID:42644350",
+      "source_id": "PMID:42410428",
       "species_mentions": [
-        "Strategies and",
-        "Hydra vulgaris",
-        "Hydra oligactis",
-        "Our assembly",
-        "Epigenomic profiling",
-        "Hydra conserves"
+        "Global stabilization",
+        "Austrofundulus limnaeus",
+        "Neuroepithelial cells",
+        "Using label-free"
       ],
-      "title": "Comparative Genomics Reveals Signatures of Distinct Metabolic Strategies and Gene Loss Associated With Hydra Immortality.",
-      "track": "longevity_dna",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [],
-      "mechanisms": [],
-      "source_id": "PMID:42942304",
-      "species_mentions": [
-        "Halite deposits",
-        "The central",
-        "Modern contamination",
-        "Proposed explanations",
-        "Ancient halite"
-      ],
-      "title": "The Unresolved Paradox of Viable Microorganisms in Ancient Halite.",
-      "track": "longevity_dna",
+      "title": "Global stabilization of the mitochondrial proteome is associated with extreme anoxia tolerance in Austrofundulus limnaeus WS40NE cells.",
+      "track": "hypoxia_ischemia",
       "year": "2026"
     },
     {
       "citations": 0,
       "genes": [
-        "RNA-"
+        "HIF-",
+        "IHD"
       ],
-      "mechanisms": [
-        "DNA repair",
-        "genome maintenance",
-        "mitochondria",
-        "immune"
-      ],
-      "source_id": "PMID:42528845",
-      "species_mentions": [
-        "Transcriptome analysis",
-        "Sex differences",
-        "Ageing involves",
-        "Calonectris diomedea",
-        "Across age"
-      ],
-      "title": "Transcriptome analysis of ageing in a long-lived seabird reveals sex-specific differences across age classes in immune and DNA repair pathways.",
-      "track": "longevity_dna",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [],
-      "mechanisms": [
-        "telomere"
-      ],
-      "source_id": "PMID:42296973",
-      "species_mentions": [
-        "Gene therapy"
-      ],
-      "title": "Intervening in aging and related diseases with gene therapy techniques.",
-      "track": "longevity_dna",
-      "year": "2026"
-    },
-    {
-      "citations": 0,
-      "genes": [],
       "mechanisms": [
         "apoptosis",
         "inflammation",
-        "mitochondria"
+        "mitochondria",
+        "hypoxia",
+        "angiogenesis",
+        "antioxidant"
       ],
-      "source_id": "PMID:42720714",
+      "source_id": "PMID:42644087",
       "species_mentions": [
-        "Mitochondrial homeodynamics",
-        "Mitochondria integrate",
-        "Their contribution",
-        "Maintenance safeguards",
-        "Adaptation adjusts",
-        "Recovery restores",
-        "Ageing erodes",
-        "The mechanisms",
-        "Exercise provides",
-        "Progress will"
+        "The role",
+        "Ischaemic heart",
+        "Its core",
+        "Despite its",
+        "Accumulating evidence"
       ],
-      "title": "Mitochondrial homeodynamics in ageing: mechanisms, resilience, and interventions.",
-      "track": "longevity_dna",
+      "title": "The role of HIF-1α in myocardial ischemia protection mechanisms and multi-target rational regulation strategies for natural products.",
+      "track": "hypoxia_ischemia",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [],
+      "mechanisms": [
+        "hypoxia"
+      ],
+      "source_id": "PMID:42418528",
+      "species_mentions": [
+        "Towards new",
+        "Adams syndrome",
+        "Negative results",
+        "Its underlying",
+        "Dawley rats",
+        "Rats benefited",
+        "Each rat",
+        "Some refinements"
+      ],
+      "title": "Towards new animal models of pure hypoxic Lance-Adams syndrome: Negative results.",
+      "track": "hypoxia_ischemia",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [
+        "AKAP1",
+        "A-"
+      ],
+      "mechanisms": [
+        "mitochondria",
+        "hypoxia"
+      ],
+      "source_id": "PMID:42624260",
+      "species_mentions": [
+        "Bos grunniens",
+        "Through the"
+      ],
+      "title": "AKAP1 orchestrates mitochondrial dynamics and metabolic reprogramming to promote hypoxia tolerance in yak cardiac fibroblasts.",
+      "track": "hypoxia_ischemia",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [],
+      "mechanisms": [
+        "metabolic suppression",
+        "hypoxia"
+      ],
+      "source_id": "PMID:42546520",
+      "species_mentions": [
+        "Gobiocypris rarus",
+        "The oxygen",
+        "Growth was",
+        "Juveniles showed",
+        "Juveniles responded",
+        "The limited",
+        "Our results"
+      ],
+      "title": "Comparative metabolomics reveals stage-specific hypoxia tolerance during early development of the rare minnow (Gobiocypris rarus).",
+      "track": "hypoxia_ischemia",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [
+        "HSP"
+      ],
+      "mechanisms": [
+        "hypoxia",
+        "heat shock",
+        "antioxidant"
+      ],
+      "source_id": "PMID:42650181",
+      "species_mentions": [
+        "Systems and",
+        "The multistress",
+        "The effects"
+      ],
+      "title": "Role of Antioxidant Systems and Heat Shock Response in Aquatic Animals Under Multistress Conditions.",
+      "track": "hypoxia_ischemia",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [
+        "AOX",
+        "III",
+        "IV",
+        "COX",
+        "H2S"
+      ],
+      "mechanisms": [
+        "mitochondria",
+        "hypoxia"
+      ],
+      "source_id": "PMID:42011053",
+      "species_mentions": [
+        "Aerobic respiration",
+        "Nematostella vectensis",
+        "Behavioural assays"
+      ],
+      "title": "An ancient oxidase lost in vertebrates promotes extreme stress tolerance in an emerging cnidarian model for ecology, evolution and biomedicine.",
+      "track": "hypoxia_ischemia",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [
+        "KLF2-",
+        "NO",
+        "LSEC"
+      ],
+      "mechanisms": [
+        "inflammation",
+        "immune"
+      ],
+      "source_id": "PMID:42606689",
+      "species_mentions": [
+        "Liver sinusoidal",
+        "During acute",
+        "Recent advances"
+      ],
+      "title": "Liver sinusoidal endothelial cells in liver diseases and hepatocellular carcinoma: molecular mechanisms, physiology, and therapies.",
+      "track": "hypoxia_ischemia",
+      "year": "2026"
+    },
+    {
+      "citations": 0,
+      "genes": [
+        "CO"
+      ],
+      "mechanisms": [
+        "hypoxia"
+      ],
+      "source_id": "PMID:42325252",
+      "species_mentions": [
+        "The ideal",
+        "Hemiscyllium ocellatum",
+        "Sharks and",
+        "Reef flats",
+        "Its distinctive",
+        "Across studies",
+        "Embryos hatch",
+        "Adults and",
+        "Management applications"
+      ],
+      "title": "The ideal candidate for the job: how epaulette sharks (&lt;i&gt;Hemiscyllium ocellatum&lt;/i&gt;) have emerged as a model for climate-ready shark conservation.",
+      "track": "hypoxia_ischemia",
+      "year": "2026"
+    },
+    {
+      "citations": 2,
+      "genes": [
+        "NO",
+        "PGB1",
+        "PGB1-NO",
+        "PGB1-",
+        "ETHYLENE",
+        "RESPONSE",
+        "FACTOR",
+        "VII"
+      ],
+      "mechanisms": [
+        "hypoxia",
+        "oxidative stress"
+      ],
+      "source_id": "PMID:41851988",
+      "species_mentions": [
+        "The class",
+        "Sustained induction"
+      ],
+      "title": "Phytoglobin 1 in plant hypoxia acclimation and development: integrating oxygen sensing, nitric oxide homeostasis, and redox balance.",
+      "track": "hypoxia_ischemia",
       "year": "2026"
     }
   ],
   "progress": {
-    "graph_edges": 8519,
-    "graph_nodes": 2056,
-    "mean_arbiter": 34.58,
+    "graph_edges": 8590,
+    "graph_nodes": 2072,
+    "mean_arbiter": 34.23,
     "negative_knowledge_size": 0,
     "new_candidates": 100,
     "plausible_candidates": 1,
     "verified_candidates": 0
   },
   "provider_status": {
-    "Ensembl": "PARTIAL",
+    "Ensembl": "PASS",
     "Europe PMC": "PASS"
   },
-  "run_id": "20261031T093746Z",
-  "sha256": "c9a76f0fdde985827126fe45ece12b9c9518cc58d33607f506c55cb669381f92",
-  "started_at": "2026-10-31T09:37:46.692180+00:00",
+  "run_id": "20261101T102657Z",
+  "sha256": "3c1e67c3857044e9898986e170c392ecc6ad3913da72f5f5fe7a1492c3a56f33",
+  "started_at": "2026-11-01T10:26:57.547544+00:00",
   "track_metrics": {
-    "longevity_dna": {
-      "mechanism_density": 0.6,
-      "novel_species": 107,
-      "policy_reward": 0.58,
+    "hypoxia_ischemia": {
+      "mechanism_density": 0.43333333333333335,
+      "novel_species": 120,
+      "policy_reward": 0.571667,
       "source_diversity": 30,
       "verified_species": 0
     },
     "pain_neuro": {
       "mechanism_density": 0.3333333333333333,
-      "novel_species": 161,
+      "novel_species": 157,
       "policy_reward": 0.816667,
       "source_diversity": 30,
       "verified_species": 5
@@ -7365,9 +7455,9 @@
     }
   },
   "tracks": [
-    "regeneration",
     "pain_neuro",
+    "regeneration",
     "thrombosis_immobility",
-    "longevity_dna"
+    "hypoxia_ischemia"
   ]
 }
