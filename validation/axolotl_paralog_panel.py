@@ -23,11 +23,11 @@ try:
     from validation.hand2_assembly_sequence_probe import (
         bounded_get, fasta_from_ncbi, reverse_complement)
     from validation.hand1_hand2_global_alignment import align_window
-    from validation.hand2_legacy_crosswalk import GTF_URL, EXPECTED_GTF_SHA256
+    from validation.hand2_legacy_crosswalk import GTF_URL, EXPECTED_GTF_SHA256, fetch_gtf
 except ModuleNotFoundError:
     from hand2_assembly_sequence_probe import bounded_get,fasta_from_ncbi,reverse_complement
     from hand1_hand2_global_alignment import align_window
-    from hand2_legacy_crosswalk import GTF_URL,EXPECTED_GTF_SHA256
+    from hand2_legacy_crosswalk import GTF_URL,EXPECTED_GTF_SHA256,fetch_gtf
 
 ROOT=Path(__file__).resolve().parents[1]
 REPORT=ROOT/"reports/factory/AXOLOTL-PARALOG-PANEL-LATEST.json"
@@ -178,7 +178,7 @@ def run_panel():
         "cases":[],"source_failures":{},
     }
     try:
-        gtf,_=bounded_get(GTF_URL,60_000_000)
+        gtf,_=fetch_gtf()
         hits=parse_gene_rows(gtf)
         raw,_=bounded_get(ASSEMBLY_URL,3_000_000)
         mapping=parse_old_assembly_mapping(raw)
