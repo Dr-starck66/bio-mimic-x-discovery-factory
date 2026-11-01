@@ -6,13 +6,15 @@ URLS={
  "axolotl_counts": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE284nnn/GSE284768/suppl/GSE284768_MatrixCounts.csv.gz",
  "human_matrix": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE28nnn/GSE28914/matrix/GSE28914_series_matrix.txt.gz",
  "human_platform": "https://ftp.ncbi.nlm.nih.gov/geo/platforms/GPLnnn/GPL570/annot/GPL570.annot.gz",
+ "axolotl_geo_243137": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE243nnn/GSE243137/suppl/GSE243137_MatrixCounts.csv.gz",
 }
 def probe(name,url,max_bytes=35_000_000):
     req=urllib.request.Request(url,headers={"User-Agent":"BIO-MIMIC-X research-only evidence-check/1.0"})
     with urllib.request.urlopen(req,timeout=45) as r:
         data=r.read(max_bytes+1)
         if len(data)>max_bytes: raise ValueError("dataset exceeds data budget")
-        if not data.startswith(b"\x1f\x8b"): raise ValueError("expected gzip file")
+        if not data.startswith(b"\x1f\x8b"):
+            raise ValueError("expected gzip; final_url="+r.geturl()+" content_type="+str(r.headers.get("Content-Type"))+" first_bytes="+repr(data[:120]))
     digest=hashlib.sha256(data).hexdigest()
     decompressed=gzip.decompress(data)
     head=decompressed.decode("utf-8",errors="replace").splitlines()
