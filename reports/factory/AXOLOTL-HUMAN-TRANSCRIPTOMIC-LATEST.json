@@ -1,0 +1,360 @@
+{
+  "data_type": "actual raw axolotl counts + publicly processed human microarray, NOT synthetic",
+  "datasets": {
+    "AmexT_v47": {
+      "bytes": 51302807,
+      "sha256": "cc0c3c4e39f3afedcbe2bc5aad1d63fc461714aeb75051f4d109390455874c5d",
+      "source": "https://www.axolotl-omics.org/dl/AmexT_v47-AmexG_v6.0-DD.gtf.gz"
+    },
+    "GPL570": {
+      "bytes": 8471521,
+      "sha256": "d7cd44352127b1e34f3a720ebea86093ef255a38f1612a85a2962b71bde8f394",
+      "source": "https://ftp.ncbi.nlm.nih.gov/geo/platforms/GPLnnn/GPL570/annot/GPL570.annot.gz"
+    },
+    "GSE284768": {
+      "bytes": 1137961,
+      "sha256": "959ba8dbc7c681fb90489c0896df33650dde2f8496f3fd28c4f0e0d108f96efa",
+      "source": "https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE284768&format=file&file=GSE284768_MatrixCounts.csv.gz"
+    },
+    "GSE28914": {
+      "bytes": 6766619,
+      "sha256": "b81da74c04ee8ec2f68f3b854b6dcff28297b87cd0282b807bdace41fe8fcb7e",
+      "source": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE28nnn/GSE28914/matrix/GSE28914_series_matrix.txt.gz"
+    }
+  },
+  "date": "2026-11-01",
+  "experimental_comparisons": {
+    "axolotl": "15 dpa anterior vs posterior blastema cells, 4 vs 4 biological replicate labels",
+    "human": "intact vs day-3 wound human whole skin, paired patients"
+  },
+  "independent_replication": "UNVERIFIED",
+  "interpretation": "Within-species exploratory contrasts quantified. Due to different tissues, sampling times and biological contrasts, no valid cross-species correlation or regenerative-efficacy claim.",
+  "negative_control": "No cross-species concordance statistic computed for non-matched injury-vs-positional contrasts.",
+  "panel_genes": [
+    "HAND2",
+    "SHH",
+    "VEGFC",
+    "IL10",
+    "FSTL1",
+    "GPX7",
+    "CTHRC1",
+    "ACTA2",
+    "COL1A1",
+    "MMP9",
+    "TGFB1",
+    "CXCL8"
+  ],
+  "quality": {
+    "axolotl_4x4_verified": true,
+    "axolotl_features": 99091,
+    "axolotl_human_orthology": "HISTORICAL_GTF_HUMAN_TAG_ONLY_WITH_NCBI_SYMBOL_CHECK; EXACT AMEX IDENTIFIER LINK UNVERIFIED",
+    "axolotl_samples": 25,
+    "human_features": 54675,
+    "human_paired_patients": 6,
+    "human_samples": 25
+  },
+  "results": [
+    {
+      "axolotl": {
+        "axolotl_gene_id": "AMEX60DD030069",
+        "log2_cpm_posterior_minus_anterior": -0.0208
+      },
+      "contrast_comparability": "NOT_COMPARABLE",
+      "gene": "HAND2",
+      "human": {
+        "log2_array_day3_minus_intact": -0.1378,
+        "paired_patients": 6,
+        "patient_effects": [
+          -0.3979,
+          -0.1568,
+          0.1832,
+          -0.1188,
+          -0.3384,
+          0.0557
+        ],
+        "probes_used": 1,
+        "statistic": "median of patient-paired changes; probe median per patient"
+      },
+      "orthology": {
+        "caveat": "No exact sequence/accession mapping of historical AMEX60DD to NCBI reference established; not a fully verified gene-pair identity.",
+        "human_ensembl_ids": [
+          "ENSG00000164107"
+        ],
+        "ncbi_source_gene_id": "138516365",
+        "status": "NCBI_ORTHOLOGY_SUPPORTED"
+      }
+    },
+    {
+      "axolotl": {
+        "status": "NOT_ANNOTATED_WITH_UNIQUE_HUMAN_TAG"
+      },
+      "contrast_comparability": "NOT_COMPARABLE",
+      "gene": "SHH",
+      "human": {
+        "log2_array_day3_minus_intact": -0.0129,
+        "paired_patients": 6,
+        "patient_effects": [
+          0.0915,
+          -0.108,
+          -0.1417,
+          -0.137,
+          0.2411,
+          0.0821
+        ],
+        "probes_used": 2,
+        "statistic": "median of patient-paired changes; probe median per patient"
+      },
+      "orthology": {
+        "status": "UNVERIFIED_GTF_AMBIGUITY"
+      }
+    },
+    {
+      "axolotl": {
+        "status": "NOT_ANNOTATED_WITH_UNIQUE_HUMAN_TAG"
+      },
+      "contrast_comparability": "NOT_COMPARABLE",
+      "gene": "VEGFC",
+      "human": {
+        "log2_array_day3_minus_intact": 1.1557,
+        "paired_patients": 6,
+        "patient_effects": [
+          1.0079,
+          1.8698,
+          1.3035,
+          1.6557,
+          0.4248,
+          0.6524
+        ],
+        "probes_used": 1,
+        "statistic": "median of patient-paired changes; probe median per patient"
+      },
+      "orthology": {
+        "status": "UNVERIFIED_GTF_AMBIGUITY"
+      }
+    },
+    {
+      "axolotl": {
+        "axolotl_gene_id": "AMEX60DD009000",
+        "log2_cpm_posterior_minus_anterior": -0.7072
+      },
+      "contrast_comparability": "NOT_COMPARABLE",
+      "gene": "IL10",
+      "human": {
+        "log2_array_day3_minus_intact": 1.9511,
+        "paired_patients": 6,
+        "patient_effects": [
+          0.6817,
+          2.1971,
+          2.2569,
+          1.7051,
+          3.2322,
+          1.3128
+        ],
+        "probes_used": 1,
+        "statistic": "median of patient-paired changes; probe median per patient"
+      },
+      "orthology": {
+        "status": "NOT_IN_INDEPENDENT_VERIFICATION_PANEL"
+      }
+    },
+    {
+      "axolotl": {
+        "status": "NOT_ANNOTATED_WITH_UNIQUE_HUMAN_TAG"
+      },
+      "contrast_comparability": "NOT_COMPARABLE",
+      "gene": "FSTL1",
+      "human": {
+        "log2_array_day3_minus_intact": 0.1316,
+        "paired_patients": 6,
+        "patient_effects": [
+          0.4531,
+          -0.6205,
+          0.6477,
+          0.6902,
+          -0.19,
+          -0.9517
+        ],
+        "probes_used": 2,
+        "statistic": "median of patient-paired changes; probe median per patient"
+      },
+      "orthology": {
+        "status": "UNVERIFIED_GTF_AMBIGUITY"
+      }
+    },
+    {
+      "axolotl": {
+        "status": "NOT_ANNOTATED_WITH_UNIQUE_HUMAN_TAG"
+      },
+      "contrast_comparability": "NOT_COMPARABLE",
+      "gene": "GPX7",
+      "human": {
+        "log2_array_day3_minus_intact": 0.9749,
+        "paired_patients": 6,
+        "patient_effects": [
+          0.8817,
+          -0.1714,
+          1.0681,
+          1.1149,
+          0.8054,
+          1.097
+        ],
+        "probes_used": 1,
+        "statistic": "median of patient-paired changes; probe median per patient"
+      },
+      "orthology": {
+        "status": "NOT_IN_INDEPENDENT_VERIFICATION_PANEL"
+      }
+    },
+    {
+      "axolotl": {
+        "axolotl_gene_id": "AMEX60DD040253",
+        "log2_cpm_posterior_minus_anterior": 0.3777
+      },
+      "contrast_comparability": "NOT_COMPARABLE",
+      "gene": "CTHRC1",
+      "human": {
+        "log2_array_day3_minus_intact": -0.3216,
+        "paired_patients": 6,
+        "patient_effects": [
+          -0.4536,
+          -0.4874,
+          0.0538,
+          2.7506,
+          -0.3418,
+          -0.3014
+        ],
+        "probes_used": 1,
+        "statistic": "median of patient-paired changes; probe median per patient"
+      },
+      "orthology": {
+        "status": "NOT_IN_INDEPENDENT_VERIFICATION_PANEL"
+      }
+    },
+    {
+      "axolotl": {
+        "status": "NOT_ANNOTATED_WITH_UNIQUE_HUMAN_TAG"
+      },
+      "contrast_comparability": "NOT_COMPARABLE",
+      "gene": "ACTA2",
+      "human": {
+        "log2_array_day3_minus_intact": -0.2761,
+        "paired_patients": 6,
+        "patient_effects": [
+          -0.0521,
+          -0.031,
+          -0.6618,
+          1.9993,
+          -1.023,
+          -0.5002
+        ],
+        "probes_used": 3,
+        "statistic": "median of patient-paired changes; probe median per patient"
+      },
+      "orthology": {
+        "status": "NOT_IN_INDEPENDENT_VERIFICATION_PANEL"
+      }
+    },
+    {
+      "axolotl": {
+        "status": "NOT_ANNOTATED_WITH_UNIQUE_HUMAN_TAG"
+      },
+      "contrast_comparability": "NOT_COMPARABLE",
+      "gene": "COL1A1",
+      "human": {
+        "log2_array_day3_minus_intact": -0.1275,
+        "paired_patients": 6,
+        "patient_effects": [
+          -0.3129,
+          -0.2511,
+          0.1765,
+          0.0455,
+          -0.004,
+          -0.4452
+        ],
+        "probes_used": 5,
+        "statistic": "median of patient-paired changes; probe median per patient"
+      },
+      "orthology": {
+        "status": "NOT_IN_INDEPENDENT_VERIFICATION_PANEL"
+      }
+    },
+    {
+      "axolotl": {
+        "status": "NOT_ANNOTATED_WITH_UNIQUE_HUMAN_TAG"
+      },
+      "contrast_comparability": "NOT_COMPARABLE",
+      "gene": "MMP9",
+      "human": {
+        "log2_array_day3_minus_intact": 3.8976,
+        "paired_patients": 6,
+        "patient_effects": [
+          4.3342,
+          4.8804,
+          2.8977,
+          3.7426,
+          3.3456,
+          4.0526
+        ],
+        "probes_used": 1,
+        "statistic": "median of patient-paired changes; probe median per patient"
+      },
+      "orthology": {
+        "status": "NOT_IN_INDEPENDENT_VERIFICATION_PANEL"
+      }
+    },
+    {
+      "axolotl": {
+        "status": "NOT_ANNOTATED_WITH_UNIQUE_HUMAN_TAG"
+      },
+      "contrast_comparability": "NOT_COMPARABLE",
+      "gene": "TGFB1",
+      "human": {
+        "log2_array_day3_minus_intact": 0.7206,
+        "paired_patients": 6,
+        "patient_effects": [
+          0.684,
+          0.4557,
+          0.7289,
+          0.7123,
+          0.9354,
+          0.9856
+        ],
+        "probes_used": 2,
+        "statistic": "median of patient-paired changes; probe median per patient"
+      },
+      "orthology": {
+        "status": "NOT_IN_INDEPENDENT_VERIFICATION_PANEL"
+      }
+    },
+    {
+      "axolotl": {
+        "candidate_ids": 5,
+        "quantified_ids": 5,
+        "status": "AMBIGUOUS_OR_UNQUANTIFIED_GENE_ID"
+      },
+      "contrast_comparability": "NOT_COMPARABLE",
+      "gene": "CXCL8",
+      "human": {
+        "log2_array_day3_minus_intact": 7.1374,
+        "paired_patients": 6,
+        "patient_effects": [
+          5.3,
+          6.4988,
+          5.0333,
+          7.776,
+          9.1695,
+          9.8104
+        ],
+        "probes_used": 2,
+        "statistic": "median of patient-paired changes; probe median per patient"
+      },
+      "orthology": {
+        "status": "NOT_IN_INDEPENDENT_VERIFICATION_PANEL"
+      }
+    }
+  ],
+  "schema": "BIO-MIMIC-X/EXPLORATORY-TRANSCRIPTOMIC/1",
+  "sha256": "9e5dcc8e259b3585ea4ee8f26c05c304e9bf526853292f57ba66640f89d0df08",
+  "status": "PARTIAL_NOT_COMPARABLE",
+  "whole_human_limb_regeneration": "UNVERIFIED"
+}
