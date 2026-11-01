@@ -82,7 +82,7 @@ def build_report(registry: Mapping[str, Any]) -> Dict[str, Any]:
     rows = []
     for entry in entries:
         gate = validate_entry(entry)
-        rows.append({**dict(entry) if isinstance(entry, Mapping) else {"raw_type": str(type(entry))},
+        rows.append({**(dict(entry) if isinstance(entry, Mapping) else {"raw_type": str(type(entry))}),
                      "gate": gate, "sha256": sha256_json(entry)})
     report = {
         "brick": "BIO-MIMIC X COMMERCIAL EVIDENCE GATE",
