@@ -52,6 +52,15 @@ class GSE295849PublicBetaQCTests(unittest.TestCase):
         self.assertEqual(r["columns"], 2)
         self.assertEqual([v["mean_beta"] for v in r["column_summary"]], [0.25, 0.75])
 
+    def test_sample_header_blank_trailer_does_not_shift_labels(self):
+        self.fixture("204027260051_R01C01\t204027260051_R02C01\t\n"+
+                     "".join(f"cg{i:08}\t0.10\t0.90\n" for i in range(100)))
+        r=audit_local(self.p,"synthetic",min_bytes=30)
+        self.assertEqual(r["columns"],2)
+        self.assertEqual([x["sample"] for x in r["column_summary"]],
+            ["204027260051_R01C01","204027260051_R02C01"])
+        self.assertEqual([x["mean_beta"] for x in r["column_summary"]],[0.1,0.9])
+
     def test_wrong_hash_is_rejected(self):
         self.fixture("CpG\tA\tB\n" +
                      "".join(f"cg{i}\t0.2\t0.3\n" for i in range(100)))
