@@ -141,7 +141,7 @@ def render_markdown(report: dict) -> str:
         "Aucun essai humain, traitement ou intervention biologique n'a été exécuté par ce programme.",
         "Une étude sur fibroblastes humains n'établirait pas à elle seule la repousse d'un membre.",
         "",
-        f"SHA-256 du rapport canonique : \`{report['sha256']}\`",
+        f"SHA-256 du rapport canonique : `{report['sha256']}`",
         "",
     ])
 
