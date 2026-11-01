@@ -1,0 +1,44 @@
+{
+  "article": {
+    "doi": "10.1111/acel.70751",
+    "finding": "author-reported epigenetic de-aging during blood-to-iNSC conversion",
+    "primary_source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13634082/",
+    "published_result_not_replicated": true
+  },
+  "axolotl_human_mechanism": "UNVERIFIED",
+  "clinical_anti_aging_efficacy": "UNVERIFIED",
+  "human_tissue_regeneration": "UNVERIFIED",
+  "independent_age_clock_reproduction": "UNVERIFIED",
+  "local_source_integrity": {
+    "reason": "raw human datasets not independently validated",
+    "status": "UNVERIFIED"
+  },
+  "next_required_evidence": "verified public sample-level methylation matrix with provenance and donor/time metadata; recompute DNAm clocks with matched controls; compare only orthologs independently validated by reciprocal sequence mapping and biologically comparable experiments",
+  "retained_negative_control": {
+    "dataset": "GSE74387",
+    "legacy_result": "FAIL",
+    "not_overridden_by_this_report": true
+  },
+  "schema": "BIO-MIMIC-X/EPIGENETIC-DEAGING-EVIDENCE/1",
+  "sources": {
+    "E-MTAB-5808": {
+      "access": "PUBLIC_METADATA_RAW_UNVERIFIED",
+      "kind": "earlier published human DNA methylation",
+      "registry": "BioStudies/ArrayExpress",
+      "url": "https://www.ebi.ac.uk/biostudies/arrayexpress/studies/E-MTAB-5808"
+    },
+    "GSE295849": {
+      "access": "PUBLIC_METADATA_RAW_UNVERIFIED",
+      "kind": "human DNA methylation",
+      "registry": "GEO",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE295849"
+    },
+    "phs004047.v1.p1": {
+      "access": "AUTHORIZATION_REQUIRED",
+      "kind": "human RNA sequencing",
+      "registry": "dbGaP",
+      "url": "https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs004047.v1.p1"
+    }
+  },
+  "status": "PARTIAL"
+}
