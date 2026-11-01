@@ -15,8 +15,11 @@ import json
 import math
 from pathlib import Path
 import re
+import sys
 import urllib.request
 
+# Accept execution both as a script and as an imported module.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from validation.gse295849_real_qc import audit_remote
 
 MODEL_URLS = (
