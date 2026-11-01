@@ -47,12 +47,18 @@ def collect_gtf_proof(data:bytes)->dict:
             if cols[2]=="gene":target_gene_rows.append(record)
             if len(found)<25:found.append(record)
     gene_row=(target_gene_rows[0] if len(target_gene_rows)==1 else None)
+    alt_symbols=sorted({x.upper() for x in re.findall(
+        r'([A-Za-z][A-Za-z0-9-]*)\s*\[(?:hs|nr)\]',
+        gene_row["gene_name"],re.I
+    )}) if gene_row else []
     status="UNIQUE_LEGACY_HAND2_SYMBOL_ANNOTATION" if (
         gene_row is not None
         and all_hand2_gene_ids=={LEGACY}
-        and re.search(r'(?<![A-Za-z0-9])HAND2\s*\[hs\]',gene_row["gene_name"],re.I)
-    ) else "UNVERIFIED_MULTIPLE_OR_MISSING_LEGACY_ANNOTATION"
-    return {"status":status,"gene_rows_for_legacy":len(target_gene_rows),
+        and alt_symbols==["HAND2"]
+    ) else ("CONFLICTING_HOMOLOGY_LABELS" if gene_row and "HAND2" in alt_symbols and len(alt_symbols)>1
+            else "UNVERIFIED_MULTIPLE_OR_MISSING_LEGACY_ANNOTATION")
+    return {"status":status,"alternative_homology_symbols":alt_symbols,
+        "gene_rows_for_legacy":len(target_gene_rows),
         "distinct_hand2_human_tagged_gene_ids":sorted(all_hand2_gene_ids),
         "target_gene":gene_row,"target_records":found}
 
