@@ -1,0 +1,271 @@
+{
+  "failures": {
+    "ucsc_old_assembly_window": "HTTPError: HTTP Error 400: Bad Request"
+  },
+  "legacy_locus": {
+    "assembly": "GCA_002915635.3",
+    "chrom": "chr3q",
+    "end_1based": 632169448,
+    "gene": "AMEX60DD030069",
+    "start_1based": 632140538
+  },
+  "ncbi_gene_id": "138516365",
+  "no_human_regeneration_claim": true,
+  "old_locus_to_modern_gene_exact_sequence_identity": "UNVERIFIED",
+  "possible_next_step": "If genomic accessions and both sequence windows are available, run reciprocal HAND1/HAND2 sequence alignment with assembly coordinates.",
+  "resources": {
+    "ncbi_gene_report": {
+      "download": {
+        "content_type": "application/json",
+        "sha256": "fb899409338685973f9b02ed9d4e58abc909146b439c8604c0708b0ea0b28a25",
+        "size": 1655,
+        "source": "https://api.ncbi.nlm.nih.gov/datasets/v2/gene/id/138516365/dataset_report"
+      },
+      "parsed": {
+        "reported_gene_id": "138516365",
+        "reported_symbol": "HAND2",
+        "reported_taxon": "8296",
+        "selected_annotations": [
+          {
+            "key": ".gene.gene_id",
+            "preview": "\"138516365\""
+          },
+          {
+            "key": ".gene.symbol",
+            "preview": "\"HAND2\""
+          },
+          {
+            "key": ".gene.chromosomes",
+            "preview": "[\"6q\"]"
+          },
+          {
+            "key": ".gene.annotations[0].assembly_accession",
+            "preview": "\"GCF_040938575.1\""
+          },
+          {
+            "key": ".gene.annotations[0].assembly_name",
+            "preview": "\"UKY_AmexF1_1\""
+          },
+          {
+            "key": ".gene.annotations[0].genomic_locations",
+            "preview": "[{\"genomic_accession_version\": \"NC_090937.1\", \"sequence_name\": \"6q\", \"genomic_range\": {\"begin\": \"910028725\", \"end\": \"910032936\", \"orientation\": \"minus\"}}]"
+          },
+          {
+            "key": ".gene.annotations[0].genomic_locations[0].genomic_accession_version",
+            "preview": "\"NC_090937.1\""
+          }
+        ],
+        "status": "REPORT_FOUND"
+      }
+    },
+    "ncbi_gene_xml": {
+      "download": {
+        "content_type": "text/xml; charset=UTF-8",
+        "sha256": "ced078ec1c4d95ffbd3790efeba00eb51e06d64d3354b29a3e3c91492454fef2",
+        "size": 36523,
+        "source": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=gene&id=138516365&retmode=xml"
+      },
+      "parsed": {
+        "accessions": [
+          "NC_090937.1",
+          "XM_069631422.1",
+          "XP_069487523.1",
+          "JBEBLI010000012.1",
+          "GFBM010653805.1",
+          "KU882016.1",
+          "ANB78799.1",
+          "GCF_040938575.1",
+          "GCF_040938585.1"
+        ],
+        "intervals": [
+          {
+            "accession": null,
+            "end_0based": "910032935",
+            "start_0based": "910028724"
+          },
+          {
+            "accession": null,
+            "end_0based": "910032935",
+            "start_0based": "910031755"
+          },
+          {
+            "accession": null,
+            "end_0based": "910029548",
+            "start_0based": "910028724"
+          },
+          {
+            "accession": null,
+            "end_0based": "910032303",
+            "start_0based": "910031755"
+          },
+          {
+            "accession": null,
+            "end_0based": "910029548",
+            "start_0based": "910029450"
+          },
+          {
+            "accession": null,
+            "end_0based": "910032935",
+            "start_0based": "910028724"
+          },
+          {
+            "accession": null,
+            "end_0based": "910032935",
+            "start_0based": "910028724"
+          },
+          {
+            "accession": null,
+            "end_0based": "910032935",
+            "start_0based": "910028724"
+          }
+        ],
+        "status": "XML_PARSED"
+      }
+    },
+    "ncbi_old_assembly_report": {
+      "download": {
+        "content_type": "application/json",
+        "sha256": "1e531064b856a09d37303d17d2bbb0f11937b9eabffbf289485a3069eb737890",
+        "size": 2651,
+        "source": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCA_002915635.3/dataset_report"
+      },
+      "parsed": {
+        "selected_annotations": [
+          {
+            "key": ".accession",
+            "preview": "\"GCA_002915635.3\""
+          },
+          {
+            "key": ".current_accession",
+            "preview": "\"GCA_002915635.3\""
+          },
+          {
+            "key": ".assembly_info",
+            "preview": "{\"assembly_level\": \"Chromosome\", \"assembly_status\": \"current\", \"assembly_name\": \"AmbMex60DD\", \"assembly_type\": \"haploid\", \"bioproject_lineage\": [{\"bioprojects\": [{\"accession\": \"PRJNA378970\", \"title\": \"Ambystoma mexicanum strain:DD151 Genome sequencing and assembly\"}]}], \"bioproject_accession\": \"PRJNA378970\", \"release_date\": \"2021-04-01\", \"submitter\": \"Max Planck Society/University of Kentucky\", \"sequencing_tech\": \"PacBio; Illumina NovaSeq; Illumina HiSeq\", \"assembly_method\": \"MARVEL v. 04-Feb-20"
+          },
+          {
+            "key": ".assembly_info.assembly_level",
+            "preview": "\"Chromosome\""
+          },
+          {
+            "key": ".assembly_info.assembly_status",
+            "preview": "\"current\""
+          },
+          {
+            "key": ".assembly_info.assembly_name",
+            "preview": "\"AmbMex60DD\""
+          },
+          {
+            "key": ".assembly_info.assembly_type",
+            "preview": "\"haploid\""
+          },
+          {
+            "key": ".assembly_info.bioproject_lineage[0].bioprojects[0].accession",
+            "preview": "\"PRJNA378970\""
+          },
+          {
+            "key": ".assembly_info.bioproject_accession",
+            "preview": "\"PRJNA378970\""
+          },
+          {
+            "key": ".assembly_info.assembly_method",
+            "preview": "\"MARVEL v. 04-Feb-2020\""
+          },
+          {
+            "key": ".assembly_info.biosample.accession",
+            "preview": "\"SAMN06554622\""
+          },
+          {
+            "key": ".assembly_stats",
+            "preview": "{\"total_number_of_chromosomes\": 28, \"total_sequence_length\": \"28206905576\", \"total_ungapped_length\": \"28203219965\", \"number_of_contigs\": 211437, \"contig_n50\": 217996, \"contig_l50\": 35415, \"number_of_scaffolds\": 27157, \"scaffold_n50\": 1205706733, \"scaffold_l50\": 11, \"number_of_component_sequences\": 27157, \"atgc_count\": \"28203219823\", \"gc_count\": \"12975332212\", \"gc_percent\": 46, \"genome_coverage\": \"30\"}"
+          },
+          {
+            "key": ".assembly_stats.total_number_of_chromosomes",
+            "preview": "28"
+          },
+          {
+            "key": ".assembly_stats.genome_coverage",
+            "preview": "\"30\""
+          },
+          {
+            "key": ".wgs_info.wgs_project_accession",
+            "preview": "\"PGSH02\""
+          }
+        ],
+        "status": "ASSEMBLY_REPORT_FOUND"
+      }
+    },
+    "old_assembly_genbank_mapping": {
+      "download": {
+        "content_type": "text/plain; charset=UTF-8",
+        "sha256": "afab332ee6420dd92d50fc7cd21fdee39595ba57646561e7904887932243a0be",
+        "size": 2202195,
+        "source": "https://hgdownload.soe.ucsc.edu/hubs/GCA/002/915/635/GCA_002915635.3/GCA_002915635.3_assembly_report.txt"
+      },
+      "parsed": {
+        "assembly": "GCA_002915635.3",
+        "chromosome_name": "chr3q",
+        "genbank_accession": "CM010932.2",
+        "length": 1526800552,
+        "status": "GENBANK_CHR3Q_MAPPING_VERIFIED"
+      }
+    }
+  },
+  "schema": "BIO-MIMIC-X/HAND2-ASSEMBLY-SEQUENCE-PROBE/1",
+  "sequence_screen": {
+    "exact_identity": "UNVERIFIED",
+    "hand1_negative_control": {
+      "chromosome": "NC_090926.1",
+      "comparison": {
+        "k": 31,
+        "modern_forward_unique_kmers": 27242,
+        "modern_reverse_unique_kmers": 27242,
+        "not_exact_identity_proof": true,
+        "old_unique_kmers": 27332,
+        "shared_kmers_forward": 26858,
+        "shared_kmers_reverse": 0,
+        "top_strand": "forward"
+      },
+      "download": {
+        "content_type": "text/plain",
+        "sha256": "78565078424aac4e7038f3a0eb85af79f558827ea34c2155db0b33b431b54434",
+        "size": 29394,
+        "source": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NC_090926.1&seq_start=348891291&seq_stop=348920140&rettype=fasta&retmode=text"
+      },
+      "sequence_sha256": "99058cb5ba540e21359efbdd2dd047efb692cb8f47d731ec775ba7cbfeef9d8c",
+      "source_gene_id": "138582569",
+      "status": "HAND1_NEGATIVE_CONTROL_COMPUTED"
+    },
+    "kmer_comparison": {
+      "k": 31,
+      "modern_forward_unique_kmers": 4182,
+      "modern_reverse_unique_kmers": 4182,
+      "not_exact_identity_proof": true,
+      "old_unique_kmers": 27332,
+      "shared_kmers_forward": 0,
+      "shared_kmers_reverse": 8,
+      "top_strand": "reverse"
+    },
+    "limitation": "K-mer overlap is not an alignment or proof of a unique reciprocal locus mapping across assemblies. Examine HAND1 negative control and full genome uniqueness.",
+    "new_fetch_metadata": {
+      "content_type": "text/plain",
+      "sha256": "491365347173b77b224a6a38d6115f29eb38c49d6b142c3440e4d047c4a78af7",
+      "size": 4404,
+      "source": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NC_090937.1&seq_start=910028725&seq_stop=910032936&rettype=fasta&retmode=text"
+    },
+    "new_gene_chromosome_accession": "NC_090937.1",
+    "new_sequence_sha256": "eb707084770ecfd0c24538f10984563b8cddfc0fe467db96454a36fa516505b3",
+    "old_chromosome_accession": "CM010932.2",
+    "old_fetch_metadata": {
+      "content_type": "text/plain",
+      "sha256": "15e2dadfb764d7143703fa2fdeab689234d15caac36e54f09b4c3d5a4487a4c0",
+      "size": 29436,
+      "source": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=CM010932.2&seq_start=632140538&seq_stop=632169448&rettype=fasta&retmode=text"
+    },
+    "old_sequence_sha256": "9d2c183a94e9feeb2ed6b413e1654e4d54a614f0ed5ada64b52db2dcaf2eb4ce",
+    "status": "EXPLORATORY_GENOMIC_SEQUENCE_COMPARISON"
+  },
+  "sha256": "fc4935c5e3c2fbf06ae20dc8a0c0505de3e3703db18a2107c6606e2ffc64c517",
+  "status": "PARTIAL",
+  "why_unverified": "This is a provenance probe. It does not perform a reciprocal sequence alignment, paralog exclusion or a whole-genome locus-unique mapping."
+}
