@@ -14,10 +14,21 @@ try{
   assert.match(await page.title(),/BIO-MIMIC X/);
   checks.push('loads');
   const body=await page.locator('body').innerText();
-  for(const term of ['129','Europe PMC','€1,000,000','seller asking price','FAIL','UNVERIFIED','not a validated biological therapy']){
+  for(const term of ['188','Europe PMC','€1,000,000','seller asking price','FAIL','PARTIAL','UNVERIFIED','99.9203%','52.6625%','not a validated biological therapy']){
     assert.ok(body.toLowerCase().includes(term.toLowerCase()),'Missing real evidence/boundary '+term);
   }
   checks.push('evidence_and_price_disclaimers');
+  const geneRow=page.locator('#handGeneAlignment');
+  assert.equal(await geneRow.count(),1,'Real genetic audit must be visible');
+  const geneText=await geneRow.innerText();
+  for(const evidence of ['AMEX60DD030069','HAND1','HAND2','28,830/28,853','23 edits','2,098 edits','UNVERIFIED']){
+    assert.ok(geneText.includes(evidence),'Missing genetic source/negative-control detail: '+evidence);
+  }
+  const details=page.locator('#handGeneEvidence');
+  assert.equal(await details.count(),1,'Public read-only alignment provenance link required');
+  assert.match(await details.getAttribute('href'),/HAND1-HAND2-ALIGNMENT-EVIDENCE-2026-11-01\.md$/);
+  checks.push('real_hand1_hand2_alignment_with_negative_control_and_provenance');
+
   assert.equal(await page.locator('meta[name="robots"]').getAttribute('content'),'noindex,nofollow');
   checks.push('non_indexed_buyer_overview');
   await page.locator('#openHunter').click();
@@ -34,6 +45,7 @@ try{
   const overflow=await mobile.evaluate(()=>document.documentElement.scrollWidth-innerWidth);
   assert.ok(overflow<=2,'Horizontal mobile overflow: '+overflow);
   assert.ok(await mobile.locator('#openHunter').isVisible());
+  assert.ok(await mobile.locator('#handGeneAlignment').isVisible(),'Scientific negative control missing on mobile');
   checks.push('mobile_no_horizontal_overflow');
   // GEO evidence is a separate product feature, not a new scientific PASS.
   await page.goto(origin+'/science-validation.html',{waitUntil:'load'});
