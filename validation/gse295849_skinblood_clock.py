@@ -84,7 +84,12 @@ def collect_clock_cpgs(path, features):
                 continue
             if header is None:
                 header=rec
-                if all(VALID_SAMPLE.fullmatch(x) for x in header):
+                # NCBI file 1 has a trailing EMPTY header cell but no empty
+                # data column. Remove only that exact documented artifact.
+                if len(header)>2 and header[-1]=="" and all(VALID_SAMPLE.fullmatch(x) for x in header[:-1]):
+                    sample_ids=header[:-1]
+                    expected_width=len(header)
+                elif all(VALID_SAMPLE.fullmatch(x) for x in header):
                     sample_ids=header[:]  # bare Illumina sample identifiers
                     expected_width=len(header)+1
                 elif len(header)>1 and all(VALID_SAMPLE.fullmatch(x) for x in header[1:]):
@@ -92,7 +97,7 @@ def collect_clock_cpgs(path, features):
                     expected_width=len(header)
                 else:
                     raise ValueError("unexpected GEO sample header: columns="+str(len(header))+
-                                     ", first="+repr(header[:3]))
+                                     ", first="+repr(header[:3])+", last="+repr(header[-3:]))
                 if len(set(sample_ids))!=len(sample_ids):
                     raise ValueError("duplicate Illumina sample identifiers")
                 continue
