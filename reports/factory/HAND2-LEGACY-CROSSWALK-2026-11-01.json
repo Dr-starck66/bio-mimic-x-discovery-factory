@@ -1,0 +1,89 @@
+{
+  "decision": "UNVERIFIED",
+  "human_ensembl": "ENSG00000164107",
+  "legacy_annotation_status": "UNVERIFIED",
+  "legacy_assembly": "AmexG_v6.0-DD",
+  "legacy_id": "AMEX60DD030069",
+  "legacy_id_to_modern_ncbi_gene_exact_identity": "UNVERIFIED",
+  "legacy_transcriptome": "AmexT_v47",
+  "modern_ncbi_gene_id": "138516365",
+  "ncbi": {
+    "human_orthology_hits": [
+      {
+        "description": "heart and neural crest derivatives expressed 2",
+        "ensembl_id": "ENSG00000164107",
+        "gene_id": "9464",
+        "ortholog_method": "NCBI Ortholog",
+        "symbol": "HAND2"
+      }
+    ],
+    "other_human_hits_count": 0,
+    "source_gene": {
+      "description": "heart and neural crest derivatives expressed 2",
+      "gene_groups": [
+        {
+          "id": "9464",
+          "method": "NCBI Ortholog"
+        }
+      ],
+      "gene_id": "138516365",
+      "symbol": "HAND2",
+      "tax_id": "8296",
+      "taxname": "Ambystoma mexicanum"
+    },
+    "status": "NCBI_AXOLOTL_TO_HUMAN_ORTHOLOGY_VERIFIED"
+  },
+  "ncbi_species_to_human_orthology_status": "PASS",
+  "negative_control": "Do not upgrade exact crosswalk based only on any number of text-symbol coincidences.",
+  "no_clinical_efficacy_claim": true,
+  "reason": "A shared gene symbol across different assembly versions, even with NCBI orthology, is not an exact historic-to-modern gene-ID crosswalk; no reciprocal sequence-alignment or assembly liftover was performed.",
+  "reference_gtf": {
+    "proof": {
+      "alternative_homology_symbols": [
+        "HAND1",
+        "HAND2"
+      ],
+      "distinct_hand2_human_tagged_gene_ids": [
+        "AMEX60DD030069"
+      ],
+      "gene_rows_for_legacy": 1,
+      "status": "CONFLICTING_HOMOLOGY_LABELS",
+      "target_gene": {
+        "chr": "chr3q",
+        "end_1based": 632169448,
+        "feature": "gene",
+        "gene_id": "AMEX60DD030069",
+        "gene_name": "HAND1 [nr]|HAND2 [hs]",
+        "start_1based": 632140538,
+        "strand": "+"
+      },
+      "target_records": [
+        {
+          "chr": "chr3q",
+          "end_1based": 632169448,
+          "feature": "gene",
+          "gene_id": "AMEX60DD030069",
+          "gene_name": "HAND1 [nr]|HAND2 [hs]",
+          "start_1based": 632140538,
+          "strand": "+"
+        },
+        {
+          "chr": "chr3q",
+          "end_1based": 632169448,
+          "feature": "transcript",
+          "gene_id": "AMEX60DD030069",
+          "gene_name": "HAND1 [nr]|HAND2 [hs]|AMEX60DD201030069.1",
+          "start_1based": 632140538,
+          "strand": "+",
+          "transcript_id": "HAND1 [nr]|HAND2 [hs]|AMEX60DD201030069.1"
+        }
+      ]
+    },
+    "sha256": "cc0c3c4e39f3afedcbe2bc5aad1d63fc461714aeb75051f4d109390455874c5d",
+    "url": "https://www.axolotl-omics.org/dl/AmexT_v47-AmexG_v6.0-DD.gtf.gz"
+  },
+  "required_next_proof": "Independent exact-sequence/accession link between AMEX60DD030069 and NCBI Gene 138516365, with paralog and reciprocal-hit controls.",
+  "schema": "BIO-MIMIC-X/HAND2-LEGACY-CROSSWALK/1",
+  "sha256": "d9804aadc994341f5dd54fa6b8d253977808a925fd69612ee685268f9a09edda",
+  "upstream_failures": {}
+}
