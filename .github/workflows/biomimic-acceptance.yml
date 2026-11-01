@@ -1,6 +1,16 @@
 name: BIO-MIMIC X — UI and Scientific Acceptance
 on:
   workflow_dispatch:
+    inputs:
+      science_mode:
+        description: 'Optional evidence-only GEO operation (no recurring run)'
+        required: false
+        type: choice
+        options:
+          - default
+          - gse295849_qc
+          - gse295849_clock
+        default: default
   pull_request:
     branches: [main]
     paths:
@@ -107,7 +117,7 @@ jobs:
 
   real-epigenetic-geo:
     name: Genuine GSE295849 beta matrix ${{ matrix.part }} — strict QC
-    if: github.event_name == 'workflow_dispatch'
+    if: github.event_name == 'workflow_dispatch' && inputs.science_mode == 'gse295849_qc'
     runs-on: ubuntu-24.04
     timeout-minutes: 18
     strategy:
@@ -134,7 +144,7 @@ jobs:
 
   real-epigenetic-clock:
     name: GSE295849 Horvath2018 Skin&Blood 391-CpG real-data clock
-    if: github.event_name == 'pull_request' && github.head_ref == 'science/gse295849-skin-blood-clock-20261101'
+    if: github.event_name == 'workflow_dispatch' && inputs.science_mode == 'gse295849_clock'
     runs-on: ubuntu-24.04
     timeout-minutes: 18
     steps:
