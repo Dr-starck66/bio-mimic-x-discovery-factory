@@ -7,6 +7,8 @@ on:
       - 'organization/**'
       - 'factory/human_limb_regeneration_gate.py'
       - 'validation/geo_pair_probe.py'
+      - 'validation/axolotl_human_reanalysis.py'
+      - 'tests/test_axolotl_human_reanalysis.py'
       - 'tests/test_human_limb_regeneration_gate.py'
       - 'factory/control_plane.py'
       - 'tests/test_v6_organization.py'
@@ -42,8 +44,11 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Fail-closed axolotl to human limb evidence audit
         run: python factory/human_limb_regeneration_gate.py --no-write
-      - name: Probe genuine GEO expression matrices (read-only)
-        run: python validation/geo_pair_probe.py
+      - name: Real axolotl-human GEO comparison with fail-closed orthology
+        run: |
+          python validation/axolotl_human_reanalysis.py --write
+          mkdir -p qa-artifacts
+          cp reports/factory/AXOLOTL-HUMAN-TRANSCRIPTOMIC-LATEST.json qa-artifacts/axolotl-human-transcriptomic.json
       - name: Reproducible scientific evidence demonstration — two separate processes
         run: |
           set -euo pipefail
