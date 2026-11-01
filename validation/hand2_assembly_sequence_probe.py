@@ -29,7 +29,7 @@ UCSC_QUERY={"hubUrl":HUB,"genome":"AmexG.v6-DD",
 URLS={
     "ncbi_gene_report":f"{BASE}/gene/id/{GENE_ID}/dataset_report",
     "ncbi_old_assembly_report":f"{BASE}/genome/accession/{LEGACY['assembly']}/dataset_report",
-    "ncbi_old_sequence_report":f"{BASE}/genome/accession/{LEGACY['assembly']}/sequence_report?page_size=100",
+    "old_assembly_genbank_mapping":"https://hgdownload.soe.ucsc.edu/hubs/GCA/002/915/635/GCA_002915635.3/GCA_002915635.3_assembly_report.txt",
     "ncbi_gene_xml":"https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?"
                     +urllib.parse.urlencode({"db":"gene","id":GENE_ID,"retmode":"xml"}),
     "ucsc_old_assembly_window":UCSC+"?"+urllib.parse.urlencode(UCSC_QUERY),
@@ -83,20 +83,17 @@ def parse_old_assembly_report(data:bytes)->dict:
     obj=arr[0]
     return {"status":"ASSEMBLY_REPORT_FOUND","selected_annotations":_string_matches(obj)}
 
-def parse_old_sequence_report(data:bytes)->dict:
-    j=json.loads(data)
-    arr=j.get("reports") or j.get("sequence_reports") or []
-    hits=[]
-    for item in arr:
-        if not isinstance(item,dict): continue
-        fields=" ".join(str(item.get(k) or "") for k in (
-            "chr_name","chromosome_name","sequence_name","ucsc_style_name","name","chromosome"))
-        if re.search(r"(?:^|[^0-9a-z])(?:chr)?3q(?:$|[^0-9a-z])",fields,re.I):
-            hits.append(item)
-    return {"status":"REPORT_PARSED","top_level_keys":sorted(j.keys()),
-        "records_in_page":len(arr),"candidate_chr3q_hits":hits[:5],
-        "next_page_token_present":bool(j.get("next_page_token")),
-        "first_record":arr[0] if arr else None}
+def parse_assembly_chromosome_report(data:bytes)->dict:
+    lines=data.decode("utf-8",errors="strict").splitlines()
+    rows=[x.split("\t") for x in lines if x and not x.startswith("#")]
+    matched=[x for x in rows if len(x)>=9 and x[0]=="chr3q"]
+    if len(matched)!=1:
+        return {"status":"NO_UNIQUE_CHR3Q_MAPPING","matches":len(matched)}
+    r=matched[0]
+    if r[4]!="CM010932.2" or r[2]!="3q" or r[3]!="Chromosome":
+        return {"status":"MISMATCHED_CHR3Q_MAPPING","fields":r[:9]}
+    return {"status":"GENBANK_CHR3Q_MAPPING_VERIFIED","chromosome_name":r[0],
+        "genbank_accession":r[4],"length":int(r[8]),"assembly":"GCA_002915635.3"}
 
 def parse_ncbi_gene_xml(data:bytes)->dict:
     root=ET.fromstring(data)
@@ -168,7 +165,7 @@ def build_probe(replies:dict,errors:dict)->dict:
     details={}
     parsers={"ncbi_gene_report":parse_ncbi_gene_report,
              "ncbi_old_assembly_report":parse_old_assembly_report,
-             "ncbi_old_sequence_report":parse_old_sequence_report,
+             "old_assembly_genbank_mapping":parse_assembly_chromosome_report,
              "ncbi_gene_xml":parse_ncbi_gene_xml,
              "ucsc_old_assembly_window":parse_ucsc_window}
     for k,(body,meta) in replies.items():
@@ -194,30 +191,52 @@ def main():
         except Exception as e:errors[name]=type(e).__name__+": "+str(e)[:250]
     out=build_probe(replies,errors)
     try:
-        records=(out.get("resources",{}).get("ncbi_old_sequence_report",{})
-                 .get("parsed",{}).get("candidate_chr3q_hits") or [])
-        if records:
-            item=records[0]
-            old_acc=(item.get("genbank_accession") or item.get("genbank_accession_version")
-                     or item.get("genbank_seq_acc") or item.get("accession"))
-            if not old_acc:
-                raise ValueError("chr3q record has no GenBank nucleotide accession")
+        record=(out.get("resources",{}).get("old_assembly_genbank_mapping",{})
+                .get("parsed",{}))
+        if record.get("status")=="GENBANK_CHR3Q_MAPPING_VERIFIED":
+            old_acc=record["genbank_accession"]
             old_seq,old_meta=fasta_from_ncbi(
                 str(old_acc),LEGACY["start_1based"],LEGACY["end_1based"])
             new_seq,new_meta=fasta_from_ncbi("NC_090937.1",910028725,910032936)
+            comparison=local_kmer_screen(old_seq,new_seq)
+            control={"status":"UNVERIFIED_HAND1_NEGATIVE_CONTROL"}
+            try:
+                hand1_data,hand1_meta=bounded_get(
+                    f"{BASE}/gene/symbol/HAND1/taxon/8296/dataset_report",350_000)
+                h=json.loads(hand1_data)
+                reports=h.get("reports") or []
+                first=(reports[0].get("gene") or {}) if reports else {}
+                locations=((first.get("annotations") or [{}])[0].get("genomic_locations") or [])
+                if first.get("symbol")=="HAND1" and locations:
+                    loc=locations[0]
+                    rg=loc.get("genomic_range") or {}
+                    accession=loc.get("genomic_accession_version")
+                    cstart=int(rg["begin"]);cend=int(rg["end"])
+                    if accession and cend-cstart<100_000:
+                        negative_dna,negmeta=fasta_from_ncbi(accession,cstart,cend)
+                        control={
+                            "status":"HAND1_NEGATIVE_CONTROL_COMPUTED",
+                            "source_gene_id":first.get("gene_id"),"chromosome":accession,
+                            "sequence_sha256":hashlib.sha256(negative_dna.encode()).hexdigest(),
+                            "comparison":local_kmer_screen(old_seq,negative_dna),
+                            "download":negmeta
+                        }
+            except Exception as ex:
+                control={"status":"UNVERIFIED_HAND1_NEGATIVE_CONTROL","reason":type(ex).__name__+": "+str(ex)[:180]}
             out["sequence_screen"]={
                 "old_chromosome_accession":old_acc,
                 "old_sequence_sha256":hashlib.sha256(old_seq.encode()).hexdigest(),
                 "new_gene_chromosome_accession":"NC_090937.1",
                 "new_sequence_sha256":hashlib.sha256(new_seq.encode()).hexdigest(),
                 "old_fetch_metadata":old_meta,"new_fetch_metadata":new_meta,
-                "kmer_comparison":local_kmer_screen(old_seq,new_seq),
+                "kmer_comparison":comparison,
+                "hand1_negative_control":control,
                 "status":"EXPLORATORY_GENOMIC_SEQUENCE_COMPARISON",
                 "exact_identity":"UNVERIFIED",
-                "limitation":"Cannot prove exact identity absent independent transcript/CDS alignment, modern HAND1 negative control and reciprocal genome-wide uniqueness."
+                "limitation":"K-mer overlap is not an alignment or proof of a unique reciprocal locus mapping across assemblies. Examine HAND1 negative control and full genome uniqueness."
             }
         else:
-            out["sequence_screen"]={"status":"NOT_EXECUTED","reason":"No official chr3q GenBank accession in first page"}
+            out["sequence_screen"]={"status":"NOT_EXECUTED","reason":"No official chr3q mapping verified"}
     except Exception as e:
         out["sequence_screen"]={"status":"FAILED_CLOSED","reason":type(e).__name__+": "+str(e)[:200]}
     canon=json.dumps(out,sort_keys=True,ensure_ascii=False,separators=(",",":"))
