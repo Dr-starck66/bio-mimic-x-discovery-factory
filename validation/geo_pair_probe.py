@@ -6,7 +6,10 @@ URLS={
  "axolotl_counts": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE284nnn/GSE284768/suppl/GSE284768_MatrixCounts.csv.gz",
  "human_matrix": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE28nnn/GSE28914/matrix/GSE28914_series_matrix.txt.gz",
  "human_platform": "https://ftp.ncbi.nlm.nih.gov/geo/platforms/GPLnnn/GPL570/annot/GPL570.annot.gz",
- "axolotl_geo_243137": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE243nnn/GSE243137/suppl/GSE243137_MatrixCounts.csv.gz",
+ "axolotl_geo_243137": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE243nnn/GSE243137/suppl/GSE243137_MatrixCounts_allsamples.txt.gz",
+ "axolotl_geo_185593": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE185nnn/GSE185593/suppl/GSE185593_10072021_normalized_and_filtered_for_analysis.txt.gz",
+ "axolotl_geo_111213_small": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE111nnn/GSE111213/suppl/GSE111213_Dividing_cell-enriched_transcripts.csv.gz",
+ "axolotl_counts_alt": "https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE284768&format=file&file=GSE284768_MatrixCounts.csv.gz",
 }
 def probe(name,url,max_bytes=35_000_000):
     req=urllib.request.Request(url,headers={"User-Agent":"BIO-MIMIC-X research-only evidence-check/1.0"})
