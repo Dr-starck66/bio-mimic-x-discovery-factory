@@ -4,6 +4,7 @@ on:
   pull_request:
     branches: [main]
     paths:
+      - 'qa/**'
       - 'organization/**'
       - 'factory/human_limb_regeneration_gate.py'
       - 'validation/hand2_legacy_crosswalk.py'
@@ -63,6 +64,27 @@ jobs:
           python validation/axolotl_human_reanalysis.py --write
           mkdir -p qa-artifacts
           cp reports/factory/AXOLOTL-HUMAN-TRANSCRIPTOMIC-LATEST.json qa-artifacts/axolotl-human-transcriptomic.json
+      - name: Report GEO acquisition status (do not relabel missing inputs as PASS)
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          p = Path("reports/factory/AXOLOTL-HUMAN-TRANSCRIPTOMIC-LATEST.json")
+          result = json.loads(p.read_text(encoding="utf-8"))
+          status = str(result.get("status", "UNVERIFIED"))
+          failures = result.get("failed_sources") or {}
+          lines = ["## Real GEO acquisition (separate from software CI)", "",
+                   f"- Scientific status: **{status}**",
+                   f"- Failed sources: **{len(failures)}**"]
+          for name, reason in sorted(failures.items()):
+              lines.append(f"  - {name}: {reason}")
+          if failures or status == "PARTIAL_SOURCE_FAILURE":
+              print("::warning title=GEO acquisition incomplete::" + status +
+                    " - failed sources: " + ", ".join(sorted(failures)))
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as stream:
+              stream.write("\n".join(lines) + "\n")
+          PY
+
       - name: Reproducible scientific evidence demonstration — two separate processes
         run: |
           set -euo pipefail
@@ -90,6 +112,8 @@ jobs:
           node-version: '22'
       - name: Install Playwright-core without downloading browsers
         run: npm install --no-save --no-package-lock playwright-core@1.55.1
+      - name: Official GEO retry and fail-closed unit tests
+        run: node --test qa/official-geo-fetch.test.mjs
       - name: Chromium test of actual published public folder
         run: |
           set -euo pipefail
