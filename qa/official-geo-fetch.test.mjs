@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import {randomBytes} from 'node:crypto';
 import {gzipSync} from 'node:zlib';
 import test from 'node:test';
-import {fetchOfficialGeoGzip} from './official-geo-fetch.mjs';
+import {fetchOfficialGeoGzip,isTransientTransportError} from './official-geo-fetch.mjs';
 
 const source = gzipSync(randomBytes(2400));
 const response = bytes => ({status: 200, arrayBuffer: async () => bytes});
@@ -46,4 +46,12 @@ test('accepts intact gzip without retry', async () => {
   assert.deepEqual(await fetchOfficialGeoGzip('https://example.invalid/gse.gz',
     {request, sleep: noSleep}), source);
   assert.equal(calls, 1);
+});
+
+test('degrade only exhausted network transport, not invalid source data', () => {
+  assert.equal(isTransientTransportError(new TypeError('terminated')),true);
+  assert.equal(isTransientTransportError({name:'TimeoutError'}),true);
+  assert.equal(isTransientTransportError({name:'AbortError'}),true);
+  assert.equal(isTransientTransportError(new Error('truncated gzip')),false);
+  assert.equal(isTransientTransportError(new Error('HTTP 404')),false);
 });
