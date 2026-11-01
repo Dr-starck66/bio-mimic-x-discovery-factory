@@ -20,6 +20,8 @@ on:
       - 'validation/hand2_legacy_crosswalk.py'
       - 'validation/hand2_assembly_sequence_probe.py'
       - 'validation/hand1_hand2_global_alignment.py'
+      - 'validation/axolotl_paralog_panel.py'
+      - 'tests/test_axolotl_paralog_panel.py'
       - 'tests/test_hand1_hand2_global_alignment.py'
       - 'tests/test_hand2_assembly_sequence_probe.py'
       - 'tests/test_hand2_legacy_crosswalk.py'
@@ -94,6 +96,27 @@ jobs:
                               "; aligned identity "+str(b["fraction_matching_in_alignment"])+
                               "; strand "+b["strand"]+"\n")
               f.write("- Exact legacy-to-modern locus identity: **UNVERIFIED** (whole-genome reciprocal uniqueness not tested)\n")
+          PY
+      - name: Predeclared 4-family axolotl paralog screen against real NCBI data
+        run: |
+          set -euo pipefail
+          python -m unittest tests.test_axolotl_paralog_panel -v
+          python validation/axolotl_paralog_panel.py --write
+          cp reports/factory/AXOLOTL-PARALOG-PANEL-LATEST.json qa-artifacts/AXOLOTL-PARALOG-PANEL-LATEST.json
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          p=Path("reports/factory/AXOLOTL-PARALOG-PANEL-LATEST.json")
+          r=json.loads(p.read_text())
+          assert r["scientific_identity_confirmation"]=="UNVERIFIED"
+          assert r["status"]!="FAIL_IMPLEMENTATION"
+          statuses={x["status"]:sum(y["status"]==x["status"] for y in r.get("cases",[])) for x in r.get("cases",[])}
+          print("AXOLOTL_PARALOG_PANEL_STATUS",r["status"],"evaluated",r.get("evaluated_loci",0),"candidate_statuses",statuses,"sha256",r["sha256"])
+          with open(os.environ["GITHUB_STEP_SUMMARY"],"a",encoding="utf-8") as w:
+              w.write("\n## Prespecified non-representative paralog panel\n")
+              w.write("- Status: **"+r["status"]+"**\n")
+              w.write("- Successfully aligned distinct historical loci: **"+str(r.get("evaluated_loci",0))+"**\n")
+              w.write("- Identity confirmation from independent curator: **UNVERIFIED**\n")
           PY
       - name: Verify HAND2 historic gene ID and NCBI orthology (fail-closed)
         run: |
