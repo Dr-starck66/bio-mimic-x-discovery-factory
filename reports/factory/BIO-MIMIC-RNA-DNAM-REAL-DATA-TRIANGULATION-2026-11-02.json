@@ -1,0 +1,163 @@
+{
+  "schema": "BIO-MIMIC-X/INDEPENDENT-RNA-AND-NONCLOCK-DNAM-TRIANGULATION/1",
+  "date": "2026-11-02",
+  "status": "PASS_TWO_REAL_PUBLIC_DATASET_ANALYSES_WITH_NEGATIVE_CONTROL",
+  "scientific_claim_aging_independent_of_fate": "UNVERIFIED",
+  "provenance": {
+    "RNA_2018": {
+      "repository_report": "reports/factory/GSE117720-REAL-RNA-REFERENCE-2026-11-02.json",
+      "git_blob_sha": "8268c6c9fe4e550762e381062fd30b0513fe175c",
+      "accession": "GSE117720",
+      "paper_doi": "10.1038/s41467-018-06398-5",
+      "SHA256": "6c3c366e26f5757a23bd81359d014aa7b7fe698f85f2c3961c925b4dfd9483dc",
+      "bytes": 2460476,
+      "run": "https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/41379191838",
+      "public": true
+    },
+    "DNAm_2026": {
+      "repository_report": "reports/factory/GSE295849-REAL-CELL-IDENTITY-SENSITIVITY-2026-11-02.json",
+      "git_blob_sha": "d6c5fa508280e8854616692f79e6f15647895486",
+      "accession": "GSE295849",
+      "paper_doi": "10.1111/acel.70751",
+      "source_shas": {
+        "1": "c13d9efcb094e57d8f69f819440620de671bd398b45e8c24c29194aa7f228d32",
+        "2": "4ca091cef1128ddcea24e6c2b349c038ae1de8dc4eb302f7f218304e17479fcd",
+        "3": "fa92b4124a5bd7c69a878ae4557d2def91b1698203fc975fe63003de27640f2d"
+      },
+      "run": "https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/41378461034",
+      "public": true
+    }
+  },
+  "RNA_2018": {
+    "n_samples": 19,
+    "n_donors": 3,
+    "markers_neural": 4,
+    "markers_erythroid": 5,
+    "discarded_ambiguous_symbols": [
+      "GATA1"
+    ],
+    "group_means": {
+      "EPC": {
+        "mean_RNA_identity_score": -4.991553,
+        "median_RNA_identity_score": -4.991553,
+        "n_samples": 2
+      },
+      "iNSC": {
+        "mean_RNA_identity_score": 0.731668,
+        "median_RNA_identity_score": 0.910314,
+        "n_samples": 13
+      },
+      "smNPC": {
+        "mean_RNA_identity_score": 0.117856,
+        "median_RNA_identity_score": 0.233015,
+        "n_samples": 4
+      }
+    },
+    "paired_EPC_to_iNSC": [
+      {
+        "EPC_RNA_identity_score": -4.990827,
+        "delta_neural_minus_erythroid": 5.48797,
+        "donor": "MJD33b",
+        "iNSC_RNA_identity_score": 0.497142
+      },
+      {
+        "EPC_RNA_identity_score": -4.992279,
+        "delta_neural_minus_erythroid": 5.754434,
+        "donor": "R_107b",
+        "iNSC_RNA_identity_score": 0.762156
+      }
+    ],
+    "paired_early_to_late_iNSC": [
+      {
+        "delta": -1.014345,
+        "donor": "MJD33b",
+        "early_passage_RNA_identity": 1.004315,
+        "late_passage_RNA_identity": -0.01003,
+        "n_early": 3,
+        "n_late": 3
+      },
+      {
+        "delta": -0.563254,
+        "donor": "R_107b",
+        "early_passage_RNA_identity": 1.043783,
+        "late_passage_RNA_identity": 0.480529,
+        "n_early": 2,
+        "n_late": 2
+      },
+      {
+        "delta": -0.092085,
+        "donor": "R_82b",
+        "early_passage_RNA_identity": 1.221458,
+        "late_passage_RNA_identity": 1.129373,
+        "n_early": 1,
+        "n_late": 2
+      }
+    ],
+    "observed_counterexample": "RNA neural-versus-erythroid marker score is lower at later iNSC passages for all three 2018 donors; not evidence that neural fate reverses or age marker normalizes; panel may be nonmonotone."
+  },
+  "DNAm_2026": {
+    "n_samples": 60,
+    "n_paired_D14_to_LP_donors": 6,
+    "source_nonclock_CpGs": 6611,
+    "n_nonclock_CpGs_used_for_signature": 200,
+    "methylation_fate_proxy_increased_donors": 6,
+    "mean_methylation_fate_proxy_delta": 0.36654,
+    "mean_Horvath_clock_delta_years": -39.58073,
+    "linear_intercept_no_identity_change_years": -8.11444,
+    "linear_intercept_status": "UNIDENTIFIABLE_EXTRAPOLATED",
+    "observed_proxy_delta_min": 0.24906,
+    "observed_proxy_delta_max": 0.46698,
+    "sensitivity_leave_one_donor_out": [
+      {
+        "donor_left_out": "190",
+        "intercept_years": -8.5778
+      },
+      {
+        "donor_left_out": "216",
+        "intercept_years": -10.14573
+      },
+      {
+        "donor_left_out": "218",
+        "intercept_years": -7.76957
+      },
+      {
+        "donor_left_out": "286",
+        "intercept_years": -15.08438
+      },
+      {
+        "donor_left_out": "287",
+        "intercept_years": 8.48084
+      },
+      {
+        "donor_left_out": "288",
+        "intercept_years": -7.99592
+      }
+    ],
+    "leave_one_donor_out_intercept_sign_changes": true,
+    "exploratory_bootstrap_resampled_donors": {
+      "attempted": 20000,
+      "valid_noncollinear": 19993,
+      "seed": 20261102,
+      "percentile_2_5": -49.10255,
+      "percentile_97_5": 80.24149,
+      "median": -8.05455,
+      "method": "six-donor resampling, exploratory, NOT valid confidence interval for causal effect, and no data near zero identity shift"
+    }
+  },
+  "compatibility": {
+    "same_individuals_across_2018_and_2026": "UNVERIFIED",
+    "RNA_2018_applicable_as_direct_DNAm_2026_covariate": false,
+    "nonclock_DNAm_proxy_is_an_orthogonal_RNA_assay": false,
+    "controlled_access_2026_RNA_samples": "DBGAP_PHS004047_REQUIRED",
+    "RNA_2018_not_overridden_consent": true,
+    "independent_2026_RNA_mechanistic_age_residual": "UNVERIFIED"
+  },
+  "scientific_audit": {
+    "no_six_donor_zero_identity_proxy_change": "PASS_CONFIRMED_ALL_NONZERO",
+    "negative_fate_reference_result": "PRESERVED",
+    "prior_GSE74387": "FAIL_RETAINED",
+    "conclusion": "Both original biological studies can be reanalyzed from genuine public data. The 2018 transcriptomic assay independently validates strong EPC-to-iNSC identity change; within-iNSC marker score does not increase monotonically. The 2026 DNAm six donor clock reduction co-occurs with changing methylation fate identity, and zero-identity extrapolation is unsupported (sign-unstable with one donor omitted). Neither establishes fate-independent epigenetic rejuvenation. Protected 2026 RNA sample-level access still absent.",
+    "monetization_or_clinical_claim": "UNVERIFIED",
+    "cost_added_eur": 0
+  }
+}
