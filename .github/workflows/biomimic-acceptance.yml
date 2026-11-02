@@ -41,6 +41,9 @@ on:
       - 'validation/gse295849_rna_identity_gate.py'
       - 'tests/test_gse295849_rna_identity_gate.py'
       - 'tests/test_gse295849_open_ccby_rna.py'
+      - 'validation/gse117720_open_rna_reference.py'
+      - 'tests/test_gse117720_open_rna_reference.py'
+      - 'reports/factory/GSE117720-PUBLIC-RNA-REFERENCE-METADATA-2026-11-02.json'
       - 'validation/gse295849_noncpg_lineage_residual.py'
       - 'tests/test_gse295849_noncpg_lineage_residual.py'
       - 'reports/factory/GSE295849-SRP594303-RNA-METADATA-2026-11-02.json'
@@ -94,6 +97,25 @@ jobs:
           assert o["status"]=="PARTIAL_NO_AUTHORIZED_TRANSCRIPTOME"
           assert m["age_effect_after_identity_adjustment"]=="UNVERIFIED"
           print("PASS_METADATA_BRIDGE; RNA_COUNTS_RESTRICTED; IDENTITY_ADJUSTED_BIOLOGY_UNVERIFIED")
+          PY
+      - name: Real open RNA independent identity control — Sheng 2018
+        run: |
+          mkdir -p qa-artifacts
+          if python validation/gse117720_open_rna_reference.py --out qa-artifacts/GSE117720-REAL-RNA.json; then
+            echo "PASS_PUBLIC_EXTERNAL_RNA_REAL_DATA"
+          else
+            echo "::warning title=Public RNA control::PARTIAL_REAL_SOURCE_OR_GENE_SYMBOL_FAILURE"
+          fi
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path('qa-artifacts/GSE117720-REAL-RNA.json').read_text())
+          assert x['2026_RNA_ADJUSTED_AGE']=='UNVERIFIED'
+          assert x['reference_is_different_from_2026_six_donors']
+          if x['status']=='PASS_INDEPENDENT_PUBLIC_2018_RNA_REFERENCE_ONLY':
+              assert x['remote_source_hash_pinned_verified']
+              assert x['independent_2018_RNA']['library_count']==19
+          print('GSE117720_PUBLIC_EXTERNAL_RNA',x['status'],'NOT_MATCHED_TO_2026')
           PY
       - name: Replicate within-iNSC de-aging but retain fate negative controls
         run: |
