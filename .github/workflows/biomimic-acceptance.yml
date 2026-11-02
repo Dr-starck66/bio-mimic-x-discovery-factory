@@ -53,6 +53,7 @@ on:
       - 'validation/gse179849_public_multimodal_gate.py'
       - 'validation/gse179849_join_clocks.py'
       - 'validation/gse179848_public_gene_source_probe.py'
+      - 'validation/gse179849_rna_gene_age_adjustment.py'
       - 'tests/test_gse179849_public_multimodal_gate.py'
       - 'reports/factory/GSE165179-PUBLIC-DNAM-SAMPLE-METADATA-2026-11-02.json'
       - 'tests/test_gse295849_noncpg_lineage_residual.py'
@@ -548,6 +549,7 @@ jobs:
           python validation/gse179849_public_multimodal_gate.py
           python validation/gse179849_join_clocks.py
           python validation/gse179848_public_gene_source_probe.py
+          python validation/gse179849_rna_gene_age_adjustment.py
       - name: Preserve all favorable and unfavorable public data-access outcomes
         if: always()
         uses: actions/upload-artifact@v4
@@ -557,5 +559,6 @@ jobs:
             qa-artifacts/GSE179849-PUBLIC-OPEN-MULTIOMICS-PREFLIGHT.json
             qa-artifacts/GSE179849-PUBLISHED-AGE-RNA-GSM-BRIDGE.json
             qa-artifacts/GSE179848-PUBLIC-RNA-GENE-HEADER-ACCESS.json
+            qa-artifacts/GSE179849-REAL-RNA-IDENTITY-AGE-ADJUSTMENT.json
           if-no-files-found: warn
           retention-days: 30
