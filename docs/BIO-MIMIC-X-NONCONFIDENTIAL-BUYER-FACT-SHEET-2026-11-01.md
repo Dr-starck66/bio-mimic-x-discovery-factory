@@ -3,6 +3,12 @@
 **For:** Corporate development, innovation scouting, computational biology and preclinical R&D teams  
 **Transaction context:** Potential research-software evaluation, paid pilot or negotiated licence / acquisition. **No verified buyer offer, budget allocation, signed LOI or payment.** A seven-figure-euro transaction is an **owner negotiating objective**, not an independent valuation.
 
+## Live buyer evidence (deployment independently checked 2 November 2026)
+
+**[Open the zero-cost public BIO-MIMIC X evidence demonstration](https://bio-mimic-x-industrial-evidence-if9m9p.v2.appdeploy.ai/)**. Deployed as a self-contained, non-confidential AppDeploy Free static page. Two separate cloud GETs returned **HTTP 200**, the HTML and bundled JS/CSS returned successfully and the deployed JS calculator passed **5 deterministic headless VM tests**. User-visible inputs use zero measured-savings defaults and explicitly reject negative/invalid financial assumptions. No buyer endorsement or financial commitment is asserted. The page intentionally uses `noindex,nofollow`. See [actual deployment and validation receipt](../reports/factory/BIO-MIMIC-X-PUBLIC-BUYER-DEMO-DEPLOY-2026-11-02.md).
+
+This public app is a **static commercial evidence snapshot**, not a remotely authenticated clinical or gene-identity oracle. Its content is **not automatically synchronized** with this GitHub repository. Do not imply permanent uptime, that all 5 interactive UI tests were exercised in a real browser, or any realized ROI.
+
 ## Product: what exists
 
 BIO-MIMIC X is an evidence-linked computational research pipeline for cross-species hypothesis screening, public transcriptome provenance, orthology checks, negative controls, science acceptance tests, and explicit rejection of unsupported clinical claims.
