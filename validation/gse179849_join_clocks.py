@@ -72,7 +72,7 @@ def main():
     }
     out=Path("qa-artifacts/GSE179849-PUBLISHED-AGE-RNA-GSM-BRIDGE.json")
     out.parent.mkdir(exist_ok=True)
-    out.write_text(json.dumps(result,indent=2,ensure_ascii=False)+"\\n",encoding="utf8")
+    out.write_text(json.dumps(result,indent=2,ensure_ascii=False),encoding="utf8")
     print("BIO_MIMIC_AGING_GEO_FIGSHARE_REAL_BRIDGE "+json.dumps({
         k:v for k,v in result.items() if k!="observations"},ensure_ascii=False))
     if not clocked:raise SystemExit(2)
