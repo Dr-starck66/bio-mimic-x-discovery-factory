@@ -83,12 +83,16 @@ def analyze_crosswalk(crosswalk,age_by_chip):
             excluded.append({"genotype":donor,"reason":"missing untreated iNSC LP"})
             continue
         lp=mean(r["epigenetic_age_years"] for r in untreated_lp)
-        # EPC age may be close to zero in newborns: do not invent ratios.
-        pct=None if b<=0 else round(100*(1-lp/b),3)
+        # Near-zero baseline or negative clock predictions are not physical
+        # ages. Percent change can exceed 100% and should never be shown.
+        pct_valid = b >= 5 and lp >= 0
+        pct=round(100*(1-lp/b),3) if pct_valid else None
         primary.append({"genotype":donor,"baseline_gsm":baseline[0]["gsm"],"baseline_EPC_D0_years":round(b,5),
                         "untreated_LP_gsms":[r["gsm"] for r in untreated_lp],
                         "n_untreated_LP_chips":len(untreated_lp),"untreated_LP_mean_years":round(lp,5),
-                        "difference_LP_minus_D0_years":round(lp-b,5),"reduction_pct_of_EPC_clock_age":pct})
+                        "difference_LP_minus_D0_years":round(lp-b,5),"reduction_pct_of_EPC_clock_age":pct,
+                        "relative_metric_usable":pct_valid,
+                        "relative_metric_limitation":None if pct_valid else "near-zero baseline clock age or negative model output"})
         for row in rows:
             if row==baseline[0]:continue
             secondary.append({"genotype":donor,"gsm":row["gsm"],
@@ -98,6 +102,7 @@ def analyze_crosswalk(crosswalk,age_by_chip):
     if not primary:
         return {"status":"UNVERIFIED_NO_VALID_DONOR_PAIRS","excluded":excluded}
     deltas=[r["difference_LP_minus_D0_years"] for r in primary]
+    interpretable=[r for r in primary if r["relative_metric_usable"]]
     return {"status":"PASS_DESCRIPTIVE_WITHIN_DONOR_PAIRED_CLOCK_COMPARISON",
             "donor_count":len(primary),"sample_count":len(samples),"primary_contrasts":primary,
             "secondary_exploratory_not_primary":secondary,
@@ -107,6 +112,12 @@ def analyze_crosswalk(crosswalk,age_by_chip):
                          "n_negative_deltas":sum(x<0 for x in deltas),
                          "n_positive_deltas":sum(x>0 for x in deltas),
                          "sd_across_donors":round(stdev(deltas),5) if len(deltas)>1 else None},
+            "sensitivity_excluding_near_zero_clock_ages":{
+                "selection":"EPC D0 clock age >= 5 years and untreated LP clock age >= 0 years, not a chronological-age cohort",
+                "n_donors":len(interpretable),
+                "donor_genotypes":[r["genotype"] for r in interpretable],
+                "mean_paired_delta_years":round(mean(r["difference_LP_minus_D0_years"] for r in interpretable),5) if interpretable else None,
+                "n_decreases":sum(r["difference_LP_minus_D0_years"]<0 for r in interpretable)},
             "effect_is":"change in DNA-methylation-clock predicted age after changing cell fate",
             "chronological_donor_ages":"NOT_IN_THE_COMPACT_GEO_METADATA",
             "no_claim":"No organismal age reversal; cannot equate a clock-age change to clinical therapy, nor infer human limb regeneration",
