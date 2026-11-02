@@ -8,6 +8,8 @@ import io
 import json
 import math
 from pathlib import Path
+import sys
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from validation.gse179849_public_multimodal_gate import (
     read_public,read_geo_matrix_metadata,join_series,GEO,FIG_API,FILE_ID,
 )
