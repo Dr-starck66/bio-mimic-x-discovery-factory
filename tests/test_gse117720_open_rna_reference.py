@@ -60,6 +60,33 @@ class Public2018RNATests(unittest.TestCase):
         self.assertFalse(data["2018_RNA_expression_matched_to_six_2026_donors"])
         self.assertEqual(data["2026_age_clock_adjusted_with_RNA"],"UNVERIFIED_NOT_IDENTIFIABLE")
 
+    def test_real_GEO_pinned_source_id(self):
+        from validation.gse117720_open_rna_reference import GEO_OPEN_SOURCE_SHA256,GEO_OPEN_SOURCE_BYTES
+        self.assertEqual(GEO_OPEN_SOURCE_SHA256,"6c3c366e26f5757a23bd81359d014aa7b7fe698f85f2c3961c925b4dfd9483dc")
+        self.assertEqual(GEO_OPEN_SOURCE_BYTES,2460476)
+
+    def test_seven_real_differential_expression_columns_are_not_expression(self):
+        content=self.fake_matrix()
+        lines=content.splitlines()
+        # Real 2018 source has non-unique differential-comparison headings after 19 sample columns.
+        lines=[line+"\t"+"\t".join(
+            ["earlyiNSC_vs_veEPC","earlyiNSC_vs_lateiNSC","earlyiNSC_vs_earlysmNPC",
+             "earlyiNSC_vs_latesmNPC","earlyiNSC_vs_latesmNPC",
+             "lateiNSC_vs_latesmNPC","lateiNSC_vs_lateEPC"]
+            if i==0 else ["0.1","0.01","0.5","0.03","0.03","0.01","NA"])
+            for i,line in enumerate(lines)]
+        r=parse_public_vst("\n".join(lines),self.meta)
+        self.assertEqual(r["library_count"],19)
+        self.assertEqual(r["marker_counts"]["neural"],len(NEURAL))
+        self.assertEqual(r["marker_counts"]["erythroid"],len(ERYTHROID))
+
+    def test_unknown_extra_column_is_rejected(self):
+        content=self.fake_matrix()
+        lines=content.splitlines()
+        lines=[line+"\t"+("UNKNOWN_non_sample_column" if i==0 else "9.0") for i,line in enumerate(lines)]
+        with self.assertRaisesRegex(ValueError,"unexpected non-sample"):
+            parse_public_vst("\n".join(lines),self.meta)
+
     def test_ambiguous_source_sample_header_fails(self):
         with self.assertRaisesRegex(ValueError,"sample-column ambiguity"):
             parse_public_vst(self.fake_matrix(mislabeled=True),self.meta)
