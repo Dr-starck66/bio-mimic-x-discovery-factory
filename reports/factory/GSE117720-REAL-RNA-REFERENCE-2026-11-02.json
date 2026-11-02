@@ -1,0 +1,117 @@
+{
+  "2026_RNA_ADJUSTED_AGE": "UNVERIFIED",
+  "independent_2018_RNA": {
+    "2018_RNA_expression_matched_to_six_2026_donors": false,
+    "2018_to_2026_genetic_identity": "UNVERIFIED_NO_GENOTYPE_CROSSWALK",
+    "2026_age_clock_adjusted_with_RNA": "UNVERIFIED_NOT_IDENTIFIABLE",
+    "RNA_measurements_manufactured": false,
+    "RNA_source_year": 2018,
+    "ambiguous_symbol_handling": "EXCLUDED_ENTIRELY_NO_ARBITRARY_ENSEMBL_MAPPING",
+    "by_cell_type": {
+      "EPC": {
+        "mean_RNA_identity_score": -4.991553,
+        "median_RNA_identity_score": -4.991553,
+        "n_samples": 2
+      },
+      "iNSC": {
+        "mean_RNA_identity_score": 0.731668,
+        "median_RNA_identity_score": 0.910314,
+        "n_samples": 13
+      },
+      "smNPC": {
+        "mean_RNA_identity_score": 0.117856,
+        "median_RNA_identity_score": 0.233015,
+        "n_samples": 4
+      }
+    },
+    "excluded_ambiguous_marker_symbols": [
+      "GATA1"
+    ],
+    "fate_confounded_by_conversion": true,
+    "identity_direction": "gene-wise standardized observed VST neural minus erythroid; score is assay-specific, not clinical age",
+    "kind": "REAL_PUBLIC_INDEPENDENT_2018_NORMALIZED_RNA",
+    "library_count": 19,
+    "marker_counts": {
+      "erythroid": 5,
+      "neural": 4
+    },
+    "paired_EPC_to_iNSC_same_2018_donor": [
+      {
+        "EPC_RNA_identity_score": -4.990827,
+        "delta_neural_minus_erythroid": 5.48797,
+        "donor": "MJD33b",
+        "iNSC_RNA_identity_score": 0.497142
+      },
+      {
+        "EPC_RNA_identity_score": -4.992279,
+        "delta_neural_minus_erythroid": 5.754434,
+        "donor": "R_107b",
+        "iNSC_RNA_identity_score": 0.762156
+      }
+    ],
+    "paired_iNSC_early_to_late_same_2018_donor": [
+      {
+        "delta": -1.014345,
+        "donor": "MJD33b",
+        "early_passage_RNA_identity": 1.004315,
+        "late_passage_RNA_identity": -0.01003,
+        "n_early": 3,
+        "n_late": 3
+      },
+      {
+        "delta": -0.563254,
+        "donor": "R_107b",
+        "early_passage_RNA_identity": 1.043783,
+        "late_passage_RNA_identity": 0.480529,
+        "n_early": 2,
+        "n_late": 2
+      },
+      {
+        "delta": -0.092085,
+        "donor": "R_82b",
+        "early_passage_RNA_identity": 1.221458,
+        "late_passage_RNA_identity": 1.129373,
+        "n_early": 1,
+        "n_late": 2
+      }
+    ],
+    "present_erythroid": [
+      "KLF1",
+      "ALAS2",
+      "GYPA",
+      "EPOR",
+      "HBA1"
+    ],
+    "present_neural": [
+      "PAX6",
+      "SOX1",
+      "FABP7",
+      "SOX9"
+    ],
+    "source": "GSE117720"
+  },
+  "reference_is_different_from_2026_six_donors": true,
+  "remote_source_hash_pinned_verified": true,
+  "schema": "BIO-MIMIC-X/GSE117720-2018-OPEN-RNA-REFERENCE/1",
+  "source_bytes": 2460476,
+  "source_sha256": "6c3c366e26f5757a23bd81359d014aa7b7fe698f85f2c3961c925b4dfd9483dc",
+  "source_transport_failures_before_success": [
+    "HTTPError: HTTP Error 403: Forbidden"
+  ],
+  "source_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE117nnn/GSE117720/suppl/GSE117720_Sheng_2018_GEO_RNAseq_genes_vst.txt.gz",
+  "status": "PASS_INDEPENDENT_PUBLIC_2018_RNA_REFERENCE_ONLY",
+  "permanent_evidence": {
+    "run": "https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/41379191838",
+    "job_id": 125066032237,
+    "commit": "1f50cb9833c1b8796cd1ebff21dc5001dc8290ce",
+    "type": "ORIGINAL_2018_PUBLIC_NORMALIZED_GENE_EXPRESSION",
+    "synthetic_test_results_excluded": true
+  },
+  "scientific_status": {
+    "independent_cell_fate_RNA_reference": "PASS_REAL_ASSAY",
+    "true_age_independent_of_fate_2026": "UNVERIFIED_NO_SAME_SUBJECT_RNA",
+    "samplewise_RNA_2026": "RESTRICTED_DBGAP",
+    "cross_study_donor_genotypes": "UNVERIFIED",
+    "lineage_marker_direction_unfavorable_late_passage": "ALL_3_DONOR_GROUPS_NEGATIVE"
+  }
+}
