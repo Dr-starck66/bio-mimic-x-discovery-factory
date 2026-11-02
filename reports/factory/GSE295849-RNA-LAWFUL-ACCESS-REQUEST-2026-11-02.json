@@ -1,0 +1,276 @@
+{
+  "schema": "BIO-MIMIC-X/PHs004047-LAWFUL-RNA-REQUEST-PACKET/1",
+  "created_date": "2026-11-02",
+  "question": "Does within-donor Horvath DNAm clock age decrease remain after adjusting for independently measured RNA cell-fate identity?",
+  "study": {
+    "original_paper": "10.1111/acel.70751",
+    "methylation": "GSE295849",
+    "RNA_SRA": "SRP594303",
+    "dbGaP": "phs004047.v1.p1",
+    "bioProject": "PRJNA1261446"
+  },
+  "NIH_molecular_metadata": {
+    "source": "https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/molecular.cgi?study_id=phs004047.v1.p1",
+    "RNA_seq_samples": 48,
+    "derived_Seq_RNA_Expression_samples": 47,
+    "consented_subjects": 14,
+    "consent_group": "GRU",
+    "processed_matrix_public_download_verified": false,
+    "access_decision": "CONTROLLED_ACCESS; cannot download before authorization"
+  },
+  "eligibility": {
+    "paired_donors": [
+      "190",
+      "216",
+      "218",
+      "286",
+      "287",
+      "288"
+    ],
+    "public_condition_matches": 12,
+    "RNA_DNAm_metadata_link": [
+      {
+        "donor_genotype": "190",
+        "cell_state": "iNSC",
+        "stage": "D14",
+        "RNA_experiment": "SRX29329861",
+        "RNA_run": "SRR34149245",
+        "RNA_BioSample": "SAMN48980141",
+        "matched_methylation_GSMs": [
+          "GSM8958613"
+        ],
+        "matched_methylation_clock_ages_years": [
+          26.41843
+        ],
+        "NOT_verified_same_physical_aliquot": true,
+        "NOT_verified_RNA_treatment": true
+      },
+      {
+        "donor_genotype": "190",
+        "cell_state": "iNSC",
+        "stage": "LP",
+        "RNA_experiment": "SRX29329869",
+        "RNA_run": "SRR34149253",
+        "RNA_BioSample": "SAMN48980154",
+        "matched_methylation_GSMs": [
+          "GSM8958616",
+          "GSM8958670"
+        ],
+        "matched_methylation_clock_ages_years": [
+          6.53978,
+          5.65703
+        ],
+        "NOT_verified_same_physical_aliquot": true,
+        "NOT_verified_RNA_treatment": true
+      },
+      {
+        "donor_genotype": "216",
+        "cell_state": "iNSC",
+        "stage": "D14",
+        "RNA_experiment": "SRX29329896",
+        "RNA_run": "SRR34149282",
+        "RNA_BioSample": "SAMN48980137",
+        "matched_methylation_GSMs": [
+          "GSM8958614"
+        ],
+        "matched_methylation_clock_ages_years": [
+          65.1072
+        ],
+        "NOT_verified_same_physical_aliquot": true,
+        "NOT_verified_RNA_treatment": true
+      },
+      {
+        "donor_genotype": "216",
+        "cell_state": "iNSC",
+        "stage": "LP",
+        "RNA_experiment": "SRX29329890",
+        "RNA_run": "SRR34149276",
+        "RNA_BioSample": "SAMN48980140",
+        "matched_methylation_GSMs": [
+          "GSM8958618",
+          "GSM8958668"
+        ],
+        "matched_methylation_clock_ages_years": [
+          15.04874,
+          7.66001
+        ],
+        "NOT_verified_same_physical_aliquot": true,
+        "NOT_verified_RNA_treatment": true
+      },
+      {
+        "donor_genotype": "218",
+        "cell_state": "iNSC",
+        "stage": "D14",
+        "RNA_experiment": "SRX29329856",
+        "RNA_run": "SRR34149268",
+        "RNA_BioSample": "SAMN48980158",
+        "matched_methylation_GSMs": [
+          "GSM8958615"
+        ],
+        "matched_methylation_clock_ages_years": [
+          61.2234
+        ],
+        "NOT_verified_same_physical_aliquot": true,
+        "NOT_verified_RNA_treatment": true
+      },
+      {
+        "donor_genotype": "218",
+        "cell_state": "iNSC",
+        "stage": "LP",
+        "RNA_experiment": "SRX29329903",
+        "RNA_run": "SRR34149289",
+        "RNA_BioSample": "SAMN48980150",
+        "matched_methylation_GSMs": [
+          "GSM8958617",
+          "GSM8958669"
+        ],
+        "matched_methylation_clock_ages_years": [
+          11.05625,
+          34.86154
+        ],
+        "NOT_verified_same_physical_aliquot": true,
+        "NOT_verified_RNA_treatment": true
+      },
+      {
+        "donor_genotype": "286",
+        "cell_state": "iNSC",
+        "stage": "D14",
+        "RNA_experiment": "SRX29329894",
+        "RNA_run": "SRR34149280",
+        "RNA_BioSample": "SAMN48980146",
+        "matched_methylation_GSMs": [
+          "GSM8958644"
+        ],
+        "matched_methylation_clock_ages_years": [
+          56.00079
+        ],
+        "NOT_verified_same_physical_aliquot": true,
+        "NOT_verified_RNA_treatment": true
+      },
+      {
+        "donor_genotype": "286",
+        "cell_state": "iNSC",
+        "stage": "LP",
+        "RNA_experiment": "SRX29329901",
+        "RNA_run": "SRR34149287",
+        "RNA_BioSample": "SAMN48980175",
+        "matched_methylation_GSMs": [
+          "GSM8958646"
+        ],
+        "matched_methylation_clock_ages_years": [
+          5.51
+        ],
+        "NOT_verified_same_physical_aliquot": true,
+        "NOT_verified_RNA_treatment": true
+      },
+      {
+        "donor_genotype": "287",
+        "cell_state": "iNSC",
+        "stage": "D14",
+        "RNA_experiment": "SRX29329882",
+        "RNA_run": "SRR34149266",
+        "RNA_BioSample": "SAMN48980149",
+        "matched_methylation_GSMs": [
+          "GSM8958645"
+        ],
+        "matched_methylation_clock_ages_years": [
+          49.4979
+        ],
+        "NOT_verified_same_physical_aliquot": true,
+        "NOT_verified_RNA_treatment": true
+      },
+      {
+        "donor_genotype": "287",
+        "cell_state": "iNSC",
+        "stage": "LP",
+        "RNA_experiment": "SRX29329888",
+        "RNA_run": "SRR34149274",
+        "RNA_BioSample": "SAMN48980168",
+        "matched_methylation_GSMs": [
+          "GSM8958647",
+          "GSM8958652"
+        ],
+        "matched_methylation_clock_ages_years": [
+          12.59317,
+          22.48855
+        ],
+        "NOT_verified_same_physical_aliquot": true,
+        "NOT_verified_RNA_treatment": true
+      },
+      {
+        "donor_genotype": "288",
+        "cell_state": "iNSC",
+        "stage": "D14",
+        "RNA_experiment": "SRX29329867",
+        "RNA_run": "SRR34149251",
+        "RNA_BioSample": "SAMN48980144",
+        "matched_methylation_GSMs": [
+          "GSM8958639"
+        ],
+        "matched_methylation_clock_ages_years": [
+          51.7148
+        ],
+        "NOT_verified_same_physical_aliquot": true,
+        "NOT_verified_RNA_treatment": true
+      },
+      {
+        "donor_genotype": "288",
+        "cell_state": "iNSC",
+        "stage": "LP",
+        "RNA_experiment": "SRX29329877",
+        "RNA_run": "SRR34149261",
+        "RNA_BioSample": "SAMN48980132",
+        "matched_methylation_GSMs": [
+          "GSM8958641",
+          "GSM8958648"
+        ],
+        "matched_methylation_clock_ages_years": [
+          5.73309,
+          12.2981
+        ],
+        "NOT_verified_same_physical_aliquot": true,
+        "NOT_verified_RNA_treatment": true
+      }
+    ]
+  },
+  "access_routes": {
+    "A": "Official dbGaP Data Access Request by eligible institution-employed PI with eRA Commons plus institutional Signing Official co-signature and NIH Data Access Committee approval; request Seq_RNA_Expression subset (47 samples) first; approved use in a secured environment.",
+    "B": "Ask publication corresponding author/study PI whether independent precomputed aggregate expression identities or a de-identified approved shareable derived table exists; institution/DAC determines redistribution permissions. An individual pseudonymous 12-column expression matrix may remain controlled.",
+    "C": "Collaborate under a properly authorized institution; request that authorized researchers compute the identity correction inside their approved environment and share only disclosure-reviewed aggregate statistics.",
+    "mailguard": "ASTRA MAILGUARD Ω v2026-11-01.2: no outbound email without a published exact address AND independent proof of mailbox control. Publisher and University of Bonn list author/institute addresses but no inbound reply or token confirmed; BLOCK sending until requirement satisfied."
+  },
+  "validated_institutional_contacts": [
+    {
+      "name": "Oliver Brüstle",
+      "source": "https://www.meb.uni-bonn.de/rnb/reconstructive-neurobiology/contact-staff/",
+      "published_institute_email": "r.neuro@uni-bonn.de",
+      "mailbox_control_proof": "UNVERIFIED",
+      "outbound_permission": "FAIL_CLOSED"
+    },
+    {
+      "name": "Oliver Brüstle, corresponding author",
+      "source": "https://onlinelibrary.wiley.com/doi/10.1111/acel.70751",
+      "published_article_email": "brustle@uni-bonn.de",
+      "mailbox_control_proof": "UNVERIFIED",
+      "outbound_permission": "FAIL_CLOSED"
+    }
+  ],
+  "reproduction_conditions": [
+    "An independent RNA molecular cell-identity score must be computed from observed, consent-authorized gene counts or institutionally approved derived expression, not from RNA stage labels.",
+    "Ask first for cell fate reference scores and a separately approved group-level or covariate-adjusted result; do not assume donor pseudonymization makes samples publicly releasable.",
+    "Prefer prespecified iNSC D14-to-LP pairs, six donors one unit each, batch and sex adjustment in collaborator-owned analysis, with holdout/negative controls where possible.",
+    "No release of donor sample counts, individual RNA values or protected identifiers to a public repository unless permitted by DUC and DAC.",
+    "Cannot assert independent epigenetic rejuvenation until orthogonal RNA measurements are actually analyzed."
+  ],
+  "observed": {
+    "public_methylation_samples": 60,
+    "public_RNA_run_titles": 48,
+    "condition_level_overlap": 35,
+    "independent_RNA_expression_values_obtained": 0,
+    "adjusted_aging_signal_status": "UNVERIFIED",
+    "request_sent": false,
+    "dbGaP_DAR_submitted": false
+  },
+  "cost_new_eur": 0,
+  "evidence": "reports/factory/GSE295849-SRP594303-RNA-METADATA-2026-11-02.json"
+}
