@@ -10,6 +10,8 @@ on:
           - default
           - gse295849_qc
           - gse295849_clock
+          - gse295849_metadata
+          - gse295849_paired
         default: default
   pull_request:
     branches: [main]
@@ -201,7 +203,7 @@ jobs:
 
   real-gse295849-metadata:
     name: Official GEO sample and donor metadata provenance (GSE295849)
-    if: github.event_name == 'pull_request' && github.head_ref == 'science/gse295849-donor-paired-20261102'
+    if: github.event_name == 'workflow_dispatch' && inputs.science_mode == 'gse295849_metadata'
     runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
@@ -239,7 +241,7 @@ jobs:
 
   complete-gse295849-paired:
     name: Complete 60-sample methylation clock, 12-donor paired analysis
-    if: github.event_name == 'pull_request' && github.head_ref == 'science/gse295849-donor-paired-20261102'
+    if: github.event_name == 'workflow_dispatch' && inputs.science_mode == 'gse295849_paired'
     runs-on: ubuntu-24.04
     timeout-minutes: 25
     steps:
