@@ -84,7 +84,7 @@ class Public2018RNATests(unittest.TestCase):
         orig=self.fake_matrix()
         lines=orig.splitlines()
         gata=next(line for line in lines if "\tGATA1\t" in line)
-        copy=gata.replace("ENSG00000000000","ENSG99999999999")
+        copy="ENSG99999999999\t"+gata.split("\t",1)[1]
         lines.append(copy)
         data=parse_public_vst("\n".join(lines),self.meta)
         self.assertIn("GATA1",data["excluded_ambiguous_marker_symbols"])
