@@ -1,0 +1,593 @@
+{
+  "schema": "BIO-MIMIC-X/FATE-AGE-FALSIFICATION-RESULTS/1",
+  "study": "Berg et al. Aging Cell 2026, DOI 10.1111/acel.70751",
+  "data": "NCBI GEO GSE295849",
+  "clock": "Horvath 2018 Skin&Blood / 391 CpGs",
+  "source_report": "reports/factory/GSE295849-ALL-60-PAIRED-HORVATH2018-2026-11-02.json",
+  "source_report_git_blob_sha": "949b0f822023d121a3af759097722dd4cbb1294d",
+  "source_original_data_sha256": {
+    "1": "c13d9efcb094e57d8f69f819440620de671bd398b45e8c24c29194aa7f228d32",
+    "2": "4ca091cef1128ddcea24e6c2b349c038ae1de8dc4eb302f7f218304e17479fcd",
+    "3": "fa92b4124a5bd7c69a878ae4557d2def91b1698203fc975fe63003de27640f2d"
+  },
+  "source_evidence_run": "https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/41364676553",
+  "created_from": "existing published data reanalysis (no newly downloaded GEO matrix)",
+  "status_reanalysis": "PASS_DESCRIPTIVE_REANALYSIS",
+  "status_fate_independent_age_reset": "UNVERIFIED",
+  "status_mechanistic_causality": "UNVERIFIED",
+  "status_treatment_or_human_rejuvenation": "UNVERIFIED",
+  "sample_level": 60,
+  "donor_genotypes": 12,
+  "comparisons": {
+    "D14_to_D26_within_iNSC": {
+      "before": "iNSC/D14/untreated",
+      "after": "iNSC/D26/untreated",
+      "same_slide_only": false,
+      "independent_donors": 4,
+      "decrease_donors": 4,
+      "increase_donors": 0,
+      "mean_delta_years": -21.15799,
+      "median_delta_years": -21.11165,
+      "unadjusted_two_sided_sign_p": 0.125,
+      "pairs": [
+        {
+          "donor_genotype": "190",
+          "baseline_GSM": [
+            "GSM8958613"
+          ],
+          "comparison_GSM": [
+            "GSM8958623"
+          ],
+          "baseline_clock_years": 26.41843,
+          "comparison_clock_years": 13.12876,
+          "delta_clock_years": -13.28967,
+          "same_Illumina_slide": false
+        },
+        {
+          "donor_genotype": "216",
+          "baseline_GSM": [
+            "GSM8958614"
+          ],
+          "comparison_GSM": [
+            "GSM8958624"
+          ],
+          "baseline_clock_years": 65.1072,
+          "comparison_clock_years": 35.98818,
+          "delta_clock_years": -29.11902,
+          "same_Illumina_slide": false
+        },
+        {
+          "donor_genotype": "218",
+          "baseline_GSM": [
+            "GSM8958615"
+          ],
+          "comparison_GSM": [
+            "GSM8958625"
+          ],
+          "baseline_clock_years": 61.2234,
+          "comparison_clock_years": 35.82638,
+          "delta_clock_years": -25.39702,
+          "same_Illumina_slide": false
+        },
+        {
+          "donor_genotype": "288",
+          "baseline_GSM": [
+            "GSM8958639"
+          ],
+          "comparison_GSM": [
+            "GSM8958640"
+          ],
+          "baseline_clock_years": 51.7148,
+          "comparison_clock_years": 34.88853,
+          "delta_clock_years": -16.82627,
+          "same_Illumina_slide": true
+        }
+      ]
+    },
+    "D14_to_LP_within_iNSC": {
+      "before": "iNSC/D14/untreated",
+      "after": "iNSC/LP/untreated",
+      "same_slide_only": false,
+      "independent_donors": 6,
+      "decrease_donors": 6,
+      "increase_donors": 0,
+      "mean_delta_years": -39.58073,
+      "median_delta_years": -40.48185,
+      "unadjusted_two_sided_sign_p": 0.03125,
+      "pairs": [
+        {
+          "donor_genotype": "190",
+          "baseline_GSM": [
+            "GSM8958613"
+          ],
+          "comparison_GSM": [
+            "GSM8958616",
+            "GSM8958670"
+          ],
+          "baseline_clock_years": 26.41843,
+          "comparison_clock_years": 6.0984,
+          "delta_clock_years": -20.32003,
+          "same_Illumina_slide": false
+        },
+        {
+          "donor_genotype": "216",
+          "baseline_GSM": [
+            "GSM8958614"
+          ],
+          "comparison_GSM": [
+            "GSM8958618",
+            "GSM8958668"
+          ],
+          "baseline_clock_years": 65.1072,
+          "comparison_clock_years": 11.35438,
+          "delta_clock_years": -53.75283,
+          "same_Illumina_slide": false
+        },
+        {
+          "donor_genotype": "218",
+          "baseline_GSM": [
+            "GSM8958615"
+          ],
+          "comparison_GSM": [
+            "GSM8958617",
+            "GSM8958669"
+          ],
+          "baseline_clock_years": 61.2234,
+          "comparison_clock_years": 22.95889,
+          "delta_clock_years": -38.2645,
+          "same_Illumina_slide": false
+        },
+        {
+          "donor_genotype": "286",
+          "baseline_GSM": [
+            "GSM8958644"
+          ],
+          "comparison_GSM": [
+            "GSM8958646"
+          ],
+          "baseline_clock_years": 56.00079,
+          "comparison_clock_years": 5.51,
+          "delta_clock_years": -50.49079,
+          "same_Illumina_slide": true
+        },
+        {
+          "donor_genotype": "287",
+          "baseline_GSM": [
+            "GSM8958645"
+          ],
+          "comparison_GSM": [
+            "GSM8958647",
+            "GSM8958652"
+          ],
+          "baseline_clock_years": 49.4979,
+          "comparison_clock_years": 17.54086,
+          "delta_clock_years": -31.95704,
+          "same_Illumina_slide": true
+        },
+        {
+          "donor_genotype": "288",
+          "baseline_GSM": [
+            "GSM8958639"
+          ],
+          "comparison_GSM": [
+            "GSM8958641",
+            "GSM8958648"
+          ],
+          "baseline_clock_years": 51.7148,
+          "comparison_clock_years": 9.01559,
+          "delta_clock_years": -42.6992,
+          "same_Illumina_slide": true
+        }
+      ]
+    },
+    "D26_to_LP_within_iNSC": {
+      "before": "iNSC/D26/untreated",
+      "after": "iNSC/LP/untreated",
+      "same_slide_only": false,
+      "independent_donors": 4,
+      "decrease_donors": 4,
+      "increase_donors": 0,
+      "mean_delta_years": -17.60115,
+      "median_delta_years": -18.75064,
+      "unadjusted_two_sided_sign_p": 0.125,
+      "pairs": [
+        {
+          "donor_genotype": "190",
+          "baseline_GSM": [
+            "GSM8958623"
+          ],
+          "comparison_GSM": [
+            "GSM8958616",
+            "GSM8958670"
+          ],
+          "baseline_clock_years": 13.12876,
+          "comparison_clock_years": 6.0984,
+          "delta_clock_years": -7.03036,
+          "same_Illumina_slide": false
+        },
+        {
+          "donor_genotype": "216",
+          "baseline_GSM": [
+            "GSM8958624"
+          ],
+          "comparison_GSM": [
+            "GSM8958618",
+            "GSM8958668"
+          ],
+          "baseline_clock_years": 35.98818,
+          "comparison_clock_years": 11.35438,
+          "delta_clock_years": -24.6338,
+          "same_Illumina_slide": false
+        },
+        {
+          "donor_genotype": "218",
+          "baseline_GSM": [
+            "GSM8958625"
+          ],
+          "comparison_GSM": [
+            "GSM8958617",
+            "GSM8958669"
+          ],
+          "baseline_clock_years": 35.82638,
+          "comparison_clock_years": 22.95889,
+          "delta_clock_years": -12.86749,
+          "same_Illumina_slide": false
+        },
+        {
+          "donor_genotype": "288",
+          "baseline_GSM": [
+            "GSM8958640"
+          ],
+          "comparison_GSM": [
+            "GSM8958641",
+            "GSM8958648"
+          ],
+          "baseline_clock_years": 34.88853,
+          "comparison_clock_years": 9.01559,
+          "delta_clock_years": -25.87294,
+          "same_Illumina_slide": true
+        }
+      ]
+    },
+    "LP_to_HP_within_iNSC": {
+      "before": "iNSC/LP/untreated",
+      "after": "iNSC/HP/untreated",
+      "same_slide_only": false,
+      "independent_donors": 3,
+      "decrease_donors": 3,
+      "increase_donors": 0,
+      "mean_delta_years": -9.63718,
+      "median_delta_years": -7.31891,
+      "unadjusted_two_sided_sign_p": 0.25,
+      "pairs": [
+        {
+          "donor_genotype": "190",
+          "baseline_GSM": [
+            "GSM8958616",
+            "GSM8958670"
+          ],
+          "comparison_GSM": [
+            "GSM8958621"
+          ],
+          "baseline_clock_years": 6.0984,
+          "comparison_clock_years": 3.40044,
+          "delta_clock_years": -2.69796,
+          "same_Illumina_slide": false
+        },
+        {
+          "donor_genotype": "216",
+          "baseline_GSM": [
+            "GSM8958618",
+            "GSM8958668"
+          ],
+          "comparison_GSM": [
+            "GSM8958620"
+          ],
+          "baseline_clock_years": 11.35438,
+          "comparison_clock_years": 4.03547,
+          "delta_clock_years": -7.31891,
+          "same_Illumina_slide": false
+        },
+        {
+          "donor_genotype": "218",
+          "baseline_GSM": [
+            "GSM8958617",
+            "GSM8958669"
+          ],
+          "comparison_GSM": [
+            "GSM8958622"
+          ],
+          "baseline_clock_years": 22.95889,
+          "comparison_clock_years": 4.06422,
+          "delta_clock_years": -18.89467,
+          "same_Illumina_slide": false
+        }
+      ]
+    },
+    "LP_iNSC_to_LP_smNPC_fate_control": {
+      "before": "iNSC/LP/untreated",
+      "after": "smNPC/LP/untreated",
+      "same_slide_only": false,
+      "independent_donors": 9,
+      "decrease_donors": 9,
+      "increase_donors": 0,
+      "mean_delta_years": -6.45793,
+      "median_delta_years": -4.25081,
+      "unadjusted_two_sided_sign_p": 0.00390625,
+      "pairs": [
+        {
+          "donor_genotype": "33",
+          "baseline_GSM": [
+            "GSM8958631"
+          ],
+          "comparison_GSM": [
+            "GSM8958664"
+          ],
+          "baseline_clock_years": 2.55804,
+          "comparison_clock_years": -0.57966,
+          "delta_clock_years": -3.1377,
+          "same_Illumina_slide": false
+        },
+        {
+          "donor_genotype": "96",
+          "baseline_GSM": [
+            "GSM8958630"
+          ],
+          "comparison_GSM": [
+            "GSM8958663"
+          ],
+          "baseline_clock_years": 4.05873,
+          "comparison_clock_years": -0.19208,
+          "delta_clock_years": -4.25081,
+          "same_Illumina_slide": true
+        },
+        {
+          "donor_genotype": "107",
+          "baseline_GSM": [
+            "GSM8958628"
+          ],
+          "comparison_GSM": [
+            "GSM8958662"
+          ],
+          "baseline_clock_years": 6.40826,
+          "comparison_clock_years": -0.62165,
+          "delta_clock_years": -7.02991,
+          "same_Illumina_slide": true
+        },
+        {
+          "donor_genotype": "190",
+          "baseline_GSM": [
+            "GSM8958616",
+            "GSM8958670"
+          ],
+          "comparison_GSM": [
+            "GSM8958665"
+          ],
+          "baseline_clock_years": 6.0984,
+          "comparison_clock_years": -0.64139,
+          "delta_clock_years": -6.73979,
+          "same_Illumina_slide": false
+        },
+        {
+          "donor_genotype": "216",
+          "baseline_GSM": [
+            "GSM8958618",
+            "GSM8958668"
+          ],
+          "comparison_GSM": [
+            "GSM8958666"
+          ],
+          "baseline_clock_years": 11.35438,
+          "comparison_clock_years": -0.58009,
+          "delta_clock_years": -11.93447,
+          "same_Illumina_slide": false
+        },
+        {
+          "donor_genotype": "218",
+          "baseline_GSM": [
+            "GSM8958617",
+            "GSM8958669"
+          ],
+          "comparison_GSM": [
+            "GSM8958667"
+          ],
+          "baseline_clock_years": 22.95889,
+          "comparison_clock_years": -0.62383,
+          "delta_clock_years": -23.58272,
+          "same_Illumina_slide": false
+        },
+        {
+          "donor_genotype": "224",
+          "baseline_GSM": [
+            "GSM8958633"
+          ],
+          "comparison_GSM": [
+            "GSM8958659"
+          ],
+          "baseline_clock_years": 0.0404,
+          "comparison_clock_years": -0.63302,
+          "delta_clock_years": -0.67342,
+          "same_Illumina_slide": true
+        },
+        {
+          "donor_genotype": "225",
+          "baseline_GSM": [
+            "GSM8958632"
+          ],
+          "comparison_GSM": [
+            "GSM8958660"
+          ],
+          "baseline_clock_years": -0.25898,
+          "comparison_clock_years": -0.60615,
+          "delta_clock_years": -0.34717,
+          "same_Illumina_slide": true
+        },
+        {
+          "donor_genotype": "229",
+          "baseline_GSM": [
+            "GSM8958637"
+          ],
+          "comparison_GSM": [
+            "GSM8958661"
+          ],
+          "baseline_clock_years": -0.15053,
+          "comparison_clock_years": -0.57593,
+          "delta_clock_years": -0.4254,
+          "same_Illumina_slide": false
+        }
+      ]
+    },
+    "D14_to_LP_same_Illumina_slide_only": {
+      "before": "iNSC/D14/untreated",
+      "after": "iNSC/LP/untreated",
+      "same_slide_only": true,
+      "independent_donors": 3,
+      "decrease_donors": 3,
+      "increase_donors": 0,
+      "mean_delta_years": -40.06645,
+      "median_delta_years": -42.6992,
+      "unadjusted_two_sided_sign_p": 0.25,
+      "pairs": [
+        {
+          "donor_genotype": "286",
+          "baseline_GSM": [
+            "GSM8958644"
+          ],
+          "comparison_GSM": [
+            "GSM8958646"
+          ],
+          "baseline_clock_years": 56.00079,
+          "comparison_clock_years": 5.51,
+          "delta_clock_years": -50.49079,
+          "same_Illumina_slide": true
+        },
+        {
+          "donor_genotype": "287",
+          "baseline_GSM": [
+            "GSM8958645"
+          ],
+          "comparison_GSM": [
+            "GSM8958652"
+          ],
+          "baseline_clock_years": 49.4979,
+          "comparison_clock_years": 22.48855,
+          "delta_clock_years": -27.00935,
+          "same_Illumina_slide": true
+        },
+        {
+          "donor_genotype": "288",
+          "baseline_GSM": [
+            "GSM8958639"
+          ],
+          "comparison_GSM": [
+            "GSM8958641",
+            "GSM8958648"
+          ],
+          "baseline_clock_years": 51.7148,
+          "comparison_clock_years": 9.01559,
+          "delta_clock_years": -42.6992,
+          "same_Illumina_slide": true
+        }
+      ]
+    }
+  },
+  "treatment_controls": {
+    "NGN2": {
+      "independent_donors": 3,
+      "increased": 3,
+      "decreased": 0,
+      "mean_delta_years": 10.60323,
+      "pairs": [
+        {
+          "donor_genotype": "286",
+          "delta_clock_years": 15.0299,
+          "untreated_age": 5.51,
+          "treated_age": 20.5399
+        },
+        {
+          "donor_genotype": "287",
+          "delta_clock_years": 10.5557,
+          "untreated_age": 17.54086,
+          "treated_age": 28.09656
+        },
+        {
+          "donor_genotype": "288",
+          "delta_clock_years": 6.22408,
+          "untreated_age": 9.01559,
+          "treated_age": 15.23967
+        }
+      ]
+    },
+    "Glycerol": {
+      "independent_donors": 3,
+      "increased": 3,
+      "decreased": 0,
+      "mean_delta_years": 6.01752,
+      "pairs": [
+        {
+          "donor_genotype": "286",
+          "delta_clock_years": 11.34905,
+          "untreated_age": 5.51,
+          "treated_age": 16.85905
+        },
+        {
+          "donor_genotype": "287",
+          "delta_clock_years": 3.18047,
+          "untreated_age": 17.54086,
+          "treated_age": 20.72133
+        },
+        {
+          "donor_genotype": "288",
+          "delta_clock_years": 3.52303,
+          "untreated_age": 9.01559,
+          "treated_age": 12.53862
+        }
+      ]
+    },
+    "Thymidine": {
+      "independent_donors": 3,
+      "increased": 1,
+      "decreased": 2,
+      "mean_delta_years": -3.29387,
+      "pairs": [
+        {
+          "donor_genotype": "286",
+          "delta_clock_years": 1.96657,
+          "untreated_age": 5.51,
+          "treated_age": 7.47657
+        },
+        {
+          "donor_genotype": "287",
+          "delta_clock_years": -8.41716,
+          "untreated_age": 17.54086,
+          "treated_age": 9.1237
+        },
+        {
+          "donor_genotype": "288",
+          "delta_clock_years": -3.43101,
+          "untreated_age": 9.01559,
+          "treated_age": 5.58458
+        }
+      ]
+    }
+  },
+  "findings": {
+    "same_label_trend": "Within samples labeled iNSC, age-clock predictions decrease in 6/6 donor-matched D14-to-LP contrasts; two-sided exploratory sign p 0.03125 unadjusted. These cells still undergo molecular fate consolidation.",
+    "same_slide_batch": "Sensitivity using same Illumina slide retains reductions in 3/3 eligible donors, but does not eliminate culture/time confounding.",
+    "opposing_fate": "When smNPC LP is compared with iNSC LP for the same donor, the smNPC clock prediction is lower in 9/9 donors, including negative apparent ages. Strong evidence that measured clock value is fate-dependent or has severe lineage-specific floor effects, not pure age.",
+    "treatment_negative_control": "LP NGN2 and glycerol conditions have higher predicted ages than untreated iNSC in 3/3 studied donors each; thymidine has mixed effects (1 higher, 2 lower). Small n=3 and distinct biological protocols.",
+    "conclusion": "Evidence supports progressive loss of age-clock signal alongside maturation of iNSC cells, but does not isolate a cell-fate-independent rejuvenation mechanism."
+  },
+  "adversarial_and_scientific_limitations": [
+    "Comparison uses retrospectively selected contrasts: p-values are exploratory and unadjusted for the several hypotheses explored.",
+    "Neural identity transcriptional and methylation profiles continue to mature after day 14 (source authors), so common label iNSC is not an identity clamp.",
+    "Other lineages such as smNPC have age-clock predictions at/below the model floor: predicted negative years are not biological ages.",
+    "Oxygen tension and culture conditions change during conversion (authors describe hypoxia until ~day 35), additional time-varying confounding.",
+    "Different array slides across some paired stages; same-slide subset has n=3, no independent wet-lab replication.",
+    "Data originate from one publication and no individual-lineage-specific age-neutral methylation reference is available here.",
+    "Alternative-fate contrast shows estimator lineage dependence; it does not quantify causal contributions of cellular fate to ageing."
+  ],
+  "negative_control_GSE74387": "FAIL_RETAINED",
+  "next_required_discriminator": "Independently measured molecular identity from matched longitudinal RNA-seq or independent identity CpGs + chronological-age matched NSC reference, then estimate age-signal residual after identity adjustment with cohort- and slide-aware uncertainty.",
+  "new_cost_eur": 0
+}
