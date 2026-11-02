@@ -1,0 +1,50 @@
+{
+  "schema": "BIO-MIMIC-X/GSE295849-RNA-IDENTITY-ADJUSTMENT-LATEST/1",
+  "date": "2026-11-02",
+  "status": "PARTIAL_NO_AUTHORIZED_TRANSCRIPTOME",
+  "study": {
+    "DNA": "GSE295849",
+    "RNA": "SRP594303",
+    "controlled_access": "phs004047.v1.p1"
+  },
+  "evidence": {
+    "public_source": "https://trace.ncbi.nlm.nih.gov/Traces/sra-db-be/runinfo?acc=SRP594303",
+    "data_access": "https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs004047.v1.p1",
+    "metadata_report": "reports/factory/GSE295849-SRP594303-RNA-METADATA-2026-11-02.json",
+    "metadata_blob_sha": "2d0e4f67046d96d571b02265066233cf84818c66",
+    "independent_data_paper": "10.1111/acel.70751"
+  },
+  "verified": {
+    "dnAm_samples": 60,
+    "public_rna_sra_metadata_records": 48,
+    "controlled_rna_runs": 48,
+    "condition_matched_rna_dnam": 35,
+    "within_iNSC_D14_to_LP_eligible_donors": 6,
+    "eligible_donor_genotypes": [
+      "190",
+      "216",
+      "218",
+      "286",
+      "287",
+      "288"
+    ],
+    "no_actual_sample_identity_verified": true
+  },
+  "scientific_status": {
+    "RNA_expression_matrix": "UNAVAILABLE_AUTHORIZATION_REQUIRED",
+    "molecular_identity_RNA_scores": "UNVERIFIED",
+    "age_delta_adjusted_for_independent_identity": "UNVERIFIED",
+    "cell_fate_independent_mechanistic_rejuvenation": "UNVERIFIED",
+    "prior_epigenetic_age_decrease": "PASS_DESCRIPTIVE_EXISTING_ANALYSIS",
+    "historical_GSE74387": "FAIL_RETAINED"
+  },
+  "executed": "Published bridge and orthogonal RNA gate in GitHub main; tests and science metadata acceptance succeeded on PR 31; model with synthetic RNA counts tested, no biological RNA residual claimed.",
+  "next_bottleneck": "A lawful, sample-linked gene-level RNA count matrix or independently permitted de-identified derived expression for the six shared donor/time pairs. Public SRA metadata cannot substitute for counts.",
+  "forbidden": [
+    "do not treat RNA stage labels as transcript expression",
+    "do not process controlled dbGaP reads on a public GitHub runner",
+    "do not assume identical culture aliquots merely from donor and stage",
+    "do not claim medical rejuvenation"
+  ],
+  "cost_new_eur": 0
+}
