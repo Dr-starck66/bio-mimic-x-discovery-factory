@@ -1,0 +1,87 @@
+{
+  "schema": "BIO-MIMIC-X/PUBLISHED-CC-BY-TRANSCRIPTOMIC-SUMMARY/1",
+  "date": "2026-11-02",
+  "status": "PASS_RETRIEVED_PUBLISHED_LICENSED_AGGREGATE_ONLY",
+  "publication": {
+    "authors": "Berg L.J., Franzen J., Buness A. et al.",
+    "title": "Protracted Fate Acquisition and Epigenetic De-Aging During Induced Neural Stem Cell Conversion of Human Blood Cells",
+    "year": 2026,
+    "journal": "Aging Cell",
+    "doi": "10.1111/acel.70751",
+    "pmcid": "PMC13634082",
+    "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13634082/",
+    "figure": "Figure 3D and 3E; Results §3.4 and Methods §2.2.2"
+  },
+  "public_reuse": {
+    "article_license": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "reuse_scope": "Author-published non-identifying group-level RNA differential-expression counts from the open-access article. Reuse under CC BY 4.0 with full attribution; no dbGaP expression values downloaded.",
+    "restriction": "License of publication does not override controlled access to human individual-level sequence or expression records."
+  },
+  "derived_published_summary": {
+    "fate_progression_DGE": [
+      {
+        "comparison": "EPC D0 vs iNSC D14",
+        "differentially_expressed_genes": 6270
+      },
+      {
+        "comparison": "iNSC D14 vs iNSC LP",
+        "differentially_expressed_genes": 5978
+      },
+      {
+        "comparison": "iNSC LP vs iNSC TF",
+        "differentially_expressed_genes": 2267
+      }
+    ],
+    "donor_age_group_DGE": [
+      {
+        "comparison": "young vs old EPC D0",
+        "differentially_expressed_genes": 1871
+      },
+      {
+        "comparison": "young vs old iNSC D14",
+        "differentially_expressed_genes": 20
+      },
+      {
+        "comparison": "young vs old iNSC LP",
+        "differentially_expressed_genes": 12
+      }
+    ],
+    "biological_context": "The article states RNA-seq transcriptomic differences in cell identity continue from D14 to LP and later, and donor-age-related differential expression diminishes; this does not prove independence of chronological ageing and differentiation or establish a causal mechanism.",
+    "source_methods": "Bulk QuantSeq 3'-mRNA-seq, STAR/GRCh38 alignment, featureCounts, limma with donor block via duplicateCorrelation, sex/batch covariates, BH-FDR correction.",
+    "count_type": "COUNT_OF_DIFFERENTIALLY_EXPRESSED_GENES_AT_STATED_FDR_THRESHOLD, NOT AN EXPRESSION_COUNT_MATRIX",
+    "threshold": "FDR < 0.05 with study-specific filtering and comparisons",
+    "study_reported_sample_sizes": {
+      "RNA_EPC": 12,
+      "RNA_D14": 10,
+      "RNA_LP": 14,
+      "RNA_TF": 7,
+      "comparison_iPS_NSCs": 5
+    },
+    "age_group_limitation": "Young donor group n=3, old/intermediate age classes span decades; group-level DEGs are not donor-specific."
+  },
+  "match_to_existing_work": {
+    "DNAm_GEO": "GSE295849",
+    "RNA_SRA": "SRP594303",
+    "dbgap": "phs004047.v1.p1",
+    "actual_public_methylation_clock_sample_count": 60,
+    "RNA_public_condition_matches": 35,
+    "within_iNSC_donor_pair_candidates": 6,
+    "ability_to_compute_donor_level_identity_residual": false,
+    "ability_to_compute_age_after_independently_measured_RNA_identity_adjustment": false,
+    "RNA_identity_adjusted_effect_status": "UNVERIFIED",
+    "epigenetic_youth_independent_of_cell_fate": "UNVERIFIED"
+  },
+  "transparent_access_receipt": {
+    "published_licensed_aggregate_available": true,
+    "published_licensed_aggregate_value_count": 6,
+    "subject_level_RNA_gene_counts_available": false,
+    "subject_level_RNA_gene_counts_access": "CONTROLLED_DBGAP",
+    "authorized_access_granted": false,
+    "external_author_permission_or_released_matrix_granted": false,
+    "request_approval_or_reply_received": false,
+    "status": "PARTIAL_FOR_REQUIRED_MECHANISTIC_TEST",
+    "cost_eur": 0
+  },
+  "citation": "Berg LJ, Franzen J, Buness A, et al. Protracted Fate Acquisition and Epigenetic De-Aging During Induced Neural Stem Cell Conversion of Human Blood Cells. Aging Cell. 2026;25(10):e70751. doi:10.1111/acel.70751. Figure 3D,E. Licensed CC BY 4.0."
+}
