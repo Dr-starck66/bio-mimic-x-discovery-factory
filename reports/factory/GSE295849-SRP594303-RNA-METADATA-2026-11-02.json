@@ -1,0 +1,323 @@
+{
+  "schema": "BIO-MIMIC-X/RNA-DNAM-PUBLIC-METADATA-BRIDGE/1",
+  "source_rna_runinfo": "https://trace.ncbi.nlm.nih.gov/Traces/sra-db-be/runinfo?acc=SRP594303",
+  "source_rna_experiment_xml": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX...&retmode=xml",
+  "source_dnAm": "reports/factory/GSE295849-ALL-60-PAIRED-HORVATH2018-2026-11-02.json",
+  "source_dnAm_sha": "949b0f822023d121a3af759097722dd4cbb1294d",
+  "restrictions": "All 48 RNA-seq run download_path values start @dbgap@ and NCBI requires authorized dbGaP access; no RNA expression/counts or participant restricted data were downloaded.",
+  "status_metadata": "PARTIAL_PUBLIC_RNA_METADATA",
+  "status_molecular_identity_score": "UNVERIFIED_NO_AUTHORIZED_RNA_COUNTS",
+  "status_independent_age_residual": "UNVERIFIED_NO_AUTHORIZED_RNA_COUNTS",
+  "join_rule": "public subject pseudonym exactly matches methylation donor genotype, cell lineage and harvest stage; this is not proof same physical aliquot; RNA treatments not verified",
+  "no_sensitive_download": true,
+  "counts": {
+    "runinfo_rows": 48,
+    "verified_titles": 0,
+    "xml_errors": 48,
+    "study": "SRP594303",
+    "dbgap": "phs004047.v1.p1",
+    "matched_at_least_one_methylation": 0,
+    "unique_rna_donors": 0,
+    "shared_donor_genotypes": [],
+    "rna_lineage_stages": {},
+    "controlled": 48
+  },
+  "rna_experiments": [],
+  "unresolved_public_records": [
+    {
+      "id": "SRX29329858",
+      "reason": "title_or_subject_mismatch",
+      "title": "EPC 288 harvested at D0",
+      "subject": null
+    },
+    {
+      "id": "SRX29329867",
+      "reason": "title_or_subject_mismatch",
+      "title": "iNSC 288 harvested at D14",
+      "subject": null
+    },
+    {
+      "id": "SRX29329868",
+      "reason": "title_or_subject_mismatch",
+      "title": "EPC 229 harvested at D0",
+      "subject": null
+    },
+    {
+      "id": "SRX29329869",
+      "reason": "title_or_subject_mismatch",
+      "title": "iNSC 190 harvested at LP",
+      "subject": null
+    },
+    {
+      "id": "SRX29329870",
+      "reason": "title_or_subject_mismatch",
+      "title": "smNPC 109 harvested at LP",
+      "subject": null
+    },
+    {
+      "id": "SRX29329871",
+      "reason": "title_or_subject_mismatch",
+      "title": "EPC 287 harvested at D0",
+      "subject": null
+    },
+    {
+      "id": "SRX29329872",
+      "reason": "title_or_subject_mismatch",
+      "title": "iNSC 224 harvested at D14",
+      "subject": null
+    },
+    {
+      "id": "SRX34004157",
+      "reason": "title_or_subject_mismatch",
+      "title": "smNPC 107 harvested at LP",
+      "subject": null
+    },
+    {
+      "id": "SRX29329874",
+      "reason": "title_or_subject_mismatch",
+      "title": "smNPC 216 harvested at LP",
+      "subject": null
+    },
+    {
+      "id": "SRX29329875",
+      "reason": "title_or_subject_mismatch",
+      "title": "iNSC 107 harvested at D14",
+      "subject": null
+    },
+    {
+      "id": "SRX29329876",
+      "reason": "title_or_subject_mismatch",
+      "title": "iNSC 108 harvested at LP",
+      "subject": null
+    },
+    {
+      "id": "SRX29329859",
+      "reason": "title_or_subject_mismatch",
+      "title": "iNSC 225 harvested at D14",
+      "subject": null
+    },
+    {
+      "id": "SRX29329877",
+      "reason": "title_or_subject_mismatch",
+      "title": "iNSC 288 harvested at LP",
+      "subject": null
+    },
+    {
+      "id": "SRX29329878",
+      "reason": "title_or_subject_mismatch",
+      "title": "EPC 218 harvested at D0",
+      "subject": null
+    },
+    {
+      "id": "SRX29329879",
+      "reason": "title_or_subject_mismatch",
+      "title": "iNSC 216 harvested at HP",
+      "subject": null
+    },
+    {
+      "id": "SRX29329880",
+      "reason": "title_or_subject_mismatch",
+      "title": "iNSC 224 harvested at LP",
+      "subject": null
+    },
+    {
+      "id": "SRX34004158",
+      "reason": "title_or_subject_mismatch",
+      "title": "EPC 107 harvested at D0",
+      "subject": null
+    },
+    {
+      "id": "SRX29329882",
+      "reason": "title_or_subject_mismatch",
+      "title": "iNSC 287 harvested at D14",
+      "subject": null
+    },
+    {
+      "id": "SRX29329883",
+      "reason": "title_or_subject_mismatch",
+      "title": "EPC 225 harvested at D0",
+      "subject": null
+    },
+    {
+      "id": "SRX29329856",
+      "reason": "title_or_subject_mismatch",
+      "title": "iNSC 218 harvested at D14",
+      "subject": null
+    },
+    {
+      "id": "SRX29329857",
+      "reason": "title_or_subject_mismatch",
+      "title": "iNSC 109 harvested at LP",
+      "subject": null
+    },
+    {
+      "id": "SRX29329884",
+      "reason": "title_or_subject_mismatch",
+      "title": "EPC 286 harvested at D0",
+      "subject": null
+    },
+    {
+      "id": "SRX29329860",
+      "reason": "title_or_subject_mismatch",
+      "title": "smNPC 218 harvested at LP",
+      "subject": null
+    },
+    {
+      "id": "SRX29329885",
+      "reason": "title_or_subject_mismatch",
+      "title": "smNPC 190 harvested at LP",
+      "subject": null
+    },
+    {
+      "id": "SRX29329886",
+      "reason": "title_or_subject_mismatch",
+      "title": "EPC 108 harvested at D0",
+      "subject": null
+    },
+    {
+      "id": "SRX34004159",
+      "reason": "title_or_subject_mismatch",
+      "title": "iNSC 107 harvested at HP",
+      "subject": null
+    },
+    {
+      "id": "SRX29329888",
+      "reason": "title_or_subject_mismatch",
+      "title": "iNSC 287 harvested at LP",
+      "subject": null
+    },
+    {
+      "id": "SRX29329889",
+      "reason": "title_or_subject_mismatch",
+      "title": "EPC 216 harvested at D0",
+      "subject": null
+    },
+    {
+      "id": "SRX29329890",
+      "reason": "title_or_subject_mismatch",
+      "title": "iNSC 216 harvested at LP",
+      "subject": null
+    },
+    {
+      "id": "SRX34004160",
+      "reason": "title_or_subject_mismatch",
+      "title": "iNSC 82 harvested at HP",
+      "subject": null
+    },
+    {
+      "id": "SRX29329892",
+      "reason": "title_or_subject_mismatch",
+      "title": "iNSC 229 harvested at D14",
+      "subject": null
+    },
+    {
+      "id": "SRX34004161",
+      "reason": "title_or_subject_mismatch",
+      "title": "EPC 33 harvested at D0",
+      "subject": null
+    },
+    {
+      "id": "SRX29329894",
+      "reason": "title_or_subject_mismatch",
+      "title": "iNSC 286 harvested at D14",
+      "subject": null
+    },
+    {
+      "id": "SRX29329861",
+      "reason": "title_or_subject_mismatch",
+      "title": "iNSC 190 harvested at D14",
+      "subject": null
+    },
+    {
+      "id": "SRX29329895",
+      "reason": "title_or_subject_mismatch",
+      "title": "EPC 224 harvested at D0",
+      "subject": null
+    },
+    {
+      "id": "SRX29329896",
+      "reason": "title_or_subject_mismatch",
+      "title": "iNSC 216 harvested at D14",
+      "subject": null
+    },
+    {
+      "id": "SRX29329897",
+      "reason": "title_or_subject_mismatch",
+      "title": "iNSC 108 harvested at HP",
+      "subject": null
+    },
+    {
+      "id": "SRX29329898",
+      "reason": "title_or_subject_mismatch",
+      "title": "iNSC 218 harvested at HP",
+      "subject": null
+    },
+    {
+      "id": "SRX34004162",
+      "reason": "title_or_subject_mismatch",
+      "title": "iNSC 33 harvested at HP",
+      "subject": null
+    },
+    {
+      "id": "SRX29329900",
+      "reason": "title_or_subject_mismatch",
+      "title": "iNSC 229 harvested at LP",
+      "subject": null
+    },
+    {
+      "id": "SRX29329901",
+      "reason": "title_or_subject_mismatch",
+      "title": "iNSC 286 harvested at LP",
+      "subject": null
+    },
+    {
+      "id": "SRX29329902",
+      "reason": "title_or_subject_mismatch",
+      "title": "EPC 190 harvested at D0",
+      "subject": null
+    },
+    {
+      "id": "SRX29329903",
+      "reason": "title_or_subject_mismatch",
+      "title": "iNSC 218 harvested at LP",
+      "subject": null
+    },
+    {
+      "id": "SRX29329862",
+      "reason": "title_or_subject_mismatch",
+      "title": "iNSC 82 harvested at LP",
+      "subject": null
+    },
+    {
+      "id": "SRX29329863",
+      "reason": "title_or_subject_mismatch",
+      "title": "iNSC 190 harvested at HP",
+      "subject": null
+    },
+    {
+      "id": "SRX34004155",
+      "reason": "title_or_subject_mismatch",
+      "title": "iNSC 33 harvested at LP",
+      "subject": null
+    },
+    {
+      "id": "SRX29329865",
+      "reason": "title_or_subject_mismatch",
+      "title": "iNSC 225 harvested at LP",
+      "subject": null
+    },
+    {
+      "id": "SRX34004156",
+      "reason": "title_or_subject_mismatch",
+      "title": "iNSC 107 harvested at LP",
+      "subject": null
+    }
+  ],
+  "negative_controls_retained": {
+    "GSE74387": "FAIL",
+    "identity_fate_confounder": "PRESENT",
+    "no_run_order_mapping": true,
+    "stage_not_sufficient_for_expression": true
+  },
+  "next_gate": "Provide consent-authorized same-sample RNA count matrix with per-RNA accession and explicit sample mapping, or secure equivalent lawful deidentified matrix; freeze identity signature before analyzing clock residual."
+}
