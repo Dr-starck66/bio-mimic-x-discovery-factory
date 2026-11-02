@@ -59,8 +59,10 @@ def parse_public_vst(txt: str, meta: dict):
     delim='\t' if first.count('\t')>=first.count(',') else ','
     rdr=csv.reader(io.StringIO(txt),delimiter=delim)
     header=next(rdr,None)
-    if not header or len(header)<20 or len(header)>30:
-        raise ValueError("unexpected GEO VST header: "+repr((header or [])[:30]))
+    if not header or len(header)<21 or len(header)>40:
+        raise ValueError("unexpected GEO VST header: "+repr((header or [])[:40]))
+    if header[:2] != ["ensembl_gene_id","hgnc_symbol"]:
+        raise ValueError("GEO 2018 gene symbol columns not verified: "+repr(header[:3]))
     # Avoid positional guessing: library IDs must be uniquely matched by literal
     # sample token in RNA table heading, not fabricated or ordinal labels.
     colidx={}
@@ -73,9 +75,21 @@ def parse_public_vst(txt: str, meta: dict):
         colidx[sample]=matches[0]
     if len(set(colidx.values()))!=19:
         raise ValueError("RNA VST duplicate sample column join")
-    non_sample_cols=[i for i in range(len(header)) if i not in set(colidx.values())]
-    if not 1<=len(non_sample_cols)<=5:
-        raise ValueError("RNA VST gene identifier columns unclear: "+repr(header))
+    sample_column_indices=set(colidx.values())
+    if 0 in sample_column_indices or 1 in sample_column_indices:
+        raise ValueError("RNA sample column overlaps a gene identifier")
+    # The actual 2018 author's original matrix has 7 extra differential
+    # expression comparison columns AFTER the 19 library columns; some
+    # comparison headings repeat. They are NOT sample expression columns.
+    # Their values are intentionally excluded, not silently reinterpreted.
+    non_sample_cols=[i for i in range(len(header)) if i not in sample_column_indices]
+    if non_sample_cols[:2]!=[0,1] or any(
+        not re.fullmatch(r"[A-Za-z0-9]+_vs_[A-Za-z0-9]+",header[i])
+        for i in non_sample_cols[2:]
+    ):
+        raise ValueError("unexpected non-sample GEO comparison columns: "+repr(
+            [header[i] for i in non_sample_cols]))
+    gene_symbol_cols=[1]
     genes={}
     n_gene_rows=0
     for line in rdr:
@@ -84,7 +98,7 @@ def parse_public_vst(txt: str, meta: dict):
             raise ValueError("GEO VST row width mismatch")
         # Do not guess Ensembl-to-gene-symbol mapping. Only literal gene symbol
         # cells are accepted, possibly alongside Ensembl identifiers.
-        m=[(g,i) for g in PINNED_MARKERS for i in non_sample_cols
+        m=[(g,i) for g in PINNED_MARKERS for i in gene_symbol_cols
            if line[i].strip().upper()==g]
         if not m:continue
         for g,_ in m:
