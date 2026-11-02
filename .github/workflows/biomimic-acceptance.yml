@@ -36,6 +36,8 @@ on:
       - 'tests/test_gse295849_metadata_bridge.py'
       - 'validation/gse295849_paired_analysis.py'
       - 'tests/test_gse295849_paired_analysis.py'
+      - 'validation/gse295849_fate_age_falsification.py'
+      - 'tests/test_gse295849_fate_age_falsification.py'
       - 'validation/axolotl_human_reanalysis.py'
       - 'tests/test_axolotl_human_reanalysis.py'
       - 'tests/test_human_limb_regeneration_gate.py'
@@ -71,6 +73,19 @@ jobs:
           python-version: '3.12'
       - name: All project unit tests
         run: python -m unittest discover -s tests -v
+      - name: Replicate within-iNSC de-aging but retain fate negative controls
+        run: |
+          mkdir -p qa-artifacts
+          python validation/gse295849_fate_age_falsification.py --out qa-artifacts/GSE295849-FATE-VS-AGE.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path("qa-artifacts/GSE295849-FATE-VS-AGE.json").read_text())
+          assert x["age_reset_independent_of_cell_fate"]=="UNVERIFIED"
+          assert x["fate_matters"]=="YES_ALTERNATIVE_FATE_HAS_DIFFERENT_CLOCK_OUTPUT"
+          assert x["same_label_time_course"]["iNSC_D14_to_LP"]["n_clock_decreases"]==6
+          print("AGE_FATE_DISENTANGLEMENT_FALSIFICATION",x["status"],"separate_mechanism",x["age_reset_independent_of_cell_fate"])
+          PY
       - name: Fail-closed axolotl to human limb evidence audit
         run: python factory/human_limb_regeneration_gate.py --no-write
       - name: Probe old/new axolotl assemblies and public DNA sequence provenance
