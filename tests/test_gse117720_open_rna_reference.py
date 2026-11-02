@@ -80,6 +80,18 @@ class Public2018RNATests(unittest.TestCase):
         self.assertEqual(r["marker_counts"]["neural"],len(NEURAL))
         self.assertEqual(r["marker_counts"]["erythroid"],len(ERYTHROID))
 
+    def test_duplicate_HGNC_symbols_must_be_discarded_not_summed(self):
+        orig=self.fake_matrix()
+        lines=orig.splitlines()
+        gata=next(line for line in lines if "\tGATA1\t" in line)
+        copy=gata.replace("ENSG00000000000","ENSG99999999999")
+        lines.append(copy)
+        data=parse_public_vst("\n".join(lines),self.meta)
+        self.assertIn("GATA1",data["excluded_ambiguous_marker_symbols"])
+        self.assertNotIn("GATA1",data["present_erythroid"])
+        self.assertEqual(data["marker_counts"]["erythroid"],len(ERYTHROID)-1)
+        self.assertEqual(data["ambiguous_symbol_handling"],"EXCLUDED_ENTIRELY_NO_ARBITRARY_ENSEMBL_MAPPING")
+
     def test_unknown_extra_column_is_rejected(self):
         content=self.fake_matrix()
         lines=content.splitlines()
