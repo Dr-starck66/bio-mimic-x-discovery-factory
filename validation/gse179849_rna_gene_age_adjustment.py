@@ -64,15 +64,15 @@ def extract(path,records):
     if gene_rows<10000 or len(set(FIBRO)&genes_seen)<4:
         raise ValueError("insufficient real fibro markers or gene rows")
     return labels,gene_rows
-def slopes(obs):
+def slopes(obs,clock="Horvath1",min_n=25):
     groups={}
     for x in obs:
         if "_Normal_Control_" in x["sample_key"]:
             groups.setdefault(x["sample_key"].rsplit("_p",1)[0],[]).append(x)
     control=[v for items in groups.values() if len(items)>=3 for v in items]
-    if len(control)<25:raise ValueError("unverifiable healthy replicative series")
+    if len(control)<min_n:raise ValueError("unverifiable healthy replicative series")
     x=[v["passage"] for v in control]
-    y=[v["clocks"]["Horvath1"] for v in control]
+    y=[v["clocks"][clock] for v in control]
     z=[v["RNA_fibroblast_score"] for v in control]
     if any(v is None for v in y):raise ValueError("published clock missing")
     keys=[v["sample_key"].rsplit("_p",1)[0] for v in control]
@@ -88,10 +88,10 @@ def slopes(obs):
     if det<1e-6:raise ValueError("multicollinear RNA identity and passage")
     unadjusted=sxy/sxx
     adjusted=(sxy*szz-szy*sxz)/det
-    return {"n_control_samples":len(control),"n_control_series":len(set(keys)),
+    return {"clock":clock,"n_control_samples":len(control),"n_control_series":len(set(keys)),
             "n_independent_healthy_donors":len(set(v["cell_line"] for v in control)),
-            "published_Horvath1_slope_years_per_passage_before":round(unadjusted,6),
-            "slope_after_independent_real_RNA_fibroblast_identity":round(adjusted,6),
+            "unadjusted_slope_years_per_passage":round(unadjusted,6),
+            "RNA_adjusted_slope_years_per_passage":round(adjusted,6),
             "method":"series-fixed-effect within-transform + 2-covariate OLS; descriptive only",
             "causal_rejuvenation":"UNVERIFIED","same_physical_aliquot":"UNVERIFIED"}
 def main():
@@ -123,6 +123,16 @@ def main():
         result["real_RNA_fibroblast_markers"]=fibro
         result["real_public_clock_and_RNA_sample_scores"]=obs
         result["control_aging_trajectory"]=slopes(obs)
+        result["negative_clock_control_GrimAge"]=slopes(obs,clock="GrimAge")
+        control=[x for x in obs if "_Normal_Control_" in x["sample_key"]]
+        donors=sorted(set(x["cell_line"] for x in control))
+        result["leave_one_healthy_donor_out"]={}
+        for donor in donors:
+            subset=[x for x in obs if x["cell_line"]!=donor]
+            try:
+                result["leave_one_healthy_donor_out"][donor]=slopes(subset,min_n=14)
+            except Exception as e:
+                result["leave_one_healthy_donor_out"][donor]={"status":"UNIDENTIFIABLE","reason":str(e)[:160]}
         result["actual_RNA_gene_expression_values_obtained"]=True
         result["age_after_orthogonal_RNA_adjustment"]="PASS_DESCRIPTIVE_REPLICATIVE_FIBROBLAST_AGE_ASSOCIATION"
         result["status"]="PASS_REAL_AGE_FOCUSED_PUBLIC_RNA_AND_DNAM_CLOCK_ADJUSTMENT_NOT_CAUSAL"
