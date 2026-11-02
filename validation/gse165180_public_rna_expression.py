@@ -62,7 +62,7 @@ def guarded_download(uri: str, output:Path, max_bytes=20_000_000):
                         raise
                     last=e
                     if chunk_size>131072:
-                        chunk_size=max(131072,chunk_size//2)
+                        chunk_size=max(65536,chunk_size//2)
                         end=pos+chunk_size-1 if total is None else min(total-1,pos+chunk_size-1)
                     time.sleep(min(5,retry+1))
                 except (TimeoutError,urllib.error.URLError) as e:
