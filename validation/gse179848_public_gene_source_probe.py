@@ -7,6 +7,8 @@ import urllib.request
 import urllib.error
 import zlib
 from pathlib import Path
+import sys
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from validation.gse179849_public_multimodal_gate import norm_label
 
 BASE="https://ftp.ncbi.nlm.nih.gov/geo/series/GSE179nnn/GSE179848/suppl/"
