@@ -28,10 +28,11 @@ class GSE295849PairedTests(unittest.TestCase):
         self.assertEqual(analyze_crosswalk(cw,ages)["aggregate"]["paired_mean_delta_years"],baseline)
     def test_near_zero_clock_ages_never_produce_impossible_percent(self):
         cw,ages=self.synthetic()
-        donor1=[r["chip_sample_id"] for r in cw["samples"] if r["donor_genotype"]=="1" and r["treatment"]=="None"]
-        self.assertEqual(len(donor1),3)  # EPC D0, untreated LP and D14
-        ages[donor1[0]]=0.42
-        ages[donor1[1]]=-0.26
+        donor1=[r for r in cw["samples"] if r["donor_genotype"]=="1"]
+        epc=next(r["chip_sample_id"] for r in donor1 if r["cell_type"]=="EPC" and r["harvest_stage"]=="D0")
+        lp=next(r["chip_sample_id"] for r in donor1 if r["cell_type"]=="iNSC" and r["harvest_stage"]=="LP" and r["treatment"]=="None")
+        ages[epc]=0.42
+        ages[lp]=-0.26
         result=analyze_crosswalk(cw,ages)
         sample=result["primary_contrasts"][0]
         self.assertIsNone(sample["reduction_pct_of_EPC_clock_age"])
