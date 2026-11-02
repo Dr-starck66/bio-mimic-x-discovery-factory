@@ -25,7 +25,9 @@ def probe(name):
             if res.status!=206 or not res.headers.get("Content-Range","").startswith("bytes 0-"):
                 raise ValueError("Source did not honor HTTP206 byte range")
             if data[:2]!=b"\x1f\x8b":raise ValueError("Source is not gzip")
-            first=zlib.decompressobj(31).decompress(data).decode("utf-8-sig",errors="replace").splitlines()[0]
+            lines=zlib.decompressobj(31).decompress(data).decode("utf-8-sig",errors="replace").splitlines()
+            first=lines[0]
+            first_gene_labels=[x.split(",")[0].strip('"') for x in lines[1:10]]
             comma=first.split(",")
             tab=first.split("\t")
             delimiter="comma" if len(comma)>len(tab) else "tab"
@@ -34,6 +36,7 @@ def probe(name):
                     "content_range":res.headers.get("Content-Range"),
                     "field_count":len(fields),
                     "header_first_8":fields[:8],
+                    "first_gene_labels":first_gene_labels,
                     "header_last_5":fields[-5:],
                     "part_of_gene_matrix":True,
                     "full_gene_expression_matrix_acquired":False}
