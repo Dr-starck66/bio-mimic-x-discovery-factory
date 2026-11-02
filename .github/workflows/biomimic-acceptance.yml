@@ -38,6 +38,9 @@ on:
       - 'tests/test_gse295849_paired_analysis.py'
       - 'validation/gse295849_fate_age_falsification.py'
       - 'tests/test_gse295849_fate_age_falsification.py'
+      - 'validation/gse295849_rna_identity_gate.py'
+      - 'tests/test_gse295849_rna_identity_gate.py'
+      - 'reports/factory/GSE295849-SRP594303-RNA-METADATA-2026-11-02.json'
       - 'validation/axolotl_human_reanalysis.py'
       - 'tests/test_axolotl_human_reanalysis.py'
       - 'tests/test_human_limb_regeneration_gate.py'
@@ -73,6 +76,22 @@ jobs:
           python-version: '3.12'
       - name: All project unit tests
         run: python -m unittest discover -s tests -v
+      - name: Orthogonal RNA-seq public crosswalk and fail-closed restricted-access gate
+        run: |
+          mkdir -p qa-artifacts
+          python validation/gse295849_rna_identity_gate.py --out qa-artifacts/GSE295849-ORTHOGONAL-RNA-ACCESS-GATE.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          o=json.loads(Path("qa-artifacts/GSE295849-ORTHOGONAL-RNA-ACCESS-GATE.json").read_text())
+          m=o["public_metadata"]
+          assert m["rnaseq_run_count"]==48 and m["rnaseq_controlled_access_count"]==48
+          assert m["condition_matched_RNA_runs"]==35
+          assert m["independent_donors_with_RNA_D14_and_LP_condition_metadata"]==6
+          assert o["status"]=="PARTIAL_NO_AUTHORIZED_TRANSCRIPTOME"
+          assert m["age_effect_after_identity_adjustment"]=="UNVERIFIED"
+          print("PASS_METADATA_BRIDGE; RNA_COUNTS_RESTRICTED; IDENTITY_ADJUSTED_BIOLOGY_UNVERIFIED")
+          PY
       - name: Replicate within-iNSC de-aging but retain fate negative controls
         run: |
           mkdir -p qa-artifacts
