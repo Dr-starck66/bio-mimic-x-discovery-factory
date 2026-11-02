@@ -26,6 +26,20 @@ class GSE295849PairedTests(unittest.TestCase):
         baseline=analyze_crosswalk(cw,ages)["aggregate"]["paired_mean_delta_years"]
         cw["samples"].reverse()
         self.assertEqual(analyze_crosswalk(cw,ages)["aggregate"]["paired_mean_delta_years"],baseline)
+    def test_near_zero_clock_ages_never_produce_impossible_percent(self):
+        cw,ages=self.synthetic()
+        donor1=[r["chip_sample_id"] for r in cw["samples"] if r["donor_genotype"]=="1" and r["treatment"]=="None"]
+        self.assertEqual(len(donor1),3)  # EPC D0, untreated LP and D14
+        ages[donor1[0]]=0.42
+        ages[donor1[1]]=-0.26
+        result=analyze_crosswalk(cw,ages)
+        sample=result["primary_contrasts"][0]
+        self.assertIsNone(sample["reduction_pct_of_EPC_clock_age"])
+        self.assertFalse(sample["relative_metric_usable"])
+        self.assertEqual(sample["difference_LP_minus_D0_years"],-0.68)
+        self.assertEqual(result["sensitivity_excluding_near_zero_clock_ages"]["n_donors"],11)
+        self.assertEqual(result["aggregate"]["n_negative_deltas"],12)
+
     def test_missing_chips_fails_closed(self):
         cw,ages=self.synthetic();ages.pop(next(iter(ages)))
         with self.assertRaisesRegex(ValueError,"requires full 60"):
