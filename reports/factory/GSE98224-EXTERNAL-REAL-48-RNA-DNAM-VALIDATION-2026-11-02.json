@@ -1,0 +1,151 @@
+{
+  "schema": "BIO-MIMIC-X/PUBLIC-GENUINE-PAIRED-RNA-METHYLATION/1",
+  "date_utc": "2026-11-02",
+  "study": {
+    "GEO": "GSE98224",
+    "paper": "Liu et al. scDeconv, Briefings in Bioinformatics, 2022",
+    "doi": "10.1093/bib/bbac150",
+    "pmcid": "PMC9271220",
+    "source_repo": "https://github.com/yuabrahamliu/scDeconv",
+    "clinical_context": "human placenta normal vs preeclampsia; gestational week is NOT human organismal epigenetic aging"
+  },
+  "data": {
+    "source_RNA": "inst/extdata/pairedRNAdat.rds",
+    "source_methylation": "inst/extdata/pairedDNAmdat.rds",
+    "source_metadata": "inst/extdata/DNAmpd.rds",
+    "RNA_feature_count": 22188,
+    "DNA_beta_CpG_feature_count": 18626,
+    "distinct_GSM_exact_matched_RNA_and_DNAm": 48,
+    "all_48_same_GSM_columns": true,
+    "RNA_assay": "Affymetrix Human Gene 1.0 ST expression microarray, log2 normalized; NOT RNA-seq",
+    "DNA_assay": "Illumina CpG methylation array beta values",
+    "source_sha256": {
+      "rna": "1a74f75277128964cc39f5abacfe3ccd32e29646944e4f0fb71cdc53108b4165",
+      "methylation": "8f774302791c99b0afc8abf59c1ae15e15b33e3da95b80bf3584ff559a92f30b",
+      "clinical_metadata": "1c708e356020cbcac0a962da92bcbe74f75591b2db8e5c6fe2e274d8053010f8"
+    },
+    "sample_accessions": [
+      "GSM1940495",
+      "GSM1940496",
+      "GSM1940499",
+      "GSM1940500",
+      "GSM1940501",
+      "GSM1940502",
+      "GSM1940505",
+      "GSM1940506",
+      "GSM1940507",
+      "GSM1940508",
+      "GSM1940509",
+      "GSM1940518",
+      "GSM1940519",
+      "GSM1940520",
+      "GSM1940524",
+      "GSM1940534",
+      "GSM1940535",
+      "GSM1940542",
+      "GSM1940545",
+      "GSM1940547",
+      "GSM1940548",
+      "GSM1940549",
+      "GSM1940553",
+      "GSM1940556",
+      "GSM1940576",
+      "GSM1940582",
+      "GSM1940583",
+      "GSM1940586",
+      "GSM1940589",
+      "GSM1940593",
+      "GSM1940594",
+      "GSM1940602",
+      "GSM1940603",
+      "GSM1940606",
+      "GSM1940607",
+      "GSM1940608",
+      "GSM1940614",
+      "GSM1940618",
+      "GSM1940621",
+      "GSM1940622",
+      "GSM1940623",
+      "GSM1940625",
+      "GSM1940626",
+      "GSM1940630",
+      "GSM1940638",
+      "GSM1940642",
+      "GSM1940644",
+      "GSM1940645"
+    ],
+    "clinical_groups": {
+      "control": 18,
+      "preeclampsia": 30
+    },
+    "same_physical_aliquot_verified": false,
+    "exact_GSM_pairing_verified": true
+  },
+  "actual_executed_analysis": {
+    "status": "PASS_REAL_PUBLIC_PAIRED_RNA_DNAM_ASSOCIATION_ONLY",
+    "analyzed_DNAm_CpG": "cg00000292",
+    "RNA_fibroblast_markers": [
+      "COL1A1",
+      "DCN",
+      "LUM",
+      "COL1A2",
+      "FN1"
+    ],
+    "RNA_trophoblast_markers": [
+      "KRT7",
+      "EPCAM",
+      "GATA3",
+      "KRT8",
+      "KRT18"
+    ],
+    "n_measured_RNA_marker_genes": 10,
+    "model_before": "CpG beta ~ GestationalWeek + Preeclampsia",
+    "model_after": "CpG beta ~ GestationalWeek + Preeclampsia + measured RNA fibroblast identity score + measured RNA trophoblast identity score",
+    "gestational_week_beta_before": 0.00214610459901788,
+    "gestational_week_beta_after_RNA_identity_adjustment": 0.00217110614773065,
+    "residual_sd_before": 0.0484166498745433,
+    "residual_sd_after": 0.0480784551574039,
+    "age_related_interpretation": "Gestational week coefficient is NOT a marker of cell rejuvenation; adjusting for RNA identity leaves coefficient slightly greater, an unfavorable but retained descriptive outcome.",
+    "mechanistic_aging_reversal": "UNVERIFIED_NOT_A_REPROGRAMMING_STUDY",
+    "same_aliquot_proof": "UNVERIFIED",
+    "orthogonal_assay_validation": "PASS_GSM_EXACT_MATCH_AND_REAL_NUMERIC_TWO_ASSAY_REGRESSION"
+  },
+  "audit": {
+    "GitHub_actions_job": "https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/41418839761/job/125189209135",
+    "artifact": "https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/41418839761/artifacts/13128373263",
+    "artifact_output_sha256": {
+      "summary_csv": "4060b966d30bdd8d479e8ddcce8d468e7ba7dee3db23057feacef23c6e0049fe",
+      "matched_48_csv": "83b75ab9c4c925e1da011d1379b0091fff96b8d11f8cb0e5b76233ce45df1d36"
+    },
+    "analysis_script": "validation/scdeconv_real_paired_rna_dnam.R",
+    "four_assertions": "48 exact GSM, 22k+ RNA, 18k+ DNA, no aging claim; executed success",
+    "cost_additional_eur": 0
+  },
+  "secondary_aging_study": {
+    "GEO_super_series": "GSE179849",
+    "RNA_series": "GSE179848",
+    "DNA_series": "GSE179847",
+    "context": "Longitudinal replicative lifespan of primary human fibroblasts, controls and treatments, including six healthy donors",
+    "public_RNA_expression_file": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE179nnn/GSE179848/suppl/GSE179848_processed_cell_lifespan_RNAseq_data.csv.gz",
+    "public_DNAm_beta_file": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE179nnn/GSE179847/suppl/GSE179847_Cell_lifespan_DNAm_processed_matrix.csv.gz",
+    "filesizes_public_RNA_compressed_approx_MB": 58,
+    "filesizes_public_DNA_compressed_approx_MB": 2000,
+    "matching_conditions_status": "NOT_YET_VERIFIED",
+    "actual_two_assay_raw_values_downloaded": false
+  },
+  "reprogramming_study_negative_transport": {
+    "GEO": "GSE165180",
+    "RNA": "GSE165177",
+    "DNA": "GSE165179",
+    "RNA_first_100k_bytes_HTTP206": "PASS",
+    "RNA_full_download_after_125k_bytes_HTTP403": "FAIL_TRANSPORT",
+    "DNA_full_processed_beta_HTTP403": "FAIL_TRANSPORT",
+    "same_biology_RNA_adjustment": "UNVERIFIED"
+  },
+  "scientific_limits": [
+    "This control demonstrates correct cross-assay matching and a quantitative statistical covariate correction with genuine human assay values, not rejuvenation of adult somatic cells.",
+    "A shared GSM accession does not guarantee identical physical aliquots.",
+    "No transcriptomic reading of the six protected iNSC donor pairs from GSE295849 is claimed.",
+    "External GSE179849 longitudinal aging is identified but full source data remain unacquired; 2GB EPIC processed matrix needs a resource-aware extraction path."
+  ]
+}
