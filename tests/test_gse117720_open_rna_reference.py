@@ -22,7 +22,7 @@ class Public2018RNATests(unittest.TestCase):
         writer=csv.writer(out,delimiter="\t")
         ids=[r["RNA_library_id"] for r in samples]
         if mislabeled:ids[0]="DOESNOTEXIST"
-        writer.writerow(["ensembl_id","gene_symbol"]+ids)
+        writer.writerow(["ensembl_gene_id","hgnc_symbol"]+ids)
         for i,g in enumerate(PINNED_MARKERS):
             if g==remove_gene:continue
             vals=[]
