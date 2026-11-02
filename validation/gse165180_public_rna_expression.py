@@ -21,17 +21,61 @@ FIBRO=("COL1A1","COL1A2","COL3A1","DCN","LUM","THY1","FAP","FN1")
 PLURIPOTENT=("POU5F1","NANOG","SALL4","LIN28A","DPPA4","TDGF1","EPCAM","SOX2")
 TARGET=set(FIBRO)|set(PLURIPOTENT)
 DNAM_URL="https://ftp.ncbi.nlm.nih.gov/geo/series/GSE165nnn/GSE165179/suppl/GSE165179_Matrix_processed_transient.txt.gz"
-def guarded_download(uri: str,output:Path,max_bytes=20_000_000):
-    request=urllib.request.Request(uri,headers={"User-Agent":"BIO-MIMIC-X-Gill2022-public-RNA/1","Accept-Encoding":"identity"})
+def guarded_download(uri: str, output:Path, max_bytes=20_000_000):
+    """NCBI GEO may reject full GET but allow standard RFC7233 byte ranges.
+
+    Never trust the range label alone. Verify HTTP206, exact Content-Range,
+    every returned segment length, final sha+gzip CRC. Bounded source-only retries.
+    """
+    import time
+    pos=0
+    total=None
+    chunk_size=1_000_000
     sha=hashlib.sha256()
-    with urllib.request.urlopen(request,timeout=60) as response,output.open("wb") as dst:
-        if response.status!=200:raise ValueError(f"RNA source unexpected HTTP {response.status}")
-        total=0
-        while chunk:=response.read(1<<20):
-            total+=len(chunk)
-            if total>max_bytes:raise ValueError("public RNA gzip exceeds bounded resource cap")
-            sha.update(chunk);dst.write(chunk)
-    return {"url":uri,"bytes":total,"sha256":sha.hexdigest(),"gzip_crc":"PENDING"}
+    with output.open("wb") as dst:
+        while total is None or pos<total:
+            end=pos+chunk_size-1 if total is None else min(total-1,pos+chunk_size-1)
+            last=None
+            for retry in range(4):
+                req=urllib.request.Request(uri,headers={
+                    "User-Agent":"BIO-MIMIC-X-Gill2022-public-RNA/1",
+                    "Range":f"bytes={pos}-{end}","Accept-Encoding":"identity"})
+                try:
+                    with urllib.request.urlopen(req,timeout=60) as r:
+                        cr=r.headers.get("Content-Range","")
+                        m=re.fullmatch(r"bytes (\d+)-(\d+)/(\d+)",cr)
+                        if r.status!=206 or not m or int(m[1])!=pos or int(m[2])!=end:
+                            raise ValueError("NCBI RFC7233 Content-Range mismatch")
+                        declared=int(m[3])
+                        if declared>max_bytes or declared<=0:
+                            raise ValueError("NCBI RNA source is outside permitted size bound")
+                        if total is not None and total!=declared:
+                            raise ValueError("NCBI RNA source changed content length in transit")
+                        total=declared
+                        data=r.read(end-pos+2)
+                        if len(data)!=end-pos+1:raise ValueError("truncated NCBI byte range")
+                        sha.update(data);dst.write(data);pos+=len(data)
+                        last=None
+                        break
+                except urllib.error.HTTPError as e:
+                    if e.code not in (403,408,429,500,502,503,504):
+                        raise
+                    last=e
+                    if chunk_size>131072:
+                        chunk_size=max(131072,chunk_size//2)
+                        end=pos+chunk_size-1 if total is None else min(total-1,pos+chunk_size-1)
+                    time.sleep(min(5,retry+1))
+                except (TimeoutError,urllib.error.URLError) as e:
+                    last=e
+                    time.sleep(min(5,retry+1))
+            if last is not None:
+                raise RuntimeError(f"NCBI public source range blocked at offset {pos}: {last}")
+    # Full gzip decoder must reach EOF/CRC; also checks null truncation.
+    with gzip.open(output,"rb") as g:
+        while g.read(1<<20):pass
+    return {"url":uri,"bytes":total,"sha256":sha.hexdigest(),
+            "gzip_crc":"PASS","verified_complete_http206":True}
+
 def extract_rna(files):
     result={}
     measurements={}
