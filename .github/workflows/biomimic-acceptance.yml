@@ -45,6 +45,12 @@ on:
       - 'tests/test_gse117720_open_rna_reference.py'
       - 'reports/factory/GSE117720-PUBLIC-RNA-REFERENCE-METADATA-2026-11-02.json'
       - 'validation/gse295849_noncpg_lineage_residual.py'
+      - 'validation/gse165180_public_preflight.py'
+      - 'validation/gse165180_public_rna_expression.py'
+      - 'validation/scdeconv_real_paired_rna_dnam.R'
+      - 'reports/factory/GSE98224-EXTERNAL-REAL-48-RNA-DNAM-VALIDATION-2026-11-02.json'
+      - 'tests/test_external_gse98224_orthogonal_evidence.py'
+      - 'reports/factory/GSE165179-PUBLIC-DNAM-SAMPLE-METADATA-2026-11-02.json'
       - 'tests/test_gse295849_noncpg_lineage_residual.py'
       - 'reports/factory/GSE295849-SRP594303-RNA-METADATA-2026-11-02.json'
       - 'validation/axolotl_human_reanalysis.py'
@@ -451,5 +457,73 @@ jobs:
         with:
           name: bio-mimic-real-six-donor-nonclock-cell-identity
           path: qa-artifacts/BIO-MIMIC-GSE295849-CELL-IDENTITY-PROXY.json
+          if-no-files-found: warn
+          retention-days: 90
+
+  external-gill-mptr-preflight:
+    if: github.event_name == 'pull_request' && github.head_ref == 'science/orthogonal-public-mptr-20261102'
+    name: Public GEO GSE165180 actual RNA-DNAm matched sample audit
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Probe public GEO metadata and actual small compressed RNA/methylation file headers
+        run: python validation/gse165180_public_preflight.py
+      - name: Save independently reproducible public sample crosswalk
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bio-mimic-gill-mptr-orthogonal-public-preflight
+          path: qa-artifacts/GILL-MPTR-PREFLIGHT-2026-11-02.json
+          if-no-files-found: warn
+          retention-days: 30
+
+  external-real-paired-rna-and-dnam:
+    if: github.event_name == 'pull_request' && github.head_ref == 'science/orthogonal-public-mptr-20261102'
+    name: 48 genuine human RNA + CpG methylation paired by GEO GSM (public scDeconv)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: 'release'
+          use-public-rspm: false
+      - name: Obtain only real public paired molecular matrices from source research repository
+        run: |
+          git clone --depth 1 https://github.com/yuabrahamliu/scDeconv.git /tmp/bio-mimic-scdeconv
+          ls -lh /tmp/bio-mimic-scdeconv/inst/extdata/pairedRNAdat.rds /tmp/bio-mimic-scdeconv/inst/extdata/pairedDNAmdat.rds /tmp/bio-mimic-scdeconv/inst/extdata/DNAmpd.rds
+          sha256sum /tmp/bio-mimic-scdeconv/inst/extdata/pairedRNAdat.rds /tmp/bio-mimic-scdeconv/inst/extdata/pairedDNAmdat.rds /tmp/bio-mimic-scdeconv/inst/extdata/DNAmpd.rds
+      - name: Independently calculate cell-identity RNA scores and matched methylation sensitivity
+        run: Rscript validation/scdeconv_real_paired_rna_dnam.R /tmp/bio-mimic-scdeconv qa-artifacts/real-orthogonal-paired/
+      - name: Fail closed if fake RNA, unpaired GSM or false aging mechanism
+        run: |
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+          base=Path('qa-artifacts/real-orthogonal-paired')
+          sm=list(csv.DictReader((base/'gse98224-scdeconv-real-assay-adjustment-summary.csv').open()))
+          rows=list(csv.DictReader((base/'gse98224-scdeconv-48-real-paired-sample-scores.csv').open()))
+          assert len(sm)==1 and len(rows)==48
+          r=sm[0]
+          assert r['n_samples']=='48' and int(r['n_RNA_genes'])>=21000 and int(r['n_DNAm_CpGs'])>=18000
+          assert r['exact_GSM_match']=='TRUE'
+          assert r['chronological_human_aging_effect']=='UNVERIFIED_NOT_AN_AGING_STUDY'
+          assert r['epigenetic_rejuvenation_mechanism']=='UNVERIFIED'
+          assert r['status']=='PASS_REAL_PUBLIC_PAIRED_RNA_DNAM_ASSOCIATION_ONLY'
+          assert len(set(x['gsm'] for x in rows))==48
+          assert all(x['gsm'].startswith('GSM') for x in rows)
+          print('PASS_REAL_MATCHED_PUBLIC_48_HUMAN_RNA_AND_DNAM_RECORDS_NOT_REJUVENATION_CLAIM')
+          print('gestational_week_coefficients',r['gestational_week_coefficient_before'],r['gestational_week_coefficient_after_RNA_adjustment'])
+          PY
+      - name: Preserve exact matched public RNA and DNAm methodological validation
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: biomimic-real-48-human-paired-rna-dnam-method-control
+          path: qa-artifacts/real-orthogonal-paired/*.csv
           if-no-files-found: warn
           retention-days: 90

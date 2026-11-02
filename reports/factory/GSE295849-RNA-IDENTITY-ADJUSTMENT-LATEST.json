@@ -33,7 +33,7 @@
   "scientific_status": {
     "RNA_expression_matrix": "UNAVAILABLE_AUTHORIZATION_REQUIRED",
     "molecular_identity_RNA_scores": "UNVERIFIED",
-    "age_delta_adjusted_for_independent_identity": "UNVERIFIED_PROTECTED_2026_RNA",
+    "age_delta_adjusted_for_independent_identity": "UNVERIFIED_FOR_GSE295849_AND_REJUVENATION",
     "cell_fate_independent_mechanistic_rejuvenation": "UNVERIFIED",
     "prior_epigenetic_age_decrease": "PASS_DESCRIPTIVE_EXISTING_ANALYSIS",
     "historical_GSE74387": "FAIL_RETAINED"
@@ -91,5 +91,36 @@
     "independence_from_2026_six_donors": "NOT_ESTABLISHED",
     "not_a_2026_donor_adjustment": true,
     "evidence": "https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/41379191838"
+  },
+  "external_public_orthogonal_validation": {
+    "status": "PASS_GENUINE_RNA_DNAM_GSM_48_SAMPLES_METHOD_BENCHMARK_ONLY",
+    "source": "https://github.com/yuabrahamliu/scDeconv",
+    "study": "GEO GSE98224",
+    "report": "reports/factory/GSE98224-EXTERNAL-REAL-48-RNA-DNAM-VALIDATION-2026-11-02.json",
+    "source_RNA_genes": 22188,
+    "source_DNA_CpGs": 18626,
+    "exact_GSM_paired_samples": 48,
+    "actual_independent_RNA_expression": "PASS_TRUE_MEASUREMENTS",
+    "actual_DNA_methylation_betas": "PASS_TRUE_MEASUREMENTS",
+    "orthogonal_identity_adjustment_model": "PASS_RNA_TRANSCRIPTOMIC_COVARIATE_ON_SAME_GSM",
+    "tested_methylation_probe": "cg00000292",
+    "gestational_week_coefficient_before": 0.00214610459901788,
+    "gestational_week_coefficient_after": 0.00217110614773065,
+    "rejuvenation_relevance": "UNVERIFIED_THIS_STUDY_IS_PLACENTAL_GESTATION_NOT_SOMATIC_DEAGING",
+    "CI_proof": "https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/41418839761/job/125189209135"
+  },
+  "external_public_reprogramming_GSE165180": {
+    "status": "PARTIAL_RNA_PUBLIC_HEADER_VERIFIED_BUT_FULL_SOURCE_HTTP403",
+    "source_RNA": "GSE165177",
+    "source_DNA": "GSE165179",
+    "actual_matched_full_expression_plus_betas": "UNVERIFIED",
+    "source_failure": "NCBI full GET 403; bounded Range eventually 403 at byte 125000; do not infer data absence or illegality."
+  },
+  "next_external_biological_target": {
+    "study": "GSE179849",
+    "RNA": "GSE179848",
+    "DNA": "GSE179847",
+    "context": "Replicative aging human fibroblasts donors with methylation and transcriptome, longitudinal",
+    "status": "DISCOVERED_NOT_YET_PAIRED_NUMERICALLY"
   }
 }
