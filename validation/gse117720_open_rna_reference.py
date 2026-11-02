@@ -95,6 +95,7 @@ def parse_public_vst(txt: str, meta: dict):
             [header[i] for i in non_sample_cols]))
     gene_symbol_cols=[1]
     genes={}
+    ambiguous_symbols=set()
     n_gene_rows=0
     for line in rdr:
         if not line:continue
@@ -106,7 +107,15 @@ def parse_public_vst(txt: str, meta: dict):
            if line[i].strip().upper()==g]
         if not m:continue
         for g,_ in m:
-            if g in genes:raise ValueError("duplicate RNA marker gene symbol "+g)
+            # A symbol can annotate multiple Ensembl gene loci. VST log
+            # values must NOT be summed or arbitrarily reassigned to one
+            # gene: exclude *all* ambiguous mappings, retaining an audit.
+            if g in ambiguous_symbols:
+                continue
+            if g in genes:
+                ambiguous_symbols.add(g)
+                del genes[g]
+                continue
             vals=[]
             for s in entries:
                 value=line[colidx[s["RNA_library_id"]]].strip()
@@ -159,6 +168,8 @@ def parse_public_vst(txt: str, meta: dict):
       "RNA_source_year":2018,"library_count":len(entries),
       "marker_counts":{"neural":len(neural),"erythroid":len(erythroid)},
       "present_neural":neural,"present_erythroid":erythroid,
+      "excluded_ambiguous_marker_symbols":sorted(ambiguous_symbols),
+      "ambiguous_symbol_handling":"EXCLUDED_ENTIRELY_NO_ARBITRARY_ENSEMBL_MAPPING",
       "identity_direction":"gene-wise standardized observed VST neural minus erythroid; score is assay-specific, not clinical age",
       "by_cell_type":{k:{"n_samples":len(v),"mean_RNA_identity_score":round(mean(v),6),
                          "median_RNA_identity_score":round(median(v),6)}
