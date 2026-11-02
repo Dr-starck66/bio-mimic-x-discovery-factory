@@ -75,6 +75,8 @@ def collect_clock_cpgs(path, features):
     expected=set(features)
     matched={}
     header=None
+    sample_ids=None
+    expected_width=None
     with gzip.open(path,"rt",encoding="utf-8-sig",errors="strict",newline="") as fh:
         reader=csv.reader(fh,delimiter="\t")
         for rec in reader:
@@ -82,10 +84,24 @@ def collect_clock_cpgs(path, features):
                 continue
             if header is None:
                 header=rec
-                if not header or not all(VALID_SAMPLE.fullmatch(x) for x in header):
-                    raise ValueError("unexpected GSE295849 author sample-only header")
+                # NCBI file 1 has a trailing EMPTY header cell but no empty
+                # data column. Remove only that exact documented artifact.
+                if len(header)>2 and header[-1]=="" and all(VALID_SAMPLE.fullmatch(x) for x in header[:-1]):
+                    sample_ids=header[:-1]
+                    expected_width=len(header)
+                elif all(VALID_SAMPLE.fullmatch(x) for x in header):
+                    sample_ids=header[:]  # bare Illumina sample identifiers
+                    expected_width=len(header)+1
+                elif len(header)>1 and all(VALID_SAMPLE.fullmatch(x) for x in header[1:]):
+                    sample_ids=header[1:]  # explicitly labeled CpG index column
+                    expected_width=len(header)
+                else:
+                    raise ValueError("unexpected GEO sample header: columns="+str(len(header))+
+                                     ", first="+repr(header[:3])+", last="+repr(header[-3:]))
+                if len(set(sample_ids))!=len(sample_ids):
+                    raise ValueError("duplicate Illumina sample identifiers")
                 continue
-            if len(rec)!=len(header)+1:
+            if len(rec)!=expected_width:
                 raise ValueError("CpG row width mismatch")
             key=rec[0]
             if key not in expected:
@@ -102,12 +118,12 @@ def collect_clock_cpgs(path, features):
                     raise ValueError("non-beta clock CpG "+key)
                 values.append(v)
             matched[key]=values
-    if not header:
+    if not sample_ids:
         raise ValueError("no sample columns")
     absent=sorted(expected-set(matched))
     if absent:
         raise ValueError(f"clock CpG coverage {len(matched)}/{len(features)}; missing: {absent[:12]}")
-    return header,matched
+    return sample_ids,matched
 
 
 def predict_samples(path, model,features,weights,intercept):

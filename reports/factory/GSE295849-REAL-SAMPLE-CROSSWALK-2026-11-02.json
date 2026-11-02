@@ -1,0 +1,1119 @@
+{
+  "schema": "BIO-MIMIC-X/GSE295849-SOURCE-BACKED-PAIRING/1",
+  "source": {
+    "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE295849&targ=gsm&view=brief&form=text",
+    "registry": "NCBI GEO",
+    "access": "public",
+    "retrieval": "GEO SOFT brief records via third-party public-page extractor; returned text is not the raw .gz payload",
+    "original_source_sha256": "NOT_CAPTURED",
+    "series": "GSE295849"
+  },
+  "reference": {
+    "clock_report_path": "reports/factory/GSE295849-HORVATH2018-REAL-CLOCK-3.json",
+    "clock_model": "Horvath 2018 Skin & Blood",
+    "clock_features": 391
+  },
+  "sample_counts": {
+    "GSM": 60,
+    "unique_chip_positions": 60,
+    "distinct_genotypes": 12,
+    "genotypes": {
+      "33": 3,
+      "96": 3,
+      "107": 3,
+      "190": 7,
+      "216": 7,
+      "218": 7,
+      "224": 3,
+      "225": 3,
+      "229": 3,
+      "286": 6,
+      "287": 7,
+      "288": 8
+    },
+    "real_clock_estimates": 8
+  },
+  "samples": [
+    {
+      "gsm": "GSM8958611",
+      "title": "EPC 216 harvested at D0 , treatment: None",
+      "donor_genotype": "216",
+      "sex": "male",
+      "cell_type": "EPC",
+      "harvest_stage": "D0",
+      "treatment": "None",
+      "chip_sample_id": "201868590057_R03C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958611/suppl/GSM8958611_201868590057_R03C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958611/suppl/GSM8958611_201868590057_R03C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958611"
+    },
+    {
+      "gsm": "GSM8958612",
+      "title": "EPC 218 harvested at D0 , treatment: None",
+      "donor_genotype": "218",
+      "sex": "male",
+      "cell_type": "EPC",
+      "harvest_stage": "D0",
+      "treatment": "None",
+      "chip_sample_id": "201868590057_R05C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958612/suppl/GSM8958612_201868590057_R05C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958612/suppl/GSM8958612_201868590057_R05C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958612"
+    },
+    {
+      "gsm": "GSM8958613",
+      "title": "iNSC 190 harvested at D14 , treatment: None",
+      "donor_genotype": "190",
+      "sex": "male",
+      "cell_type": "iNSC",
+      "harvest_stage": "D14",
+      "treatment": "None",
+      "chip_sample_id": "201868590057_R06C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958613/suppl/GSM8958613_201868590057_R06C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958613/suppl/GSM8958613_201868590057_R06C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958613"
+    },
+    {
+      "gsm": "GSM8958614",
+      "title": "iNSC 216 harvested at D14 , treatment: None",
+      "donor_genotype": "216",
+      "sex": "male",
+      "cell_type": "iNSC",
+      "harvest_stage": "D14",
+      "treatment": "None",
+      "chip_sample_id": "201868590057_R07C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958614/suppl/GSM8958614_201868590057_R07C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958614/suppl/GSM8958614_201868590057_R07C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958614"
+    },
+    {
+      "gsm": "GSM8958615",
+      "title": "iNSC 218 harvested at D14 , treatment: None",
+      "donor_genotype": "218",
+      "sex": "male",
+      "cell_type": "iNSC",
+      "harvest_stage": "D14",
+      "treatment": "None",
+      "chip_sample_id": "201868590057_R08C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958615/suppl/GSM8958615_201868590057_R08C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958615/suppl/GSM8958615_201868590057_R08C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958615"
+    },
+    {
+      "gsm": "GSM8958616",
+      "title": "iNSC 190 harvested at LP , treatment: None 1",
+      "donor_genotype": "190",
+      "sex": "male",
+      "cell_type": "iNSC",
+      "harvest_stage": "LP",
+      "treatment": "None",
+      "chip_sample_id": "201868500266_R01C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958616/suppl/GSM8958616_201868500266_R01C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958616/suppl/GSM8958616_201868500266_R01C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958616"
+    },
+    {
+      "gsm": "GSM8958617",
+      "title": "iNSC 218 harvested at LP , treatment: None 1",
+      "donor_genotype": "218",
+      "sex": "male",
+      "cell_type": "iNSC",
+      "harvest_stage": "LP",
+      "treatment": "None",
+      "chip_sample_id": "201868500266_R03C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958617/suppl/GSM8958617_201868500266_R03C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958617/suppl/GSM8958617_201868500266_R03C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958617"
+    },
+    {
+      "gsm": "GSM8958618",
+      "title": "iNSC 216 harvested at LP , treatment: None 1",
+      "donor_genotype": "216",
+      "sex": "male",
+      "cell_type": "iNSC",
+      "harvest_stage": "LP",
+      "treatment": "None",
+      "chip_sample_id": "201868500266_R06C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958618/suppl/GSM8958618_201868500266_R06C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958618/suppl/GSM8958618_201868500266_R06C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958618"
+    },
+    {
+      "gsm": "GSM8958619",
+      "title": "EPC 190 harvested at D0 , treatment: None",
+      "donor_genotype": "190",
+      "sex": "male",
+      "cell_type": "EPC",
+      "harvest_stage": "D0",
+      "treatment": "None",
+      "chip_sample_id": "201868500266_R08C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958619/suppl/GSM8958619_201868500266_R08C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958619/suppl/GSM8958619_201868500266_R08C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958619"
+    },
+    {
+      "gsm": "GSM8958620",
+      "title": "iNSC 216 harvested at HP , treatment: None",
+      "donor_genotype": "216",
+      "sex": "male",
+      "cell_type": "iNSC",
+      "harvest_stage": "HP",
+      "treatment": "None",
+      "chip_sample_id": "203077630114_R02C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958620/suppl/GSM8958620_203077630114_R02C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958620/suppl/GSM8958620_203077630114_R02C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958620"
+    },
+    {
+      "gsm": "GSM8958621",
+      "title": "iNSC 190 harvested at HP , treatment: None",
+      "donor_genotype": "190",
+      "sex": "male",
+      "cell_type": "iNSC",
+      "harvest_stage": "HP",
+      "treatment": "None",
+      "chip_sample_id": "203077630114_R03C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958621/suppl/GSM8958621_203077630114_R03C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958621/suppl/GSM8958621_203077630114_R03C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958621"
+    },
+    {
+      "gsm": "GSM8958622",
+      "title": "iNSC 218 harvested at HP , treatment: None",
+      "donor_genotype": "218",
+      "sex": "male",
+      "cell_type": "iNSC",
+      "harvest_stage": "HP",
+      "treatment": "None",
+      "chip_sample_id": "203077630114_R04C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958622/suppl/GSM8958622_203077630114_R04C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958622/suppl/GSM8958622_203077630114_R04C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958622"
+    },
+    {
+      "gsm": "GSM8958623",
+      "title": "iNSC 190 harvested at D26 , treatment: None",
+      "donor_genotype": "190",
+      "sex": "male",
+      "cell_type": "iNSC",
+      "harvest_stage": "D26",
+      "treatment": "None",
+      "chip_sample_id": "203077630114_R05C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958623/suppl/GSM8958623_203077630114_R05C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958623/suppl/GSM8958623_203077630114_R05C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958623"
+    },
+    {
+      "gsm": "GSM8958624",
+      "title": "iNSC 216 harvested at D26 , treatment: None",
+      "donor_genotype": "216",
+      "sex": "male",
+      "cell_type": "iNSC",
+      "harvest_stage": "D26",
+      "treatment": "None",
+      "chip_sample_id": "203077630114_R06C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958624/suppl/GSM8958624_203077630114_R06C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958624/suppl/GSM8958624_203077630114_R06C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958624"
+    },
+    {
+      "gsm": "GSM8958625",
+      "title": "iNSC 218 harvested at D26 , treatment: None",
+      "donor_genotype": "218",
+      "sex": "male",
+      "cell_type": "iNSC",
+      "harvest_stage": "D26",
+      "treatment": "None",
+      "chip_sample_id": "203077630114_R07C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958625/suppl/GSM8958625_203077630114_R07C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958625/suppl/GSM8958625_203077630114_R07C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958625"
+    },
+    {
+      "gsm": "GSM8958626",
+      "title": "EPC 33 harvested at D0 , treatment: None",
+      "donor_genotype": "33",
+      "sex": "female",
+      "cell_type": "EPC",
+      "harvest_stage": "D0",
+      "treatment": "None",
+      "chip_sample_id": "202908540307_R01C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958626/suppl/GSM8958626_202908540307_R01C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958626/suppl/GSM8958626_202908540307_R01C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958626"
+    },
+    {
+      "gsm": "GSM8958627",
+      "title": "EPC 96 harvested at D0 , treatment: None",
+      "donor_genotype": "96",
+      "sex": "male",
+      "cell_type": "EPC",
+      "harvest_stage": "D0",
+      "treatment": "None",
+      "chip_sample_id": "202908540307_R02C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958627/suppl/GSM8958627_202908540307_R02C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958627/suppl/GSM8958627_202908540307_R02C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958627"
+    },
+    {
+      "gsm": "GSM8958628",
+      "title": "iNSC 107 harvested at LP , treatment: None",
+      "donor_genotype": "107",
+      "sex": "male",
+      "cell_type": "iNSC",
+      "harvest_stage": "LP",
+      "treatment": "None",
+      "chip_sample_id": "202908540307_R03C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958628/suppl/GSM8958628_202908540307_R03C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958628/suppl/GSM8958628_202908540307_R03C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958628"
+    },
+    {
+      "gsm": "GSM8958629",
+      "title": "EPC 107 harvested at D0 , treatment: None",
+      "donor_genotype": "107",
+      "sex": "male",
+      "cell_type": "EPC",
+      "harvest_stage": "D0",
+      "treatment": "None",
+      "chip_sample_id": "202908540307_R04C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958629/suppl/GSM8958629_202908540307_R04C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958629/suppl/GSM8958629_202908540307_R04C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958629"
+    },
+    {
+      "gsm": "GSM8958630",
+      "title": "iNSC 96 harvested at LP , treatment: None",
+      "donor_genotype": "96",
+      "sex": "male",
+      "cell_type": "iNSC",
+      "harvest_stage": "LP",
+      "treatment": "None",
+      "chip_sample_id": "202908540307_R05C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958630/suppl/GSM8958630_202908540307_R05C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958630/suppl/GSM8958630_202908540307_R05C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958630"
+    },
+    {
+      "gsm": "GSM8958631",
+      "title": "iNSC 33 harvested at LP , treatment: None",
+      "donor_genotype": "33",
+      "sex": "female",
+      "cell_type": "iNSC",
+      "harvest_stage": "LP",
+      "treatment": "None",
+      "chip_sample_id": "202908540307_R06C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958631/suppl/GSM8958631_202908540307_R06C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958631/suppl/GSM8958631_202908540307_R06C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958631"
+    },
+    {
+      "gsm": "GSM8958632",
+      "title": "iNSC 225 harvested at LP , treatment: None",
+      "donor_genotype": "225",
+      "sex": "male",
+      "cell_type": "iNSC",
+      "harvest_stage": "LP",
+      "treatment": "None",
+      "chip_sample_id": "202908540277_R04C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958632/suppl/GSM8958632_202908540277_R04C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958632/suppl/GSM8958632_202908540277_R04C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958632"
+    },
+    {
+      "gsm": "GSM8958633",
+      "title": "iNSC 224 harvested at LP , treatment: None",
+      "donor_genotype": "224",
+      "sex": "male",
+      "cell_type": "iNSC",
+      "harvest_stage": "LP",
+      "treatment": "None",
+      "chip_sample_id": "202908540277_R05C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958633/suppl/GSM8958633_202908540277_R05C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958633/suppl/GSM8958633_202908540277_R05C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958633"
+    },
+    {
+      "gsm": "GSM8958634",
+      "title": "EPC 224 harvested at D0 , treatment: None",
+      "donor_genotype": "224",
+      "sex": "male",
+      "cell_type": "EPC",
+      "harvest_stage": "D0",
+      "treatment": "None",
+      "chip_sample_id": "202908540312_R02C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958634/suppl/GSM8958634_202908540312_R02C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958634/suppl/GSM8958634_202908540312_R02C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958634"
+    },
+    {
+      "gsm": "GSM8958635",
+      "title": "EPC 225 harvested at D0 , treatment: None",
+      "donor_genotype": "225",
+      "sex": "male",
+      "cell_type": "EPC",
+      "harvest_stage": "D0",
+      "treatment": "None",
+      "chip_sample_id": "202908540312_R03C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958635/suppl/GSM8958635_202908540312_R03C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958635/suppl/GSM8958635_202908540312_R03C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958635"
+    },
+    {
+      "gsm": "GSM8958636",
+      "title": "EPC 229 harvested at D0 , treatment: None",
+      "donor_genotype": "229",
+      "sex": "male",
+      "cell_type": "EPC",
+      "harvest_stage": "D0",
+      "treatment": "None",
+      "chip_sample_id": "202908540312_R04C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958636/suppl/GSM8958636_202908540312_R04C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958636/suppl/GSM8958636_202908540312_R04C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958636"
+    },
+    {
+      "gsm": "GSM8958637",
+      "title": "iNSC 229 harvested at LP , treatment: None",
+      "donor_genotype": "229",
+      "sex": "male",
+      "cell_type": "iNSC",
+      "harvest_stage": "LP",
+      "treatment": "None",
+      "chip_sample_id": "202908540312_R08C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958637/suppl/GSM8958637_202908540312_R08C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958637/suppl/GSM8958637_202908540312_R08C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958637"
+    },
+    {
+      "gsm": "GSM8958638",
+      "title": "EPC 288 harvested at D0 , treatment: None",
+      "donor_genotype": "288",
+      "sex": "male",
+      "cell_type": "EPC",
+      "harvest_stage": "D0",
+      "treatment": "None",
+      "chip_sample_id": "204027260051_R01C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958638/suppl/GSM8958638_204027260051_R01C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958638/suppl/GSM8958638_204027260051_R01C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958638",
+      "epigenetic_age_years": 73.57041,
+      "clock_status": "PASS_COMPUTED_IN_PRIOR_RUN"
+    },
+    {
+      "gsm": "GSM8958639",
+      "title": "iNSC 288 harvested at D14 , treatment: None",
+      "donor_genotype": "288",
+      "sex": "male",
+      "cell_type": "iNSC",
+      "harvest_stage": "D14",
+      "treatment": "None",
+      "chip_sample_id": "204027260051_R02C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958639/suppl/GSM8958639_204027260051_R02C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958639/suppl/GSM8958639_204027260051_R02C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958639",
+      "epigenetic_age_years": 51.7148,
+      "clock_status": "PASS_COMPUTED_IN_PRIOR_RUN"
+    },
+    {
+      "gsm": "GSM8958640",
+      "title": "iNSC 288 harvested at D26 , treatment: None",
+      "donor_genotype": "288",
+      "sex": "male",
+      "cell_type": "iNSC",
+      "harvest_stage": "D26",
+      "treatment": "None",
+      "chip_sample_id": "204027260051_R05C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958640/suppl/GSM8958640_204027260051_R05C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958640/suppl/GSM8958640_204027260051_R05C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958640",
+      "epigenetic_age_years": 34.88853,
+      "clock_status": "PASS_COMPUTED_IN_PRIOR_RUN"
+    },
+    {
+      "gsm": "GSM8958641",
+      "title": "iNSC 288 harvested at LP , treatment: None 1",
+      "donor_genotype": "288",
+      "sex": "male",
+      "cell_type": "iNSC",
+      "harvest_stage": "LP",
+      "treatment": "None",
+      "chip_sample_id": "204027260051_R06C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958641/suppl/GSM8958641_204027260051_R06C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958641/suppl/GSM8958641_204027260051_R06C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958641",
+      "epigenetic_age_years": 5.73309,
+      "clock_status": "PASS_COMPUTED_IN_PRIOR_RUN"
+    },
+    {
+      "gsm": "GSM8958642",
+      "title": "EPC 286 harvested at D0 , treatment: None",
+      "donor_genotype": "286",
+      "sex": "female",
+      "cell_type": "EPC",
+      "harvest_stage": "D0",
+      "treatment": "None",
+      "chip_sample_id": "205022030001_R01C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958642/suppl/GSM8958642_205022030001_R01C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958642/suppl/GSM8958642_205022030001_R01C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958642"
+    },
+    {
+      "gsm": "GSM8958643",
+      "title": "EPC 287 harvested at D0 , treatment: None",
+      "donor_genotype": "287",
+      "sex": "female",
+      "cell_type": "EPC",
+      "harvest_stage": "D0",
+      "treatment": "None",
+      "chip_sample_id": "205022030001_R02C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958643/suppl/GSM8958643_205022030001_R02C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958643/suppl/GSM8958643_205022030001_R02C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958643"
+    },
+    {
+      "gsm": "GSM8958644",
+      "title": "iNSC 286 harvested at D14 , treatment: None",
+      "donor_genotype": "286",
+      "sex": "female",
+      "cell_type": "iNSC",
+      "harvest_stage": "D14",
+      "treatment": "None",
+      "chip_sample_id": "205022030001_R03C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958644/suppl/GSM8958644_205022030001_R03C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958644/suppl/GSM8958644_205022030001_R03C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958644"
+    },
+    {
+      "gsm": "GSM8958645",
+      "title": "iNSC 287 harvested at D14 , treatment: None",
+      "donor_genotype": "287",
+      "sex": "female",
+      "cell_type": "iNSC",
+      "harvest_stage": "D14",
+      "treatment": "None",
+      "chip_sample_id": "205022030001_R04C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958645/suppl/GSM8958645_205022030001_R04C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958645/suppl/GSM8958645_205022030001_R04C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958645"
+    },
+    {
+      "gsm": "GSM8958646",
+      "title": "iNSC 286 harvested at LP , treatment: None",
+      "donor_genotype": "286",
+      "sex": "female",
+      "cell_type": "iNSC",
+      "harvest_stage": "LP",
+      "treatment": "None",
+      "chip_sample_id": "205022030001_R08C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958646/suppl/GSM8958646_205022030001_R08C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958646/suppl/GSM8958646_205022030001_R08C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958646"
+    },
+    {
+      "gsm": "GSM8958647",
+      "title": "iNSC 287 harvested at LP , treatment: None 1",
+      "donor_genotype": "287",
+      "sex": "female",
+      "cell_type": "iNSC",
+      "harvest_stage": "LP",
+      "treatment": "None",
+      "chip_sample_id": "205022030002_R03C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958647/suppl/GSM8958647_205022030002_R03C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958647/suppl/GSM8958647_205022030002_R03C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958647"
+    },
+    {
+      "gsm": "GSM8958648",
+      "title": "iNSC 288 harvested at LP , treatment: None 2",
+      "donor_genotype": "288",
+      "sex": "male",
+      "cell_type": "iNSC",
+      "harvest_stage": "LP",
+      "treatment": "None",
+      "chip_sample_id": "204027260051_R03C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958648/suppl/GSM8958648_204027260051_R03C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958648/suppl/GSM8958648_204027260051_R03C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958648",
+      "epigenetic_age_years": 12.2981,
+      "clock_status": "PASS_COMPUTED_IN_PRIOR_RUN"
+    },
+    {
+      "gsm": "GSM8958649",
+      "title": "iNSC 288 harvested at LP , treatment: NGN2",
+      "donor_genotype": "288",
+      "sex": "male",
+      "cell_type": "iNSC",
+      "harvest_stage": "LP",
+      "treatment": "NGN2",
+      "chip_sample_id": "204027260051_R04C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958649/suppl/GSM8958649_204027260051_R04C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958649/suppl/GSM8958649_204027260051_R04C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958649",
+      "epigenetic_age_years": 15.23967,
+      "clock_status": "PASS_COMPUTED_IN_PRIOR_RUN"
+    },
+    {
+      "gsm": "GSM8958650",
+      "title": "iNSC 288 harvested at LP , treatment: Glycerol",
+      "donor_genotype": "288",
+      "sex": "male",
+      "cell_type": "iNSC",
+      "harvest_stage": "LP",
+      "treatment": "Glycerol",
+      "chip_sample_id": "204027260051_R07C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958650/suppl/GSM8958650_204027260051_R07C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958650/suppl/GSM8958650_204027260051_R07C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958650",
+      "epigenetic_age_years": 12.53862,
+      "clock_status": "PASS_COMPUTED_IN_PRIOR_RUN"
+    },
+    {
+      "gsm": "GSM8958651",
+      "title": "iNSC 288 harvested at LP , treatment: Thymidine",
+      "donor_genotype": "288",
+      "sex": "male",
+      "cell_type": "iNSC",
+      "harvest_stage": "LP",
+      "treatment": "Thymidine",
+      "chip_sample_id": "204027260051_R08C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958651/suppl/GSM8958651_204027260051_R08C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958651/suppl/GSM8958651_204027260051_R08C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958651",
+      "epigenetic_age_years": 5.58458,
+      "clock_status": "PASS_COMPUTED_IN_PRIOR_RUN"
+    },
+    {
+      "gsm": "GSM8958652",
+      "title": "iNSC 287 harvested at LP , treatment: None 2",
+      "donor_genotype": "287",
+      "sex": "female",
+      "cell_type": "iNSC",
+      "harvest_stage": "LP",
+      "treatment": "None",
+      "chip_sample_id": "205022030001_R05C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958652/suppl/GSM8958652_205022030001_R05C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958652/suppl/GSM8958652_205022030001_R05C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958652"
+    },
+    {
+      "gsm": "GSM8958653",
+      "title": "iNSC 286 harvested at LP , treatment: NGN2",
+      "donor_genotype": "286",
+      "sex": "female",
+      "cell_type": "iNSC",
+      "harvest_stage": "LP",
+      "treatment": "NGN2",
+      "chip_sample_id": "205022030001_R06C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958653/suppl/GSM8958653_205022030001_R06C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958653/suppl/GSM8958653_205022030001_R06C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958653"
+    },
+    {
+      "gsm": "GSM8958654",
+      "title": "iNSC 287 harvested at LP , treatment: NGN2",
+      "donor_genotype": "287",
+      "sex": "female",
+      "cell_type": "iNSC",
+      "harvest_stage": "LP",
+      "treatment": "NGN2",
+      "chip_sample_id": "205022030001_R07C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958654/suppl/GSM8958654_205022030001_R07C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958654/suppl/GSM8958654_205022030001_R07C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958654"
+    },
+    {
+      "gsm": "GSM8958655",
+      "title": "iNSC 286 harvested at LP , treatment: Glycerol",
+      "donor_genotype": "286",
+      "sex": "female",
+      "cell_type": "iNSC",
+      "harvest_stage": "LP",
+      "treatment": "Glycerol",
+      "chip_sample_id": "205022030002_R01C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958655/suppl/GSM8958655_205022030002_R01C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958655/suppl/GSM8958655_205022030002_R01C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958655"
+    },
+    {
+      "gsm": "GSM8958656",
+      "title": "iNSC 286 harvested at LP , treatment: Thymidine",
+      "donor_genotype": "286",
+      "sex": "female",
+      "cell_type": "iNSC",
+      "harvest_stage": "LP",
+      "treatment": "Thymidine",
+      "chip_sample_id": "205022030002_R02C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958656/suppl/GSM8958656_205022030002_R02C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958656/suppl/GSM8958656_205022030002_R02C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958656"
+    },
+    {
+      "gsm": "GSM8958657",
+      "title": "iNSC 287 harvested at LP , treatment: Glycerol",
+      "donor_genotype": "287",
+      "sex": "female",
+      "cell_type": "iNSC",
+      "harvest_stage": "LP",
+      "treatment": "Glycerol",
+      "chip_sample_id": "205022030002_R04C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958657/suppl/GSM8958657_205022030002_R04C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958657/suppl/GSM8958657_205022030002_R04C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958657"
+    },
+    {
+      "gsm": "GSM8958658",
+      "title": "iNSC 287 harvested at LP , treatment: Thymidine",
+      "donor_genotype": "287",
+      "sex": "female",
+      "cell_type": "iNSC",
+      "harvest_stage": "LP",
+      "treatment": "Thymidine",
+      "chip_sample_id": "205022030002_R05C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958658/suppl/GSM8958658_205022030002_R05C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958658/suppl/GSM8958658_205022030002_R05C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958658"
+    },
+    {
+      "gsm": "GSM8958659",
+      "title": "smNPC 224 harvested at LP , treatment: None",
+      "donor_genotype": "224",
+      "sex": "male",
+      "cell_type": "smNPC",
+      "harvest_stage": "LP",
+      "treatment": "None",
+      "chip_sample_id": "202908540277_R06C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958659/suppl/GSM8958659_202908540277_R06C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958659/suppl/GSM8958659_202908540277_R06C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958659"
+    },
+    {
+      "gsm": "GSM8958660",
+      "title": "smNPC 225 harvested at LP , treatment: None",
+      "donor_genotype": "225",
+      "sex": "male",
+      "cell_type": "smNPC",
+      "harvest_stage": "LP",
+      "treatment": "None",
+      "chip_sample_id": "202908540277_R07C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958660/suppl/GSM8958660_202908540277_R07C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958660/suppl/GSM8958660_202908540277_R07C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958660"
+    },
+    {
+      "gsm": "GSM8958661",
+      "title": "smNPC 229 harvested at LP , treatment: None",
+      "donor_genotype": "229",
+      "sex": "male",
+      "cell_type": "smNPC",
+      "harvest_stage": "LP",
+      "treatment": "None",
+      "chip_sample_id": "202908540277_R08C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958661/suppl/GSM8958661_202908540277_R08C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958661/suppl/GSM8958661_202908540277_R08C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958661"
+    },
+    {
+      "gsm": "GSM8958662",
+      "title": "smNPC 107 harvested at LP , treatment: None",
+      "donor_genotype": "107",
+      "sex": "male",
+      "cell_type": "smNPC",
+      "harvest_stage": "LP",
+      "treatment": "None",
+      "chip_sample_id": "202908540307_R07C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958662/suppl/GSM8958662_202908540307_R07C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958662/suppl/GSM8958662_202908540307_R07C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958662"
+    },
+    {
+      "gsm": "GSM8958663",
+      "title": "smNPC 96 harvested at LP , treatment: None",
+      "donor_genotype": "96",
+      "sex": "male",
+      "cell_type": "smNPC",
+      "harvest_stage": "LP",
+      "treatment": "None",
+      "chip_sample_id": "202908540307_R08C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958663/suppl/GSM8958663_202908540307_R08C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958663/suppl/GSM8958663_202908540307_R08C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958663"
+    },
+    {
+      "gsm": "GSM8958664",
+      "title": "smNPC 33 harvested at LP , treatment: None",
+      "donor_genotype": "33",
+      "sex": "female",
+      "cell_type": "smNPC",
+      "harvest_stage": "LP",
+      "treatment": "None",
+      "chip_sample_id": "202908540312_R01C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958664/suppl/GSM8958664_202908540312_R01C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958664/suppl/GSM8958664_202908540312_R01C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958664"
+    },
+    {
+      "gsm": "GSM8958665",
+      "title": "smNPC 190 harvested at LP , treatment: None",
+      "donor_genotype": "190",
+      "sex": "male",
+      "cell_type": "smNPC",
+      "harvest_stage": "LP",
+      "treatment": "None",
+      "chip_sample_id": "202908540312_R05C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958665/suppl/GSM8958665_202908540312_R05C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958665/suppl/GSM8958665_202908540312_R05C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958665"
+    },
+    {
+      "gsm": "GSM8958666",
+      "title": "smNPC 216 harvested at LP , treatment: None",
+      "donor_genotype": "216",
+      "sex": "male",
+      "cell_type": "smNPC",
+      "harvest_stage": "LP",
+      "treatment": "None",
+      "chip_sample_id": "202908540312_R06C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958666/suppl/GSM8958666_202908540312_R06C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958666/suppl/GSM8958666_202908540312_R06C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958666"
+    },
+    {
+      "gsm": "GSM8958667",
+      "title": "smNPC 218 harvested at LP , treatment: None",
+      "donor_genotype": "218",
+      "sex": "male",
+      "cell_type": "smNPC",
+      "harvest_stage": "LP",
+      "treatment": "None",
+      "chip_sample_id": "202908540312_R07C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958667/suppl/GSM8958667_202908540312_R07C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958667/suppl/GSM8958667_202908540312_R07C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958667"
+    },
+    {
+      "gsm": "GSM8958668",
+      "title": "iNSC 216 harvested at LP , treatment: None 2",
+      "donor_genotype": "216",
+      "sex": "male",
+      "cell_type": "iNSC",
+      "harvest_stage": "LP",
+      "treatment": "None",
+      "chip_sample_id": "201868500266_R05C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958668/suppl/GSM8958668_201868500266_R05C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958668/suppl/GSM8958668_201868500266_R05C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958668"
+    },
+    {
+      "gsm": "GSM8958669",
+      "title": "iNSC 218 harvested at LP , treatment: None 2",
+      "donor_genotype": "218",
+      "sex": "male",
+      "cell_type": "iNSC",
+      "harvest_stage": "LP",
+      "treatment": "None",
+      "chip_sample_id": "201868500266_R04C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958669/suppl/GSM8958669_201868500266_R04C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958669/suppl/GSM8958669_201868500266_R04C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958669"
+    },
+    {
+      "gsm": "GSM8958670",
+      "title": "iNSC 190 harvested at LP , treatment: None 2",
+      "donor_genotype": "190",
+      "sex": "male",
+      "cell_type": "iNSC",
+      "harvest_stage": "LP",
+      "treatment": "None",
+      "chip_sample_id": "201868500266_R07C01",
+      "chip_count": 1,
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958670/suppl/GSM8958670_201868500266_R07C01_Grn.idat.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8958nnn/GSM8958670/suppl/GSM8958670_201868500266_R07C01_Red.idat.gz"
+      ],
+      "geo_sample_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8958670"
+    }
+  ],
+  "paired_donor_288": {
+    "donor_genotype": "288",
+    "baseline_gsm": "GSM8958638",
+    "baseline_age_years": 73.57041,
+    "comparisons": [
+      {
+        "chip_sample_id": "204027260051_R01C01",
+        "gsm": "GSM8958638",
+        "stage": "D0",
+        "treatment": "None",
+        "title": "EPC 288 harvested at D0 , treatment: None",
+        "age_years": 73.57041,
+        "delta_vs_EPC_D0_years": 0,
+        "relative_reduction_pct": 0
+      },
+      {
+        "chip_sample_id": "204027260051_R02C01",
+        "gsm": "GSM8958639",
+        "stage": "D14",
+        "treatment": "None",
+        "title": "iNSC 288 harvested at D14 , treatment: None",
+        "age_years": 51.7148,
+        "delta_vs_EPC_D0_years": -21.85561,
+        "relative_reduction_pct": 29.707
+      },
+      {
+        "chip_sample_id": "204027260051_R05C01",
+        "gsm": "GSM8958640",
+        "stage": "D26",
+        "treatment": "None",
+        "title": "iNSC 288 harvested at D26 , treatment: None",
+        "age_years": 34.88853,
+        "delta_vs_EPC_D0_years": -38.68188,
+        "relative_reduction_pct": 52.578
+      },
+      {
+        "chip_sample_id": "204027260051_R06C01",
+        "gsm": "GSM8958641",
+        "stage": "LP",
+        "treatment": "None",
+        "title": "iNSC 288 harvested at LP , treatment: None 1",
+        "age_years": 5.73309,
+        "delta_vs_EPC_D0_years": -67.83732,
+        "relative_reduction_pct": 92.207
+      },
+      {
+        "chip_sample_id": "204027260051_R03C01",
+        "gsm": "GSM8958648",
+        "stage": "LP",
+        "treatment": "None",
+        "title": "iNSC 288 harvested at LP , treatment: None 2",
+        "age_years": 12.2981,
+        "delta_vs_EPC_D0_years": -61.27231,
+        "relative_reduction_pct": 83.284
+      },
+      {
+        "chip_sample_id": "204027260051_R04C01",
+        "gsm": "GSM8958649",
+        "stage": "LP",
+        "treatment": "NGN2",
+        "title": "iNSC 288 harvested at LP , treatment: NGN2",
+        "age_years": 15.23967,
+        "delta_vs_EPC_D0_years": -58.33074,
+        "relative_reduction_pct": 79.286
+      },
+      {
+        "chip_sample_id": "204027260051_R07C01",
+        "gsm": "GSM8958650",
+        "stage": "LP",
+        "treatment": "Glycerol",
+        "title": "iNSC 288 harvested at LP , treatment: Glycerol",
+        "age_years": 12.53862,
+        "delta_vs_EPC_D0_years": -61.03179,
+        "relative_reduction_pct": 82.957
+      },
+      {
+        "chip_sample_id": "204027260051_R08C01",
+        "gsm": "GSM8958651",
+        "stage": "LP",
+        "treatment": "Thymidine",
+        "title": "iNSC 288 harvested at LP , treatment: Thymidine",
+        "age_years": 5.58458,
+        "delta_vs_EPC_D0_years": -67.98583,
+        "relative_reduction_pct": 92.409
+      }
+    ],
+    "untreated_lp_sample_count": 2,
+    "untreated_lp_mean_years": 9.01559,
+    "untreated_lp_minus_baseline_years": -64.55481,
+    "untreated_lp_relative_reduction_pct": 87.746,
+    "independent_biological_donors": 1,
+    "statistical_test": "NOT_APPLICABLE_N_ONE_DONOR"
+  },
+  "decision": "PASS_LITERAL_GSM_CHIP_60;PASS_PAIRED_DONOR288_DESCRIPTIVE_ONLY;PARTIAL_CLOCK_8_OF_60",
+  "exclusions": [
+    "No unpaired GSM compared by physical chip adjacency",
+    "No naive treatment inference from sample title suffix None 1/2",
+    "No clinical effect inference",
+    "No comparison to axolotl demonstrated"
+  ],
+  "negative_controls": {
+    "GSE74387": "FAIL_RETAINED",
+    "donor_age_independence": "UNVERIFIED",
+    "stem_cell_fate_confounding": "NOT_EXCLUDED"
+  }
+}

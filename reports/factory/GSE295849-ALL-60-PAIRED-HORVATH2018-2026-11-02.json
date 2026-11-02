@@ -1,0 +1,921 @@
+{
+  "schema": "BIO-MIMIC-X/GSE295849-ALL-60-PAIRED-HORVATH2018/1",
+  "status": "PASS_DESCRIPTIVE_PAIRED_CLOCK_ESTIMATION;PARTIAL_BIOLOGICAL_CAUSALITY",
+  "source": "NCBI GSE295849",
+  "source_provenance": "Official GSE295849 beta matrices: each compressed SHA-256 matches a previously verified original file; 60 sample GSM/chip crosswalk from NCBI GEO public SOFT text; raw SOFT gzip SHA unavailable",
+  "clock": "Horvath 2018 Skin & Blood (391 CpGs)",
+  "model_sha256": "56f8ce6567170ce5427f24803d30a2f0e3f6d3735b44100af02521fcd7c18027",
+  "sources": [
+    {
+      "part": "1",
+      "sha256": "c13d9efcb094e57d8f69f819440620de671bd398b45e8c24c29194aa7f228d32",
+      "sample_columns": 39,
+      "cpg_rows": 866091,
+      "clock_status": "PASS_INDEPENDENT_CLOCK_ESTIMATION_UNGROUPED"
+    },
+    {
+      "part": "2",
+      "sha256": "4ca091cef1128ddcea24e6c2b349c038ae1de8dc4eb302f7f218304e17479fcd",
+      "sample_columns": 13,
+      "cpg_rows": 866238,
+      "clock_status": "PASS_INDEPENDENT_CLOCK_ESTIMATION_UNGROUPED"
+    },
+    {
+      "part": "3",
+      "sha256": "fa92b4124a5bd7c69a878ae4557d2def91b1698203fc975fe63003de27640f2d",
+      "sample_columns": 8,
+      "cpg_rows": 866091,
+      "clock_status": "PASS_INDEPENDENT_CLOCK_ESTIMATION_UNGROUPED"
+    }
+  ],
+  "evidence_run": "https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/41364676553",
+  "evidence_job_id": 125022203236,
+  "sample_level_ages": [
+    {
+      "gsm": "GSM8958611",
+      "chip_sample_id": "201868590057_R03C01",
+      "donor_genotype": "216",
+      "cell_type": "EPC",
+      "stage": "D0",
+      "treatment": "None",
+      "clock_age_years": 82.83137,
+      "clock_score": 2.99196977,
+      "part": "1"
+    },
+    {
+      "gsm": "GSM8958612",
+      "chip_sample_id": "201868590057_R05C01",
+      "donor_genotype": "218",
+      "cell_type": "EPC",
+      "stage": "D0",
+      "treatment": "None",
+      "clock_age_years": 83.56404,
+      "clock_score": 3.02685911,
+      "part": "1"
+    },
+    {
+      "gsm": "GSM8958613",
+      "chip_sample_id": "201868590057_R06C01",
+      "donor_genotype": "190",
+      "cell_type": "iNSC",
+      "stage": "D14",
+      "treatment": "None",
+      "clock_age_years": 26.41843,
+      "clock_score": 0.3056394,
+      "part": "1"
+    },
+    {
+      "gsm": "GSM8958614",
+      "chip_sample_id": "201868590057_R07C01",
+      "donor_genotype": "216",
+      "cell_type": "iNSC",
+      "stage": "D14",
+      "treatment": "None",
+      "clock_age_years": 65.1072,
+      "clock_score": 2.14796193,
+      "part": "1"
+    },
+    {
+      "gsm": "GSM8958615",
+      "chip_sample_id": "201868590057_R08C01",
+      "donor_genotype": "218",
+      "cell_type": "iNSC",
+      "stage": "D14",
+      "treatment": "None",
+      "clock_age_years": 61.2234,
+      "clock_score": 1.96301922,
+      "part": "1"
+    },
+    {
+      "gsm": "GSM8958616",
+      "chip_sample_id": "201868500266_R01C01",
+      "donor_genotype": "190",
+      "cell_type": "iNSC",
+      "stage": "LP",
+      "treatment": "None",
+      "clock_age_years": 6.53978,
+      "clock_score": -1.02432949,
+      "part": "1"
+    },
+    {
+      "gsm": "GSM8958617",
+      "chip_sample_id": "201868500266_R03C01",
+      "donor_genotype": "218",
+      "cell_type": "iNSC",
+      "stage": "LP",
+      "treatment": "None",
+      "clock_age_years": 11.05625,
+      "clock_score": -0.55493954,
+      "part": "1"
+    },
+    {
+      "gsm": "GSM8958618",
+      "chip_sample_id": "201868500266_R06C01",
+      "donor_genotype": "216",
+      "cell_type": "iNSC",
+      "stage": "LP",
+      "treatment": "None",
+      "clock_age_years": 15.04874,
+      "clock_score": -0.2688919,
+      "part": "1"
+    },
+    {
+      "gsm": "GSM8958619",
+      "chip_sample_id": "201868500266_R08C01",
+      "donor_genotype": "190",
+      "cell_type": "EPC",
+      "stage": "D0",
+      "treatment": "None",
+      "clock_age_years": 47.51423,
+      "clock_score": 1.31020158,
+      "part": "1"
+    },
+    {
+      "gsm": "GSM8958620",
+      "chip_sample_id": "203077630114_R02C01",
+      "donor_genotype": "216",
+      "cell_type": "iNSC",
+      "stage": "HP",
+      "treatment": "None",
+      "clock_age_years": 4.03547,
+      "clock_score": -1.42801545,
+      "part": "1"
+    },
+    {
+      "gsm": "GSM8958621",
+      "chip_sample_id": "203077630114_R03C01",
+      "donor_genotype": "190",
+      "cell_type": "iNSC",
+      "stage": "HP",
+      "treatment": "None",
+      "clock_age_years": 3.40044,
+      "clock_score": -1.56281827,
+      "part": "1"
+    },
+    {
+      "gsm": "GSM8958622",
+      "chip_sample_id": "203077630114_R04C01",
+      "donor_genotype": "218",
+      "cell_type": "iNSC",
+      "stage": "HP",
+      "treatment": "None",
+      "clock_age_years": 4.06422,
+      "clock_score": -1.42232258,
+      "part": "1"
+    },
+    {
+      "gsm": "GSM8958623",
+      "chip_sample_id": "203077630114_R05C01",
+      "donor_genotype": "190",
+      "cell_type": "iNSC",
+      "stage": "D26",
+      "treatment": "None",
+      "clock_age_years": 13.12876,
+      "clock_score": -0.39631012,
+      "part": "1"
+    },
+    {
+      "gsm": "GSM8958624",
+      "chip_sample_id": "203077630114_R06C01",
+      "donor_genotype": "216",
+      "cell_type": "iNSC",
+      "stage": "D26",
+      "treatment": "None",
+      "clock_age_years": 35.98818,
+      "clock_score": 0.76134181,
+      "part": "1"
+    },
+    {
+      "gsm": "GSM8958625",
+      "chip_sample_id": "203077630114_R07C01",
+      "donor_genotype": "218",
+      "cell_type": "iNSC",
+      "stage": "D26",
+      "treatment": "None",
+      "clock_age_years": 35.82638,
+      "clock_score": 0.753637,
+      "part": "1"
+    },
+    {
+      "gsm": "GSM8958626",
+      "chip_sample_id": "202908540307_R01C01",
+      "donor_genotype": "33",
+      "cell_type": "EPC",
+      "stage": "D0",
+      "treatment": "None",
+      "clock_age_years": 44.09702,
+      "clock_score": 1.14747707,
+      "part": "1"
+    },
+    {
+      "gsm": "GSM8958627",
+      "chip_sample_id": "202908540307_R02C01",
+      "donor_genotype": "96",
+      "cell_type": "EPC",
+      "stage": "D0",
+      "treatment": "None",
+      "clock_age_years": 31.14543,
+      "clock_score": 0.53073497,
+      "part": "1"
+    },
+    {
+      "gsm": "GSM8958628",
+      "chip_sample_id": "202908540307_R03C01",
+      "donor_genotype": "107",
+      "cell_type": "iNSC",
+      "stage": "LP",
+      "treatment": "None",
+      "clock_age_years": 6.40826,
+      "clock_score": -1.04192691,
+      "part": "1"
+    },
+    {
+      "gsm": "GSM8958629",
+      "chip_sample_id": "202908540307_R04C01",
+      "donor_genotype": "107",
+      "cell_type": "EPC",
+      "stage": "D0",
+      "treatment": "None",
+      "clock_age_years": 38.16452,
+      "clock_score": 0.86497709,
+      "part": "1"
+    },
+    {
+      "gsm": "GSM8958630",
+      "chip_sample_id": "202908540307_R05C01",
+      "donor_genotype": "96",
+      "cell_type": "iNSC",
+      "stage": "LP",
+      "treatment": "None",
+      "clock_age_years": 4.05873,
+      "clock_score": -1.42340764,
+      "part": "1"
+    },
+    {
+      "gsm": "GSM8958631",
+      "chip_sample_id": "202908540307_R06C01",
+      "donor_genotype": "33",
+      "cell_type": "iNSC",
+      "stage": "LP",
+      "treatment": "None",
+      "clock_age_years": 2.55804,
+      "clock_score": -1.77531326,
+      "part": "1"
+    },
+    {
+      "gsm": "GSM8958632",
+      "chip_sample_id": "202908540277_R04C01",
+      "donor_genotype": "225",
+      "cell_type": "iNSC",
+      "stage": "LP",
+      "treatment": "None",
+      "clock_age_years": -0.25898,
+      "clock_score": -3.34425557,
+      "part": "1"
+    },
+    {
+      "gsm": "GSM8958633",
+      "chip_sample_id": "202908540277_R05C01",
+      "donor_genotype": "224",
+      "cell_type": "iNSC",
+      "stage": "LP",
+      "treatment": "None",
+      "clock_age_years": 0.0404,
+      "clock_score": -3.00492195,
+      "part": "1"
+    },
+    {
+      "gsm": "GSM8958634",
+      "chip_sample_id": "202908540312_R02C01",
+      "donor_genotype": "224",
+      "cell_type": "EPC",
+      "stage": "D0",
+      "treatment": "None",
+      "clock_age_years": 0.59136,
+      "clock_score": -2.57993147,
+      "part": "1"
+    },
+    {
+      "gsm": "GSM8958635",
+      "chip_sample_id": "202908540312_R03C01",
+      "donor_genotype": "225",
+      "cell_type": "EPC",
+      "stage": "D0",
+      "treatment": "None",
+      "clock_age_years": 0.4219,
+      "clock_score": -2.69253054,
+      "part": "1"
+    },
+    {
+      "gsm": "GSM8958636",
+      "chip_sample_id": "202908540312_R04C01",
+      "donor_genotype": "229",
+      "cell_type": "EPC",
+      "stage": "D0",
+      "treatment": "None",
+      "clock_age_years": 0.43551,
+      "clock_score": -2.68300416,
+      "part": "1"
+    },
+    {
+      "gsm": "GSM8958637",
+      "chip_sample_id": "202908540312_R08C01",
+      "donor_genotype": "229",
+      "cell_type": "iNSC",
+      "stage": "LP",
+      "treatment": "None",
+      "clock_age_years": -0.15053,
+      "clock_score": -3.20766518,
+      "part": "1"
+    },
+    {
+      "gsm": "GSM8958638",
+      "chip_sample_id": "204027260051_R01C01",
+      "donor_genotype": "288",
+      "cell_type": "EPC",
+      "stage": "D0",
+      "treatment": "None",
+      "clock_age_years": 73.57041,
+      "clock_score": 2.55097192,
+      "part": "3"
+    },
+    {
+      "gsm": "GSM8958639",
+      "chip_sample_id": "204027260051_R02C01",
+      "donor_genotype": "288",
+      "cell_type": "iNSC",
+      "stage": "D14",
+      "treatment": "None",
+      "clock_age_years": 51.7148,
+      "clock_score": 1.51022835,
+      "part": "3"
+    },
+    {
+      "gsm": "GSM8958640",
+      "chip_sample_id": "204027260051_R05C01",
+      "donor_genotype": "288",
+      "cell_type": "iNSC",
+      "stage": "D26",
+      "treatment": "None",
+      "clock_age_years": 34.88853,
+      "clock_score": 0.70897759,
+      "part": "3"
+    },
+    {
+      "gsm": "GSM8958641",
+      "chip_sample_id": "204027260051_R06C01",
+      "donor_genotype": "288",
+      "cell_type": "iNSC",
+      "stage": "LP",
+      "treatment": "None",
+      "clock_age_years": 5.73309,
+      "clock_score": -1.13748891,
+      "part": "3"
+    },
+    {
+      "gsm": "GSM8958642",
+      "chip_sample_id": "205022030001_R01C01",
+      "donor_genotype": "286",
+      "cell_type": "EPC",
+      "stage": "D0",
+      "treatment": "None",
+      "clock_age_years": 71.2977,
+      "clock_score": 2.44274756,
+      "part": "2"
+    },
+    {
+      "gsm": "GSM8958643",
+      "chip_sample_id": "205022030001_R02C01",
+      "donor_genotype": "287",
+      "cell_type": "EPC",
+      "stage": "D0",
+      "treatment": "None",
+      "clock_age_years": 67.90074,
+      "clock_score": 2.28098758,
+      "part": "2"
+    },
+    {
+      "gsm": "GSM8958644",
+      "chip_sample_id": "205022030001_R03C01",
+      "donor_genotype": "286",
+      "cell_type": "iNSC",
+      "stage": "D14",
+      "treatment": "None",
+      "clock_age_years": 56.00079,
+      "clock_score": 1.71432357,
+      "part": "2"
+    },
+    {
+      "gsm": "GSM8958645",
+      "chip_sample_id": "205022030001_R04C01",
+      "donor_genotype": "287",
+      "cell_type": "iNSC",
+      "stage": "D14",
+      "treatment": "None",
+      "clock_age_years": 49.4979,
+      "clock_score": 1.40466174,
+      "part": "2"
+    },
+    {
+      "gsm": "GSM8958646",
+      "chip_sample_id": "205022030001_R08C01",
+      "donor_genotype": "286",
+      "cell_type": "iNSC",
+      "stage": "LP",
+      "treatment": "None",
+      "clock_age_years": 5.51,
+      "clock_score": -1.17118342,
+      "part": "2"
+    },
+    {
+      "gsm": "GSM8958647",
+      "chip_sample_id": "205022030002_R03C01",
+      "donor_genotype": "287",
+      "cell_type": "iNSC",
+      "stage": "LP",
+      "treatment": "None",
+      "clock_age_years": 12.59317,
+      "clock_score": -0.43495525,
+      "part": "2"
+    },
+    {
+      "gsm": "GSM8958648",
+      "chip_sample_id": "204027260051_R03C01",
+      "donor_genotype": "288",
+      "cell_type": "iNSC",
+      "stage": "LP",
+      "treatment": "None",
+      "clock_age_years": 12.2981,
+      "clock_score": -0.45690111,
+      "part": "3"
+    },
+    {
+      "gsm": "GSM8958649",
+      "chip_sample_id": "204027260051_R04C01",
+      "donor_genotype": "288",
+      "cell_type": "iNSC",
+      "stage": "LP",
+      "treatment": "NGN2",
+      "clock_age_years": 15.23967,
+      "clock_score": -0.25706524,
+      "part": "3"
+    },
+    {
+      "gsm": "GSM8958650",
+      "chip_sample_id": "204027260051_R07C01",
+      "donor_genotype": "288",
+      "cell_type": "iNSC",
+      "stage": "LP",
+      "treatment": "Glycerol",
+      "clock_age_years": 12.53862,
+      "clock_score": -0.43897587,
+      "part": "3"
+    },
+    {
+      "gsm": "GSM8958651",
+      "chip_sample_id": "204027260051_R08C01",
+      "donor_genotype": "288",
+      "cell_type": "iNSC",
+      "stage": "LP",
+      "treatment": "Thymidine",
+      "clock_age_years": 5.58458,
+      "clock_score": -1.15979192,
+      "part": "3"
+    },
+    {
+      "gsm": "GSM8958652",
+      "chip_sample_id": "205022030001_R05C01",
+      "donor_genotype": "287",
+      "cell_type": "iNSC",
+      "stage": "LP",
+      "treatment": "None",
+      "clock_age_years": 22.48855,
+      "clock_score": 0.1185023,
+      "part": "2"
+    },
+    {
+      "gsm": "GSM8958653",
+      "chip_sample_id": "205022030001_R06C01",
+      "donor_genotype": "286",
+      "cell_type": "iNSC",
+      "stage": "LP",
+      "treatment": "NGN2",
+      "clock_age_years": 20.5399,
+      "clock_score": 0.02570931,
+      "part": "2"
+    },
+    {
+      "gsm": "GSM8958654",
+      "chip_sample_id": "205022030001_R07C01",
+      "donor_genotype": "287",
+      "cell_type": "iNSC",
+      "stage": "LP",
+      "treatment": "NGN2",
+      "clock_age_years": 28.09656,
+      "clock_score": 0.38555054,
+      "part": "2"
+    },
+    {
+      "gsm": "GSM8958655",
+      "chip_sample_id": "205022030002_R01C01",
+      "donor_genotype": "286",
+      "cell_type": "iNSC",
+      "stage": "LP",
+      "treatment": "Glycerol",
+      "clock_age_years": 16.85905,
+      "clock_score": -0.16201197,
+      "part": "2"
+    },
+    {
+      "gsm": "GSM8958656",
+      "chip_sample_id": "205022030002_R02C01",
+      "donor_genotype": "286",
+      "cell_type": "iNSC",
+      "stage": "LP",
+      "treatment": "Thymidine",
+      "clock_age_years": 7.47657,
+      "clock_score": -0.90721706,
+      "part": "2"
+    },
+    {
+      "gsm": "GSM8958657",
+      "chip_sample_id": "205022030002_R04C01",
+      "donor_genotype": "287",
+      "cell_type": "iNSC",
+      "stage": "LP",
+      "treatment": "Glycerol",
+      "clock_age_years": 20.72133,
+      "clock_score": 0.03434899,
+      "part": "2"
+    },
+    {
+      "gsm": "GSM8958658",
+      "chip_sample_id": "205022030002_R05C01",
+      "donor_genotype": "287",
+      "cell_type": "iNSC",
+      "stage": "LP",
+      "treatment": "Thymidine",
+      "clock_age_years": 9.1237,
+      "clock_score": -0.72964283,
+      "part": "2"
+    },
+    {
+      "gsm": "GSM8958659",
+      "chip_sample_id": "202908540277_R06C01",
+      "donor_genotype": "224",
+      "cell_type": "smNPC",
+      "stage": "LP",
+      "treatment": "None",
+      "clock_age_years": -0.63302,
+      "clock_score": -4.04697571,
+      "part": "1"
+    },
+    {
+      "gsm": "GSM8958660",
+      "chip_sample_id": "202908540277_R07C01",
+      "donor_genotype": "225",
+      "cell_type": "smNPC",
+      "stage": "LP",
+      "treatment": "None",
+      "clock_age_years": -0.60615,
+      "clock_score": -3.97631614,
+      "part": "1"
+    },
+    {
+      "gsm": "GSM8958661",
+      "chip_sample_id": "202908540277_R08C01",
+      "donor_genotype": "229",
+      "cell_type": "smNPC",
+      "stage": "LP",
+      "treatment": "None",
+      "clock_age_years": -0.57593,
+      "clock_score": -3.90237414,
+      "part": "1"
+    },
+    {
+      "gsm": "GSM8958662",
+      "chip_sample_id": "202908540307_R07C01",
+      "donor_genotype": "107",
+      "cell_type": "smNPC",
+      "stage": "LP",
+      "treatment": "None",
+      "clock_age_years": -0.62165,
+      "clock_score": -4.01646977,
+      "part": "1"
+    },
+    {
+      "gsm": "GSM8958663",
+      "chip_sample_id": "202908540307_R08C01",
+      "donor_genotype": "96",
+      "cell_type": "smNPC",
+      "stage": "LP",
+      "treatment": "None",
+      "clock_age_years": -0.19208,
+      "clock_score": -3.25781837,
+      "part": "1"
+    },
+    {
+      "gsm": "GSM8958664",
+      "chip_sample_id": "202908540312_R01C01",
+      "donor_genotype": "33",
+      "cell_type": "smNPC",
+      "stage": "LP",
+      "treatment": "None",
+      "clock_age_years": -0.57966,
+      "clock_score": -3.91120741,
+      "part": "1"
+    },
+    {
+      "gsm": "GSM8958665",
+      "chip_sample_id": "202908540312_R05C01",
+      "donor_genotype": "190",
+      "cell_type": "smNPC",
+      "stage": "LP",
+      "treatment": "None",
+      "clock_age_years": -0.64139,
+      "clock_score": -4.07003133,
+      "part": "1"
+    },
+    {
+      "gsm": "GSM8958666",
+      "chip_sample_id": "202908540312_R06C01",
+      "donor_genotype": "216",
+      "cell_type": "smNPC",
+      "stage": "LP",
+      "treatment": "None",
+      "clock_age_years": -0.58009,
+      "clock_score": -3.91224862,
+      "part": "1"
+    },
+    {
+      "gsm": "GSM8958667",
+      "chip_sample_id": "202908540312_R07C01",
+      "donor_genotype": "218",
+      "cell_type": "smNPC",
+      "stage": "LP",
+      "treatment": "None",
+      "clock_age_years": -0.62383,
+      "clock_score": -4.02223752,
+      "part": "1"
+    },
+    {
+      "gsm": "GSM8958668",
+      "chip_sample_id": "201868500266_R05C01",
+      "donor_genotype": "216",
+      "cell_type": "iNSC",
+      "stage": "LP",
+      "treatment": "None",
+      "clock_age_years": 7.66001,
+      "clock_score": -0.8858066,
+      "part": "1"
+    },
+    {
+      "gsm": "GSM8958669",
+      "chip_sample_id": "201868500266_R04C01",
+      "donor_genotype": "218",
+      "cell_type": "iNSC",
+      "stage": "LP",
+      "treatment": "None",
+      "clock_age_years": 34.86154,
+      "clock_score": 0.70769231,
+      "part": "1"
+    },
+    {
+      "gsm": "GSM8958670",
+      "chip_sample_id": "201868500266_R07C01",
+      "donor_genotype": "190",
+      "cell_type": "iNSC",
+      "stage": "LP",
+      "treatment": "None",
+      "clock_age_years": 5.65703,
+      "clock_score": -1.14884867,
+      "part": "1"
+    }
+  ],
+  "primary_analysis": {
+    "n_donors": 12,
+    "n_negative": 12,
+    "n_positive": 0,
+    "mean_delta_years": -38.03335,
+    "median_delta_years": -41.4774,
+    "sd_across_donors_years": 26.3525,
+    "unit_of_analysis": "one independent donor (genotype) with matching EPC D0 and untreated iNSC LP",
+    "donor_pairs": [
+      {
+        "baseline_EPC_D0_years": 44.09702,
+        "baseline_gsm": "GSM8958626",
+        "difference_LP_minus_D0_years": -41.53898,
+        "genotype": "33",
+        "n_untreated_LP_chips": 1,
+        "reduction_pct_of_EPC_clock_age": 94.199,
+        "untreated_LP_gsms": [
+          "GSM8958631"
+        ],
+        "untreated_LP_mean_years": 2.55804,
+        "percentage_interpretable": true,
+        "exclusion_reason_from_relative_metric": null
+      },
+      {
+        "baseline_EPC_D0_years": 31.14543,
+        "baseline_gsm": "GSM8958627",
+        "difference_LP_minus_D0_years": -27.0867,
+        "genotype": "96",
+        "n_untreated_LP_chips": 1,
+        "reduction_pct_of_EPC_clock_age": 86.968,
+        "untreated_LP_gsms": [
+          "GSM8958630"
+        ],
+        "untreated_LP_mean_years": 4.05873,
+        "percentage_interpretable": true,
+        "exclusion_reason_from_relative_metric": null
+      },
+      {
+        "baseline_EPC_D0_years": 38.16452,
+        "baseline_gsm": "GSM8958629",
+        "difference_LP_minus_D0_years": -31.75626,
+        "genotype": "107",
+        "n_untreated_LP_chips": 1,
+        "reduction_pct_of_EPC_clock_age": 83.209,
+        "untreated_LP_gsms": [
+          "GSM8958628"
+        ],
+        "untreated_LP_mean_years": 6.40826,
+        "percentage_interpretable": true,
+        "exclusion_reason_from_relative_metric": null
+      },
+      {
+        "baseline_EPC_D0_years": 47.51423,
+        "baseline_gsm": "GSM8958619",
+        "difference_LP_minus_D0_years": -41.41582,
+        "genotype": "190",
+        "n_untreated_LP_chips": 2,
+        "reduction_pct_of_EPC_clock_age": 87.165,
+        "untreated_LP_gsms": [
+          "GSM8958616",
+          "GSM8958670"
+        ],
+        "untreated_LP_mean_years": 6.0984,
+        "percentage_interpretable": true,
+        "exclusion_reason_from_relative_metric": null
+      },
+      {
+        "baseline_EPC_D0_years": 82.83137,
+        "baseline_gsm": "GSM8958611",
+        "difference_LP_minus_D0_years": -71.477,
+        "genotype": "216",
+        "n_untreated_LP_chips": 2,
+        "reduction_pct_of_EPC_clock_age": 86.292,
+        "untreated_LP_gsms": [
+          "GSM8958618",
+          "GSM8958668"
+        ],
+        "untreated_LP_mean_years": 11.35438,
+        "percentage_interpretable": true,
+        "exclusion_reason_from_relative_metric": null
+      },
+      {
+        "baseline_EPC_D0_years": 83.56404,
+        "baseline_gsm": "GSM8958612",
+        "difference_LP_minus_D0_years": -60.60515,
+        "genotype": "218",
+        "n_untreated_LP_chips": 2,
+        "reduction_pct_of_EPC_clock_age": 72.525,
+        "untreated_LP_gsms": [
+          "GSM8958617",
+          "GSM8958669"
+        ],
+        "untreated_LP_mean_years": 22.95889,
+        "percentage_interpretable": true,
+        "exclusion_reason_from_relative_metric": null
+      },
+      {
+        "baseline_EPC_D0_years": 0.59136,
+        "baseline_gsm": "GSM8958634",
+        "difference_LP_minus_D0_years": -0.55096,
+        "genotype": "224",
+        "n_untreated_LP_chips": 1,
+        "reduction_pct_of_EPC_clock_age": null,
+        "untreated_LP_gsms": [
+          "GSM8958633"
+        ],
+        "untreated_LP_mean_years": 0.0404,
+        "percentage_interpretable": false,
+        "exclusion_reason_from_relative_metric": "near-zero baseline clock age or a negative model prediction"
+      },
+      {
+        "baseline_EPC_D0_years": 0.4219,
+        "baseline_gsm": "GSM8958635",
+        "difference_LP_minus_D0_years": -0.68088,
+        "genotype": "225",
+        "n_untreated_LP_chips": 1,
+        "reduction_pct_of_EPC_clock_age": null,
+        "untreated_LP_gsms": [
+          "GSM8958632"
+        ],
+        "untreated_LP_mean_years": -0.25898,
+        "percentage_interpretable": false,
+        "exclusion_reason_from_relative_metric": "near-zero baseline clock age or a negative model prediction"
+      },
+      {
+        "baseline_EPC_D0_years": 0.43551,
+        "baseline_gsm": "GSM8958636",
+        "difference_LP_minus_D0_years": -0.58604,
+        "genotype": "229",
+        "n_untreated_LP_chips": 1,
+        "reduction_pct_of_EPC_clock_age": null,
+        "untreated_LP_gsms": [
+          "GSM8958637"
+        ],
+        "untreated_LP_mean_years": -0.15053,
+        "percentage_interpretable": false,
+        "exclusion_reason_from_relative_metric": "near-zero baseline clock age or a negative model prediction"
+      },
+      {
+        "baseline_EPC_D0_years": 71.2977,
+        "baseline_gsm": "GSM8958642",
+        "difference_LP_minus_D0_years": -65.7877,
+        "genotype": "286",
+        "n_untreated_LP_chips": 1,
+        "reduction_pct_of_EPC_clock_age": 92.272,
+        "untreated_LP_gsms": [
+          "GSM8958646"
+        ],
+        "untreated_LP_mean_years": 5.51,
+        "percentage_interpretable": true,
+        "exclusion_reason_from_relative_metric": null
+      },
+      {
+        "baseline_EPC_D0_years": 67.90074,
+        "baseline_gsm": "GSM8958643",
+        "difference_LP_minus_D0_years": -50.35988,
+        "genotype": "287",
+        "n_untreated_LP_chips": 2,
+        "reduction_pct_of_EPC_clock_age": 74.167,
+        "untreated_LP_gsms": [
+          "GSM8958647",
+          "GSM8958652"
+        ],
+        "untreated_LP_mean_years": 17.54086,
+        "percentage_interpretable": true,
+        "exclusion_reason_from_relative_metric": null
+      },
+      {
+        "baseline_EPC_D0_years": 73.57041,
+        "baseline_gsm": "GSM8958638",
+        "difference_LP_minus_D0_years": -64.55481,
+        "genotype": "288",
+        "n_untreated_LP_chips": 2,
+        "reduction_pct_of_EPC_clock_age": 87.746,
+        "untreated_LP_gsms": [
+          "GSM8958641",
+          "GSM8958648"
+        ],
+        "untreated_LP_mean_years": 9.01559,
+        "percentage_interpretable": true,
+        "exclusion_reason_from_relative_metric": null
+      }
+    ]
+  },
+  "sensitivity_analysis": {
+    "criterion": "baseline EPC epigenetic age at least 5 years and no negative iNSC LP prediction",
+    "included_genotypes": [
+      "33",
+      "96",
+      "107",
+      "190",
+      "216",
+      "218",
+      "286",
+      "287",
+      "288"
+    ],
+    "excluded_genotypes": [
+      "224",
+      "225",
+      "229"
+    ],
+    "n": 9,
+    "paired_mean_delta_years": -50.50914,
+    "all_negative": true
+  },
+  "interpretation": {
+    "clinical_rejuvenation": "UNVERIFIED",
+    "donor_chronological_ages": "UNVERIFIED",
+    "independent_wet_lab_validation": "UNVERIFIED",
+    "cell_fate_confounding": "NOT_EXCLUDED",
+    "axolotl_to_human_repair": "UNVERIFIED",
+    "negative_clock_ages": "Horvath model can yield slightly negative numerical predictions for near-zero-age samples; these should not be interpreted as biologically negative ages.",
+    "uncertainty": "All points originated from one published study; duplicate chip measurements do not create additional independent donors. Descriptive contrasts only, not causal evidence."
+  },
+  "preserved_negative_control": {
+    "GSE74387": "FAIL_RETAINED"
+  },
+  "original_full_run_aggregate": {
+    "n_negative_deltas": 12,
+    "n_positive_deltas": 0,
+    "one_vote_per_donor": true,
+    "paired_mean_delta_years": -38.03335,
+    "paired_median_delta_years": -41.4774,
+    "sd_across_donors": 26.3525
+  }
+}
