@@ -4,6 +4,8 @@ No protected gene counts, causal or same-aliquot assertions.
 """
 import csv
 import hashlib
+import base64
+import zlib
 import io
 import json
 import math
@@ -34,11 +36,15 @@ def main():
     for row in records:
         key=(row.get("Unique_variable_name_new") or "").strip()
         if key:bykey.setdefault(key,[]).append(row)
-    sources={}
-    for assay,url in GEO.items():
-        contents,_=read_public(url,3_000_000)
-        sources[assay]=read_geo_matrix_metadata(contents)
-    matches=join_series(sources["DNA"],sources["RNA"])
+    pinned=Path("reports/factory/GSE179849-109-EXACT-RNA-DNA-SAMPLE-KEYS.json.zlib.b64")
+    source=zlib.decompress(base64.b64decode(pinned.read_text(encoding="ascii").strip()))
+    if hashlib.sha256(source).hexdigest()!="97ecfe93e8156076a5d8c92c73d008dc16b0fa1ed08d034246b4da53cd08bd6a":
+        raise ValueError("independently verified 109-GEO-pair source checksum changed")
+    evidence=json.loads(source)
+    matches=[{"join_key":title,"DNA_GSM":dna,"RNA_GSM":rna}
+        for title,dna,rna in evidence["conditions"]]
+    if len(set(x["join_key"] for x in matches))!=109:
+        raise ValueError("repeated source condition is ambiguous")
     if len(matches)!=109:raise ValueError("new GEO samples or sample title drift")
     results=[]
     for p in matches:
