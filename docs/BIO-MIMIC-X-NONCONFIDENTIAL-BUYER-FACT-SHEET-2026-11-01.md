@@ -1,50 +1,56 @@
-# BIO-MIMIC X — Non-confidential buyer fact sheet (November 1, 2026)
+# BIO-MIMIC X
 
-**For:** Corporate development, innovation scouting, computational biology and preclinical R&D teams  
-**Transaction context:** Potential research-software evaluation, paid pilot or negotiated licence / acquisition. **No verified buyer offer, budget allocation, signed LOI or payment.** A seven-figure-euro transaction is an **owner negotiating objective**, not an independent valuation.
+## Evidence-led gene annotation review
 
-## Live buyer evidence (deployment independently checked 2 November 2026)
+*Research-stage computational software · Technical overview · Updated 2 November 2026*
 
-**[Open the zero-cost public BIO-MIMIC X evidence demonstration](https://bio-mimic-x-industrial-evidence-if9m9p.v2.appdeploy.ai/)**. Deployed as a self-contained, non-confidential AppDeploy Free static page. Two separate cloud GETs returned **HTTP 200**, the HTML and bundled JS/CSS returned successfully and the deployed JS calculator passed **5 deterministic headless VM tests**. User-visible inputs use zero measured-savings defaults and explicitly reject negative/invalid financial assumptions. No buyer endorsement or financial commitment is asserted. The page intentionally uses `noindex,nofollow`. See [actual deployment and validation receipt](../reports/factory/BIO-MIMIC-X-PUBLIC-BUYER-DEMO-DEPLOY-2026-11-02.md).
+BIO-MIMIC X is a computational research workflow for situations in which historical gene labels, modern reference assemblies and candidate orthologues do not agree cleanly. It combines source-level sequence comparison with accession tracking and reproducible output records. The intended use is **research data quality review**, not a therapeutic intervention.
 
-This public app is a **static commercial evidence snapshot**, not a remotely authenticated clinical or gene-identity oracle. Its content is **not automatically synchronized** with this GitHub repository. Do not imply permanent uptime, that all 5 interactive UI tests were exercised in a real browser, or any realized ROI.
+**[Open the BIO-MIMIC X research-software overview](https://bio-mimic-x-industrial-evidence-if9m9p.v2.appdeploy.ai/)**
 
-## Product: what exists
+### Where it fits
 
-BIO-MIMIC X is an evidence-linked computational research pipeline for cross-species hypothesis screening, public transcriptome provenance, orthology checks, negative controls, science acceptance tests, and explicit rejection of unsupported clinical claims.
+Research groups often need to revisit public gene annotations created for a different genome build or transcriptome release. Carrying a symbol forward as if it were a confirmed exact locus mapping can affect downstream interpretation.
 
-[Source code](https://github.com/Dr-starck66/bio-mimic-x-discovery-factory) is public. Ownership, third-party code/data licensing, confidential know-how, patent novelty and freedom-to-operate have **not** been independently established. Do not promise that public materials are proprietary.
+The current pipeline can help a reviewer:
 
-## Reproducible case study: preventing a misleading HAND2 assignment
+- Locate reference sequence windows by accession and genomic coordinates.
+- Verify source length and sequence fingerprints.
+- Compare competing gene candidates at the nucleotide level.
+- Produce interpretable alignment records and retain cases where evidence is missing or ambiguous.
+- Re-run recorded software checks on public research data.
 
-1. AmexT_v47 / AmexG_v6 historical locus `AMEX60DD030069` has conflicting labels `HAND1 [nr]|HAND2 [hs]`.
-2. An initial exploratory cross-species report assigned a number to **HAND2** based on the human-tagged annotation. The attribution was wrong or at least unsupported.
-3. A public, sequence-based computational audit subsequently fetched the old chromosome `CM010932.2` and the modern NCBI HAND1 (`NC_090926.1`) and HAND2 (`NC_090937.1`) locus windows.
-4. Strand-aware **unique 31-mers shared with the old locus**: HAND1 **26,858**, HAND2 **8**. This **strongly favors HAND1** in a local comparison; it is **not** a whole-genome reciprocal alignment, identity certificate or clinical discovery.
-5. The original finding is **preserved**, a [public correction is published](https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/blob/main/reports/factory/HAND2-HAND1-SEQUENCE-CORRIGENDUM-2026-11-01.md), and the upgraded parser excludes ambiguous HAND1/HAND2 identifiers.
+### A documented axolotl example
 
-**Stronger validation recorded 1 November 2026:** An independent *computational method* (Edlib full-sequence HW/NW alignment, not an independent laboratory) was executed on the pinned-source FASTA sequences. The historical 28,911 nt region aligns to modern HAND1 with **28,830 identical bases in 28,853 local aligned columns (99.9203%; 23 edits)**, versus modern HAND2 **2,334 identical bases in 4,432 aligned columns (52.6625%; 2,098 edits)**. Differences in reference region length and whole-genome uniqueness limitations mean these are alignment metrics, not genome-wide significance or a gene-identity certificate. See [real execution receipt](../reports/factory/HAND1-HAND2-ALIGNMENT-LATEST.json), [scientific analysis](../reports/factory/HAND1-HAND2-ALIGNMENT-EVIDENCE-2026-11-01.md), and [GitHub acceptance run](https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/41359105768) (188 project tests + 8 alignment tests PASS, both jobs successful).
+Historic axolotl locus `AMEX60DD030069` has conflicting HAND1/HAND2 homology labels. A pinned-source alignment of its **28,911-base** genomic window with the modern NCBI HAND1 candidate produced **28,830 matching bases in 28,853 local alignment columns**, with **23 edit operations**.
 
-**Independent verification:** Requested from AxoBase and the study author L. Otsuki on 1 November 2026; no expert response verified at the time of this note.
+The candidate HAND2 window gave a substantially weaker match in its own alignment. Because those modern reference windows have different lengths, the numerical results should not be treated as a calibrated probability or a genome-wide unique-identity determination.
 
-[Machine-readable source receipt and SHA-256](https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/blob/main/reports/factory/HAND2-ASSEMBLY-SEQUENCE-PROBE-LATEST.json) · [Software CI acceptance run 41320421647](https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/41320421647).
+The original, potentially misleading HAND2 assignment was corrected in the project's analysis rather than silently retained.
 
-**Multi-family stress audit, 2 November 2026 (negative results):** A preregistered public-data screen across HAND1/HAND2, PAX6/PAX7, SOX2/SOX3 and SHH/DHH **did not yield a representative gene-mapping benchmark**. Eight symbol targets were considered, two distinct historical loci met preflight, and **only one paired comparison completed** (the HAND1 case). SOX3 had no unique verified modern NCBI locus in the selected assembly; the other old models were ambiguous, duplicated, or above the predeclared 40-kb window cap. **No accuracy, savings, commercial advantage or independent biological validation can be calculated from this panel.** [Reproducible negative-case report](../reports/factory/AXOLOTL-PARALOG-PANEL-EVIDENCE-2026-11-02.md) · [actual receipt](../reports/factory/AXOLOTL-PARALOG-PANEL-LATEST.json).
+**Reviewable evidence:**
 
-## Other evidence and important limits
+- [Exact sequences, accessions, coordinates, source SHA-256 values and alignment metrics](../reports/factory/HAND1-HAND2-ALIGNMENT-LATEST.json)
+- [Scientific case note](../reports/factory/HAND1-HAND2-ALIGNMENT-EVIDENCE-2026-11-01.md)
+- [Reproducible source code](../validation/hand1_hand2_global_alignment.py)
+- [Acceptance run 41359105768](https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/41359105768)
 
-- Exploratory RNA-seq count dataset **GSE284768** (axolotl, 25 sample columns) and processed human microarray **GSE28914** (25 human biopsies, six matched patient pairs in analysis) were ingested with provenance. Their biological contrasts are **not directly comparable**; the cross-species concordance claim remains blocked.
-- Earlier preregistered GSE74387 replication **FAILED**; GSE113081 passed a single-cohort rule only.
-- Software/unit tests validate computations and failure behavior; they **do not** demonstrate drug efficacy, axolotl-to-human regeneration, or meaningful economic ROI.
-- Independent biological validation, exclusive intellectual-property rights, experimental replication and market willingness-to-pay are **UNVERIFIED**.
-- The local commercial registry has **zero authenticated offers / contracts / paid pilots**. Metadata, PDF hashes or outgoing Gmail message IDs do not prove purchase intent.
+### What remains to be tested
 
-## Proposed industrial evaluation
+A broader screening exercise included HAND1/HAND2, PAX6/PAX7, SOX2/SOX3 and SHH/DHH. It documented missing or ambiguous annotations and genomic-window limitations. **One complete, distinct historical-locus comparison** was obtained from that preregistered panel. It therefore cannot support a population-level accuracy estimate or an industrial time-saving claim.
 
-**Scope (decision requested, not yet contracted):** A structured technical evaluation on an independently selected public research dataset or a permitted partner dataset, with a prespecified baseline and blinded failure cases. Measure correct gene-identity attribution, provenance coverage, false-positive claims, analyst review effort and reproducibility. Include negative cases, scientific exclusion criteria and dataset licensing.
+The complete [screening report](../reports/factory/AXOLOTL-PARALOG-PANEL-EVIDENCE-2026-11-02.md) and its [machine-readable results](../reports/factory/AXOLOTL-PARALOG-PANEL-LATEST.json) include the excluded and unresolved cases.
 
-**Commercial decision requested:** Which person has authority for a paid software pilot and/or technology licence; whether a defined evaluation budget and procurement/technology-scouting process exists; whether an initial non-confidential demonstration is acceptable. An NDA can be discussed before any nonpublic information. No fabricated exclusivity or contractual rights.
+Independent review of the historic gene mapping, larger holdout datasets and a comparison against conventional analysis are necessary to assess general use.
 
-**Status summary:** Source reproducibility **PASS for verified recorded software run**; independent locus identity **PARTIAL**; independent medical efficacy **UNVERIFIED**; commercial sale and €1M buyer commitment **UNVERIFIED**.
+### Independent technical evaluation
 
-**Sensitive information:** Do not attach private correspondence, secrets or unpublished partner data to this public fact sheet.
+The next useful step is to examine a **partner-selected, non-sensitive dataset** with independent reference labels, against the partner's established NCBI/Ensembl/BLAST procedure. A report would compare supported assignments, incorrect assignments, appropriate abstentions, source traceability and review effort where measured.
+
+[Read the technical evaluation outline](BIO-MIMIC-X-INDUSTRIAL-PAID-PILOT-SCOPE-2026-11-02.md).
+
+### Contact
+
+For a non-confidential review or technical discussion: **[dr.starck66@gmail.com](mailto:dr.starck66@gmail.com?subject=BIO-MIMIC%20X%20technical%20evaluation)**.
+
+**Scope:** The software is a research-stage prototype. Neither clinical use nor generalizable performance has been independently validated; ownership and rights to third-party materials require ordinary due diligence. The publicly accessible source files do not, by themselves, establish exclusivity.
