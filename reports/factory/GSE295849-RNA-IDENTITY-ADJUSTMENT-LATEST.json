@@ -33,7 +33,7 @@
   "scientific_status": {
     "RNA_expression_matrix": "UNAVAILABLE_AUTHORIZATION_REQUIRED",
     "molecular_identity_RNA_scores": "UNVERIFIED",
-    "age_delta_adjusted_for_independent_identity": "UNVERIFIED",
+    "age_delta_adjusted_for_independent_identity": "UNVERIFIED_PROTECTED_2026_RNA",
     "cell_fate_independent_mechanistic_rejuvenation": "UNVERIFIED",
     "prior_epigenetic_age_decrease": "PASS_DESCRIPTIVE_EXISTING_ANALYSIS",
     "historical_GSE74387": "FAIL_RETAINED"
@@ -69,5 +69,27 @@
     "RNA_expressions_available": false,
     "source_run": "https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/41378461034"
   },
-  "last_updated": "2026-11-02"
+  "last_updated": "2026-11-02",
+  "independent_public_2018_RNA_control": {
+    "status": "PASS_REAL_HASH_VERIFIED_GSE117720_RNA_LINEAGE_REFERENCE",
+    "file": "reports/factory/GSE117720-REAL-RNA-REFERENCE-2026-11-02.json",
+    "source_sha256": "6c3c366e26f5757a23bd81359d014aa7b7fe698f85f2c3961c925b4dfd9483dc",
+    "source_bytes": 2460476,
+    "public_assay_samples": 19,
+    "neural_markers": 4,
+    "erythroid_markers": 5,
+    "marker_excluded_ambiguous_gene": "GATA1",
+    "true_cell_fate_EPC_to_iNSC_donor_deltas": {
+      "MJD33b": 5.48797,
+      "R_107b": 5.754434
+    },
+    "real_unfavorable_late_passage_marker_deltas": {
+      "MJD33b": -1.014345,
+      "R_107b": -0.563254,
+      "R_82b": -0.092085
+    },
+    "independence_from_2026_six_donors": "NOT_ESTABLISHED",
+    "not_a_2026_donor_adjustment": true,
+    "evidence": "https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/41379191838"
+  }
 }
