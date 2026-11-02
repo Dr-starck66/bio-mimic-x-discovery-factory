@@ -41,6 +41,9 @@ on:
       - 'validation/gse295849_rna_identity_gate.py'
       - 'tests/test_gse295849_rna_identity_gate.py'
       - 'tests/test_gse295849_open_ccby_rna.py'
+      - 'validation/gse117720_open_rna_reference.py'
+      - 'tests/test_gse117720_open_rna_reference.py'
+      - 'reports/factory/GSE117720-PUBLIC-RNA-REFERENCE-METADATA-2026-11-02.json'
       - 'reports/factory/GSE295849-SRP594303-RNA-METADATA-2026-11-02.json'
       - 'validation/axolotl_human_reanalysis.py'
       - 'tests/test_axolotl_human_reanalysis.py'
@@ -92,6 +95,25 @@ jobs:
           assert o["status"]=="PARTIAL_NO_AUTHORIZED_TRANSCRIPTOME"
           assert m["age_effect_after_identity_adjustment"]=="UNVERIFIED"
           print("PASS_METADATA_BRIDGE; RNA_COUNTS_RESTRICTED; IDENTITY_ADJUSTED_BIOLOGY_UNVERIFIED")
+          PY
+      - name: Public independently measured 2018 iNSC RNA (no dbGaP, no invented donor pairing)
+        run: |
+          mkdir -p qa-artifacts
+          if python validation/gse117720_open_rna_reference.py --out qa-artifacts/GSE117720-2018-REAL-RNA.json; then
+            echo "PASS_PUBLIC_RNA_FROM_2018_VERIFIED"
+          else
+            echo "::warning title=Public GEO RNA acquisition::PARTIAL_SOURCE_UNAVAILABLE: inspect real evidence in artifact"
+          fi
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path("qa-artifacts/GSE117720-2018-REAL-RNA.json").read_text())
+          assert x["2026_RNA_ADJUSTED_AGE"]=="UNVERIFIED"
+          assert x["reference_is_different_from_2026_six_donors"]
+          if x["status"].startswith("PASS"):
+              assert x["independent_2018_RNA"]["library_count"]==19
+              assert not x["independent_2018_RNA"]["2018_RNA_expression_matched_to_six_2026_donors"]
+          print("PUBLIC_RNA_EVIDENCE_STATUS",x["status"],"2026_age_adjustment",x["2026_RNA_ADJUSTED_AGE"])
           PY
       - name: Replicate within-iNSC de-aging but retain fate negative controls
         run: |
