@@ -68,7 +68,7 @@ class CpGMolecularIdentityGateTests(unittest.TestCase):
                       0.65 if stage=="LP" else 0.7)
             rows.append((x["chip_sample_id"],identity))
         chips=[x for x,s in rows]
-        identifiers=[f"cg{i:08d}" for i in range(60000) if selected_probe(f"cg{i:08d}")][:3400]
+        identifiers=[f"cg{i:08d}" for i in range(600000) if selected_probe(f"cg{i:08d}")][:3400]
         self.assertEqual(len(identifiers),3400)
         fake=[]
         pos=0
