@@ -14,6 +14,26 @@ class FateVsAgeTests(unittest.TestCase):
         cls.source = json.loads(SOURCE.read_text(encoding="utf-8"))
         cls.report = build(cls.source)
 
+    def test_committed_scientific_evidence_does_not_overclaim(self):
+        from pathlib import Path
+        p=SOURCE.parent / "GSE295849-FATE-AGE-RESULTS-2026-11-02.json"
+        evidence=json.loads(p.read_text(encoding="utf-8"))
+        self.assertEqual(evidence["source_report_git_blob_sha"],
+                         "949b0f822023d121a3af759097722dd4cbb1294d")
+        self.assertEqual(evidence["status_fate_independent_age_reset"],"UNVERIFIED")
+        self.assertEqual(evidence["status_mechanistic_causality"],"UNVERIFIED")
+        self.assertEqual(evidence["negative_control_GSE74387"],"FAIL_RETAINED")
+        for reported_key,analysis_key in (
+            ("D14_to_LP_within_iNSC","iNSC_D14_to_LP"),
+            ("LP_iNSC_to_LP_smNPC_fate_control",None),
+        ):
+            actual=(self.report["same_label_time_course"][analysis_key] if analysis_key
+                    else self.report["alternative_fate_negative_control_iNSC_vs_smNPC"])
+            recorded=evidence["comparisons"][reported_key]
+            self.assertEqual(actual["n_independent_donors"],recorded["independent_donors"])
+            self.assertEqual(actual["n_clock_decreases"],recorded["decrease_donors"])
+            self.assertAlmostEqual(actual["mean_delta_years"],recorded["mean_delta_years"],places=4)
+
     def test_real_iNSC_D14_to_LP_donor_paired(self):
         c = self.report["same_label_time_course"]["iNSC_D14_to_LP"]
         self.assertEqual((c["n_independent_donors"], c["n_clock_decreases"]), (6,6))
