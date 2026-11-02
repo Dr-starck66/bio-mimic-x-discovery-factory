@@ -46,6 +46,8 @@ on:
       - 'reports/factory/GSE117720-PUBLIC-RNA-REFERENCE-METADATA-2026-11-02.json'
       - 'validation/gse295849_noncpg_lineage_residual.py'
       - 'validation/gse165180_public_preflight.py'
+      - 'validation/gse165180_public_rna_expression.py'
+      - 'reports/factory/GSE165179-PUBLIC-DNAM-SAMPLE-METADATA-2026-11-02.json'
       - 'tests/test_gse295849_noncpg_lineage_residual.py'
       - 'reports/factory/GSE295849-SRP594303-RNA-METADATA-2026-11-02.json'
       - 'validation/axolotl_human_reanalysis.py'
@@ -475,3 +477,24 @@ jobs:
           path: qa-artifacts/GILL-MPTR-PREFLIGHT-2026-11-02.json
           if-no-files-found: warn
           retention-days: 30
+
+  external-gill-mptr-actual-rna:
+    if: github.event_name == 'pull_request' && github.head_ref == 'science/orthogonal-public-mptr-20261102'
+    name: Genuine public transcriptome of matched Gill 2022 human reprogramming conditions
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download real NCBI 2022 public GSE165177 RNA matrices and join GEO condition labels
+        run: python validation/gse165180_public_rna_expression.py
+      - name: Preserve measured RNA gene profiles and verified source hashes
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bio-mimic-gill-mptr-real-public-rna-gse165177
+          path: qa-artifacts/GILL-MPTR-ACTUAL-PUBLIC-RNA-2026-11-02.json
+          if-no-files-found: warn
+          retention-days: 60
