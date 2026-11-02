@@ -25,6 +25,10 @@ ROOT=Path(__file__).resolve().parents[1]
 METADATA=ROOT/"reports/factory/GSE117720-PUBLIC-RNA-REFERENCE-METADATA-2026-11-02.json"
 URL="https://ftp.ncbi.nlm.nih.gov/geo/series/GSE117nnn/GSE117720/suppl/GSE117720_Sheng_2018_GEO_RNAseq_genes_vst.txt.gz"
 OUT=ROOT/"reports/factory/GSE117720-REAL-RNA-REFERENCE-LATEST.json"
+# Full original archive bytes independently retrieved on GitHub 2026-11-02,
+# before parser repair; pin identity, not a merely plausible gzip.
+GEO_OPEN_SOURCE_SHA256="6c3c366e26f5757a23bd81359d014aa7b7fe698f85f2c3961c925b4dfd9483dc"
+GEO_OPEN_SOURCE_BYTES=2460476
 NEURAL=("PAX6","NES","SOX1","SOX2","HES5","FABP7","SOX9")
 ERYTHROID=("GATA1","KLF1","HBB","ALAS2","GYPA","EPOR","HBA1")
 PINNED_MARKERS=NEURAL+ERYTHROID
@@ -40,8 +44,8 @@ def retrieve_open_source(url=URL):
                 if response.status!=200 or response.geturl()!=url:
                     raise ValueError("unverified source redirect or non-200 response")
                 raw=response.read(5_000_001)
-            if not 100_000<len(raw)<5_000_000:
-                raise ValueError("unexpected 2018 RNA gzip file size")
+            if len(raw)!=GEO_OPEN_SOURCE_BYTES or hashlib.sha256(raw).hexdigest()!=GEO_OPEN_SOURCE_SHA256:
+                raise ValueError("original public GEO RNA source SHA-256/length changed")
             if raw[:2]!=b'\x1f\x8b':raise ValueError("official RNA gzip magic mismatch")
             decoded=gzip.decompress(raw)  # checks full gzip CRC, not just header
             if len(decoded)>120_000_000:raise ValueError("decompressed RNA file budget exceeded")
@@ -188,9 +192,10 @@ def main(argv=None):
         metadata=json.loads(METADATA.read_text(encoding="utf8"))
         report["source_sha256"]=hashlib.sha256(raw).hexdigest()
         report["source_bytes"]=len(raw)
+        report["remote_source_hash_pinned_verified"]=(not bool(args.local_gzip)) and report["source_sha256"]==GEO_OPEN_SOURCE_SHA256
         report["source_transport_failures_before_success"]=attempts
         report["independent_2018_RNA"]=parse_public_vst(decoded.decode("utf-8-sig"),metadata)
-        report["status"]="PASS_INDEPENDENT_PUBLIC_2018_RNA_REFERENCE_ONLY"
+        report["status"]=("PASS_INDEPENDENT_PUBLIC_2018_RNA_REFERENCE_ONLY" if report["remote_source_hash_pinned_verified"] else "PASS_LOCAL_FIXTURE_NOT_REMOTE_SOURCE")
         rc=0
     except Exception as e:
         report["reason"]=f"{type(e).__name__}: {e}"
