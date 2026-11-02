@@ -75,9 +75,11 @@ try{
   try {
     officialBytes=await fetchOfficialGeoGzip(official);
   } catch (e) {
-    // Only an exhausted *network transport* failure is non-blocking for
-    // independent browser/software acceptance. Invalid gzip, HTTP responses,
-    // bad sample counts and other assertions MUST still fail the CI job.
+    // Only exhausted transport or GEO HTTP 403/429/5xx unavailability is
+    // non-blocking for *independent software acceptance*. All such cases are
+    // PARTIAL_SOURCE_FAILURE and positive GEO E2E is SKIPPED, never PASS.
+    // Invalid gzip, HTTP 404, bad sample counts and scientific assertions
+    // MUST still fail this job.
     if (!isTransientTransportError(e)) throw e;
     transportError=String(e.message||e);
     console.warn('::warning title=GEO live network acquisition unavailable::PARTIAL_SOURCE_FAILURE: '+transportError);
@@ -108,6 +110,8 @@ try{
     status:geoInputStatus,positive_browser_test:positiveGEOTest,
     url:official,sha256_reference_verified:false,
     attempts_max:3,transport_error:transportError,
+    http_status: transportError ? Number(transportError.match(/HTTP (\d{3})/)?.[1] || 0) || null : null,
+    scientific_source_acquisition:geoInputStatus === 'PARTIAL_SOURCE_FAILURE' ? 'FAIL_UNAVAILABLE' : 'PASS_TRANSPORT_ONLY',
     biological_validation:'UNVERIFIED',
   };
   await writeFile('qa-artifacts/publication-geo-source.json',JSON.stringify(geoReceipt,null,2)+'\n');

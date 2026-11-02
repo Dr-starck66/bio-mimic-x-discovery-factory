@@ -26,9 +26,25 @@ test('fails closed after three transport failures', async () => {
   assert.equal(calls, 3);
 });
 
-test('rejects HTTP 503 instead of claiming verified input', async () => {
+test('exhausted HTTP 503 is explicitly unavailable, never verified source input', async () => {
   let calls = 0;
   const request = async () => {calls++; return {status: 503};};
+  await assert.rejects(fetchOfficialGeoGzip('https://example.invalid/gse.gz',
+    {request, sleep: noSleep}), /Official GEO source HTTP 503/);
+  assert.equal(calls, 3);
+});
+
+test('HTTP 403 GEO CI block is partial source acquisition, not positive E2E', async () => {
+  let calls = 0;
+  const request = async () => {calls++; return {status: 403};};
+  await assert.rejects(fetchOfficialGeoGzip('https://example.invalid/gse.gz',
+    {request, sleep: noSleep}), /Official GEO source HTTP 403/);
+  assert.equal(calls, 3);
+});
+
+test('HTTP 404 remains a fatal invalid source, not unavailable transport', async () => {
+  let calls = 0;
+  const request = async () => {calls++; return {status: 404};};
   await assert.rejects(fetchOfficialGeoGzip('https://example.invalid/gse.gz',
     {request, sleep: noSleep}), /Real GEO source required/);
   assert.equal(calls, 1);
@@ -54,4 +70,5 @@ test('degrade only exhausted network transport, not invalid source data', () => 
   assert.equal(isTransientTransportError({name:'AbortError'}),true);
   assert.equal(isTransientTransportError(new Error('truncated gzip')),false);
   assert.equal(isTransientTransportError(new Error('HTTP 404')),false);
+  assert.equal(isTransientTransportError({name:'GeoSourceHTTPUnavailableError'}),false);
 });
