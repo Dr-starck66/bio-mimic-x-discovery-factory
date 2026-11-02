@@ -1,323 +1,1019 @@
 {
-  "schema": "BIO-MIMIC-X/RNA-DNAM-PUBLIC-METADATA-BRIDGE/1",
-  "source_rna_runinfo": "https://trace.ncbi.nlm.nih.gov/Traces/sra-db-be/runinfo?acc=SRP594303",
-  "source_rna_experiment_xml": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX...&retmode=xml",
-  "source_dnAm": "reports/factory/GSE295849-ALL-60-PAIRED-HORVATH2018-2026-11-02.json",
-  "source_dnAm_sha": "949b0f822023d121a3af759097722dd4cbb1294d",
-  "restrictions": "All 48 RNA-seq run download_path values start @dbgap@ and NCBI requires authorized dbGaP access; no RNA expression/counts or participant restricted data were downloaded.",
-  "status_metadata": "PARTIAL_PUBLIC_RNA_METADATA",
-  "status_molecular_identity_score": "UNVERIFIED_NO_AUTHORIZED_RNA_COUNTS",
-  "status_independent_age_residual": "UNVERIFIED_NO_AUTHORIZED_RNA_COUNTS",
-  "join_rule": "public subject pseudonym exactly matches methylation donor genotype, cell lineage and harvest stage; this is not proof same physical aliquot; RNA treatments not verified",
-  "no_sensitive_download": true,
-  "counts": {
-    "runinfo_rows": 48,
-    "verified_titles": 0,
-    "xml_errors": 48,
-    "study": "SRP594303",
-    "dbgap": "phs004047.v1.p1",
-    "matched_at_least_one_methylation": 0,
-    "unique_rna_donors": 0,
-    "shared_donor_genotypes": [],
-    "rna_lineage_stages": {},
-    "controlled": 48
+  "schema": "BIO-MIMIC-X/RNA-DNAM-PUBLIC-METADATA-BRIDGE/2",
+  "status_public_metadata": "PASS_SRA_PUBLIC_RUNS_AND_EXPERIMENT_TITLES",
+  "status_matched_sample_molecular_identity": "UNVERIFIED_NO_RNA_EXPRESSION",
+  "status_donor_conditional_compatibility": "PARTIAL_PUBLIC_CONDITION_LEVEL_ONLY",
+  "status_rna_adjusted_age_effect": "UNVERIFIED",
+  "study": "GSE295849 / PRJNA1261446 / SRP594303 / phs004047.v1.p1",
+  "sources": {
+    "rna_runinfo": "https://trace.ncbi.nlm.nih.gov/Traces/sra-db-be/runinfo?acc=SRP594303",
+    "SRA_experiment_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX...&retmode=xml",
+    "dbgap": "https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs004047.v1.p1",
+    "meth_report": "reports/factory/GSE295849-ALL-60-PAIRED-HORVATH2018-2026-11-02.json",
+    "meth_report_blob_sha": "949b0f822023d121a3af759097722dd4cbb1294d"
   },
-  "rna_experiments": [],
-  "unresolved_public_records": [
+  "counts": {
+    "rna_experiments": 48,
+    "rna_run_accessions": 48,
+    "protected_RNA_download_paths": 48,
+    "rna_donors_labeled": 14,
+    "dnAm_donors": 12,
+    "rna_conditions_matched_to_GEO_DNAm": 35,
+    "distinct_donors_with_matching_condition": [
+      "33",
+      "107",
+      "190",
+      "216",
+      "218",
+      "224",
+      "225",
+      "229",
+      "286",
+      "287",
+      "288"
+    ],
+    "conditions_not_matched": 13,
+    "stage_counts": {
+      "EPC_D0": 12,
+      "iNSC_D14": 10,
+      "iNSC_HP": 7,
+      "iNSC_LP": 14,
+      "smNPC_LP": 5
+    }
+  },
+  "rna_samples": [
     {
-      "id": "SRX29329858",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX29329858",
+      "rna_run": "SRR34149242",
+      "rna_biosample": "SAMN48980178",
       "title": "EPC 288 harvested at D0",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "288",
+      "cell_type": "EPC",
+      "harvest_stage": "D0",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [
+        "GSM8958638"
+      ],
+      "matched_DNAm_clock_ages": [
+        73.57041
+      ],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX29329858&retmode=xml"
     },
     {
-      "id": "SRX29329867",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX29329867",
+      "rna_run": "SRR34149251",
+      "rna_biosample": "SAMN48980144",
       "title": "iNSC 288 harvested at D14",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "288",
+      "cell_type": "iNSC",
+      "harvest_stage": "D14",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [
+        "GSM8958639"
+      ],
+      "matched_DNAm_clock_ages": [
+        51.7148
+      ],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX29329867&retmode=xml"
     },
     {
-      "id": "SRX29329868",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX29329868",
+      "rna_run": "SRR34149252",
+      "rna_biosample": "SAMN48980152",
       "title": "EPC 229 harvested at D0",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "229",
+      "cell_type": "EPC",
+      "harvest_stage": "D0",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [
+        "GSM8958636"
+      ],
+      "matched_DNAm_clock_ages": [
+        0.43551
+      ],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX29329868&retmode=xml"
     },
     {
-      "id": "SRX29329869",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX29329869",
+      "rna_run": "SRR34149253",
+      "rna_biosample": "SAMN48980154",
       "title": "iNSC 190 harvested at LP",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "190",
+      "cell_type": "iNSC",
+      "harvest_stage": "LP",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [
+        "GSM8958616",
+        "GSM8958670"
+      ],
+      "matched_DNAm_clock_ages": [
+        6.53978,
+        5.65703
+      ],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX29329869&retmode=xml"
     },
     {
-      "id": "SRX29329870",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX29329870",
+      "rna_run": "SRR34149254",
+      "rna_biosample": "SAMN48980170",
       "title": "smNPC 109 harvested at LP",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "109",
+      "cell_type": "smNPC",
+      "harvest_stage": "LP",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [],
+      "matched_DNAm_clock_ages": [],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX29329870&retmode=xml"
     },
     {
-      "id": "SRX29329871",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX29329871",
+      "rna_run": "SRR34149255",
+      "rna_biosample": "SAMN48980155",
       "title": "EPC 287 harvested at D0",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "287",
+      "cell_type": "EPC",
+      "harvest_stage": "D0",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [
+        "GSM8958643"
+      ],
+      "matched_DNAm_clock_ages": [
+        67.90074
+      ],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX29329871&retmode=xml"
     },
     {
-      "id": "SRX29329872",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX29329872",
+      "rna_run": "SRR34149256",
+      "rna_biosample": "SAMN48980161",
       "title": "iNSC 224 harvested at D14",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "224",
+      "cell_type": "iNSC",
+      "harvest_stage": "D14",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [],
+      "matched_DNAm_clock_ages": [],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX29329872&retmode=xml"
     },
     {
-      "id": "SRX34004157",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX34004157",
+      "rna_run": "SRR39266948",
+      "rna_biosample": "SAMN48980134",
       "title": "smNPC 107 harvested at LP",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "107",
+      "cell_type": "smNPC",
+      "harvest_stage": "LP",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [
+        "GSM8958662"
+      ],
+      "matched_DNAm_clock_ages": [
+        -0.62165
+      ],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX34004157&retmode=xml"
     },
     {
-      "id": "SRX29329874",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX29329874",
+      "rna_run": "SRR34149258",
+      "rna_biosample": "SAMN48980151",
       "title": "smNPC 216 harvested at LP",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "216",
+      "cell_type": "smNPC",
+      "harvest_stage": "LP",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [
+        "GSM8958666"
+      ],
+      "matched_DNAm_clock_ages": [
+        -0.58009
+      ],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX29329874&retmode=xml"
     },
     {
-      "id": "SRX29329875",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX29329875",
+      "rna_run": "SRR34149259",
+      "rna_biosample": "SAMN48980133",
       "title": "iNSC 107 harvested at D14",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "107",
+      "cell_type": "iNSC",
+      "harvest_stage": "D14",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [],
+      "matched_DNAm_clock_ages": [],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX29329875&retmode=xml"
     },
     {
-      "id": "SRX29329876",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX29329876",
+      "rna_run": "SRR34149260",
+      "rna_biosample": "SAMN48980163",
       "title": "iNSC 108 harvested at LP",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "108",
+      "cell_type": "iNSC",
+      "harvest_stage": "LP",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [],
+      "matched_DNAm_clock_ages": [],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX29329876&retmode=xml"
     },
     {
-      "id": "SRX29329859",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX29329859",
+      "rna_run": "SRR34149243",
+      "rna_biosample": "SAMN48980162",
       "title": "iNSC 225 harvested at D14",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "225",
+      "cell_type": "iNSC",
+      "harvest_stage": "D14",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [],
+      "matched_DNAm_clock_ages": [],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX29329859&retmode=xml"
     },
     {
-      "id": "SRX29329877",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX29329877",
+      "rna_run": "SRR34149261",
+      "rna_biosample": "SAMN48980132",
       "title": "iNSC 288 harvested at LP",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "288",
+      "cell_type": "iNSC",
+      "harvest_stage": "LP",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [
+        "GSM8958641",
+        "GSM8958648"
+      ],
+      "matched_DNAm_clock_ages": [
+        5.73309,
+        12.2981
+      ],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX29329877&retmode=xml"
     },
     {
-      "id": "SRX29329878",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX29329878",
+      "rna_run": "SRR34149262",
+      "rna_biosample": "SAMN48980139",
       "title": "EPC 218 harvested at D0",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "218",
+      "cell_type": "EPC",
+      "harvest_stage": "D0",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [
+        "GSM8958612"
+      ],
+      "matched_DNAm_clock_ages": [
+        83.56404
+      ],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX29329878&retmode=xml"
     },
     {
-      "id": "SRX29329879",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX29329879",
+      "rna_run": "SRR34149263",
+      "rna_biosample": "SAMN48980156",
       "title": "iNSC 216 harvested at HP",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "216",
+      "cell_type": "iNSC",
+      "harvest_stage": "HP",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [
+        "GSM8958620"
+      ],
+      "matched_DNAm_clock_ages": [
+        4.03547
+      ],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX29329879&retmode=xml"
     },
     {
-      "id": "SRX29329880",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX29329880",
+      "rna_run": "SRR34149264",
+      "rna_biosample": "SAMN48980167",
       "title": "iNSC 224 harvested at LP",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "224",
+      "cell_type": "iNSC",
+      "harvest_stage": "LP",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [
+        "GSM8958633"
+      ],
+      "matched_DNAm_clock_ages": [
+        0.0404
+      ],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX29329880&retmode=xml"
     },
     {
-      "id": "SRX34004158",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX34004158",
+      "rna_run": "SRR39266949",
+      "rna_biosample": "SAMN48980169",
       "title": "EPC 107 harvested at D0",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "107",
+      "cell_type": "EPC",
+      "harvest_stage": "D0",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [
+        "GSM8958629"
+      ],
+      "matched_DNAm_clock_ages": [
+        38.16452
+      ],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX34004158&retmode=xml"
     },
     {
-      "id": "SRX29329882",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX29329882",
+      "rna_run": "SRR34149266",
+      "rna_biosample": "SAMN48980149",
       "title": "iNSC 287 harvested at D14",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "287",
+      "cell_type": "iNSC",
+      "harvest_stage": "D14",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [
+        "GSM8958645"
+      ],
+      "matched_DNAm_clock_ages": [
+        49.4979
+      ],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX29329882&retmode=xml"
     },
     {
-      "id": "SRX29329883",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX29329883",
+      "rna_run": "SRR34149267",
+      "rna_biosample": "SAMN48980145",
       "title": "EPC 225 harvested at D0",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "225",
+      "cell_type": "EPC",
+      "harvest_stage": "D0",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [
+        "GSM8958635"
+      ],
+      "matched_DNAm_clock_ages": [
+        0.4219
+      ],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX29329883&retmode=xml"
     },
     {
-      "id": "SRX29329856",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX29329856",
+      "rna_run": "SRR34149268",
+      "rna_biosample": "SAMN48980158",
       "title": "iNSC 218 harvested at D14",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "218",
+      "cell_type": "iNSC",
+      "harvest_stage": "D14",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [
+        "GSM8958615"
+      ],
+      "matched_DNAm_clock_ages": [
+        61.2234
+      ],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX29329856&retmode=xml"
     },
     {
-      "id": "SRX29329857",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX29329857",
+      "rna_run": "SRR34149269",
+      "rna_biosample": "SAMN48980172",
       "title": "iNSC 109 harvested at LP",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "109",
+      "cell_type": "iNSC",
+      "harvest_stage": "LP",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [],
+      "matched_DNAm_clock_ages": [],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX29329857&retmode=xml"
     },
     {
-      "id": "SRX29329884",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX29329884",
+      "rna_run": "SRR34149270",
+      "rna_biosample": "SAMN48980159",
       "title": "EPC 286 harvested at D0",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "286",
+      "cell_type": "EPC",
+      "harvest_stage": "D0",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [
+        "GSM8958642"
+      ],
+      "matched_DNAm_clock_ages": [
+        71.2977
+      ],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX29329884&retmode=xml"
     },
     {
-      "id": "SRX29329860",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX29329860",
+      "rna_run": "SRR34149244",
+      "rna_biosample": "SAMN48980143",
       "title": "smNPC 218 harvested at LP",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "218",
+      "cell_type": "smNPC",
+      "harvest_stage": "LP",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [
+        "GSM8958667"
+      ],
+      "matched_DNAm_clock_ages": [
+        -0.62383
+      ],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX29329860&retmode=xml"
     },
     {
-      "id": "SRX29329885",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX29329885",
+      "rna_run": "SRR34149271",
+      "rna_biosample": "SAMN48980147",
       "title": "smNPC 190 harvested at LP",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "190",
+      "cell_type": "smNPC",
+      "harvest_stage": "LP",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [
+        "GSM8958665"
+      ],
+      "matched_DNAm_clock_ages": [
+        -0.64139
+      ],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX29329885&retmode=xml"
     },
     {
-      "id": "SRX29329886",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX29329886",
+      "rna_run": "SRR34149272",
+      "rna_biosample": "SAMN48980176",
       "title": "EPC 108 harvested at D0",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "108",
+      "cell_type": "EPC",
+      "harvest_stage": "D0",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [],
+      "matched_DNAm_clock_ages": [],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX29329886&retmode=xml"
     },
     {
-      "id": "SRX34004159",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX34004159",
+      "rna_run": "SRR39266950",
+      "rna_biosample": "SAMN48980136",
       "title": "iNSC 107 harvested at HP",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "107",
+      "cell_type": "iNSC",
+      "harvest_stage": "HP",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [],
+      "matched_DNAm_clock_ages": [],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX34004159&retmode=xml"
     },
     {
-      "id": "SRX29329888",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX29329888",
+      "rna_run": "SRR34149274",
+      "rna_biosample": "SAMN48980168",
       "title": "iNSC 287 harvested at LP",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "287",
+      "cell_type": "iNSC",
+      "harvest_stage": "LP",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [
+        "GSM8958647",
+        "GSM8958652"
+      ],
+      "matched_DNAm_clock_ages": [
+        12.59317,
+        22.48855
+      ],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX29329888&retmode=xml"
     },
     {
-      "id": "SRX29329889",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX29329889",
+      "rna_run": "SRR34149275",
+      "rna_biosample": "SAMN48980165",
       "title": "EPC 216 harvested at D0",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "216",
+      "cell_type": "EPC",
+      "harvest_stage": "D0",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [
+        "GSM8958611"
+      ],
+      "matched_DNAm_clock_ages": [
+        82.83137
+      ],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX29329889&retmode=xml"
     },
     {
-      "id": "SRX29329890",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX29329890",
+      "rna_run": "SRR34149276",
+      "rna_biosample": "SAMN48980140",
       "title": "iNSC 216 harvested at LP",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "216",
+      "cell_type": "iNSC",
+      "harvest_stage": "LP",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [
+        "GSM8958618",
+        "GSM8958668"
+      ],
+      "matched_DNAm_clock_ages": [
+        15.04874,
+        7.66001
+      ],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX29329890&retmode=xml"
     },
     {
-      "id": "SRX34004160",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX34004160",
+      "rna_run": "SRR39266951",
+      "rna_biosample": "SAMN48980164",
       "title": "iNSC 82 harvested at HP",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "82",
+      "cell_type": "iNSC",
+      "harvest_stage": "HP",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [],
+      "matched_DNAm_clock_ages": [],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX34004160&retmode=xml"
     },
     {
-      "id": "SRX29329892",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX29329892",
+      "rna_run": "SRR34149278",
+      "rna_biosample": "SAMN48980153",
       "title": "iNSC 229 harvested at D14",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "229",
+      "cell_type": "iNSC",
+      "harvest_stage": "D14",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [],
+      "matched_DNAm_clock_ages": [],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX29329892&retmode=xml"
     },
     {
-      "id": "SRX34004161",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX34004161",
+      "rna_run": "SRR39266952",
+      "rna_biosample": "SAMN48980135",
       "title": "EPC 33 harvested at D0",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "33",
+      "cell_type": "EPC",
+      "harvest_stage": "D0",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [
+        "GSM8958626"
+      ],
+      "matched_DNAm_clock_ages": [
+        44.09702
+      ],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX34004161&retmode=xml"
     },
     {
-      "id": "SRX29329894",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX29329894",
+      "rna_run": "SRR34149280",
+      "rna_biosample": "SAMN48980146",
       "title": "iNSC 286 harvested at D14",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "286",
+      "cell_type": "iNSC",
+      "harvest_stage": "D14",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [
+        "GSM8958644"
+      ],
+      "matched_DNAm_clock_ages": [
+        56.00079
+      ],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX29329894&retmode=xml"
     },
     {
-      "id": "SRX29329861",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX29329861",
+      "rna_run": "SRR34149245",
+      "rna_biosample": "SAMN48980141",
       "title": "iNSC 190 harvested at D14",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "190",
+      "cell_type": "iNSC",
+      "harvest_stage": "D14",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [
+        "GSM8958613"
+      ],
+      "matched_DNAm_clock_ages": [
+        26.41843
+      ],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX29329861&retmode=xml"
     },
     {
-      "id": "SRX29329895",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX29329895",
+      "rna_run": "SRR34149281",
+      "rna_biosample": "SAMN48980173",
       "title": "EPC 224 harvested at D0",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "224",
+      "cell_type": "EPC",
+      "harvest_stage": "D0",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [
+        "GSM8958634"
+      ],
+      "matched_DNAm_clock_ages": [
+        0.59136
+      ],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX29329895&retmode=xml"
     },
     {
-      "id": "SRX29329896",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX29329896",
+      "rna_run": "SRR34149282",
+      "rna_biosample": "SAMN48980137",
       "title": "iNSC 216 harvested at D14",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "216",
+      "cell_type": "iNSC",
+      "harvest_stage": "D14",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [
+        "GSM8958614"
+      ],
+      "matched_DNAm_clock_ages": [
+        65.1072
+      ],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX29329896&retmode=xml"
     },
     {
-      "id": "SRX29329897",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX29329897",
+      "rna_run": "SRR34149283",
+      "rna_biosample": "SAMN48980160",
       "title": "iNSC 108 harvested at HP",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "108",
+      "cell_type": "iNSC",
+      "harvest_stage": "HP",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [],
+      "matched_DNAm_clock_ages": [],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX29329897&retmode=xml"
     },
     {
-      "id": "SRX29329898",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX29329898",
+      "rna_run": "SRR34149284",
+      "rna_biosample": "SAMN48980148",
       "title": "iNSC 218 harvested at HP",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "218",
+      "cell_type": "iNSC",
+      "harvest_stage": "HP",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [
+        "GSM8958622"
+      ],
+      "matched_DNAm_clock_ages": [
+        4.06422
+      ],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX29329898&retmode=xml"
     },
     {
-      "id": "SRX34004162",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX34004162",
+      "rna_run": "SRR39266953",
+      "rna_biosample": "SAMN48980179",
       "title": "iNSC 33 harvested at HP",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "33",
+      "cell_type": "iNSC",
+      "harvest_stage": "HP",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [],
+      "matched_DNAm_clock_ages": [],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX34004162&retmode=xml"
     },
     {
-      "id": "SRX29329900",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX29329900",
+      "rna_run": "SRR34149286",
+      "rna_biosample": "SAMN48980171",
       "title": "iNSC 229 harvested at LP",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "229",
+      "cell_type": "iNSC",
+      "harvest_stage": "LP",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [
+        "GSM8958637"
+      ],
+      "matched_DNAm_clock_ages": [
+        -0.15053
+      ],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX29329900&retmode=xml"
     },
     {
-      "id": "SRX29329901",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX29329901",
+      "rna_run": "SRR34149287",
+      "rna_biosample": "SAMN48980175",
       "title": "iNSC 286 harvested at LP",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "286",
+      "cell_type": "iNSC",
+      "harvest_stage": "LP",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [
+        "GSM8958646"
+      ],
+      "matched_DNAm_clock_ages": [
+        5.51
+      ],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX29329901&retmode=xml"
     },
     {
-      "id": "SRX29329902",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX29329902",
+      "rna_run": "SRR34149288",
+      "rna_biosample": "SAMN48980177",
       "title": "EPC 190 harvested at D0",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "190",
+      "cell_type": "EPC",
+      "harvest_stage": "D0",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [
+        "GSM8958619"
+      ],
+      "matched_DNAm_clock_ages": [
+        47.51423
+      ],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX29329902&retmode=xml"
     },
     {
-      "id": "SRX29329903",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX29329903",
+      "rna_run": "SRR34149289",
+      "rna_biosample": "SAMN48980150",
       "title": "iNSC 218 harvested at LP",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "218",
+      "cell_type": "iNSC",
+      "harvest_stage": "LP",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [
+        "GSM8958617",
+        "GSM8958669"
+      ],
+      "matched_DNAm_clock_ages": [
+        11.05625,
+        34.86154
+      ],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX29329903&retmode=xml"
     },
     {
-      "id": "SRX29329862",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX29329862",
+      "rna_run": "SRR34149246",
+      "rna_biosample": "SAMN48980174",
       "title": "iNSC 82 harvested at LP",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "82",
+      "cell_type": "iNSC",
+      "harvest_stage": "LP",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [],
+      "matched_DNAm_clock_ages": [],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX29329862&retmode=xml"
     },
     {
-      "id": "SRX29329863",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX29329863",
+      "rna_run": "SRR34149247",
+      "rna_biosample": "SAMN48980142",
       "title": "iNSC 190 harvested at HP",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "190",
+      "cell_type": "iNSC",
+      "harvest_stage": "HP",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [
+        "GSM8958621"
+      ],
+      "matched_DNAm_clock_ages": [
+        3.40044
+      ],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX29329863&retmode=xml"
     },
     {
-      "id": "SRX34004155",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX34004155",
+      "rna_run": "SRR39266946",
+      "rna_biosample": "SAMN48980138",
       "title": "iNSC 33 harvested at LP",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "33",
+      "cell_type": "iNSC",
+      "harvest_stage": "LP",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [
+        "GSM8958631"
+      ],
+      "matched_DNAm_clock_ages": [
+        2.55804
+      ],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX34004155&retmode=xml"
     },
     {
-      "id": "SRX29329865",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX29329865",
+      "rna_run": "SRR34149249",
+      "rna_biosample": "SAMN48980166",
       "title": "iNSC 225 harvested at LP",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "225",
+      "cell_type": "iNSC",
+      "harvest_stage": "LP",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [
+        "GSM8958632"
+      ],
+      "matched_DNAm_clock_ages": [
+        -0.25898
+      ],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX29329865&retmode=xml"
     },
     {
-      "id": "SRX34004156",
-      "reason": "title_or_subject_mismatch",
+      "rna_experiment": "SRX34004156",
+      "rna_run": "SRR39266947",
+      "rna_biosample": "SAMN48980157",
       "title": "iNSC 107 harvested at LP",
-      "subject": null
+      "donor_genotype_from_public_SRA_title": "107",
+      "cell_type": "iNSC",
+      "harvest_stage": "LP",
+      "public_subject_id_field": "UNVERIFIED_NOT_PARSED_SEPARATELY",
+      "matched_DNAm_GSMs": [
+        "GSM8958628"
+      ],
+      "matched_DNAm_clock_ages": [
+        6.40826
+      ],
+      "RNA_treatment": "UNVERIFIED",
+      "RNA_physical_aliquot_identity": "UNVERIFIED",
+      "RNA_expression_counts": "RESTRICTED",
+      "rna_data_access": "DBGAP_AUTHORIZED_ACCESS_ONLY",
+      "NCBI_SRA_XML": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX34004156&retmode=xml"
     }
   ],
-  "negative_controls_retained": {
-    "GSE74387": "FAIL",
-    "identity_fate_confounder": "PRESENT",
-    "no_run_order_mapping": true,
-    "stage_not_sufficient_for_expression": true
+  "explanations": {
+    "only_public_metadata": "All RNA read paths use @dbgap@, no RNA counts or raw protected reads accessible without approved authorization",
+    "match_semantics": "Title-derived donor pseudonym plus identical cell type and harvest stage, not proof same aliquot nor same culture protocol/treatment. SRA's SampleName ordinal 1..48 is not donor ID.",
+    "no_inferences": "No RNA expression level or independent lineage score manufactured from stage labels or author figures.",
+    "negative_controls": "GSE74387 FAIL retained; cell fate confounding unexcluded; treatment matching unverified."
   },
-  "next_gate": "Provide consent-authorized same-sample RNA count matrix with per-RNA accession and explicit sample mapping, or secure equivalent lawful deidentified matrix; freeze identity signature before analyzing clock residual."
+  "requested_evidence": "Sample-linked legally accessible normalized gene count matrix or de-identified controlled-access derived data + explicit donor/passage/treatment mapping"
 }
