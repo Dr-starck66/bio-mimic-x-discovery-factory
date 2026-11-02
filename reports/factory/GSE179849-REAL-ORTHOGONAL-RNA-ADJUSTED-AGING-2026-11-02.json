@@ -1,0 +1,114 @@
+{
+  "schema": "BIO-MIMIC-X/GSE179849-REAL-ORTHOGONAL-AGE-CONTROL/1",
+  "date": "2026-11-02",
+  "status": "PASS_GENUINE_GEO_RNA_EXPR_AND_PUBLISHED_DNAM_CLOCK_OBSERVATIONAL_ADJUSTMENT",
+  "original_study": {
+    "GEO": "GSE179849",
+    "RNA": "GSE179848",
+    "DNA": "GSE179847",
+    "study_title": "A multi-omics longitudinal aging dataset in primary human fibroblasts with mitochondrial perturbations",
+    "study_doi": "10.1038/s41597-022-01852-y",
+    "data_doi": "10.6084/m9.figshare.18441998.v2",
+    "license": "CC BY 4.0"
+  },
+  "provenance": {
+    "author_processed_GSE179848_gene_expression_URL": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE179nnn/GSE179848/suppl/GSE179848_processed_cell_lifespan_RNAseq_data.csv.gz",
+    "public_processed_RNA_compressed_bytes": 60622846,
+    "RNA_file_SHA256": "b5731fa1253a2bd32f0b64c3bd58770e833a3da59dc90c4f8c8d858944b30109",
+    "RNA_gzip_crc_verified": true,
+    "RNA_gene_rows_examined": 28633,
+    "real_RNA_gene_marker_rows": 14,
+    "figshare_published_clocks_file_bytes": 1690384,
+    "figshare_file_MD5": "85f6c29df95ffc0d8db7dc6abb5efe1c",
+    "figshare_file_SHA256": "d17808caa67130a4758dd681ad033f4ffbcdb8b73b384aaa5c3f0b5451883949",
+    "GEO_exact_sample_key_crosswalk_SHA256": "97ecfe93e8156076a5d8c92c73d008dc16b0fa1ed08d034246b4da53cd08bd6a",
+    "measured_RNA_GEO_clocks_JSON_SHA256": "c2ec0711a61cac04d03c85a108fe7a2245ebe418d55cd0cd75b18c9a01ec7bd2",
+    "evidence_GitHub_Actions": "https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/41432146704",
+    "evidence_GitHub_job": "https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/41432146704/job/125233073232",
+    "evidence_artifact": "https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/41432146704/artifacts/13133834616",
+    "code": "validation/gse179849_rna_gene_age_adjustment.py"
+  },
+  "cohort": {
+    "GEO_RNA_samples": 345,
+    "GEO_DNA_samples": 479,
+    "exact_donor_experiment_treatment_passage_matches": 109,
+    "paired_with_real_published_DNA_clock_and_numeric_RNA_id": 102,
+    "real_RNA_measurements_fully_extracted_for_matched_samples": 102,
+    "control_samples_in_complete_culture_trajectories": 42,
+    "independent_healthy_donor_lines": 3,
+    "culture_series_fixed_effects": 8
+  },
+  "predeclared_fibroblast_identity_genes": [
+    "COL1A1",
+    "COL1A2",
+    "DCN",
+    "LUM",
+    "FN1",
+    "THY1"
+  ],
+  "analysis": {
+    "model_unadjusted": "Horvath1 published DNAm clock ~ culture passage + culture series fixed effects",
+    "model_adjusted": "Horvath1 published DNAm clock ~ culture passage + same-condition measured fibroblast RNA marker zscore + culture series fixed effects",
+    "score_normalization": "gene-wise zscore across 102 measured public samples then average six predeclared fibroblast markers",
+    "unadjusted_Horvath1_years_per_passage": 2.062966,
+    "adjusted_Horvath1_years_per_passage": 1.930454,
+    "descriptive_difference_years_per_passage": -0.132512,
+    "formal_inference": "NOT_DONE; 3 independent donors and culture/passage confounding, no standard-error calibration",
+    "same_physical_aliquot_verified": false
+  },
+  "negative_control": {
+    "clock": "GrimAge",
+    "before_years_per_passage": -1.16736,
+    "after_years_per_passage": -1.238104,
+    "interpretation": "Unlike Horvath1, GrimAge decreases in the same cultures; clock selection matters and favorable-only reporting is invalid."
+  },
+  "leave_one_donor_out": [
+    {
+      "excluded": "HC1",
+      "remaining_samples": 29,
+      "remaining_series": 5,
+      "remaining_donors": 2,
+      "Horvath1_before": 2.526048,
+      "Horvath1_after": 2.073474,
+      "GrimAge_before": -1.23646,
+      "GrimAge_after": -1.331752
+    },
+    {
+      "excluded": "HC2",
+      "remaining_samples": 24,
+      "remaining_series": 5,
+      "remaining_donors": 2,
+      "Horvath1_before": 2.361358,
+      "Horvath1_after": 2.735831,
+      "GrimAge_before": -1.438127,
+      "GrimAge_after": -1.558846
+    },
+    {
+      "excluded": "HC4",
+      "remaining_samples": 31,
+      "remaining_series": 6,
+      "remaining_donors": 2,
+      "Horvath1_before": 1.4304,
+      "Horvath1_after": 1.31056,
+      "GrimAge_before": -0.915832,
+      "GrimAge_after": -0.972273
+    }
+  ],
+  "scientific_boundaries": {
+    "inference": "OBSERVATIONAL_REPLICATIVE_AGING_ASSOCIATION",
+    "same_physical_aliquot": "UNVERIFIED",
+    "published_DNAm_clock_vs_raw_beta": "PUBLISHED_DNAM_CLOCK_ONLY_NOT_RECOMPUTED_FROM_INDIVIDUAL_BETAS",
+    "RNA_source": "ACTUAL_BULK_RNASEQ_VARIANCE_STABILIZED_GENE_EXPRESSION",
+    "cellular_identity_marker_specificity": "EXPLORATORY_NOT_VALIDATED",
+    "rejuvenation_under_reprogramming": "UNVERIFIED",
+    "GSE295849_six_donor_iNSC_RNA_authorization": "REMAINS_DBGAP_PROTECTED",
+    "therapy_efficacy": "UNVERIFIED"
+  },
+  "audit": {
+    "positive": "PASS_REAL_DATA_AND_DESCRIPTIVE_REGRESSION",
+    "negative_GrimAge": "PASS_RETAINED",
+    "transport": "INTERMITTENT_GEO_HTTP403_ON_SUBSEQUENT_RUN; FIRST_COMPLETE_SOURCE_VERIFIED_AND_SAVED",
+    "reanalysis": "LEAVE_ONE_DONOR_OUT_RECOMPUTED_FROM_SAVED_VERIFIED_102_SAMPLE_ARTIFACT",
+    "new_infrastructure_cost_eur": 0
+  }
+}
