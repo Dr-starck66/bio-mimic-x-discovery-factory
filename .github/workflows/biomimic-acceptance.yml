@@ -51,6 +51,7 @@ on:
       - 'reports/factory/GSE98224-EXTERNAL-REAL-48-RNA-DNAM-VALIDATION-2026-11-02.json'
       - 'tests/test_external_gse98224_orthogonal_evidence.py'
       - 'validation/gse179849_public_multimodal_gate.py'
+      - 'validation/gse179849_join_clocks.py'
       - 'tests/test_gse179849_public_multimodal_gate.py'
       - 'reports/factory/GSE165179-PUBLIC-DNAM-SAMPLE-METADATA-2026-11-02.json'
       - 'tests/test_gse295849_noncpg_lineage_residual.py'
@@ -544,11 +545,14 @@ jobs:
         run: |
           python -m unittest tests.test_gse179849_public_multimodal_gate -v
           python validation/gse179849_public_multimodal_gate.py
+          python validation/gse179849_join_clocks.py
       - name: Preserve all favorable and unfavorable public data-access outcomes
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: biomimic-gse179849-actual-public-aging-data-preflight
-          path: qa-artifacts/GSE179849-PUBLIC-OPEN-MULTIOMICS-PREFLIGHT.json
+          path: |
+            qa-artifacts/GSE179849-PUBLIC-OPEN-MULTIOMICS-PREFLIGHT.json
+            qa-artifacts/GSE179849-PUBLISHED-AGE-RNA-GSM-BRIDGE.json
           if-no-files-found: warn
           retention-days: 30
