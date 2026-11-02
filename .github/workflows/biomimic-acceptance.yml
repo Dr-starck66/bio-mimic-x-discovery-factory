@@ -45,6 +45,7 @@ on:
       - 'tests/test_gse117720_open_rna_reference.py'
       - 'reports/factory/GSE117720-PUBLIC-RNA-REFERENCE-METADATA-2026-11-02.json'
       - 'validation/gse295849_noncpg_lineage_residual.py'
+      - 'validation/gse165180_public_preflight.py'
       - 'tests/test_gse295849_noncpg_lineage_residual.py'
       - 'reports/factory/GSE295849-SRP594303-RNA-METADATA-2026-11-02.json'
       - 'validation/axolotl_human_reanalysis.py'
@@ -453,3 +454,24 @@ jobs:
           path: qa-artifacts/BIO-MIMIC-GSE295849-CELL-IDENTITY-PROXY.json
           if-no-files-found: warn
           retention-days: 90
+
+  external-gill-mptr-preflight:
+    if: github.event_name == 'pull_request' && github.head_ref == 'science/orthogonal-public-mptr-20261102'
+    name: Public GEO GSE165180 actual RNA-DNAm matched sample audit
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Probe public GEO metadata and actual small compressed RNA/methylation file headers
+        run: python validation/gse165180_public_preflight.py
+      - name: Save independently reproducible public sample crosswalk
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bio-mimic-gill-mptr-orthogonal-public-preflight
+          path: qa-artifacts/GILL-MPTR-PREFLIGHT-2026-11-02.json
+          if-no-files-found: warn
+          retention-days: 30
