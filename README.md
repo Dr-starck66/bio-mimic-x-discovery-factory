@@ -1,5 +1,8 @@
 # BIO-MIMIC X V4
 
+**Démonstration commerciale publique et gratuite (mise en ligne vérifiée le 2 novembre 2026) :** https://bio-mimic-x-industrial-evidence-if9m9p.v2.appdeploy.ai/  
+[Rapport d'audit du déploiement, HTTPS et contrôles](reports/factory/BIO-MIMIC-X-PUBLIC-BUYER-DEMO-DEPLOY-2026-11-02.md) · [Fiche industrielle non confidentielle](docs/BIO-MIMIC-X-NONCONFIDENTIAL-BUYER-FACT-SHEET-2026-11-01.md). Cette démo n'est pas une preuve d'efficacité biologique, de gain industriel validé ou de vente de 1 M€ ; le lien GitHub/AppDeploy n'est pas synchronisé automatiquement.
+
 ## Novel Species Hunter + Sovereign Research Stack
 
 V4 conserve l'atlas et le moteur de convergence de V3 et ajoute un système de découverte de nouvelles espèces dans la littérature.
