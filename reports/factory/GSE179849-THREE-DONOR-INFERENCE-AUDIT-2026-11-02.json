@@ -1,0 +1,76 @@
+{
+  "schema": "BIO-MIMIC-X/EXTERNAL-PUBLIC-GSE179849-DONOR-INFERENCE-UNCERTAINTY/1",
+  "analyzed_at": "2026-11-02",
+  "status": "PASS_RECOMPUTED_DESCRIPTIVE_THREE_DONOR_SENSITIVITY_NOT_SIGNIFICANCE",
+  "input_evidence": {
+    "source": "public GSE179848 RNA expression + GSE179847 published DNAm clocks, joined by published same-condition keys",
+    "report": "reports/factory/GSE179849-REAL-ORTHOGONAL-RNA-ADJUSTED-AGING-2026-11-02.json",
+    "GitHub_run": "https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/41432146704",
+    "artifact_id": 13133834616,
+    "public_artifact": "https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/41432146704/artifacts/13133834616",
+    "original_102_sample_JSON_sha256": "c2ec0711a61cac04d03c85a108fe7a2245ebe418d55cd0cd75b18c9a01ec7bd2",
+    "actual_RNA_DNAm_mapped_conditions": 102,
+    "healthy_control_conditions": 42,
+    "independent_donor_lines": 3,
+    "culture_series_fixed_effects": 8
+  },
+  "method": {
+    "input": "Real measured per-condition fibroblast RNA marker scores paired with actual author-published DNA methylation clock ages.",
+    "OLS_model": "within-series centered OLS of DNAm clock ~ passage; adjusted model also includes measured RNA fibroblast identity score",
+    "independent_check": "Independent numpy.linalg.lstsq design with one-hot culture-series fixed effects reproduced both Horvath1 and GrimAge coefficients to <1e-10",
+    "sensitivity": "Leave one independent donor out; 3^3=27 exhaustive with-replacement donor-cluster tuples; duplicate donors keep their replicate rows. All 27 were nonsingular.",
+    "statistics_limit": "With only three biological donor clusters, empirical resampling quantiles are descriptive, not calibrated confidence intervals; no significance or causal independence established."
+  },
+  "Horvath1": {
+    "before_years_per_passage": 2.06296613627091,
+    "after_RNA_identity_years_per_passage": 1.9304535294320981,
+    "change_adjusted_minus_unadjusted": -0.13251260683881183,
+    "donor_leave_one_out_changes": {
+      "HC1": -0.45257315047719304,
+      "HC2": 0.3744724354575988,
+      "HC4": -0.11984020904630133
+    },
+    "donor_only_changes": {
+      "HC1": 0.29863278489767175,
+      "HC2": -0.42957450556549515,
+      "HC4": 0.652065249210195
+    },
+    "cluster_resampling_valid": 27,
+    "resampled_changes_min_max": [
+      -0.4628504386242658,
+      0.6520652492101968
+    ],
+    "resampled_changes_empirical_q025_q975": [
+      -0.4628504386242652,
+      0.5043374534973145
+    ],
+    "resampled_fraction_negative": 0.5925925925925926,
+    "evidence_interpretation": "Direction of RNA adjustment is NOT robust to leaving out donor HC2; with only three donors the effect cannot be claimed significant."
+  },
+  "GrimAge_negative_control": {
+    "before_years_per_passage": -1.167360261117911,
+    "after_RNA_identity_years_per_passage": -1.2381036744300193,
+    "change_adjusted_minus_unadjusted": -0.07074341331210832,
+    "donor_leave_one_out_changes": {
+      "HC1": -0.09529225516164797,
+      "HC2": -0.1207182264126263,
+      "HC4": -0.05644160669480436
+    },
+    "cluster_resampling_valid": 27,
+    "resampled_changes_min_max": [
+      -0.5299357121834083,
+      -0.00036298540223178577
+    ],
+    "evidence_interpretation": "GrimAge shifts opposite to Horvath1 chronological aging slope in the same cultures; retain discordance as negative control, not selective narrative."
+  },
+  "scientific_gate": {
+    "measured_public_RNA_and_published_epigenetic_clocks": "PASS",
+    "explicit_identity_score": "PASS_DESCRIPTIVE_EXPLORATORY",
+    "same_physical_aliquot": "UNVERIFIED",
+    "rejuvenation_independent_of_fate": "UNVERIFIED",
+    "RNA_2026_GSE295849_six_donors": "UNAVAILABLE_DBGAP_AUTHORIZATION",
+    "formal_significance_and_uncertainty": "UNVERIFIED_WITH_THREE_DONORS",
+    "therapeutic_claim": "UNVERIFIED"
+  },
+  "cost_new_eur": 0
+}
