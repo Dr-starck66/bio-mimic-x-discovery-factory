@@ -1,0 +1,157 @@
+{
+  "schema": "BIO-MIMIC-X/GSE295849-LEAVE-DONOR-OUT-NONCLOCK-LINEAGE-PROXY/1",
+  "status": "PASS_REAL_PUBLIC_DNAM_SAME_ASSAY_SENSITIVITY_ONLY",
+  "evidence_timestamp": "2026-11-02",
+  "RNA_2026_expressions_loaded": false,
+  "cell_fate_independent_rejuvenation": "UNVERIFIED",
+  "clock": "Horvath2018 Skin & Blood 391 CpGs hash pinned excluded",
+  "source": "GSE295849 60 genuine public methylation beta arrays hash pinned",
+  "evidence": {
+    "github_actions_run": "https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/41378461034",
+    "github_artifact_url": "https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/41378461034/artifacts/13112257665",
+    "artifact_name": "bio-mimic-real-six-donor-nonclock-cell-identity",
+    "status_parts": [
+      "PASS",
+      "PASS",
+      "PASS"
+    ],
+    "source_sha256": {
+      "1": "c13d9efcb094e57d8f69f819440620de671bd398b45e8c24c29194aa7f228d32",
+      "2": "4ca091cef1128ddcea24e6c2b349c038ae1de8dc4eb302f7f218304e17479fcd",
+      "3": "fa92b4124a5bd7c69a878ae4557d2def91b1698203fc975fe63003de27640f2d"
+    },
+    "model_sha256": "56f8ce6567170ce5427f24803d30a2f0e3f6d3735b44100af02521fcd7c18027",
+    "gzip_crc": "PASS"
+  },
+  "held_out_reference_EPC_vs_smNPC_checks": [
+    {
+      "genotype": "190",
+      "EPC_identity_score": -0.0385,
+      "smNPC_identity_score": 1.02666
+    },
+    {
+      "genotype": "216",
+      "EPC_identity_score": -0.04288,
+      "smNPC_identity_score": 1.03061
+    },
+    {
+      "genotype": "218",
+      "EPC_identity_score": -0.05053,
+      "smNPC_identity_score": 1.01259
+    }
+  ],
+  "identity_proxy_shift_mean": 0.36654,
+  "limitations": [
+    "CpGs outside clock but SAME methylation assay are not RNA; independent model coordinates do not establish biological clock-independence.",
+    "Training on EPC vs smNPC contrasts conflates cell fate, reprogramming, chronological age and cell culture.",
+    "Only six donor pairs; no causal randomized intervention or independent donor replication.",
+    "Time since reprogramming, oxygen and transgene expression co-vary with stage.",
+    "Small n makes identity-adjusted intercept unstable; zero-identity extrapolation must not be described as causal proof.",
+    "Negative biological clock-age predictions for some other donor stages remain nonphysical.",
+    "No license to infer organismal rejuvenation, therapeutic efficacy or axolotl transfer."
+  ],
+  "lineage_proxy_training": "for each test donor, 8 or 9 other donors' EPC D0 vs smNPC LP methylation; 200 largest paired CpG differences; projected identity score (EPC=0 smNPC=1 approximately); NOT lineage-specific transcriptional measurement, age confounded",
+  "n_actual_paired_D14_LP_donors": 6,
+  "n_common_preselected_clock_excluded_CpGs": 6611,
+  "n_identity_shifts_towards_mature_neural_reference": 6,
+  "n_public_methylation_chips": 60,
+  "negative_control_GSE74387": "FAIL_RETAINED",
+  "observed_Horvath_change_mean_years": -39.58073,
+  "orthogonal_transcriptomics": "UNVERIFIED_PROTECTED_ACCESS",
+  "pairs": [
+    {
+      "genotype": "190",
+      "D14_GSM": "GSM8958613",
+      "LP_GSMs": [
+        "GSM8958616",
+        "GSM8958670"
+      ],
+      "D14_identity_proxy": 0.22827,
+      "LP_identity_proxy": 0.60487,
+      "delta_identity_proxy_LP_minus_D14": 0.37659,
+      "delta_Horvath_years": -20.32003,
+      "n_train_reference_donors": 8,
+      "CpGs_used": 200
+    },
+    {
+      "genotype": "216",
+      "D14_GSM": "GSM8958614",
+      "LP_GSMs": [
+        "GSM8958618",
+        "GSM8958668"
+      ],
+      "D14_identity_proxy": 0.19629,
+      "LP_identity_proxy": 0.58328,
+      "delta_identity_proxy_LP_minus_D14": 0.38699,
+      "delta_Horvath_years": -53.75283,
+      "n_train_reference_donors": 8,
+      "CpGs_used": 200
+    },
+    {
+      "genotype": "218",
+      "D14_GSM": "GSM8958615",
+      "LP_GSMs": [
+        "GSM8958617",
+        "GSM8958669"
+      ],
+      "D14_identity_proxy": 0.23816,
+      "LP_identity_proxy": 0.58269,
+      "delta_identity_proxy_LP_minus_D14": 0.34453,
+      "delta_Horvath_years": -38.2645,
+      "n_train_reference_donors": 8,
+      "CpGs_used": 200
+    },
+    {
+      "genotype": "286",
+      "D14_GSM": "GSM8958644",
+      "LP_GSMs": [
+        "GSM8958646"
+      ],
+      "D14_identity_proxy": 0.17637,
+      "LP_identity_proxy": 0.64335,
+      "delta_identity_proxy_LP_minus_D14": 0.46698,
+      "delta_Horvath_years": -50.49079,
+      "n_train_reference_donors": 9,
+      "CpGs_used": 200
+    },
+    {
+      "genotype": "287",
+      "D14_GSM": "GSM8958645",
+      "LP_GSMs": [
+        "GSM8958647",
+        "GSM8958652"
+      ],
+      "D14_identity_proxy": 0.22449,
+      "LP_identity_proxy": 0.47355,
+      "delta_identity_proxy_LP_minus_D14": 0.24906,
+      "delta_Horvath_years": -31.95704,
+      "n_train_reference_donors": 9,
+      "CpGs_used": 200
+    },
+    {
+      "genotype": "288",
+      "D14_GSM": "GSM8958639",
+      "LP_GSMs": [
+        "GSM8958641",
+        "GSM8958648"
+      ],
+      "D14_identity_proxy": 0.19936,
+      "LP_identity_proxy": 0.57444,
+      "delta_identity_proxy_LP_minus_D14": 0.37508,
+      "delta_Horvath_years": -42.6992,
+      "n_train_reference_donors": 9,
+      "CpGs_used": 200
+    }
+  ],
+  "reference_training_donors": 9,
+  "sampling_rule": "sha256(cpg_id) first 16 bits mod 128 == 0, excluding all 391 Horvath model probes",
+  "statistical_identity_correction": {
+    "intercept_at_zero_identity_change": -8.11444,
+    "intercept_interpretation": "EXTRAPOLATED_NOT_IDENTIFIABLE",
+    "slope_age_years_per_proxy_unit": -85.84721,
+    "slope_and_intercept_pooled_n_independent_donors": 6,
+    "status": "DESCRIPTIVE_SENSITIVITY_ONLY",
+    "zero_change_observed_within_data_range": false
+  },
+  "explanation": "All six samples show significant methylation molecular fate progression, so no donor is observed with identity-proxy delta zero. Consequently the estimated intercept (-8.11 years) is an unsupported extrapolation and cannot establish a fate-independent age reversal. This fails the mechanistic identifiability gate."
+}
