@@ -23,6 +23,8 @@ BIO-MIMIC X is an evidence-linked computational research pipeline for cross-spec
 
 [Machine-readable source receipt and SHA-256](https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/blob/main/reports/factory/HAND2-ASSEMBLY-SEQUENCE-PROBE-LATEST.json) · [Software CI acceptance run 41320421647](https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/41320421647).
 
+**Multi-family stress audit, 2 November 2026 (negative results):** A preregistered public-data screen across HAND1/HAND2, PAX6/PAX7, SOX2/SOX3 and SHH/DHH **did not yield a representative gene-mapping benchmark**. Eight symbol targets were considered, two distinct historical loci met preflight, and **only one paired comparison completed** (the HAND1 case). SOX3 had no unique verified modern NCBI locus in the selected assembly; the other old models were ambiguous, duplicated, or above the predeclared 40-kb window cap. **No accuracy, savings, commercial advantage or independent biological validation can be calculated from this panel.** [Reproducible negative-case report](../reports/factory/AXOLOTL-PARALOG-PANEL-EVIDENCE-2026-11-02.md) · [actual receipt](../reports/factory/AXOLOTL-PARALOG-PANEL-LATEST.json).
+
 ## Other evidence and important limits
 
 - Exploratory RNA-seq count dataset **GSE284768** (axolotl, 25 sample columns) and processed human microarray **GSE28914** (25 human biopsies, six matched patient pairs in analysis) were ingested with provenance. Their biological contrasts are **not directly comparable**; the cross-species concordance claim remains blocked.

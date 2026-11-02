@@ -1,0 +1,247 @@
+{
+  "attempted_loci": 2,
+  "cases": [
+    {
+      "duplicate_historic_id": false,
+      "historical": {
+        "chr": "chr3q",
+        "end_1based": 632169448,
+        "historical_name": "HAND1 [nr]|HAND2 [hs]",
+        "legacy_gene_id": "AMEX60DD030069",
+        "length": 28911,
+        "species_tagged_symbols": [
+          "HAND1",
+          "HAND2"
+        ],
+        "start_1based": 632140538,
+        "strand": "+"
+      },
+      "historical_gene_candidates": 1,
+      "identity_certified": false,
+      "modern_references": {
+        "HAND1": {
+          "fasta": {
+            "content_type": "text/plain",
+            "sha256": "78565078424aac4e7038f3a0eb85af79f558827ea34c2155db0b33b431b54434",
+            "size": 29394,
+            "source": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NC_090926.1&seq_start=348891291&seq_stop=348920140&rettype=fasta&retmode=text"
+          },
+          "gene": {
+            "accession": "NC_090926.1",
+            "end": 348920140,
+            "gene_id": "138582569",
+            "length": 28850,
+            "start": 348891291,
+            "symbol": "HAND1"
+          },
+          "gene_report": {
+            "content_type": "application/json",
+            "sha256": "5541d89b2ab5f4f9ae92ea02b66ba72725409404a1780dff1ee19d07f52793ed",
+            "size": 1649,
+            "source": "https://api.ncbi.nlm.nih.gov/datasets/v2/gene/symbol/HAND1/taxon/8296/dataset_report"
+          },
+          "sequence_sha256": "99058cb5ba540e21359efbdd2dd047efb692cb8f47d731ec775ba7cbfeef9d8c"
+        },
+        "HAND2": {
+          "fasta": {
+            "content_type": "text/plain",
+            "sha256": "491365347173b77b224a6a38d6115f29eb38c49d6b142c3440e4d047c4a78af7",
+            "size": 4404,
+            "source": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NC_090937.1&seq_start=910028725&seq_stop=910032936&rettype=fasta&retmode=text"
+          },
+          "gene": {
+            "accession": "NC_090937.1",
+            "end": 910032936,
+            "gene_id": "138516365",
+            "length": 4212,
+            "start": 910028725,
+            "symbol": "HAND2"
+          },
+          "gene_report": {
+            "content_type": "application/json",
+            "sha256": "87fbd8197d54850df84061f47c5402b84fde674ed1533b5f19f43d3edfb797b1",
+            "size": 1651,
+            "source": "https://api.ncbi.nlm.nih.gov/datasets/v2/gene/symbol/HAND2/taxon/8296/dataset_report"
+          },
+          "sequence_sha256": "eb707084770ecfd0c24538f10984563b8cddfc0fe467db96454a36fa516505b3"
+        }
+      },
+      "old_fasta": {
+        "content_type": "text/plain",
+        "sha256": "15e2dadfb764d7143703fa2fdeab689234d15caac36e54f09b4c3d5a4487a4c0",
+        "size": 29436,
+        "source": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=CM010932.2&seq_start=632140538&seq_stop=632169448&rettype=fasta&retmode=text"
+      },
+      "old_genbank_accession": "CM010932.2",
+      "old_sequence_sha256": "9d2c183a94e9feeb2ed6b413e1654e4d54a614f0ed5ada64b52db2dcaf2eb4ce",
+      "paralog": "HAND2",
+      "scores": {
+        "HAND1": {
+          "CIGAR_counts": {
+            "=": 28830,
+            "D": 3,
+            "I": 14,
+            "X": 6
+          },
+          "aligned_columns": 28853,
+          "aligned_identical_bases": 28830,
+          "edit_distance": 23,
+          "identity_in_aligned_columns": 0.999203,
+          "length_normalized_edit_distance": 0.000797,
+          "query_length": 28850,
+          "strand": "+"
+        },
+        "HAND2": {
+          "CIGAR_counts": {
+            "=": 2334,
+            "D": 220,
+            "I": 869,
+            "X": 1009
+          },
+          "aligned_columns": 4432,
+          "aligned_identical_bases": 2334,
+          "edit_distance": 2098,
+          "identity_in_aligned_columns": 0.526625,
+          "length_normalized_edit_distance": 0.498101,
+          "query_length": 4212,
+          "strand": "+"
+        }
+      },
+      "screening_inference": "FAVORS_ORIGINAL",
+      "status": "PARTIAL_ALIGNMENT_COMPUTED",
+      "symbol": "HAND1"
+    },
+    {
+      "duplicate_historic_id": true,
+      "historical": {
+        "chr": "chr3q",
+        "end_1based": 632169448,
+        "historical_name": "HAND1 [nr]|HAND2 [hs]",
+        "legacy_gene_id": "AMEX60DD030069",
+        "length": 28911,
+        "species_tagged_symbols": [
+          "HAND1",
+          "HAND2"
+        ],
+        "start_1based": 632140538,
+        "strand": "+"
+      },
+      "historical_gene_candidates": 1,
+      "old_genbank_accession": "CM010932.2",
+      "paralog": "HAND1",
+      "status": "DUPLICATE_OR_CONFLICTING_GENE_NAME_ON_SAME_HISTORIC_LOCUS",
+      "symbol": "HAND2"
+    },
+    {
+      "duplicate_historic_id": false,
+      "historical": {
+        "chr": "chr12q",
+        "end_1based": 664493129,
+        "historical_name": "AB205_0109740 [nr]|PAX6 [hs]",
+        "legacy_gene_id": "AMEX60DD007993",
+        "length": 46586,
+        "species_tagged_symbols": [
+          "0109740",
+          "PAX6"
+        ],
+        "start_1based": 664446544,
+        "strand": "-"
+      },
+      "historical_gene_candidates": 1,
+      "old_genbank_accession": "CM030327.1",
+      "paralog": "PAX7",
+      "status": "WINDOW_OUTSIDE_BOUNDS",
+      "symbol": "PAX6"
+    },
+    {
+      "historical": null,
+      "historical_gene_candidates": 0,
+      "old_genbank_accession": null,
+      "paralog": "PAX6",
+      "status": "AMBIGUOUS_LEGACY_GENE_COUNT",
+      "symbol": "PAX7"
+    },
+    {
+      "historical": null,
+      "historical_gene_candidates": 2,
+      "old_genbank_accession": null,
+      "paralog": "SOX3",
+      "status": "AMBIGUOUS_LEGACY_GENE_COUNT",
+      "symbol": "SOX2"
+    },
+    {
+      "duplicate_historic_id": false,
+      "historical": {
+        "chr": "chr5p",
+        "end_1based": 345300560,
+        "historical_name": "SOX3 [nr]|SOX2 [hs]",
+        "legacy_gene_id": "AMEX60DD037395",
+        "length": 2076,
+        "species_tagged_symbols": [
+          "SOX2",
+          "SOX3"
+        ],
+        "start_1based": 345298485,
+        "strand": "+"
+      },
+      "historical_gene_candidates": 1,
+      "old_genbank_accession": "CM010935.2",
+      "paralog": "SOX2",
+      "status": "PARTIAL_MODERN_SOURCE_MISSING",
+      "symbol": "SOX3"
+    },
+    {
+      "historical": null,
+      "historical_gene_candidates": 0,
+      "old_genbank_accession": null,
+      "paralog": "DHH",
+      "status": "AMBIGUOUS_LEGACY_GENE_COUNT",
+      "symbol": "SHH"
+    },
+    {
+      "historical": null,
+      "historical_gene_candidates": 0,
+      "old_genbank_accession": null,
+      "paralog": "SHH",
+      "status": "AMBIGUOUS_LEGACY_GENE_COUNT",
+      "symbol": "DHH"
+    }
+  ],
+  "evaluated_loci": 1,
+  "limitations": [
+    "Preselected symbol families, not a representative genome-wide benchmark.",
+    "Legacy labels may be ambiguous and are not gold-standard identities.",
+    "No label-only accuracy or industrial false-positive rate can be estimated without independent truth.",
+    "Whole-genome reciprocal mapping, paralog synteny, exon mapping and independent curator review missing.",
+    "No clinical efficacy or monetary ROI is inferred."
+  ],
+  "predeclared_families": [
+    [
+      "HAND1",
+      "HAND2"
+    ],
+    [
+      "PAX6",
+      "PAX7"
+    ],
+    [
+      "SOX2",
+      "SOX3"
+    ],
+    [
+      "SHH",
+      "DHH"
+    ]
+  ],
+  "schema": "BIO-MIMIC-X/PARALOG-PANEL/1",
+  "scientific_identity_confirmation": "UNVERIFIED",
+  "sha256": "3e55d4d1957d53eb71300eaac5c5c6f8729198174d1737476dc461fb70d80cb3",
+  "source_failures": {
+    "modern:SOX3": "ValueError: No unique NCBI current gene on exact modern assembly: SOX3"
+  },
+  "status": "PARTIAL_SCREENED_NONREPRESENTATIVE",
+  "strict_source_shas": {
+    "legacy_GTF": "cc0c3c4e39f3afedcbe2bc5aad1d63fc461714aeb75051f4d109390455874c5d",
+    "legacy_assembly_report": "afab332ee6420dd92d50fc7cd21fdee39595ba57646561e7904887932243a0be"
+  }
+}
