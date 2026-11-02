@@ -54,5 +54,20 @@
     "published_expression_summary": "Six counts of differentially expressed genes for pre-published comparisons (not sample-level expression values)",
     "valid_for_RNA_samplewise_identity_adjustment": false
   },
-  "last_retrieval": "2026-11-02"
+  "last_retrieval": "2026-11-02",
+  "nonclock_epigenomic_identity_sensitivity": {
+    "status": "PASS_REAL_SAME_ASSAY_CPG_IDENTITY_PROXY_NOT_RNA",
+    "path": "reports/factory/GSE295849-REAL-CELL-IDENTITY-SENSITIVITY-2026-11-02.json",
+    "independent_probe_count": 6611,
+    "independent_donors": 6,
+    "positive_neural_identity_proxy_shifts": 6,
+    "mean_proxy_shift": 0.36654,
+    "mean_Horvath_clock_drop_years": -39.58073,
+    "linear_intercept_at_zero_identity_change": -8.11444,
+    "intercept_identifiability": "FAIL_EXTRAPOLATED_OUTSIDE_OBSERVED_IDENTITY_CHANGE",
+    "inference": "Cell fate progression co-occurs with DNAm clock decline in all six donors, not proof of independent rejuvenation",
+    "RNA_expressions_available": false,
+    "source_run": "https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/41378461034"
+  },
+  "last_updated": "2026-11-02"
 }

@@ -41,6 +41,8 @@ on:
       - 'validation/gse295849_rna_identity_gate.py'
       - 'tests/test_gse295849_rna_identity_gate.py'
       - 'tests/test_gse295849_open_ccby_rna.py'
+      - 'validation/gse295849_noncpg_lineage_residual.py'
+      - 'tests/test_gse295849_noncpg_lineage_residual.py'
       - 'reports/factory/GSE295849-SRP594303-RNA-METADATA-2026-11-02.json'
       - 'validation/axolotl_human_reanalysis.py'
       - 'tests/test_axolotl_human_reanalysis.py'
@@ -359,3 +361,73 @@ jobs:
           name: biomimic-ui-browser-evidence
           path: qa-artifacts/
           if-no-files-found: warn
+
+  epigenome-fate-proxy-shards:
+    # One-off real public methylation assay reanalysis for a single science PR.
+    # Public GitHub repository: uses public runner, no private protected data.
+    # No recurring cron or paid service. Does not claim RNA access.
+    if: github.event_name == 'pull_request' && github.head_ref == 'science/open-rna-external-control-20261102'
+    name: Independently quantify nonclock CpG lineage on genuine GEO part ${{ matrix.part }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 22
+    strategy:
+      fail-fast: false
+      matrix:
+        part: ['1','2','3']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download and hash-pin real GSE295849 methylation shard
+        run: |
+          mkdir -p qa-artifacts
+          python validation/gse295849_noncpg_lineage_residual.py --part ${{ matrix.part }} --out qa-artifacts/part${{ matrix.part }}.json.gz
+      - name: Retain sampled clock-excluded CpG data for donor holdout
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bio-mimic-lineage-part-${{ matrix.part }}
+          path: qa-artifacts/part${{ matrix.part }}.json.gz
+          if-no-files-found: warn
+          retention-days: 7
+
+  epigenome-fate-proxy-paired:
+    if: github.event_name == 'pull_request' && github.head_ref == 'science/open-rna-external-control-20261102'
+    needs: [epigenome-fate-proxy-shards]
+    name: One-donor-one-vote identity-control of real Horvath clock
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download exactly three independently pinned CpG shard artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: bio-mimic-lineage-part-*
+          merge-multiple: true
+          path: qa-artifacts/
+      - name: Real 6-donor stage analysis with leave-donor-out nonclock CpG lineage proxy
+        run: |
+          python validation/gse295849_noncpg_lineage_residual.py --join qa-artifacts/part1.json.gz qa-artifacts/part2.json.gz qa-artifacts/part3.json.gz --out qa-artifacts/BIO-MIMIC-GSE295849-CELL-IDENTITY-PROXY.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('qa-artifacts/BIO-MIMIC-GSE295849-CELL-IDENTITY-PROXY.json').read_text())
+          assert d['n_public_methylation_chips']==60
+          assert d['n_actual_paired_D14_LP_donors']==6
+          assert d['n_common_preselected_clock_excluded_CpGs']>=3000
+          assert d['cell_fate_independent_rejuvenation']=='UNVERIFIED'
+          assert d['orthogonal_transcriptomics']=='UNVERIFIED_PROTECTED_ACCESS'
+          print('PASS_GENUINE_NONCLOCK_CPG_SENSITIVITY_MEASUREMENT__NOT_RNA')
+          PY
+      - name: Save reproducible six-donor evidence with negative controls
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bio-mimic-real-six-donor-nonclock-cell-identity
+          path: qa-artifacts/BIO-MIMIC-GSE295849-CELL-IDENTITY-PROXY.json
+          if-no-files-found: warn
+          retention-days: 90
