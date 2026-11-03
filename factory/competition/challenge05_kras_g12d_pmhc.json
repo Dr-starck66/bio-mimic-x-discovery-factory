@@ -1,0 +1,45 @@
+{
+  "schema": "astra-competition-challenge-definition-v1",
+  "challenge": "Anthropic x Adaptyv 2026 / 05",
+  "track": "open_3",
+  "source": "https://proteinbase.com/competitions/anthropic-adaptyv-2026/challenges/pmhc",
+  "submission_url": "https://proteinbase.com/competitions/anthropic-adaptyv-2026/rounds/5/submit",
+  "deadline": "2026-11-08T23:59:00-12:00",
+  "target": {
+    "type": "KRAS G12D mutant peptide-MHC",
+    "pdb_id": "7OW6",
+    "pdb_url": "https://www.rcsb.org/structure/7OW6",
+    "mhc_allele": "HLA-A*11:01",
+    "beta2_microglobulin": true,
+    "mutant_peptide": "VVVGADGVGK",
+    "wildtype_peptide": "VVVGAGGVGK",
+    "mutation_position_1_based": 6,
+    "hotspot": "exposed mutant Asp at peptide position 6 and adjacent HLA groove",
+    "required_chains": "HLA heavy chain, B2M, mutant peptide; existing TCR excluded"
+  },
+  "negative_controls": [
+    {
+      "target": "wildtype peptide-MHC",
+      "expected": "no detectable binding"
+    },
+    {
+      "target": "peptide-free HLA-A*11:01 B2M",
+      "expected": "no detectable binding"
+    }
+  ],
+  "acceptance_gates": {
+    "sequence_length_min": 10,
+    "sequence_length_max": 250,
+    "max_designs_per_open_track_participant": 20,
+    "de_novo_zero_shot": true,
+    "unique_sequences": true,
+    "researcher_manual_review_required": true,
+    "valid_public_binding_measurement": "experimental independent wet-lab required"
+  },
+  "current_results": {
+    "genuine_kras_pmhc_designs_generated": 0,
+    "experimental_binding_verified": 0,
+    "status": "UNVERIFIED"
+  },
+  "note": "This is verified competition specification, NOT a generated protein or finished submission."
+}

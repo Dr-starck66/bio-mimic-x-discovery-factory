@@ -1,0 +1,55 @@
+{
+  "schema": "astra-real-rfd4-generation-evidence-v1",
+  "observed_on": "2026-10-29",
+  "model": "NVIDIA RFD4-Proteina",
+  "endpoint": "https://health.api.nvidia.com/v1/biology/ipd/rfd4-proteina/generative",
+  "response_origin": "actual authenticated NVIDIA NIM POST from existing AppDeploy Ghost Operator server",
+  "cloud_app": "ghost-operator-astra-evidence-preview-3tvjpc",
+  "public_status_page": "https://ghost-operator-astra-evidence-preview-3tvjpc.v2.appdeploy.ai/",
+  "execution_status": "PASS_GENERATION_ONLY",
+  "output": {
+    "designs_received": 1,
+    "mmcif_found_and_parsed": true,
+    "mmcif_atom_rows": 962,
+    "amino_acid_sequence_length": 120,
+    "design_keys_seen": [
+      "design_id",
+      "replicate_index",
+      "origin",
+      "seed",
+      "sequence",
+      "structure",
+      "search_reward",
+      "chain_of_interest",
+      "metrics",
+      "diagnostics",
+      "runtime_metrics"
+    ],
+    "structure_object_keys": [
+      "format",
+      "filename",
+      "content"
+    ],
+    "raw_result_persisted_on_appdeploy": true,
+    "storage_path": "astra-science/rfd4-2026-10-29-result.json"
+  },
+  "scope": "Unconditional de novo monomer using official NVIDIA demonstration request",
+  "contest": {
+    "challenge": "KRAS G12D pMHC binder",
+    "is_targeted_binder": false,
+    "eligible_for_submission": false,
+    "competition_rank": "UNVERIFIED"
+  },
+  "independent_geometry_validation": "NOT_EXECUTED_AFTER_NIM_GENERATION",
+  "experimental_affinity": "NOT_MEASURED",
+  "source_cif_sha256": "NOT_COMPUTED",
+  "cost": {
+    "new_paid_resource_created": false,
+    "appdeploy_plan": "free",
+    "free_credit_limit_reached_for_new_deployments": true,
+    "charged_eur": 0
+  },
+  "further_model_calls_prevented": true,
+  "cron_file_empty_after_result": true,
+  "notes": "Evidence of true newly generated protein and reported coordinates, not evidence of binding, stability or contest success. Raw file currently in app storage; no new paid deployment."
+}
