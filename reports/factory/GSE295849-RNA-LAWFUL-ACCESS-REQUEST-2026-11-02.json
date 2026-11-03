@@ -267,10 +267,35 @@
     "public_RNA_run_titles": 48,
     "condition_level_overlap": 35,
     "independent_RNA_expression_values_obtained": 0,
-    "adjusted_aging_signal_status": "UNVERIFIED",
+    "adjusted_aging_signal_status": "UNVERIFIED_NO_AUTHORIZED_2026_RNA_EXPRESSION",
     "request_sent": false,
     "dbGaP_DAR_submitted": false
   },
   "cost_new_eur": 0,
-  "evidence": "reports/factory/GSE295849-SRP594303-RNA-METADATA-2026-11-02.json"
+  "evidence": "reports/factory/GSE295849-SRP594303-RNA-METADATA-2026-11-02.json",
+  "last_contact_audit_date": "2026-11-03",
+  "verified_contact_route": {
+    "recipient": "r.neuro@uni-bonn.de",
+    "official_institution_contact": "https://www.meb.uni-bonn.de/rnb/reconstructive-neurobiology/contact-staff/",
+    "second_official_corrob": "https://www.uni-bonn.de/en/news/211-2026",
+    "existing_gmail_draft_id": "r-8318031665272878265",
+    "current_gmail_draft_message_id": "1a1a06949c21d0ec",
+    "draft_updated": "2026-11-03",
+    "email_sent": false,
+    "inbound_mailbox_control_proven": false,
+    "note": "ASTRA MAILGUARD Ω requires independent mailbox-control evidence; publicly listed recipient alone is not the configured proof."
+  },
+  "institutional_computation_package": {
+    "status": "PASS_PUBLISHED_SOFTWARE_TESTS_RECORDED_NOT_INSTITUTIONALLY_EXECUTED",
+    "pull_request": "https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/pull/39",
+    "code": "validation/gse295849_authorized_aggregate_export.py",
+    "instructions": "reports/factory/GSE295849-ON-SITE-COLLABORATOR-PACKET-2026-11-03.md",
+    "test": "tests/test_gse295849_authorized_aggregate_export.py",
+    "github_actions_run": "https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/41599310490",
+    "new_data_access_authorization_obtained": false,
+    "six_donor_rna_counts_obtained": false,
+    "external_authorized_execution_completed": false,
+    "approved_result_shared": false,
+    "intended_output": "Disclosure-reviewed cohort-only scalar summaries; no individual RNA counts, pseudonyms, per-donor data or SRR columns exported."
+  }
 }
