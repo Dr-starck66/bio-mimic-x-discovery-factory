@@ -20,7 +20,12 @@ class LawfulRNARequestTests(unittest.TestCase):
         self.assertEqual(p["NIH_molecular_metadata"]["derived_Seq_RNA_Expression_samples"],47)
         self.assertFalse(p["NIH_molecular_metadata"]["processed_matrix_public_download_verified"])
         self.assertEqual(p["observed"]["independent_RNA_expression_values_obtained"],0)
-        self.assertEqual(p["observed"]["adjusted_aging_signal_status"],"UNVERIFIED")
+        # Fail closed for every informative UNVERIFIED_* subtype.
+        # Do not confuse real external GSE179849 RNA data with protected 2026 iNSC RNA.
+        status=p["observed"]["adjusted_aging_signal_status"]
+        self.assertIsInstance(status,str)
+        self.assertTrue(status.startswith("UNVERIFIED"),status)
+        self.assertNotIn("PASS",status)
         self.assertFalse(p["observed"]["dbGaP_DAR_submitted"])
         self.assertFalse(p["observed"]["request_sent"])
 

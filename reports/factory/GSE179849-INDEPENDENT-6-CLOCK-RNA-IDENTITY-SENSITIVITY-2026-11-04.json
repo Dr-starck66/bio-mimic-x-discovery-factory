@@ -1,0 +1,154 @@
+{
+  "schema": "BIO-MIMIC-X/GSE179849-INDEPENDENT-SIX-CLOCK-AUDIT/2",
+  "audit_date": "2026-11-04",
+  "status": "PASS_REAL_RNA_AND_PUBLISHED_DNAM_CLOCK_SIX_CLOCKS_REPRODUCED_OBSERVATIONAL_ONLY",
+  "scientific_answer": "YES_DESCRIPTIVELY_FIVE_CLOCKS_INCREASE_AND_GRIMAGE_DECREASE_AFTER_RNA_IDENTITY_ADJUSTMENT_NOT_PROOF_OF_REJUVENATION",
+  "source": {
+    "paper": "Sturm et al., Scientific Data (2022), DOI 10.1038/s41597-022-01852-y",
+    "GEO_super_series": "GSE179849",
+    "public_RNA_series": "GSE179848",
+    "public_methylation_series": "GSE179847",
+    "figshare_clocks": "10.6084/m9.figshare.18441998.v2 (CC BY 4.0)",
+    "processed_RNA_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE179nnn/GSE179848/suppl/GSE179848_processed_cell_lifespan_RNAseq_data.csv.gz",
+    "RNA_original_gzip_bytes": 60622846,
+    "RNA_original_GZIP_SHA256": "b5731fa1253a2bd32f0b64c3bd58770e833a3da59dc90c4f8c8d858944b30109",
+    "RNA_original_verified_by_Github_Action": "https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/41432146704",
+    "reproducible_102_numeric_records_artifact": "https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/41432146704/artifacts/13133834616",
+    "archived_102_numeric_records_SHA256": "c2ec0711a61cac04d03c85a108fe7a2245ebe418d55cd0cd75b18c9a01ec7bd2",
+    "reference_repo_report": "reports/factory/GSE179849-REAL-ORTHOGONAL-RNA-ADJUSTED-AGING-2026-11-02.json",
+    "source_analysis_code": "validation/gse179849_rna_gene_age_adjustment.py"
+  },
+  "audit_reexecution": {
+    "implementation": "independent NumPy least-squares on the original SHA256-pinned archived 102 sample derived RNA scores and measured published clock values",
+    "source_marker_gene_z_scores_verified_six_markers_per_sample": true,
+    "original_source_28633_genes_retrieval_reused_not_refetched": true,
+    "sample_key_duplicated_count": 0,
+    "RNA_DNA_GEO_correspondence_valid": true,
+    "raw_source_re_downloaded_in_this_audit": false,
+    "original_complete_RNA_download_and_gzip_CRC_verified": true,
+    "all_six_clocks_recomputed": true,
+    "Horvath1_reference_regression_reproduced_tolerance": 0.000002,
+    "cost_new_eur": 0
+  },
+  "population": {
+    "matching_RNA_DNAm_condition_records": 102,
+    "analyzed_untreated_healthy_control_samples": 42,
+    "independent_healthy_donor_lines": 3,
+    "healthy_donors": [
+      "HC1",
+      "HC2",
+      "HC4"
+    ],
+    "culture_fixed_effects": 8,
+    "not_an_identity_verified_same_aliquot": true,
+    "marker_gene_panel": [
+      "COL1A1",
+      "COL1A2",
+      "DCN",
+      "LUM",
+      "FN1",
+      "THY1"
+    ],
+    "marker_panel_validated_as_cell_fate_in_this_dataset": false
+  },
+  "models": {
+    "unadjusted": "published CpG-based epigenetic clock age ~ culture passage + series fixed intercepts",
+    "RNA_adjusted": "published CpG-based epigenetic clock age ~ culture passage + z-average fibroblast RNA marker score + series fixed intercepts",
+    "measurement": "signed descriptive years of clock prediction per additional in-vitro passage; NOT elapsed years, NOT causal rejuvenation",
+    "method": "Within-transform culture series; OLS (two predictors) with NumPy independently checking GitHub pipeline",
+    "formal_inference": "NOT_AVAILABLE_WITH_3_INDEPENDENT_DONORS; NO VALID INFERENCE OR CONFIDENCE_INTERVAL_CLAIM"
+  },
+  "results": [
+    {
+      "clock": "Horvath1",
+      "years_per_passage_before": 2.062966,
+      "years_per_passage_after_RNA_adjustment": 1.930454,
+      "change_due_to_RNA_adjustment": -0.132513,
+      "signal_sign_persists": true,
+      "root_mean_square_error_before": 4.063143,
+      "root_mean_square_error_after": 4.04632
+    },
+    {
+      "clock": "Horvath2",
+      "years_per_passage_before": 0.658764,
+      "years_per_passage_after_RNA_adjustment": 0.556997,
+      "change_due_to_RNA_adjustment": -0.101766,
+      "signal_sign_persists": true,
+      "root_mean_square_error_before": 1.635538,
+      "root_mean_square_error_after": 1.610751
+    },
+    {
+      "clock": "PhenoAge",
+      "years_per_passage_before": 1.182166,
+      "years_per_passage_after_RNA_adjustment": 1.11391,
+      "change_due_to_RNA_adjustment": -0.068257,
+      "signal_sign_persists": true,
+      "root_mean_square_error_before": 2.961879,
+      "root_mean_square_error_after": 2.955762
+    },
+    {
+      "clock": "PCHorvath2",
+      "years_per_passage_before": 0.443288,
+      "years_per_passage_after_RNA_adjustment": 0.372858,
+      "change_due_to_RNA_adjustment": -0.07043,
+      "signal_sign_persists": true,
+      "root_mean_square_error_before": 2.327546,
+      "root_mean_square_error_after": 2.319252
+    },
+    {
+      "clock": "PCPhenoAge",
+      "years_per_passage_before": 0.90621,
+      "years_per_passage_after_RNA_adjustment": 0.842217,
+      "change_due_to_RNA_adjustment": -0.063993,
+      "signal_sign_persists": true,
+      "root_mean_square_error_before": 1.778531,
+      "root_mean_square_error_after": 1.769564
+    },
+    {
+      "clock": "GrimAge",
+      "years_per_passage_before": -1.16736,
+      "years_per_passage_after_RNA_adjustment": -1.238104,
+      "change_due_to_RNA_adjustment": -0.070743,
+      "signal_sign_persists": true,
+      "root_mean_square_error_before": 1.496578,
+      "root_mean_square_error_after": 1.483531
+    }
+  ],
+  "leave_one_donor_out": {
+    "HC1": {
+      "remaining_samples": 29,
+      "healthy_donors": 2,
+      "Horvath1_RNA_adjusted": 2.073474,
+      "GrimAge_RNA_adjusted": -1.331752
+    },
+    "HC2": {
+      "remaining_samples": 24,
+      "healthy_donors": 2,
+      "Horvath1_RNA_adjusted": 2.735831,
+      "GrimAge_RNA_adjusted": -1.558846
+    },
+    "HC4": {
+      "remaining_samples": 31,
+      "healthy_donors": 2,
+      "Horvath1_RNA_adjusted": 1.31056,
+      "GrimAge_RNA_adjusted": -0.972273
+    }
+  },
+  "scientific_negative_controls": {
+    "unfavorable_GrimAge_RNA_adjusted_years_per_passage": -1.238104,
+    "normalization_of_RNA_marker_score_cannot_prove_fixed_cell_identity": true,
+    "donor_omission_does_not_reverse_sign_for_Horvath1_or_GrimAge": true,
+    "same_physical_aliquot_unverified": true,
+    "culturing_time_potential_confounder": true,
+    "replicative_aging_is_not_experimental_rejuvenation": true,
+    "GSE295849_six_donor_protected_RNA_remains_unavailable": true
+  },
+  "status_at_claim_levels": {
+    "authentic_source_rna_gene_values": "PASS_PRIOR_VERIFIED_GITHUB_ACTION",
+    "orthogonal_assay_102_same_condition_join": "PASS_WITHOUT_IDENTICAL_ALIQUOT",
+    "clock_slopes_before_and_after_marker_correction": "PASS_INDEPENDENT_LOCAL_RECALCULATION",
+    "cell_identity_is_causally_controlled": "UNVERIFIED",
+    "cell_rejuvenation_independent_of_fate": "UNVERIFIED",
+    "clinical_rejuvenation": "UNVERIFIED"
+  }
+}
