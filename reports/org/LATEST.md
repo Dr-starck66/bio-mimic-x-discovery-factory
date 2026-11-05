@@ -1,12 +1,12 @@
-# BIO-MIMIC X V6 Scientific Investment Committee — 2026-11-02T11:20:57.938850+00:00
+# BIO-MIMIC X V6 Scientific Investment Committee — 2026-11-05T10:59:38.077817+00:00
 
 **Scientific status:** PASS (not an efficacy claim)
 **Upstream provider failures:** 0
-**Organization replay SHA-256:** `3661c3599a6f86189a547e72863cf320d36a4a8be40c2a72ffb6dfb4364006b0`
+**Organization replay SHA-256:** `68a9d42fc3a1411b1fc5f6c7fc614180290eea659037a1515f4f90da010e18cb`
 
 ## Laboratory status
 - ONCO-X Lab: PASS · 35 papers · 0 candidates
-- IMMUNO-X Lab: PASS · 35 papers · 3 candidates
+- IMMUNO-X Lab: PASS · 35 papers · 0 candidates
 - LONGEVITY-X Lab: PASS · 35 papers · 3 candidates
 - METABOLIC-X Lab: PASS · 35 papers · 0 candidates
 - NEURO-X Lab: PASS · 35 papers · 0 candidates
@@ -18,11 +18,6 @@
 - Labs: longevity
 - Sources: 3 · mechanisms: DNA repair, genome maintenance, proteostasis, senescence
 - Challenge flags: body-size confounding, correlation does not prove causation, human functional divergence remains possible, lifespan data quality, no gene symbol candidate, phylogeny confounding
-
-### Acomys cahirinus — Committee 59/100
-- Labs: regeneration
-- Sources: 3 · mechanisms: extracellular matrix, fibrosis, regeneration
-- Challenge flags: correlation does not prove causation, developmental-stage confounding, fibrosis tradeoffs, human functional divergence remains possible, no gene symbol candidate, regeneration-vs-repair ambiguity
 
 ### Danio rerio — Committee 55/100
 - Labs: regeneration
@@ -39,25 +34,15 @@
 - Sources: 3 · mechanisms: autophagy, senescence
 - Challenge flags: body-size confounding, correlation does not prove causation, human functional divergence remains possible, lifespan data quality, no gene symbol candidate, phylogeny confounding
 
+### Acomys cahirinus — Committee 53/100
+- Labs: regeneration
+- Sources: 3 · mechanisms: extracellular matrix, fibrosis, regeneration
+- Challenge flags: correlation does not prove causation, developmental-stage confounding, fibrosis tradeoffs, human functional divergence remains possible, no gene symbol candidate, regeneration-vs-repair ambiguity
+
 ### Hydra oligactis — Committee 50/100
 - Labs: longevity
 - Sources: 2 · mechanisms: autophagy, senescence
 - Challenge flags: body-size confounding, correlation does not prove causation, human functional divergence remains possible, lifespan data quality, no gene symbol candidate, phylogeny confounding
-
-### Rousettus aegyptiacus — Committee 45/100
-- Labs: immunology
-- Sources: 3 · mechanisms: immune
-- Challenge flags: correlation does not prove causation, human functional divergence remains possible, immune pathology tradeoffs, pathogen-specific adaptation, reservoir-host confounding, taxonomy not annotation-supported
-
-### Tadarida brasiliensis — Committee 45/100
-- Labs: immunology
-- Sources: 3 · mechanisms: immune
-- Challenge flags: correlation does not prove causation, human functional divergence remains possible, immune pathology tradeoffs, pathogen-specific adaptation, reservoir-host confounding, taxonomy not annotation-supported
-
-### Eptesicus fuscus — Committee 45/100
-- Labs: immunology
-- Sources: 3 · mechanisms: immune
-- Challenge flags: correlation does not prove causation, human functional divergence remains possible, immune pathology tradeoffs, pathogen-specific adaptation, reservoir-host confounding, taxonomy not annotation-supported
 
 ### Drosophila melanogaster — Committee 45/100
 - Labs: preservation
@@ -85,20 +70,17 @@
 - Challenge flags: correlation does not prove causation, cryoprotectant toxicity, human functional divergence remains possible, reperfusion injury, single-paper dependence, taxonomy not annotation-supported
 
 ## Research-credit allocation
-- Somniosus microcephalus: 9 credits
-- Acomys cahirinus: 9 credits
-- Danio rerio: 8 credits
-- Cynops pyrrhogaster: 8 credits
-- Hydra vulgaris: 8 credits
-- Hydra oligactis: 7 credits
-- Rousettus aegyptiacus: 7 credits
-- Tadarida brasiliensis: 7 credits
-- Eptesicus fuscus: 7 credits
-- Drosophila melanogaster: 7 credits
-- Paracentrotus lividus: 7 credits
-- Caenorhabditis elegans: 6 credits
-- Neophocaena asiaeorientalis: 5 credits
-- Tursiops truncatus: 5 credits
+- Somniosus microcephalus: 12 credits
+- Danio rerio: 10 credits
+- Cynops pyrrhogaster: 10 credits
+- Hydra vulgaris: 10 credits
+- Acomys cahirinus: 10 credits
+- Hydra oligactis: 9 credits
+- Drosophila melanogaster: 9 credits
+- Paracentrotus lividus: 9 credits
+- Caenorhabditis elegans: 8 credits
+- Neophocaena asiaeorientalis: 7 credits
+- Tursiops truncatus: 6 credits
 
 ## Cross-lab challenge plan
 - immunology challenges cancer: Re-audit the top hypothesis using the challenger lab's confounders and require at least one falsifiable counter-test.
