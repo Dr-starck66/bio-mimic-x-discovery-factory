@@ -208,19 +208,6 @@ jobs:
           python validation/hand2_legacy_crosswalk.py --write
           mkdir -p qa-artifacts
           cp reports/factory/HAND2-LEGACY-CROSSWALK-2026-11-01.json qa-artifacts/HAND2-LEGACY-CROSSWALK.json
-      - name: HAND2 chr6q exact-label scan with independent checksum-gated GTF source
-        run: |
-          python -m unittest tests.test_hand2_chr6q_preflight -v
-          python validation/hand2_chr6q_preflight.py --out qa-artifacts/HAND2-CHR6Q-PREFLIGHT.json
-          python - <<'PY'
-          import json
-          from pathlib import Path
-          evidence=json.loads(Path("qa-artifacts/HAND2-CHR6Q-PREFLIGHT.json").read_text())
-          assert evidence["historic_hand2_identity"] == "UNVERIFIED"
-          assert evidence["independent_curator_confirmation"] == "UNVERIFIED"
-          assert evidence["source"]["sha256"] == "cc0c3c4e39f3afedcbe2bc5aad1d63fc461714aeb75051f4d109390455874c5d"
-          print("HAND2_CHR6Q_SCAN",evidence["status"],"candidates",len(evidence["chr6q_hand2_labeled_candidates"]))
-          PY
       - name: Real axolotl-human GEO comparison with fail-closed orthology
         run: |
           python validation/axolotl_human_reanalysis.py --write
@@ -261,6 +248,41 @@ jobs:
         with:
           name: biomimic-science-replay
           path: qa-artifacts/
+          if-no-files-found: warn
+
+  hand2-chr6q-source-scan:
+    name: Independent chr6q historical GTF scan with source hash gate
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run chr6q scanner negative-control tests
+        run: python -m unittest tests.test_hand2_chr6q_preflight -v
+      - name: Scan entire historic GTF, keep real evidence
+        run: |
+          mkdir -p qa-artifacts
+          python validation/hand2_chr6q_preflight.py --out qa-artifacts/HAND2-CHR6Q-PREFLIGHT.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          e=json.loads(Path("qa-artifacts/HAND2-CHR6Q-PREFLIGHT.json").read_text())
+          assert e["historic_hand2_identity"] == "UNVERIFIED"
+          assert e["independent_curator_confirmation"] == "UNVERIFIED"
+          assert e["source"]["sha256"] == "cc0c3c4e39f3afedcbe2bc5aad1d63fc461714aeb75051f4d109390455874c5d"
+          print("HAND2_CHR6Q_SCAN",e["status"],"gene_features",e["gene_feature_count"],
+                "chr6q_features",e["chr6q_gene_feature_count"],
+                "hand2_chr6q_label_candidates",len(e["chr6q_hand2_labeled_candidates"]))
+          PY
+      - name: Preserve positive and negative scientific evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hand2-chr6q-scan-evidence
+          path: qa-artifacts/HAND2-CHR6Q-PREFLIGHT.json
           if-no-files-found: warn
 
   real-epigenetic-geo:
