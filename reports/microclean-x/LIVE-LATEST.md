@@ -1,11 +1,11 @@
 # MICROCLEAN-X Live Evidence Radar
 
 - Status: **PASS**
-- Microplastic records: **72**
+- Microplastic records: **71**
 - Material signals: **10**
 - Review queue signals: **5**
 - Source errors: **0**
-- Evidence fingerprint: `8da87d34736173754c465e8c37d8d5344eb3609fa9f68d52e613a4a9cea0f211`
+- Evidence fingerprint: `506e70d1b8e7aad3d9427c5b6b3e749e50100003984d38f8d7cb89c18c5d3c5b`
 
 ## Highest-evidence material signals
 
