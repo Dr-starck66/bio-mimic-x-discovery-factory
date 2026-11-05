@@ -139,12 +139,16 @@ def compare_reciprocal(synteny,fetcher=fasta_from_ncbi,aligner=align_window):
 
 def main():
     ap=argparse.ArgumentParser();ap.add_argument("--out",type=Path,default=OUT)
+    ap.add_argument("--gtf",type=Path,help="Previously verified GTF from same CI job")
     args=ap.parse_args()
     result={"schema":"BIO-MIMIC-X/HAND2-SYNTENY-RECIPROCAL/1",
             "historic_HAND2_gene_id":"UNVERIFIED","whole_genome_reciprocal":"UNVERIFIED",
             "independent_curator":"UNVERIFIED","status":"UNVERIFIED"}
     try:
-        raw,source=fetch_pinned_gtf()
+        if args.gtf:
+            raw=args.gtf.read_bytes()
+            source={"url":"verified-ci-local-cache","sha256":_verified_source(raw)}
+        else: raw,source=fetch_pinned_gtf()
         genes=parse_old_chr6q(raw)
         modern,receipt,failures=verified_modern_anchors()
         synteny=find_flanking_candidates(genes,modern)
