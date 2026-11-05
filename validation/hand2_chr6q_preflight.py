@@ -119,6 +119,7 @@ def build_receipt(raw: bytes, source: dict):
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--gtf", type=Path, help="Local exact pinned GTF; no network")
+    ap.add_argument("--cache-gtf", type=Path, help="Save verified raw GTF within same CI job")
     ap.add_argument("--out", type=Path, default=OUTPUT)
     args = ap.parse_args(argv)
     try:
@@ -128,6 +129,9 @@ def main(argv=None):
         else:
             raw, source = fetch_pinned_gtf()
         out = build_receipt(raw, source)
+        if args.cache_gtf:
+            args.cache_gtf.parent.mkdir(parents=True, exist_ok=True)
+            args.cache_gtf.write_bytes(raw)
     except Exception as exc:
         out = {"schema": "BIO-MIMIC-X/HAND2-CHR6Q-PREFLIGHT/1", "status": "UNVERIFIED_SOURCE_FAILURE", "error": type(exc).__name__ + ": " + str(exc)[:1200], "historic_hand2_identity": "UNVERIFIED"}
     args.out.parent.mkdir(parents=True, exist_ok=True)
