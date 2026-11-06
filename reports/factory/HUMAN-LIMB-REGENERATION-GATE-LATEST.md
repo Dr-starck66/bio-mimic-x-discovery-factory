@@ -2,7 +2,7 @@
 
 **Régénération complète d'un membre humain : UNVERIFIED**
 
-- Voies de traduction hétérogènes : 6/9 ; orthologie stricte : 5/9.
+- Voies de traduction hétérogènes : 7/9 ; orthologie stricte : 7/9.
 - Ces comptes ne mesurent ni activité régénératrice humaine ni homologues axolotl-humain directement établis.
 - Axolotl directement représenté dans les revendications du rapport source : False.
 - Axolotl : macrophages indispensables, PMID 23690624 ; mémoire Hand2–Shh, PMID 40399677.
@@ -18,4 +18,4 @@ Institutionally supervised, preregistered human primary-cell study testing macro
 Aucun essai humain, traitement ou intervention biologique n'a été exécuté par ce programme.
 Une étude sur fibroblastes humains n'établirait pas à elle seule la repousse d'un membre.
 
-SHA-256 du rapport canonique : `4d33eb8efe46d772f4928ec8c0f598f6bc4fe68d2fa5102a870ead3d1574f255`
+SHA-256 du rapport canonique : `511bfbf520ab3d8d8c683c1773a5a63112811d8844ba27cf294ac5363a10f609`
