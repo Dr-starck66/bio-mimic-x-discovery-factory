@@ -1,20 +1,20 @@
-# BIO-MIMIC X V6 Scientific Investment Committee — 2026-11-05T11:04:25.699630+00:00
+# BIO-MIMIC X V6 Scientific Investment Committee — 2026-11-06T10:57:38.618913+00:00
 
 **Scientific status:** PASS (not an efficacy claim)
 **Upstream provider failures:** 0
-**Organization replay SHA-256:** `f48273cb9f59dc1c0b86bf4cc77f547cfd36a7c5d75a1166756bd6e316288857`
+**Organization replay SHA-256:** `1cc187caeeab688697a1bc977193f7dc4a78fa91b11ea6c3f17a0a958748319b`
 
 ## Laboratory status
 - ONCO-X Lab: PASS · 35 papers · 0 candidates
-- IMMUNO-X Lab: PASS · 35 papers · 0 candidates
+- IMMUNO-X Lab: PASS · 34 papers · 0 candidates
 - LONGEVITY-X Lab: PASS · 35 papers · 3 candidates
-- METABOLIC-X Lab: PASS · 35 papers · 0 candidates
-- NEURO-X Lab: PASS · 35 papers · 0 candidates
+- METABOLIC-X Lab: PASS · 34 papers · 0 candidates
+- NEURO-X Lab: PASS · 34 papers · 0 candidates
 - PRESERVE-X Lab: PASS · 35 papers · 5 candidates
 - REGEN-X Lab: PASS · 35 papers · 3 candidates
 
 ## Top portfolio
-### Somniosus microcephalus — Committee 61/100
+### Somniosus microcephalus — Committee 62/100
 - Labs: longevity
 - Sources: 3 · mechanisms: DNA repair, genome maintenance, proteostasis, senescence
 - Challenge flags: body-size confounding, correlation does not prove causation, human functional divergence remains possible, lifespan data quality, no gene symbol candidate, phylogeny confounding
@@ -76,11 +76,11 @@
 - Hydra vulgaris: 10 credits
 - Acomys cahirinus: 10 credits
 - Hydra oligactis: 9 credits
-- Drosophila melanogaster: 9 credits
-- Paracentrotus lividus: 9 credits
+- Drosophila melanogaster: 8 credits
+- Paracentrotus lividus: 8 credits
 - Caenorhabditis elegans: 8 credits
 - Neophocaena asiaeorientalis: 7 credits
-- Tursiops truncatus: 6 credits
+- Tursiops truncatus: 8 credits
 
 ## Cross-lab challenge plan
 - immunology challenges cancer: Re-audit the top hypothesis using the challenger lab's confounders and require at least one falsifiable counter-test.
