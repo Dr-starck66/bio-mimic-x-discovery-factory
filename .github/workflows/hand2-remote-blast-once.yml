@@ -1,5 +1,8 @@
 name: BIO-MIMIC X HAND2 remote BLAST one-shot
 on:
+  pull_request:
+    branches: [main]
+    paths: ['.github/workflows/hand2-remote-blast-once.yml']
   push:
     branches: [science/hand2-chr6q-preflight-20261105]
     paths: ['.github/workflows/hand2-remote-blast-once.yml']
@@ -34,7 +37,7 @@ jobs:
                   receipt["sequence_sha256"]=hashlib.sha256(seq.encode()).hexdigest()
                   pathlib.Path("evidence/"+label+".fasta").write_text(">"+label+"\n"+seq+"\n")
                   response=post(blast,{"CMD":"Put","PROGRAM":"blastn","DATABASE":"nt","QUERY":seq,"ENTREZ_QUERY":"txid8296[ORGN]","HITLIST_SIZE":"100","EXPECT":"1e-10"})
-                  match=re.search(r"\\bRID\\s*=\\s*([A-Z0-9-]+)",response)
+                  match=re.search(r"\bRID\s*=\s*([A-Z0-9-]+)",response)
                   if not match:raise RuntimeError("No RID: "+response[:180])
                   rid=match.group(1)
                   receipt["rid"]=rid
