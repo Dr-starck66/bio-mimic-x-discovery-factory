@@ -20,6 +20,16 @@ on:
       - 'organization/**'
       - 'factory/human_limb_regeneration_gate.py'
       - 'validation/hand2_legacy_crosswalk.py'
+      - 'validation/hand2_chr6q_preflight.py'
+      - 'tests/test_hand2_chr6q_preflight.py'
+      - 'validation/hand2_reciprocal_synteny.py'
+      - 'tests/test_hand2_reciprocal_synteny.py'
+      - 'validation/hand2_flank_synteny.py'
+      - 'tests/test_hand2_flank_synteny.py'
+      - 'reports/factory/HAND2-LOCAL-FLANK-SYNTENY-2026-11-05.json'
+      - 'validation/hand2_direct_reciprocal.py'
+      - 'tests/test_hand2_direct_reciprocal.py'
+      - 'reports/factory/HAND2-CHR6Q-OBSERVED-CANDIDATE-2026-11-05.json'
       - 'validation/hand2_assembly_sequence_probe.py'
       - 'validation/hand1_hand2_global_alignment.py'
       - 'validation/axolotl_paralog_panel.py'
@@ -246,6 +256,121 @@ jobs:
         with:
           name: biomimic-science-replay
           path: qa-artifacts/
+          if-no-files-found: warn
+
+  hand2-observed-direct-alignment:
+    name: Exact chr6q HAND2 candidate direct two-way alignment
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned open-source Edlib (zero additional service)
+        run: python -m pip install --only-binary=:all: --disable-pip-version-check edlib==1.3.9.post1
+      - name: Verify observed GTF manifest and eight fail-closed tests
+        run: python -m unittest tests.test_hand2_direct_reciprocal -v
+      - name: Compare NCBI old and modern HAND2 windows, with HAND1 negative control
+        run: |
+          mkdir -p qa-artifacts
+          python -m validation.hand2_direct_reciprocal --out qa-artifacts/HAND2-DIRECT-RECIPROCAL.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path("qa-artifacts/HAND2-DIRECT-RECIPROCAL.json").read_text())
+          assert r["scientific_identity"]=="UNVERIFIED"
+          assert r["whole_genome_uniqueness"]=="UNVERIFIED"
+          assert r["curator_confirmation"]=="UNVERIFIED"
+          print("GENUINE_HAND2_DIRECT_STATUS",r["status"],
+                "fetch_ok",len(r.get("fasta_sha256",{})),
+                "favors",r.get("comparisons",{}).get("favors_HAND2_over_HAND1_in_tested_windows"))
+          PY
+      - name: Always preserve negative or positive NCBI evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hand2-direct-reciprocal-evidence
+          path: qa-artifacts/HAND2-DIRECT-RECIPROCAL.json
+          if-no-files-found: warn
+
+  hand2-chr6q-source-scan:
+    name: Independent chr6q historical GTF scan with source hash gate
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run chr6q scanner negative-control tests
+        run: python -m unittest tests.test_hand2_chr6q_preflight -v
+      - name: Scan entire historic GTF, keep real evidence
+        run: |
+          mkdir -p qa-artifacts
+          python validation/hand2_chr6q_preflight.py --out qa-artifacts/HAND2-CHR6Q-PREFLIGHT.json --cache-gtf qa-artifacts/.hand2-verified-source.gtf.gz
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          e=json.loads(Path("qa-artifacts/HAND2-CHR6Q-PREFLIGHT.json").read_text())
+          assert e["historic_hand2_identity"] == "UNVERIFIED"
+          assert e["independent_curator_confirmation"] == "UNVERIFIED"
+          assert e["source"]["sha256"] == "cc0c3c4e39f3afedcbe2bc5aad1d63fc461714aeb75051f4d109390455874c5d"
+          print("HAND2_CHR6Q_SCAN",e["status"],"gene_features",e["gene_feature_count"],
+                "chr6q_features",e["chr6q_gene_feature_count"],
+                "hand2_chr6q_label_candidates",len(e["chr6q_hand2_labeled_candidates"]))
+          PY
+      - name: Reciprocal HAND1/HAND2 candidate alignment and verified chr6q flanks
+        run: |
+          python -m pip install --only-binary=:all: --disable-pip-version-check edlib==1.3.9.post1
+          python -m unittest tests.test_hand2_reciprocal_synteny -v
+          # An inconclusive anchor search is recorded, not silently upgraded to biological PASS.
+          python -m validation.hand2_reciprocal_synteny --gtf qa-artifacts/.hand2-verified-source.gtf.gz --out qa-artifacts/HAND2-RECIPROCAL-SYNTENY.json || echo 'Reciprocal shortlist inconclusive: auditing structured report'
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path("qa-artifacts/HAND2-RECIPROCAL-SYNTENY.json").read_text())
+          assert r["historic_HAND2_gene_id"]=="UNVERIFIED"
+          assert r["whole_genome_reciprocal"]=="UNVERIFIED"
+          assert r["independent_curator"]=="UNVERIFIED"
+          assert r["whole_genome_reciprocal"]=="UNVERIFIED"
+          assert r["gtf_source"]["sha256"]=="cc0c3c4e39f3afedcbe2bc5aad1d63fc461714aeb75051f4d109390455874c5d"
+          assert r["status"] in ("UNVERIFIED_NO_FLANKING_ANCHORS", "PARTIAL_TWO_SYNTENIC_FLANKS", "PARTIAL_RECIPROCAL_SHORTLIST_SCREEN"), r["status"]
+          assert "error" not in r
+          if r["status"]=="UNVERIFIED_NO_FLANKING_ANCHORS":
+              assert not r["synteny"]["candidates"] and not r["alignment"]["records"]
+          print("HAND2_REPRO_SYNTENY_STATUS",r["status"],
+                "old_6q_genes",r.get("total_old_chr6q_gene_features"),
+                "candidate_count",len(r.get("synteny",{}).get("candidates",[])),
+                "aligned_count",len(r.get("alignment",{}).get("records",[])))
+          PY
+      - name: Independently verify HAND2 5kb flanks (not genome-wide uniqueness)
+        if: always()
+        run: |
+          python -m unittest tests.test_hand2_flank_synteny -v
+          python -m validation.hand2_flank_synteny --out qa-artifacts/HAND2-LOCAL-FLANK-SYNTENY.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path("qa-artifacts/HAND2-LOCAL-FLANK-SYNTENY.json").read_text())
+          assert d["status"]=="PARTIAL_LOCAL_FLANK_SYNTENY_CONFIRMED"
+          assert d["genome_wide_reciprocal_uniqueness"]=="UNVERIFIED"
+          assert d["curator_confirmation"]=="UNVERIFIED"
+          assert d["comparison_count"]==8
+          assert len(d["sources"])==4
+          print("HAND2_LOCAL_FLANK_CI",d["status"],"genome_wide",d["genome_wide_reciprocal_uniqueness"])
+          PY
+      - name: Preserve positive and negative scientific evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hand2-chr6q-scan-evidence
+          path: |
+            qa-artifacts/HAND2-CHR6Q-PREFLIGHT.json
+            qa-artifacts/HAND2-RECIPROCAL-SYNTENY.json
+            qa-artifacts/HAND2-LOCAL-FLANK-SYNTENY.json
           if-no-files-found: warn
 
   real-epigenetic-geo:
