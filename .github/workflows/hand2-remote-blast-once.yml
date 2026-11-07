@@ -1,0 +1,64 @@
+name: BIO-MIMIC X HAND2 remote BLAST one-shot
+on:
+  push:
+    branches: [science/hand2-chr6q-preflight-20261105]
+    paths: ['.github/workflows/hand2-remote-blast-once.yml']
+permissions:
+  contents: read
+jobs:
+  remote-blast:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Fetch historical and modern axolotl loci; submit remote BLAST
+        shell: bash
+        run: |
+          mkdir -p evidence
+          python - <<'PY'
+          import urllib.request, urllib.parse, re, json, time, hashlib, pathlib
+          base="https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
+          blast="https://blast.ncbi.nlm.nih.gov/Blast.cgi"
+          loci={"historical_HAND2":("CM010938.2",884794726,884799066),"modern_HAND2":("NC_090937.1",910028725,910032936)}
+          receipts={}
+          def post(url,values):
+              req=urllib.request.Request(url,data=urllib.parse.urlencode(values).encode(),headers={"User-Agent":"BIO-MIMIC-X-reproducible-science/1.0"})
+              with urllib.request.urlopen(req,timeout=100) as r:return r.read().decode()
+          for label,(acc,a,b) in loci.items():
+              receipt={"accession":acc,"start":a,"end":b}
+              receipts[label]=receipt
+              try:
+                  raw=post(base,{"db":"nuccore","id":acc,"seq_start":a,"seq_stop":b,"rettype":"fasta","retmode":"text"})
+                  lines=raw.strip().splitlines()
+                  seq="".join(lines[1:]).upper()
+                  if not lines or not lines[0].startswith(">") or len(seq)!=b-a+1 or not re.fullmatch("[ACGTN]+",seq):raise ValueError("FASTA invalid")
+                  receipt["sequence_sha256"]=hashlib.sha256(seq.encode()).hexdigest()
+                  pathlib.Path("evidence/"+label+".fasta").write_text(">"+label+"\n"+seq+"\n")
+                  response=post(blast,{"CMD":"Put","PROGRAM":"blastn","DATABASE":"nt","QUERY":seq,"ENTREZ_QUERY":"txid8296[ORGN]","HITLIST_SIZE":"100","EXPECT":"1e-10"})
+                  match=re.search(r"\\bRID\\s*=\\s*([A-Z0-9-]+)",response)
+                  if not match:raise RuntimeError("No RID: "+response[:180])
+                  rid=match.group(1)
+                  receipt["rid"]=rid
+                  for attempt in range(20):
+                      time.sleep(30)
+                      state=post(blast,{"CMD":"Get","RID":rid,"FORMAT_OBJECT":"SearchInfo"})
+                      if "Status=FAILED" in state or "Status=UNKNOWN" in state:raise RuntimeError(state[:180])
+                      if "Status=READY" in state:
+                          xml=post(blast,{"CMD":"Get","RID":rid,"FORMAT_TYPE":"XML"})
+                          if "<BlastOutput" not in xml:raise RuntimeError("Unexpected XML")
+                          pathlib.Path("evidence/"+label+".xml").write_text(xml)
+                          receipt["xml_sha256"]=hashlib.sha256(xml.encode()).hexdigest()
+                          receipt["status"]="PARTIAL_REAL_REMOTE_BLAST_RESULTS"
+                          break
+                  else:receipt["status"]="UNVERIFIED_TIMEOUT"
+              except Exception as e:
+                  receipt["status"]="UNVERIFIED_SOURCE_FAILURE"
+                  receipt["error"]=type(e).__name__+": "+str(e)[:240]
+          report={"schema":"BIO-MIMIC-X/HAND2-REMOTE-BLAST/1","receipts":receipts,"genome_wide_uniqueness":"UNVERIFIED","note":"NCBI nt taxon-filtered results do not prove exhaustive assembly coverage or curator validation"}
+          pathlib.Path("evidence/manifest.json").write_text(json.dumps(report,indent=2)+"\n")
+          print(json.dumps(report,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hand2-remote-blast-evidence
+          path: evidence/
