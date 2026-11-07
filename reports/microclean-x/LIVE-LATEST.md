@@ -5,7 +5,7 @@
 - Material signals: **10**
 - Review queue signals: **5**
 - Source errors: **0**
-- Evidence fingerprint: `542ee02f81ae48dd188b69a9e41d9453120b80b444bda43bc0beb4f5a62f5afd`
+- Evidence fingerprint: `ccc12225e300518f0ad6f0bfbdea7e1316f63d95b44675b9199b48047d026127`
 
 ## Highest-evidence material signals
 
