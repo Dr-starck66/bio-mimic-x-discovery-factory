@@ -147,6 +147,7 @@ def run_bridge(data):
             "hypotheses": [{
                 "id": h["id"],
                 "kind": h["kind"],
+                "subject": h["subject"],
                 "status": h["status"],
                 "statement": h["statement"],
                 "falsifier": h["falsifier"],
