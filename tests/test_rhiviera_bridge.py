@@ -25,6 +25,7 @@ class RhivieraBridgeTests(unittest.TestCase):
         self.assertEqual(report["studies_checked"], 6)
         self.assertEqual(report["hypotheses_generated"], 18)
         self.assertEqual(report["conceptual_plans_generated"], 12)
+        self.assertEqual(report["distinct_observed_cohorts"], 2)
         self.assertFalse(report["clinical_cure_proven"])
         self.assertEqual(len(report["engines_invoked"]), 3)
 
@@ -62,6 +63,15 @@ class RhivieraBridgeTests(unittest.TestCase):
         wrong["independent_comparator"]["relation"] = "anrs_trial"
         self.assertTrue(validate_evidence(wrong))
         self.assertNotIn("RIO-2026", {r["id"] for r in DATA["records"]})
+
+    def test_pvisconti_shared_cohort_is_not_independent_replication(self):
+        report = run_bridge(DATA)
+        pvisconti = [d for d in report["dossiers"] if d["relation"] == "anrs_pvisconti"]
+        self.assertEqual(len(pvisconti), 3)
+        self.assertEqual(len({d["evidence_cohort_id"] for d in pvisconti}), 1)
+        wrong = deepcopy(DATA)
+        wrong["records"][3]["evidence_cohort_id"] = "independent_study_wrong"
+        self.assertTrue(validate_evidence(wrong))
 
     def test_fabricated_eradication_is_blocked(self):
         wrong = deepcopy(DATA)
