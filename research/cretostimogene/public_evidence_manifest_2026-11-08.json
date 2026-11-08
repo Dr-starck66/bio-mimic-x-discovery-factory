@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0.0",
+  "created_utc_date": "2026-11-08",
+  "project": "BIO-MIMIC X — independent exploratory evidence map: cretostimogene / NMIBC",
+  "relationship_to_sponsor": "independent public-information analysis; NO collaboration or authorization from CG Oncology",
+  "evidence_cutoff": "2026-11-08",
+  "status": "PARTIAL",
+  "clinical_trials": [
+    {
+      "id": "NCT04452591",
+      "name": "BOND-003 cohort C",
+      "design": "single-arm phase 3",
+      "source": "https://pubmed.ncbi.nlm.nih.gov/42508433/",
+      "published_result": {
+        "population": "110 evaluable for primary endpoint",
+        "responders": 83,
+        "complete_response_at_any_time_percent_reported": 75.5
+      },
+      "patient_level_data": "NOT_AVAILABLE_IN_THIS_PROJECT"
+    },
+    {
+      "id": "NCT06111235",
+      "name": "PIVOT-006",
+      "design": "randomized open-label phase 3 (cretostimogene vs surveillance after TURBT)",
+      "source": "https://www.cancer.gov/research/participate/clinical-trials-search/v?id=NCT06111235",
+      "topline_status": "ANTICIPATED_NOV_2026_NOT_OBSERVED"
+    }
+  ],
+  "public_indirect_datasets": [
+    {
+      "accession": "GSE176178",
+      "context": "RNA expression / HG T1 NMIBC, durable vs non-durable BCG response",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE176178",
+      "direct_cretostimogene_response_labels": false,
+      "availability": "INDEXED_METADATA_VERIFIED_RAW_UNDOWNLOADED"
+    },
+    {
+      "accession": "GSE244895",
+      "context": "RNA-seq longitudinal bladder cancer before/after BCG; small paired/longitudinal sample",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE244895",
+      "direct_cretostimogene_response_labels": false,
+      "availability": "INDEXED_METADATA_VERIFIED_RAW_UNDOWNLOADED"
+    },
+    {
+      "accession": "GSE322495",
+      "context": "scRNA-seq peritumoral immune cells in BCG responders/nonresponders",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE322495",
+      "direct_cretostimogene_response_labels": false,
+      "availability": "INDEXED_METADATA_VERIFIED_RAW_UNDOWNLOADED"
+    },
+    {
+      "accession": "GSE269877",
+      "context": "single-cell RNA-seq of BCG naive/recurrent NMIBC; CD6/ALCAM axis",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE269877",
+      "direct_cretostimogene_response_labels": false,
+      "availability": "INDEXED_METADATA_VERIFIED_RAW_UNDOWNLOADED"
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "H1",
+      "question": "Does tumor CXADR expression and RB/E2F-pathway state co-vary with candidate oncolytic-entry biology in NMIBC?",
+      "status": "UNTESTED",
+      "limitation": "public BCG cohorts cannot validate cretostimogene response"
+    },
+    {
+      "id": "H2",
+      "question": "Are interferon/innate-antiviral programs and T-cell phenotypes associated with distinct BCG outcomes across independent cohorts?",
+      "status": "UNTESTED",
+      "limitation": "cross-study transfer from BCG to oncolytic immunotherapy is an unverified hypothesis"
+    },
+    {
+      "id": "H3",
+      "question": "Do macrophage and exhausted/regulatory T-cell programs add independently replicable information beyond tumor grade and sample composition?",
+      "status": "UNTESTED",
+      "limitation": "single-cell vs bulk/platform and treatment differences must not be conflated"
+    }
+  ],
+  "negative_controls": [
+    "gene-expression permutation within patient-aware folds",
+    "random gene sets matched for expression level",
+    "batch and cell-composition covariates",
+    "unrelated immune gene sets",
+    "no cross-platform train/test leakage",
+    "explicit null results retained"
+  ],
+  "evidence_gates": {
+    "raw_download": "UNVERIFIED",
+    "clinical_individual_data": "NOT_AVAILABLE",
+    "bio_mimic_x_pipeline_execution": "UNVERIFIED",
+    "sponsor_relationship": "NONE",
+    "human_clinical_benefit": "NOT_CLAIMED"
+  },
+  "source_urls": [
+    "https://cgoncology.com/news-media/cg-oncology-reports-third-quarter-2026-financial-results-and-provides-business-updates",
+    "https://pubmed.ncbi.nlm.nih.gov/42508433/",
+    "https://www.cancer.gov/research/participate/clinical-trials-search/v?id=NCT06111235",
+    "https://bladder.uroonco.uroweb.org/publication/intravesical-cretostimogene-grenadenorepvec-oncolytic-immunotherapy-in-high-risk-bcg-unresponsive-non-muscle-invasive-bladder-cancer-with-carcinoma-in-situ-bond-003-cohort-c-a-single-arm-phase-3/"
+  ]
+}
