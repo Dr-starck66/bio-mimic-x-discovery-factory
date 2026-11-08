@@ -8,6 +8,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import urllib.request
 from pathlib import Path
 
 SCHEMA = 'astra-bioresearch-mesh/1.0.0'
@@ -69,6 +70,31 @@ def engine_or_none(module, function):
         return getattr(importlib.import_module(module), function)
     except (ImportError, AttributeError):
         return None
+
+def local_model_proposal(role, mission, previous_hashes, model):
+    """Optional Ollama-on-localhost reasoning, never an evidence source or validator."""
+    if not isinstance(model,str) or not model.strip() or len(model)>120:
+        return {'status':'UNVERIFIED','reason':'Modele local absent ou invalide'}
+    prompt=(f"Tu joues le role scientifique {role} dans BIO-MIMIC X. "
+            "Propose des controles, contre-arguments ou pistes de travail, pas de faits nouveaux ni de donnees inventees. "
+            "Aucune recommandation clinique, aucune publication ni verification de sources sans preuve. "
+            f"Question: {mission['question']}. Hashs des taches precedentes: {previous_hashes}. "
+            "Reponds en francais en 100 mots au maximum.")
+    body=json.dumps({'model':model,'prompt':prompt,'stream':False,
+                     'options':{'num_predict':180}}).encode('utf-8')
+    req=urllib.request.Request('http://127.0.0.1:11434/api/generate',
+                               data=body,headers={'Content-Type':'application/json'},method='POST')
+    try:
+        # Direct local socket; no HTTP proxy, paid API or remote endpoint.
+        opener=urllib.request.build_opener(urllib.request.ProxyHandler({}))
+        with opener.open(req,timeout=8) as response:
+            payload=response.read(16384)
+        answer=json.loads(payload).get('response','')
+        if not isinstance(answer,str) or not answer.strip():
+            raise ValueError('Empty model response')
+        return {'status':'PARTIAL','model':model,'suggestions_unverified':answer[:1600]}
+    except (OSError,ValueError,KeyError,TypeError) as exc:
+        return {'status':'UNVERIFIED','reason':type(exc).__name__}
 
 def evaluate_role(role, mission, shared, warnings):
     evidence = mission.get('evidence',{})
@@ -145,18 +171,23 @@ def evaluate_role(role, mission, shared, warnings):
     # Presence is not independent scientific proof. Keep scientific status unverified.
     return status_record(role,'PARTIAL',[f'Donnees fournies pour {field}; authenticite et resultats non verifies'],[field],warnings)
 
-def run(mission):
+def run(mission, local_model=None):
     if not isinstance(mission,dict) or not isinstance(mission.get('evidence',{}),dict):
         raise ValueError('Mission et evidence doivent etre des objets JSON')
     for name in ('id','question','contact'):
         if not isinstance(mission.get(name),str) or not mission[name].strip():
             raise ValueError(f'Champ requis manquant: {name}')
-    shared={'records':{}}; log=[]
+    shared={'records':{}}; log=[]; model_observations={}
     for role, name, deps in ROLES:
         warnings=[d for d in deps if shared['records'][d]['status'] not in ('PASS',)]
         result=evaluate_role(role, mission, shared, warnings)
         result['name']=name
         shared['records'][role]=result
+        if local_model:
+            if mission.get('contains_personal_health_data') is False and mission.get('authorized_additional_cost_eur') == 0:
+                model_observations[role]=local_model_proposal(role,mission,[shared['records'][d]['sha256'] for d in deps],local_model)
+            else:
+                model_observations[role]={'status':'UNVERIFIED','reason':'Privacy or zero cost gate denied model execution'}
         log.append({'index':len(log)+1,'role':role,'depends_on':list(deps),
                     'input_hashes':[shared['records'][d]['sha256'] for d in deps],
                     'output_hash':result['sha256']})
@@ -165,6 +196,8 @@ def run(mission):
          'clinical_claim':'UNVERIFIED','real_wetlab_experiments':0,
          'new_cost_eur':0,'new_scheduled_jobs':0,
          'agents':shared['records'],'handoffs':log,
+         'local_model':{'requested':bool(local_model),'observations':model_observations,
+                        'notes_are_evidence':False},
          'scientific_artifacts':{'hypotheses':shared.get('hypotheses',[]),
                                  'debate':shared.get('debate',{}),'plans':shared.get('plans',[])},
          'summary':{'roles_executed':len(log),
@@ -178,9 +211,10 @@ def main():
     ap=argparse.ArgumentParser(description='ASTRA BIORESEARCH offline research role mesh')
     ap.add_argument('--mission',required=True)
     ap.add_argument('--out',required=True)
+    ap.add_argument('--local-model',default=None,help='Optional preinstalled local Ollama model; no remote inference')
     args=ap.parse_args()
     mission=json.loads(Path(args.mission).read_text(encoding='utf-8'))
-    result=run(mission)
+    result=run(mission,local_model=args.local_model)
     dest=Path(args.out); dest.parent.mkdir(parents=True,exist_ok=True)
     tmp=dest.with_suffix(dest.suffix+'.tmp');tmp.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');tmp.replace(dest)
     print(json.dumps(result['summary'],ensure_ascii=False,sort_keys=True))
