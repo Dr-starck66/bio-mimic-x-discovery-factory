@@ -20,6 +20,7 @@ if str(_ROOT) not in sys.path:
 from factory.hypothesis_engine import generate_hypotheses
 from factory.debate_engine import debate_hypotheses
 from factory.experiment_planner import plan_experiments
+from factory.scientific_memory import update_scientific_memory
 
 HERE = Path(__file__).resolve().parent
 SOURCE = HERE / "rhiviera_public_evidence.json"
@@ -194,9 +195,25 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--data", type=Path, default=SOURCE)
     parser.add_argument("--out", type=Path, default=None)
+    parser.add_argument("--memory", type=Path, default=None,
+                        help="Optional standalone BIO-MIMIC scientific memory JSON path")
     args = parser.parse_args(argv)
     raw = json.loads(args.data.read_text(encoding="utf-8"))
     report = run_bridge(raw)
+    if args.memory:
+        memory_dossiers = [{
+            "program_id": "RHIVIERA-PUBLIC-" + d["record_id"],
+            "subject": d["observation"],
+            "sha256": _digest(d),
+            "reasoning_status": "HYPOTHESIS_ONLY_NOT_CLINICALLY_VALIDATED",
+            "hypotheses": d["hypotheses"],
+        } for d in report["dossiers"]]
+        report["memory_update"] = update_scientific_memory(
+            args.memory, memory_dossiers
+        )
+        report["report_sha256"] = _digest({
+            k: v for k, v in report.items() if k not in ("report_sha256", "memory_update")
+        })
     output = json.dumps(report, ensure_ascii=False, sort_keys=True, indent=2) + "\n"
     if args.out:
         args.out.parent.mkdir(parents=True, exist_ok=True)
