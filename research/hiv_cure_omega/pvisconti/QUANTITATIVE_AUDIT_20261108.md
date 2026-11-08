@@ -45,3 +45,17 @@ Les trois publications pVISCONTI ne sont **pas** trois validations indépendante
 - **Aucune preuve de guérison humaine ni d'éradication SIV**, aucune modification du traitement ARV, aucune dépense, aucun cron, aucune action GitHub déclenchée.
 
 **Prochaine action prioritaire :** sur un environnement réseau gratuit déjà autorisé, récupérer ces quatre XLSX, établir leurs empreintes, inspecter les identifiants et les unités, puis refaire les statistiques individuelles avec correction de multiplicité fixée avant analyse.
+
+
+## Complément indépendant : tests exacts sur les effectifs publiés
+
+Un second calcul décrit l'association entre précocité du traitement et contrôle du SIV (et non l'éradication). Le script ajouté [published_counts.py](./published_counts.py) utilise la formule hypergéométrique exacte (Fisher bilatéral), et des intervalles Newcombe/Wilson à 95 %. Les [tests correspondants](../../../tests/test_pvisconti_published_counts.py) vérifient notamment le comptage des cohortes. Un script local équivalent a été exécuté avec 11 tests de calcul/contrôle au total réussis ; l'exécution du code byte-identique sur le commit GitHub reste UNVERIFIED.
+
+| Échantillon publié | Contrôle après ART précoce | Contrôle après ART tardif | OR | Fisher exact bilatéral | Différence de risque (IC Newcombe 95 %) |
+| --- | ---: | ---: | ---: | ---: | --- |
+| Référence pVISCONTI reprise par Charre, [source](https://www.nature.com/articles/s41467-026-69720-6) | 9/11 (81,8 %) | 2/11 (18,2 %) | 20,25 | 0,008922 | +63,6 points (+21,9 à +82,1) |
+| Sous-ensemble traité de Hua, [source](https://www.nature.com/articles/s41467-026-69848-5) | 8/9 (88,9 %) | 2/4 (50,0 %) | 8,0 | 0,202797 | +38,9 points (−8,8 à +75,1) |
+
+La deuxième ligne n'est pas une réplication indépendante de la première ; le groupe Hua est un sous-ensemble du programme pVISCONTI, avec un échantillon trop restreint pour confirmer le contraste. La présence de 3 articles et de 16 valeurs p ne doit jamais être interprétée comme 3 cohortes indépendantes ou 16 validations de guérison.
+
+**Contrôle de sensibilité élargi :** dans la famille *post hoc* réunissant les seize p-valeurs sélectionnées, seules 4 valeurs de p restent <0,05 après Holm (Charre intact vs virémie cumulée 0,042 ; Chapel combinaison microsatellites 0,0429 ; Hua CX3CR1-high/Treg 0,0192 ; CX3CR1-low/Treg 0,0195). Cela ne reproduit pas les tests sur les animaux et ne fait pas disparaître le biais de sélection des tests.
