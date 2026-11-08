@@ -40,3 +40,22 @@ No external email, no expense, no new cron, no clinical intervention, no approva
 `ASTRA-277 | ASTRA BIORESEARCH INSERM MESH Ω | 1.0.0 | research, code, BIO-MIMIC X | ASTRA-083, ASTRA-086, ASTRA-087, ASTRA-097, ASTRA-113, ASTRA-234, ASTRA-235, ASTRA-236 | bio-mimic-x-discovery-factory/factory/inserm_mesh.py | PARTIAL (local technical tests PASS, scientific verification UNVERIFIED)`
 
 Do not treat this ID as canonically registered until the central `indexation/ASTRA_REGISTRY.md` is updated and checked for concurrent changes.
+
+
+## Exécution de bout en bout sur le vrai programme Acomys (08/11/2026)
+
+```bash
+python -m unittest discover -s tests -p 'test_inserm_mesh*.py' -v
+python factory/inserm_mesh.py \
+  --mission examples/florence-apparailly-validated-mission.json \
+  --programs state/factory/programs.json \
+  --out /tmp/astra-aco-e2e.json
+```
+
+- Reproduction locale sur sources authentiques : **18/18 tests PASS**, 23 rôles, 3 hypothèses, 3 revues, 2 plans conceptuels. Les fichiers des **trois moteurs** ont été comparés aux blobs GitHub réels par Git SHA-1; l'exécution locale est vérifiée, la même exécution sur un serveur distant reste UNVERIFIED.
+- Le programme Acomys réellement lu dans `state/factory/programs.json` présente 3 identifiants PubMed qualifiés `independent_source_count=3`. Audit indépendant : PMID 41732917 est une revue, PMID 42194064 est un contre-exemple tissulaire profibrotique, PMID 42792965 est non confirmé. **Ne pas les assimiler à trois réplications positives**. Le code garde cet état sous `bibliography_audit`.
+- Deux publications pertinentes, mais de domaines distincts : PMID 38228141 (macrophages, VEGFC/LTF) et PMID 40534468 (matrice extracellulaire). Le moteur original formulait son total comme « independent PMID-linked sources » ; l'adaptateur corrige cette formulation dans le rapport, sans affirmer de réplications biologiques.
+- La version d'intégration inclut `verified_engine_fingerprints`, `select_existing_program`, `bibliography_audit` et un contrôle anti-fausse validation. Les `clinical_efficacy_claim` restent `false`; les essais physiques et la collaboration sont UNVERIFIED.
+- Pas de nouveau cron, email, API payante, mutation de `main` ni merge. L'utilisation des publications est limitée aux métadonnées et conclusions disponibles ; aucune matrice de données brutes ni expérience scientifique n'a été réanalysée.
+
+**Preuve de livraison** : PR n° 44 sur branche `astra/bioresearch-inserm-mesh-20261108`, en brouillon jusqu'à vérification complète de l'environnement cible et des régressions globales.
