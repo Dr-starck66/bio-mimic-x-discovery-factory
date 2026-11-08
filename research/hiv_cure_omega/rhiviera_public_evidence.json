@@ -1,0 +1,172 @@
+{
+  "schema": "astra-rhiviera-public-evidence/1",
+  "as_of": "2026-11-08",
+  "scope": "Published institutional trial metadata and aggregated public research observations; no private patient data",
+  "clinical_cure_proven": false,
+  "records": [
+    {
+      "id": "RHIVIERA-01",
+      "relation": "anrs_trial",
+      "species": "human",
+      "design": "prospective_nonrandomized_pilot",
+      "source_url": "https://anrs.fr/infrastructures/donnees-et-echantillons/anrs-175-rhiviera-01/",
+      "pmid": null,
+      "date": "2024-10-30",
+      "has_results": false,
+      "study_status": "institutional_record_reports_ongoing_no_verified_outcomes",
+      "subject": "post-treatment HIV control in early-treated people with preselected HLA genotype",
+      "mechanisms": [
+        "association of HLA B35/B53, Bw4 and -21T/C2 background with post-treatment HIV control"
+      ],
+      "genes": [
+        "HLA-B"
+      ],
+      "observation": "Registered primary outcome: plasma HIV RNA below 400 copies/mL at week 24 without ART reinitiation. The source is a protocol listing, not a result.",
+      "limitations": [
+        "No published final results verified",
+        "Highly selected early-treated cohort",
+        "Interruption only in a monitored trial"
+      ],
+      "negative_control": "Compare against participants with different immunogenetic profiles and account for early ART; no observational negative result claimed."
+    },
+    {
+      "id": "RHIVIERA-02",
+      "relation": "anrs_trial",
+      "species": "human",
+      "design": "randomized_double_blind_phase_2_protocol",
+      "source_url": "https://anrs.fr/infrastructures/donnees-et-echantillons/anrs-176-rhiviera-02/",
+      "registry_url": "https://clinicaltrials.gov/study/NCT05300035",
+      "pmid": null,
+      "date": "2024-05-22",
+      "has_results": false,
+      "study_status": "institutional_record_reports_ongoing_no_verified_outcomes",
+      "subject": "post-treatment HIV control after early ART plus two long-acting broadly neutralizing antibodies",
+      "mechanisms": [
+        "concurrent HIV-specific broadly neutralizing antibodies 3BNC117-LS and 10-1074-LS"
+      ],
+      "genes": [],
+      "observation": "Protocol compares ART plus two long-acting bNAbs with ART plus placebo around primary HIV infection; no efficacy results from RHIVIERA-02 are verified here.",
+      "limitations": [
+        "Protocol only; do not import RIO efficacy as RHIVIERA-02 outcome",
+        "Treatment interruption confined to monitored protocol",
+        "Even control without ART does not establish elimination"
+      ],
+      "negative_control": "Placebo arm specified in trial protocol; actual arm outcomes not retrieved."
+    },
+    {
+      "id": "pVISCONTI-INTACT-2026",
+      "relation": "anrs_pvisconti",
+      "species": "SIV_in_macaque",
+      "design": "longitudinal_preclinical_observational",
+      "source_url": "https://www.nature.com/articles/s41467-026-69720-6",
+      "pmid": "41760627",
+      "date": "2026-02-27",
+      "has_results": true,
+      "study_status": "peer_reviewed_preclinical_result",
+      "subject": "post-treatment SIV control and intact lymph-node provirus burden in macaques",
+      "mechanisms": [
+        "intact provirus burden in lymph nodes and CD8-mediated SIV suppression before ART interruption"
+      ],
+      "genes": [],
+      "observation": "Analysis of 11 post-treatment controllers and 11 non-controllers found lower intact lymph-node provirus burden before interruption among controllers; associations with CD8 suppressive responses and subsequent rebound.",
+      "limitations": [
+        "Associations do not establish causality",
+        "SIV in macaques is not HIV in humans",
+        "Negative sampling cannot rule out reservoir elsewhere"
+      ],
+      "negative_control": "Non-controller group and macaques continuously on ART described; do not assume comparable baseline randomization."
+    },
+    {
+      "id": "pVISCONTI-NK-2026",
+      "relation": "anrs_pvisconti",
+      "species": "SIV_in_macaque",
+      "design": "observational_immune_phenotyping",
+      "source_url": "https://www.nature.com/articles/s41467-026-76699-7",
+      "pmid": "42768025",
+      "date": "2026-08-22",
+      "has_results": true,
+      "study_status": "peer_reviewed_preclinical_result",
+      "subject": "natural killer-cell phenotype and post-treatment SIV control in macaques",
+      "mechanisms": [
+        "NKG2A-high NK cell phenotype and tissue-homing features"
+      ],
+      "genes": [
+        "KLRC1"
+      ],
+      "observation": "Six controllers and six non-controllers showed distinct pre-infection NK phenotypes correlated with post-treatment control; no causal perturbation reported.",
+      "limitations": [
+        "Small non-human sample",
+        "Association not causal proof",
+        "Cell marker is not an established therapeutic target",
+        "No demonstrated complete viral eradication"
+      ],
+      "negative_control": "Six non-controllers in the same pVISCONTI study."
+    },
+    {
+      "id": "pVISCONTI-CX3CR1-2026",
+      "relation": "anrs_pvisconti",
+      "species": "SIV_in_macaque",
+      "design": "observational_tissue_immune_phenotyping",
+      "source_url": "https://www.nature.com/articles/s41467-026-69848-5",
+      "pmid": "41735287",
+      "date": "2026-02-24",
+      "has_results": true,
+      "study_status": "peer_reviewed_preclinical_result",
+      "subject": "intestinal macrophage homeostasis and post-treatment SIV control in macaques",
+      "mechanisms": [
+        "preservation of CX3CR1-high intestinal macrophage homeostasis"
+      ],
+      "genes": [
+        "CX3CR1"
+      ],
+      "observation": "Macrophage CX3CR1-high phenotype and lower inflammatory signatures associated with post-treatment control in SIV-infected macaques.",
+      "limitations": [
+        "Correlational analysis",
+        "Nonhuman viral model",
+        "No intervention showed elimination of provirus",
+        "Tissue measures are not whole-body proof"
+      ],
+      "negative_control": "Comparison with post-treatment non-controllers and uninfected animals reported."
+    },
+    {
+      "id": "ANRS-LATENCY-REV-2025",
+      "relation": "anrs_associated_human_study",
+      "species": "human_ex_vivo",
+      "design": "ex_vivo_molecular_observation",
+      "source_url": "https://www.nature.com/articles/s41467-025-57290-y",
+      "pmid": "40021667",
+      "date": "2025-02-28",
+      "has_results": true,
+      "study_status": "peer_reviewed_human_ex_vivo",
+      "subject": "nuclear retention of unspliced HIV RNA in cells from ART-treated people",
+      "mechanisms": [
+        "MATR3, MTR4 and HIV Rev-dependent nuclear retention and export of unspliced RNA"
+      ],
+      "genes": [
+        "MATR3",
+        "MTREX"
+      ],
+      "observation": "Ex vivo cultures from 22 ART-treated people showed a reversible post-transcriptional block affecting HIV RNA export; no clinical cure endpoint.",
+      "limitations": [
+        "Ex vivo, not clinical cure result",
+        "Transcriptional reactivation is not the same as reservoir elimination",
+        "Potential toxicity and off-target effects not addressed by this descriptive result"
+      ],
+      "negative_control": "Unstimulated versus laboratory perturbation comparator reported; not an in vivo intervention."
+    }
+  ],
+  "independent_comparator": {
+    "id": "RIO-2026",
+    "relation": "independent_comparator_not_rhiviera",
+    "species": "human",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/42202839/",
+    "pmid": "42202839",
+    "observation": "Randomized RIO trial reports 75% of antibody-treated participants without defined viral rebound at 20 weeks versus 11% of placebo; this is an independent study and cannot be attributed to ANRS RHIVIERA-02.",
+    "limitation": "ART-free control is not sterilizing eradication."
+  },
+  "safety": {
+    "no_ART_interruption_recommendation": true,
+    "no_experiment_on_humans_or_virus": true,
+    "no_individual_patient_data": true
+  }
+}
