@@ -1,0 +1,52 @@
+{
+  "schema": "astra-pvisconti-publisher-sources/1",
+  "as_of": "2026-11-08",
+  "underlying_siv_cohort": "pVISCONTI_SIV_MACAQUES",
+  "independent_cohort_count": 1,
+  "bytes_downloaded": 0,
+  "all_sources_retrieved": false,
+  "license_notice": "Respect paper/supplement license. Charre article CC BY-NC-ND; do not republish derivative source files. Download only for authorized research analysis.",
+  "retrieval_attempts": [
+    "Python requests fails DNS in container",
+    "container.download fails",
+    "web click resolves XLSX URLs but cannot ingest application/octet-stream"
+  ],
+  "sources": [
+    {
+      "id": "charre_source",
+      "study": "Charre et al. 2026",
+      "doi": "10.1038/s41467-026-69720-6",
+      "filename": "41467_2026_69720_MOESM6_ESM.xlsx",
+      "role": "source_data",
+      "url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-026-69720-6/MediaObjects/41467_2026_69720_MOESM6_ESM.xlsx",
+      "access": "NOT_RETRIEVED_DNS_FAILURE"
+    },
+    {
+      "id": "charre_supplement",
+      "study": "Charre et al. 2026",
+      "doi": "10.1038/s41467-026-69720-6",
+      "filename": "41467_2026_69720_MOESM4_ESM.xlsx",
+      "role": "supplementary_data_1",
+      "url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-026-69720-6/MediaObjects/41467_2026_69720_MOESM4_ESM.xlsx",
+      "access": "NOT_RETRIEVED_DNS_FAILURE"
+    },
+    {
+      "id": "chapel_source",
+      "study": "Chapel et al. 2026",
+      "doi": "10.1038/s41467-026-76699-7",
+      "filename": "41467_2026_76699_MOESM4_ESM.xlsx",
+      "role": "source_data",
+      "url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-026-76699-7/MediaObjects/41467_2026_76699_MOESM4_ESM.xlsx",
+      "access": "NOT_RETRIEVED_DNS_FAILURE"
+    },
+    {
+      "id": "hua_source",
+      "study": "Hua et al. 2026",
+      "doi": "10.1038/s41467-026-69848-5",
+      "filename": "41467_2026_69848_MOESM4_ESM.xlsx",
+      "role": "source_data",
+      "url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-026-69848-5/MediaObjects/41467_2026_69848_MOESM4_ESM.xlsx",
+      "access": "NOT_RETRIEVED_DNS_FAILURE"
+    }
+  ]
+}
