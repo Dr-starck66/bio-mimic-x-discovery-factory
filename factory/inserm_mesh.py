@@ -11,7 +11,11 @@ import json
 import urllib.request
 from pathlib import Path
 
-SCHEMA = 'astra-bioresearch-mesh/1.0.0'
+SCHEMA = 'astra-bioresearch-mesh/1.1.0'
+ENGINE_BLOBS = {'hypothesis_engine':'f1c214f92a1fe335d6c1be3548f54136b54ada48',
+                'debate_engine':'fce5aaa47f8bfa88e981eafb6b26b656939ac1ea',
+                'experiment_planner':'e98452f4470a05af3b12f469e8b9c1654bde8351'}
+
 ROLES = (
     ('director', 'Direction scientifique', ()),
     ('librarian', 'Documentation et bibliographie', ('director',)),
@@ -71,6 +75,62 @@ def engine_or_none(module, function):
     except (ImportError, AttributeError):
         return None
 
+def verified_engine_fingerprints():
+    """Integrity gate uses official Git blob SHA-1 for original scientific engine bytes."""
+    output={}
+    for module,expected in ENGINE_BLOBS.items():
+        path=Path(__file__).with_name(module+'.py')
+        if not path.is_file():
+            output[module]={'status':'MISSING','expected_git_blob_sha1':expected}
+            continue
+        raw=path.read_bytes()
+        actual=hashlib.sha1(f'blob {len(raw)}\0'.encode()+raw).hexdigest()
+        output[module]={'status':'PASS' if actual==expected else 'MISMATCH',
+                        'expected_git_blob_sha1':expected, 'actual_git_blob_sha1':actual,
+                        'sha256':hashlib.sha256(raw).hexdigest()}
+    return output
+
+def select_existing_program(mission, programs_path):
+    """Read authentic BIO-MIMIC X state/factory/programs.json; never infer papers as verified."""
+    collection=json.loads(Path(programs_path).read_text(encoding='utf-8'))
+    if not isinstance(collection,dict) or not isinstance(collection.get('programs'),list):
+        raise ValueError('Invalid BIO-MIMIC X programs.json structure')
+    key=mission.get('existing_program_id')
+    matched=[x for x in collection['programs'] if x.get('id')==key]
+    if len(matched)!=1:raise ValueError('Existing scientific program missing or ambiguous')
+    program=matched[0]
+    if program.get('title')!='Acomys cahirinus':
+        raise ValueError('Misidentified existing scientific program')
+    if not program.get('sources') or not isinstance(program.get('mechanisms'),list):
+        raise ValueError('Existing scientific program has no source metadata')
+    return program
+
+def bibliography_audit(mission, program):
+    evidence=mission.get('evidence',{})
+    records=evidence.get('source_records',[])
+    supporting=[];negative=[];unverified=[];reviews=[];excluded=[]
+    for rec in records:
+        if not isinstance(rec,dict) or not isinstance(rec.get('ref'),str):
+            raise ValueError('Invalid bibliography record')
+        key=rec['ref']
+        if rec.get('status')=='WEB_VERIFIED' and rec.get('study_role')=='SUPPORTING_PRIMARY' and key.startswith('PMID:'):
+            supporting.append(key)
+        elif rec.get('study_role')=='NEGATIVE_CONTEXT':negative.append(key)
+        elif rec.get('study_role')=='REVIEW':reviews.append(key)
+        else:unverified.append(key)
+    legacy=set(program.get('sources',[]) if program else [])
+    known=set(r['ref'] for r in records)
+    excluded=sorted(legacy-known)
+    return {'supporting_primary_pmids':sorted(set(supporting)),
+            'negative_context_pmids':sorted(set(negative)),
+            'review_pmids':sorted(set(reviews)),
+            'unverified_pmids':sorted(set(unverified)),
+            'unreviewed_legacy_pmids':excluded,
+            'existing_program_source_count':len(legacy),
+            'independent_replications_of_same_mechanism':'UNVERIFIED',
+            'web_checked_metadata_only':True,
+            'no_fabricated_biological_data':True}
+
 def local_model_proposal(role, mission, previous_context, model):
     """Optional Ollama-on-localhost reasoning, never an evidence source or validator."""
     if not isinstance(model,str) or not model.strip() or len(model)>120:
@@ -115,13 +175,31 @@ def evaluate_role(role, mission, shared, warnings):
         if expense is None or not isinstance(expense,(int,float)) or expense != 0:
             return status_record(role,'FAIL',['Budget non conforme: depense nouvelle interdite'],['authorized_additional_cost_eur'],warnings)
         return status_record(role,'PASS',['Budget additionnel 0 EUR applique dans ce cycle'],['authorized_additional_cost_eur'],warnings)
+    if role == 'librarian':
+        a=shared['bibliography_audit']
+        found=len(a['supporting_primary_pmids'])
+        concerns=a['negative_context_pmids']+a['unverified_pmids']+a['review_pmids']+a['unreviewed_legacy_pmids']
+        return status_record(role,'PARTIAL' if found else 'UNVERIFIED',
+            [f'{found} publications primaires verifiees sur PubMed pour des axes distincts',
+             f'Sources adverses/revues/non verifiees: {concerns}',
+             'Aucune replication biologique independante du meme mecanisme certifiee'],
+            ['source_records','existing_program_id'],warnings,
+            [{'type':'bibliography_audit','sha256':digest(a)}])
+    if role == 'cohorts':
+        ids=evidence.get('independent_cohort_ids',[])
+        if not ids or len(ids)!=len(set(ids)):
+            return status_record(role,'UNVERIFIED',
+                ['Cohortes independantes absentes ou dupliquees: aucune replication confirmee'],
+                ['independent_cohort_ids'],warnings)
+        return status_record(role,'PARTIAL', ['Identifiants declares; independance non auditee'],
+                             ['independent_cohort_ids'],warnings)
     if role == 'hypotheses':
         fn = engine_or_none('hypothesis_engine', 'generate_hypotheses')
         if fn is None:
             return status_record(role,'UNVERIFIED',['Moteur BIO-MIMIC X hypothesis_engine introuvable'],[],warnings)
         claim = {'subject': mission.get('question',''),
-                 'sources':[s.get('ref') for s in evidence.get('source_records',[]) if isinstance(s,dict) and isinstance(s.get('ref'),str)],
-                 'mechanisms':mission.get('candidate_mechanisms',[]),
+                 'sources':shared['bibliography_audit']['supporting_primary_pmids'],
+                 'mechanisms':list(dict.fromkeys(mission.get('candidate_mechanisms',[])+(shared.get('existing_program',{}).get('mechanisms',[])))),
                  'genes':mission.get('candidate_genes',[])}
         hypotheses=fn({'id':mission['id']},claim,{'counterfactual_tests':mission.get('counterfactual_tests',[])},[],3)
         shared['hypotheses']=hypotheses
@@ -133,8 +211,21 @@ def evaluate_role(role, mission, shared, warnings):
         hs=shared.get('hypotheses',[])
         if fn is None or not hs:
             return status_record(role,'UNVERIFIED',['Critique non executable: moteur ou hypotheses absents'],[],warnings)
-        audit={'flags':['independent biological validation missing','association not causation']}
+        a=shared['bibliography_audit']
+        flags=['independent biological validation missing','association not causation','correlation not causation']
+        if a['negative_context_pmids']:flags.append('negative context evidence must be kept')
+        if a['review_pmids']:flags.append('review articles are not independent replication')
+        if a['unverified_pmids'] or a['unreviewed_legacy_pmids']:flags.append('unverified legacy citations excluded')
+        audit={'flags':flags}
         debate=fn(hs,{},audit,{'counterfactual_tests':mission.get('counterfactual_tests',[])})
+        # The upstream scoring engine counts distinct PMID IDs, NOT independent
+        # biological replications. Never let its old display string overclaim.
+        for item in debate.get('ranked',[]):
+            item['evidence_support']=[t.replace('independent PMID-linked sources',
+                'distinct PMID IDs; independent biological replication UNVERIFIED')
+                for t in item.get('evidence_support',[])]
+            item['reviewed_source_scope']='Macrophage and ECM studies have different endpoints; not a replicated mechanism'
+            item['evidence_score_is_not_truth']=True
         shared['debate']=debate
         return status_record(role,'PARTIAL',['Contradictions et objections generees; pas de validation biologique'],
             ['hypotheses'],warnings,[{'type':'adversarial_review','sha256':digest(debate)}])
@@ -171,13 +262,19 @@ def evaluate_role(role, mission, shared, warnings):
     # Presence is not independent scientific proof. Keep scientific status unverified.
     return status_record(role,'PARTIAL',[f'Donnees fournies pour {field}; authenticite et resultats non verifies'],[field],warnings)
 
-def run(mission, local_model=None):
+def run(mission, local_model=None, existing_program=None):
     if not isinstance(mission,dict) or not isinstance(mission.get('evidence',{}),dict):
         raise ValueError('Mission et evidence doivent etre des objets JSON')
     for name in ('id','question','contact'):
         if not isinstance(mission.get(name),str) or not mission[name].strip():
             raise ValueError(f'Champ requis manquant: {name}')
-    shared={'records':{}}; log=[]; model_observations={}
+    if existing_program is not None and (existing_program.get('id')!=mission.get('existing_program_id')
+                                         or existing_program.get('title')!='Acomys cahirinus'):
+        raise ValueError('Wrong scientific-program mapping')
+    biblio=bibliography_audit(mission,existing_program)
+    shared={'records':{},'bibliography_audit':biblio,'existing_program':existing_program or {}}
+    log=[];model_observations={}
+    engines=verified_engine_fingerprints()
     for role, name, deps in ROLES:
         warnings=[d for d in deps if shared['records'][d]['status'] not in ('PASS',)]
         result=evaluate_role(role, mission, shared, warnings)
@@ -196,12 +293,22 @@ def run(mission, local_model=None):
          'clinical_claim':'UNVERIFIED','real_wetlab_experiments':0,
          'new_cost_eur':0,'new_scheduled_jobs':0,
          'agents':shared['records'],'handoffs':log,
+         'engine_fingerprints':engines,
+         'bibliography_audit':biblio,
+         'existing_program':{'id':existing_program.get('id'),
+                             'title':existing_program.get('title'),
+                             'original_source_pmids':existing_program.get('sources',[]),
+                             'original_source_count_claimed':existing_program.get('independent_source_count'),
+                             'source_count_revalidated':'UNVERIFIED',
+                             'mechanisms':existing_program.get('mechanisms',[])} if existing_program else None,
          'local_model':{'requested':bool(local_model),'observations':model_observations,
                         'notes_are_evidence':False},
          'scientific_artifacts':{'hypotheses':shared.get('hypotheses',[]),
                                  'debate':shared.get('debate',{}),'plans':shared.get('plans',[])},
          'summary':{'roles_executed':len(log),
-                    'technical_pipeline':'PASS',
+                    'technical_pipeline':'PASS' if (all(x['status']=='PASS' for x in engines.values())
+                        and len(shared.get('hypotheses',[]))>0 and len(shared.get('debate',{}).get('ranked',[]))>0
+                        and len(shared.get('plans',[]))>0) else 'PARTIAL',
                     'biological_validation':'UNVERIFIED',
                     'institutional_partnership':'UNVERIFIED'}}
     out['sha256']=digest(out)
@@ -210,11 +317,13 @@ def run(mission, local_model=None):
 def main():
     ap=argparse.ArgumentParser(description='ASTRA BIORESEARCH offline research role mesh')
     ap.add_argument('--mission',required=True)
+    ap.add_argument('--programs',default=None,help='Real BIO-MIMIC X state/factory/programs.json')
     ap.add_argument('--out',required=True)
     ap.add_argument('--local-model',default=None,help='Optional preinstalled local Ollama model; no remote inference')
     args=ap.parse_args()
     mission=json.loads(Path(args.mission).read_text(encoding='utf-8'))
-    result=run(mission,local_model=args.local_model)
+    p=select_existing_program(mission,args.programs) if args.programs else None
+    result=run(mission,local_model=args.local_model,existing_program=p)
     dest=Path(args.out); dest.parent.mkdir(parents=True,exist_ok=True)
     tmp=dest.with_suffix(dest.suffix+'.tmp');tmp.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');tmp.replace(dest)
     print(json.dumps(result['summary'],ensure_ascii=False,sort_keys=True))
