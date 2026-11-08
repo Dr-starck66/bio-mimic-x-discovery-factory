@@ -2,6 +2,7 @@ import copy
 import json
 import sys
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'factory'))
@@ -45,6 +46,18 @@ class TestInsermMesh(unittest.TestCase):
     def test_bad_mission_rejected(self):
         m=copy.deepcopy(MISSION);del m['question']
         with self.assertRaisesRegex(ValueError,'question'):run(m)
+    def test_local_model_is_optional_and_evidence_remains_unverified(self):
+        with patch('inserm_mesh.local_model_proposal', return_value={'status':'PARTIAL','suggestions_unverified':'question'}) as model:
+            report=run(MISSION,local_model='local-model')
+        self.assertEqual(model.call_count,len(ROLES))
+        self.assertFalse(report['local_model']['notes_are_evidence'])
+        self.assertEqual(report['summary']['biological_validation'],'UNVERIFIED')
+    def test_patient_data_never_goes_to_local_model(self):
+        m=copy.deepcopy(MISSION);m['contains_personal_health_data']=True
+        with patch('inserm_mesh.local_model_proposal') as model:
+            report=run(m,local_model='local-model')
+        model.assert_not_called()
+        self.assertEqual(report['agents']['privacy']['status'],'FAIL')
     def test_role_names_unique(self):
         ids=[r[0] for r in ROLES]
         self.assertEqual(len(ids),len(set(ids)))
