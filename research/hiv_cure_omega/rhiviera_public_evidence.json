@@ -27,7 +27,8 @@
         "Highly selected early-treated cohort",
         "Interruption only in a monitored trial"
       ],
-      "negative_control": "Compare against participants with different immunogenetic profiles and account for early ART; no observational negative result claimed."
+      "negative_control": "Compare against participants with different immunogenetic profiles and account for early ART; no observational negative result claimed.",
+      "evidence_cohort_id": "RHIVIERA-01"
     },
     {
       "id": "RHIVIERA-02",
@@ -51,7 +52,8 @@
         "Treatment interruption confined to monitored protocol",
         "Even control without ART does not establish elimination"
       ],
-      "negative_control": "Placebo arm specified in trial protocol; actual arm outcomes not retrieved."
+      "negative_control": "Placebo arm specified in trial protocol; actual arm outcomes not retrieved.",
+      "evidence_cohort_id": "RHIVIERA-02"
     },
     {
       "id": "pVISCONTI-INTACT-2026",
@@ -74,7 +76,8 @@
         "SIV in macaques is not HIV in humans",
         "Negative sampling cannot rule out reservoir elsewhere"
       ],
-      "negative_control": "Non-controller group and macaques continuously on ART described; do not assume comparable baseline randomization."
+      "negative_control": "Non-controller group and macaques continuously on ART described; do not assume comparable baseline randomization.",
+      "evidence_cohort_id": "pVISCONTI_SIV_MACAQUES"
     },
     {
       "id": "pVISCONTI-NK-2026",
@@ -100,7 +103,8 @@
         "Cell marker is not an established therapeutic target",
         "No demonstrated complete viral eradication"
       ],
-      "negative_control": "Six non-controllers in the same pVISCONTI study."
+      "negative_control": "Six non-controllers in the same pVISCONTI study.",
+      "evidence_cohort_id": "pVISCONTI_SIV_MACAQUES"
     },
     {
       "id": "pVISCONTI-CX3CR1-2026",
@@ -126,7 +130,8 @@
         "No intervention showed elimination of provirus",
         "Tissue measures are not whole-body proof"
       ],
-      "negative_control": "Comparison with post-treatment non-controllers and uninfected animals reported."
+      "negative_control": "Comparison with post-treatment non-controllers and uninfected animals reported.",
+      "evidence_cohort_id": "pVISCONTI_SIV_MACAQUES"
     },
     {
       "id": "ANRS-LATENCY-REV-2025",
@@ -152,7 +157,8 @@
         "Transcriptional reactivation is not the same as reservoir elimination",
         "Potential toxicity and off-target effects not addressed by this descriptive result"
       ],
-      "negative_control": "Unstimulated versus laboratory perturbation comparator reported; not an in vivo intervention."
+      "negative_control": "Unstimulated versus laboratory perturbation comparator reported; not an in vivo intervention.",
+      "evidence_cohort_id": "ANRS-LATENCY-REV-2025"
     }
   ],
   "independent_comparator": {
@@ -168,5 +174,6 @@
     "no_ART_interruption_recommendation": true,
     "no_experiment_on_humans_or_virus": true,
     "no_individual_patient_data": true
-  }
+  },
+  "cohort_caveat": "The three pVISCONTI publications use overlapping animals from one primate study; they are not three independent replications. Trials with no published results do not count as observed clinical outcomes."
 }
