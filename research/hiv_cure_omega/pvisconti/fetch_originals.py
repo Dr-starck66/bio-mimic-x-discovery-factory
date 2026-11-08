@@ -31,7 +31,7 @@ def retrieve(output_dir: Path, timeout: int = 20) -> dict:
                 content = response.read(40_000_001)
             if len(content) > 40_000_000:
                 raise ValueError("Source exceeds maximum 40 MB")
-            if not content.startswith(b"PK\\x03\\x04"):
+            if not content[:4] == bytes((80, 75, 3, 4)):
                 raise ValueError("Not a valid XLSX ZIP magic")
             temporary = output.with_suffix(output.suffix + ".tmp")
             temporary.write_bytes(content)
