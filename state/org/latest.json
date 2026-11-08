@@ -9,6 +9,14 @@
       "research_credits": 12
     },
     {
+      "committee_score": 59,
+      "labs": [
+        "regeneration"
+      ],
+      "name": "Acomys cahirinus",
+      "research_credits": 11
+    },
+    {
       "committee_score": 55,
       "labs": [
         "regeneration"
@@ -30,14 +38,6 @@
         "longevity"
       ],
       "name": "Hydra vulgaris",
-      "research_credits": 10
-    },
-    {
-      "committee_score": 53,
-      "labs": [
-        "regeneration"
-      ],
-      "name": "Acomys cahirinus",
       "research_credits": 10
     },
     {
@@ -86,7 +86,7 @@
         "preservation"
       ],
       "name": "Tursiops truncatus",
-      "research_credits": 8
+      "research_credits": 7
     }
   ],
   "committee_rules": {
@@ -144,7 +144,7 @@
       "id": "cancer",
       "name": "ONCO-X Lab",
       "paper_count": 35,
-      "sha256": "43a1945b9e375e3c2096cdb557ff41c044051c477cd0e6e568d0ce1b5ba328d7",
+      "sha256": "a50cda591bebca931e290d11b43ea00ac098afbfe150794482b02bb61a579cb5",
       "status": "PASS"
     },
     {
@@ -152,7 +152,7 @@
       "id": "immunology",
       "name": "IMMUNO-X Lab",
       "paper_count": 34,
-      "sha256": "950818e61c0217ee4edeb54bd0c0fb28c12cebe5d1ce0e232f0d2f50105007b3",
+      "sha256": "7635c481b341e0ec4e9be327ee6055c11455521b07974bd1fd729c34cc424f02",
       "status": "PASS"
     },
     {
@@ -160,7 +160,7 @@
       "id": "longevity",
       "name": "LONGEVITY-X Lab",
       "paper_count": 35,
-      "sha256": "0aa37b7bd2df45395d3df6c8a37d55aa30097f46b7c25e8fada1d43fad0f5419",
+      "sha256": "afb07c7a663fedc78fa74e5b6441609482f7a7d74216c680983ffc36aa8ddae6",
       "status": "PASS"
     },
     {
@@ -168,7 +168,7 @@
       "id": "metabolism",
       "name": "METABOLIC-X Lab",
       "paper_count": 34,
-      "sha256": "6ca1929c56a620618920f2a52cdfaa6864e7a361240175261578dbf004dfbed9",
+      "sha256": "b4bb4b5ec3c90890e921ac5c4df5d3302742f85866fc3a291e5cd8799314332f",
       "status": "PASS"
     },
     {
@@ -176,7 +176,7 @@
       "id": "neuro",
       "name": "NEURO-X Lab",
       "paper_count": 34,
-      "sha256": "5ad7e06b06df9c391ad526201b58ed59931333415b14cc177a844978cb236d4b",
+      "sha256": "b24ab153d3c47c8494e24920adeb6d5bf4abbf44822916ad92b93864672c1fc3",
       "status": "PASS"
     },
     {
@@ -184,7 +184,7 @@
       "id": "preservation",
       "name": "PRESERVE-X Lab",
       "paper_count": 35,
-      "sha256": "d71733aded669cd141a7bb3670e55b3c0aa92079727351985d3edaa6e6bf299b",
+      "sha256": "019210a8cb703d752c2adf27fea4a68a930954bd0c804fbd10c3cbb24f1b9d95",
       "status": "PASS"
     },
     {
@@ -192,7 +192,7 @@
       "id": "regeneration",
       "name": "REGEN-X Lab",
       "paper_count": 35,
-      "sha256": "0422a14eb9e5c695473a6eaf22daa18e84e24c997604e029f5f6c5c7bb0f8998",
+      "sha256": "852933670e5b9c3ef5e828897d033e733c72ff99a7d7771c7a3014f9526ec06c",
       "status": "PASS"
     }
   ],
@@ -242,6 +242,54 @@
           "rank": "SPECIES",
           "status": "ACCEPTED",
           "taxon_key": 2421162
+        }
+      ],
+      "taxon_verified": true
+    },
+    {
+      "annotation_support": true,
+      "challenges": [
+        "correlation does not prove causation",
+        "developmental-stage confounding",
+        "fibrosis tradeoffs",
+        "human functional divergence remains possible",
+        "no gene symbol candidate",
+        "regeneration-vs-repair ambiguity"
+      ],
+      "committee_score": 59,
+      "genes": [],
+      "independent_source_count": 3,
+      "lab_count": 1,
+      "labs": [
+        "regeneration"
+      ],
+      "mean_arbiter": 72.0,
+      "mechanisms": [
+        "extracellular matrix",
+        "fibrosis",
+        "regeneration"
+      ],
+      "name": "Acomys cahirinus",
+      "pmid_sources": [
+        "PMID:41732917",
+        "PMID:42194064",
+        "PMID:42792965"
+      ],
+      "source_count": 3,
+      "sources": [
+        "PMID:41732917",
+        "PMID:42194064",
+        "PMID:42792965"
+      ],
+      "taxon_proofs": [
+        {
+          "canonical_name": "Acomys cahirinus",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 9800308
         }
       ],
       "taxon_verified": true
@@ -392,55 +440,6 @@
           "rank": "SPECIES",
           "status": "ACCEPTED",
           "taxon_key": 5185782
-        }
-      ],
-      "taxon_verified": true
-    },
-    {
-      "annotation_support": false,
-      "challenges": [
-        "correlation does not prove causation",
-        "developmental-stage confounding",
-        "fibrosis tradeoffs",
-        "human functional divergence remains possible",
-        "no gene symbol candidate",
-        "regeneration-vs-repair ambiguity",
-        "taxonomy not annotation-supported"
-      ],
-      "committee_score": 53,
-      "genes": [],
-      "independent_source_count": 3,
-      "lab_count": 1,
-      "labs": [
-        "regeneration"
-      ],
-      "mean_arbiter": 55.0,
-      "mechanisms": [
-        "extracellular matrix",
-        "fibrosis",
-        "regeneration"
-      ],
-      "name": "Acomys cahirinus",
-      "pmid_sources": [
-        "PMID:41732917",
-        "PMID:42194064",
-        "PMID:42792965"
-      ],
-      "source_count": 3,
-      "sources": [
-        "PMID:41732917",
-        "PMID:42194064",
-        "PMID:42792965"
-      ],
-      "taxon_proofs": [
-        {
-          "canonical_name": "Acomys cahirinus",
-          "kingdom": "Animalia",
-          "match_type": "EXACT",
-          "provider": "GBIF",
-          "rank": "SPECIES",
-          "status": "ACCEPTED",
-          "taxon_key": 9800308
         }
       ],
       "taxon_verified": true
@@ -722,8 +721,8 @@
     }
   ],
   "schema": "biomimic-v6-org-run-v1",
-  "sha256": "073c9482071a2d5d446145e513aa1f612d6401f9b7953afa2822ea5bac4d7faa",
+  "sha256": "d0c7c702abcaba1f2927ad3665991645e939f6a9535b0069f774f3b0609d81bc",
   "status": "PASS",
-  "time": "2026-11-07T10:22:03.098925+00:00",
+  "time": "2026-11-08T10:27:18.814538+00:00",
   "upstream_failures": []
 }
