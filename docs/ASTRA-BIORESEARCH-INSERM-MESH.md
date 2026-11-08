@@ -15,6 +15,13 @@
 
 This is **not yet a network of 23 standalone LLMs**. Most roles run explicit, deterministic policies; three reuse computational reasoning engines. Do not claim that data presence implies scientific verification. The prototype does not access private patient data, perform wet-lab experiments, send messages or schedule jobs.
 
+## Optional locally executed model (no remote API)
+
+If Ollama and an already downloaded model are available on the user's computer, add the `--local-model MODEL` flag. This dispatches bounded prompts to `127.0.0.1:11434/api/generate` for each role, with earlier role findings passed to dependent agents. Responses are **unverified suggestions**, not evidence. There is no automatic model installation, remote provider, paid API, scheduler, e-mail or patient-data transmission. A local model inference run has **not** been demonstrated in this change.
+
+Example: `python factory/inserm_mesh.py --mission examples/florence-apparailly-mission.json --out /tmp/astra-inserm-report.json --local-model llama3.2` (only if the model is already installed locally).
+
+
 ## Run locally (Python stdlib, free, no GitHub Actions)
 
 ```bash
@@ -22,7 +29,7 @@ python factory/inserm_mesh.py --mission examples/florence-apparailly-mission.jso
 python -m unittest discover -s tests -p 'test_inserm_mesh.py' -v
 ```
 
-**Demonstration:** sample evidence is empty *on purpose*. Expected scientific statuses are UNVERIFIED or PARTIAL; technical DAG execution can PASS. This avoids pretending to have verified macrophage/ECM experimental evidence.
+**Demonstration:** 10 isolated local unit tests PASS. Sample evidence is empty *on purpose*. Expected scientific statuses are UNVERIFIED or PARTIAL; technical DAG execution can PASS. This avoids pretending to have verified macrophage/ECM experimental evidence.
 
 ## Safety and collaboration boundary
 
