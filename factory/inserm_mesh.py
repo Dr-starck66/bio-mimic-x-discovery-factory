@@ -71,14 +71,14 @@ def engine_or_none(module, function):
     except (ImportError, AttributeError):
         return None
 
-def local_model_proposal(role, mission, previous_hashes, model):
+def local_model_proposal(role, mission, previous_context, model):
     """Optional Ollama-on-localhost reasoning, never an evidence source or validator."""
     if not isinstance(model,str) or not model.strip() or len(model)>120:
         return {'status':'UNVERIFIED','reason':'Modele local absent ou invalide'}
     prompt=(f"Tu joues le role scientifique {role} dans BIO-MIMIC X. "
             "Propose des controles, contre-arguments ou pistes de travail, pas de faits nouveaux ni de donnees inventees. "
             "Aucune recommandation clinique, aucune publication ni verification de sources sans preuve. "
-            f"Question: {mission['question']}. Hashs des taches precedentes: {previous_hashes}. "
+            f"Question: {mission['question']}. Resultats des taches precedentes: {json.dumps(previous_context,ensure_ascii=False)[:3600]}. "
             "Reponds en francais en 100 mots au maximum.")
     body=json.dumps({'model':model,'prompt':prompt,'stream':False,
                      'options':{'num_predict':180}}).encode('utf-8')
@@ -185,7 +185,7 @@ def run(mission, local_model=None):
         shared['records'][role]=result
         if local_model:
             if mission.get('contains_personal_health_data') is False and mission.get('authorized_additional_cost_eur') == 0:
-                model_observations[role]=local_model_proposal(role,mission,[shared['records'][d]['sha256'] for d in deps],local_model)
+                model_observations[role]=local_model_proposal(role,mission,[{'role':d,'status':shared['records'][d]['status'],'findings':shared['records'][d]['findings'],'sha256':shared['records'][d]['sha256']} for d in deps],local_model)
             else:
                 model_observations[role]={'status':'UNVERIFIED','reason':'Privacy or zero cost gate denied model execution'}
         log.append({'index':len(log)+1,'role':role,'depends_on':list(deps),
