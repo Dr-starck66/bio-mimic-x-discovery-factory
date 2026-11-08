@@ -75,6 +75,14 @@ def validate_evidence(data):
             errors.append(f"{ident}: primary article required")
         if row.get("has_results") and not row.get("pmid"):
             errors.append(f"{ident}: PMID required for observed findings")
+    pvisconti_cohorts = {
+        r.get("evidence_cohort_id") for r in records
+        if r.get("relation") == "anrs_pvisconti"
+    }
+    if not pvisconti_cohorts or None in pvisconti_cohorts or len(pvisconti_cohorts) != 1:
+        errors.append("pVISCONTI related reports must share one underlying cohort ID")
+    if any(not r.get("evidence_cohort_id") for r in records):
+        errors.append("missing evidence cohort ID")
     comparator = data.get("independent_comparator", {})
     if comparator.get("relation") != "independent_comparator_not_rhiviera":
         errors.append("RIO cannot be attributed to ANRS RHIVIERA")
@@ -135,6 +143,7 @@ def run_bridge(data):
             raise ValueError("unexecuted experiment promoted to a result")
         dossiers.append({
             "record_id": row["id"],
+            "evidence_cohort_id": row["evidence_cohort_id"],
             "source_url": row["source_url"],
             "pmid": row.get("pmid"),
             "relation": row["relation"],
@@ -180,6 +189,10 @@ def run_bridge(data):
             "factory.experiment_planner.plan_experiments",
         ],
         "studies_checked": len(dossiers),
+        "distinct_observed_cohorts": len({
+            d["evidence_cohort_id"] for d in dossiers if d["has_verified_results"]
+        }),
+        "cohort_nonindependence_warning": data.get("cohort_caveat"),
         "hypotheses_generated": sum(len(d["hypotheses"]) for d in dossiers),
         "conceptual_plans_generated": sum(len(d["conceptual_plans"]) for d in dossiers),
         "independent_comparator": data["independent_comparator"],
