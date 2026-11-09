@@ -1,20 +1,32 @@
-# BIO-MIMIC X V6 Scientific Investment Committee — 2026-11-09T11:39:15.786096+00:00
+# BIO-MIMIC X V6 Scientific Investment Committee — 2026-11-09T11:45:27.510663+00:00
 
 **Scientific status:** PARTIAL (not an efficacy claim)
-**Upstream provider failures:** 3
-**Organization replay SHA-256:** `638fc1216db404760834021dac412f0f36da04207b80beca67994328522e1075`
+**Upstream provider failures:** 7
+**Organization replay SHA-256:** `d1cb0eb284e328fed7f7965177a9eb18fa83c692283ee217ec2328f42bd72e52`
 
 ## Laboratory status
-- ONCO-X Lab: PASS · 35 papers · 0 candidates
-- IMMUNO-X Lab: PASS · 34 papers · 0 candidates
-- LONGEVITY-X Lab: FAIL · 0 papers · 0 candidates
-- METABOLIC-X Lab: PASS · 34 papers · 0 candidates
-- NEURO-X Lab: PASS · 34 papers · 0 candidates
+- ONCO-X Lab: FAIL · 0 papers · 0 candidates
+- IMMUNO-X Lab: FAIL · 0 papers · 0 candidates
+- LONGEVITY-X Lab: PARTIAL · 35 papers · 2 candidates
+- METABOLIC-X Lab: FAIL · 0 papers · 0 candidates
+- NEURO-X Lab: FAIL · 0 papers · 0 candidates
 - PRESERVE-X Lab: FAIL · 0 papers · 0 candidates
 - REGEN-X Lab: FAIL · 0 papers · 0 candidates
 
 ## Top portfolio
+### Caenorhabditis elegans — Committee 61/100
+- Labs: longevity
+- Sources: 6 · mechanisms: autophagy, proteostasis, senescence
+- Challenge flags: body-size confounding, correlation does not prove causation, human functional divergence remains possible, lifespan data quality, phylogeny confounding, taxonomy not annotation-supported
+
+### Arctica islandica — Committee 39/100
+- Labs: longevity
+- Sources: 3 · mechanisms: none extracted
+- Challenge flags: body-size confounding, correlation does not prove causation, human functional divergence remains possible, lifespan data quality, phenotype without extracted mechanism, phylogeny confounding
+
 ## Research-credit allocation
+- Caenorhabditis elegans: 61 credits
+- Arctica islandica: 39 credits
 
 ## Cross-lab challenge plan
 - immunology challenges cancer: Re-audit the top hypothesis using the challenger lab's confounders and require at least one falsifiable counter-test.

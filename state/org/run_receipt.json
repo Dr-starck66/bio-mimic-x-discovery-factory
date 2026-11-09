@@ -1,5 +1,22 @@
 {
-  "allocations": [],
+  "allocations": [
+    {
+      "committee_score": 61,
+      "labs": [
+        "longevity"
+      ],
+      "name": "Caenorhabditis elegans",
+      "research_credits": 61
+    },
+    {
+      "committee_score": 39,
+      "labs": [
+        "longevity"
+      ],
+      "name": "Arctica islandica",
+      "research_credits": 39
+    }
+  ],
   "committee_rules": {
     "hard_gate": "exact GBIF-verified Animalia taxon required",
     "research_credits": "internal prioritization units, not currency",
@@ -54,48 +71,48 @@
       "candidate_count": 0,
       "id": "cancer",
       "name": "ONCO-X Lab",
-      "paper_count": 35,
-      "sha256": "d1cb809d25ee76c1814b8ec51fd8e064eb160934dd0256f6bd691e93d914fa74",
-      "status": "PASS"
+      "paper_count": 0,
+      "sha256": "0021ad8704297bfae9b571f80cfe8de21f2f2fd504da4749d38df9c1fc865f9a",
+      "status": "FAIL"
     },
     {
       "candidate_count": 0,
       "id": "immunology",
       "name": "IMMUNO-X Lab",
-      "paper_count": 34,
-      "sha256": "947ab5d3fc5b10cd12bae429b17aedc7d16197746e7bdb79e41326f760858184",
-      "status": "PASS"
+      "paper_count": 0,
+      "sha256": "10a81ec8d2b60282f95dff171765ea3a510c0f44ed395453803adc2c37db60d2",
+      "status": "FAIL"
     },
     {
-      "candidate_count": 0,
+      "candidate_count": 2,
       "id": "longevity",
       "name": "LONGEVITY-X Lab",
-      "paper_count": 0,
-      "sha256": "84469d186f729ffa8be266ce7a446df122c7143b8b4f8a15b09d6164f0399a22",
-      "status": "FAIL"
+      "paper_count": 35,
+      "sha256": "7f133c9201d6837582d7bc69e785175f0d0edebe926e93ef276cd35ed2e4b8b7",
+      "status": "PARTIAL"
     },
     {
       "candidate_count": 0,
       "id": "metabolism",
       "name": "METABOLIC-X Lab",
-      "paper_count": 34,
-      "sha256": "863ef5a6de3aa73f045f7ac06ca56546ff7eea05970be3e79a6c99bf3b761020",
-      "status": "PASS"
+      "paper_count": 0,
+      "sha256": "30f1b804db7120983c8719183415321c65abda52b465242efc66c84763d16320",
+      "status": "FAIL"
     },
     {
       "candidate_count": 0,
       "id": "neuro",
       "name": "NEURO-X Lab",
-      "paper_count": 34,
-      "sha256": "6a18e1e7fb794fdd8dfb02ecb6cc6f6b5f89a37586ecdf54678c6eb6dcfdc249",
-      "status": "PASS"
+      "paper_count": 0,
+      "sha256": "b9ce211b334f35f98619e9e0d45d02237925cca3594b259638a48a0897ba5b81",
+      "status": "FAIL"
     },
     {
       "candidate_count": 0,
       "id": "preservation",
       "name": "PRESERVE-X Lab",
       "paper_count": 0,
-      "sha256": "aa7fc35c4d1bec7b0deacfbead5c7b06fdcc38c6d56be0e0319e584260b53540",
+      "sha256": "5eff3c177021e19b799f8765b4926c499ffe2e051fb699403a4fca9c8e87b8c5",
       "status": "FAIL"
     },
     {
@@ -103,22 +120,173 @@
       "id": "regeneration",
       "name": "REGEN-X Lab",
       "paper_count": 0,
-      "sha256": "1381e7b368d67bc09af4231e5d275801787f8f39b9071559b8d4b2a1e808a03f",
+      "sha256": "2115d6ef0ef57c735d57ea302206dc5b44ede250aca3037d50b29f66521d512e",
       "status": "FAIL"
     }
   ],
-  "portfolio": [],
+  "portfolio": [
+    {
+      "annotation_support": false,
+      "challenges": [
+        "body-size confounding",
+        "correlation does not prove causation",
+        "human functional divergence remains possible",
+        "lifespan data quality",
+        "phylogeny confounding",
+        "taxonomy not annotation-supported"
+      ],
+      "committee_score": 61,
+      "genes": [
+        "ABCD1",
+        "ACAA1",
+        "ACOX-3",
+        "ACOX1",
+        "AML12",
+        "BCAP31",
+        "CD44",
+        "CD44-",
+        "CD44ICD",
+        "CR",
+        "DR",
+        "DR-",
+        "DRP-1",
+        "EGCG",
+        "EGCG-",
+        "EHHADH",
+        "FZO-1",
+        "GPCR",
+        "HSD17B4",
+        "IGF-1"
+      ],
+      "independent_source_count": 6,
+      "lab_count": 1,
+      "labs": [
+        "longevity"
+      ],
+      "mean_arbiter": 63.0,
+      "mechanisms": [
+        "autophagy",
+        "proteostasis",
+        "senescence"
+      ],
+      "name": "Caenorhabditis elegans",
+      "pmid_sources": [
+        "PMID:42552600",
+        "PMID:42578070",
+        "PMID:42882487",
+        "PMID:42911464",
+        "PMID:42948917",
+        "PMID:42971933"
+      ],
+      "source_count": 6,
+      "sources": [
+        "PMID:42552600",
+        "PMID:42578070",
+        "PMID:42882487",
+        "PMID:42911464",
+        "PMID:42948917",
+        "PMID:42971933"
+      ],
+      "taxon_proofs": [
+        {
+          "canonical_name": "Caenorhabditis elegans",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 2283683
+        }
+      ],
+      "taxon_verified": true
+    },
+    {
+      "annotation_support": false,
+      "challenges": [
+        "body-size confounding",
+        "correlation does not prove causation",
+        "human functional divergence remains possible",
+        "lifespan data quality",
+        "phenotype without extracted mechanism",
+        "phylogeny confounding",
+        "taxonomy not annotation-supported"
+      ],
+      "committee_score": 39,
+      "genes": [
+        "TCA"
+      ],
+      "independent_source_count": 3,
+      "lab_count": 1,
+      "labs": [
+        "longevity"
+      ],
+      "mean_arbiter": 38.0,
+      "mechanisms": [],
+      "name": "Arctica islandica",
+      "pmid_sources": [
+        "PMID:40075973",
+        "PMID:42522297",
+        "PMID:42928049"
+      ],
+      "source_count": 3,
+      "sources": [
+        "PMID:40075973",
+        "PMID:42522297",
+        "PMID:42928049"
+      ],
+      "taxon_proofs": [
+        {
+          "canonical_name": "Arctica islandica",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 5189341
+        }
+      ],
+      "taxon_verified": true
+    }
+  ],
   "schema": "biomimic-v6-org-run-v1",
-  "sha256": "638fc1216db404760834021dac412f0f36da04207b80beca67994328522e1075",
+  "sha256": "d1cb0eb284e328fed7f7965177a9eb18fa83c692283ee217ec2328f42bd72e52",
   "status": "PARTIAL",
-  "time": "2026-11-09T11:39:15.786096+00:00",
+  "time": "2026-11-09T11:45:27.510663+00:00",
   "upstream_failures": [
     {
       "failures": [
-        "primary Europe PMC: The read operation timed out",
-        "fallback Europe PMC: HTTP Error 503: "
+        "primary Europe PMC: HTTP Error 503: "
+      ],
+      "lab": "cancer",
+      "status": "FAIL"
+    },
+    {
+      "failures": [
+        "primary Europe PMC: HTTP Error 503: "
+      ],
+      "lab": "immunology",
+      "status": "FAIL"
+    },
+    {
+      "failures": [
+        "primary Europe PMC: HTTP Error 503: ",
+        "fallback query used"
       ],
       "lab": "longevity",
+      "status": "PARTIAL"
+    },
+    {
+      "failures": [
+        "primary Europe PMC: HTTP Error 503: "
+      ],
+      "lab": "metabolism",
+      "status": "FAIL"
+    },
+    {
+      "failures": [
+        "primary Europe PMC: HTTP Error 503: "
+      ],
+      "lab": "neuro",
       "status": "FAIL"
     },
     {
@@ -130,7 +298,7 @@
     },
     {
       "failures": [
-        "primary Europe PMC: The read operation timed out"
+        "primary Europe PMC: HTTP Error 503: "
       ],
       "lab": "regeneration",
       "status": "FAIL"
