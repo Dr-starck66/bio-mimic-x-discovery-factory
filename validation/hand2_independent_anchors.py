@@ -13,7 +13,7 @@ def genes(path,chrom,center,radius):
             try: start,end=int(x[3]),int(x[4])
             except ValueError: continue
             if end<center-radius or start>center+radius: continue
-            attrs=dict(re.findall(r'([\w.-]+)\\s+"([^"]+)"',x[8]))
+            attrs=dict(re.findall(r'([\w.-]+)\s+"([^"]+)"',x[8]))
             for item in x[8].split(";"):
                 if "=" in item:
                     k,v=item.strip().split("=",1);attrs.setdefault(k,v)
