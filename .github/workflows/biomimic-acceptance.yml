@@ -16,6 +16,7 @@ on:
   pull_request:
     branches: [main]
     paths:
+      - '.github/workflows/**'
       - 'qa/**'
       - 'organization/**'
       - 'factory/human_limb_regeneration_gate.py'
