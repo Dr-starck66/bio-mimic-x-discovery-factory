@@ -101,6 +101,7 @@ def score(x,ids,manifest,normalization="quantile"):
     return coeff@z
 
 def auc(scores,positive):
+    positive=np.asarray(positive,dtype=bool)
     a=np.asarray(scores)[positive]
     b=np.asarray(scores)[~positive]
     return float(np.mean((a[:,None]>b[None,:])+.5*(a[:,None]==b[None,:])))
@@ -124,7 +125,7 @@ def perm_p(scores,labels,groups,iters=10000):
 def test():
     x=np.array([[1,2,5],[3,1,3],[1,1,8],[4,5,3]],float)
     z=quantile_normalize(x)
-    assert z.shape==x.shape and np.allclose(np.sort(z,axis=0),np.sort(z,axis=0)[:,[0]])
+    assert z.shape==x.shape and np.isfinite(z).all() and z[0,0]==z[2,0], 'tied observations must have equal quantile-normalized values'
     assert auc([0,1,3,4],[False,False,True,True])==1
     p=np.array([True,False,True,False])
     g=np.array(["M","M","F","F"])
