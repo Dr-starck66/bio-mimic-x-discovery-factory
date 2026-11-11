@@ -54,3 +54,15 @@ A separate Node.js implementation running in the same Floot VM independently fet
 These data **cannot** decide whether cretostimogene works. The next scientifically necessary action is **independent BCG cohort replication with verified response labels and covariate metadata**, followed by a separate validation in oncolytic-virus-treated samples only if legitimately accessible.
 
 *No production site, domain, scheduled automation, GitHub Actions run, or new paid cloud project was created for this execution.*
+
+## Follow-up: H2/H3 exploratory two-gene proxies (same real source, 2026-11-11)
+
+The original Python pipeline was extended *without creating a separate disease model*. It now computes three explicitly **post-hoc exploratory**, biologically motivated proxy averages from each patient's per-gene log2(TPM+1) differences; independent specimen-level pooling is prohibited. Another run on the same sha256-pinned GEO source completed successfully: **12/12 remote Python regression tests PASS**, and a second independent Node.js implementation matched **all three mean differences, exact p-values, and BH-adjusted q-values within 1e-7**.
+
+| Exploratory proxy signature | Genes | Mean paired Δ | Exact p | BH q (three proxies) |
+|---|---|---:|---:|---:|
+| IFN_CHEMOKINE_PROXY | CXCL9, CXCL10 | +0.290536 | 0.13623047 | 0.20434570 |
+| T_CELL_CD8_PROXY | CD8A, CD8B | +0.218538 | 0.12597656 | 0.20434570 |
+| MACROPHAGE_PROXY | CD68, CD163 | +0.062616 | 0.30566406 | 0.30566406 |
+
+**All three fail q < 0.05.** They are only two-gene RNA proxies, **not** cell-abundance quantification, a validated immune signature, or evidence for viral-immunotherapy response. These three signature choices were not prospectively preregistered before observing the gene-level results. Full bootstrap confidence intervals and source fingerprint are preserved in [gse244895_paired_signatures_2026-11-11.json](../../reports/cretostimogene/gse244895_paired_signatures_2026-11-11.json). The earlier gene-only report remains unchanged for audit continuity.
