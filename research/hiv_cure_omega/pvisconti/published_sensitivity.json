@@ -1,0 +1,249 @@
+{
+  "schema": "astra-pvisconti-posthoc-summary-audit/1",
+  "as_of": "2026-11-08",
+  "source_csv_blob_sha": "6c178e9b579e0b976e05a849737ba38222b723df",
+  "run_status": "PASS_POSTHOC_PUBLISHED_SUMMARIES_ONLY",
+  "computation_engine": "V8 direct execution on fetched GitHub CSV",
+  "studies": 3,
+  "independent_underlying_siv_cohorts": 1,
+  "raw_xlsx_downloaded": false,
+  "individual_animal_statistics_recomputed": false,
+  "clinical_eradication_demonstrated": false,
+  "posthoc_warning": "Selected exploratory endpoint families; not prospectively registered, not a substitute for individual-level reanalysis",
+  "checks": {
+    "sixteen": true,
+    "cohort": true,
+    "allNotRaw": true,
+    "charreCore": true,
+    "charreCD8": true,
+    "chapel": true,
+    "hua": true,
+    "negative": true
+  },
+  "results": [
+    {
+      "family": "Charre_Fig6",
+      "study": "Charre_2026",
+      "cohort_id": "pVISCONTI_SIV_MACAQUES",
+      "endpoint": "intact_PNL_preATI_vs_cumulative_viral_AUC",
+      "rho_published": 0.688,
+      "p_published": 0.003,
+      "source_url": "https://www.nature.com/articles/s41467-026-69720-6",
+      "raw_xlsx_verified": false,
+      "p_holm_posthoc": 0.009,
+      "within_posthoc_family_significant_005": true
+    },
+    {
+      "family": "Charre_Fig6",
+      "study": "Charre_2026",
+      "cohort_id": "pVISCONTI_SIV_MACAQUES",
+      "endpoint": "intact_PNL_preATI_vs_terminal_viremia",
+      "rho_published": 0.647,
+      "p_published": 0.006,
+      "source_url": "https://www.nature.com/articles/s41467-026-69720-6",
+      "raw_xlsx_verified": false,
+      "p_holm_posthoc": 0.012,
+      "within_posthoc_family_significant_005": true
+    },
+    {
+      "family": "Charre_Fig6",
+      "study": "Charre_2026",
+      "cohort_id": "pVISCONTI_SIV_MACAQUES",
+      "endpoint": "CD8_suppression_vs_intact_PNL_preATI",
+      "rho_published": -0.59,
+      "p_published": 0.047,
+      "source_url": "https://www.nature.com/articles/s41467-026-69720-6",
+      "raw_xlsx_verified": false,
+      "p_holm_posthoc": 0.047,
+      "within_posthoc_family_significant_005": true
+    },
+    {
+      "family": "Charre_D7",
+      "study": "Charre_2026",
+      "cohort_id": "pVISCONTI_SIV_MACAQUES",
+      "endpoint": "PBMC_intact_D7_difference",
+      "rho_published": null,
+      "p_published": 0.048,
+      "source_url": "https://www.nature.com/articles/s41467-026-69720-6",
+      "raw_xlsx_verified": false,
+      "p_holm_posthoc": 0.096,
+      "within_posthoc_family_significant_005": false
+    },
+    {
+      "family": "Charre_D7",
+      "study": "Charre_2026",
+      "cohort_id": "pVISCONTI_SIV_MACAQUES",
+      "endpoint": "CD4_intact_D7_difference",
+      "rho_published": null,
+      "p_published": 0.019,
+      "source_url": "https://www.nature.com/articles/s41467-026-69720-6",
+      "raw_xlsx_verified": false,
+      "p_holm_posthoc": 0.057,
+      "within_posthoc_family_significant_005": false
+    },
+    {
+      "family": "Charre_D7",
+      "study": "Charre_2026",
+      "cohort_id": "pVISCONTI_SIV_MACAQUES",
+      "endpoint": "plasma_viremia_D7_difference_negative_control",
+      "rho_published": null,
+      "p_published": 0.9,
+      "source_url": "https://www.nature.com/articles/s41467-026-69720-6",
+      "raw_xlsx_verified": false,
+      "p_holm_posthoc": 0.9,
+      "within_posthoc_family_significant_005": false
+    },
+    {
+      "family": "Chapel_MHC",
+      "study": "Chapel_2026",
+      "cohort_id": "pVISCONTI_SIV_MACAQUES",
+      "endpoint": "M1_haplotype",
+      "rho_published": null,
+      "p_published": 0.0491,
+      "source_url": "https://www.nature.com/articles/s41467-026-76699-7",
+      "raw_xlsx_verified": false,
+      "p_holm_posthoc": 0.0932,
+      "within_posthoc_family_significant_005": false
+    },
+    {
+      "family": "Chapel_MHC",
+      "study": "Chapel_2026",
+      "cohort_id": "pVISCONTI_SIV_MACAQUES",
+      "endpoint": "M5_haplotype",
+      "rho_published": null,
+      "p_published": 0.0325,
+      "source_url": "https://www.nature.com/articles/s41467-026-76699-7",
+      "raw_xlsx_verified": false,
+      "p_holm_posthoc": 0.0932,
+      "within_posthoc_family_significant_005": false
+    },
+    {
+      "family": "Chapel_MHC",
+      "study": "Chapel_2026",
+      "cohort_id": "pVISCONTI_SIV_MACAQUES",
+      "endpoint": "M3_haplotype",
+      "rho_published": null,
+      "p_published": 0.0238,
+      "source_url": "https://www.nature.com/articles/s41467-026-76699-7",
+      "raw_xlsx_verified": false,
+      "p_holm_posthoc": 0.0932,
+      "within_posthoc_family_significant_005": false
+    },
+    {
+      "family": "Chapel_MHC",
+      "study": "Chapel_2026",
+      "cohort_id": "pVISCONTI_SIV_MACAQUES",
+      "endpoint": "D6S2793_277",
+      "rho_published": null,
+      "p_published": 0.0161,
+      "source_url": "https://www.nature.com/articles/s41467-026-76699-7",
+      "raw_xlsx_verified": false,
+      "p_holm_posthoc": 0.0805,
+      "within_posthoc_family_significant_005": false
+    },
+    {
+      "family": "Chapel_MHC",
+      "study": "Chapel_2026",
+      "cohort_id": "pVISCONTI_SIV_MACAQUES",
+      "endpoint": "combined_D6S2793_277plus_D6S2704_145minus",
+      "rho_published": null,
+      "p_published": 0.0033,
+      "source_url": "https://www.nature.com/articles/s41467-026-76699-7",
+      "raw_xlsx_verified": false,
+      "p_holm_posthoc": 0.0198,
+      "within_posthoc_family_significant_005": true
+    },
+    {
+      "family": "Chapel_MHC",
+      "study": "Chapel_2026",
+      "cohort_id": "pVISCONTI_SIV_MACAQUES",
+      "endpoint": "combined_D6S2793_277minus_D6S2704_145plus",
+      "rho_published": null,
+      "p_published": 0.0233,
+      "source_url": "https://www.nature.com/articles/s41467-026-76699-7",
+      "raw_xlsx_verified": false,
+      "p_holm_posthoc": 0.0932,
+      "within_posthoc_family_significant_005": false
+    },
+    {
+      "family": "Hua_Fig6",
+      "study": "Hua_2026",
+      "cohort_id": "pVISCONTI_SIV_MACAQUES",
+      "endpoint": "CX3CR1_high_vs_Treg",
+      "rho_published": 0.54,
+      "p_published": 0.0012,
+      "source_url": "https://www.nature.com/articles/s41467-026-69848-5",
+      "raw_xlsx_verified": false,
+      "p_holm_posthoc": 0.0048,
+      "within_posthoc_family_significant_005": true
+    },
+    {
+      "family": "Hua_Fig6",
+      "study": "Hua_2026",
+      "cohort_id": "pVISCONTI_SIV_MACAQUES",
+      "endpoint": "CX3CR1_low_vs_Treg",
+      "rho_published": -0.54,
+      "p_published": 0.0013,
+      "source_url": "https://www.nature.com/articles/s41467-026-69848-5",
+      "raw_xlsx_verified": false,
+      "p_holm_posthoc": 0.0048,
+      "within_posthoc_family_significant_005": true
+    },
+    {
+      "family": "Hua_Fig6",
+      "study": "Hua_2026",
+      "cohort_id": "pVISCONTI_SIV_MACAQUES",
+      "endpoint": "CX3CR1_high_vs_Th17",
+      "rho_published": 0.47,
+      "p_published": 0.0068,
+      "source_url": "https://www.nature.com/articles/s41467-026-69848-5",
+      "raw_xlsx_verified": false,
+      "p_holm_posthoc": 0.0136,
+      "within_posthoc_family_significant_005": true
+    },
+    {
+      "family": "Hua_Fig6",
+      "study": "Hua_2026",
+      "cohort_id": "pVISCONTI_SIV_MACAQUES",
+      "endpoint": "CX3CR1_low_vs_Th17",
+      "rho_published": -0.46,
+      "p_published": 0.0073,
+      "source_url": "https://www.nature.com/articles/s41467-026-69848-5",
+      "raw_xlsx_verified": false,
+      "p_holm_posthoc": 0.0136,
+      "within_posthoc_family_significant_005": true
+    }
+  ],
+  "charre_6_endpoint_sensitivity": [
+    {
+      "endpoint": "intact_PNL_preATI_vs_cumulative_viral_AUC",
+      "p_published": 0.003,
+      "p_holm_posthoc": 0.018
+    },
+    {
+      "endpoint": "intact_PNL_preATI_vs_terminal_viremia",
+      "p_published": 0.006,
+      "p_holm_posthoc": 0.03
+    },
+    {
+      "endpoint": "CD8_suppression_vs_intact_PNL_preATI",
+      "p_published": 0.047,
+      "p_holm_posthoc": 0.141
+    },
+    {
+      "endpoint": "PBMC_intact_D7_difference",
+      "p_published": 0.048,
+      "p_holm_posthoc": 0.141
+    },
+    {
+      "endpoint": "CD4_intact_D7_difference",
+      "p_published": 0.019,
+      "p_holm_posthoc": 0.076
+    },
+    {
+      "endpoint": "plasma_viremia_D7_difference_negative_control",
+      "p_published": 0.9,
+      "p_holm_posthoc": 0.9
+    }
+  ]
+}
