@@ -230,7 +230,7 @@
       "output_ref": "human_translation_result",
       "stage": "TRANSLATE",
       "status": "PARTIAL",
-      "time": "2026-11-10T11:50:33.459558+00:00",
+      "time": "2026-11-11T11:29:24.265741+00:00",
       "value": 0.7778
     },
     {
@@ -365,12 +365,12 @@
     }
   ],
   "bridge_refresh": {
-    "previous_cycle_sha256": "7811afb8923d1667fe25d9454f6cc68d88bf5f1e3ace66ebbaaf2702a97d2fe9",
+    "previous_cycle_sha256": "81b9dc4a18524d88c69c690e8a8bdfb681162e289423a346b691d18bd30b51e5",
     "status": "PARTIAL",
     "strict_orthology_candidates": 7,
     "strict_orthology_coverage_ratio": 0.7778,
     "supported_claims": 9,
-    "time": "2026-11-10T11:50:33.459558+00:00",
+    "time": "2026-11-11T11:29:24.265741+00:00",
     "translation_coverage_ratio": 0.7778,
     "translation_verified_candidates": 7
   },
@@ -435848,11 +435848,14 @@
         ],
         "bridge_scope": "endogenous freeze-tolerance mechanism; independent of the exogenous ice-binding-protein intervention",
         "bridge_seed_rationale": "Exact-species freeze-thaw genetics requires DAF-16 downstream of daf-2, while independent human-to-worm complementation work demonstrates that human FKHRL1/FOXO3 can partially replace DAF-16. This supports a conserved FOXO-family relationship without asserting one-to-one orthology or human clinical efficacy.",
+        "cache_miss_count": 1,
+        "cache_reason": "Current live providers did not reproduce this previously verified strict bridge; retained temporarily pending revalidation.",
         "clinical_efficacy_claim": false,
         "human_biotype": "protein_coding",
         "human_ensembl_id": "ENSG00000118689",
         "human_name": "forkhead box O3",
         "human_symbol": "FOXO3",
+        "last_live_verified_at": "2026-11-10T11:50:33.459558+00:00",
         "orthology": {
           "functional_orthology_doi": "10.1016/S0960-9822(01)00595-4",
           "functional_orthology_pmid": "11747821",
@@ -435896,11 +435899,14 @@
             "modality": "PR"
           }
         ],
-        "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+        "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
+        "verification_mode": "LAST_KNOWN_GOOD_CACHE"
       }
     ],
-    "cached_bridged_candidates": 0,
-    "cached_subjects": [],
+    "cached_bridged_candidates": 1,
+    "cached_subjects": [
+      "Caenorhabditis elegans"
+    ],
     "candidate_status": [
       {
         "bridges": 1,
@@ -436130,15 +436136,16 @@
       },
       {
         "bridges": 1,
+        "cache_miss_count": 1,
         "candidate": "Caenorhabditis elegans",
         "direct_orthology_seed_records_checked": 0,
         "direct_orthology_strict_bridges": 0,
         "ensembl_species": null,
-        "functional_orthology_context_validated": 1,
-        "functional_orthology_evidence_validated": 1,
+        "functional_orthology_context_validated": 0,
+        "functional_orthology_evidence_validated": 0,
         "functional_orthology_exact_genes": 1,
         "functional_orthology_seed_records_checked": 1,
-        "functional_orthology_strict_bridges": 1,
+        "functional_orthology_strict_bridges": 0,
         "gene_candidates": 10,
         "ncbi_exact_genes": 1,
         "ncbi_human_orthologs": 0,
@@ -436150,7 +436157,7 @@
         "orthodb_seed_genes_checked": 1,
         "phylogenetic_seed_records_checked": 0,
         "phylogenetic_strict_bridges": 0,
-        "status": "BRIDGED",
+        "status": "BRIDGED_CACHED",
         "uniprot_annotation_candidates": 10,
         "uniprot_candidates": 14,
         "uniprot_species_gene_candidates": 4,
@@ -436161,25 +436168,25 @@
     "direct_orthology_hits": 1,
     "ensembl_orthologue_hits": 1,
     "errors": [],
-    "functional_orthology_hits": 1,
-    "live_bridged_candidates": 7,
+    "functional_orthology_hits": 0,
+    "live_bridged_candidates": 6,
     "ncbi_orthologue_hits": 1,
     "oma_orthologue_hits": 7,
-    "open_targets_hits": 12,
+    "open_targets_hits": 11,
     "orthodb_orthologue_hits": 1,
-    "orthologue_hits": 13,
+    "orthologue_hits": 12,
     "phylogenetic_orthologue_hits": 1,
     "provider_status": {
       "Ensembl homology": "PASS",
       "Ensembl species": "PASS",
       "Europe PMC annotations": "PASS",
-      "Last-known-good cache": "IDLE",
+      "Last-known-good cache": "PASS",
       "NCBI Ortholog": "PASS",
       "OMA orthology": "PASS",
       "Open Targets": "PASS",
       "OrthoDB v12": "PASS",
       "Peer-reviewed direct orthology": "PASS",
-      "Peer-reviewed functional orthology": "PASS",
+      "Peer-reviewed functional orthology": "PARTIAL",
       "Peer-reviewed phylogenetic orthology": "PASS"
     },
     "resolved_species": 1,
@@ -438050,11 +438057,14 @@
           ],
           "bridge_scope": "endogenous freeze-tolerance mechanism; independent of the exogenous ice-binding-protein intervention",
           "bridge_seed_rationale": "Exact-species freeze-thaw genetics requires DAF-16 downstream of daf-2, while independent human-to-worm complementation work demonstrates that human FKHRL1/FOXO3 can partially replace DAF-16. This supports a conserved FOXO-family relationship without asserting one-to-one orthology or human clinical efficacy.",
+          "cache_miss_count": 1,
+          "cache_reason": "Current live providers did not reproduce this previously verified strict bridge; retained temporarily pending revalidation.",
           "clinical_efficacy_claim": false,
           "human_biotype": "protein_coding",
           "human_ensembl_id": "ENSG00000118689",
           "human_name": "forkhead box O3",
           "human_symbol": "FOXO3",
+          "last_live_verified_at": "2026-11-10T11:50:33.459558+00:00",
           "orthology": {
             "functional_orthology_doi": "10.1016/S0960-9822(01)00595-4",
             "functional_orthology_pmid": "11747821",
@@ -438098,7 +438108,8 @@
               "modality": "PR"
             }
           ],
-          "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+          "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
+          "verification_mode": "LAST_KNOWN_GOOD_CACHE"
         }
       ],
       "claim_pmids": [
@@ -438122,11 +438133,14 @@
             ],
             "bridge_scope": "endogenous freeze-tolerance mechanism; independent of the exogenous ice-binding-protein intervention",
             "bridge_seed_rationale": "Exact-species freeze-thaw genetics requires DAF-16 downstream of daf-2, while independent human-to-worm complementation work demonstrates that human FKHRL1/FOXO3 can partially replace DAF-16. This supports a conserved FOXO-family relationship without asserting one-to-one orthology or human clinical efficacy.",
+            "cache_miss_count": 1,
+            "cache_reason": "Current live providers did not reproduce this previously verified strict bridge; retained temporarily pending revalidation.",
             "clinical_efficacy_claim": false,
             "human_biotype": "protein_coding",
             "human_ensembl_id": "ENSG00000118689",
             "human_name": "forkhead box O3",
             "human_symbol": "FOXO3",
+            "last_live_verified_at": "2026-11-10T11:50:33.459558+00:00",
             "orthology": {
               "functional_orthology_doi": "10.1016/S0960-9822(01)00595-4",
               "functional_orthology_pmid": "11747821",
@@ -438170,7 +438184,8 @@
                 "modality": "PR"
               }
             ],
-            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
+            "verification_mode": "LAST_KNOWN_GOOD_CACHE"
           }
         ],
         "clinical_efficacy_claim": false,
@@ -439173,11 +439188,14 @@
             ],
             "bridge_scope": "endogenous freeze-tolerance mechanism; independent of the exogenous ice-binding-protein intervention",
             "bridge_seed_rationale": "Exact-species freeze-thaw genetics requires DAF-16 downstream of daf-2, while independent human-to-worm complementation work demonstrates that human FKHRL1/FOXO3 can partially replace DAF-16. This supports a conserved FOXO-family relationship without asserting one-to-one orthology or human clinical efficacy.",
+            "cache_miss_count": 1,
+            "cache_reason": "Current live providers did not reproduce this previously verified strict bridge; retained temporarily pending revalidation.",
             "clinical_efficacy_claim": false,
             "human_biotype": "protein_coding",
             "human_ensembl_id": "ENSG00000118689",
             "human_name": "forkhead box O3",
             "human_symbol": "FOXO3",
+            "last_live_verified_at": "2026-11-10T11:50:33.459558+00:00",
             "orthology": {
               "functional_orthology_doi": "10.1016/S0960-9822(01)00595-4",
               "functional_orthology_pmid": "11747821",
@@ -439221,7 +439239,8 @@
                 "modality": "PR"
               }
             ],
-            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
+            "verification_mode": "LAST_KNOWN_GOOD_CACHE"
           }
         ],
         "clinical_efficacy_claim": false,
@@ -442449,7 +442468,7 @@
       "taxon_verified": true
     }
   ],
-  "sha256": "81b9dc4a18524d88c69c690e8a8bdfb681162e289423a346b691d18bd30b51e5",
+  "sha256": "6ba393978810c2a69e59b48e64aabb54d5898d6dbe8c2210512816586d9124c6",
   "status": "PASS",
   "telemetry": {
     "brick_observability_ratio": 1.0,
