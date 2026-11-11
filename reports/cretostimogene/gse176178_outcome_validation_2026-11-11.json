@@ -1,0 +1,115 @@
+{
+  "source": "GSE176178",
+  "contrast": "BCG durable responders Yes vs No, bulk RNA-seq",
+  "design": "cross-sectional nonrandomized; not direct cretostimogene data",
+  "n_samples": 40,
+  "n_yes": 17,
+  "n_no": 23,
+  "sex_response": {
+    "Yes": {
+      "Female": 7,
+      "Male": 10
+    },
+    "No": {
+      "Female": 2,
+      "Male": 21
+    }
+  },
+  "age_response_mean": {
+    "Yes": 67.64705882,
+    "No": 69.08695652
+  },
+  "source_gene_rows": 59412,
+  "method": "featureCounts total mapped per gene normalization; log2(1+CPM); unweighted mean of two genes; label permutation; BH three tests",
+  "seed": 20261111,
+  "n_permutations": 20000,
+  "n_bootstrap": 2000,
+  "results": {
+    "IFN_CHEMOKINE_PROXY": {
+      "genes": [
+        "CXCL9",
+        "CXCL10"
+      ],
+      "mean_yes_log2cpm1": 2.3047505,
+      "mean_no_log2cpm1": 2.31872225,
+      "effect_yes_minus_no_log2cpm1": -0.01397175,
+      "auc_descriptive": 0.49104859,
+      "permutation_p_global": 0.97970101,
+      "permutation_p_sex_stratified": 0.9779011,
+      "bootstrap_ci95_unadjusted": [
+        -0.94513755,
+        0.871076
+      ],
+      "male_only": {
+        "n_yes": 10,
+        "n_no": 21,
+        "effect": 0.11461385,
+        "auc": 0.51904762,
+        "permutation_p": 0.86031397
+      },
+      "BH_q_global": 0.97970101,
+      "BH_q_sex_stratified": 0.9779011
+    },
+    "T_CELL_CD8_PROXY": {
+      "genes": [
+        "CD8A",
+        "CD8B"
+      ],
+      "mean_yes_log2cpm1": 1.77025302,
+      "mean_no_log2cpm1": 1.98087154,
+      "effect_yes_minus_no_log2cpm1": -0.21061852,
+      "auc_descriptive": 0.41176471,
+      "permutation_p_global": 0.4379781,
+      "permutation_p_sex_stratified": 0.45367732,
+      "bootstrap_ci95_unadjusted": [
+        -0.73482629,
+        0.3314971
+      ],
+      "male_only": {
+        "n_yes": 10,
+        "n_no": 21,
+        "effect": 0.02920965,
+        "auc": 0.49047619,
+        "permutation_p": 0.9310069
+      },
+      "BH_q_global": 0.97970101,
+      "BH_q_sex_stratified": 0.9779011
+    },
+    "MACROPHAGE_PROXY": {
+      "genes": [
+        "CD68",
+        "CD163"
+      ],
+      "mean_yes_log2cpm1": 2.381351,
+      "mean_no_log2cpm1": 2.44698873,
+      "effect_yes_minus_no_log2cpm1": -0.06563773,
+      "auc_descriptive": 0.49616368,
+      "permutation_p_global": 0.73386331,
+      "permutation_p_sex_stratified": 0.74551272,
+      "bootstrap_ci95_unadjusted": [
+        -0.42166458,
+        0.27187235
+      ],
+      "male_only": {
+        "n_yes": 10,
+        "n_no": 21,
+        "effect": -0.02382047,
+        "auc": 0.48571429,
+        "permutation_p": 0.91710829
+      },
+      "BH_q_global": 0.97970101,
+      "BH_q_sex_stratified": 0.9779011
+    }
+  },
+  "caveat": "descriptive association; sex imbalanced; NO clinical predictor validation, independent clinical replication, or cretostimogene response labels",
+  "source_sha256": {
+    "counts": "f785ffeae2ef4f6b5f673fd46e1c7bc3b121fae91c49d22001b75e2daba75c4c",
+    "metadata": "ef5232392e1da3b91c995cd750098bb5a51aacdf4eda6d471101b8832421c565"
+  },
+  "source_bytes": {
+    "counts": 6942301,
+    "metadata": 3948
+  },
+  "analysis_code_sha256": "3e40cc03b694614d2d11bc2329a20a88b82659469dcbc6c9df82849dc394adb0",
+  "status": "EXPLORATORY_REAL_DATA_SEX_ADJUSTED"
+}
