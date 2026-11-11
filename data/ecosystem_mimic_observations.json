@@ -1,6 +1,6 @@
 {
   "ecosystem_id": "camargue-vaccares-gbif-pilot",
-  "generated_at": "2026-11-10T10:28:22.974909+00:00",
+  "generated_at": "2026-11-11T09:52:21.537900+00:00",
   "generated_by": "factory/ecosystem_gbif_ingest.py",
   "measurement_semantics": "GBIF_OCCURRENCE_RECORD_COUNT_NOT_ABUNDANCE",
   "observations": [
@@ -4278,15 +4278,15 @@
           "6604187171",
           "6604459937"
         ],
-        "gbif_query_count": 112,
+        "gbif_query_count": 114,
         "licenses": [
           "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
           "http://creativecommons.org/licenses/by/4.0/legalcode"
         ],
         "provider": "GBIF",
         "query_sha256": "e0b84ff2bc3f66ae455e4712b5c88194ebedc718e7c4751b029e01c20cc7e082",
-        "record_id_sha256": "faa779ebfdaddf1aa16ee6d791efd14dd5f111e98a960999d4426ead06e93794",
-        "records_used": 111,
+        "record_id_sha256": "26f99834a595a9e8bd22699440800d53e35e884d5e0fe8da2c74383fd13fdcd2",
+        "records_used": 113,
         "records_without_species_resolution": 1,
         "window_end": "2026-10-31",
         "window_start": "2026-10-01"
@@ -4317,11 +4317,13 @@
         "Circus aeruginosus": 1,
         "Colias croceus": 2,
         "Cyclophora puppillaria": 1,
+        "Cygnus olor": 1,
         "Dittrichia viscosa": 1,
         "Dryobotodes tenebrosa": 1,
         "Egretta garzetta": 3,
         "Empusa pennata": 2,
         "Emys orbicularis": 1,
+        "Eobania vermiculata": 1,
         "Eublemma parva": 1,
         "Eupatorium cannabinum": 1,
         "Eupeodes corollae": 1,
@@ -4377,7 +4379,7 @@
   ],
   "sampling_bias_note": "Monthly taxon values are counts of GBIF occurrence records inside the configured observation window. They are not organism abundance, density, occupancy, or standardized sampling effort.",
   "schema": "biomimic-ecosystem-observations-v2",
-  "sha256": "cc01a8e914aa6e751a1ee82ba053a7c00366d521097868225cd99b06deb9f9de",
+  "sha256": "81684c0dc1c0468e00be963de12fc930a13dfb498f1dbbe263e65de41d7b2041",
   "source": {
     "api": "https://api.gbif.org/v1/occurrence/search",
     "authentication_required": false,
