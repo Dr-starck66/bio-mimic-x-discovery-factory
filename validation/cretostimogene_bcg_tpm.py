@@ -33,6 +33,12 @@ GEO_SAMPLE_TITLES = (
     'P-4_1','P-4_2','P-10_1','P-12_1',
 )
 GEO_GSM_LABELS = dict(zip((f'GSM{k}' for k in range(7831849, 7831884)),GEO_SAMPLE_TITLES))
+# H2/H3-derived *exploratory* proxy pairs; selection NOT prospectively registered.
+EXPLORATORY_SIGNATURES = {
+    'T_CELL_CD8_PROXY': ('CD8A', 'CD8B'),
+    'IFN_CHEMOKINE_PROXY': ('CXCL9', 'CXCL10'),
+    'MACROPHAGE_PROXY': ('CD68', 'CD163'),
+}
 PREDECLARED_MARKERS = (
     'CXADR', 'RB1', 'E2F1', 'CD8A', 'CD8B', 'CD68', 'CD163', 'FOXP3',
     'IFNG', 'STAT1', 'CXCL9', 'CXCL10', 'IL17A', 'IL21', 'IL26', 'PDCD1',
@@ -215,6 +221,25 @@ def analyze(names:list[str],x:np.ndarray,samples:list[str],qc:dict,boot:int=2000
         pvalues[key]=p
     qs=bh(pvalues)
     for key,record in effects.items():record['bh_fdr_within_predeclared_markers']=round(float(qs[key]),8)
+    # Exploratory 2-gene proxy averages are computed per PATIENT before testing.
+    # They are not validated cell abundances, mechanistic biomarkers or prospectively registered signatures.
+    signature_effects={};signature_ps={}
+    for signature,genes in EXPLORATORY_SIGNATURES.items():
+        if not all(g in selected for g in genes):
+            continue
+        d=np.mean(delta[[selected[g] for g in genes],:],axis=0)
+        p=exact_signflip_p(d)
+        boots=np.mean(d[rng.integers(0,len(d),size=(boot,len(d)))],axis=1)
+        signature_effects[signature]={
+            'genes':list(genes),
+            'mean_delta_log2_tpm1':round(float(np.mean(d)),6),
+            'two_sided_exact_signflip_p':round(float(p),8),
+            'bootstrap_95pct_ci':[round(float(t),6) for t in np.quantile(boots,[0.025,0.975])],
+            'status':'EXPLORATORY_POST_HOC_PROXY_NOT_PREREGISTERED',
+        }
+        signature_ps[signature]=p
+    for signature,q in bh(signature_ps).items():
+        signature_effects[signature]['bh_fdr_within_three_proxy_signatures']=round(float(q),8)
     null_rng=np.random.default_rng(SEED+1)
     # Negative control: flip BCG-pair direction per patient, preserving within-pair dependency.
     negative_signs=null_rng.choice([-1,1],size=len(paired))
@@ -237,13 +262,15 @@ def analyze(names:list[str],x:np.ndarray,samples:list[str],qc:dict,boot:int=2000
                   'n_post_specimens':sum(v['post'] for v in sample_counts.values()),
                   'patient_ids':paired,'repeated_posts_averaged_within_patient':True},
             'predeclared_gene_effects':effects,
+            'exploratory_two_gene_signature_effects':signature_effects,
             'negative_control':{'type':'fixed-seed patient-level random sign flip (one placebo contrast)','results':neg},
             'analysis_seed':SEED,
             'caveats':['No randomization or untreated comparator; pre/post effects can reflect time, recurrence, sampling.',
                        'Post specimens from a patient averaged; unequal sampling timepoints not modeled.',
                        'GEO cohort does not label cretostimogene outcome; no therapy prediction claim.',
                        'No external BCG validation or clinical predictive-performance evaluation.',
-                       'Sign-flip exchangeability and sample annotations require independent verification.']}
+                       'Sign-flip exchangeability and sample annotations require independent verification.',
+                       'Two-gene proxy signatures are H2/H3-derived exploratory selections, NOT preregistered or biological cell fractions.']}
 
 
 def main()->int:
