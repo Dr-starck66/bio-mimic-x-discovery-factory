@@ -46,7 +46,7 @@ def get_meta(raw):
                 outcome=outcome,sex=key("tissue"),stage=key("cell type"),
                 grade=key("grade"),eortc=np.array(list(map(float,key("eortc-recur score")))))
 
-def load_counts(raw, meta):
+def load_counts(raw, meta, required_ensembl):
     lines=raw.splitlines()
     header=lines[0].split("\t")
     assert header[0]=="geneID" and len(header)==95 and len(lines)==63242, "GEO shape mismatch"
@@ -64,8 +64,13 @@ def load_counts(raw, meta):
     assert np.all(lib>0)
     cpm=1_000_000*values/lib[None,:]
     # Paper filters genes at cohort-wide mean CPM <1; do not use outcome labels.
-    retain=np.mean(cpm,axis=1)>=1
-    return [name for name, keep in zip(ids,retain) if keep],np.log2(1+cpm[retain]),int(np.sum(retain)),lib
+    above_threshold=np.mean(cpm,axis=1)>=1
+    # Keep all a-priori published model genes for a complete 75-weight score,
+    # while explicitly reporting the deviation from authors' global CPM filter.
+    required_set=set(required_ensembl)
+    exceptions=[name for name, keep in zip(ids,above_threshold) if not keep and name in required_set]
+    retain=above_threshold | np.isin(np.array(ids),list(required_set))
+    return [name for name, keep in zip(ids,retain) if keep],np.log2(1+cpm[retain]),int(np.sum(retain)),lib,exceptions
 
 def quantile_normalize(x):
     """Between-sample quantile normalization; preserve equal-value ties."""
@@ -145,7 +150,7 @@ def main():
     manifest=json.loads(Path(args.manifest).read_text(encoding="utf-8"))
     if manifest["source_sha256"]!=DOCX_SHA:raise ValueError("published coefficients source digest mismatch")
     meta=get_meta(fetch(META,META_SHA))
-    genes,x,retained,lib=load_counts(fetch(COUNTS,COUNTS_SHA),meta)
+    genes,x,retained,lib,low_expression_exceptions=load_counts(fetch(COUNTS,COUNTS_SHA),meta,[w["ensembl"] for w in manifest["weights"]])
     labels=np.array([s=="Yes" for s in meta["outcome"]])
     site=np.array([s.split("_")[0] for s in meta["names"]])
     strata=np.array([a+"/"+b+"/"+c for a,b,c in zip(meta["sex"],meta["stage"],site)])
@@ -153,8 +158,9 @@ def main():
     scores_raw=score(x,genes,manifest,"logCPM")
     out={"dataset":"GSE294705","doi":"10.1186/s12916-026-04745-8",
          "method":"Published Table S2 75-gene coefficients; CPM >=1 filter; log2(1+CPM); between-sample quantile normalization with ties; per-gene cohort z-standardization; weighted sum; no fitting / direction flip.",
-         "not_identical_to_published_protocol_warning":"Full published analysis may use additional normalization/censoring and an HfRI high/low decision threshold. This is an independent approximate quantitative implementation; not proof of exact original HfRI reproduction.",
-         "patients":94,"events_ge_2_recurrence":16,"genes_after_cpm_filter":retained,
+         "not_identical_to_published_protocol_warning":"One published weighted gene (FOXI2) is under the cohort-wide mean CPM filter and explicitly retained; full published analysis may use different normalization, annotation and a high/low threshold. This is an approximate quantitative implementation, NOT proof of exact original HfRI reproduction.",
+         "patients":94,"events_ge_2_recurrence":16,"genes_used_in_normalization":retained,
+         "a_priori_weighted_genes_below_cpm_threshold_kept":low_expression_exceptions,
          "weight_gene_count":len(manifest["weights"]),
          "baseline_eortc_auc_descriptive":round(auc(meta["eortc"],labels),8),
          "source_sha256":{"counts":COUNTS_SHA,"metadata":META_SHA,"published_docx":DOCX_SHA},
