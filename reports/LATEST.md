@@ -1,25 +1,17 @@
-# BIO-MIMIC X Daily Lab — 20261110T111013Z
+# BIO-MIMIC X Daily Lab — 20261111T105542Z
 
-**SHA-256:** `150d80343c8cb255dd94e5cc8829e22ff03bd831f775ecd705e52f64c9d84d2a`
+**SHA-256:** `b75257f0d4c7d5bb1bc7ef4209801dd5309edb2299a282c90578104c8b24b86b`
 
 ## Run
-- Tracks: cancer_resistance, pain_neuro, thrombosis_immobility, longevity_dna
-- Papers: 120
+- Tracks: cancer_resistance, pain_neuro, thrombosis_immobility, hypoxia_ischemia
+- Papers: 90
 - Novel candidates: 100
 - Verified candidates: 0
-- Plausible candidates: 2
-- Knowledge graph: 2183 nodes / 9267 edges
-- Mean Arbiter score: 34.4
+- Plausible candidates: 1
+- Knowledge graph: 2187 nodes / 9280 edges
+- Mean Arbiter score: 30.71
 
 ## Top candidates
-### Willebrand factor — PLAUSIBLE_CANDIDATE — Arbiter 67
-- Papers: 4 | citations signal: 0
-- Annotation support: True | Ensembl verified: False
-- Mechanisms: coagulation, fibrosis, immune, inflammation, oxidative stress, stem cell, thrombosis
-- Genes: ACLD, BCR-ABL, CAR-T-, D-, DIC, ECMO, ECMO-, HIT
-- Sources: PMID:42653457, PMID:42713243, PMID:42783235, PMID:42940760
-- Morpheus: taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
-
 ### Breast cancer — PLAUSIBLE_CANDIDATE — Arbiter 58
 - Papers: 2 | citations signal: 0
 - Annotation support: True | Ensembl verified: False
@@ -28,44 +20,12 @@
 - Sources: PMID:42688979, PMID:42964571
 - Morpheus: taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
 
-### Insights into — UNVERIFIED_CANDIDATE — Arbiter 54
-- Papers: 3 | citations signal: 6
+### Emerging evidence — UNVERIFIED_CANDIDATE — Arbiter 48
+- Papers: 3 | citations signal: 0
 - Annotation support: False | Ensembl verified: False
-- Mechanisms: DNA repair, genome maintenance, immune
-- Genes: DNA-, EIF2AK2, PKR, RNA-
-- Sources: PMID:41960904, PMID:42649300, PMID:42655835
-- Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
-
-### Emerging evidence — UNVERIFIED_CANDIDATE — Arbiter 50
-- Papers: 4 | citations signal: 0
-- Annotation support: False | Ensembl verified: False
-- Mechanisms: apoptosis, circadian, coagulation, inflammation, ion channel, mitochondria, oxidative stress, senescence
-- Genes: D-, L1, N-, NMDAR, NMDAR-, OXPHOS, SIRT2, TRPM
-- Sources: PMID:42568801, PMID:42897310, PMID:42928844, PMID:42938994
-- Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
-
-### Within this — UNVERIFIED_CANDIDATE — Arbiter 50
-- Papers: 4 | citations signal: 0
-- Annotation support: False | Ensembl verified: False
-- Mechanisms: antioxidant, apoptosis, ion channel, mitochondria, senescence, stem cell
-- Genes: L1, OXPHOS, TOR-
-- Sources: PMID:41745735, PMID:42280674, PMID:42375388, PMID:42938994
-- Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
-
-### Recent advances — UNVERIFIED_CANDIDATE — Arbiter 50
-- Papers: 4 | citations signal: 0
-- Annotation support: False | Ensembl verified: False
-- Mechanisms: apoptosis, coagulation, ion channel, thrombosis
-- Genes: DIC, ISTH, PTX, SIC, TME, XI
-- Sources: PMC:PMC13673108, PMID:42506706, PMID:42798958, PMID:42973830
-- Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
-
-### The present — UNVERIFIED_CANDIDATE — Arbiter 50
-- Papers: 4 | citations signal: 0
-- Annotation support: False | Ensembl verified: False
-- Mechanisms: coagulation, inflammation, ion channel, mitochondria, thrombosis
-- Genes: A2, ADP, C-, CGN, CIIMET, MS, NF-, NO
-- Sources: PMID:42741776, PMID:42793169, PMID:42846789, PMID:42941783
+- Mechanisms: antioxidant, apoptosis, hypoxia, ion channel, mitochondria, oxidative stress, stem cell
+- Genes: D-, HIF-1, L1, MIRI, N-, NMDAR, NMDAR-, OXPHOS
+- Sources: PMID:42897310, PMID:42938994, PMID:42959516
 - Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
 
 ### Rather than — UNVERIFIED_CANDIDATE — Arbiter 48
@@ -84,26 +44,66 @@
 - Sources: PMID:42352053, PMID:42699082, PMID:42769669
 - Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
 
-### The review — UNVERIFIED_CANDIDATE — Arbiter 48
-- Papers: 3 | citations signal: 0
+### Tityus serrulatus — UNVERIFIED_CANDIDATE — Arbiter 45
+- Papers: 1 | citations signal: 1
+- Annotation support: True | Ensembl verified: False
+- Mechanisms: immune, inflammation, ion channel
+- Genes: AGAP, BMK, CCI, LD50, SVHRP
+- Sources: PMID:41893543
+- Morpheus: single-paper dependence, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
+
+### Peptides for — UNVERIFIED_CANDIDATE — Arbiter 44
+- Papers: 2 | citations signal: 1
 - Annotation support: False | Ensembl verified: False
-- Mechanisms: coagulation, fibrosis, thrombosis
-- Genes: ACLD, AF, FXI, IC, II, III, NCBI, PVT
-- Sources: PMID:42713243, PMID:42898680, PMID:42932090
+- Mechanisms: antioxidant, immune, inflammation, ion channel, mitochondria, p53
+- Genes: AGAP, BMK, CCI, EGFR, GE11, GRPR, LD50, MAPK
+- Sources: PMID:41893543, PMID:42943298
 - Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
 
-### Experimental studies — UNVERIFIED_CANDIDATE — Arbiter 48
-- Papers: 3 | citations signal: 0
+### Although traditionally — UNVERIFIED_CANDIDATE — Arbiter 42
+- Papers: 2 | citations signal: 0
 - Annotation support: False | Ensembl verified: False
-- Mechanisms: autophagy, coagulation, extracellular matrix, immune, inflammation, thrombosis
-- Genes: AF, FXI, II, III, NET, NET-, PAD4, RNA-
-- Sources: PMID:42675480, PMID:42794511, PMID:42898680
+- Mechanisms: DNA repair, hypoxia, immune, mitochondria, oxidative stress, p53
+- Genes: ATM, AZD0156, AZD1390, CP466722, DDR, DDR-, DNA-, KU-55933
+- Sources: PMID:42655835, PMID:42984918
 - Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
 
-### Insights from — UNVERIFIED_CANDIDATE — Arbiter 48
-- Papers: 3 | citations signal: 0
+### Its consequences — UNVERIFIED_CANDIDATE — Arbiter 42
+- Papers: 2 | citations signal: 0
 - Annotation support: False | Ensembl verified: False
-- Mechanisms: coagulation, immune, inflammation, mitochondria, proteostasis, thrombosis
-- Genes: CAT, D-, DIC, F2, HIT, MEDLINE, PF4, PRISMA
-- Sources: PMID:42510690, PMID:42653312, PMID:42653457
+- Mechanisms: genome maintenance, immune, inflammation, mitochondria, senescence, telomere
+- Genes: NOP2, NSUN2, NSUN5, NSUN6, SASP
+- Sources: PMID:42923116, PMID:42924611
+- Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
+
+### Within this — UNVERIFIED_CANDIDATE — Arbiter 42
+- Papers: 2 | citations signal: 0
+- Annotation support: False | Ensembl verified: False
+- Mechanisms: apoptosis, ion channel, mitochondria, stem cell
+- Genes: L1, OXPHOS
+- Sources: PMID:41745735, PMID:42938994
+- Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
+
+### Particular attention — UNVERIFIED_CANDIDATE — Arbiter 42
+- Papers: 2 | citations signal: 0
+- Annotation support: False | Ensembl verified: False
+- Mechanisms: antioxidant, apoptosis, mitochondria, p53, stem cell
+- Genes: EGFR, GE11, GRPR, L1, MAPK, NF-, NSCLC, OXPHOS
+- Sources: PMID:42938994, PMID:42943298
+- Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
+
+### The resulting — UNVERIFIED_CANDIDATE — Arbiter 42
+- Papers: 2 | citations signal: 0
+- Annotation support: False | Ensembl verified: False
+- Mechanisms: apoptosis, immune, ion channel, mitochondria, senescence, stem cell
+- Genes: GABAA, HCN1, L1, NMDA, OXPHOS
+- Sources: PMID:42938399, PMID:42938994
+- Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
+
+### The role — UNVERIFIED_CANDIDATE — Arbiter 42
+- Papers: 2 | citations signal: 0
+- Annotation support: False | Ensembl verified: False
+- Mechanisms: angiogenesis, antioxidant, apoptosis, hypoxia, immune, inflammation, mitochondria, p53
+- Genes: ERG, HIF-, IHD, PTEN, TMPRSS2-, TP53
+- Sources: PMID:42644087, PMID:42997210
 - Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
