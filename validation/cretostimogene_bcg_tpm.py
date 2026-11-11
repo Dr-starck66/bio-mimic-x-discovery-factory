@@ -40,6 +40,9 @@ PREDECLARED_MARKERS = (
 )
 SEED = 20261108
 MAX_COMPRESSED = 20_000_000
+# Exact public compressed artifact audited on 2026-11-11. Its last data row is
+# incomplete at source; permit quarantine ONLY for this fingerprint and row.
+PINNED_GEO_SHA256 = '712480491eb29d56e645650893692f9db2fa3e7ebc30bb41c08e5f9ccc30bac8'
 
 
 def fetch_source(path: Path) -> tuple[str,str]:
@@ -97,33 +100,56 @@ def header_to_labels(headers: list[str]) -> list[str]:
     return out
 
 
+def validate_tail_quarantine(bad_rows: list[dict], last_record_line: int, digest: str, expected_columns: int) -> list[dict]:
+    """Fail closed except for one independently observed terminal DEFB110 row.
+
+    Never silently discard an analysis marker or an arbitrary malformed record.
+    """
+    if not bad_rows:
+        return []
+    if (digest != PINNED_GEO_SHA256 or len(bad_rows) != 1 or
+        bad_rows[0].get('gene') != 'DEFB110' or
+        bad_rows[0].get('line') != last_record_line or
+        bad_rows[0].get('observed_columns') != 7 or
+        expected_columns != 36 or
+        'DEFB110' in PREDECLARED_MARKERS):
+        raise ValueError('GEO_SOURCE_INTEGRITY_GATE: malformed row not in SHA256-pinned terminal exception')
+    return bad_rows
+
+
 def read_tpm(path: Path) -> tuple[list[str], np.ndarray, list[str],dict]:
     raw=path.read_bytes()
     if len(raw)>MAX_COMPRESSED or not raw.startswith(b'\x1f\x8b'):
         raise ValueError('Expected bounded compressed GEO matrix')
     digest=hashlib.sha256(raw).hexdigest()
-    names=[]; vals=[]; samples=None
+    names=[]; vals=[]; samples=None;bad_rows=[];last_record_line=0
     with gzip.open(io.BytesIO(raw),'rt',encoding='utf-8-sig',errors='strict',newline='') as f:
         rd=csv.reader(f,delimiter='\t')
         for row in rd:
+            line_num=rd.line_num
             if not row or row[0].startswith(('#','!')):continue
+            last_record_line=line_num
             if samples is None:
                 samples=header_to_labels(row[1:])
                 if len(samples)<4 or len(samples)!=len(set(samples)):
                     raise ValueError('Empty or duplicate or insufficient sample headers')
                 for s in samples:parse_sample_label(s)
                 continue
-            if len(row)!=len(samples)+1:raise ValueError('Inconsistent row width')
+            if len(row)!=len(samples)+1:
+                bad_rows.append({'gene':row[0].strip() if row else '', 'line':line_num, 'observed_columns':len(row)})
+                continue
             if not row[0].strip():continue
             try: values=np.array([float(v) for v in row[1:]],dtype=np.float64)
             except ValueError as e:raise ValueError('Non-numeric TPM values') from e
             if not np.isfinite(values).all() or np.any(values<0):raise ValueError('Nonfinite or negative TPM')
             names.append(row[0].strip());vals.append(values)
+    quarantined=validate_tail_quarantine(bad_rows,last_record_line,digest,len(samples)+1 if samples is not None else 0)
     if not vals:raise ValueError('No measured genes')
     if len(names)!=len(set(names)):raise ValueError('Duplicate gene identifiers; need annotation mapping before analysis')
     x=np.vstack(vals)
     if samples is None:raise ValueError('No sample labels')
-    qc={'matrix_sha256':digest,'compressed_bytes':len(raw),'genes':len(names),'columns':len(samples),'source_accession':GSE}
+    qc={'matrix_sha256':digest,'compressed_bytes':len(raw),'genes':len(names),'columns':len(samples),'source_accession':GSE,
+        'quarantined_source_rows':quarantined,'source_integrity_gate':'PASS_PINNED_TERMINAL_EXCEPTION' if quarantined else 'PASS_ALL_ROWS'}
     return names,x,samples,qc
 
 
