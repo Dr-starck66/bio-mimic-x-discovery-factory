@@ -82,4 +82,16 @@ class TestPaired(unittest.TestCase):
    p=Path(td)/'bad.gz';p.write_bytes(gzip.compress(txt.encode()))
    with self.assertRaisesRegex(ValueError,'GEO_SOURCE_INTEGRITY_GATE'):m.read_tpm(p)
 
+ def test_exploratory_signatures_use_patient_level_averages(self):
+  names=['CD8A','CD8B','CXCL9','CXCL10','CD68','CD163']
+  samples=['P-1','P-2','P-3','P-1_1','P-2_1','P-3_1']
+  x=np.array([[1,1,1,9,9,9],[1,1,1,9,9,9],[2,2,2,4,4,4],
+              [2,2,2,4,4,4],[9,9,9,5,5,5],[9,9,9,5,5,5]],dtype=float)
+  a=m.analyze(names,x,samples,{'source_accession':'FIXTURE'},boot=100)
+  v=a['exploratory_two_gene_signature_effects']
+  self.assertEqual(set(v),set(m.EXPLORATORY_SIGNATURES))
+  self.assertAlmostEqual(v['T_CELL_CD8_PROXY']['mean_delta_log2_tpm1'],np.log2(10)-np.log2(2),places=6)
+  self.assertEqual(v['T_CELL_CD8_PROXY']['two_sided_exact_signflip_p'],0.25)
+  self.assertTrue(all(0<=vv['bh_fdr_within_three_proxy_signatures']<=1 for vv in v.values()))
+
 if __name__=='__main__':unittest.main()
