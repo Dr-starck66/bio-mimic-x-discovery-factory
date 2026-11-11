@@ -64,4 +64,22 @@ class TestPaired(unittest.TestCase):
    p=Path(td)/'bad.gz';p.write_bytes(gzip.compress(txt.encode()))
    with self.assertRaises(ValueError):m.read_tpm(p)
 
+ def test_terminal_source_exception_is_sha_pinned(self):
+  bad=[{'gene':'DEFB110','line':4641,'observed_columns':7}]
+  self.assertEqual(m.validate_tail_quarantine(bad,4641,m.PINNED_GEO_SHA256,36),bad)
+  for bad_input,last,digest,cols in [
+   (bad,4641,'a'*64,36),
+   (bad,4642,m.PINNED_GEO_SHA256,36),
+   ([{'gene':'CXADR','line':4641,'observed_columns':7}],4641,m.PINNED_GEO_SHA256,36),
+   (bad*2,4641,m.PINNED_GEO_SHA256,36),
+   (bad,4641,m.PINNED_GEO_SHA256,35),
+  ]:
+   with self.assertRaisesRegex(ValueError,'GEO_SOURCE_INTEGRITY_GATE'):
+    m.validate_tail_quarantine(bad_input,last,digest,cols)
+ def test_malformed_midfile_is_rejected(self):
+  txt='gene\tP-1\tP-2\tP-3\tP-1_1\nCXADR\t0\t1\t2\t3\nDEFB110\t2\t2\nSTAT1\t0\t1\t2\t3\n'
+  with tempfile.TemporaryDirectory() as td:
+   p=Path(td)/'bad.gz';p.write_bytes(gzip.compress(txt.encode()))
+   with self.assertRaisesRegex(ValueError,'GEO_SOURCE_INTEGRITY_GATE'):m.read_tpm(p)
+
 if __name__=='__main__':unittest.main()
