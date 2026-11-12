@@ -38,6 +38,45 @@
       ],
       "taxon_verified": true
     },
+    "Ambystoma mexicanum": {
+      "claim": "Ambystoma mexicanum is a replicated cross-species research candidate; this is not a human efficacy claim.",
+      "genes": [
+        "PI3K-",
+        "TGF-"
+      ],
+      "independent_source_count": 2,
+      "labs": [
+        "regeneration"
+      ],
+      "mechanisms": [
+        "fibrosis",
+        "inflammation",
+        "regeneration"
+      ],
+      "pmid_sources": [
+        "PMID:42731061",
+        "PMID:43007699"
+      ],
+      "source_count": 2,
+      "sources": [
+        "PMID:42731061",
+        "PMID:43007699"
+      ],
+      "status": "SUPPORTED",
+      "subject": "Ambystoma mexicanum",
+      "taxon_proofs": [
+        {
+          "canonical_name": "Ambystoma mexicanum",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 2431950
+        }
+      ],
+      "taxon_verified": true
+    },
     "Caenorhabditis elegans": {
       "claim": "Caenorhabditis elegans is a replicated cross-species research candidate; this is not a human efficacy claim.",
       "genes": [
@@ -1705,7 +1744,7 @@
       "subject": "Wound healing"
     }
   },
-  "cycles": 47,
+  "cycles": 48,
   "experiments": {
     "PRG-0e95826bc8": {
       "counterfactual_tests": [
@@ -1831,6 +1870,35 @@
         "test human-relevant model only after conservation check"
       ],
       "subject": "Cynops pyrrhogaster"
+    },
+    "PRG-2420f4dcfa": {
+      "counterfactual_tests": [
+        "compare a close species lacking the phenotype",
+        "perturb candidate mechanism and perform rescue",
+        "test same mechanism in an evolutionarily distant species with similar phenotype",
+        "test human orthologue/pathway in disease-relevant human cells"
+      ],
+      "hypothesis": "A mechanism associated with Ambystoma mexicanum may causally contribute to the target phenotype.",
+      "kill_criteria": [
+        "no reproducible phenotype",
+        "no conserved mechanism",
+        "human perturbation does not reproduce direction of effect",
+        "unacceptable toxicity or contradictory evidence"
+      ],
+      "program_id": "PRG-2420f4dcfa",
+      "sha256": "7aaa6ca2720d1f9cb3bc9d13ff56943129a445421f15ce5b670213700c5605db",
+      "sources": [
+        "PMID:42731061",
+        "PMID:43007699"
+      ],
+      "steps": [
+        "replicate phenotype under controlled conditions",
+        "perturb candidate mechanism",
+        "perform rescue experiment",
+        "test evolutionarily close negative control",
+        "test human-relevant model only after conservation check"
+      ],
+      "subject": "Ambystoma mexicanum"
     },
     "PRG-28a10135e4": {
       "counterfactual_tests": [
@@ -2039,11 +2107,11 @@
         "unacceptable toxicity or contradictory evidence"
       ],
       "program_id": "PRG-70175ca5b4",
-      "sha256": "38d65243c2620fe4bfcd8f3b41314c01d4b42e32b611f02c233d5fd3f134c365",
+      "sha256": "3a0d675509295756247443d5de1501e0caafdec03f95f3ceb2798fc54fc6e483",
       "sources": [
         "PMID:42208364",
         "PMID:42686794",
-        "PMID:42782463"
+        "PMID:42868151"
       ],
       "steps": [
         "replicate phenotype under controlled conditions",
@@ -2980,6 +3048,18 @@
         "PRG-0e95826bc8"
       ],
       "time": "2026-11-08T10:33:55.997946+00:00"
+    },
+    {
+      "cycle_sha256": "9d8261385e21f09a02cf3766a4cdf65c41d234f49d148168e390614720dda630",
+      "programs": [
+        "PRG-4514111357",
+        "PRG-c73037fcfb",
+        "PRG-5fdcf74e81",
+        "PRG-14c747bea5",
+        "PRG-2420f4dcfa",
+        "PRG-70175ca5b4"
+      ],
+      "time": "2026-11-12T11:34:32.460673+00:00"
     }
   ]
 }

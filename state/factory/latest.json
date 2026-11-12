@@ -78,11 +78,12 @@
         "human perturbation does not reproduce direction of effect",
         "unacceptable toxicity or contradictory evidence"
       ],
-      "program_id": "PRG-bc3797f8a9"
+      "program_id": "PRG-2420f4dcfa"
     },
     {
       "flags": [
         "single-lab dependence",
+        "phenotype without mechanism",
         "phylogeny confound",
         "publication bias",
         "correlation not causation",
@@ -94,12 +95,12 @@
         "human perturbation does not reproduce direction of effect",
         "unacceptable toxicity or contradictory evidence"
       ],
-      "program_id": "PRG-0e95826bc8"
+      "program_id": "PRG-70175ca5b4"
     }
   ],
   "benchmark": {
     "cross_lab_diversity": 0.3286,
-    "falsification_depth": 0.625,
+    "falsification_depth": 0.6458,
     "provenance_ratio": 0.5
   },
   "brick_usage": [
@@ -110,7 +111,7 @@
       "output_ref": "cycle_plan",
       "stage": "CONTROL",
       "status": "PASS",
-      "time": "2026-11-08T10:30:19.329489+00:00",
+      "time": "2026-11-12T11:29:36.219211+00:00",
       "value": 15
     },
     {
@@ -120,7 +121,7 @@
       "output_ref": "state/factory/programs.json",
       "stage": "PLAN",
       "status": "PASS",
-      "time": "2026-11-08T10:30:19.331093+00:00",
+      "time": "2026-11-12T11:29:36.221110+00:00",
       "value": 6
     },
     {
@@ -130,7 +131,7 @@
       "output_ref": "mission_graphs",
       "stage": "PLAN",
       "status": "PASS",
-      "time": "2026-11-08T10:30:19.331134+00:00",
+      "time": "2026-11-12T11:29:36.221166+00:00",
       "value": 6
     },
     {
@@ -140,7 +141,7 @@
       "output_ref": "normalized_bundle",
       "stage": "OBSERVE",
       "status": "PASS",
-      "time": "2026-11-08T10:30:19.331144+00:00",
+      "time": "2026-11-12T11:29:36.221180+00:00",
       "value": 1.0
     },
     {
@@ -150,7 +151,7 @@
       "output_ref": "trusted_bundle",
       "stage": "OBSERVE",
       "status": "PASS",
-      "time": "2026-11-08T10:30:19.331150+00:00",
+      "time": "2026-11-12T11:29:36.221188+00:00",
       "value": 0
     },
     {
@@ -160,8 +161,8 @@
       "output_ref": "committee.portfolio",
       "stage": "DISCOVER",
       "status": "PASS",
-      "time": "2026-11-08T10:30:19.331153+00:00",
-      "value": 11
+      "time": "2026-11-12T11:29:36.221191+00:00",
+      "value": 10
     },
     {
       "brick_id": "decision-engine",
@@ -170,7 +171,7 @@
       "output_ref": "committee.allocations",
       "stage": "DECIDE",
       "status": "PASS",
-      "time": "2026-11-08T10:30:19.331158+00:00",
+      "time": "2026-11-12T11:29:36.221197+00:00",
       "value": 100
     },
     {
@@ -180,7 +181,7 @@
       "output_ref": "claim_ledger",
       "stage": "VERIFY",
       "status": "PASS",
-      "time": "2026-11-08T10:33:43.503358+00:00",
+      "time": "2026-11-12T11:34:17.677914+00:00",
       "value": 1.0
     },
     {
@@ -190,8 +191,8 @@
       "output_ref": "committee.portfolio",
       "stage": "EVALUATE",
       "status": "PASS",
-      "time": "2026-11-08T10:33:43.503387+00:00",
-      "value": 9.273
+      "time": "2026-11-12T11:34:17.677948+00:00",
+      "value": 8.3
     },
     {
       "brick_id": "morpheus",
@@ -200,8 +201,8 @@
       "output_ref": "morpheus_audits",
       "stage": "FALSIFY",
       "status": "PASS",
-      "time": "2026-11-08T10:33:43.504635+00:00",
-      "value": 5.0
+      "time": "2026-11-12T11:34:17.679891+00:00",
+      "value": 5.167
     },
     {
       "brick_id": "omega-causal",
@@ -210,7 +211,7 @@
       "output_ref": "causal_plans",
       "stage": "FALSIFY",
       "status": "PASS",
-      "time": "2026-11-08T10:33:43.504640+00:00",
+      "time": "2026-11-12T11:34:17.679899+00:00",
       "value": 6
     },
     {
@@ -220,18 +221,18 @@
       "output_ref": "negative_filter",
       "stage": "MEMORY",
       "status": "PASS",
-      "time": "2026-11-08T10:33:43.504644+00:00",
+      "time": "2026-11-12T11:34:17.679904+00:00",
       "value": 0
     },
     {
       "brick_id": "human-bridge",
-      "metric": "verified_human_translation_coverage",
+      "metric": "supported_claim_bridge_coverage",
       "name": "Human Bridge",
-      "output_ref": "human_translation_result",
+      "output_ref": "human_bridge_result",
       "stage": "TRANSLATE",
       "status": "PARTIAL",
-      "time": "2026-11-11T11:29:24.265741+00:00",
-      "value": 0.7778
+      "time": "2026-11-12T11:34:17.679910+00:00",
+      "value": 0.875
     },
     {
       "brick_id": "experiment-forge",
@@ -240,7 +241,7 @@
       "output_ref": "experiments",
       "stage": "EXPERIMENT",
       "status": "PASS",
-      "time": "2026-11-08T10:33:43.504652+00:00",
+      "time": "2026-11-12T11:34:17.679914+00:00",
       "value": 6
     },
     {
@@ -250,7 +251,7 @@
       "output_ref": "scientific_reasoning",
       "stage": "REASON",
       "status": "PASS",
-      "time": "2026-11-08T10:33:43.504659+00:00",
+      "time": "2026-11-12T11:34:17.679925+00:00",
       "value": 6
     },
     {
@@ -260,7 +261,7 @@
       "output_ref": "scientific_reasoning",
       "stage": "REASON",
       "status": "PASS",
-      "time": "2026-11-08T10:33:43.504662+00:00",
+      "time": "2026-11-12T11:34:17.679928+00:00",
       "value": 18
     },
     {
@@ -270,7 +271,7 @@
       "output_ref": "scientific_reasoning",
       "stage": "FALSIFY",
       "status": "PASS",
-      "time": "2026-11-08T10:33:43.504665+00:00",
+      "time": "2026-11-12T11:34:17.679931+00:00",
       "value": 12
     },
     {
@@ -280,7 +281,7 @@
       "output_ref": "scientific_reasoning",
       "stage": "EXPERIMENT",
       "status": "PASS",
-      "time": "2026-11-08T10:33:43.504667+00:00",
+      "time": "2026-11-12T11:34:17.679934+00:00",
       "value": 12
     },
     {
@@ -290,7 +291,7 @@
       "output_ref": "ecosystem_mimic",
       "stage": "REASON",
       "status": "PASS",
-      "time": "2026-11-08T10:33:55.997589+00:00",
+      "time": "2026-11-12T11:34:32.460313+00:00",
       "value": 18
     },
     {
@@ -300,8 +301,8 @@
       "output_ref": "benchmark",
       "stage": "BENCHMARK",
       "status": "PASS",
-      "time": "2026-11-08T10:33:55.997645+00:00",
-      "value": 1.4536
+      "time": "2026-11-12T11:34:32.460370+00:00",
+      "value": 1.4744
     },
     {
       "brick_id": "omega-foundry",
@@ -310,7 +311,7 @@
       "output_ref": "policy_variants",
       "stage": "IMPROVE",
       "status": "PASS",
-      "time": "2026-11-08T10:33:55.997917+00:00",
+      "time": "2026-11-12T11:34:32.460641+00:00",
       "value": 8
     },
     {
@@ -320,7 +321,7 @@
       "output_ref": "policy_gate",
       "stage": "IMPROVE",
       "status": "PASS",
-      "time": "2026-11-08T10:33:55.997943+00:00",
+      "time": "2026-11-12T11:34:32.460670+00:00",
       "value": 1
     },
     {
@@ -330,8 +331,8 @@
       "output_ref": "state/factory/long_term_memory.json",
       "stage": "MEMORY",
       "status": "PASS",
-      "time": "2026-11-08T10:33:56.101635+00:00",
-      "value": 17
+      "time": "2026-11-12T11:34:32.584457+00:00",
+      "value": 16
     },
     {
       "brick_id": "scientific-memory",
@@ -340,8 +341,8 @@
       "output_ref": "state/factory/scientific_reasoning_memory.json",
       "stage": "MEMORY",
       "status": "PASS",
-      "time": "2026-11-08T10:33:56.102892+00:00",
-      "value": 54
+      "time": "2026-11-12T11:34:32.586007+00:00",
+      "value": 60
     },
     {
       "brick_id": "omega-telemetry",
@@ -350,7 +351,7 @@
       "output_ref": "telemetry",
       "stage": "OBSERVE",
       "status": "PASS",
-      "time": "2026-11-08T10:33:56.102937+00:00",
+      "time": "2026-11-12T11:34:32.586059+00:00",
       "value": 1.0
     },
     {
@@ -360,20 +361,10 @@
       "output_ref": "validated_state",
       "stage": "OPERATE",
       "status": "PASS",
-      "time": "2026-11-08T10:33:56.102943+00:00",
+      "time": "2026-11-12T11:34:32.586065+00:00",
       "value": 1.0
     }
   ],
-  "bridge_refresh": {
-    "previous_cycle_sha256": "81b9dc4a18524d88c69c690e8a8bdfb681162e289423a346b691d18bd30b51e5",
-    "status": "PARTIAL",
-    "strict_orthology_candidates": 7,
-    "strict_orthology_coverage_ratio": 0.7778,
-    "supported_claims": 9,
-    "time": "2026-11-11T11:29:24.265741+00:00",
-    "translation_coverage_ratio": 0.7778,
-    "translation_verified_candidates": 7
-  },
   "causal_plans": [
     {
       "association_only": true,
@@ -460,7 +451,7 @@
       ],
       "uncertainty": {
         "human_translation": 0.7,
-        "mechanistic": 0.3,
+        "mechanistic": 0.75,
         "publication_bias": 0.35,
         "taxonomic": 0.55
       }
@@ -630,73 +621,40 @@
       "taxon_verified": true
     },
     {
-      "claim": "Hydra vulgaris is a replicated cross-species research candidate; this is not a human efficacy claim.",
-      "genes": [],
-      "independent_source_count": 3,
-      "labs": [
-        "longevity"
+      "claim": "Ambystoma mexicanum is a replicated cross-species research candidate; this is not a human efficacy claim.",
+      "genes": [
+        "PI3K-",
+        "TGF-"
       ],
-      "mechanisms": [
-        "autophagy",
-        "senescence"
-      ],
-      "pmid_sources": [
-        "PMID:41983916",
-        "PMID:42793312",
-        "PMID:42833632"
-      ],
-      "source_count": 3,
-      "sources": [
-        "PMID:41983916",
-        "PMID:42793312",
-        "PMID:42833632"
-      ],
-      "status": "SUPPORTED",
-      "subject": "Hydra vulgaris",
-      "taxon_proofs": [
-        {
-          "canonical_name": "Hydra vulgaris",
-          "kingdom": "Animalia",
-          "match_type": "EXACT",
-          "provider": "GBIF",
-          "rank": "SPECIES",
-          "status": "ACCEPTED",
-          "taxon_key": 5185782
-        }
-      ],
-      "taxon_verified": true
-    },
-    {
-      "claim": "Hydra oligactis is a replicated cross-species research candidate; this is not a human efficacy claim.",
-      "genes": [],
       "independent_source_count": 2,
       "labs": [
-        "longevity"
+        "regeneration"
       ],
       "mechanisms": [
-        "autophagy",
-        "senescence"
+        "fibrosis",
+        "inflammation",
+        "regeneration"
       ],
       "pmid_sources": [
-        "PMID:42793312",
-        "PMID:42833632"
+        "PMID:42731061",
+        "PMID:43007699"
       ],
       "source_count": 2,
       "sources": [
-        "PMID:42793312",
-        "PMID:42833632"
+        "PMID:42731061",
+        "PMID:43007699"
       ],
       "status": "SUPPORTED",
-      "subject": "Hydra oligactis",
+      "subject": "Ambystoma mexicanum",
       "taxon_proofs": [
         {
-          "canonical_name": "Hydra oligactis",
+          "canonical_name": "Ambystoma mexicanum",
           "kingdom": "Animalia",
           "match_type": "EXACT",
           "provider": "GBIF",
           "rank": "SPECIES",
           "status": "ACCEPTED",
-          "taxon_key": 5185751
+          "taxon_key": 2431950
         }
       ],
       "taxon_verified": true
@@ -1932,7 +1890,7 @@
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.67975,
+          "pearson_r": 0.680789,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Abraxas pantaria",
           "target": "Cygnus olor"
@@ -12047,7 +12005,7 @@
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.710497,
+          "pearson_r": 0.710941,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Acrocephalus scirpaceus",
           "target": "Cygnus olor"
@@ -14784,7 +14742,7 @@
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.701566,
+          "pearson_r": 0.701597,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Actitis hypoleucos",
           "target": "Cygnus olor"
@@ -15498,7 +15456,7 @@
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.640142,
+          "pearson_r": 0.640297,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Aedia leucomelas",
           "target": "Cygnus olor"
@@ -16240,7 +16198,7 @@
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.66674,
+          "pearson_r": 0.666713,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Aegithalos caudatus",
           "target": "Cygnus olor"
@@ -28364,7 +28322,7 @@
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.620106,
+          "pearson_r": 0.620887,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Agrius convolvuli",
           "target": "Cygnus olor"
@@ -35973,7 +35931,7 @@
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.835867,
+          "pearson_r": 0.835924,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Alcedo atthis",
           "target": "Cygnus olor"
@@ -51499,7 +51457,7 @@
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.885621,
+          "pearson_r": 0.885727,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Anas platyrhynchos",
           "target": "Cygnus olor"
@@ -58674,7 +58632,7 @@
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.605858,
+          "pearson_r": 0.604847,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Anser anser",
           "target": "Cygnus olor"
@@ -70553,7 +70511,7 @@
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.657768,
+          "pearson_r": 0.658353,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Apus apus",
           "target": "Cygnus olor"
@@ -74879,7 +74837,7 @@
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.822677,
+          "pearson_r": 0.821733,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Ardea alba",
           "target": "Cygnus olor"
@@ -75656,7 +75614,7 @@
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.936705,
+          "pearson_r": 0.936828,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Ardea cinerea",
           "target": "Cygnus olor"
@@ -76524,7 +76482,7 @@
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.672348,
+          "pearson_r": 0.672595,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Ardea purpurea",
           "target": "Cygnus olor"
@@ -78127,7 +78085,7 @@
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.802612,
+          "pearson_r": 0.802809,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Ardeola ralloides",
           "target": "Cygnus olor"
@@ -93352,7 +93310,7 @@
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.66297,
+          "pearson_r": 0.664226,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Aythya nyroca",
           "target": "Cygnus olor"
@@ -111524,7 +111482,7 @@
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.862565,
+          "pearson_r": 0.862032,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Bubulcus ibis",
           "target": "Cygnus olor"
@@ -120421,13 +120379,6 @@
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.633009,
-          "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
-          "source": "Calidris minuta",
-          "target": "Eobania vermiculata"
-        },
-        {
-          "direction": "cofluctuate",
           "pearson_r": 0.656511,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Calidris minuta",
@@ -126721,7 +126672,7 @@
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.605181,
+          "pearson_r": 0.606187,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Camptopus lateralis",
           "target": "Cygnus olor"
@@ -126844,13 +126795,6 @@
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Camptopus lateralis",
           "target": "Enicopus ater"
-        },
-        {
-          "direction": "cofluctuate",
-          "pearson_r": 0.661438,
-          "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
-          "source": "Camptopus lateralis",
-          "target": "Eobania vermiculata"
         },
         {
           "direction": "cofluctuate",
@@ -132867,7 +132811,7 @@
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.771339,
+          "pearson_r": 0.771109,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Carduelis carduelis",
           "target": "Cygnus olor"
@@ -150206,7 +150150,7 @@
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.680219,
+          "pearson_r": 0.681122,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Ceriana vespiformis",
           "target": "Cygnus olor"
@@ -150679,13 +150623,6 @@
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Certhia brachydactyla",
           "target": "Egretta garzetta"
-        },
-        {
-          "direction": "cofluctuate",
-          "pearson_r": 0.600099,
-          "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
-          "source": "Certhia brachydactyla",
-          "target": "Eobania vermiculata"
         },
         {
           "direction": "cofluctuate",
@@ -151669,7 +151606,7 @@
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.839355,
+          "pearson_r": 0.839022,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cettia cetti",
           "target": "Cygnus olor"
@@ -154945,13 +154882,6 @@
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.61922,
-          "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
-          "source": "Charadrius alexandrinus",
-          "target": "Eobania vermiculata"
-        },
-        {
-          "direction": "cofluctuate",
           "pearson_r": 0.916399,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Charadrius alexandrinus",
@@ -156324,7 +156254,7 @@
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.61346,
+          "pearson_r": 0.614472,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Charadrius hiaticula",
           "target": "Cygnus olor"
@@ -156377,13 +156307,6 @@
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Charadrius hiaticula",
           "target": "Egretta garzetta"
-        },
-        {
-          "direction": "cofluctuate",
-          "pearson_r": 0.67364,
-          "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
-          "source": "Charadrius hiaticula",
-          "target": "Eobania vermiculata"
         },
         {
           "direction": "cofluctuate",
@@ -160472,13 +160395,6 @@
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Chiasmia clathrata",
           "target": "Enicopus ater"
-        },
-        {
-          "direction": "cofluctuate",
-          "pearson_r": 0.661438,
-          "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
-          "source": "Chiasmia clathrata",
-          "target": "Eobania vermiculata"
         },
         {
           "direction": "cofluctuate",
@@ -164871,7 +164787,7 @@
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.643898,
+          "pearson_r": 0.643012,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Chlidonias hybrida",
           "target": "Cygnus olor"
@@ -165862,13 +165778,6 @@
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Chlidonias niger",
           "target": "Enicopus ater"
-        },
-        {
-          "direction": "cofluctuate",
-          "pearson_r": 0.691431,
-          "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
-          "source": "Chlidonias niger",
-          "target": "Eobania vermiculata"
         },
         {
           "direction": "cofluctuate",
@@ -167055,7 +166964,7 @@
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.75533,
+          "pearson_r": 0.755666,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Chloris chloris",
           "target": "Cygnus olor"
@@ -168525,7 +168434,7 @@
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.648306,
+          "pearson_r": 0.648842,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Chlorissa etruscaria",
           "target": "Cygnus olor"
@@ -172452,7 +172361,7 @@
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.829548,
+          "pearson_r": 0.829004,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Chroicocephalus ridibundus",
           "target": "Cygnus olor"
@@ -179788,7 +179697,7 @@
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.63559,
+          "pearson_r": 0.635088,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Ciconia ciconia",
           "target": "Cygnus olor"
@@ -182238,7 +182147,7 @@
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.637222,
+          "pearson_r": 0.637341,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Circaetus gallicus",
           "target": "Cygnus olor"
@@ -183631,7 +183540,7 @@
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.762087,
+          "pearson_r": 0.7613,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Circus aeruginosus",
           "target": "Cygnus olor"
@@ -184702,7 +184611,7 @@
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.745748,
+          "pearson_r": 0.746066,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Circus pygargus",
           "target": "Cygnus olor"
@@ -184832,13 +184741,6 @@
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Circus pygargus",
           "target": "Enicopus ater"
-        },
-        {
-          "direction": "cofluctuate",
-          "pearson_r": 0.600433,
-          "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
-          "source": "Circus pygargus",
-          "target": "Eobania vermiculata"
         },
         {
           "direction": "cofluctuate",
@@ -188297,13 +188199,6 @@
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Clamator glandarius",
           "target": "Enicopus ater"
-        },
-        {
-          "direction": "cofluctuate",
-          "pearson_r": 0.64704,
-          "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
-          "source": "Clamator glandarius",
-          "target": "Eobania vermiculata"
         },
         {
           "direction": "cofluctuate",
@@ -199500,7 +199395,7 @@
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.605181,
+          "pearson_r": 0.606187,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Coenonympha pamphilus",
           "target": "Cygnus olor"
@@ -199623,13 +199518,6 @@
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Coenonympha pamphilus",
           "target": "Enicopus ater"
-        },
-        {
-          "direction": "cofluctuate",
-          "pearson_r": 0.661438,
-          "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
-          "source": "Coenonympha pamphilus",
-          "target": "Eobania vermiculata"
         },
         {
           "direction": "cofluctuate",
@@ -201726,7 +201614,7 @@
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.858115,
+          "pearson_r": 0.858527,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Columba livia",
           "target": "Cygnus olor"
@@ -202979,7 +202867,7 @@
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.832091,
+          "pearson_r": 0.832238,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Columba palumbus",
           "target": "Cygnus olor"
@@ -207991,7 +207879,7 @@
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.830947,
+          "pearson_r": 0.831222,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Coracias garrulus",
           "target": "Cygnus olor"
@@ -211565,13 +211453,6 @@
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Coriomeris hirticornis",
           "target": "Dypterygia scabriuscula"
-        },
-        {
-          "direction": "cofluctuate",
-          "pearson_r": 0.62361,
-          "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
-          "source": "Coriomeris hirticornis",
-          "target": "Eobania vermiculata"
         },
         {
           "direction": "cofluctuate",
@@ -216496,7 +216377,7 @@
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.79293,
+          "pearson_r": 0.793532,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Coturnix coturnix",
           "target": "Cygnus olor"
@@ -217511,7 +217392,7 @@
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.754157,
+          "pearson_r": 0.754242,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Craniophora ligustri",
           "target": "Cygnus olor"
@@ -223111,7 +222992,7 @@
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.646744,
+          "pearson_r": 0.645842,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Curruca melanocephala",
           "target": "Cygnus olor"
@@ -225085,483 +224966,483 @@
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.860342,
+          "pearson_r": 0.861626,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Cylindromyia intermedia"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.854881,
+          "pearson_r": 0.856142,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Decticus albifrons"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.833048,
+          "pearson_r": 0.834317,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Delichon urbicum"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.70926,
+          "pearson_r": 0.708744,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Dryobates minor"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.799223,
+          "pearson_r": 0.798614,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Egretta garzetta"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.748373,
+          "pearson_r": 0.74895,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Eristalinus megacephalus"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.625671,
+          "pearson_r": 0.62555,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Euclidia glyphica"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.668322,
+          "pearson_r": 0.669377,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Falco eleonorae"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.681071,
+          "pearson_r": 0.682108,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Falco subbuteo"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.613259,
+          "pearson_r": 0.612525,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Falco tinnunculus"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.972343,
+          "pearson_r": 0.971899,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Fulica atra"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.89907,
+          "pearson_r": 0.898663,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Gallinula chloropus"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.605181,
+          "pearson_r": 0.606187,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Garrulus glandarius"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.615973,
+          "pearson_r": 0.617118,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Gastropacha quercifolia"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.605181,
+          "pearson_r": 0.606187,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Gastrophysa polygoni"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.735146,
+          "pearson_r": 0.735854,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Gelochelidon nilotica"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.633082,
+          "pearson_r": 0.63327,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Glareola pratincola"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.801371,
+          "pearson_r": 0.802558,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Helophilus trivittatus"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.605181,
+          "pearson_r": 0.606187,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Henestaris laticeps"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.682154,
+          "pearson_r": 0.681925,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Himantopus himantopus"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.741134,
+          "pearson_r": 0.742301,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Hippodamia tredecimpunctata"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.802591,
+          "pearson_r": 0.802984,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Hirundo rustica"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.66297,
+          "pearson_r": 0.664226,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Hyles euphorbiae"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.632551,
+          "pearson_r": 0.632237,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Idaea degeneraria"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.654189,
+          "pearson_r": 0.655117,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Laelia coenosa"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.632042,
+          "pearson_r": 0.632507,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Laothoe populi"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.679117,
+          "pearson_r": 0.679914,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Luscinia megarhynchos"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.620137,
+          "pearson_r": 0.619977,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Mareca strepera"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.692402,
+          "pearson_r": 0.693358,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Meganola albula"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.709852,
+          "pearson_r": 0.709945,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Merops apiaster"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.661982,
+          "pearson_r": 0.66211,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Mimas tiliae"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.759824,
+          "pearson_r": 0.759949,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Motacilla flava"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.843334,
+          "pearson_r": 0.844263,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Muscicapa striata"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.631819,
+          "pearson_r": 0.631873,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Numenius arquata"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.693142,
+          "pearson_r": 0.693745,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Numenius phaeopus"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.782003,
+          "pearson_r": 0.783328,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Nycticorax nycticorax"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.853878,
+          "pearson_r": 0.853246,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Parus major"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.695097,
+          "pearson_r": 0.694775,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Passer domesticus"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.690205,
+          "pearson_r": 0.690062,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Passer montanus"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.764134,
+          "pearson_r": 0.765161,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Pernis apivorus"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.762503,
+          "pearson_r": 0.761415,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Phalacrocorax carbo"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.788843,
+          "pearson_r": 0.788654,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Phasianus colchicus"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.835141,
+          "pearson_r": 0.834649,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Phoenicopterus roseus"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.602445,
+          "pearson_r": 0.601121,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Pica pica"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.885435,
+          "pearson_r": 0.886021,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Platalea leucorodia"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.71956,
+          "pearson_r": 0.719024,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Plegadis falcinellus"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.614993,
+          "pearson_r": 0.614357,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Pluvialis squatarola"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.83405,
+          "pearson_r": 0.833727,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Podiceps cristatus"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.652574,
+          "pearson_r": 0.651555,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Porphyrio porphyrio"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.650511,
+          "pearson_r": 0.650048,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Rallus aquaticus"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.767658,
+          "pearson_r": 0.768616,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Riparia riparia"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.605181,
+          "pearson_r": 0.606187,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Salicornia fruticosa"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.851614,
+          "pearson_r": 0.852134,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Sterna hirundo"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.865692,
+          "pearson_r": 0.865413,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Streptopelia decaocto"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.800221,
+          "pearson_r": 0.801105,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Streptopelia turtur"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.906936,
+          "pearson_r": 0.906988,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Sturnus vulgaris"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.848375,
+          "pearson_r": 0.848111,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Sylvia atricapilla"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.654906,
+          "pearson_r": 0.655928,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Sylvia borin"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.848586,
+          "pearson_r": 0.849283,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Tachybaptus ruficollis"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.658569,
+          "pearson_r": 0.658176,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Tadorna tadorna"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.781535,
+          "pearson_r": 0.782181,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Thalasseus sandvicensis"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.845549,
+          "pearson_r": 0.846248,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Trachea atriplicis"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.683246,
+          "pearson_r": 0.682914,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Tringa glareola"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.61289,
+          "pearson_r": 0.613155,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Tringa nebularia"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.677644,
+          "pearson_r": 0.677498,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Tringa ochropus"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.826774,
+          "pearson_r": 0.826533,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Tringa totanus"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.628346,
+          "pearson_r": 0.628683,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Tyto alba"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.899291,
+          "pearson_r": 0.899831,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Upupa epops"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.838588,
+          "pearson_r": 0.838188,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Cygnus olor",
           "target": "Vanellus vanellus"
@@ -257950,220 +257831,38 @@
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.639343,
-          "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
-          "source": "Eobania vermiculata",
-          "target": "Epicallia villica"
-        },
-        {
-          "direction": "cofluctuate",
-          "pearson_r": 0.62361,
-          "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
-          "source": "Eobania vermiculata",
-          "target": "Falco naumanni"
-        },
-        {
-          "direction": "cofluctuate",
-          "pearson_r": 0.604377,
-          "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
-          "source": "Eobania vermiculata",
-          "target": "Falco subbuteo"
-        },
-        {
-          "direction": "cofluctuate",
-          "pearson_r": 0.661438,
-          "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
-          "source": "Eobania vermiculata",
-          "target": "Garrulus glandarius"
-        },
-        {
-          "direction": "cofluctuate",
-          "pearson_r": 0.661438,
-          "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
-          "source": "Eobania vermiculata",
-          "target": "Gastrophysa polygoni"
-        },
-        {
-          "direction": "cofluctuate",
-          "pearson_r": 0.659062,
-          "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
-          "source": "Eobania vermiculata",
-          "target": "Hemithea aestivaria"
-        },
-        {
-          "direction": "cofluctuate",
-          "pearson_r": 0.661438,
-          "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
-          "source": "Eobania vermiculata",
-          "target": "Henestaris laticeps"
-        },
-        {
-          "direction": "cofluctuate",
-          "pearson_r": 0.62361,
-          "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
-          "source": "Eobania vermiculata",
-          "target": "Himantoglossum hircinum"
-        },
-        {
-          "direction": "cofluctuate",
-          "pearson_r": 0.652849,
-          "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
-          "source": "Eobania vermiculata",
-          "target": "Hydrocoloeus minutus"
-        },
-        {
-          "direction": "cofluctuate",
-          "pearson_r": 0.661438,
-          "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
-          "source": "Eobania vermiculata",
-          "target": "Iris foetidissima"
-        },
-        {
-          "direction": "cofluctuate",
-          "pearson_r": 0.624543,
-          "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
-          "source": "Eobania vermiculata",
-          "target": "Iris reichenbachiana"
-        },
-        {
-          "direction": "cofluctuate",
-          "pearson_r": 0.62361,
-          "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
-          "source": "Eobania vermiculata",
-          "target": "Lacanobia w-latinum"
-        },
-        {
-          "direction": "cofluctuate",
-          "pearson_r": 0.64704,
-          "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
-          "source": "Eobania vermiculata",
-          "target": "Linum strictum"
-        },
-        {
-          "direction": "cofluctuate",
-          "pearson_r": 0.626457,
-          "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
-          "source": "Eobania vermiculata",
-          "target": "Lithosia quadra"
-        },
-        {
-          "direction": "cofluctuate",
-          "pearson_r": 0.661438,
-          "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
-          "source": "Eobania vermiculata",
-          "target": "Lythrum salicaria"
-        },
-        {
-          "direction": "cofluctuate",
-          "pearson_r": 0.661438,
-          "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
-          "source": "Eobania vermiculata",
-          "target": "Macrothylacia rubi"
-        },
-        {
-          "direction": "cofluctuate",
-          "pearson_r": 0.607957,
+          "pearson_r": 0.679464,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Eobania vermiculata",
           "target": "Noctua pronuba"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.62361,
-          "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
-          "source": "Eobania vermiculata",
-          "target": "Ophrys apifera"
-        },
-        {
-          "direction": "cofluctuate",
-          "pearson_r": 0.678742,
-          "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
-          "source": "Eobania vermiculata",
-          "target": "Pechipogo plumigeralis"
-        },
-        {
-          "direction": "cofluctuate",
-          "pearson_r": 0.724462,
+          "pearson_r": 0.607781,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Eobania vermiculata",
           "target": "Peribatodes rhomboidaria"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.661438,
+          "pearson_r": 0.72111,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Eobania vermiculata",
-          "target": "Phragmataecia castaneae"
+          "target": "Plusia festucae"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.60615,
-          "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
-          "source": "Eobania vermiculata",
-          "target": "Pluvialis fulva"
-        },
-        {
-          "direction": "cofluctuate",
-          "pearson_r": 0.83666,
+          "pearson_r": 0.72111,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Eobania vermiculata",
           "target": "Procambarus clarkii"
         },
         {
           "direction": "cofluctuate",
-          "pearson_r": 0.661438,
-          "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
-          "source": "Eobania vermiculata",
-          "target": "Rhyparia purpurata"
-        },
-        {
-          "direction": "cofluctuate",
-          "pearson_r": 0.661438,
-          "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
-          "source": "Eobania vermiculata",
-          "target": "Salicornia fruticosa"
-        },
-        {
-          "direction": "cofluctuate",
-          "pearson_r": 0.62361,
-          "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
-          "source": "Eobania vermiculata",
-          "target": "Silpha laevigata"
-        },
-        {
-          "direction": "cofluctuate",
-          "pearson_r": 0.601481,
-          "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
-          "source": "Eobania vermiculata",
-          "target": "Sylvia conspicillata"
-        },
-        {
-          "direction": "cofluctuate",
-          "pearson_r": 0.661438,
-          "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
-          "source": "Eobania vermiculata",
-          "target": "Trifolium squamosum"
-        },
-        {
-          "direction": "cofluctuate",
-          "pearson_r": 0.62361,
-          "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
-          "source": "Eobania vermiculata",
-          "target": "Vanessa atalanta"
-        },
-        {
-          "direction": "cofluctuate",
-          "pearson_r": 0.61623,
+          "pearson_r": 0.691574,
           "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
           "source": "Eobania vermiculata",
           "target": "Vanessa cardui"
-        },
-        {
-          "direction": "cofluctuate",
-          "pearson_r": 0.62361,
-          "semantics": "COFLUCTUATION_ONLY_INTERACTION_NOT_INFERRED",
-          "source": "Eobania vermiculata",
-          "target": "Zygaena filipendulae"
         },
         {
           "direction": "cofluctuate",
@@ -431330,19 +431029,19 @@
     ],
     "measurement_semantics": "GBIF_OCCURRENCE_RECORD_COUNT_NOT_ABUNDANCE",
     "metrics": {
-      "colonization_events": 1418,
-      "latest_richness": 79,
-      "local_loss_events": 1786,
-      "mean_bray_curtis_turnover": 0.583274,
-      "richness_trend_per_observation": -13.563467,
-      "temporal_stability_inverse_cv_total_measurement": 0.999551
+      "colonization_events": 1419,
+      "latest_richness": 81,
+      "local_loss_events": 1785,
+      "mean_bray_curtis_turnover": 0.582966,
+      "richness_trend_per_observation": -13.52838,
+      "temporal_stability_inverse_cv_total_measurement": 0.999725
     },
     "observation_count": 18,
     "perturbation_responses": [],
     "rejected_observations": [],
     "sampling_bias_note": "Monthly taxon values are counts of GBIF occurrence records inside the configured observation window. They are not organism abundance, density, occupancy, or standardized sampling effort.",
     "schema": "biomimic-ecosystem-mimic-v1",
-    "sha256": "34c78d7fae427a34f7efe33d7c400ef88f67b8494efb08586c99b00604434f3e",
+    "sha256": "58c38b40ae8c47e2802fd360ecb4de7939f4adaa4e99b054a1033c9991334184",
     "source": {
       "api": "https://api.gbif.org/v1/occurrence/search",
       "authentication_required": false,
@@ -434678,6 +434377,7 @@
           "Dryobotodes tenebrosa",
           "Empusa pennata",
           "Emys orbicularis",
+          "Eobania vermiculata",
           "Eublemma parva",
           "Eupatorium cannabinum",
           "Eupeodes corollae",
@@ -434746,7 +434446,6 @@
           "Craniophora ligustri",
           "Crocothemis erythraea",
           "Cygnus atratus",
-          "Cygnus olor",
           "Cymbalophora pudica",
           "Cyperus glomeratus",
           "Distoleon tetragrammicus",
@@ -434810,12 +434509,12 @@
         ],
         "measurement_semantics": "GBIF_OCCURRENCE_RECORD_COUNT_NOT_ABUNDANCE",
         "perturbation": null,
-        "pielou_evenness": 0.971176,
-        "richness": 79,
-        "shannon_diversity": 4.243503,
+        "pielou_evenness": 0.971591,
+        "richness": 81,
+        "shannon_diversity": 4.269609,
         "time": "2026-10-01",
-        "total_measurement": 111.0,
-        "turnover_from_previous": 0.794702
+        "total_measurement": 113.0,
+        "turnover_from_previous": 0.789474
       }
     ]
   },
@@ -434947,19 +434646,18 @@
         "test same mechanism in an evolutionarily distant species with similar phenotype",
         "test human orthologue/pathway in disease-relevant human cells"
       ],
-      "hypothesis": "A mechanism associated with Hydra vulgaris may causally contribute to the target phenotype.",
+      "hypothesis": "A mechanism associated with Ambystoma mexicanum may causally contribute to the target phenotype.",
       "kill_criteria": [
         "no reproducible phenotype",
         "no conserved mechanism",
         "human perturbation does not reproduce direction of effect",
         "unacceptable toxicity or contradictory evidence"
       ],
-      "program_id": "PRG-bc3797f8a9",
-      "sha256": "38dc0c2a9e4ca8bde524acd366bbae2bd6a957f41360c4c3ea99efc6ac8b3c5d",
+      "program_id": "PRG-2420f4dcfa",
+      "sha256": "7aaa6ca2720d1f9cb3bc9d13ff56943129a445421f15ce5b670213700c5605db",
       "sources": [
-        "PMID:41983916",
-        "PMID:42793312",
-        "PMID:42833632"
+        "PMID:42731061",
+        "PMID:43007699"
       ],
       "steps": [
         "replicate phenotype under controlled conditions",
@@ -434968,7 +434666,7 @@
         "test evolutionarily close negative control",
         "test human-relevant model only after conservation check"
       ],
-      "subject": "Hydra vulgaris"
+      "subject": "Ambystoma mexicanum"
     },
     {
       "counterfactual_tests": [
@@ -434977,18 +434675,19 @@
         "test same mechanism in an evolutionarily distant species with similar phenotype",
         "test human orthologue/pathway in disease-relevant human cells"
       ],
-      "hypothesis": "A mechanism associated with Hydra oligactis may causally contribute to the target phenotype.",
+      "hypothesis": "A mechanism associated with Drosophila melanogaster may causally contribute to the target phenotype.",
       "kill_criteria": [
         "no reproducible phenotype",
         "no conserved mechanism",
         "human perturbation does not reproduce direction of effect",
         "unacceptable toxicity or contradictory evidence"
       ],
-      "program_id": "PRG-0e95826bc8",
-      "sha256": "212185fbc5b2b0b4cbb818be5e71df96cea46dd16f2f20a151c81f924c1dd8cd",
+      "program_id": "PRG-70175ca5b4",
+      "sha256": "3a0d675509295756247443d5de1501e0caafdec03f95f3ceb2798fc54fc6e483",
       "sources": [
-        "PMID:42793312",
-        "PMID:42833632"
+        "PMID:42208364",
+        "PMID:42686794",
+        "PMID:42868151"
       ],
       "steps": [
         "replicate phenotype under controlled conditions",
@@ -434997,11 +434696,11 @@
         "test evolutionarily close negative control",
         "test human-relevant model only after conservation check"
       ],
-      "subject": "Hydra oligactis"
+      "subject": "Drosophila melanogaster"
     }
   ],
   "human_bridge_result": {
-    "attempted_candidates": 9,
+    "attempted_candidates": 8,
     "bridged_candidates": 7,
     "bridges": [
       {
@@ -435848,14 +435547,11 @@
         ],
         "bridge_scope": "endogenous freeze-tolerance mechanism; independent of the exogenous ice-binding-protein intervention",
         "bridge_seed_rationale": "Exact-species freeze-thaw genetics requires DAF-16 downstream of daf-2, while independent human-to-worm complementation work demonstrates that human FKHRL1/FOXO3 can partially replace DAF-16. This supports a conserved FOXO-family relationship without asserting one-to-one orthology or human clinical efficacy.",
-        "cache_miss_count": 1,
-        "cache_reason": "Current live providers did not reproduce this previously verified strict bridge; retained temporarily pending revalidation.",
         "clinical_efficacy_claim": false,
         "human_biotype": "protein_coding",
         "human_ensembl_id": "ENSG00000118689",
         "human_name": "forkhead box O3",
         "human_symbol": "FOXO3",
-        "last_live_verified_at": "2026-11-10T11:50:33.459558+00:00",
         "orthology": {
           "functional_orthology_doi": "10.1016/S0960-9822(01)00595-4",
           "functional_orthology_pmid": "11747821",
@@ -435899,13 +435595,8 @@
             "modality": "PR"
           }
         ],
-        "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
-        "verification_mode": "LAST_KNOWN_GOOD_CACHE"
+        "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
       }
-    ],
-    "cached_bridged_candidates": 1,
-    "cached_subjects": [
-      "Caenorhabditis elegans"
     ],
     "candidate_status": [
       {
@@ -436024,7 +435715,7 @@
       },
       {
         "bridges": 0,
-        "candidate": "Hydra vulgaris",
+        "candidate": "Ambystoma mexicanum",
         "direct_orthology_seed_records_checked": 0,
         "direct_orthology_strict_bridges": 0,
         "ensembl_species": null,
@@ -436038,43 +435729,15 @@
         "ncbi_human_orthologs": 0,
         "ncbi_seed_genes_checked": 0,
         "oma_species_matched": 0,
-        "oma_uniprots_checked": 10,
+        "oma_uniprots_checked": 9,
         "orthodb_exact_genes": 0,
         "orthodb_human_orthologs": 0,
         "orthodb_seed_genes_checked": 0,
         "phylogenetic_seed_records_checked": 0,
         "phylogenetic_strict_bridges": 0,
         "status": "NO_SUPPORTED_ORTHOLOGY_PROVIDER_MATCH",
-        "uniprot_annotation_candidates": 10,
-        "uniprot_candidates": 10,
-        "uniprot_species_gene_candidates": 0,
-        "validated_gene_candidates": []
-      },
-      {
-        "bridges": 0,
-        "candidate": "Hydra oligactis",
-        "direct_orthology_seed_records_checked": 0,
-        "direct_orthology_strict_bridges": 0,
-        "ensembl_species": null,
-        "functional_orthology_context_validated": 0,
-        "functional_orthology_evidence_validated": 0,
-        "functional_orthology_exact_genes": 0,
-        "functional_orthology_seed_records_checked": 0,
-        "functional_orthology_strict_bridges": 0,
-        "gene_candidates": 10,
-        "ncbi_exact_genes": 0,
-        "ncbi_human_orthologs": 0,
-        "ncbi_seed_genes_checked": 0,
-        "oma_species_matched": 0,
-        "oma_uniprots_checked": 10,
-        "orthodb_exact_genes": 0,
-        "orthodb_human_orthologs": 0,
-        "orthodb_seed_genes_checked": 0,
-        "phylogenetic_seed_records_checked": 0,
-        "phylogenetic_strict_bridges": 0,
-        "status": "NO_SUPPORTED_ORTHOLOGY_PROVIDER_MATCH",
-        "uniprot_annotation_candidates": 10,
-        "uniprot_candidates": 10,
+        "uniprot_annotation_candidates": 9,
+        "uniprot_candidates": 9,
         "uniprot_species_gene_candidates": 0,
         "validated_gene_candidates": []
       },
@@ -436136,16 +435799,15 @@
       },
       {
         "bridges": 1,
-        "cache_miss_count": 1,
         "candidate": "Caenorhabditis elegans",
         "direct_orthology_seed_records_checked": 0,
         "direct_orthology_strict_bridges": 0,
         "ensembl_species": null,
-        "functional_orthology_context_validated": 0,
-        "functional_orthology_evidence_validated": 0,
+        "functional_orthology_context_validated": 1,
+        "functional_orthology_evidence_validated": 1,
         "functional_orthology_exact_genes": 1,
         "functional_orthology_seed_records_checked": 1,
-        "functional_orthology_strict_bridges": 0,
+        "functional_orthology_strict_bridges": 1,
         "gene_candidates": 10,
         "ncbi_exact_genes": 1,
         "ncbi_human_orthologs": 0,
@@ -436157,36 +435819,34 @@
         "orthodb_seed_genes_checked": 1,
         "phylogenetic_seed_records_checked": 0,
         "phylogenetic_strict_bridges": 0,
-        "status": "BRIDGED_CACHED",
+        "status": "BRIDGED",
         "uniprot_annotation_candidates": 10,
         "uniprot_candidates": 14,
         "uniprot_species_gene_candidates": 4,
         "validated_gene_candidates": []
       }
     ],
-    "coverage_ratio": 0.7778,
+    "coverage_ratio": 0.875,
     "direct_orthology_hits": 1,
     "ensembl_orthologue_hits": 1,
     "errors": [],
-    "functional_orthology_hits": 0,
-    "live_bridged_candidates": 6,
+    "functional_orthology_hits": 1,
     "ncbi_orthologue_hits": 1,
     "oma_orthologue_hits": 7,
-    "open_targets_hits": 11,
+    "open_targets_hits": 12,
     "orthodb_orthologue_hits": 1,
-    "orthologue_hits": 12,
+    "orthologue_hits": 13,
     "phylogenetic_orthologue_hits": 1,
     "provider_status": {
       "Ensembl homology": "PASS",
       "Ensembl species": "PASS",
       "Europe PMC annotations": "PASS",
-      "Last-known-good cache": "PASS",
       "NCBI Ortholog": "PASS",
       "OMA orthology": "PASS",
       "Open Targets": "PASS",
       "OrthoDB v12": "PASS",
       "Peer-reviewed direct orthology": "PASS",
-      "Peer-reviewed functional orthology": "PARTIAL",
+      "Peer-reviewed functional orthology": "PASS",
       "Peer-reviewed phylogenetic orthology": "PASS"
     },
     "resolved_species": 1,
@@ -436270,100 +435930,13 @@
           "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
         }
       ],
-      "claim_pmids": [
-        "PMID:42154556",
-        "PMID:42402335",
-        "PMID:42939468"
+      "remaining": [
+        "disease-specific human evidence",
+        "causal perturbation",
+        "toxicity check"
       ],
-      "remaining": [],
       "status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
-      "subject": "Somniosus microcephalus",
-      "translation_path": {
-        "bridges": [
-          {
-            "animal_ensembl_species": null,
-            "animal_gene": "tp53",
-            "animal_ncbi_gene_id": "147091098",
-            "animal_species": "Somniosus microcephalus",
-            "bridge_evidence_pmids": [
-              "42402335"
-            ],
-            "bridge_seed_rationale": "Greenland shark longevity review summarizes genomic evidence of structural variation in tumor suppressor p53 in the context of genome maintenance and extreme longevity.",
-            "clinical_efficacy_claim": false,
-            "human_biotype": "protein_coding",
-            "human_ensembl_id": "ENSG00000141510",
-            "human_name": "tumor protein p53",
-            "human_symbol": "TP53",
-            "orthology": {
-              "human_ncbi_gene_id": "7157",
-              "method": "NCBI Ortholog",
-              "provider": "NCBI Ortholog",
-              "source_tax_id": "191813"
-            },
-            "source_chain": [
-              "replicated PMID species claim",
-              "literature-backed exact-species mechanism seed",
-              "NCBI Datasets exact species + gene resolution",
-              "NCBI Ortholog to Homo sapiens",
-              "NCBI human Ensembl Gene ID",
-              "Open Targets human target annotation"
-            ],
-            "source_claim_pmids": [
-              "PMID:42154556",
-              "PMID:42402335",
-              "PMID:42939468"
-            ],
-            "tractability": [
-              {
-                "label": "Advanced Clinical",
-                "modality": "SM"
-              },
-              {
-                "label": "Structure with Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "High-Quality Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "Med-Quality Pocket",
-                "modality": "SM"
-              },
-              {
-                "label": "Druggable Family",
-                "modality": "SM"
-              },
-              {
-                "label": "UniProt Ubiquitination",
-                "modality": "PR"
-              },
-              {
-                "label": "Database Ubiquitination",
-                "modality": "PR"
-              },
-              {
-                "label": "Small Molecule Binder",
-                "modality": "PR"
-              },
-              {
-                "label": "Advanced Clinical",
-                "modality": "OC"
-              }
-            ],
-            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
-          }
-        ],
-        "clinical_efficacy_claim": false,
-        "path_type": "STRICT_ORTHOLOGY_TARGET",
-        "source_chain": [
-          "provider-verified animal-to-human orthology",
-          "Open Targets human target validation"
-        ],
-        "status": "VERIFIED",
-        "strict_bridge_count": 1,
-        "subject": "Somniosus microcephalus"
-      }
+      "subject": "Somniosus microcephalus"
     },
     {
       "animal_claim_not_promoted_to_human_efficacy": true,
@@ -436427,85 +436000,13 @@
           "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
         }
       ],
-      "claim_pmids": [
-        "PMID:41732917",
-        "PMID:42194064",
-        "PMID:42792965"
+      "remaining": [
+        "disease-specific human evidence",
+        "causal perturbation",
+        "toxicity check"
       ],
-      "remaining": [],
       "status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
-      "subject": "Acomys cahirinus",
-      "translation_path": {
-        "bridges": [
-          {
-            "animal_ensembl_species": null,
-            "animal_gene": "IL10",
-            "animal_orthodb_gene_id": "10068_0:001eb9",
-            "animal_species": "Acomys cahirinus",
-            "bridge_evidence_pmids": [
-              "31141508",
-              "32849592"
-            ],
-            "bridge_seed_rationale": "Acomys cahirinus regenerative wound healing shows strongly elevated Il10; published cross-species comparison reports substantial peptide similarity to human IL-10.",
-            "clinical_efficacy_claim": false,
-            "human_biotype": "protein_coding",
-            "human_ensembl_id": "ENSG00000136634",
-            "human_name": "interleukin 10",
-            "human_symbol": "IL10",
-            "orthology": {
-              "clade_id": 33208,
-              "human_gene_id": "9606_0:0009a3",
-              "provider": "OrthoDB v12",
-              "source_assembly": "GCA_004027535.1",
-              "source_gene_id": "10068_0:001eb9"
-            },
-            "source_chain": [
-              "replicated PMID species claim",
-              "literature-backed exact-species mechanism seed",
-              "OrthoDB exact species + gene resolution",
-              "OrthoDB ortholog to Homo sapiens",
-              "Open Targets human Ensembl target validation"
-            ],
-            "source_claim_pmids": [
-              "PMID:41732917",
-              "PMID:42194064",
-              "PMID:42792965"
-            ],
-            "tractability": [
-              {
-                "label": "Med-Quality Pocket",
-                "modality": "SM"
-              },
-              {
-                "label": "Advanced Clinical",
-                "modality": "AB"
-              },
-              {
-                "label": "GO CC high conf",
-                "modality": "AB"
-              },
-              {
-                "label": "UniProt loc med conf",
-                "modality": "AB"
-              },
-              {
-                "label": "UniProt SigP or TMHMM",
-                "modality": "AB"
-              }
-            ],
-            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
-          }
-        ],
-        "clinical_efficacy_claim": false,
-        "path_type": "STRICT_ORTHOLOGY_TARGET",
-        "source_chain": [
-          "provider-verified animal-to-human orthology",
-          "Open Targets human target validation"
-        ],
-        "status": "VERIFIED",
-        "strict_bridge_count": 1,
-        "subject": "Acomys cahirinus"
-      }
+      "subject": "Acomys cahirinus"
     },
     {
       "animal_claim_not_promoted_to_human_efficacy": true,
@@ -436650,166 +436151,13 @@
           "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
         }
       ],
-      "claim_pmids": [
-        "PMID:42370366",
-        "PMID:42690612",
-        "PMID:42755729"
+      "remaining": [
+        "disease-specific human evidence",
+        "causal perturbation",
+        "toxicity check"
       ],
-      "remaining": [],
       "status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
-      "subject": "Danio rerio",
-      "translation_path": {
-        "bridges": [
-          {
-            "animal_ensembl_species": "danio_rerio",
-            "animal_gene": "VEGF",
-            "animal_species": "Danio rerio",
-            "clinical_efficacy_claim": false,
-            "human_biotype": "protein_coding",
-            "human_ensembl_id": "ENSG00000112715",
-            "human_name": "vascular endothelial growth factor A",
-            "human_symbol": "VEGFA",
-            "orthology": {
-              "ensembl_id": "ENSG00000112715",
-              "perc_id": 27.0886,
-              "perc_pos": 34.6835,
-              "protein_id": "ENSP00000500082",
-              "taxon_id": 9606
-            },
-            "source_chain": [
-              "replicated PMID claim",
-              "Europe PMC gene/protein annotation or claim gene",
-              "Ensembl Compara orthology",
-              "Open Targets human target annotation"
-            ],
-            "source_claim_pmids": [
-              "PMID:42370366",
-              "PMID:42690612",
-              "PMID:42755729"
-            ],
-            "tractability": [
-              {
-                "label": "Structure with Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "High-Quality Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "Med-Quality Pocket",
-                "modality": "SM"
-              },
-              {
-                "label": "Approved Drug",
-                "modality": "AB"
-              },
-              {
-                "label": "UniProt loc high conf",
-                "modality": "AB"
-              },
-              {
-                "label": "GO CC high conf",
-                "modality": "AB"
-              },
-              {
-                "label": "UniProt loc med conf",
-                "modality": "AB"
-              },
-              {
-                "label": "Small Molecule Binder",
-                "modality": "PR"
-              },
-              {
-                "label": "Approved Drug",
-                "modality": "OC"
-              }
-            ],
-            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
-          },
-          {
-            "animal_ensembl_species": null,
-            "animal_gene": "O73682",
-            "animal_species": "Danio rerio",
-            "animal_uniprot": "O73682",
-            "clinical_efficacy_claim": false,
-            "human_biotype": "protein_coding",
-            "human_ensembl_id": "ENSG00000112715",
-            "human_name": "vascular endothelial growth factor A",
-            "human_symbol": "VEGFA",
-            "orthology": {
-              "distance": 52.0,
-              "human_canonicalid": "NP_001165095.1",
-              "human_omaid": "HUMAN84993",
-              "provider": "OMA",
-              "rel_type": "1:1",
-              "score": 964.219970703125
-            },
-            "source_chain": [
-              "replicated PMID claim",
-              "Europe PMC Gene_Proteins term extraction",
-              "UniProt exact-species gene/protein resolution",
-              "OMA source-protein species verification",
-              "OMA pairwise orthology to Homo sapiens",
-              "OMA human Ensembl xref",
-              "Open Targets human target annotation"
-            ],
-            "source_claim_pmids": [
-              "PMID:42370366",
-              "PMID:42690612",
-              "PMID:42755729"
-            ],
-            "tractability": [
-              {
-                "label": "Structure with Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "High-Quality Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "Med-Quality Pocket",
-                "modality": "SM"
-              },
-              {
-                "label": "Approved Drug",
-                "modality": "AB"
-              },
-              {
-                "label": "UniProt loc high conf",
-                "modality": "AB"
-              },
-              {
-                "label": "GO CC high conf",
-                "modality": "AB"
-              },
-              {
-                "label": "UniProt loc med conf",
-                "modality": "AB"
-              },
-              {
-                "label": "Small Molecule Binder",
-                "modality": "PR"
-              },
-              {
-                "label": "Approved Drug",
-                "modality": "OC"
-              }
-            ],
-            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
-          }
-        ],
-        "clinical_efficacy_claim": false,
-        "path_type": "STRICT_ORTHOLOGY_TARGET",
-        "source_chain": [
-          "provider-verified animal-to-human orthology",
-          "Open Targets human target validation"
-        ],
-        "status": "VERIFIED",
-        "strict_bridge_count": 2,
-        "subject": "Danio rerio"
-      }
+      "subject": "Danio rerio"
     },
     {
       "animal_claim_not_promoted_to_human_efficacy": true,
@@ -436894,135 +436242,26 @@
           "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
         }
       ],
-      "claim_pmids": [
-        "PMID:40230354",
-        "PMID:41751333",
-        "PMID:42702818"
+      "remaining": [
+        "disease-specific human evidence",
+        "causal perturbation",
+        "toxicity check"
       ],
-      "remaining": [],
       "status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
-      "subject": "Cynops pyrrhogaster",
-      "translation_path": {
-        "bridges": [
-          {
-            "animal_ensembl_species": null,
-            "animal_genbank_nucleotide": "D63339",
-            "animal_genbank_protein": "BAA09657.1",
-            "animal_gene": "SHH",
-            "animal_species": "Cynops pyrrhogaster",
-            "animal_taxon_id": 8330,
-            "animal_uniprot": "Q90385",
-            "bridge_evidence_pmids": [
-              "17318658",
-              "39595071"
-            ],
-            "bridge_seed_rationale": "Peer-reviewed Hedgehog-family phylogeny explicitly includes Cynops pyrrhogaster SHH Q90385 alongside human SHH, IHH and DHH, providing paralog discrimination. A 2024 Cynops regeneration study independently cloned the species' Shh transcript (PQ306330) from limb blastema.",
-            "clinical_efficacy_claim": false,
-            "human_biotype": "protein_coding",
-            "human_ensembl_id": "ENSG00000164690",
-            "human_name": "sonic hedgehog signaling molecule",
-            "human_symbol": "SHH",
-            "modern_transcript_genbank": "PQ306330",
-            "orthology": {
-              "exact_species_accession": "Q90385",
-              "human_target_in_phylogeny": "human SHH",
-              "method": "Neighbor-joining phylogeny of 21 Hedgehog-family proteins after Clustal X alignment; 500 bootstrap replicates; Poisson-corrected distances.",
-              "paralog_controls": [
-                "human IHH",
-                "human DHH"
-              ],
-              "phylogeny_doi": "10.1007/s00427-007-0139-2",
-              "phylogeny_pmid": "17318658",
-              "provider": "Peer-reviewed phylogenetic orthology"
-            },
-            "source_chain": [
-              "replicated PMID species claim",
-              "reviewed UniProt exact-species protein",
-              "peer-reviewed Hedgehog-family phylogeny with human SHH/IHH/DHH paralog discrimination",
-              "independent modern exact-species Shh transcript cloning in regenerative tissue",
-              "Open Targets human Ensembl target validation"
-            ],
-            "source_claim_pmids": [
-              "PMID:40230354",
-              "PMID:41751333",
-              "PMID:42702818"
-            ],
-            "tractability": [
-              {
-                "label": "Structure with Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "High-Quality Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "Druggable Family",
-                "modality": "SM"
-              },
-              {
-                "label": "UniProt loc high conf",
-                "modality": "AB"
-              },
-              {
-                "label": "GO CC high conf",
-                "modality": "AB"
-              },
-              {
-                "label": "UniProt loc med conf",
-                "modality": "AB"
-              },
-              {
-                "label": "UniProt SigP or TMHMM",
-                "modality": "AB"
-              },
-              {
-                "label": "Small Molecule Binder",
-                "modality": "PR"
-              }
-            ],
-            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
-          }
-        ],
-        "clinical_efficacy_claim": false,
-        "path_type": "STRICT_ORTHOLOGY_TARGET",
-        "source_chain": [
-          "provider-verified animal-to-human orthology",
-          "Open Targets human target validation"
-        ],
-        "status": "VERIFIED",
-        "strict_bridge_count": 1,
-        "subject": "Cynops pyrrhogaster"
-      }
+      "subject": "Cynops pyrrhogaster"
     },
     {
       "animal_claim_not_promoted_to_human_efficacy": true,
       "bridges": [],
-      "claim_pmids": [
-        "PMID:41983916",
-        "PMID:42793312",
-        "PMID:42833632"
-      ],
-      "remaining": [
-        "provider-verified orthology or a separately typed evidence-backed translation path"
-      ],
-      "status": "UNVERIFIED_HUMAN_BRIDGE",
-      "subject": "Hydra vulgaris",
-      "translation_path": null
-    },
-    {
-      "animal_claim_not_promoted_to_human_efficacy": true,
-      "bridges": [],
-      "claim_pmids": [
-        "PMID:42793312",
-        "PMID:42833632"
-      ],
-      "remaining": [
-        "provider-verified orthology or a separately typed evidence-backed translation path"
+      "required": [
+        "Ensembl-resolvable species",
+        "verified human orthologue",
+        "Open Targets target context",
+        "causal perturbation",
+        "toxicity check"
       ],
       "status": "UNVERIFIED_HUMAN_BRIDGE",
-      "subject": "Hydra oligactis",
-      "translation_path": null
+      "subject": "Ambystoma mexicanum"
     },
     {
       "animal_claim_not_promoted_to_human_efficacy": true,
@@ -437456,1810 +436695,15 @@
           "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
         }
       ],
-      "claim_pmids": [
-        "PMID:42208364",
-        "PMID:42686794",
-        "PMID:42868151"
+      "remaining": [
+        "disease-specific human evidence",
+        "causal perturbation",
+        "toxicity check"
       ],
-      "remaining": [],
       "status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
-      "subject": "Drosophila melanogaster",
-      "translation_path": {
-        "bridges": [
-          {
-            "animal_ensembl_species": null,
-            "animal_gene": "A0A0B4KEJ3",
-            "animal_species": "Drosophila melanogaster",
-            "animal_uniprot": "A0A0B4KEJ3",
-            "clinical_efficacy_claim": false,
-            "human_biotype": "protein_coding",
-            "human_ensembl_id": "ENSG00000069667",
-            "human_name": "RAR related orphan receptor A",
-            "human_symbol": "RORA",
-            "orthology": {
-              "distance": 102.0,
-              "human_canonicalid": "RORA_HUMAN",
-              "human_omaid": "HUMAN23449",
-              "provider": "OMA",
-              "rel_type": "1:n",
-              "score": 1061.47998046875
-            },
-            "source_chain": [
-              "replicated PMID claim",
-              "Europe PMC Gene_Proteins term extraction",
-              "UniProt exact-species gene/protein resolution",
-              "OMA source-protein species verification",
-              "OMA pairwise orthology to Homo sapiens",
-              "OMA human Ensembl xref",
-              "Open Targets human target annotation"
-            ],
-            "source_claim_pmids": [
-              "PMID:42208364",
-              "PMID:42686794",
-              "PMID:42868151"
-            ],
-            "tractability": [
-              {
-                "label": "Structure with Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "High-Quality Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "Med-Quality Pocket",
-                "modality": "SM"
-              },
-              {
-                "label": "Druggable Family",
-                "modality": "SM"
-              },
-              {
-                "label": "UniProt Ubiquitination",
-                "modality": "PR"
-              },
-              {
-                "label": "Database Ubiquitination",
-                "modality": "PR"
-              },
-              {
-                "label": "Small Molecule Binder",
-                "modality": "PR"
-              }
-            ],
-            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
-          },
-          {
-            "animal_ensembl_species": null,
-            "animal_gene": "A0A0B4KEJ3",
-            "animal_species": "Drosophila melanogaster",
-            "animal_uniprot": "A0A0B4KEJ3",
-            "clinical_efficacy_claim": false,
-            "human_biotype": "protein_coding",
-            "human_ensembl_id": "ENSG00000198963",
-            "human_name": "RAR related orphan receptor B",
-            "human_symbol": "RORB",
-            "orthology": {
-              "distance": 95.0,
-              "human_canonicalid": "RORB_HUMAN",
-              "human_omaid": "HUMAN97300",
-              "provider": "OMA",
-              "rel_type": "1:n",
-              "score": 1128.6700439453125
-            },
-            "source_chain": [
-              "replicated PMID claim",
-              "Europe PMC Gene_Proteins term extraction",
-              "UniProt exact-species gene/protein resolution",
-              "OMA source-protein species verification",
-              "OMA pairwise orthology to Homo sapiens",
-              "OMA human Ensembl xref",
-              "Open Targets human target annotation"
-            ],
-            "source_claim_pmids": [
-              "PMID:42208364",
-              "PMID:42686794",
-              "PMID:42868151"
-            ],
-            "tractability": [
-              {
-                "label": "High-Quality Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "Druggable Family",
-                "modality": "SM"
-              },
-              {
-                "label": "Database Ubiquitination",
-                "modality": "PR"
-              },
-              {
-                "label": "Small Molecule Binder",
-                "modality": "PR"
-              }
-            ],
-            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
-          },
-          {
-            "animal_ensembl_species": null,
-            "animal_gene": "Q94545",
-            "animal_species": "Drosophila melanogaster",
-            "animal_uniprot": "Q94545",
-            "clinical_efficacy_claim": false,
-            "human_biotype": "protein_coding",
-            "human_ensembl_id": "ENSG00000129691",
-            "human_name": "ASH2 like, histone lysine methyltransferase complex subunit",
-            "human_symbol": "ASH2L",
-            "orthology": {
-              "distance": 77.0,
-              "human_canonicalid": "ASH2L_HUMAN",
-              "human_omaid": "HUMAN93412",
-              "provider": "OMA",
-              "rel_type": "1:1",
-              "score": 1901.8900146484375
-            },
-            "source_chain": [
-              "replicated PMID claim",
-              "Europe PMC Gene_Proteins term extraction",
-              "UniProt exact-species gene/protein resolution",
-              "OMA source-protein species verification",
-              "OMA pairwise orthology to Homo sapiens",
-              "OMA human Ensembl xref",
-              "Open Targets human target annotation"
-            ],
-            "source_claim_pmids": [
-              "PMID:42208364",
-              "PMID:42686794",
-              "PMID:42868151"
-            ],
-            "tractability": [
-              {
-                "label": "Structure with Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "High-Quality Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "Human Protein Atlas loc",
-                "modality": "AB"
-              },
-              {
-                "label": "Database Ubiquitination",
-                "modality": "PR"
-              },
-              {
-                "label": "Half-life Data",
-                "modality": "PR"
-              },
-              {
-                "label": "Small Molecule Binder",
-                "modality": "PR"
-              }
-            ],
-            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
-          },
-          {
-            "animal_ensembl_species": null,
-            "animal_gene": "P04412",
-            "animal_species": "Drosophila melanogaster",
-            "animal_uniprot": "P04412",
-            "clinical_efficacy_claim": false,
-            "human_biotype": "protein_coding",
-            "human_ensembl_id": "ENSG00000141736",
-            "human_name": "erb-b2 receptor tyrosine kinase 2",
-            "human_symbol": "ERBB2",
-            "orthology": {
-              "distance": 99.0,
-              "human_canonicalid": "ERBB2_HUMAN",
-              "human_omaid": "HUMAN33374",
-              "provider": "OMA",
-              "rel_type": "1:n",
-              "score": 2635.64990234375
-            },
-            "source_chain": [
-              "replicated PMID claim",
-              "Europe PMC Gene_Proteins term extraction",
-              "UniProt exact-species gene/protein resolution",
-              "OMA source-protein species verification",
-              "OMA pairwise orthology to Homo sapiens",
-              "OMA human Ensembl xref",
-              "Open Targets human target annotation"
-            ],
-            "source_claim_pmids": [
-              "PMID:42208364",
-              "PMID:42686794",
-              "PMID:42868151"
-            ],
-            "tractability": [
-              {
-                "label": "Approved Drug",
-                "modality": "SM"
-              },
-              {
-                "label": "Structure with Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "High-Quality Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "High-Quality Pocket",
-                "modality": "SM"
-              },
-              {
-                "label": "Druggable Family",
-                "modality": "SM"
-              },
-              {
-                "label": "Approved Drug",
-                "modality": "AB"
-              },
-              {
-                "label": "UniProt loc high conf",
-                "modality": "AB"
-              },
-              {
-                "label": "GO CC high conf",
-                "modality": "AB"
-              },
-              {
-                "label": "UniProt SigP or TMHMM",
-                "modality": "AB"
-              },
-              {
-                "label": "Human Protein Atlas loc",
-                "modality": "AB"
-              },
-              {
-                "label": "Literature",
-                "modality": "PR"
-              },
-              {
-                "label": "Database Ubiquitination",
-                "modality": "PR"
-              }
-            ],
-            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
-          },
-          {
-            "animal_ensembl_species": null,
-            "animal_gene": "P04412",
-            "animal_species": "Drosophila melanogaster",
-            "animal_uniprot": "P04412",
-            "clinical_efficacy_claim": false,
-            "human_biotype": "protein_coding",
-            "human_ensembl_id": "ENSG00000178568",
-            "human_name": "erb-b2 receptor tyrosine kinase 4",
-            "human_symbol": "ERBB4",
-            "orthology": {
-              "distance": 92.0,
-              "human_canonicalid": "ERBB4_HUMAN",
-              "human_omaid": "HUMAN66728",
-              "provider": "OMA",
-              "rel_type": "1:n",
-              "score": 3124.550048828125
-            },
-            "source_chain": [
-              "replicated PMID claim",
-              "Europe PMC Gene_Proteins term extraction",
-              "UniProt exact-species gene/protein resolution",
-              "OMA source-protein species verification",
-              "OMA pairwise orthology to Homo sapiens",
-              "OMA human Ensembl xref",
-              "Open Targets human target annotation"
-            ],
-            "source_claim_pmids": [
-              "PMID:42208364",
-              "PMID:42686794",
-              "PMID:42868151"
-            ],
-            "tractability": [
-              {
-                "label": "Approved Drug",
-                "modality": "SM"
-              },
-              {
-                "label": "Structure with Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "High-Quality Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "High-Quality Pocket",
-                "modality": "SM"
-              },
-              {
-                "label": "Druggable Family",
-                "modality": "SM"
-              },
-              {
-                "label": "UniProt loc high conf",
-                "modality": "AB"
-              },
-              {
-                "label": "GO CC high conf",
-                "modality": "AB"
-              },
-              {
-                "label": "UniProt SigP or TMHMM",
-                "modality": "AB"
-              },
-              {
-                "label": "UniProt Ubiquitination",
-                "modality": "PR"
-              },
-              {
-                "label": "Database Ubiquitination",
-                "modality": "PR"
-              },
-              {
-                "label": "Half-life Data",
-                "modality": "PR"
-              },
-              {
-                "label": "Small Molecule Binder",
-                "modality": "PR"
-              }
-            ],
-            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
-          },
-          {
-            "animal_ensembl_species": null,
-            "animal_gene": "P04412",
-            "animal_species": "Drosophila melanogaster",
-            "animal_uniprot": "P04412",
-            "clinical_efficacy_claim": false,
-            "human_biotype": "protein_coding",
-            "human_ensembl_id": "ENSG00000146648",
-            "human_name": "epidermal growth factor receptor",
-            "human_symbol": "EGFR",
-            "orthology": {
-              "distance": 90.0,
-              "human_canonicalid": "EGFR_HUMAN",
-              "human_omaid": "HUMAN89021",
-              "provider": "OMA",
-              "rel_type": "1:n",
-              "score": 3084.7900390625
-            },
-            "source_chain": [
-              "replicated PMID claim",
-              "Europe PMC Gene_Proteins term extraction",
-              "UniProt exact-species gene/protein resolution",
-              "OMA source-protein species verification",
-              "OMA pairwise orthology to Homo sapiens",
-              "OMA human Ensembl xref",
-              "Open Targets human target annotation"
-            ],
-            "source_claim_pmids": [
-              "PMID:42208364",
-              "PMID:42686794",
-              "PMID:42868151"
-            ],
-            "tractability": [
-              {
-                "label": "Approved Drug",
-                "modality": "SM"
-              },
-              {
-                "label": "Structure with Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "High-Quality Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "High-Quality Pocket",
-                "modality": "SM"
-              },
-              {
-                "label": "Druggable Family",
-                "modality": "SM"
-              },
-              {
-                "label": "Approved Drug",
-                "modality": "AB"
-              },
-              {
-                "label": "UniProt loc high conf",
-                "modality": "AB"
-              },
-              {
-                "label": "GO CC high conf",
-                "modality": "AB"
-              },
-              {
-                "label": "UniProt loc med conf",
-                "modality": "AB"
-              },
-              {
-                "label": "UniProt SigP or TMHMM",
-                "modality": "AB"
-              },
-              {
-                "label": "Human Protein Atlas loc",
-                "modality": "AB"
-              },
-              {
-                "label": "Literature",
-                "modality": "PR"
-              }
-            ],
-            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
-          }
-        ],
-        "clinical_efficacy_claim": false,
-        "path_type": "STRICT_ORTHOLOGY_TARGET",
-        "source_chain": [
-          "provider-verified animal-to-human orthology",
-          "Open Targets human target validation"
-        ],
-        "status": "VERIFIED",
-        "strict_bridge_count": 6,
-        "subject": "Drosophila melanogaster"
-      }
-    },
-    {
-      "animal_claim_not_promoted_to_human_efficacy": true,
-      "bridges": [
-        {
-          "animal_ensembl_species": null,
-          "animal_gene": "WNT2",
-          "animal_species": "Paracentrotus lividus",
-          "animal_taxon_id": 7656,
-          "bridge_evidence_pmids": [
-            "31479176"
-          ],
-          "bridge_scope": "species-level strict orthology anchor only; the preservation/cryopreservation translation path remains the separate DMSO/trehalose functional bridge",
-          "bridge_seed_rationale": "Robert et al. 2019 explicitly identify a WNT2 ortholog in Paracentrotus lividus and report both Maximum Likelihood and Bayesian phylogenetic analyses with Homo sapiens WNT sequences included.",
-          "clinical_efficacy_claim": false,
-          "human_biotype": "protein_coding",
-          "human_ensembl_id": "ENSG00000105989",
-          "human_name": "Wnt family member 2",
-          "human_symbol": "WNT2",
-          "orthology": {
-            "human_in_phylogeny": true,
-            "orthology_doi": "10.1002/dvg.23331",
-            "orthology_pmid": "31479176",
-            "paralog_discrimination": "Bilaterian WNT subfamilies were resolved; P. lividus WNT2 was highlighted inside the WNT2 subfamily while Homo sapiens WNT sequences were included in the same analyses.",
-            "phylogeny_methods": [
-              "unrooted Maximum Likelihood WNT-family phylogeny",
-              "unrooted Bayesian Inference WNT-family phylogeny"
-            ],
-            "provider": "Peer-reviewed direct orthology",
-            "relation": "peer_reviewed_gene_family_orthology"
-          },
-          "source_chain": [
-            "replicated exact-species research claim",
-            "peer-reviewed exact-species orthology paper",
-            "Maximum Likelihood + Bayesian gene-family phylogenies",
-            "Homo sapiens sequences included in the same orthology analysis",
-            "Open Targets human Ensembl target validation"
-          ],
-          "source_claim_pmids": [
-            "PMID:38622199",
-            "PMID:42208364",
-            "PMID:42738576"
-          ],
-          "tractability": [
-            {
-              "label": "UniProt loc high conf",
-              "modality": "AB"
-            },
-            {
-              "label": "GO CC high conf",
-              "modality": "AB"
-            },
-            {
-              "label": "UniProt SigP or TMHMM",
-              "modality": "AB"
-            }
-          ],
-          "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
-        }
-      ],
-      "claim_pmids": [
-        "PMID:38622199",
-        "PMID:42208364",
-        "PMID:42738576"
-      ],
-      "remaining": [],
-      "status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
-      "subject": "Paracentrotus lividus",
-      "translation_path": {
-        "bridges": [
-          {
-            "animal_ensembl_species": null,
-            "animal_gene": "WNT2",
-            "animal_species": "Paracentrotus lividus",
-            "animal_taxon_id": 7656,
-            "bridge_evidence_pmids": [
-              "31479176"
-            ],
-            "bridge_scope": "species-level strict orthology anchor only; the preservation/cryopreservation translation path remains the separate DMSO/trehalose functional bridge",
-            "bridge_seed_rationale": "Robert et al. 2019 explicitly identify a WNT2 ortholog in Paracentrotus lividus and report both Maximum Likelihood and Bayesian phylogenetic analyses with Homo sapiens WNT sequences included.",
-            "clinical_efficacy_claim": false,
-            "human_biotype": "protein_coding",
-            "human_ensembl_id": "ENSG00000105989",
-            "human_name": "Wnt family member 2",
-            "human_symbol": "WNT2",
-            "orthology": {
-              "human_in_phylogeny": true,
-              "orthology_doi": "10.1002/dvg.23331",
-              "orthology_pmid": "31479176",
-              "paralog_discrimination": "Bilaterian WNT subfamilies were resolved; P. lividus WNT2 was highlighted inside the WNT2 subfamily while Homo sapiens WNT sequences were included in the same analyses.",
-              "phylogeny_methods": [
-                "unrooted Maximum Likelihood WNT-family phylogeny",
-                "unrooted Bayesian Inference WNT-family phylogeny"
-              ],
-              "provider": "Peer-reviewed direct orthology",
-              "relation": "peer_reviewed_gene_family_orthology"
-            },
-            "source_chain": [
-              "replicated exact-species research claim",
-              "peer-reviewed exact-species orthology paper",
-              "Maximum Likelihood + Bayesian gene-family phylogenies",
-              "Homo sapiens sequences included in the same orthology analysis",
-              "Open Targets human Ensembl target validation"
-            ],
-            "source_claim_pmids": [
-              "PMID:38622199",
-              "PMID:42208364",
-              "PMID:42738576"
-            ],
-            "tractability": [
-              {
-                "label": "UniProt loc high conf",
-                "modality": "AB"
-              },
-              {
-                "label": "GO CC high conf",
-                "modality": "AB"
-              },
-              {
-                "label": "UniProt SigP or TMHMM",
-                "modality": "AB"
-              }
-            ],
-            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
-          }
-        ],
-        "clinical_efficacy_claim": false,
-        "path_type": "STRICT_ORTHOLOGY_TARGET",
-        "source_chain": [
-          "provider-verified animal-to-human orthology",
-          "Open Targets human target validation"
-        ],
-        "status": "VERIFIED",
-        "strict_bridge_count": 1,
-        "subject": "Paracentrotus lividus"
-      }
-    },
-    {
-      "animal_claim_not_promoted_to_human_efficacy": true,
-      "bridges": [
-        {
-          "animal_ensembl_species": null,
-          "animal_gene": "daf-16",
-          "animal_ncbi_gene_id": "172981",
-          "animal_species": "Caenorhabditis elegans",
-          "animal_taxon_id": "6239",
-          "bridge_evidence_pmids": [
-            "26635120",
-            "11747821"
-          ],
-          "bridge_scope": "endogenous freeze-tolerance mechanism; independent of the exogenous ice-binding-protein intervention",
-          "bridge_seed_rationale": "Exact-species freeze-thaw genetics requires DAF-16 downstream of daf-2, while independent human-to-worm complementation work demonstrates that human FKHRL1/FOXO3 can partially replace DAF-16. This supports a conserved FOXO-family relationship without asserting one-to-one orthology or human clinical efficacy.",
-          "cache_miss_count": 1,
-          "cache_reason": "Current live providers did not reproduce this previously verified strict bridge; retained temporarily pending revalidation.",
-          "clinical_efficacy_claim": false,
-          "human_biotype": "protein_coding",
-          "human_ensembl_id": "ENSG00000118689",
-          "human_name": "forkhead box O3",
-          "human_symbol": "FOXO3",
-          "last_live_verified_at": "2026-11-10T11:50:33.459558+00:00",
-          "orthology": {
-            "functional_orthology_doi": "10.1016/S0960-9822(01)00595-4",
-            "functional_orthology_pmid": "11747821",
-            "human_paralog_context": [
-              "FOXO1",
-              "FOXO3",
-              "FOXO4"
-            ],
-            "method": "exact-species genetics + cross-species functional complementation",
-            "provider": "Peer-reviewed functional orthology",
-            "relation": "one_to_many_functional_orthology",
-            "selected_human_target": "FOXO3",
-            "source_ncbi_gene_id": "172981"
-          },
-          "source_chain": [
-            "replicated exact-species research claim",
-            "NCBI Datasets exact Caenorhabditis elegans daf-16 gene",
-            "exact-species freeze-thaw genetics requiring DAF-16/FOXO",
-            "peer-reviewed human FKHRL1/FOXO3-to-DAF-16 functional complementation",
-            "Open Targets human FOXO3 target validation"
-          ],
-          "source_claim_pmids": [
-            "PMID:42169464",
-            "PMID:42208364"
-          ],
-          "tractability": [
-            {
-              "label": "Structure with Ligand",
-              "modality": "SM"
-            },
-            {
-              "label": "UniProt loc high conf",
-              "modality": "AB"
-            },
-            {
-              "label": "UniProt Ubiquitination",
-              "modality": "PR"
-            },
-            {
-              "label": "Database Ubiquitination",
-              "modality": "PR"
-            }
-          ],
-          "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
-          "verification_mode": "LAST_KNOWN_GOOD_CACHE"
-        }
-      ],
-      "claim_pmids": [
-        "PMID:42169464",
-        "PMID:42208364"
-      ],
-      "remaining": [],
-      "status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
-      "subject": "Caenorhabditis elegans",
-      "translation_path": {
-        "bridges": [
-          {
-            "animal_ensembl_species": null,
-            "animal_gene": "daf-16",
-            "animal_ncbi_gene_id": "172981",
-            "animal_species": "Caenorhabditis elegans",
-            "animal_taxon_id": "6239",
-            "bridge_evidence_pmids": [
-              "26635120",
-              "11747821"
-            ],
-            "bridge_scope": "endogenous freeze-tolerance mechanism; independent of the exogenous ice-binding-protein intervention",
-            "bridge_seed_rationale": "Exact-species freeze-thaw genetics requires DAF-16 downstream of daf-2, while independent human-to-worm complementation work demonstrates that human FKHRL1/FOXO3 can partially replace DAF-16. This supports a conserved FOXO-family relationship without asserting one-to-one orthology or human clinical efficacy.",
-            "cache_miss_count": 1,
-            "cache_reason": "Current live providers did not reproduce this previously verified strict bridge; retained temporarily pending revalidation.",
-            "clinical_efficacy_claim": false,
-            "human_biotype": "protein_coding",
-            "human_ensembl_id": "ENSG00000118689",
-            "human_name": "forkhead box O3",
-            "human_symbol": "FOXO3",
-            "last_live_verified_at": "2026-11-10T11:50:33.459558+00:00",
-            "orthology": {
-              "functional_orthology_doi": "10.1016/S0960-9822(01)00595-4",
-              "functional_orthology_pmid": "11747821",
-              "human_paralog_context": [
-                "FOXO1",
-                "FOXO3",
-                "FOXO4"
-              ],
-              "method": "exact-species genetics + cross-species functional complementation",
-              "provider": "Peer-reviewed functional orthology",
-              "relation": "one_to_many_functional_orthology",
-              "selected_human_target": "FOXO3",
-              "source_ncbi_gene_id": "172981"
-            },
-            "source_chain": [
-              "replicated exact-species research claim",
-              "NCBI Datasets exact Caenorhabditis elegans daf-16 gene",
-              "exact-species freeze-thaw genetics requiring DAF-16/FOXO",
-              "peer-reviewed human FKHRL1/FOXO3-to-DAF-16 functional complementation",
-              "Open Targets human FOXO3 target validation"
-            ],
-            "source_claim_pmids": [
-              "PMID:42169464",
-              "PMID:42208364"
-            ],
-            "tractability": [
-              {
-                "label": "Structure with Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "UniProt loc high conf",
-                "modality": "AB"
-              },
-              {
-                "label": "UniProt Ubiquitination",
-                "modality": "PR"
-              },
-              {
-                "label": "Database Ubiquitination",
-                "modality": "PR"
-              }
-            ],
-            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
-            "verification_mode": "LAST_KNOWN_GOOD_CACHE"
-          }
-        ],
-        "clinical_efficacy_claim": false,
-        "path_type": "STRICT_ORTHOLOGY_TARGET",
-        "source_chain": [
-          "provider-verified animal-to-human orthology",
-          "Open Targets human target validation"
-        ],
-        "status": "VERIFIED",
-        "strict_bridge_count": 1,
-        "subject": "Caenorhabditis elegans"
-      }
+      "subject": "Drosophila melanogaster"
     }
   ],
-  "human_translation_result": {
-    "attempted_candidates": 9,
-    "candidate_status": [
-      {
-        "candidate": "Somniosus microcephalus",
-        "path_type": "STRICT_ORTHOLOGY_TARGET",
-        "status": "VERIFIED"
-      },
-      {
-        "candidate": "Acomys cahirinus",
-        "path_type": "STRICT_ORTHOLOGY_TARGET",
-        "status": "VERIFIED"
-      },
-      {
-        "candidate": "Danio rerio",
-        "path_type": "STRICT_ORTHOLOGY_TARGET",
-        "status": "VERIFIED"
-      },
-      {
-        "candidate": "Cynops pyrrhogaster",
-        "path_type": "STRICT_ORTHOLOGY_TARGET",
-        "status": "VERIFIED"
-      },
-      {
-        "candidate": "Hydra vulgaris",
-        "path_type": null,
-        "status": "NO_TRANSLATION_PATH"
-      },
-      {
-        "candidate": "Hydra oligactis",
-        "path_type": null,
-        "status": "NO_TRANSLATION_PATH"
-      },
-      {
-        "candidate": "Drosophila melanogaster",
-        "path_type": "STRICT_ORTHOLOGY_TARGET",
-        "status": "VERIFIED"
-      },
-      {
-        "candidate": "Paracentrotus lividus",
-        "path_type": "STRICT_ORTHOLOGY_TARGET",
-        "status": "VERIFIED"
-      },
-      {
-        "candidate": "Caenorhabditis elegans",
-        "path_type": "STRICT_ORTHOLOGY_TARGET",
-        "status": "VERIFIED"
-      }
-    ],
-    "errors": [
-      {
-        "candidate": "Hydra vulgaris",
-        "error": "no typed fallback translation seed"
-      },
-      {
-        "candidate": "Hydra oligactis",
-        "error": "no typed fallback translation seed"
-      }
-    ],
-    "fallback_verified_candidates": 0,
-    "path_type_counts": {
-      "STRICT_ORTHOLOGY_TARGET": 7
-    },
-    "paths": [
-      {
-        "bridges": [
-          {
-            "animal_ensembl_species": null,
-            "animal_gene": "tp53",
-            "animal_ncbi_gene_id": "147091098",
-            "animal_species": "Somniosus microcephalus",
-            "bridge_evidence_pmids": [
-              "42402335"
-            ],
-            "bridge_seed_rationale": "Greenland shark longevity review summarizes genomic evidence of structural variation in tumor suppressor p53 in the context of genome maintenance and extreme longevity.",
-            "clinical_efficacy_claim": false,
-            "human_biotype": "protein_coding",
-            "human_ensembl_id": "ENSG00000141510",
-            "human_name": "tumor protein p53",
-            "human_symbol": "TP53",
-            "orthology": {
-              "human_ncbi_gene_id": "7157",
-              "method": "NCBI Ortholog",
-              "provider": "NCBI Ortholog",
-              "source_tax_id": "191813"
-            },
-            "source_chain": [
-              "replicated PMID species claim",
-              "literature-backed exact-species mechanism seed",
-              "NCBI Datasets exact species + gene resolution",
-              "NCBI Ortholog to Homo sapiens",
-              "NCBI human Ensembl Gene ID",
-              "Open Targets human target annotation"
-            ],
-            "source_claim_pmids": [
-              "PMID:42154556",
-              "PMID:42402335",
-              "PMID:42939468"
-            ],
-            "tractability": [
-              {
-                "label": "Advanced Clinical",
-                "modality": "SM"
-              },
-              {
-                "label": "Structure with Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "High-Quality Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "Med-Quality Pocket",
-                "modality": "SM"
-              },
-              {
-                "label": "Druggable Family",
-                "modality": "SM"
-              },
-              {
-                "label": "UniProt Ubiquitination",
-                "modality": "PR"
-              },
-              {
-                "label": "Database Ubiquitination",
-                "modality": "PR"
-              },
-              {
-                "label": "Small Molecule Binder",
-                "modality": "PR"
-              },
-              {
-                "label": "Advanced Clinical",
-                "modality": "OC"
-              }
-            ],
-            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
-          }
-        ],
-        "clinical_efficacy_claim": false,
-        "path_type": "STRICT_ORTHOLOGY_TARGET",
-        "source_chain": [
-          "provider-verified animal-to-human orthology",
-          "Open Targets human target validation"
-        ],
-        "status": "VERIFIED",
-        "strict_bridge_count": 1,
-        "subject": "Somniosus microcephalus"
-      },
-      {
-        "bridges": [
-          {
-            "animal_ensembl_species": null,
-            "animal_gene": "IL10",
-            "animal_orthodb_gene_id": "10068_0:001eb9",
-            "animal_species": "Acomys cahirinus",
-            "bridge_evidence_pmids": [
-              "31141508",
-              "32849592"
-            ],
-            "bridge_seed_rationale": "Acomys cahirinus regenerative wound healing shows strongly elevated Il10; published cross-species comparison reports substantial peptide similarity to human IL-10.",
-            "clinical_efficacy_claim": false,
-            "human_biotype": "protein_coding",
-            "human_ensembl_id": "ENSG00000136634",
-            "human_name": "interleukin 10",
-            "human_symbol": "IL10",
-            "orthology": {
-              "clade_id": 33208,
-              "human_gene_id": "9606_0:0009a3",
-              "provider": "OrthoDB v12",
-              "source_assembly": "GCA_004027535.1",
-              "source_gene_id": "10068_0:001eb9"
-            },
-            "source_chain": [
-              "replicated PMID species claim",
-              "literature-backed exact-species mechanism seed",
-              "OrthoDB exact species + gene resolution",
-              "OrthoDB ortholog to Homo sapiens",
-              "Open Targets human Ensembl target validation"
-            ],
-            "source_claim_pmids": [
-              "PMID:41732917",
-              "PMID:42194064",
-              "PMID:42792965"
-            ],
-            "tractability": [
-              {
-                "label": "Med-Quality Pocket",
-                "modality": "SM"
-              },
-              {
-                "label": "Advanced Clinical",
-                "modality": "AB"
-              },
-              {
-                "label": "GO CC high conf",
-                "modality": "AB"
-              },
-              {
-                "label": "UniProt loc med conf",
-                "modality": "AB"
-              },
-              {
-                "label": "UniProt SigP or TMHMM",
-                "modality": "AB"
-              }
-            ],
-            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
-          }
-        ],
-        "clinical_efficacy_claim": false,
-        "path_type": "STRICT_ORTHOLOGY_TARGET",
-        "source_chain": [
-          "provider-verified animal-to-human orthology",
-          "Open Targets human target validation"
-        ],
-        "status": "VERIFIED",
-        "strict_bridge_count": 1,
-        "subject": "Acomys cahirinus"
-      },
-      {
-        "bridges": [
-          {
-            "animal_ensembl_species": "danio_rerio",
-            "animal_gene": "VEGF",
-            "animal_species": "Danio rerio",
-            "clinical_efficacy_claim": false,
-            "human_biotype": "protein_coding",
-            "human_ensembl_id": "ENSG00000112715",
-            "human_name": "vascular endothelial growth factor A",
-            "human_symbol": "VEGFA",
-            "orthology": {
-              "ensembl_id": "ENSG00000112715",
-              "perc_id": 27.0886,
-              "perc_pos": 34.6835,
-              "protein_id": "ENSP00000500082",
-              "taxon_id": 9606
-            },
-            "source_chain": [
-              "replicated PMID claim",
-              "Europe PMC gene/protein annotation or claim gene",
-              "Ensembl Compara orthology",
-              "Open Targets human target annotation"
-            ],
-            "source_claim_pmids": [
-              "PMID:42370366",
-              "PMID:42690612",
-              "PMID:42755729"
-            ],
-            "tractability": [
-              {
-                "label": "Structure with Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "High-Quality Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "Med-Quality Pocket",
-                "modality": "SM"
-              },
-              {
-                "label": "Approved Drug",
-                "modality": "AB"
-              },
-              {
-                "label": "UniProt loc high conf",
-                "modality": "AB"
-              },
-              {
-                "label": "GO CC high conf",
-                "modality": "AB"
-              },
-              {
-                "label": "UniProt loc med conf",
-                "modality": "AB"
-              },
-              {
-                "label": "Small Molecule Binder",
-                "modality": "PR"
-              },
-              {
-                "label": "Approved Drug",
-                "modality": "OC"
-              }
-            ],
-            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
-          },
-          {
-            "animal_ensembl_species": null,
-            "animal_gene": "O73682",
-            "animal_species": "Danio rerio",
-            "animal_uniprot": "O73682",
-            "clinical_efficacy_claim": false,
-            "human_biotype": "protein_coding",
-            "human_ensembl_id": "ENSG00000112715",
-            "human_name": "vascular endothelial growth factor A",
-            "human_symbol": "VEGFA",
-            "orthology": {
-              "distance": 52.0,
-              "human_canonicalid": "NP_001165095.1",
-              "human_omaid": "HUMAN84993",
-              "provider": "OMA",
-              "rel_type": "1:1",
-              "score": 964.219970703125
-            },
-            "source_chain": [
-              "replicated PMID claim",
-              "Europe PMC Gene_Proteins term extraction",
-              "UniProt exact-species gene/protein resolution",
-              "OMA source-protein species verification",
-              "OMA pairwise orthology to Homo sapiens",
-              "OMA human Ensembl xref",
-              "Open Targets human target annotation"
-            ],
-            "source_claim_pmids": [
-              "PMID:42370366",
-              "PMID:42690612",
-              "PMID:42755729"
-            ],
-            "tractability": [
-              {
-                "label": "Structure with Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "High-Quality Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "Med-Quality Pocket",
-                "modality": "SM"
-              },
-              {
-                "label": "Approved Drug",
-                "modality": "AB"
-              },
-              {
-                "label": "UniProt loc high conf",
-                "modality": "AB"
-              },
-              {
-                "label": "GO CC high conf",
-                "modality": "AB"
-              },
-              {
-                "label": "UniProt loc med conf",
-                "modality": "AB"
-              },
-              {
-                "label": "Small Molecule Binder",
-                "modality": "PR"
-              },
-              {
-                "label": "Approved Drug",
-                "modality": "OC"
-              }
-            ],
-            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
-          }
-        ],
-        "clinical_efficacy_claim": false,
-        "path_type": "STRICT_ORTHOLOGY_TARGET",
-        "source_chain": [
-          "provider-verified animal-to-human orthology",
-          "Open Targets human target validation"
-        ],
-        "status": "VERIFIED",
-        "strict_bridge_count": 2,
-        "subject": "Danio rerio"
-      },
-      {
-        "bridges": [
-          {
-            "animal_ensembl_species": null,
-            "animal_genbank_nucleotide": "D63339",
-            "animal_genbank_protein": "BAA09657.1",
-            "animal_gene": "SHH",
-            "animal_species": "Cynops pyrrhogaster",
-            "animal_taxon_id": 8330,
-            "animal_uniprot": "Q90385",
-            "bridge_evidence_pmids": [
-              "17318658",
-              "39595071"
-            ],
-            "bridge_seed_rationale": "Peer-reviewed Hedgehog-family phylogeny explicitly includes Cynops pyrrhogaster SHH Q90385 alongside human SHH, IHH and DHH, providing paralog discrimination. A 2024 Cynops regeneration study independently cloned the species' Shh transcript (PQ306330) from limb blastema.",
-            "clinical_efficacy_claim": false,
-            "human_biotype": "protein_coding",
-            "human_ensembl_id": "ENSG00000164690",
-            "human_name": "sonic hedgehog signaling molecule",
-            "human_symbol": "SHH",
-            "modern_transcript_genbank": "PQ306330",
-            "orthology": {
-              "exact_species_accession": "Q90385",
-              "human_target_in_phylogeny": "human SHH",
-              "method": "Neighbor-joining phylogeny of 21 Hedgehog-family proteins after Clustal X alignment; 500 bootstrap replicates; Poisson-corrected distances.",
-              "paralog_controls": [
-                "human IHH",
-                "human DHH"
-              ],
-              "phylogeny_doi": "10.1007/s00427-007-0139-2",
-              "phylogeny_pmid": "17318658",
-              "provider": "Peer-reviewed phylogenetic orthology"
-            },
-            "source_chain": [
-              "replicated PMID species claim",
-              "reviewed UniProt exact-species protein",
-              "peer-reviewed Hedgehog-family phylogeny with human SHH/IHH/DHH paralog discrimination",
-              "independent modern exact-species Shh transcript cloning in regenerative tissue",
-              "Open Targets human Ensembl target validation"
-            ],
-            "source_claim_pmids": [
-              "PMID:40230354",
-              "PMID:41751333",
-              "PMID:42702818"
-            ],
-            "tractability": [
-              {
-                "label": "Structure with Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "High-Quality Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "Druggable Family",
-                "modality": "SM"
-              },
-              {
-                "label": "UniProt loc high conf",
-                "modality": "AB"
-              },
-              {
-                "label": "GO CC high conf",
-                "modality": "AB"
-              },
-              {
-                "label": "UniProt loc med conf",
-                "modality": "AB"
-              },
-              {
-                "label": "UniProt SigP or TMHMM",
-                "modality": "AB"
-              },
-              {
-                "label": "Small Molecule Binder",
-                "modality": "PR"
-              }
-            ],
-            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
-          }
-        ],
-        "clinical_efficacy_claim": false,
-        "path_type": "STRICT_ORTHOLOGY_TARGET",
-        "source_chain": [
-          "provider-verified animal-to-human orthology",
-          "Open Targets human target validation"
-        ],
-        "status": "VERIFIED",
-        "strict_bridge_count": 1,
-        "subject": "Cynops pyrrhogaster"
-      },
-      {
-        "bridges": [
-          {
-            "animal_ensembl_species": null,
-            "animal_gene": "A0A0B4KEJ3",
-            "animal_species": "Drosophila melanogaster",
-            "animal_uniprot": "A0A0B4KEJ3",
-            "clinical_efficacy_claim": false,
-            "human_biotype": "protein_coding",
-            "human_ensembl_id": "ENSG00000069667",
-            "human_name": "RAR related orphan receptor A",
-            "human_symbol": "RORA",
-            "orthology": {
-              "distance": 102.0,
-              "human_canonicalid": "RORA_HUMAN",
-              "human_omaid": "HUMAN23449",
-              "provider": "OMA",
-              "rel_type": "1:n",
-              "score": 1061.47998046875
-            },
-            "source_chain": [
-              "replicated PMID claim",
-              "Europe PMC Gene_Proteins term extraction",
-              "UniProt exact-species gene/protein resolution",
-              "OMA source-protein species verification",
-              "OMA pairwise orthology to Homo sapiens",
-              "OMA human Ensembl xref",
-              "Open Targets human target annotation"
-            ],
-            "source_claim_pmids": [
-              "PMID:42208364",
-              "PMID:42686794",
-              "PMID:42868151"
-            ],
-            "tractability": [
-              {
-                "label": "Structure with Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "High-Quality Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "Med-Quality Pocket",
-                "modality": "SM"
-              },
-              {
-                "label": "Druggable Family",
-                "modality": "SM"
-              },
-              {
-                "label": "UniProt Ubiquitination",
-                "modality": "PR"
-              },
-              {
-                "label": "Database Ubiquitination",
-                "modality": "PR"
-              },
-              {
-                "label": "Small Molecule Binder",
-                "modality": "PR"
-              }
-            ],
-            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
-          },
-          {
-            "animal_ensembl_species": null,
-            "animal_gene": "A0A0B4KEJ3",
-            "animal_species": "Drosophila melanogaster",
-            "animal_uniprot": "A0A0B4KEJ3",
-            "clinical_efficacy_claim": false,
-            "human_biotype": "protein_coding",
-            "human_ensembl_id": "ENSG00000198963",
-            "human_name": "RAR related orphan receptor B",
-            "human_symbol": "RORB",
-            "orthology": {
-              "distance": 95.0,
-              "human_canonicalid": "RORB_HUMAN",
-              "human_omaid": "HUMAN97300",
-              "provider": "OMA",
-              "rel_type": "1:n",
-              "score": 1128.6700439453125
-            },
-            "source_chain": [
-              "replicated PMID claim",
-              "Europe PMC Gene_Proteins term extraction",
-              "UniProt exact-species gene/protein resolution",
-              "OMA source-protein species verification",
-              "OMA pairwise orthology to Homo sapiens",
-              "OMA human Ensembl xref",
-              "Open Targets human target annotation"
-            ],
-            "source_claim_pmids": [
-              "PMID:42208364",
-              "PMID:42686794",
-              "PMID:42868151"
-            ],
-            "tractability": [
-              {
-                "label": "High-Quality Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "Druggable Family",
-                "modality": "SM"
-              },
-              {
-                "label": "Database Ubiquitination",
-                "modality": "PR"
-              },
-              {
-                "label": "Small Molecule Binder",
-                "modality": "PR"
-              }
-            ],
-            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
-          },
-          {
-            "animal_ensembl_species": null,
-            "animal_gene": "Q94545",
-            "animal_species": "Drosophila melanogaster",
-            "animal_uniprot": "Q94545",
-            "clinical_efficacy_claim": false,
-            "human_biotype": "protein_coding",
-            "human_ensembl_id": "ENSG00000129691",
-            "human_name": "ASH2 like, histone lysine methyltransferase complex subunit",
-            "human_symbol": "ASH2L",
-            "orthology": {
-              "distance": 77.0,
-              "human_canonicalid": "ASH2L_HUMAN",
-              "human_omaid": "HUMAN93412",
-              "provider": "OMA",
-              "rel_type": "1:1",
-              "score": 1901.8900146484375
-            },
-            "source_chain": [
-              "replicated PMID claim",
-              "Europe PMC Gene_Proteins term extraction",
-              "UniProt exact-species gene/protein resolution",
-              "OMA source-protein species verification",
-              "OMA pairwise orthology to Homo sapiens",
-              "OMA human Ensembl xref",
-              "Open Targets human target annotation"
-            ],
-            "source_claim_pmids": [
-              "PMID:42208364",
-              "PMID:42686794",
-              "PMID:42868151"
-            ],
-            "tractability": [
-              {
-                "label": "Structure with Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "High-Quality Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "Human Protein Atlas loc",
-                "modality": "AB"
-              },
-              {
-                "label": "Database Ubiquitination",
-                "modality": "PR"
-              },
-              {
-                "label": "Half-life Data",
-                "modality": "PR"
-              },
-              {
-                "label": "Small Molecule Binder",
-                "modality": "PR"
-              }
-            ],
-            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
-          },
-          {
-            "animal_ensembl_species": null,
-            "animal_gene": "P04412",
-            "animal_species": "Drosophila melanogaster",
-            "animal_uniprot": "P04412",
-            "clinical_efficacy_claim": false,
-            "human_biotype": "protein_coding",
-            "human_ensembl_id": "ENSG00000141736",
-            "human_name": "erb-b2 receptor tyrosine kinase 2",
-            "human_symbol": "ERBB2",
-            "orthology": {
-              "distance": 99.0,
-              "human_canonicalid": "ERBB2_HUMAN",
-              "human_omaid": "HUMAN33374",
-              "provider": "OMA",
-              "rel_type": "1:n",
-              "score": 2635.64990234375
-            },
-            "source_chain": [
-              "replicated PMID claim",
-              "Europe PMC Gene_Proteins term extraction",
-              "UniProt exact-species gene/protein resolution",
-              "OMA source-protein species verification",
-              "OMA pairwise orthology to Homo sapiens",
-              "OMA human Ensembl xref",
-              "Open Targets human target annotation"
-            ],
-            "source_claim_pmids": [
-              "PMID:42208364",
-              "PMID:42686794",
-              "PMID:42868151"
-            ],
-            "tractability": [
-              {
-                "label": "Approved Drug",
-                "modality": "SM"
-              },
-              {
-                "label": "Structure with Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "High-Quality Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "High-Quality Pocket",
-                "modality": "SM"
-              },
-              {
-                "label": "Druggable Family",
-                "modality": "SM"
-              },
-              {
-                "label": "Approved Drug",
-                "modality": "AB"
-              },
-              {
-                "label": "UniProt loc high conf",
-                "modality": "AB"
-              },
-              {
-                "label": "GO CC high conf",
-                "modality": "AB"
-              },
-              {
-                "label": "UniProt SigP or TMHMM",
-                "modality": "AB"
-              },
-              {
-                "label": "Human Protein Atlas loc",
-                "modality": "AB"
-              },
-              {
-                "label": "Literature",
-                "modality": "PR"
-              },
-              {
-                "label": "Database Ubiquitination",
-                "modality": "PR"
-              }
-            ],
-            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
-          },
-          {
-            "animal_ensembl_species": null,
-            "animal_gene": "P04412",
-            "animal_species": "Drosophila melanogaster",
-            "animal_uniprot": "P04412",
-            "clinical_efficacy_claim": false,
-            "human_biotype": "protein_coding",
-            "human_ensembl_id": "ENSG00000178568",
-            "human_name": "erb-b2 receptor tyrosine kinase 4",
-            "human_symbol": "ERBB4",
-            "orthology": {
-              "distance": 92.0,
-              "human_canonicalid": "ERBB4_HUMAN",
-              "human_omaid": "HUMAN66728",
-              "provider": "OMA",
-              "rel_type": "1:n",
-              "score": 3124.550048828125
-            },
-            "source_chain": [
-              "replicated PMID claim",
-              "Europe PMC Gene_Proteins term extraction",
-              "UniProt exact-species gene/protein resolution",
-              "OMA source-protein species verification",
-              "OMA pairwise orthology to Homo sapiens",
-              "OMA human Ensembl xref",
-              "Open Targets human target annotation"
-            ],
-            "source_claim_pmids": [
-              "PMID:42208364",
-              "PMID:42686794",
-              "PMID:42868151"
-            ],
-            "tractability": [
-              {
-                "label": "Approved Drug",
-                "modality": "SM"
-              },
-              {
-                "label": "Structure with Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "High-Quality Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "High-Quality Pocket",
-                "modality": "SM"
-              },
-              {
-                "label": "Druggable Family",
-                "modality": "SM"
-              },
-              {
-                "label": "UniProt loc high conf",
-                "modality": "AB"
-              },
-              {
-                "label": "GO CC high conf",
-                "modality": "AB"
-              },
-              {
-                "label": "UniProt SigP or TMHMM",
-                "modality": "AB"
-              },
-              {
-                "label": "UniProt Ubiquitination",
-                "modality": "PR"
-              },
-              {
-                "label": "Database Ubiquitination",
-                "modality": "PR"
-              },
-              {
-                "label": "Half-life Data",
-                "modality": "PR"
-              },
-              {
-                "label": "Small Molecule Binder",
-                "modality": "PR"
-              }
-            ],
-            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
-          },
-          {
-            "animal_ensembl_species": null,
-            "animal_gene": "P04412",
-            "animal_species": "Drosophila melanogaster",
-            "animal_uniprot": "P04412",
-            "clinical_efficacy_claim": false,
-            "human_biotype": "protein_coding",
-            "human_ensembl_id": "ENSG00000146648",
-            "human_name": "epidermal growth factor receptor",
-            "human_symbol": "EGFR",
-            "orthology": {
-              "distance": 90.0,
-              "human_canonicalid": "EGFR_HUMAN",
-              "human_omaid": "HUMAN89021",
-              "provider": "OMA",
-              "rel_type": "1:n",
-              "score": 3084.7900390625
-            },
-            "source_chain": [
-              "replicated PMID claim",
-              "Europe PMC Gene_Proteins term extraction",
-              "UniProt exact-species gene/protein resolution",
-              "OMA source-protein species verification",
-              "OMA pairwise orthology to Homo sapiens",
-              "OMA human Ensembl xref",
-              "Open Targets human target annotation"
-            ],
-            "source_claim_pmids": [
-              "PMID:42208364",
-              "PMID:42686794",
-              "PMID:42868151"
-            ],
-            "tractability": [
-              {
-                "label": "Approved Drug",
-                "modality": "SM"
-              },
-              {
-                "label": "Structure with Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "High-Quality Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "High-Quality Pocket",
-                "modality": "SM"
-              },
-              {
-                "label": "Druggable Family",
-                "modality": "SM"
-              },
-              {
-                "label": "Approved Drug",
-                "modality": "AB"
-              },
-              {
-                "label": "UniProt loc high conf",
-                "modality": "AB"
-              },
-              {
-                "label": "GO CC high conf",
-                "modality": "AB"
-              },
-              {
-                "label": "UniProt loc med conf",
-                "modality": "AB"
-              },
-              {
-                "label": "UniProt SigP or TMHMM",
-                "modality": "AB"
-              },
-              {
-                "label": "Human Protein Atlas loc",
-                "modality": "AB"
-              },
-              {
-                "label": "Literature",
-                "modality": "PR"
-              }
-            ],
-            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
-          }
-        ],
-        "clinical_efficacy_claim": false,
-        "path_type": "STRICT_ORTHOLOGY_TARGET",
-        "source_chain": [
-          "provider-verified animal-to-human orthology",
-          "Open Targets human target validation"
-        ],
-        "status": "VERIFIED",
-        "strict_bridge_count": 6,
-        "subject": "Drosophila melanogaster"
-      },
-      {
-        "bridges": [
-          {
-            "animal_ensembl_species": null,
-            "animal_gene": "WNT2",
-            "animal_species": "Paracentrotus lividus",
-            "animal_taxon_id": 7656,
-            "bridge_evidence_pmids": [
-              "31479176"
-            ],
-            "bridge_scope": "species-level strict orthology anchor only; the preservation/cryopreservation translation path remains the separate DMSO/trehalose functional bridge",
-            "bridge_seed_rationale": "Robert et al. 2019 explicitly identify a WNT2 ortholog in Paracentrotus lividus and report both Maximum Likelihood and Bayesian phylogenetic analyses with Homo sapiens WNT sequences included.",
-            "clinical_efficacy_claim": false,
-            "human_biotype": "protein_coding",
-            "human_ensembl_id": "ENSG00000105989",
-            "human_name": "Wnt family member 2",
-            "human_symbol": "WNT2",
-            "orthology": {
-              "human_in_phylogeny": true,
-              "orthology_doi": "10.1002/dvg.23331",
-              "orthology_pmid": "31479176",
-              "paralog_discrimination": "Bilaterian WNT subfamilies were resolved; P. lividus WNT2 was highlighted inside the WNT2 subfamily while Homo sapiens WNT sequences were included in the same analyses.",
-              "phylogeny_methods": [
-                "unrooted Maximum Likelihood WNT-family phylogeny",
-                "unrooted Bayesian Inference WNT-family phylogeny"
-              ],
-              "provider": "Peer-reviewed direct orthology",
-              "relation": "peer_reviewed_gene_family_orthology"
-            },
-            "source_chain": [
-              "replicated exact-species research claim",
-              "peer-reviewed exact-species orthology paper",
-              "Maximum Likelihood + Bayesian gene-family phylogenies",
-              "Homo sapiens sequences included in the same orthology analysis",
-              "Open Targets human Ensembl target validation"
-            ],
-            "source_claim_pmids": [
-              "PMID:38622199",
-              "PMID:42208364",
-              "PMID:42738576"
-            ],
-            "tractability": [
-              {
-                "label": "UniProt loc high conf",
-                "modality": "AB"
-              },
-              {
-                "label": "GO CC high conf",
-                "modality": "AB"
-              },
-              {
-                "label": "UniProt SigP or TMHMM",
-                "modality": "AB"
-              }
-            ],
-            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
-          }
-        ],
-        "clinical_efficacy_claim": false,
-        "path_type": "STRICT_ORTHOLOGY_TARGET",
-        "source_chain": [
-          "provider-verified animal-to-human orthology",
-          "Open Targets human target validation"
-        ],
-        "status": "VERIFIED",
-        "strict_bridge_count": 1,
-        "subject": "Paracentrotus lividus"
-      },
-      {
-        "bridges": [
-          {
-            "animal_ensembl_species": null,
-            "animal_gene": "daf-16",
-            "animal_ncbi_gene_id": "172981",
-            "animal_species": "Caenorhabditis elegans",
-            "animal_taxon_id": "6239",
-            "bridge_evidence_pmids": [
-              "26635120",
-              "11747821"
-            ],
-            "bridge_scope": "endogenous freeze-tolerance mechanism; independent of the exogenous ice-binding-protein intervention",
-            "bridge_seed_rationale": "Exact-species freeze-thaw genetics requires DAF-16 downstream of daf-2, while independent human-to-worm complementation work demonstrates that human FKHRL1/FOXO3 can partially replace DAF-16. This supports a conserved FOXO-family relationship without asserting one-to-one orthology or human clinical efficacy.",
-            "cache_miss_count": 1,
-            "cache_reason": "Current live providers did not reproduce this previously verified strict bridge; retained temporarily pending revalidation.",
-            "clinical_efficacy_claim": false,
-            "human_biotype": "protein_coding",
-            "human_ensembl_id": "ENSG00000118689",
-            "human_name": "forkhead box O3",
-            "human_symbol": "FOXO3",
-            "last_live_verified_at": "2026-11-10T11:50:33.459558+00:00",
-            "orthology": {
-              "functional_orthology_doi": "10.1016/S0960-9822(01)00595-4",
-              "functional_orthology_pmid": "11747821",
-              "human_paralog_context": [
-                "FOXO1",
-                "FOXO3",
-                "FOXO4"
-              ],
-              "method": "exact-species genetics + cross-species functional complementation",
-              "provider": "Peer-reviewed functional orthology",
-              "relation": "one_to_many_functional_orthology",
-              "selected_human_target": "FOXO3",
-              "source_ncbi_gene_id": "172981"
-            },
-            "source_chain": [
-              "replicated exact-species research claim",
-              "NCBI Datasets exact Caenorhabditis elegans daf-16 gene",
-              "exact-species freeze-thaw genetics requiring DAF-16/FOXO",
-              "peer-reviewed human FKHRL1/FOXO3-to-DAF-16 functional complementation",
-              "Open Targets human FOXO3 target validation"
-            ],
-            "source_claim_pmids": [
-              "PMID:42169464",
-              "PMID:42208364"
-            ],
-            "tractability": [
-              {
-                "label": "Structure with Ligand",
-                "modality": "SM"
-              },
-              {
-                "label": "UniProt loc high conf",
-                "modality": "AB"
-              },
-              {
-                "label": "UniProt Ubiquitination",
-                "modality": "PR"
-              },
-              {
-                "label": "Database Ubiquitination",
-                "modality": "PR"
-              }
-            ],
-            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
-            "verification_mode": "LAST_KNOWN_GOOD_CACHE"
-          }
-        ],
-        "clinical_efficacy_claim": false,
-        "path_type": "STRICT_ORTHOLOGY_TARGET",
-        "source_chain": [
-          "provider-verified animal-to-human orthology",
-          "Open Targets human target validation"
-        ],
-        "status": "VERIFIED",
-        "strict_bridge_count": 1,
-        "subject": "Caenorhabditis elegans"
-      }
-    ],
-    "status": "PARTIAL",
-    "strict_orthology_candidates": 7,
-    "strict_orthology_coverage_ratio": 0.7778,
-    "translation_coverage_ratio": 0.7778,
-    "translation_verified_candidates": 7
-  },
   "mission_graphs": [
     {
       "edges": [
@@ -439744,242 +437188,242 @@
     {
       "edges": [
         {
-          "from": "PRG-bc3797f8a9:PLAN",
-          "to": "PRG-bc3797f8a9:OBSERVE"
+          "from": "PRG-2420f4dcfa:PLAN",
+          "to": "PRG-2420f4dcfa:OBSERVE"
         },
         {
-          "from": "PRG-bc3797f8a9:OBSERVE",
-          "to": "PRG-bc3797f8a9:DISCOVER"
+          "from": "PRG-2420f4dcfa:OBSERVE",
+          "to": "PRG-2420f4dcfa:DISCOVER"
         },
         {
-          "from": "PRG-bc3797f8a9:DISCOVER",
-          "to": "PRG-bc3797f8a9:VERIFY"
+          "from": "PRG-2420f4dcfa:DISCOVER",
+          "to": "PRG-2420f4dcfa:VERIFY"
         },
         {
-          "from": "PRG-bc3797f8a9:VERIFY",
-          "to": "PRG-bc3797f8a9:EVALUATE"
+          "from": "PRG-2420f4dcfa:VERIFY",
+          "to": "PRG-2420f4dcfa:EVALUATE"
         },
         {
-          "from": "PRG-bc3797f8a9:EVALUATE",
-          "to": "PRG-bc3797f8a9:FALSIFY"
+          "from": "PRG-2420f4dcfa:EVALUATE",
+          "to": "PRG-2420f4dcfa:FALSIFY"
         },
         {
-          "from": "PRG-bc3797f8a9:FALSIFY",
-          "to": "PRG-bc3797f8a9:TRANSLATE"
+          "from": "PRG-2420f4dcfa:FALSIFY",
+          "to": "PRG-2420f4dcfa:TRANSLATE"
         },
         {
-          "from": "PRG-bc3797f8a9:TRANSLATE",
-          "to": "PRG-bc3797f8a9:EXPERIMENT"
+          "from": "PRG-2420f4dcfa:TRANSLATE",
+          "to": "PRG-2420f4dcfa:EXPERIMENT"
         },
         {
-          "from": "PRG-bc3797f8a9:EXPERIMENT",
-          "to": "PRG-bc3797f8a9:BENCHMARK"
+          "from": "PRG-2420f4dcfa:EXPERIMENT",
+          "to": "PRG-2420f4dcfa:BENCHMARK"
         },
         {
-          "from": "PRG-bc3797f8a9:BENCHMARK",
-          "to": "PRG-bc3797f8a9:IMPROVE"
+          "from": "PRG-2420f4dcfa:BENCHMARK",
+          "to": "PRG-2420f4dcfa:IMPROVE"
         },
         {
-          "from": "PRG-bc3797f8a9:IMPROVE",
-          "to": "PRG-bc3797f8a9:MEMORY"
+          "from": "PRG-2420f4dcfa:IMPROVE",
+          "to": "PRG-2420f4dcfa:MEMORY"
         },
         {
-          "from": "PRG-bc3797f8a9:MEMORY",
-          "to": "PRG-bc3797f8a9:DECIDE"
+          "from": "PRG-2420f4dcfa:MEMORY",
+          "to": "PRG-2420f4dcfa:DECIDE"
         },
         {
-          "from": "PRG-bc3797f8a9:DECIDE",
-          "to": "PRG-bc3797f8a9:OPERATE"
+          "from": "PRG-2420f4dcfa:DECIDE",
+          "to": "PRG-2420f4dcfa:OPERATE"
         }
       ],
       "nodes": [
         {
-          "id": "PRG-bc3797f8a9:PLAN",
+          "id": "PRG-2420f4dcfa:PLAN",
           "stage": "PLAN",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-bc3797f8a9:OBSERVE",
+          "id": "PRG-2420f4dcfa:OBSERVE",
           "stage": "OBSERVE",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-bc3797f8a9:DISCOVER",
+          "id": "PRG-2420f4dcfa:DISCOVER",
           "stage": "DISCOVER",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-bc3797f8a9:VERIFY",
+          "id": "PRG-2420f4dcfa:VERIFY",
           "stage": "VERIFY",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-bc3797f8a9:EVALUATE",
+          "id": "PRG-2420f4dcfa:EVALUATE",
           "stage": "EVALUATE",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-bc3797f8a9:FALSIFY",
+          "id": "PRG-2420f4dcfa:FALSIFY",
           "stage": "FALSIFY",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-bc3797f8a9:TRANSLATE",
+          "id": "PRG-2420f4dcfa:TRANSLATE",
           "stage": "TRANSLATE",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-bc3797f8a9:EXPERIMENT",
+          "id": "PRG-2420f4dcfa:EXPERIMENT",
           "stage": "EXPERIMENT",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-bc3797f8a9:BENCHMARK",
+          "id": "PRG-2420f4dcfa:BENCHMARK",
           "stage": "BENCHMARK",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-bc3797f8a9:IMPROVE",
+          "id": "PRG-2420f4dcfa:IMPROVE",
           "stage": "IMPROVE",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-bc3797f8a9:MEMORY",
+          "id": "PRG-2420f4dcfa:MEMORY",
           "stage": "MEMORY",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-bc3797f8a9:DECIDE",
+          "id": "PRG-2420f4dcfa:DECIDE",
           "stage": "DECIDE",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-bc3797f8a9:OPERATE",
+          "id": "PRG-2420f4dcfa:OPERATE",
           "stage": "OPERATE",
           "status": "PLANNED"
         }
       ],
-      "program_id": "PRG-bc3797f8a9"
+      "program_id": "PRG-2420f4dcfa"
     },
     {
       "edges": [
         {
-          "from": "PRG-0e95826bc8:PLAN",
-          "to": "PRG-0e95826bc8:OBSERVE"
+          "from": "PRG-70175ca5b4:PLAN",
+          "to": "PRG-70175ca5b4:OBSERVE"
         },
         {
-          "from": "PRG-0e95826bc8:OBSERVE",
-          "to": "PRG-0e95826bc8:DISCOVER"
+          "from": "PRG-70175ca5b4:OBSERVE",
+          "to": "PRG-70175ca5b4:DISCOVER"
         },
         {
-          "from": "PRG-0e95826bc8:DISCOVER",
-          "to": "PRG-0e95826bc8:VERIFY"
+          "from": "PRG-70175ca5b4:DISCOVER",
+          "to": "PRG-70175ca5b4:VERIFY"
         },
         {
-          "from": "PRG-0e95826bc8:VERIFY",
-          "to": "PRG-0e95826bc8:EVALUATE"
+          "from": "PRG-70175ca5b4:VERIFY",
+          "to": "PRG-70175ca5b4:EVALUATE"
         },
         {
-          "from": "PRG-0e95826bc8:EVALUATE",
-          "to": "PRG-0e95826bc8:FALSIFY"
+          "from": "PRG-70175ca5b4:EVALUATE",
+          "to": "PRG-70175ca5b4:FALSIFY"
         },
         {
-          "from": "PRG-0e95826bc8:FALSIFY",
-          "to": "PRG-0e95826bc8:TRANSLATE"
+          "from": "PRG-70175ca5b4:FALSIFY",
+          "to": "PRG-70175ca5b4:TRANSLATE"
         },
         {
-          "from": "PRG-0e95826bc8:TRANSLATE",
-          "to": "PRG-0e95826bc8:EXPERIMENT"
+          "from": "PRG-70175ca5b4:TRANSLATE",
+          "to": "PRG-70175ca5b4:EXPERIMENT"
         },
         {
-          "from": "PRG-0e95826bc8:EXPERIMENT",
-          "to": "PRG-0e95826bc8:BENCHMARK"
+          "from": "PRG-70175ca5b4:EXPERIMENT",
+          "to": "PRG-70175ca5b4:BENCHMARK"
         },
         {
-          "from": "PRG-0e95826bc8:BENCHMARK",
-          "to": "PRG-0e95826bc8:IMPROVE"
+          "from": "PRG-70175ca5b4:BENCHMARK",
+          "to": "PRG-70175ca5b4:IMPROVE"
         },
         {
-          "from": "PRG-0e95826bc8:IMPROVE",
-          "to": "PRG-0e95826bc8:MEMORY"
+          "from": "PRG-70175ca5b4:IMPROVE",
+          "to": "PRG-70175ca5b4:MEMORY"
         },
         {
-          "from": "PRG-0e95826bc8:MEMORY",
-          "to": "PRG-0e95826bc8:DECIDE"
+          "from": "PRG-70175ca5b4:MEMORY",
+          "to": "PRG-70175ca5b4:DECIDE"
         },
         {
-          "from": "PRG-0e95826bc8:DECIDE",
-          "to": "PRG-0e95826bc8:OPERATE"
+          "from": "PRG-70175ca5b4:DECIDE",
+          "to": "PRG-70175ca5b4:OPERATE"
         }
       ],
       "nodes": [
         {
-          "id": "PRG-0e95826bc8:PLAN",
+          "id": "PRG-70175ca5b4:PLAN",
           "stage": "PLAN",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-0e95826bc8:OBSERVE",
+          "id": "PRG-70175ca5b4:OBSERVE",
           "stage": "OBSERVE",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-0e95826bc8:DISCOVER",
+          "id": "PRG-70175ca5b4:DISCOVER",
           "stage": "DISCOVER",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-0e95826bc8:VERIFY",
+          "id": "PRG-70175ca5b4:VERIFY",
           "stage": "VERIFY",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-0e95826bc8:EVALUATE",
+          "id": "PRG-70175ca5b4:EVALUATE",
           "stage": "EVALUATE",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-0e95826bc8:FALSIFY",
+          "id": "PRG-70175ca5b4:FALSIFY",
           "stage": "FALSIFY",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-0e95826bc8:TRANSLATE",
+          "id": "PRG-70175ca5b4:TRANSLATE",
           "stage": "TRANSLATE",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-0e95826bc8:EXPERIMENT",
+          "id": "PRG-70175ca5b4:EXPERIMENT",
           "stage": "EXPERIMENT",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-0e95826bc8:BENCHMARK",
+          "id": "PRG-70175ca5b4:BENCHMARK",
           "stage": "BENCHMARK",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-0e95826bc8:IMPROVE",
+          "id": "PRG-70175ca5b4:IMPROVE",
           "stage": "IMPROVE",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-0e95826bc8:MEMORY",
+          "id": "PRG-70175ca5b4:MEMORY",
           "stage": "MEMORY",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-0e95826bc8:DECIDE",
+          "id": "PRG-70175ca5b4:DECIDE",
           "stage": "DECIDE",
           "status": "PLANNED"
         },
         {
-          "id": "PRG-0e95826bc8:OPERATE",
+          "id": "PRG-70175ca5b4:OPERATE",
           "stage": "OPERATE",
           "status": "PLANNED"
         }
       ],
-      "program_id": "PRG-0e95826bc8"
+      "program_id": "PRG-70175ca5b4"
     }
   ],
   "policy_gate": {
@@ -440073,7 +437517,7 @@
       ],
       "taxon_verified": true,
       "title": "Somniosus microcephalus",
-      "updated_at": "2026-11-08T10:30:19.329827+00:00"
+      "updated_at": "2026-11-12T11:29:36.219623+00:00"
     },
     {
       "age_days": 0,
@@ -440151,7 +437595,7 @@
       ],
       "taxon_verified": true,
       "title": "Acomys cahirinus",
-      "updated_at": "2026-11-08T10:30:19.329839+00:00"
+      "updated_at": "2026-11-12T11:29:36.219640+00:00"
     },
     {
       "age_days": 0,
@@ -440234,7 +437678,7 @@
       ],
       "taxon_verified": true,
       "title": "Danio rerio",
-      "updated_at": "2026-11-08T10:30:19.329867+00:00"
+      "updated_at": "2026-11-12T11:29:36.219648+00:00"
     },
     {
       "age_days": 0,
@@ -440316,23 +437760,27 @@
       ],
       "taxon_verified": true,
       "title": "Cynops pyrrhogaster",
-      "updated_at": "2026-11-08T10:30:19.329872+00:00"
+      "updated_at": "2026-11-12T11:29:36.219655+00:00"
     },
     {
       "age_days": 0,
-      "committee_score": 54,
-      "created_at": "2026-09-29T09:56:24.046474+00:00",
+      "committee_score": 49,
+      "created_at": "2026-11-12T11:29:36.219689+00:00",
       "credit_history": [],
-      "genes": [],
-      "id": "PRG-bc3797f8a9",
-      "independent_source_count": 3,
-      "key": "hydra vulgaris",
+      "genes": [
+        "PI3K-",
+        "TGF-"
+      ],
+      "id": "PRG-2420f4dcfa",
+      "independent_source_count": 2,
+      "key": "ambystoma mexicanum",
       "labs": [
-        "longevity"
+        "regeneration"
       ],
       "mechanisms": [
-        "autophagy",
-        "senescence"
+        "fibrosis",
+        "inflammation",
+        "regeneration"
       ],
       "milestones": [
         {
@@ -440367,50 +437815,48 @@
         }
       ],
       "pmid_sources": [
-        "PMID:41983916",
-        "PMID:42793312",
-        "PMID:42833632"
+        "PMID:42731061",
+        "PMID:43007699"
       ],
       "priority_rank": 5,
-      "source_count": 3,
+      "source_count": 2,
       "sources": [
-        "PMID:41983916",
-        "PMID:42793312",
-        "PMID:42833632"
+        "PMID:42731061",
+        "PMID:43007699"
       ],
       "stage": "DISCOVERY",
       "status": "ACTIVE",
       "taxon_proofs": [
         {
-          "canonical_name": "Hydra vulgaris",
+          "canonical_name": "Ambystoma mexicanum",
           "kingdom": "Animalia",
           "match_type": "EXACT",
           "provider": "GBIF",
           "rank": "SPECIES",
           "status": "ACCEPTED",
-          "taxon_key": 5185782
+          "taxon_key": 2431950
         }
       ],
       "taxon_verified": true,
-      "title": "Hydra vulgaris",
-      "updated_at": "2026-11-08T10:30:19.329877+00:00"
+      "title": "Ambystoma mexicanum",
+      "updated_at": "2026-11-12T11:29:36.219694+00:00"
     },
     {
       "age_days": 0,
-      "committee_score": 50,
-      "created_at": "2026-09-29T09:56:24.046488+00:00",
+      "committee_score": 45,
+      "created_at": "2026-09-23T15:58:57.385710+00:00",
       "credit_history": [],
-      "genes": [],
-      "id": "PRG-0e95826bc8",
-      "independent_source_count": 2,
-      "key": "hydra oligactis",
+      "genes": [
+        "NIH-",
+        "USDA"
+      ],
+      "id": "PRG-70175ca5b4",
+      "independent_source_count": 3,
+      "key": "drosophila melanogaster",
       "labs": [
-        "longevity"
+        "preservation"
       ],
-      "mechanisms": [
-        "autophagy",
-        "senescence"
-      ],
+      "mechanisms": [],
       "milestones": [
         {
           "id": "M1",
@@ -440444,31 +437890,33 @@
         }
       ],
       "pmid_sources": [
-        "PMID:42793312",
-        "PMID:42833632"
+        "PMID:42208364",
+        "PMID:42686794",
+        "PMID:42868151"
       ],
       "priority_rank": 6,
-      "source_count": 2,
+      "source_count": 3,
       "sources": [
-        "PMID:42793312",
-        "PMID:42833632"
+        "PMID:42208364",
+        "PMID:42686794",
+        "PMID:42868151"
       ],
       "stage": "DISCOVERY",
       "status": "ACTIVE",
       "taxon_proofs": [
         {
-          "canonical_name": "Hydra oligactis",
+          "canonical_name": "Drosophila melanogaster",
           "kingdom": "Animalia",
           "match_type": "EXACT",
           "provider": "GBIF",
           "rank": "SPECIES",
           "status": "ACCEPTED",
-          "taxon_key": 5185751
+          "taxon_key": 5073713
         }
       ],
       "taxon_verified": true,
-      "title": "Hydra oligactis",
-      "updated_at": "2026-11-08T10:30:19.329881+00:00"
+      "title": "Drosophila melanogaster",
+      "updated_at": "2026-11-12T11:29:36.219699+00:00"
     }
   ],
   "schema": "biomimic-v7-factory-cycle-v1",
@@ -441796,7 +439244,7 @@
           "single-lab dependence"
         ],
         "blocked_or_pending_hypothesis_ids": [
-          "HYP-f9341ab9ee42"
+          "HYP-8afccdd7a7e0"
         ],
         "decision_rule": "fail closed on causal promotion; alternatives may survive only as hypotheses pending discriminating tests",
         "ranked": [
@@ -441808,13 +439256,13 @@
               "test same mechanism in an evolutionarily distant species with similar phenotype",
               "test human orthologue/pathway in disease-relevant human cells"
             ],
-            "evidence_priority_score": 0.485,
+            "evidence_priority_score": 0.465,
             "evidence_support": [
-              "3 independent PMID-linked sources",
-              "2 recorded mechanisms",
-              "0 recorded gene/protein candidates"
+              "2 independent PMID-linked sources",
+              "3 recorded mechanisms",
+              "2 recorded gene/protein candidates"
             ],
-            "hypothesis_id": "HYP-f9341ab9ee42",
+            "hypothesis_id": "HYP-8afccdd7a7e0",
             "kind": "PRIMARY_CAUSAL",
             "objections": [
               "association does not establish causation",
@@ -441836,13 +439284,13 @@
               "test same mechanism in an evolutionarily distant species with similar phenotype",
               "test human orthologue/pathway in disease-relevant human cells"
             ],
-            "evidence_priority_score": 0.485,
+            "evidence_priority_score": 0.465,
             "evidence_support": [
-              "3 independent PMID-linked sources",
-              "2 recorded mechanisms",
-              "0 recorded gene/protein candidates"
+              "2 independent PMID-linked sources",
+              "3 recorded mechanisms",
+              "2 recorded gene/protein candidates"
             ],
-            "hypothesis_id": "HYP-ca6cc78165df",
+            "hypothesis_id": "HYP-82638ff18432",
             "kind": "CONTEXT_DEPENDENT_ALTERNATIVE",
             "objections": [
               "correlation not causation",
@@ -441863,13 +439311,13 @@
               "test same mechanism in an evolutionarily distant species with similar phenotype",
               "test human orthologue/pathway in disease-relevant human cells"
             ],
-            "evidence_priority_score": 0.485,
+            "evidence_priority_score": 0.465,
             "evidence_support": [
-              "3 independent PMID-linked sources",
-              "2 recorded mechanisms",
-              "0 recorded gene/protein candidates"
+              "2 independent PMID-linked sources",
+              "3 recorded mechanisms",
+              "2 recorded gene/protein candidates"
             ],
-            "hypothesis_id": "HYP-bd4577316f36",
+            "hypothesis_id": "HYP-56909a76ed16",
             "kind": "MARKER_ONLY_ALTERNATIVE",
             "objections": [
               "correlation not causation",
@@ -441884,8 +439332,8 @@
           }
         ],
         "surviving_hypothesis_ids": [
-          "HYP-ca6cc78165df",
-          "HYP-bd4577316f36"
+          "HYP-82638ff18432",
+          "HYP-56909a76ed16"
         ]
       },
       "evidence_status": "SUPPORTED",
@@ -441906,8 +439354,8 @@
             "repeat across independent biological replicates",
             "analyze effect direction, uncertainty, and failure conditions"
           ],
-          "falsifier": "Specific perturbation of autophagy produces no reproducible phenotype change under adequate controls.",
-          "hypothesis_id": "HYP-f9341ab9ee42",
+          "falsifier": "Specific perturbation of fibrosis produces no reproducible phenotype change under adequate controls.",
+          "hypothesis_id": "HYP-8afccdd7a7e0",
           "kill_criteria": [
             "no reproducible phenotype change",
             "effect disappears under independent replication",
@@ -441916,16 +439364,15 @@
           ],
           "null_hypothesis": "The nominated mechanism does not causally alter the phenotype under the tested conditions.",
           "objective": "Distinguish the nominated causal explanation from marker-only and context-dependent alternatives.",
-          "predicted_if_supported": "Perturbing autophagy should change the phenotype in the predicted direction, and rescue should partially restore it.",
-          "program_id": "PRG-bc3797f8a9",
-          "sha256": "a4858c7bbfcacf2461c28af19b0faae110f6815d031e6ef7cd0f7970a153b0fc",
+          "predicted_if_supported": "Perturbing fibrosis should change the phenotype in the predicted direction, and rescue should partially restore it.",
+          "program_id": "PRG-2420f4dcfa",
+          "sha256": "c2a2a050b8b958b1cf3009c863574e254dab3d01a44e2190bf86555297a5a5ad",
           "source_pmids": [
-            "PMID:41983916",
-            "PMID:42793312",
-            "PMID:42833632"
+            "PMID:42731061",
+            "PMID:43007699"
           ],
           "status": "PROPOSED_NOT_EXECUTED",
-          "subject": "Hydra vulgaris"
+          "subject": "Ambystoma mexicanum"
         },
         {
           "clinical_efficacy_claim": false,
@@ -441944,7 +439391,7 @@
             "analyze effect direction, uncertainty, and failure conditions"
           ],
           "falsifier": "The effect remains stable across relevant contexts and does not depend on plausible interacting pathways.",
-          "hypothesis_id": "HYP-ca6cc78165df",
+          "hypothesis_id": "HYP-82638ff18432",
           "kill_criteria": [
             "no reproducible phenotype change",
             "effect disappears under independent replication",
@@ -441954,15 +439401,14 @@
           "null_hypothesis": "The nominated mechanism does not causally alter the phenotype under the tested conditions.",
           "objective": "Distinguish the nominated causal explanation from marker-only and context-dependent alternatives.",
           "predicted_if_supported": "The effect size should vary across context, lineage, tissue, developmental state, or pathway background.",
-          "program_id": "PRG-bc3797f8a9",
-          "sha256": "e64d0facaef48375e94700806863b7b0fa9bb7e3d1780326118a19450f6659ca",
+          "program_id": "PRG-2420f4dcfa",
+          "sha256": "7f05b792985071338a8964a261bd4b0af86100ebc5714ea12633a252f21e9f7d",
           "source_pmids": [
-            "PMID:41983916",
-            "PMID:42793312",
-            "PMID:42833632"
+            "PMID:42731061",
+            "PMID:43007699"
           ],
           "status": "PROPOSED_NOT_EXECUTED",
-          "subject": "Hydra vulgaris"
+          "subject": "Ambystoma mexicanum"
         }
       ],
       "experiments_executed": false,
@@ -441984,25 +439430,28 @@
             "negative control",
             "human-relevant validation only after conservation checks"
           ],
-          "falsifier": "Specific perturbation of autophagy produces no reproducible phenotype change under adequate controls.",
-          "genes": [],
+          "falsifier": "Specific perturbation of fibrosis produces no reproducible phenotype change under adequate controls.",
+          "genes": [
+            "PI3K-",
+            "TGF-"
+          ],
           "human_targets": [],
-          "id": "HYP-f9341ab9ee42",
+          "id": "HYP-8afccdd7a7e0",
           "kind": "PRIMARY_CAUSAL",
           "mechanisms": [
-            "autophagy",
-            "senescence"
+            "fibrosis",
+            "inflammation",
+            "regeneration"
           ],
-          "prediction": "Perturbing autophagy should change the phenotype in the predicted direction, and rescue should partially restore it.",
-          "program_id": "PRG-bc3797f8a9",
+          "prediction": "Perturbing fibrosis should change the phenotype in the predicted direction, and rescue should partially restore it.",
+          "program_id": "PRG-2420f4dcfa",
           "source_pmids": [
-            "PMID:41983916",
-            "PMID:42793312",
-            "PMID:42833632"
+            "PMID:42731061",
+            "PMID:43007699"
           ],
-          "statement": "In Hydra vulgaris, autophagy contributes causally to the reported phenotype rather than merely correlating with it.",
+          "statement": "In Ambystoma mexicanum, fibrosis contributes causally to the reported phenotype rather than merely correlating with it.",
           "status": "HYPOTHESIS",
-          "subject": "Hydra vulgaris"
+          "subject": "Ambystoma mexicanum"
         },
         {
           "association_only": true,
@@ -442020,25 +439469,28 @@
             "negative control",
             "human-relevant validation only after conservation checks"
           ],
-          "falsifier": "Targeted perturbation of autophagy reproducibly abolishes the phenotype and rescue restores it.",
-          "genes": [],
+          "falsifier": "Targeted perturbation of fibrosis reproducibly abolishes the phenotype and rescue restores it.",
+          "genes": [
+            "PI3K-",
+            "TGF-"
+          ],
           "human_targets": [],
-          "id": "HYP-bd4577316f36",
+          "id": "HYP-56909a76ed16",
           "kind": "MARKER_ONLY_ALTERNATIVE",
           "mechanisms": [
-            "autophagy",
-            "senescence"
+            "fibrosis",
+            "inflammation",
+            "regeneration"
           ],
-          "prediction": "The phenotype should persist when autophagy changes, provided upstream drivers remain intact.",
-          "program_id": "PRG-bc3797f8a9",
+          "prediction": "The phenotype should persist when fibrosis changes, provided upstream drivers remain intact.",
+          "program_id": "PRG-2420f4dcfa",
           "source_pmids": [
-            "PMID:41983916",
-            "PMID:42793312",
-            "PMID:42833632"
+            "PMID:42731061",
+            "PMID:43007699"
           ],
-          "statement": "In Hydra vulgaris, autophagy is a downstream marker or correlate rather than a causal driver.",
+          "statement": "In Ambystoma mexicanum, fibrosis is a downstream marker or correlate rather than a causal driver.",
           "status": "HYPOTHESIS",
-          "subject": "Hydra vulgaris"
+          "subject": "Ambystoma mexicanum"
         },
         {
           "association_only": true,
@@ -442057,36 +439509,38 @@
             "human-relevant validation only after conservation checks"
           ],
           "falsifier": "The effect remains stable across relevant contexts and does not depend on plausible interacting pathways.",
-          "genes": [],
+          "genes": [
+            "PI3K-",
+            "TGF-"
+          ],
           "human_targets": [],
-          "id": "HYP-ca6cc78165df",
+          "id": "HYP-82638ff18432",
           "kind": "CONTEXT_DEPENDENT_ALTERNATIVE",
           "mechanisms": [
-            "autophagy",
-            "senescence"
+            "fibrosis",
+            "inflammation",
+            "regeneration"
           ],
           "prediction": "The effect size should vary across context, lineage, tissue, developmental state, or pathway background.",
-          "program_id": "PRG-bc3797f8a9",
+          "program_id": "PRG-2420f4dcfa",
           "source_pmids": [
-            "PMID:41983916",
-            "PMID:42793312",
-            "PMID:42833632"
+            "PMID:42731061",
+            "PMID:43007699"
           ],
-          "statement": "In Hydra vulgaris, the effect associated with autophagy depends on biological context or interacting pathways.",
+          "statement": "In Ambystoma mexicanum, the effect associated with fibrosis depends on biological context or interacting pathways.",
           "status": "HYPOTHESIS",
-          "subject": "Hydra vulgaris"
+          "subject": "Ambystoma mexicanum"
         }
       ],
-      "program_id": "PRG-bc3797f8a9",
+      "program_id": "PRG-2420f4dcfa",
       "reasoning_status": "PROPOSED_AND_FALSIFIABLE",
       "schema": "biomimic-scientific-reasoning-v1",
-      "sha256": "f55073ffbea0d08156b42784f100ade21acb27798aad6017c65b99043e396a94",
+      "sha256": "c2d9e4e5554f6dbc17e0f073004a7ce56532d5403a1044911de15c2599788f24",
       "source_pmids": [
-        "PMID:41983916",
-        "PMID:42793312",
-        "PMID:42833632"
+        "PMID:42731061",
+        "PMID:43007699"
       ],
-      "subject": "Hydra vulgaris"
+      "subject": "Ambystoma mexicanum"
     },
     {
       "claims_established_truth": false,
@@ -442094,6 +439548,7 @@
       "contradictions": [
         "correlation not causation",
         "human functional divergence",
+        "phenotype without mechanism",
         "phylogeny confound",
         "publication bias",
         "single-lab dependence"
@@ -442103,13 +439558,13 @@
           "association does not establish causation",
           "correlation not causation",
           "human functional divergence",
-          "no verified human target in this hypothesis dossier",
+          "phenotype without mechanism",
           "phylogeny confound",
           "publication bias",
           "single-lab dependence"
         ],
         "blocked_or_pending_hypothesis_ids": [
-          "HYP-1e43e2271fa5"
+          "HYP-0ba656eece71"
         ],
         "decision_rule": "fail closed on causal promotion; alternatives may survive only as hypotheses pending discriminating tests",
         "ranked": [
@@ -442121,18 +439576,18 @@
               "test same mechanism in an evolutionarily distant species with similar phenotype",
               "test human orthologue/pathway in disease-relevant human cells"
             ],
-            "evidence_priority_score": 0.385,
+            "evidence_priority_score": 0.37,
             "evidence_support": [
-              "2 independent PMID-linked sources",
-              "2 recorded mechanisms",
-              "0 recorded gene/protein candidates"
+              "3 independent PMID-linked sources",
+              "0 recorded mechanisms",
+              "2 recorded gene/protein candidates"
             ],
-            "hypothesis_id": "HYP-98cd306f890a",
+            "hypothesis_id": "HYP-7cc0420a1303",
             "kind": "CONTEXT_DEPENDENT_ALTERNATIVE",
             "objections": [
               "correlation not causation",
               "human functional divergence",
-              "no verified human target in this hypothesis dossier",
+              "phenotype without mechanism",
               "phylogeny confound",
               "publication bias",
               "single-lab dependence"
@@ -442148,18 +439603,18 @@
               "test same mechanism in an evolutionarily distant species with similar phenotype",
               "test human orthologue/pathway in disease-relevant human cells"
             ],
-            "evidence_priority_score": 0.385,
+            "evidence_priority_score": 0.37,
             "evidence_support": [
-              "2 independent PMID-linked sources",
-              "2 recorded mechanisms",
-              "0 recorded gene/protein candidates"
+              "3 independent PMID-linked sources",
+              "0 recorded mechanisms",
+              "2 recorded gene/protein candidates"
             ],
-            "hypothesis_id": "HYP-64ada97af2b5",
+            "hypothesis_id": "HYP-5f29b421252f",
             "kind": "MARKER_ONLY_ALTERNATIVE",
             "objections": [
               "correlation not causation",
               "human functional divergence",
-              "no verified human target in this hypothesis dossier",
+              "phenotype without mechanism",
               "phylogeny confound",
               "publication bias",
               "single-lab dependence"
@@ -442175,19 +439630,19 @@
               "test same mechanism in an evolutionarily distant species with similar phenotype",
               "test human orthologue/pathway in disease-relevant human cells"
             ],
-            "evidence_priority_score": 0.385,
+            "evidence_priority_score": 0.37,
             "evidence_support": [
-              "2 independent PMID-linked sources",
-              "2 recorded mechanisms",
-              "0 recorded gene/protein candidates"
+              "3 independent PMID-linked sources",
+              "0 recorded mechanisms",
+              "2 recorded gene/protein candidates"
             ],
-            "hypothesis_id": "HYP-1e43e2271fa5",
+            "hypothesis_id": "HYP-0ba656eece71",
             "kind": "PRIMARY_CAUSAL",
             "objections": [
               "association does not establish causation",
               "correlation not causation",
               "human functional divergence",
-              "no verified human target in this hypothesis dossier",
+              "phenotype without mechanism",
               "phylogeny confound",
               "publication bias",
               "single-lab dependence"
@@ -442197,8 +439652,8 @@
           }
         ],
         "surviving_hypothesis_ids": [
-          "HYP-98cd306f890a",
-          "HYP-64ada97af2b5"
+          "HYP-7cc0420a1303",
+          "HYP-5f29b421252f"
         ]
       },
       "evidence_status": "SUPPORTED",
@@ -442220,7 +439675,7 @@
             "analyze effect direction, uncertainty, and failure conditions"
           ],
           "falsifier": "The effect remains stable across relevant contexts and does not depend on plausible interacting pathways.",
-          "hypothesis_id": "HYP-98cd306f890a",
+          "hypothesis_id": "HYP-7cc0420a1303",
           "kill_criteria": [
             "no reproducible phenotype change",
             "effect disappears under independent replication",
@@ -442230,14 +439685,15 @@
           "null_hypothesis": "The nominated mechanism does not causally alter the phenotype under the tested conditions.",
           "objective": "Distinguish the nominated causal explanation from marker-only and context-dependent alternatives.",
           "predicted_if_supported": "The effect size should vary across context, lineage, tissue, developmental state, or pathway background.",
-          "program_id": "PRG-0e95826bc8",
-          "sha256": "0e528cd56ae1501e164de0e760eede719c8273f9203aff34f15d31389e2323fc",
+          "program_id": "PRG-70175ca5b4",
+          "sha256": "d9077363c6b8aa4597fe37ff805545cd1be0841329dd1d426bec8090a950c1cd",
           "source_pmids": [
-            "PMID:42793312",
-            "PMID:42833632"
+            "PMID:42208364",
+            "PMID:42686794",
+            "PMID:42868151"
           ],
           "status": "PROPOSED_NOT_EXECUTED",
-          "subject": "Hydra oligactis"
+          "subject": "Drosophila melanogaster"
         },
         {
           "clinical_efficacy_claim": false,
@@ -442255,8 +439711,8 @@
             "repeat across independent biological replicates",
             "analyze effect direction, uncertainty, and failure conditions"
           ],
-          "falsifier": "Targeted perturbation of autophagy reproducibly abolishes the phenotype and rescue restores it.",
-          "hypothesis_id": "HYP-64ada97af2b5",
+          "falsifier": "Targeted perturbation of NIH- reproducibly abolishes the phenotype and rescue restores it.",
+          "hypothesis_id": "HYP-5f29b421252f",
           "kill_criteria": [
             "no reproducible phenotype change",
             "effect disappears under independent replication",
@@ -442265,19 +439721,20 @@
           ],
           "null_hypothesis": "The nominated mechanism does not causally alter the phenotype under the tested conditions.",
           "objective": "Distinguish the nominated causal explanation from marker-only and context-dependent alternatives.",
-          "predicted_if_supported": "The phenotype should persist when autophagy changes, provided upstream drivers remain intact.",
-          "program_id": "PRG-0e95826bc8",
-          "sha256": "9a5aa6a00c7e95efaa2d9ffbc9d8467809fb064c857e9c5b59845e25568b1feb",
+          "predicted_if_supported": "The phenotype should persist when NIH- changes, provided upstream drivers remain intact.",
+          "program_id": "PRG-70175ca5b4",
+          "sha256": "299551e0602efae410110bfb4a6ef6908cfec7707d94a7d86ccaad15e4cfe007",
           "source_pmids": [
-            "PMID:42793312",
-            "PMID:42833632"
+            "PMID:42208364",
+            "PMID:42686794",
+            "PMID:42868151"
           ],
           "status": "PROPOSED_NOT_EXECUTED",
-          "subject": "Hydra oligactis"
+          "subject": "Drosophila melanogaster"
         }
       ],
       "experiments_executed": false,
-      "human_bridge_count": 0,
+      "human_bridge_count": 6,
       "hypotheses": [
         {
           "association_only": true,
@@ -442295,24 +439752,32 @@
             "negative control",
             "human-relevant validation only after conservation checks"
           ],
-          "falsifier": "Specific perturbation of autophagy produces no reproducible phenotype change under adequate controls.",
-          "genes": [],
-          "human_targets": [],
-          "id": "HYP-1e43e2271fa5",
+          "falsifier": "Specific perturbation of NIH- produces no reproducible phenotype change under adequate controls.",
+          "genes": [
+            "NIH-",
+            "USDA"
+          ],
+          "human_targets": [
+            "ASH2L",
+            "EGFR",
+            "ERBB2",
+            "ERBB4",
+            "RORA",
+            "RORB"
+          ],
+          "id": "HYP-0ba656eece71",
           "kind": "PRIMARY_CAUSAL",
-          "mechanisms": [
-            "autophagy",
-            "senescence"
-          ],
-          "prediction": "Perturbing autophagy should change the phenotype in the predicted direction, and rescue should partially restore it.",
-          "program_id": "PRG-0e95826bc8",
+          "mechanisms": [],
+          "prediction": "Perturbing NIH- should change the phenotype in the predicted direction, and rescue should partially restore it.",
+          "program_id": "PRG-70175ca5b4",
           "source_pmids": [
-            "PMID:42793312",
-            "PMID:42833632"
+            "PMID:42208364",
+            "PMID:42686794",
+            "PMID:42868151"
           ],
-          "statement": "In Hydra oligactis, autophagy contributes causally to the reported phenotype rather than merely correlating with it.",
+          "statement": "In Drosophila melanogaster, NIH- contributes causally to the reported phenotype rather than merely correlating with it.",
           "status": "HYPOTHESIS",
-          "subject": "Hydra oligactis"
+          "subject": "Drosophila melanogaster"
         },
         {
           "association_only": true,
@@ -442330,24 +439795,32 @@
             "negative control",
             "human-relevant validation only after conservation checks"
           ],
-          "falsifier": "Targeted perturbation of autophagy reproducibly abolishes the phenotype and rescue restores it.",
-          "genes": [],
-          "human_targets": [],
-          "id": "HYP-64ada97af2b5",
+          "falsifier": "Targeted perturbation of NIH- reproducibly abolishes the phenotype and rescue restores it.",
+          "genes": [
+            "NIH-",
+            "USDA"
+          ],
+          "human_targets": [
+            "ASH2L",
+            "EGFR",
+            "ERBB2",
+            "ERBB4",
+            "RORA",
+            "RORB"
+          ],
+          "id": "HYP-5f29b421252f",
           "kind": "MARKER_ONLY_ALTERNATIVE",
-          "mechanisms": [
-            "autophagy",
-            "senescence"
-          ],
-          "prediction": "The phenotype should persist when autophagy changes, provided upstream drivers remain intact.",
-          "program_id": "PRG-0e95826bc8",
+          "mechanisms": [],
+          "prediction": "The phenotype should persist when NIH- changes, provided upstream drivers remain intact.",
+          "program_id": "PRG-70175ca5b4",
           "source_pmids": [
-            "PMID:42793312",
-            "PMID:42833632"
+            "PMID:42208364",
+            "PMID:42686794",
+            "PMID:42868151"
           ],
-          "statement": "In Hydra oligactis, autophagy is a downstream marker or correlate rather than a causal driver.",
+          "statement": "In Drosophila melanogaster, NIH- is a downstream marker or correlate rather than a causal driver.",
           "status": "HYPOTHESIS",
-          "subject": "Hydra oligactis"
+          "subject": "Drosophila melanogaster"
         },
         {
           "association_only": true,
@@ -442366,34 +439839,43 @@
             "human-relevant validation only after conservation checks"
           ],
           "falsifier": "The effect remains stable across relevant contexts and does not depend on plausible interacting pathways.",
-          "genes": [],
-          "human_targets": [],
-          "id": "HYP-98cd306f890a",
+          "genes": [
+            "NIH-",
+            "USDA"
+          ],
+          "human_targets": [
+            "ASH2L",
+            "EGFR",
+            "ERBB2",
+            "ERBB4",
+            "RORA",
+            "RORB"
+          ],
+          "id": "HYP-7cc0420a1303",
           "kind": "CONTEXT_DEPENDENT_ALTERNATIVE",
-          "mechanisms": [
-            "autophagy",
-            "senescence"
-          ],
+          "mechanisms": [],
           "prediction": "The effect size should vary across context, lineage, tissue, developmental state, or pathway background.",
-          "program_id": "PRG-0e95826bc8",
+          "program_id": "PRG-70175ca5b4",
           "source_pmids": [
-            "PMID:42793312",
-            "PMID:42833632"
+            "PMID:42208364",
+            "PMID:42686794",
+            "PMID:42868151"
           ],
-          "statement": "In Hydra oligactis, the effect associated with autophagy depends on biological context or interacting pathways.",
+          "statement": "In Drosophila melanogaster, the effect associated with NIH- depends on biological context or interacting pathways.",
           "status": "HYPOTHESIS",
-          "subject": "Hydra oligactis"
+          "subject": "Drosophila melanogaster"
         }
       ],
-      "program_id": "PRG-0e95826bc8",
+      "program_id": "PRG-70175ca5b4",
       "reasoning_status": "PROPOSED_AND_FALSIFIABLE",
       "schema": "biomimic-scientific-reasoning-v1",
-      "sha256": "f2c9fa3847e7d1a2cc11f7199cceefe710e5591225d7ffd5ab36d7107eb14be4",
+      "sha256": "413ba64336e26a30804275e29c10d276e0ccbd73d7206b3e7ecb092bc2738299",
       "source_pmids": [
-        "PMID:42793312",
-        "PMID:42833632"
+        "PMID:42208364",
+        "PMID:42686794",
+        "PMID:42868151"
       ],
-      "subject": "Hydra oligactis"
+      "subject": "Drosophila melanogaster"
     }
   ],
   "scout_observations": [
@@ -442468,11 +439950,11 @@
       "taxon_verified": true
     }
   ],
-  "sha256": "6ba393978810c2a69e59b48e64aabb54d5898d6dbe8c2210512816586d9124c6",
+  "sha256": "a98648663ec2390bedb3b9a51b72577eac65e5de2d7843af3d20c6ce892b41d0",
   "status": "PASS",
   "telemetry": {
     "brick_observability_ratio": 1.0,
-    "claim_count": 9,
+    "claim_count": 8,
     "cross_lab_diversity": 0.42857142857142855,
     "false_positive_rate": 0.0,
     "fragile_claim_rate": 0.0,
@@ -442481,6 +439963,6 @@
     "scout_count": 2,
     "verified_ratio": 1.0
   },
-  "time": "2026-11-08T10:33:55.997946+00:00",
+  "time": "2026-11-12T11:34:32.460673+00:00",
   "unused_active_bricks": []
 }
