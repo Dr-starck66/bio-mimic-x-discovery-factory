@@ -6,6 +6,7 @@ from pathlib import Path
 from scipy import stats
 
 DOI="10.1038/s41467-022-30363-y"
+SOURCE_SHA256="ac6f8f8d08055d82838601a1cdef66b5e464c9e392d3b09b85acbfbbcb762a81"
 PANELS={
  "7c":{"endpoint":"primary_tumor_weight_mg","n":{"SCR":9,"MTHFD1L_KD":9},"p":0.9474},
  "7d":{"endpoint":"relative_mthfd1l_expression","n":{"SCR":7,"MTHFD1L_KD":8},"p":0.0014},
@@ -37,7 +38,7 @@ def read_animal_csv(path):
             seen.add(key)
             value=float(row["value"])
             if not math.isfinite(value) or value<0:raise ValueError("Non-finite or negative observation")
-            if panel=="7e" and not value.is_integer():raise ValueError("Count must be integer")
+            # Original Fig.7E includes half-unit macrometastasis scores; never round or reject them.
             if panel=="7g" and value>100:raise ValueError("Area must be <=100 percent")
             d[panel][group].append(value)
     for panel,cfg in PANELS.items():
@@ -83,11 +84,29 @@ def main():
         original=a.source_xlsx.read_bytes()
         if original[:4]!=b"PK\x03\x04":raise ValueError("Source is not a ZIP-based XLSX")
         d=read_animal_csv(a.mouse_csv)
-        r.update({"mode":"candidate_mouse_level_replay","status":"PARTIAL",
-          "source_xlsx_sha256":hashlib.sha256(original).hexdigest(),
+        source_sha=hashlib.sha256(original).hexdigest()
+        if source_sha!=SOURCE_SHA256:raise ValueError("Unrecognized source XLSX version: SHA256 mismatch")
+        w=welch_from_animals(d)
+        if not all(item["four_decimal_p_match"] for item in w.values()):
+            raise ValueError("One or more source-based Welch tests do not match the paper at 4 decimals")
+        ranked=sorted(((key,item["welch_two_sided_p"]) for key,item in w.items()),key=lambda x:x[1])
+        prior=0.
+        for pos,(key,pvalue) in enumerate(ranked):
+            prior=min(1.,max(prior,pvalue*(len(ranked)-pos)))
+            w[key]["holm_p_four_panels_exploratory"]=prior
+        kd_zero=sum(v==0 for v in d["7e"]["MTHFD1L_KD"])
+        scr_zero=sum(v==0 for v in d["7e"]["SCR"])
+        fisher=stats.fisher_exact([[9-scr_zero,scr_zero],[9-kd_zero,kd_zero]],alternative="two-sided")
+        r.update({"mode":"pinned_source_replay_with_cell_lineage_required",
+          "status":"PASS_NUMERICAL_REPLAY","source_xlsx_sha256":source_sha,
           "mouse_csv_sha256":hashlib.sha256(a.mouse_csv.read_bytes()).hexdigest(),
-          "paper_welch_tests_recalculated":True,"welch":welch_from_animals(d),
-          "mapping_unverified":"Must independently match every CSV observation to author workbook cells"})
+          "paper_welch_tests_recalculated":True,"all_four_p_at_4_decimals_match":True,
+          "welch":w,
+          "binary_event_free":{"scr_zero":scr_zero,"kd_zero":kd_zero,
+             "fisher_two_sided_p":float(fisher.pvalue)},
+          "fractional_fig7e_values":sum(v%1!=0 for g in d["7e"].values() for v in g),
+          "mapping_note":"Cell-level provenance must be provided by the separate SHA-pinned xlsx_to_csv extractor",
+          "warning_multiple_testing":"7e/7g become p>0.05 after exploratory Holm correction over 4 panels"})
     a.output.parent.mkdir(parents=True,exist_ok=True)
     a.output.write_text(json.dumps(r,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
     print(f"{r['status']}: {r['mode']}")
