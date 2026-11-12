@@ -3,7 +3,7 @@
 
 Predeclared evaluation protocol (no tuning on SciFact dev):
 - BM25 retrieval is read from retrieval.json (generated from claim text only).
-- Feed top-1 document title+full abstract to pretrained SciFact-oriented VeriSci classifier.
+- Feed CLAIM FIRST, then 3 most claim-relevant sentences from the BM25 top-1 abstract (no gold).
 - Thresholds fixed in THIS committed source BEFORE test:
       min_top1_bm25=8.0; min_max_softmax=0.90; min_top2_margin=0.20.
 - Unsupported NEI always becomes ABSTAIN, never accepted as a medical verdict.
@@ -52,6 +52,19 @@ def metrics(rows,pred_key):
               "precision":tp/(tp+fp) if tp+fp else None,
               "recall":tp/(tp+fn) if tp+fn else None}}
 
+def select_evidence_sentences(claim, sentences, limit=3):
+    """No oracle evidence: simple claim-term overlap over retrieved abstract sentences."""
+    import re
+    terms=set(re.findall(r"[a-z0-9]+",claim.lower()))
+    if not sentences:return ""
+    if limit<1:raise ValueError("limit must be positive")
+    score=[]
+    for i,s in enumerate(sentences):
+        ts=set(re.findall(r"[a-z0-9]+",str(s).lower()))
+        score.append((len(terms & ts),i))
+    best=sorted(score,key=lambda x:(-x[0],x[1]))[:limit]
+    return " ".join(str(sentences[i]) for i in sorted(j for _,j in best))
+
 def main():
     ap=argparse.ArgumentParser()
     ap.add_argument("--root",default=".")
@@ -76,7 +89,7 @@ def main():
         if len(gold_set)>1:raise RuntimeError("Ambiguous gold")
         gold=next(iter(gold_set),"NEI")
         if gold not in GOLD:raise ValueError(gold)
-        text=doc["title"]+"\n"+" ".join(doc["abstract"])
+        text=select_evidence_sentences(c["claim"],doc["abstract"],limit=3)
         rows.append({"id":c["id"],"gold":gold,"claim":c["claim"],
                      "retrieved_id":hit["doc_id"],"bm25":hit["score"],
                      "evidence_text":text,"retrieval_hit":hit["doc_id"] in c["evidence"]})
@@ -96,7 +109,7 @@ def main():
     print("MODEL_READY",time.monotonic()-t0,raw_mapping,flush=True)
     for n,row in enumerate(rows):
         # Evidence is premise, claim is hypothesis. No annotated source ID is given.
-        tokenized=tokenizer(row["evidence_text"],row["claim"],return_tensors="pt",
+        tokenized=tokenizer(row["claim"],row["evidence_text"],return_tensors="pt",
                             truncation=True,max_length=MAX_TOKENS)
         with torch.inference_mode():
             logits=model(**tokenized).logits[0].float()
@@ -127,7 +140,9 @@ def main():
       "model":{"id":MODEL_ID,"revision":MODEL_REV,"id2label":raw_mapping,
                "engine":"PyTorch CPU / transformers", "torch_version":torch.__version__,
                "transformers_version":__import__("transformers").__version__,
-               "evidence_first":True,"max_tokens":MAX_TOKENS,
+               "evidence_first":False,"max_tokens":MAX_TOKENS,
+               "input_protocol":"claim_first_plus_top3_lexical_abstract_sentences; no gold",
+               "verified_upstream_order":"https://huggingface.co/spaces/rishhh/verisci-claim-space/blob/main/src/verisci/verification/predict.py",
                "model_train_overlap_risk":"Possible dev evaluation overlap documented by publisher; not an independent hidden-test result",
                "unverified_claim":False},
       "retrieval":{"method":"BM25 tokenized title + abstract, oracle-free",
