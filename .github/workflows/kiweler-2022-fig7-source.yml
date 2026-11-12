@@ -6,6 +6,7 @@ on:
       - .github/workflows/kiweler-2022-fig7-source.yml
       - validation/kiweler2022_source_fetch.py
       - validation/kiweler2022_fig7_reanalysis.py
+      - validation/kiweler2022_xlsx_to_csv.py
       - tests/test_kiweler2022_fig7_audit.py
   workflow_dispatch:
 permissions:
@@ -30,6 +31,25 @@ jobs:
         run: python validation/kiweler2022_fig7_reanalysis.py --output evidence/kiweler2022/fig7_text_bounded.json
       - name: Fetch original XLSX from explicit publisher/PMC link
         run: python validation/kiweler2022_source_fetch.py --output-dir evidence/kiweler2022
+      - name: Map source XLSX cells to animal observations with exclusions
+        run: python validation/kiweler2022_xlsx_to_csv.py --source-xlsx evidence/kiweler2022/kiweler2022_original_source_data.xlsx --out-dir evidence/kiweler2022
+      - name: Recompute original mouse-level Welch and Fisher with Holm guard
+        run: python validation/kiweler2022_fig7_reanalysis.py --mouse-csv evidence/kiweler2022/fig7_mouse_level.csv --source-xlsx evidence/kiweler2022/kiweler2022_original_source_data.xlsx --output evidence/kiweler2022/fig7_original_recalculated.json
+      - name: Independent audit assertions (including negative controls)
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path("evidence/kiweler2022/fig7_original_recalculated.json").read_text())
+          assert r["status"]=="PASS_NUMERICAL_REPLAY"
+          assert r["all_four_p_at_4_decimals_match"]
+          assert r["binary_event_free"]["kd_zero"]==6 and r["binary_event_free"]["scr_zero"]==0
+          assert r["fractional_fig7e_values"]==8
+          assert r["welch"]["7c"]["welch_two_sided_p"]>0.94
+          assert r["welch"]["7e"]["holm_p_four_panels_exploratory"]>0.05
+          assert r["welch"]["7g"]["holm_p_four_panels_exploratory"]>0.05
+          print("PASS original data, 4/4 Welch, exact zero counts, fractional values, negative controls, Holm")
+          PY
       - name: Upload source file, SHA256 manifest and bounded audit
         if: always()
         uses: actions/upload-artifact@v4
