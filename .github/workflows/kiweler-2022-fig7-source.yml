@@ -1,0 +1,38 @@
+name: Kiweler 2022 Fig7 source acquisition (research only)
+on:
+  push:
+    branches:
+      - research/cancer-motility-resistance-combos-20261112
+    paths:
+      - .github/workflows/kiweler-2022-fig7-source.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-and-acquire:
+    name: Verify bounds, then retrieve original source XLSX
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout research branch
+        uses: actions/checkout@v4
+      - name: Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install numerical dependency (public SciPy)
+        run: python -m pip install --quiet scipy
+      - name: Run research audit unit tests
+        run: python -m unittest discover -s tests -p 'test_kiweler2022_fig7_audit.py' -v
+      - name: Recompute text-constrained Fisher sensitivity
+        run: python validation/kiweler2022_fig7_reanalysis.py --output evidence/kiweler2022/fig7_text_bounded.json
+      - name: Fetch original XLSX from explicit publisher/PMC link
+        run: python validation/kiweler2022_source_fetch.py --output-dir evidence/kiweler2022
+      - name: Upload source file, SHA256 manifest and bounded audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kiweler-2022-fig7-source-and-audit
+          path: evidence/kiweler2022/
+          if-no-files-found: warn
+          retention-days: 7
