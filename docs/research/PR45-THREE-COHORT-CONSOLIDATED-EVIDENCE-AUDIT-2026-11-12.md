@@ -56,3 +56,25 @@ The older commercial document contains a **nonbinding illustrative €2,900 fee*
 ## Review disposition
 
 **Keep PR #45 in DRAFT.** Documentation-only audit added here; no repository-wide CI or newly executed GEO pipeline is claimed. Until the authors' formula and higher-precision weights are reconciled, HfRI method-fidelity remains PARTIAL, and any new performance claim is UNVERIFIED. No clinical/therapeutic/commercial promise should be substituted for the negative findings.
+
+## 12 November 2026 — executed correction of HfRI scoring formula (additive, not clinical validation)
+
+**Correction implemented and real 94-sample rerun PASS in the existing Floot DUALITY X V0.3 ECO project VM.** The historical 11 Nov scripts and JSON are intentionally unchanged. New artifacts:
+
+- [Authors' original full-precision 75-gene weights, 34 positive / 41 negative](../../research/cretostimogene/hfri_author_fullprecision_weights_2026-11-12.json), pinned to the authors' Git commit `ee15cd5ea8ec8c9ab49f1d95cf34afce2af379bd`; exact upstream Git blob SHA-1 `7ba8c1f04264923f8e57fc9571d7543eb5e77bd8`, fetched and matched during execution.
+- [Independent executable original-formula control](../../validation/gse294705_hfri_authors_formula_control.py), including R-style sample standard deviation (`ddof=1`) and **mean positive weighted z-score minus mean negative weighted z-score**, rather than ASTRA's historical signed sum.
+- [Machine-readable result from full real GSE294705 run](../../reports/cretostimogene/gse294705_hfri_authors_formula_control_2026-11-12.json).
+
+### Real-data results (same 94 GSE294705 patients, 16 >=2 recurrences)
+
+| Method | In-sample descriptive AUC | Sex/stage/site-stratified two-sided permutation p, 10,000 permutations |
+|---|---:|---:|
+| Historical ASTRA approximate formula, quantile-normalized | 0.58653846 | 0.55134487 |
+| **Authors' precise groups/weights and published scoring algebra, quantile-normalized** | **0.58493590** | **0.58104190** |
+| Authors' scoring algebra, logCPM without quantile normalization sensitivity | 0.57772436 | 0.70132987 |
+
+**Technical execution proof:** 5 repository files fetched from exact Git commit `68d3cedce3a489836e54fb94cc05a7f63a32cc90`; NumPy 2.3.5 CPython 3.11 aarch64 wheel acquired via PyPI, verified SHA-256 `3095bdb8dd297e5920b010e96134ed91d852d81d490e787beca7e35ae1d89cf7`, extracted to an ephemeral directory; 4/4 formula-fixture self-checks PASS; direct public GEO acquisitions matched expected GSE294705 count and metadata SHA-256; original-author full-precision weight file matched its Git blob SHA-1; all 75 required markers, 94 patient IDs and 27,175 normalized gene rows confirmed. Historical ASTRA AUC **0.58653846** reproduced under both normalizations. Different Monte Carlo permutation draw order/seed reset may change p slightly without changing AUC; do not claim bitwise identical p under both runs.
+
+**Scientific verdict:** Authors' **scoring algebra** and **weights** now matched in a new, separate script. The *end-to-end authors' published method* remains **PARTIAL**, because the input-expression preprocessing, `FOXI2` filter exception, reference standardization/cutoff, and original classifier details are not proven identical. On this approximate processing, no significant recurrence association was found. **UNVERIFIED:** exact paper reproduction, independent prospective validation, cretostimogene response prediction, any therapeutic benefit.
+
+**Scope note:** This is an actual cloud VM run but not a full repository CI pass, sponsor trial execution, persistent service, or commercial contract. Keep PR in draft.
