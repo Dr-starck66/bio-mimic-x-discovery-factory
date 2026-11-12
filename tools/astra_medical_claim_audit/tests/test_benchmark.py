@@ -32,4 +32,3 @@ class BenchmarkTests(unittest.TestCase):
     def test_negative_control_only_claim(self):
         self.assertEqual(control_predict("A does not increase risk"),"CONTRADICT")
 if __name__=="__main__":unittest.main()
-
