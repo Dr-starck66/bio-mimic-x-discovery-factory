@@ -38,9 +38,9 @@ def verify_authors_file(manifest: dict) -> str:
         "https://github.com/", "https://raw.githubusercontent.com/"
     ).replace("/blob/", "/")
     raw = urllib.request.urlopen(url, timeout=40).read()
-    blob = hashlib.sha1(b"blob " + str(len(raw)).encode() + b"\\0" + raw).hexdigest()
+    blob = hashlib.sha1(b"blob " + str(len(raw)).encode() + b"\0" + raw).hexdigest()
     assert blob == manifest["source_git_blob_sha"], "authors' public weight file changed"
-    records = [line.split("\\t") for line in raw.decode().splitlines()]
+    records = [line.split("\t") for line in raw.decode().splitlines()]
     assert records[0] == ["GeneID", "Weights", "Group"]
     assert len(records) == 76
     for source, target in zip(records[1:], validated_weights(manifest)):
