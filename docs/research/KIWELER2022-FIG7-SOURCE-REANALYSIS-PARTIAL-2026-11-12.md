@@ -1,3 +1,7 @@
+> **MISE À JOUR DU 12/11/2026 — STATUT HISTORIQUE OBSOLÈTE.** La recherche de données brutes décrite ci-dessous comme PARTIAL est **désormais résolue**. Le XLSX original (4 294 922 octets, SHA-256 ac6f8f8d08055d82838601a1cdef66b5e464c9e392d3b09b85acbfbbcb762a81) a été téléchargé et les 4/4 p-valeurs de Welch reproduites. Lire le [rapport PASS d'acquisition et recalcul](KIWELER2022-FIG7-ORIGINAL-SOURCE-REPLAY-PASS-2026-11-12.md) et le [workflow GitHub indépendant PASS](https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/43174821308). Les sections ci-dessous sont conservées comme historique de pré-acquisition, non comme conclusion actuelle.
+
+---
+
 # BIO-MIMIC X Ω — Kiweler et al. 2022 Fig. 7 : audit borné, négatifs et replay
 
 **Statut global : PARTIAL.** Source : Kiweler N. et al., *Nature Communications* 13, 2699 (16/05/2022), DOI [10.1038/s41467-022-30363-y](https://doi.org/10.1038/s41467-022-30363-y), [PMC9110368](https://pmc.ncbi.nlm.nih.gov/articles/PMC9110368/), PMID 35577770. Date : 12/11/2026.
