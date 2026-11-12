@@ -72,4 +72,3 @@ class LiteratureTests(unittest.TestCase):
         x=audit_with_literature(p,allow_network=True)
         self.assertEqual(x["literature_bridge"]["publication_checks"][0]["live_retrieval"],"UNVERIFIED")
 if __name__=="__main__":unittest.main()
-
