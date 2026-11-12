@@ -1,0 +1,27 @@
+{
+  "audit": "ASTRA MEDICAL CLAIM AUDIT Ω v0.3",
+  "checked_utc": "2026-11-12T10:51:15.258810+00:00",
+  "provider": "NCBI E-utilities EFetch official",
+  "tool": "python3 literature.py examples/pubmed_bibliography_case.json --allow-network --out /tmp/astra_medical_ncbi_live.json",
+  "sandbox_session": "sbx_m8QG609oiMpcPAl8JOujXaUaHztC",
+  "status": "PASS:live bibliographic validation",
+  "report_sha256": "0625b27d57e1ed59878175d89d849b0e18449b94fb55d278919615503d6423ec",
+  "publication_check": {
+    "abstract_present": "PASS",
+    "bibliographic_identity": "PASS",
+    "claim_id": "C1",
+    "claim_sha256": "934f23a78d27334de7d40564cbceac9641fd29db53632d51ce7e21f0ddff55e7",
+    "clinical_validity": "UNVERIFIED",
+    "doi": "10.1371/journal.pmed.1001270",
+    "issues": [],
+    "live_retrieval": "PASS",
+    "pmid": "22911011",
+    "retrieval_mode": "LIVE_NCBI",
+    "scientific_relevance": "UNVERIFIED",
+    "source_xml_sha256": "4b24e6070e0e275cee3f1271f19daac6319fb939d00be489359969bef5953445",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/22911011/"
+  },
+  "scientific_claim_validity": "UNVERIFIED",
+  "clinical_validation": "UNVERIFIED",
+  "no_patient_data": true
+}
