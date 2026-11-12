@@ -1,10 +1,12 @@
 name: Kiweler 2022 Fig7 source acquisition (research only)
 on:
-  push:
-    branches:
-      - research/cancer-motility-resistance-combos-20261112
+  pull_request:
+    branches: [main]
     paths:
       - .github/workflows/kiweler-2022-fig7-source.yml
+      - validation/kiweler2022_source_fetch.py
+      - validation/kiweler2022_fig7_reanalysis.py
+      - tests/test_kiweler2022_fig7_audit.py
   workflow_dispatch:
 permissions:
   contents: read
