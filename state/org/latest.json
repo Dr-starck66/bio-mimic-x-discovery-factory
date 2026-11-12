@@ -6,7 +6,7 @@
         "longevity"
       ],
       "name": "Somniosus microcephalus",
-      "research_credits": 12
+      "research_credits": 13
     },
     {
       "committee_score": 59,
@@ -14,7 +14,7 @@
         "regeneration"
       ],
       "name": "Acomys cahirinus",
-      "research_credits": 11
+      "research_credits": 12
     },
     {
       "committee_score": 55,
@@ -22,7 +22,7 @@
         "regeneration"
       ],
       "name": "Danio rerio",
-      "research_credits": 10
+      "research_credits": 11
     },
     {
       "committee_score": 55,
@@ -30,14 +30,14 @@
         "regeneration"
       ],
       "name": "Cynops pyrrhogaster",
-      "research_credits": 10
+      "research_credits": 11
     },
     {
-      "committee_score": 54,
+      "committee_score": 49,
       "labs": [
-        "longevity"
+        "regeneration"
       ],
-      "name": "Hydra vulgaris",
+      "name": "Ambystoma mexicanum",
       "research_credits": 10
     },
     {
@@ -46,7 +46,7 @@
         "preservation"
       ],
       "name": "Drosophila melanogaster",
-      "research_credits": 8
+      "research_credits": 9
     },
     {
       "committee_score": 45,
@@ -54,15 +54,7 @@
         "preservation"
       ],
       "name": "Paracentrotus lividus",
-      "research_credits": 8
-    },
-    {
-      "committee_score": 44,
-      "labs": [
-        "longevity"
-      ],
-      "name": "Hydra oligactis",
-      "research_credits": 8
+      "research_credits": 9
     },
     {
       "committee_score": 41,
@@ -70,7 +62,7 @@
         "preservation"
       ],
       "name": "Caenorhabditis elegans",
-      "research_credits": 8
+      "research_credits": 9
     },
     {
       "committee_score": 35,
@@ -86,7 +78,7 @@
         "preservation"
       ],
       "name": "Tursiops truncatus",
-      "research_credits": 8
+      "research_credits": 9
     }
   ],
   "committee_rules": {
@@ -144,7 +136,7 @@
       "id": "cancer",
       "name": "ONCO-X Lab",
       "paper_count": 35,
-      "sha256": "d753f5641ba915de85eac41dcdf30962fe410538b8e3aa4dfaba389392de67d1",
+      "sha256": "f0f4e377aa67186aad9938f3f7602d48c227006290115e0c4e445623c63080e1",
       "status": "PASS"
     },
     {
@@ -152,15 +144,15 @@
       "id": "immunology",
       "name": "IMMUNO-X Lab",
       "paper_count": 35,
-      "sha256": "b8e1332f8d749689c0d059ec849829803821ea2d8b682e2ee83d2dac6c2b9a53",
+      "sha256": "bc650ff36580453dadea2a0bc400991385b86017f5da696cb529d3f27d6ba75d",
       "status": "PASS"
     },
     {
-      "candidate_count": 3,
+      "candidate_count": 1,
       "id": "longevity",
       "name": "LONGEVITY-X Lab",
       "paper_count": 35,
-      "sha256": "0db577a3cba2ae37bbcfaf1c1733ca2bdac519bc29a9c81dbfa2f2d1f00377c6",
+      "sha256": "ecb5db9397fa8b623ecb30a4544c6a08de5c242dfaf3e497f25478038a480c32",
       "status": "PASS"
     },
     {
@@ -168,7 +160,7 @@
       "id": "metabolism",
       "name": "METABOLIC-X Lab",
       "paper_count": 35,
-      "sha256": "35f34d1f39ccf3db9a99ba604578cc403bbbaf274ba4215dcac8b4029dd27460",
+      "sha256": "aa96515112f1f371cf0ade121859aa1b9284ef9fa010930b352353b118e10b03",
       "status": "PASS"
     },
     {
@@ -176,7 +168,7 @@
       "id": "neuro",
       "name": "NEURO-X Lab",
       "paper_count": 35,
-      "sha256": "eddb265f97564ca6a5cc2da44d2c23903a3b2c26d64cf9749a000001f829eada",
+      "sha256": "e631d14704ad19f1b74564f09de603df8ed23754a13052c87478dc16cffeecaa",
       "status": "PASS"
     },
     {
@@ -184,15 +176,15 @@
       "id": "preservation",
       "name": "PRESERVE-X Lab",
       "paper_count": 35,
-      "sha256": "9cbb396699d49e55d030b4be57cbdda13973450fda2d6a0ef638f34f621663b6",
+      "sha256": "98f6dfceeb71e06f2a1da1955b849f473e24fedd6d857342ac0be068f1abce9f",
       "status": "PASS"
     },
     {
-      "candidate_count": 3,
+      "candidate_count": 4,
       "id": "regeneration",
       "name": "REGEN-X Lab",
       "paper_count": 35,
-      "sha256": "22eeae5c65e4ab2d47bdb033bcb5576922abf21ae4b14725e6a629e3d4dceebb",
+      "sha256": "e3753f3ba63ba127cf095ea16d5bce7b9f8c0a4642e8a6a635175162f5940960",
       "status": "PASS"
     }
   ],
@@ -398,48 +390,50 @@
       "taxon_verified": true
     },
     {
-      "annotation_support": true,
+      "annotation_support": false,
       "challenges": [
-        "body-size confounding",
         "correlation does not prove causation",
+        "developmental-stage confounding",
+        "fibrosis tradeoffs",
         "human functional divergence remains possible",
-        "lifespan data quality",
-        "no gene symbol candidate",
-        "phylogeny confounding"
+        "regeneration-vs-repair ambiguity",
+        "taxonomy not annotation-supported"
       ],
-      "committee_score": 54,
-      "genes": [],
-      "independent_source_count": 3,
+      "committee_score": 49,
+      "genes": [
+        "PI3K-",
+        "TGF-"
+      ],
+      "independent_source_count": 2,
       "lab_count": 1,
       "labs": [
-        "longevity"
+        "regeneration"
       ],
-      "mean_arbiter": 65.0,
+      "mean_arbiter": 50.0,
       "mechanisms": [
-        "autophagy",
-        "senescence"
+        "fibrosis",
+        "inflammation",
+        "regeneration"
       ],
-      "name": "Hydra vulgaris",
+      "name": "Ambystoma mexicanum",
       "pmid_sources": [
-        "PMID:41983916",
-        "PMID:42793312",
-        "PMID:42833632"
+        "PMID:42731061",
+        "PMID:43007699"
       ],
-      "source_count": 3,
+      "source_count": 2,
       "sources": [
-        "PMID:41983916",
-        "PMID:42793312",
-        "PMID:42833632"
+        "PMID:42731061",
+        "PMID:43007699"
       ],
       "taxon_proofs": [
         {
-          "canonical_name": "Hydra vulgaris",
+          "canonical_name": "Ambystoma mexicanum",
           "kingdom": "Animalia",
           "match_type": "EXACT",
           "provider": "GBIF",
           "rank": "SPECIES",
           "status": "ACCEPTED",
-          "taxon_key": 5185782
+          "taxon_key": 2431950
         }
       ],
       "taxon_verified": true
@@ -534,50 +528,6 @@
           "rank": "SPECIES",
           "status": "ACCEPTED",
           "taxon_key": 2278845
-        }
-      ],
-      "taxon_verified": true
-    },
-    {
-      "annotation_support": true,
-      "challenges": [
-        "body-size confounding",
-        "correlation does not prove causation",
-        "human functional divergence remains possible",
-        "lifespan data quality",
-        "no gene symbol candidate",
-        "phylogeny confounding",
-        "single-paper dependence"
-      ],
-      "committee_score": 44,
-      "genes": [],
-      "independent_source_count": 1,
-      "lab_count": 1,
-      "labs": [
-        "longevity"
-      ],
-      "mean_arbiter": 47.0,
-      "mechanisms": [
-        "autophagy",
-        "senescence"
-      ],
-      "name": "Hydra oligactis",
-      "pmid_sources": [
-        "PMID:42793312"
-      ],
-      "source_count": 1,
-      "sources": [
-        "PMID:42793312"
-      ],
-      "taxon_proofs": [
-        {
-          "canonical_name": "Hydra oligactis",
-          "kingdom": "Animalia",
-          "match_type": "EXACT",
-          "provider": "GBIF",
-          "rank": "SPECIES",
-          "status": "ACCEPTED",
-          "taxon_key": 5185751
         }
       ],
       "taxon_verified": true
@@ -720,8 +670,8 @@
     }
   ],
   "schema": "biomimic-v6-org-run-v1",
-  "sha256": "5f80a9f85256f385412cc529c82497fbce8ebca7c9ce20e73d59f7a20687dd2a",
+  "sha256": "2a5152e97500f33838f19efe5a06f445518d82be284aa49ee149440093da1434",
   "status": "PASS",
-  "time": "2026-11-11T11:03:26.289016+00:00",
+  "time": "2026-11-12T11:21:37.096472+00:00",
   "upstream_failures": []
 }

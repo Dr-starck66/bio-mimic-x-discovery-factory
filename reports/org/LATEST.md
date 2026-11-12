@@ -1,48 +1,58 @@
-# BIO-MIMIC X V6 Scientific Investment Committee — 2026-11-11T11:09:51.064374+00:00
+# BIO-MIMIC X V6 Scientific Investment Committee — 2026-11-12T11:21:37.096472+00:00
 
-**Scientific status:** PARTIAL (not an efficacy claim)
-**Upstream provider failures:** 2
-**Organization replay SHA-256:** `811448488d132ebb09318b1b3e5ba07d4795cbd24fdb1a09e993ada0c35e3160`
+**Scientific status:** PASS (not an efficacy claim)
+**Upstream provider failures:** 0
+**Organization replay SHA-256:** `2a5152e97500f33838f19efe5a06f445518d82be284aa49ee149440093da1434`
 
 ## Laboratory status
 - ONCO-X Lab: PASS · 35 papers · 0 candidates
-- IMMUNO-X Lab: FAIL · 0 papers · 0 candidates
-- LONGEVITY-X Lab: PASS · 35 papers · 3 candidates
+- IMMUNO-X Lab: PASS · 35 papers · 0 candidates
+- LONGEVITY-X Lab: PASS · 35 papers · 1 candidates
 - METABOLIC-X Lab: PASS · 35 papers · 0 candidates
 - NEURO-X Lab: PASS · 35 papers · 0 candidates
 - PRESERVE-X Lab: PASS · 35 papers · 5 candidates
-- REGEN-X Lab: FAIL · 0 papers · 0 candidates
+- REGEN-X Lab: PASS · 35 papers · 4 candidates
 
 ## Top portfolio
-### Hydra vulgaris — Committee 54/100
+### Somniosus microcephalus — Committee 62/100
 - Labs: longevity
-- Sources: 3 · mechanisms: autophagy, senescence
+- Sources: 3 · mechanisms: DNA repair, genome maintenance, proteostasis, senescence
 - Challenge flags: body-size confounding, correlation does not prove causation, human functional divergence remains possible, lifespan data quality, no gene symbol candidate, phylogeny confounding
 
-### Somniosus microcephalus — Committee 50/100
-- Labs: longevity
-- Sources: 1 · mechanisms: DNA repair, genome maintenance, proteostasis, senescence
-- Challenge flags: body-size confounding, correlation does not prove causation, human functional divergence remains possible, lifespan data quality, no gene symbol candidate, phylogeny confounding
+### Acomys cahirinus — Committee 59/100
+- Labs: regeneration
+- Sources: 3 · mechanisms: extracellular matrix, fibrosis, regeneration
+- Challenge flags: correlation does not prove causation, developmental-stage confounding, fibrosis tradeoffs, human functional divergence remains possible, no gene symbol candidate, regeneration-vs-repair ambiguity
+
+### Danio rerio — Committee 55/100
+- Labs: regeneration
+- Sources: 3 · mechanisms: Wnt, regeneration
+- Challenge flags: correlation does not prove causation, developmental-stage confounding, fibrosis tradeoffs, human functional divergence remains possible, regeneration-vs-repair ambiguity
+
+### Cynops pyrrhogaster — Committee 55/100
+- Labs: regeneration
+- Sources: 3 · mechanisms: fibrosis, regeneration
+- Challenge flags: correlation does not prove causation, developmental-stage confounding, fibrosis tradeoffs, human functional divergence remains possible, regeneration-vs-repair ambiguity
+
+### Ambystoma mexicanum — Committee 49/100
+- Labs: regeneration
+- Sources: 2 · mechanisms: fibrosis, inflammation, regeneration
+- Challenge flags: correlation does not prove causation, developmental-stage confounding, fibrosis tradeoffs, human functional divergence remains possible, regeneration-vs-repair ambiguity, taxonomy not annotation-supported
 
 ### Drosophila melanogaster — Committee 45/100
 - Labs: preservation
 - Sources: 3 · mechanisms: none extracted
 - Challenge flags: correlation does not prove causation, cryoprotectant toxicity, human functional divergence remains possible, phenotype without extracted mechanism, reperfusion injury, whole-animal vs isolated-organ mismatch
 
-### Hydra oligactis — Committee 44/100
-- Labs: longevity
-- Sources: 1 · mechanisms: autophagy, senescence
-- Challenge flags: body-size confounding, correlation does not prove causation, human functional divergence remains possible, lifespan data quality, no gene symbol candidate, phylogeny confounding
+### Paracentrotus lividus — Committee 45/100
+- Labs: preservation
+- Sources: 3 · mechanisms: none extracted
+- Challenge flags: correlation does not prove causation, cryoprotectant toxicity, human functional divergence remains possible, phenotype without extracted mechanism, reperfusion injury, whole-animal vs isolated-organ mismatch
 
 ### Caenorhabditis elegans — Committee 41/100
 - Labs: preservation
 - Sources: 2 · mechanisms: none extracted
 - Challenge flags: correlation does not prove causation, cryoprotectant toxicity, human functional divergence remains possible, phenotype without extracted mechanism, reperfusion injury, whole-animal vs isolated-organ mismatch
-
-### Paracentrotus lividus — Committee 35/100
-- Labs: preservation
-- Sources: 1 · mechanisms: none extracted
-- Challenge flags: correlation does not prove causation, cryoprotectant toxicity, human functional divergence remains possible, phenotype without extracted mechanism, reperfusion injury, single-paper dependence
 
 ### Neophocaena asiaeorientalis — Committee 35/100
 - Labs: preservation
@@ -55,14 +65,16 @@
 - Challenge flags: correlation does not prove causation, cryoprotectant toxicity, human functional divergence remains possible, reperfusion injury, single-paper dependence, taxonomy not annotation-supported
 
 ## Research-credit allocation
-- Hydra vulgaris: 16 credits
-- Somniosus microcephalus: 15 credits
-- Drosophila melanogaster: 13 credits
-- Hydra oligactis: 13 credits
-- Caenorhabditis elegans: 12 credits
-- Paracentrotus lividus: 10 credits
-- Neophocaena asiaeorientalis: 10 credits
-- Tursiops truncatus: 11 credits
+- Somniosus microcephalus: 13 credits
+- Acomys cahirinus: 12 credits
+- Danio rerio: 11 credits
+- Cynops pyrrhogaster: 11 credits
+- Ambystoma mexicanum: 10 credits
+- Drosophila melanogaster: 9 credits
+- Paracentrotus lividus: 9 credits
+- Caenorhabditis elegans: 9 credits
+- Neophocaena asiaeorientalis: 7 credits
+- Tursiops truncatus: 9 credits
 
 ## Cross-lab challenge plan
 - immunology challenges cancer: Re-audit the top hypothesis using the challenger lab's confounders and require at least one falsifiable counter-test.
