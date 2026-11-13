@@ -74,15 +74,24 @@ def find_flanking_candidates(genes:list[dict],modern:dict,limit=MAX_CANDIDATES):
             evidence["anchor_failures"][s]="AMBIGUOUS_OLD_PARALOG_TAG";continue
         anchors.append({"symbol":s,"old":matches[0],"modern":modern[s]})
     evidence["anchors"]=anchors
+    evidence["legacy_anchor_counts"]={sym:sum(sym in g["symbols"] for g in genes) for sym in ANCHORS+NEGATIVE}
+    evidence["modern_anchor_available"]={sym:sym in modern for sym in ANCHORS+NEGATIVE}
+    evidence["valid_anchor_count"]=len(anchors)
     left=sorted((x for x in anchors if x["modern"]["end"]<t),key=lambda x:t-x["modern"]["end"])
     right=sorted((x for x in anchors if x["modern"]["start"]>t),key=lambda x:x["modern"]["start"]-t)
-    if not left or not right:return evidence
+    evidence["modern_left_anchor_count"]=len(left)
+    evidence["modern_right_anchor_count"]=len(right)
+    if not left or not right:
+        evidence["anchor_failures"]["flanking_pair"]="MISSING_MODERN_LEFT_OR_RIGHT"
+        return evidence
     a,b=left[0],right[0]
     olda=(a["old"]["start"]+a["old"]["end"])/2
     oldb=(b["old"]["start"]+b["old"]["end"])/2
     newa=(a["modern"]["start"]+a["modern"]["end"])/2
     newb=(b["modern"]["start"]+b["modern"]["end"])/2
-    if olda==oldb or newa==newb:return evidence
+    if olda==oldb or newa==newb:
+        evidence["anchor_failures"]["flanking_pair"]="DEGENERATE_ANCHOR_COORDINATES"
+        return evidence
     pred=olda+(t-newa)/(newb-newa)*(oldb-olda)
     lo,hi=sorted((olda,oldb))
     eligible=[g for g in genes if lo<(g["start"]+g["end"])/2<hi
