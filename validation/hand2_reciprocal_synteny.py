@@ -21,6 +21,7 @@ NEGATIVE=("SAP30L","GALNT10")
 NAME=re.compile(r'gene_name "([^"]+)"')
 GENE=re.compile(r'gene_id "([^"]+)"')
 TAGS=re.compile(r'([A-Za-z][A-Za-z0-9-]*)\s*\[(?:hs|nr)\]',re.I)
+PLAIN_SYMBOL=re.compile(r"^[A-Za-z][A-Za-z0-9-]*$")
 MAX_CANDIDATES=8
 
 def parse_old_chr6q(raw:bytes,verify=True):
@@ -34,8 +35,11 @@ def parse_old_chr6q(raw:bytes,verify=True):
             g=GENE.search(p[8]); n=NAME.search(p[8])
             if not g:continue
             label=n.group(1) if n else ""
+            symbols=set(x.upper() for x in TAGS.findall(label))
+            if not symbols and PLAIN_SYMBOL.fullmatch(label):
+                symbols.add(label.upper())
             genes.append({"gene_id":g.group(1),"start":int(p[3]),"end":int(p[4]),
-             "strand":p[6],"symbols":sorted(set(x.upper() for x in TAGS.findall(label))),
+             "strand":p[6],"symbols":sorted(symbols),
              "legacy_name":label})
     return sorted(genes,key=lambda g:(g["start"],g["gene_id"]))
 
