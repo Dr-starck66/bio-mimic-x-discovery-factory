@@ -47,15 +47,28 @@ def verified_modern_anchors(fetcher=bounded_get):
     modern={};failures={};receipts={}
     for sym in ANCHORS+NEGATIVE:
         url=f"https://api.ncbi.nlm.nih.gov/datasets/v2/gene/symbol/{sym}/taxon/8296/dataset_report"
-        try:
-            payload,receipt=fetcher(url,400000)
-            model=parse_current_gene(payload,sym)
-            if model["accession"]!=MOD_ACC:
-                raise ValueError("Modern gene not on exact chr6q accession")
-            modern[sym]=model
-            receipts[sym]=receipt
-        except Exception as e:
-            failures[sym]=type(e).__name__+": "+str(e)[:160]
+        attempts=[]
+        for attempt in range(3):
+            try:
+                payload,receipt=fetcher(url,400000)
+                model=parse_current_gene(payload,sym)
+                if model["accession"]!=MOD_ACC:
+                    raise ValueError("Modern gene not on exact chr6q accession")
+                modern[sym]=model
+                receipts[sym]={"source":url,"attempt":attempt+1,"receipt":receipt}
+                break
+            except Exception as e:
+                message=type(e).__name__+": "+str(e)[:160]
+                attempts.append(message)
+                # Retry only transient transport/server failures; never relax
+                # assembly, gene identity, uniqueness or paralog validation.
+                code=getattr(e,"code",None)
+                transient=code in (429,500,502,503,504) or isinstance(e,(TimeoutError,ConnectionError))
+                if not transient or attempt==2:
+                    failures[sym]={"last_error":message,"attempts":attempts,
+                                   "status":"UNVERIFIED_MODERN_SOURCE"}
+                    break
+                time.sleep(min(2**attempt,4))
         time.sleep(.35)
     return modern,receipts,failures
 
