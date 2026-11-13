@@ -1,6 +1,8 @@
 import gzip,io,unittest
+from unittest.mock import patch
+from urllib.error import HTTPError
 from validation.hand2_reciprocal_synteny import (
-    parse_old_chr6q,find_flanking_candidates,compare_reciprocal,CHROM,
+    parse_old_chr6q,find_flanking_candidates,compare_reciprocal,verified_modern_anchors,CHROM,
 )
 def fixture():
     rows=[
@@ -19,6 +21,28 @@ class Hand2ReciprocalSyntenyTests(unittest.TestCase):
         self.genes=parse_old_chr6q(fixture(),verify=False)
         self.modern={"SAP30":{"start":900,"end":950},
                      "FBXO8":{"start":930000000,"end":930000100}}
+    def test_ncbi_500_retries_then_fails_closed(self):
+        calls=[]
+        def unavailable(url,limit):
+            calls.append(url)
+            raise HTTPError(url,500,"server error",{},None)
+        with patch("validation.hand2_reciprocal_synteny.time.sleep"):
+            modern,receipts,failures=verified_modern_anchors(unavailable)
+        self.assertEqual(modern,{})
+        self.assertEqual(receipts,{})
+        self.assertEqual(len(calls),24)
+        self.assertEqual(failures["SAP30"]["status"],"UNVERIFIED_MODERN_SOURCE")
+        self.assertEqual(len(failures["SAP30"]["attempts"]),3)
+    def test_nontransient_source_failure_is_not_retried(self):
+        calls=[]
+        def invalid(url,limit):
+            calls.append(url)
+            raise ValueError("bad payload")
+        with patch("validation.hand2_reciprocal_synteny.time.sleep"):
+            modern,receipts,failures=verified_modern_anchors(invalid)
+        self.assertEqual(modern,{})
+        self.assertEqual(len(calls),8)
+        self.assertEqual(len(failures["FBXO8"]["attempts"]),1)
     def test_only_full_gene_rows_on_chr6q(self):
         self.assertEqual([g["gene_id"] for g in self.genes],["sap","unknown","fbxo"])
     def test_bracket_not_same_as_identity(self):
@@ -26,10 +50,17 @@ class Hand2ReciprocalSyntenyTests(unittest.TestCase):
         self.assertEqual(result["status"],"PARTIAL_TWO_SYNTENIC_FLANKS")
         self.assertEqual([g["gene_id"] for g in result["candidates"]],["unknown"])
         self.assertEqual(compare_reciprocal({"status":"UNVERIFIED_NO_FLANKING_ANCHORS"})["whole_genome_unique"],"UNVERIFIED")
+    def test_plain_unambiguous_gene_names_are_anchors(self):
+        raw=fixture().replace(b"SAP30 [nr]",b"SAP30").replace(b"FBXO8 [hs]",b"FBXO8")
+        genes=parse_old_chr6q(raw,verify=False)
+        self.assertEqual(find_flanking_candidates(genes,self.modern)["status"],"PARTIAL_TWO_SYNTENIC_FLANKS")
     def test_missing_anchor_blocks_shortlist(self):
         result=find_flanking_candidates(self.genes,{"SAP30":self.modern["SAP30"]})
         self.assertEqual(result["status"],"UNVERIFIED_NO_FLANKING_ANCHORS")
         self.assertEqual(result["candidates"],[])
+        self.assertEqual(result["valid_anchor_count"],1)
+        self.assertEqual(result["modern_right_anchor_count"],0)
+        self.assertEqual(result["anchor_failures"]["flanking_pair"],"MISSING_MODERN_LEFT_OR_RIGHT")
     def test_conflicting_paralog_label_blocks_anchor(self):
         bad=dict(self.genes[0],symbols=["SAP30","SAP30L"])
         result=find_flanking_candidates([bad]+self.genes[1:],self.modern)

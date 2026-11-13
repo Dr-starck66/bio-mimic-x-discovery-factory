@@ -21,6 +21,7 @@ NEGATIVE=("SAP30L","GALNT10")
 NAME=re.compile(r'gene_name "([^"]+)"')
 GENE=re.compile(r'gene_id "([^"]+)"')
 TAGS=re.compile(r'([A-Za-z][A-Za-z0-9-]*)\s*\[(?:hs|nr)\]',re.I)
+PLAIN_SYMBOL=re.compile(r"^[A-Za-z][A-Za-z0-9-]*$")
 MAX_CANDIDATES=8
 
 def parse_old_chr6q(raw:bytes,verify=True):
@@ -34,8 +35,11 @@ def parse_old_chr6q(raw:bytes,verify=True):
             g=GENE.search(p[8]); n=NAME.search(p[8])
             if not g:continue
             label=n.group(1) if n else ""
+            symbols=set(x.upper() for x in TAGS.findall(label))
+            if not symbols and PLAIN_SYMBOL.fullmatch(label):
+                symbols.add(label.upper())
             genes.append({"gene_id":g.group(1),"start":int(p[3]),"end":int(p[4]),
-             "strand":p[6],"symbols":sorted(set(x.upper() for x in TAGS.findall(label))),
+             "strand":p[6],"symbols":sorted(symbols),
              "legacy_name":label})
     return sorted(genes,key=lambda g:(g["start"],g["gene_id"]))
 
@@ -43,15 +47,28 @@ def verified_modern_anchors(fetcher=bounded_get):
     modern={};failures={};receipts={}
     for sym in ANCHORS+NEGATIVE:
         url=f"https://api.ncbi.nlm.nih.gov/datasets/v2/gene/symbol/{sym}/taxon/8296/dataset_report"
-        try:
-            payload,receipt=fetcher(url,400000)
-            model=parse_current_gene(payload,sym)
-            if model["accession"]!=MOD_ACC:
-                raise ValueError("Modern gene not on exact chr6q accession")
-            modern[sym]=model
-            receipts[sym]=receipt
-        except Exception as e:
-            failures[sym]=type(e).__name__+": "+str(e)[:160]
+        attempts=[]
+        for attempt in range(3):
+            try:
+                payload,receipt=fetcher(url,400000)
+                model=parse_current_gene(payload,sym)
+                if model["accession"]!=MOD_ACC:
+                    raise ValueError("Modern gene not on exact chr6q accession")
+                modern[sym]=model
+                receipts[sym]={"source":url,"attempt":attempt+1,"receipt":receipt}
+                break
+            except Exception as e:
+                message=type(e).__name__+": "+str(e)[:160]
+                attempts.append(message)
+                # Retry only transient transport/server failures; never relax
+                # assembly, gene identity, uniqueness or paralog validation.
+                code=getattr(e,"code",None)
+                transient=code in (429,500,502,503,504) or isinstance(e,(TimeoutError,ConnectionError))
+                if not transient or attempt==2:
+                    failures[sym]={"last_error":message,"attempts":attempts,
+                                   "status":"UNVERIFIED_MODERN_SOURCE"}
+                    break
+                time.sleep(min(2**attempt,4))
         time.sleep(.35)
     return modern,receipts,failures
 
@@ -70,15 +87,24 @@ def find_flanking_candidates(genes:list[dict],modern:dict,limit=MAX_CANDIDATES):
             evidence["anchor_failures"][s]="AMBIGUOUS_OLD_PARALOG_TAG";continue
         anchors.append({"symbol":s,"old":matches[0],"modern":modern[s]})
     evidence["anchors"]=anchors
+    evidence["legacy_anchor_counts"]={sym:sum(sym in g["symbols"] for g in genes) for sym in ANCHORS+NEGATIVE}
+    evidence["modern_anchor_available"]={sym:sym in modern for sym in ANCHORS+NEGATIVE}
+    evidence["valid_anchor_count"]=len(anchors)
     left=sorted((x for x in anchors if x["modern"]["end"]<t),key=lambda x:t-x["modern"]["end"])
     right=sorted((x for x in anchors if x["modern"]["start"]>t),key=lambda x:x["modern"]["start"]-t)
-    if not left or not right:return evidence
+    evidence["modern_left_anchor_count"]=len(left)
+    evidence["modern_right_anchor_count"]=len(right)
+    if not left or not right:
+        evidence["anchor_failures"]["flanking_pair"]="MISSING_MODERN_LEFT_OR_RIGHT"
+        return evidence
     a,b=left[0],right[0]
     olda=(a["old"]["start"]+a["old"]["end"])/2
     oldb=(b["old"]["start"]+b["old"]["end"])/2
     newa=(a["modern"]["start"]+a["modern"]["end"])/2
     newb=(b["modern"]["start"]+b["modern"]["end"])/2
-    if olda==oldb or newa==newb:return evidence
+    if olda==oldb or newa==newb:
+        evidence["anchor_failures"]["flanking_pair"]="DEGENERATE_ANCHOR_COORDINATES"
+        return evidence
     pred=olda+(t-newa)/(newb-newa)*(oldb-olda)
     lo,hi=sorted((olda,oldb))
     eligible=[g for g in genes if lo<(g["start"]+g["end"])/2<hi
@@ -152,11 +178,22 @@ def main():
         genes=parse_old_chr6q(raw)
         modern,receipt,failures=verified_modern_anchors()
         synteny=find_flanking_candidates(genes,modern)
+        # Preserve the original failure class instead of presenting an
+        # empty alignment as an independently verified negative result.
         alignment=compare_reciprocal(synteny)
+        if not modern:
+            synteny["source_gate"]="UNVERIFIED_ALL_MODERN_ANCHOR_SOURCES_FAILED"
+        elif not synteny["anchors"]:
+            synteny["source_gate"]="UNVERIFIED_NO_VALID_PAIRED_ANCHORS"
+        else:
+            synteny["source_gate"]="PARTIAL_SOME_MODERN_ANCHORS_VERIFIED"
         result.update({"gtf_source":source,"total_old_chr6q_gene_features":len(genes),
             "modern_anchor_source_receipts":receipt,"modern_anchor_failures":failures,
+            "modern_anchor_success_count":len(modern),
+            "modern_anchor_failure_count":len(failures),
             "synteny":synteny,"alignment":alignment,
-            "status":alignment["status"] if alignment["status"].startswith("PARTIAL") else synteny["status"]})
+            "status":("UNVERIFIED_ALL_MODERN_ANCHOR_SOURCES_FAILED" if not modern else
+                      alignment["status"] if alignment["status"].startswith("PARTIAL") else synteny["status"])})
     except Exception as e:result.update({"status":"UNVERIFIED_SOURCE_OR_COMPUTE_FAILURE",
                                          "error":type(e).__name__+": "+str(e)[:250]})
     result["receipt_sha256"]=hashlib.sha256(json.dumps(result,sort_keys=True,ensure_ascii=False,
