@@ -34,6 +34,9 @@ class Hand2ReciprocalSyntenyTests(unittest.TestCase):
         result=find_flanking_candidates(self.genes,{"SAP30":self.modern["SAP30"]})
         self.assertEqual(result["status"],"UNVERIFIED_NO_FLANKING_ANCHORS")
         self.assertEqual(result["candidates"],[])
+        self.assertEqual(result["valid_anchor_count"],1)
+        self.assertEqual(result["modern_right_anchor_count"],0)
+        self.assertEqual(result["anchor_failures"]["flanking_pair"],"MISSING_MODERN_LEFT_OR_RIGHT")
     def test_conflicting_paralog_label_blocks_anchor(self):
         bad=dict(self.genes[0],symbols=["SAP30","SAP30L"])
         result=find_flanking_candidates([bad]+self.genes[1:],self.modern)
