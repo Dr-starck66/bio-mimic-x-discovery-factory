@@ -1,0 +1,139 @@
+{
+  "schema": "BIO-MIMIC-X/GSE179849-INDEPENDENT-SUMMARY-REANALYSIS/2026-11-13",
+  "status": "PASS_CROSSREPORT_CONSISTENCY_ONLY",
+  "scope": "AUTHOR_PUBLIC_SUMMARY_REPORTS_NOT_RAW_MATRIX_REEXECUTION",
+  "source_branch": "astra/kaggle-evidence-integration-20261113",
+  "sources": {
+    "six": {
+      "path": "reports/factory/GSE179849-INDEPENDENT-6-CLOCK-RNA-IDENTITY-SENSITIVITY-2026-11-04.json",
+      "git_blob_sha": "0f8853ba2f363d8f2d89cc52fb61ae110a6b28b1"
+    },
+    "first": {
+      "path": "reports/factory/GSE179849-REAL-ORTHOGONAL-RNA-ADJUSTED-AGING-2026-11-02.json",
+      "git_blob_sha": "3fc77eb2d96d4486119458156c6db99c88ade182"
+    },
+    "donor": {
+      "path": "reports/factory/GSE179849-THREE-DONOR-INFERENCE-AUDIT-2026-11-02.json",
+      "git_blob_sha": "03749e38ab86f1bf1e4dadaaf2355514b2f135bb"
+    },
+    "restricted": {
+      "path": "reports/factory/GSE295849-RNA-IDENTITY-ADJUSTMENT-LATEST.json",
+      "git_blob_sha": "d86ba09ad46107fe8d9165d54cb1a8e1316517cb"
+    }
+  },
+  "checks": {
+    "six_distinct_clocks": true,
+    "six_deltas_match_rounding": true,
+    "all_six_rmse_drop_on_same_sample": true,
+    "five_clock_slopes_positive": true,
+    "grimage_slope_negative": true,
+    "original_gzip_sha_consistent": true,
+    "archived_102_sha_consistent": true,
+    "horvath1_before_crossreport": true,
+    "horvath1_after_crossreport": true,
+    "grimage_before_crossreport": true,
+    "grimage_after_crossreport": true,
+    "three_healthy_donors": true,
+    "control_conditions_match": true,
+    "independent_donor_hc2_flips_adjustment": true,
+    "donor_resample_effect_spans_zero": true,
+    "controlled_six_donor_rna_unavailable": true,
+    "not_same_physical_aliquot": true,
+    "negative_mutation_rejected": true
+  },
+  "checks_passed": 18,
+  "checks_total": 18,
+  "clocks": [
+    {
+      "clock": "Horvath1",
+      "unadjusted": 2.062966,
+      "adjusted": 1.930454,
+      "delta_computed": -0.132512,
+      "delta_reported": -0.132513,
+      "delta_within_rounding_tolerance": true,
+      "rmse_drops_in_same_sample": true
+    },
+    {
+      "clock": "Horvath2",
+      "unadjusted": 0.658764,
+      "adjusted": 0.556997,
+      "delta_computed": -0.101767,
+      "delta_reported": -0.101766,
+      "delta_within_rounding_tolerance": true,
+      "rmse_drops_in_same_sample": true
+    },
+    {
+      "clock": "PhenoAge",
+      "unadjusted": 1.182166,
+      "adjusted": 1.11391,
+      "delta_computed": -0.068256,
+      "delta_reported": -0.068257,
+      "delta_within_rounding_tolerance": true,
+      "rmse_drops_in_same_sample": true
+    },
+    {
+      "clock": "PCHorvath2",
+      "unadjusted": 0.443288,
+      "adjusted": 0.372858,
+      "delta_computed": -0.07043,
+      "delta_reported": -0.07043,
+      "delta_within_rounding_tolerance": true,
+      "rmse_drops_in_same_sample": true
+    },
+    {
+      "clock": "PCPhenoAge",
+      "unadjusted": 0.90621,
+      "adjusted": 0.842217,
+      "delta_computed": -0.063993,
+      "delta_reported": -0.063993,
+      "delta_within_rounding_tolerance": true,
+      "rmse_drops_in_same_sample": true
+    },
+    {
+      "clock": "GrimAge",
+      "unadjusted": -1.16736,
+      "adjusted": -1.238104,
+      "delta_computed": -0.070744,
+      "delta_reported": -0.070743,
+      "delta_within_rounding_tolerance": true,
+      "rmse_drops_in_same_sample": true
+    }
+  ],
+  "cohort": {
+    "same_condition_RNA_DNAm_records": 102,
+    "healthy_control_conditions": 42,
+    "independent_healthy_donors": 3
+  },
+  "horvath1": {
+    "aggregate_adjustment_delta": -0.13251260683881183,
+    "leave_one_donor_out_adjustment_delta": {
+      "HC1": -0.45257315047719304,
+      "HC2": 0.3744724354575988,
+      "HC4": -0.11984020904630133
+    },
+    "resample_extrema": [
+      -0.4628504386242658,
+      0.6520652492101968
+    ],
+    "resample_fraction_negative": 0.5925925925925926,
+    "sign_flip_on_omitting_HC2": true,
+    "inference": "NO_CALIBRATED_CONFIDENCE_INTERVAL_OR_CAUSAL_CLAIM"
+  },
+  "negative_control": {
+    "name": "GrimAge",
+    "adjusted_years_per_passage": -1.238104,
+    "interpretation": "DISCORDANT_WITH_FIVE_CLOCKS_MUST_BE_RETAINED"
+  },
+  "scientific_boundaries": {
+    "raw_data_retrieved_during_this_audit": false,
+    "last_raw_source_sha_evidence": "REPORTED_IN_PREVIOUS_GITHUB_EVIDENCE_NOT_RECHECKED",
+    "same_physical_aliquot": "UNVERIFIED",
+    "clinical_effect": "UNVERIFIED",
+    "anti_aging_effect": "UNVERIFIED",
+    "GSE295849_controlled_access_RNA": "NOT_AVAILABLE_NO_AUTH_BYPASS",
+    "single_training_set_rmse": "NOT_OUT_OF_SAMPLE_PERFORMANCE",
+    "batch_effects": "NOT_RESOLVED"
+  },
+  "new_spend_eur": 0,
+  "audit_method": "Four repository JSON sources independently cross-compared and deterministic one-value negative control injected in memory; no external data or remote computation claimed"
+}
