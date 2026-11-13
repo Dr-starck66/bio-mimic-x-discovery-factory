@@ -1,0 +1,157 @@
+{
+  "schema": "BIO-MIMIC-X/HAND2-DIRECT-EXPERIMENT/2026-11-05",
+  "date": "2026-11-05",
+  "provenance": {
+    "type": "direct independently fetched NCBI EFetch accession-specific FASTA, client exact edit-distance dynamic-programming",
+    "source_sha256_check": "PASS",
+    "n_sequences": 3,
+    "old_gtf_sha256": "cc0c3c4e39f3afedcbe2bc5aad1d63fc461714aeb75051f4d109390455874c5d",
+    "original_github_artifact": "https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/42021538248/artifacts/13411887589",
+    "sequences": [
+      {
+        "name": "legacy_HAND2_candidate",
+        "legacy_gene_id": "AMEX60DD045298",
+        "accession": "CM010938.2",
+        "chromosome": "6q",
+        "assembly": "GCA_002915635.3",
+        "start_1based": 884794726,
+        "end_1based": 884799066,
+        "strand": "+",
+        "sequence_length": 4341,
+        "sequence_sha256": "6f899bcef46617d9d50e18a35139615e3ae3395e42f1c202155249c7a7c3b796",
+        "fasta_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=CM010938.2&seq_start=884794726&seq_stop=884799066&rettype=fasta&retmode=text"
+      },
+      {
+        "name": "modern_HAND2",
+        "ncbi_gene_id": "138516365",
+        "accession": "NC_090937.1",
+        "chromosome": "6q",
+        "assembly": "GCF_040938575.1",
+        "start_1based": 910028725,
+        "end_1based": 910032936,
+        "strand": "-",
+        "sequence_length": 4212,
+        "sequence_sha256": "eb707084770ecfd0c24538f10984563b8cddfc0fe467db96454a36fa516505b3",
+        "fasta_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NC_090937.1&seq_start=910028725&seq_stop=910032936&rettype=fasta&retmode=text"
+      },
+      {
+        "name": "modern_HAND1_negative_control",
+        "ncbi_gene_id": "138582569",
+        "accession": "NC_090926.1",
+        "chromosome": "3q",
+        "assembly": "GCF_040938575.1",
+        "start_1based": 348891291,
+        "end_1based": 348920140,
+        "sequence_length": 28850,
+        "sequence_sha256": "99058cb5ba540e21359efbdd2dd047efb692cb8f47d731ec775ba7cbfeef9d8c",
+        "fasta_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NC_090926.1&seq_start=348891291&seq_stop=348920140&rettype=fasta&retmode=text"
+      }
+    ],
+    "hash_verification": "sha256(abc) passed canonical self-check; HAND2 and HAND1 FASTA hashes match pinned prior BIO-MIMIC X reports"
+  },
+  "method": {
+    "exact_edit_distance": "Levenshtein with insertions, deletions and substitutions cost 1, integer dynamic programming",
+    "semi_global_mode": "HW: align complete query to any substring of target (initial D[0,j]=0), minimum across target last row",
+    "strand_choice": "compare original and reverse-complement of modern NCBI sequence",
+    "global_check": "NW global alignment for old vs HAND2",
+    "kmer_control": "distinct exact 31-mers excluding ambiguous N bases, both orientations",
+    "readout": "14-edit modern HAND2 to historic locus, and HAND1 negative 2164 edits with historic query",
+    "not_done": "no whole-genome reciprocal best hit, no independently validated synteny, no exon/protein-aware comparison, no external curation",
+    "reproducibility_note": "The numeric computation was executed against the three live NCBI FASTA records in an isolated JavaScript/V8 analysis. It is NOT a successful GitHub Actions job."
+  },
+  "direct_alignment": {
+    "modern_HAND2_forward_to_legacy": {
+      "edit_distance": 2107,
+      "query_length": 4212,
+      "aligned_columns": 4277,
+      "matching_bases": 2170,
+      "mismatches": 1171,
+      "deletions": 871,
+      "insertions": 65,
+      "identity_in_aligned_columns": 0.507365,
+      "start_0based": 715,
+      "end_0based_exclusive": 4121
+    },
+    "modern_HAND2_reverse_complement_to_legacy": {
+      "edit_distance": 14,
+      "query_length": 4212,
+      "target_length": 4341,
+      "aligned_identical_bases": 4200,
+      "aligned_columns": 4214,
+      "identity_in_aligned_columns": 0.996678,
+      "mismatches": 5,
+      "deletions": 7,
+      "insertions": 2,
+      "old_target_start_0based": 68,
+      "old_target_end_0based_exclusive": 4275,
+      "edit_distance_per_query": 0.003324
+    },
+    "old_legacy_to_modern_HAND2_reverse_complement": {
+      "edit_distance": 148,
+      "query_length": 4341,
+      "target_length": 4212,
+      "edit_distance_per_query": 0.034094
+    },
+    "old_legacy_to_modern_HAND2_forward": {
+      "edit_distance": 2181,
+      "query_length": 4341,
+      "edit_distance_per_query": 0.502419
+    },
+    "global_old_to_modern_HAND2_reverse_complement": {
+      "edit_distance": 148,
+      "query_length": 4341,
+      "target_length": 4212,
+      "edit_distance_per_query": 0.034094
+    },
+    "old_legacy_to_modern_HAND1_forward_negative": {
+      "edit_distance": 2173,
+      "query_length": 4341,
+      "edit_distance_per_query": 0.500576
+    },
+    "old_legacy_to_modern_HAND1_reverse_complement_negative": {
+      "edit_distance": 2164,
+      "query_length": 4341,
+      "edit_distance_per_query": 0.498503
+    }
+  },
+  "kmer_31": {
+    "distinct_legacy": 4311,
+    "modern_HAND2_forward": {
+      "distinct": 4182,
+      "shared": 0
+    },
+    "modern_HAND2_reverse_complement": {
+      "distinct": 4182,
+      "shared": 3921
+    },
+    "modern_HAND1_forward": {
+      "distinct": 27242,
+      "shared": 8
+    },
+    "modern_HAND1_reverse_complement": {
+      "distinct": 27242,
+      "shared": 0
+    }
+  },
+  "verification": {
+    "expected_reverse_complement_orientation": "PASS",
+    "modern_HAND2_4212bp_sequence_sha256_matches_previously_pinned": "PASS",
+    "modern_HAND1_28850bp_negative_sha256_matches_previously_pinned": "PASS",
+    "two_way_H2_and_H1_negative_control": "PASS_DIRECT_COMPUTATION",
+    "candidate_ID_assignment": "PARTIAL_STRONGLY_SUPPORTED_BY_TARGETED_GENOMIC_WINDOWS",
+    "cross_genome_unique_best_hit": "UNVERIFIED",
+    "human_regeneration_therapy_evidence": "UNVERIFIED",
+    "curator_confirmation": "UNVERIFIED",
+    "original_monolithic_GitHub_Action": "FAIL_NO_JOBS_QUEUED_FOR_LAST_HEAD",
+    "workflow_direct_proof_once": "FAIL_NO_JOBS_REPORTED_ON_HEAD_5e5e066c",
+    "commercial_sale_or_pilot": "UNVERIFIED"
+  },
+  "decision": "PARTIAL_STRONGLY_SUPPORTED_HAND2_LEGACY_MAPPING_NOT_CURATOR_CERTIFIED",
+  "limitations": [
+    "Pairwise local/semiglobal same-assembly-gene window comparisons do not establish genome-wide locus uniqueness.",
+    "Exact local 99.6678% sequence identity is not evidence of any regenerative efficacy or therapeutic transfer.",
+    "The 148-edit global mismatch reflects an old window 129 bases longer than the new; compare coverage and CIGAR.",
+    "NCBI RefSeq and old GenBank may be derived from closely related assemblies; independent curator confirmation and all-paralog/synteny controls are still required.",
+    "No validated buyer, paid pilot or million-euro valuation is inferred."
+  ]
+}
