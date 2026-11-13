@@ -26,6 +26,10 @@ class Hand2ReciprocalSyntenyTests(unittest.TestCase):
         self.assertEqual(result["status"],"PARTIAL_TWO_SYNTENIC_FLANKS")
         self.assertEqual([g["gene_id"] for g in result["candidates"]],["unknown"])
         self.assertEqual(compare_reciprocal({"status":"UNVERIFIED_NO_FLANKING_ANCHORS"})["whole_genome_unique"],"UNVERIFIED")
+    def test_plain_unambiguous_gene_names_are_anchors(self):
+        raw=fixture().replace(b"SAP30 [nr]",b"SAP30").replace(b"FBXO8 [hs]",b"FBXO8")
+        genes=parse_old_chr6q(raw,verify=False)
+        self.assertEqual(find_flanking_candidates(genes,self.modern)["status"],"PARTIAL_TWO_SYNTENIC_FLANKS")
     def test_missing_anchor_blocks_shortlist(self):
         result=find_flanking_candidates(self.genes,{"SAP30":self.modern["SAP30"]})
         self.assertEqual(result["status"],"UNVERIFIED_NO_FLANKING_ANCHORS")
