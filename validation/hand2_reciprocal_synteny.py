@@ -188,9 +188,12 @@ def main():
         else:
             synteny["source_gate"]="PARTIAL_SOME_MODERN_ANCHORS_VERIFIED"
         result.update({"gtf_source":source,"total_old_chr6q_gene_features":len(genes),
-            "modern_anchor_source_receipts":receipt,"modern_anchor_failures":failures,\n            "modern_anchor_success_count":len(modern),\n            "modern_anchor_failure_count":len(failures),
+            "modern_anchor_source_receipts":receipt,"modern_anchor_failures":failures,
+            "modern_anchor_success_count":len(modern),
+            "modern_anchor_failure_count":len(failures),
             "synteny":synteny,"alignment":alignment,
-            "status":("UNVERIFIED_ALL_MODERN_ANCHOR_SOURCES_FAILED" if not modern else\n                      alignment["status"] if alignment["status"].startswith("PARTIAL") else synteny["status"])})
+            "status":("UNVERIFIED_ALL_MODERN_ANCHOR_SOURCES_FAILED" if not modern else
+                      alignment["status"] if alignment["status"].startswith("PARTIAL") else synteny["status"])})
     except Exception as e:result.update({"status":"UNVERIFIED_SOURCE_OR_COMPUTE_FAILURE",
                                          "error":type(e).__name__+": "+str(e)[:250]})
     result["receipt_sha256"]=hashlib.sha256(json.dumps(result,sort_keys=True,ensure_ascii=False,
