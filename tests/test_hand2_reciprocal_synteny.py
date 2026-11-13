@@ -1,4 +1,6 @@
-import gzip,io,unittest\nfrom unittest.mock import patch\nfrom urllib.error import HTTPError
+import gzip,io,unittest
+from unittest.mock import patch
+from urllib.error import HTTPError
 from validation.hand2_reciprocal_synteny import (
     parse_old_chr6q,find_flanking_candidates,compare_reciprocal,verified_modern_anchors,CHROM,
 )
