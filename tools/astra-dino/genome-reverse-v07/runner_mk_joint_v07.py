@@ -33,7 +33,11 @@ def parse(source):
 @functools.lru_cache(maxsize=100)
 def obs(v):
  if v in ('?','-'):return None
- a=set(re.findall('[0-9]',v));return a if a else None
+ if len(v)==1 and v.isdigit():return {v}
+ if v.startswith('(') or v.startswith('{'):
+  a=set(re.findall('[0-9]',v))
+  if a:return a
+ raise ValueError('INVALID_CHARACTER_SYMBOL '+v)
 def norm(x):
  s=sum(x);return [z/s for z in x] if s else [1/len(x)]*len(x)
 def build(t):
