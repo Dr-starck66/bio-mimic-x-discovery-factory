@@ -17,6 +17,7 @@ from experiment_planner import plan_experiments
 
 SEED_PATH = Path(__file__).with_name('research_seed.json')
 ALLOWED_STUDY_DESIGNS = {'observational', 'expert_consensus', 'public_health_guidance', 'clinical_guideline', 'dataset_catalogue'}
+ALLOWED_MODES = {'CLASSIFICATION', 'MECHANISM'}
 
 
 def canonical_sha(value: object) -> str:
@@ -58,6 +59,8 @@ def validate_seed(seed: dict) -> list[str]:
             errors.append('invalid_hypothesis_stage:' + qid)
         if q.get('individual_data_present'):
             errors.append('individual_data_not_permitted:' + qid)
+        if q.get('mode') not in ALLOWED_MODES:
+            errors.append('invalid_research_mode:' + qid)
         if q.get('diagnostic_basis') == 'BMI_ALONE':
             errors.append('bmi_alone_cannot_diagnose_clinical_obesity:' + qid)
     return sorted(set(errors))
@@ -78,17 +81,32 @@ def build_dossier(seed: dict) -> dict:
                  'genes': q.get('candidate_genes', []), 'sources': [s['url'] for s in refs]}
         program = {'id': q['id']}
         counterfactual = {'counterfactual_tests': q['counter_tests']}
-        hypotheses = generate_hypotheses(program, claim, causal_plan=counterfactual)
-        audit = {'flags': [
-            'correlation not causation',
-            'human clinical efficacy not established',
-            'no independent patient-level replication in this dossier',
-            'health equity and long-term safety require separate evaluation',
-        ]}
-        debate = debate_hypotheses(hypotheses, claim, audit, counterfactual)
-        experiments = plan_experiments(program, claim, hypotheses, debate, counterfactual)
+        if q['mode'] == 'CLASSIFICATION':
+            # Prediction/classification is not a molecular perturbation experiment.
+            hypotheses, experiments = [], []
+            debate = {'ranked': [], 'decision_rule': 'NOT_APPLICABLE_TO_CLASSIFICATION'}
+            benchmark = {
+                'status': 'PROPOSED_NOT_EXECUTED', 'baseline': 'BMI_ALONE',
+                'candidate': 'ADIPOSITY_PLUS_ORGAN_FUNCTION',
+                'validation': 'INDEPENDENT_GEOGRAPHY_HELD_OUT',
+                'metrics': ['discrimination', 'calibration', 'missingness', 'subgroup_bias'],
+                'outcome': 'predeclared obesity-related organ function (not BMI itself)',
+                'causal_claim': False,
+            }
+        else:
+            hypotheses = generate_hypotheses(program, claim, causal_plan=counterfactual)
+            audit = {'flags': [
+                'correlation not causation',
+                'human clinical efficacy not established',
+                'no independent patient-level replication in this dossier',
+                'health equity and long-term safety require separate evaluation',
+            ]}
+            debate = debate_hypotheses(hypotheses, claim, audit, counterfactual)
+            experiments = plan_experiments(program, claim, hypotheses, debate, counterfactual)
+            benchmark = None
         items.append({
             'question_id': q['id'], 'question': q['subject'],
+            'research_mode': q['mode'], 'classification_benchmark': benchmark,
             'source_ids': q['source_ids'], 'source_designs': designs,
             'source_urls': [s['url'] for s in refs],
             'source_status': 'VERIFIED_PUBLIC_METADATA_NOT_RAW_COHORT_REPLICATION',
