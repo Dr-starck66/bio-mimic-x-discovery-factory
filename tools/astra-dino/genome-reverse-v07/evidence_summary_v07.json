@@ -1,0 +1,179 @@
+{
+  "schema": "astra.dino.joint-mk.v07",
+  "source": "real fossil NEXUS matrices, 2026-11-14",
+  "models": "Mk equal branch Q + joint fossil anchors; fixed lambda 0.35 and rate 0.25",
+  "comparison": [
+    {
+      "dataset": "hendrickx",
+      "sha256": "70edf9e9ceb5959f0070911e9cf78e44ff44027043f91c89dc088353ef821c82",
+      "taxa": 61,
+      "characters": 71,
+      "n_holdout_taxa": 50,
+      "n_outcomes": 827,
+      "tree_source": "six published topologies, possible historic topology leakage",
+      "hyperparameters": {
+        "mk_rate": 0.25,
+        "lambda": 0.35,
+        "anchor_rule": "j%5=0",
+        "neighbors": 12,
+        "minimum_shared_anchors": 3
+      },
+      "cluster_bootstrap_95": {
+        "accuracy": [
+          0.003717472118959111,
+          0.030748663101604286
+        ],
+        "log_loss": [
+          0.00238063764231971,
+          0.039253967331316704
+        ],
+        "brier": [
+          -0.0020711070273986706,
+          0.016421746545848024
+        ]
+      },
+      "first_tree": {
+        "tree": 1,
+        "methods": {
+          "majority": {
+            "n": 827,
+            "correct": 546,
+            "accuracy": 0.660217654171705,
+            "log_loss": 0.7419535829631607,
+            "brier": 0.4414138679874682
+          },
+          "mk": {
+            "n": 827,
+            "correct": 618,
+            "accuracy": 0.747279322853688,
+            "log_loss": 0.7577137386216375,
+            "brier": 0.3837183205067105
+          },
+          "joint": {
+            "n": 827,
+            "correct": 631,
+            "accuracy": 0.7629987908101572,
+            "log_loss": 0.7381117224712741,
+            "brier": 0.3772461841002597
+          },
+          "shuffled_anchor": {
+            "n": 827,
+            "correct": 623,
+            "accuracy": 0.7533252720677146,
+            "log_loss": 0.8011668711741866,
+            "brier": 0.4117243826488896
+          }
+        }
+      },
+      "six_tree_accuracy": [
+        {
+          "tree": 1,
+          "mk": 0.747279322853688,
+          "joint": 0.7629987908101572
+        },
+        {
+          "tree": 2,
+          "mk": 0.7388149939540508,
+          "joint": 0.7533252720677146
+        },
+        {
+          "tree": 3,
+          "mk": 0.7484885126964933,
+          "joint": 0.7642079806529625
+        },
+        {
+          "tree": 4,
+          "mk": 0.7484885126964933,
+          "joint": 0.7629987908101572
+        },
+        {
+          "tree": 5,
+          "mk": 0.7521160822249093,
+          "joint": 0.7617896009673518
+        },
+        {
+          "tree": 6,
+          "mk": 0.747279322853688,
+          "joint": 0.7629987908101572
+        }
+      ]
+    },
+    {
+      "dataset": "baron_josephwb_edited",
+      "sha256": "78e5cf6d2402741151950bdcb12373f86d900d27f4ef6b61b6b983987bcca311",
+      "taxa": 75,
+      "characters": 457,
+      "n_holdout_taxa": 75,
+      "n_outcomes": 11564,
+      "tree_source": "unresolved star topology, no published tree in Gist",
+      "hyperparameters": {
+        "mk_rate": 0.25,
+        "lambda": 0.35,
+        "anchor_rule": "j%5=0",
+        "neighbors": 12,
+        "minimum_shared_anchors": 3
+      },
+      "cluster_bootstrap_95": {
+        "accuracy": [
+          -0.0006195238516682953,
+          0.0016105653084232574
+        ],
+        "log_loss": [
+          0.13280873969183835,
+          0.1615924043054278
+        ],
+        "brier": [
+          0.04449172236200544,
+          0.05634024442388698
+        ]
+      },
+      "first_tree": {
+        "tree": 1,
+        "methods": {
+          "majority": {
+            "n": 11564,
+            "correct": 8512,
+            "accuracy": 0.7360774818401937,
+            "log_loss": 0.6159569941941904,
+            "brier": 0.36292559438027494
+          },
+          "mk": {
+            "n": 11564,
+            "correct": 8500,
+            "accuracy": 0.7350397786233137,
+            "log_loss": 0.937485603426049,
+            "brier": 0.4416458505466541
+          },
+          "joint": {
+            "n": 11564,
+            "correct": 8506,
+            "accuracy": 0.7355586302317537,
+            "log_loss": 0.7905843424363607,
+            "brier": 0.3908623820771447
+          },
+          "shuffled_anchor": {
+            "n": 11564,
+            "correct": 8481,
+            "accuracy": 0.7333967485299204,
+            "log_loss": 0.8691097080207342,
+            "brier": 0.42402080727395036
+          }
+        }
+      },
+      "six_tree_accuracy": [
+        {
+          "tree": 1,
+          "mk": 0.7350397786233137,
+          "joint": 0.7355586302317537
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Observed target anchor characters were allowed; this is NOT a full-taxon blind benchmark.",
+    "Hendrickx source tree can contain historical morphology leakage.",
+    "Baron matrix from Joseph Brown is corrected 457-column version, 1 character removed.",
+    "Baron star is no validated external tree.",
+    "No DNA, no causal fossil genotype map, no demonstration of dinosaur resurrection."
+  ]
+}
