@@ -1,0 +1,67 @@
+{
+  "schema": "astra.dino.block_profiles.reproduction_manifest.v1",
+  "date_utc": "2026-11-14",
+  "runtime": {
+    "python": "3.13.5",
+    "numpy": "2.3.5"
+  },
+  "git_author_coordinates_blob_sha1": "dc6ec1da23aa6426fcc16dc5b5d1124d55699616",
+  "oslo_originals_sha256": {
+    "Morphometrics.txt": "4722f565feeda8290d3985b4a65d9e0c4e91690270264cfc931d26f24cc51555",
+    "pPCAeigen.txt": "d615bd8dd3fd22091b971b20f18a49832d1f2afaf390a30ea3465f6a276b5bff",
+    "Prun64_3miss2mafNoZ_1.vcf.gz": "471db73a5eb65a8bb6af8f25872a5a2d0bc0115556203250f69eb61988163d34"
+  },
+  "runs": {
+    "primary_seed": 20261114,
+    "independent_retest_seed": 20261115,
+    "permutations_each": 20000,
+    "max_absolute_adjusted_p_difference": 0.0060497
+  },
+  "tests": {
+    "software_suite_expected": "14/14 PASS",
+    "vcf_real_data_gate": "PASS 3/3 SHA; 261754 records; 6928 in 28 blocks; 3570 retained",
+    "independent_prediction": "UNVERIFIED"
+  },
+  "files": {
+    "README.md": {
+      "sha256": "5b231442ff05135d50e10286c8d9efb68fe0eb4443f881bd8968f5287f07d47f",
+      "bytes": 950
+    },
+    "requirements.txt": {
+      "sha256": "105a25c9a24a53a42b52ccc93f930e1ea4a88b42372d440ae7c1b82c3a8b2c64",
+      "bytes": 15
+    },
+    "validation/astra_dino_rubin_block_profiles.py": {
+      "sha256": "2c589b278a3d320e24e62efe691f6724d81c3bf8b45b0a5e5ffc3d21fab80d73",
+      "bytes": 18587
+    },
+    "validation/astra_dino_rubin2022_vcf_intersection.py": {
+      "sha256": "556ce9ced482888ec273c3f414f379da6a6aad31732b0fe8a0228db710399590",
+      "bytes": 9207
+    },
+    "validation/astra_dino_data_s2_author_intersect.py": {
+      "sha256": "68595c326cf4a9d8fa0f80c4462e914a513c175b3a0e5a9b69f8562b68009f22",
+      "bytes": 10143
+    },
+    "tests/test_astra_dino_rubin_block_profiles.py": {
+      "sha256": "bb0a414455fcbbdf82db42b9a57aa449451703b63c3febc073b471dd732d9ce5",
+      "bytes": 3648
+    },
+    "data/Rubin2022_28Loci_start_stop_author_original.txt": {
+      "sha256": "9702730b625dc8a93eafe01025dda2ebacb0d2c34d34e418c5940df44ff28770",
+      "bytes": 759
+    },
+    "reports/astra_dino_rubin_block_profiles_20000_20261114.json": {
+      "sha256": "b95a4418721b5ea298333f555c73b6cf90100a1ebcf2d496ceda642326515c18",
+      "bytes": 24503
+    },
+    "evidence/astra_dino_rubin_block_retest_seed_20261115.json": {
+      "sha256": "47e525c1e4520579f6617623034cca0ec2b36346caeca1f3f7cbf58f3b61d74b",
+      "bytes": 24514
+    },
+    "reports/ASTRA-DINO-RUBIN-BLOCK-HAPLOTYPES-EXPLORATORY-2026-11-14.md": {
+      "sha256": "48897e60af4a4aa2adfd7c491030c13cc670e2a92652c855725f779aa9208cd4",
+      "bytes": 8508
+    }
+  }
+}
