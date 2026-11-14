@@ -59,7 +59,7 @@ export function evaluateExternalMatrix(text,{checkHash=true,nullReplicates=30,bo
     bootstrap:bootstrapDelta(overall.perTaxon,bootstrapIterations,20261114),
     limitations:['Morphological method re-fit within external matrix, not a frozen Holtz model',
       'Other known characters of withheld taxon used to infer the hidden character',
-      'No homologous character mapping across 2014/2021 datasets',
+      'No homologous character mapping across Holtz/Wang-2021 datasets',
       'Not a genome-to-morphology or truly unknown ancient trait prediction']};
 }
 async function main(){
