@@ -31,8 +31,9 @@ Les briques SEO, prospection, trading, blockchain et diffusion ne sont pas néce
 
 ## Premier lot vérifiable
 
-- **Q1 — classification clinique** : tester sur cohorte indépendante le gain de la combinaison adiposité et atteintes fonctionnelles vs IMC seul. Sur aucun sujet individuel on ne pose de diagnostic à partir de l'IMC seulement.
+- **Q1 — classification clinique** : plan de benchmark prédictif indépendant du moteur d'hypothèses causales, pour comparer adiposité + atteintes fonctionnelles à IMC seul. Aucun diagnostic individuel ni expérience de perturbation n'est généré pour cette piste.
 - **Q2 — durabilité** : chercher les facteurs du maintien des bénéfices et de la reprise pondérale, avec contrôles pour arrêt du traitement, effets indésirables et équité d'accès.
+- **Q3 — dysfonction du tissu adipeux** : tester des hypothèses inflammatoires avec contrôles négatifs indépendants et contrôle de la transposition à l'humain ; aucune efficacité thérapeutique déduite.
 - **Sources primaires publiées** : OMS 07/10/2026, Commission Lancet 2025, Nature 11/11/2026 (844 108 adultes), OMS 01/12/2025.
 - **Source de réplication candidate** : NHANES août 2021–août 2023. Aucun enregistrement individuel n'a été téléchargé ou analysé dans ce pilote.
 
