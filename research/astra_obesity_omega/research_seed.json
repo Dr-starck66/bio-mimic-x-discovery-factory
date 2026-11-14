@@ -1,0 +1,99 @@
+{
+  "schema": "astra-obesity-seed/0.1",
+  "sources": [
+    {
+      "id": "WHO-OBESITY-2026",
+      "title": "Obesity and overweight",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/obesity-and-overweight",
+      "published": "2026-10-07",
+      "design": "public_health_guidance",
+      "scope": "worldwide",
+      "note": "2024 global prevalence; multifactorial chronic disease, not clinical intervention evidence"
+    },
+    {
+      "id": "LANCET-CLINICAL-OBESITY-2025",
+      "title": "Definition and diagnostic criteria of clinical obesity",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11870235/",
+      "published": "2025-01-14",
+      "design": "expert_consensus",
+      "scope": "international",
+      "note": "Proposes clinical vs preclinical obesity and assessment beyond BMI"
+    },
+    {
+      "id": "NATURE-COHORTS-2026",
+      "title": "Validation of clinical and preclinical obesity across global cohorts",
+      "url": "https://www.nature.com/articles/s41586-026-11237-5",
+      "published": "2026-11-11",
+      "design": "observational",
+      "scope": "China; United Kingdom; United States; Spain",
+      "sample_size_reported": 844108,
+      "note": "Four observational cohorts; aggregate publication only, no participant data imported"
+    },
+    {
+      "id": "WHO-GLP1-2025",
+      "title": "WHO issues global guideline on the use of GLP-1 medicines in treating obesity",
+      "url": "https://www.who.int/news/item/01-12-2025-who-issues-global-guideline-on-the-use-of-glp-1-medicines-in-treating-obesity",
+      "published": "2025-12-01",
+      "design": "clinical_guideline",
+      "scope": "adults worldwide",
+      "note": "Conditional recommendations; long-term safety, maintenance, affordability and equity remain concerns"
+    },
+    {
+      "id": "NHANES-2021-2023",
+      "title": "NHANES August 2021–August 2023 public datasets",
+      "url": "https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?Cycle=2021-2023",
+      "published": "undated",
+      "reviewed": "2026-11-14",
+      "design": "dataset_catalogue",
+      "scope": "United States",
+      "note": "Potential open replication source; records not downloaded or analyzed"
+    }
+  ],
+  "questions": [
+    {
+      "id": "OB-CLASSIFICATION-01",
+      "subject": "Distinguish clinical obesity and preclinical adiposity using organ function instead of BMI alone",
+      "mechanisms": [
+        "adiposity-related organ dysfunction"
+      ],
+      "source_ids": [
+        "LANCET-CLINICAL-OBESITY-2025",
+        "NATURE-COHORTS-2026",
+        "NHANES-2021-2023"
+      ],
+      "stage": "RESEARCH_HYPOTHESIS",
+      "claims_clinical_efficacy": false,
+      "individual_data_present": false,
+      "diagnostic_basis": "MULTIDIMENSIONAL_RESEARCH_ONLY",
+      "falsifier": "A predeclared external cohort shows no incremental organ-health prediction beyond BMI-only baseline",
+      "counter_tests": [
+        "evaluate independent held-out geography",
+        "negative control: BMI-only baseline",
+        "calibrate by age and sex without attributing causality",
+        "avoid assuming coexisting dysfunction is caused by adiposity"
+      ]
+    },
+    {
+      "id": "OB-DURABILITY-02",
+      "subject": "Understand biological and environmental determinants of durable obesity treatment response and weight recurrence",
+      "mechanisms": [
+        "long-term neuroendocrine appetite and energy balance regulation"
+      ],
+      "source_ids": [
+        "WHO-OBESITY-2026",
+        "WHO-GLP1-2025"
+      ],
+      "stage": "RESEARCH_HYPOTHESIS",
+      "claims_clinical_efficacy": false,
+      "individual_data_present": false,
+      "diagnostic_basis": "NOT_APPLICABLE",
+      "falsifier": "Predeclared biological factors fail to predict post-treatment outcomes in independent longitudinal cohorts",
+      "counter_tests": [
+        "separate placebo-controlled treatment from observational continuation",
+        "track discontinuation and long-term adverse events",
+        "negative control: non-adiposity-related outcome",
+        "compare care access across resource settings"
+      ]
+    }
+  ]
+}
