@@ -37,7 +37,7 @@ jobs:
           (cd data/cmu-verification && printf '%s  %s\n' \
             'fee2175af429f964d51d4b13cd7c2c23afbbc309edf8d9b84c975d2c1b41e8f4' \
             'faces_4_mirror.tar.gz' | sha256sum -c)
-          python validation/archer_cmu_official_zip_verifier.py \
+          python -m validation.archer_cmu_official_zip_verifier \
             --official-zip data/cmu-verification/official-uci.zip \
             --mirror-tar data/cmu-verification/faces_4_mirror.tar.gz \
             --out reports/factory/ARCHER-CMU-OFFICIAL-HASH-COMPARISON.json
