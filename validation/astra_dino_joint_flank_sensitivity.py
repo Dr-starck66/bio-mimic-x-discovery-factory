@@ -14,6 +14,37 @@ from collections import defaultdict
 from pathlib import Path
 import astra_dino_alx1_hmga2_joint_real as a
 
+
+def familywise_all_comparisons(pairs,scores,combinations,nperm,seed=20261114):
+    """One shared null across 4 locus models × 2 phenotypes; max-R2 FWER."""
+    import random
+    groups=defaultdict(list)
+    for i,row in enumerate(pairs):groups[row['population']].append(i)
+    n=len(pairs)
+    outcomes={
+      'shape_log_height_over_length':[math.log(v['Beak_height']/v['Beak_length']) for v in pairs],
+      'size_log_geometric_mean_3d':[math.log((v['Beak_length']*v['Beak_height']*v['Beak_width'])**(1./3.)) for v in pairs],
+    }
+    xs={name:(a.demean(scores[g1],groups),a.demean(scores[g2],groups)) for name,(g1,g2) in combinations.items()}
+    observed={(name,k):a.r2(a.demean(y,groups),*pair)['within_population_r2']
+              for name,pair in xs.items() for k,y in outcomes.items()}
+    exceed={key:0 for key in observed};rng=random.Random(seed);max_null=[]
+    for _ in range(nperm):
+        permutation=list(range(n))
+        for indices in groups.values():
+            shuffled=list(indices);rng.shuffle(shuffled)
+            for target,source in zip(indices,shuffled):permutation[target]=source
+        yp={k:a.demean([vals[i] for i in permutation],groups) for k,vals in outcomes.items()}
+        maximum=max(a.r2(v,x,z)['within_population_r2'] for (x,z) in xs.values() for v in yp.values())
+        max_null.append(maximum)
+        for key,score in observed.items():
+            if maximum>=score-1e-12:exceed[key]+=1
+    return {'family':'four post-hoc locus-pair models times two phenotype outcomes; max-R2 null',
+            'permutations':nperm,'shared_population_permutation':True,
+            'adjusted_p':{name:{k:(exceed[(name,k)]+1)/(nperm+1) for k in outcomes} for name in combinations},
+            'null_max_r2_p95':sorted(max_null)[int(.95*nperm)-1],
+            'scope':'Exploratory across 8 tests only; no genome-wide, independent sample or causal validation'}
+
 def sensitivity(folder,reference_path,nperm):
     hashes=a.check_inputs(folder)
     ref=a.reference_sequence(reference_path)
@@ -48,6 +79,7 @@ def sensitivity(folder,reference_path,nperm):
                   'right':['ALX1_RIGHT','HMGA2_RIGHT'],'mixed':['ALX1_LEFT','HMGA2_RIGHT']}
     for name,(x,y) in combinations.items():
         models[name]=a.permutation_test(pairs,scores[x],scores[y],nperm,20261114)
+    full_family=familywise_all_comparisons(pairs,scores,combinations,nperm)
     # Pre-specified alternate stratification (actual source Species).
     alternative=[dict(row,population=morph[row['AccNo']]['Species']) for row in pairs]
     species=a.permutation_test(alternative,scores['ALX1'],scores['HMGA2'],nperm,20261114)
@@ -80,7 +112,7 @@ def sensitivity(folder,reference_path,nperm):
         'sample_count':50,'assembly':a.ASSEMBLY,'original_file_hashes':hashes,
         'markers':qcs,'flanking_comparators_not_independent_negative_controls':True,
         'permutations':nperm,'seed':20261114,
-        'comparative_models':models,'alternate_species_fixed_effects':species,
+        'comparative_models':models,'familywise_across_four_models_and_two_endpoints':full_family,'alternate_species_fixed_effects':species,
         'leave_one_population_out':lopo,'real_reference_mutant':mutation,
         'interpretation':'A stronger adjacent-window association does not prove gene-specificity. Flanking SNPs may be in LD with target loci. Neither model proves causal effects, clinical outcomes or fossil phenotype prediction.'
     }
