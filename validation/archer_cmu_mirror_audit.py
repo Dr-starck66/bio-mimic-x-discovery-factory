@@ -75,6 +75,7 @@ def load_mirror_tar(path: Path):
         "mirror_tar_sha256": sha256(data),
         "mirror_tar_size_bytes": len(data),
         "all_valid_pgms": all_pgms,
+        "valid_pgms_in_mirror": all_pgms,
         "all_unique_raw_pgms": len(set(all_hashes)),
         "selected_views_count": len(imgs),
         "tar_members_count": member_count,
