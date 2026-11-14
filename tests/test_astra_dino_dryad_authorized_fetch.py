@@ -1,7 +1,7 @@
 import hashlib, os, tempfile, unittest
 from pathlib import Path
 import urllib.request
-from astra_dino_dryad_authorized_fetch import verify,download_one,ProtectedRedirect,AuthorizationError,IntegrityError
+from validation.astra_dino_dryad_authorized_fetch import verify,download_one,ProtectedRedirect,AuthorizationError,IntegrityError
 
 class TestFetch(unittest.TestCase):
     def test_verify_exact_hash(self):
