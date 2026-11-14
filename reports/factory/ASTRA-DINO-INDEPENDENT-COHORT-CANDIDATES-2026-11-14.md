@@ -10,6 +10,7 @@ Reproduire les associations ALX1/HMGA2 et la comparaison aux fenêtres adjacente
 
 | Priorité | Source et URL | Contenu scientifiquement établi | Verrou exact |
 |---|---|---|---|
+| **P0** | **Enbody et al. 2023, Science DOI 10.1126/science.adf6218 ; BioProject PRJNA897926** | **3 955** finches Daphne Major avec génomes basse couverture, **2 543** adultes avec longueur/profondeur/largeur de bec mesurées individuellement ; modèle GLIMPSE imputé ; mêmes thèmes ALX1 et supergène G03/HMGA2 | **Prometteur mais pas encore téléchargé** : la matrice imputée et la table `sample_id ↔ band/specimen ↔ beak dimensions` ne sont pas présentes dans nos fichiers ; provenance/reference/éventuels oiseaux déjà vus doivent être audités. Les 3 438 expériences SRA publiques sont des lectures brutes et ne suffisent pas à elles seules. |
 | P1 | Sebastianelli Arbelaez et al., *Nature Communications* 2026, DOI 10.1038/s41467-026-78507-8; Figshare DOI 10.6084/m9.figshare.30284983; code GitHub MatteoSebastianelli/Tree_finches | Étude d'octobre 2026 ; 415 génomes de pinsons de Darwin dont 77 Camarhynchus, alignés sur C. parvulus ; G03 sur 1A près HMGA2 ; observations morphologiques muséales également analysées | **Non prouvé** que la morphométrie et les génotypes appartiennent aux mêmes individus ; fichiers Figshare et étiquettes par spécimen **non téléchargés** ; éventuel chevauchement avec cohorte Oslo 2025 **non contrôlé**. |
 | P2 | Chaves et al., *Molecular Ecology* 2016, PMID 27363308; SRA SRP066465 | RAD-seq, 32 569 SNPs ; étude beak/body size, mesures morphométriques de 87 oiseaux rapportées dans le supplément | Matrice génotypique individuelle ↔ morphométrie et assemblage/coordonnées ALX1-HMGA2 **non vérifiés** ; accès SRA de séquençage brut n'est pas un VCF apparié. |
 | P3 | Lawson & Petren 2017, Dryad DOI 10.5061/dryad.575md | Feuille 83Hapmap_simple2_filtered.xlsx (32,68 Mo) et tableaux GWAS ; 4 espèces Geospiza | Présence de morphométrie individuelle liée aux 83 profils **non démontrée** et génotypes non inspectés ; n'autorise pas une pseudo-cohorte. |
@@ -17,6 +18,8 @@ Reproduire les associations ALX1/HMGA2 et la comparaison aux fenêtres adjacente
 | Contre-exemple de richesse | Dudaniec et al. 2026, Dryad DOI 10.5061/dryad.pg4f4qs0s | VCF RAD-seq 28,31 Mo de pinsons arboricoles/hybrides | Pas de morphométrie individuelle associée explicitée dans la fiche ; pas de preuve de couverture ALX1/HMGA2. |
 
 ### Liens de référence
+- https://doi.org/10.1126/science.adf6218
+- https://www.ncbi.nlm.nih.gov/bioproject/PRJNA897926
 - https://www.nature.com/articles/s41467-026-78507-8
 - https://doi.org/10.6084/m9.figshare.30284983
 - https://github.com/MatteoSebastianelli/Tree_finches
@@ -30,10 +33,11 @@ Reproduire les associations ALX1/HMGA2 et la comparaison aux fenêtres adjacente
 - Dépôt GitHub tiers `MatteoSebastianelli/Tree_finches` **accessible en lecture** ; README récupéré via GitHub : confirme que le dépôt ne contient que les scripts d'analyse et renvoie vers Figshare pour les données.
 - Accès direct aux fichiers Figshare/figshare API par le navigateur distant **bloqué par le quota gratuit Firecrawl** le 14/11/2026. L'environnement local de calcul n'a pas de résolution DNS sortante. TinyFish a un solde négatif et n'est pas utilisé. **Aucun achat**.
 - Gmail a été vérifié : un email **déjà envoyé le 14/11/2026** à `leif.andersson@imbim.uu.se` demandait explicitement les couples génotype–phénotype. Pas de doublon à cet interlocuteur.
-- Deux **brouillons Gmail enregistrés et non envoyés** sur le compte principal :
-  1. `matteo.sebastianelli@imbim.uu.se` — demander fichier Figshare exact, table d'identifiants, preuve de non-chevauchement avec Oslo, génomes 1A/G03.
-  2. `jachaves@usfq.edu.ec` — demander la table 87 oiseaux et le lien individuel SRA/RAD SNPs.
-- Aucune réponse de ces deux contacts n'est constatée : les brouillons ne valent pas des emails envoyés.
+- **Trois brouillons Gmail enregistrés et non envoyés** sur le compte principal :
+  1. **`erik.enbody@gmail.com`** — contacter l'auteur correspondant de la cohorte Daphne 2023, demander 2 543 couples individuels et 3 955 génotypes imputed/VCF, identifiants, chevauchements et G03.
+  2. `matteo.sebastianelli@imbim.uu.se` — demander fichier Figshare exact, table d'identifiants, preuve de non-chevauchement avec Oslo, génomes 1A/G03.
+  3. `jachaves@usfq.edu.ec` — demander la table 87 oiseaux et le lien individuel SRA/RAD SNPs.
+- Aucune réponse des trois contacts n'est constatée : les brouillons ne valent pas des emails envoyés.
 
 ## 3. Contrat scientifique strict d'admission (FAIL-CLOSED)
 
@@ -49,10 +53,10 @@ La cohorte ne sera déclarée **PASS_INDEPENDENT_MATCHED** qu'après vérificati
 
 ## 4. Décision
 
-**PASS** : identification de sources de données scientifiques réelles ; dépôt code tiers consulté ; vérification des messages déjà envoyés ; 2 brouillons sauvegardés sans dépenses.
+**PASS** : identification de sources de données scientifiques réelles ; dépôt code tiers consulté ; vérification des messages déjà envoyés ; 3 brouillons sauvegardés sans dépenses.
 
-**PARTIAL** : accès au candidat 2026, contraintes de morphométrie ↔ génotype et de chevauchement en suspens.
+**PARTIAL** : deux grandes pistes, en priorité la cohorte Daphne 2023 réellement phénotypée (2 543 adultes) et le nouveau panel 2026. Fichiers nécessaires non récupérés ; appariement et chevauchement non contrôlés.
 
 **UNVERIFIED** : disponibilité réelle d'une cohorte indépendante **appariée**. Nombre de paires admises à la validation aujourd'hui : **0**, **aucun nouveau test prédictif réalisé**.
 
-**Prochaine action unique :** obtenir la table individuelle authentifiée `sample_id ↔ specimen_id ↔ beak_length/depth/width` et confirmer que ces oiseaux ont été effectivement génotypés, sans recouvrement avec la cohorte 2025, avant de relancer un seul modèle.
+**Prochaine action unique :** obtenir en priorité auprès d'Erik Enbody la table individuelle authentifiée `sample_id ↔ specimen_id ↔ beak_length/depth/width` et confirmer que ces oiseaux ont été effectivement génotypés, sans recouvrement avec la cohorte 2025, avant de relancer un seul modèle.
