@@ -1,13 +1,13 @@
-# BIO-MIMIC X V7 Discovery Factory — 2026-11-13T11:13:06.162770+00:00
+# BIO-MIMIC X V7 Discovery Factory — 2026-11-14T10:38:04.451100+00:00
 
 **Status:** PASS
-**Replay SHA-256:** `a45df79a539f83e9191f4979e465c72e7d28563b9aaa98ad8902e65e6b3a20e5`
+**Replay SHA-256:** `2a88b78b1dfd4a237028d257391d8518726e59bc7520c34e5cacc71d1a214a09`
 
 ## Active programs
 - PRG-4514111357 · Somniosus microcephalus · score 62 · labs longevity
-- PRG-c73037fcfb · Acomys cahirinus · score 59 · labs regeneration
 - PRG-5fdcf74e81 · Danio rerio · score 55 · labs regeneration
 - PRG-14c747bea5 · Cynops pyrrhogaster · score 55 · labs regeneration
+- PRG-c73037fcfb · Acomys cahirinus · score 53 · labs regeneration
 - PRG-2420f4dcfa · Ambystoma mexicanum · score 49 · labs regeneration
 - PRG-70175ca5b4 · Drosophila melanogaster · score 45 · labs preservation
 
@@ -20,7 +20,7 @@
 - Novel Species Hunter: PASS · novel_candidate_yield=10 · output=committee.portfolio
 - Deterministic Decision Engine / Scientific Investment Committee: PASS · credits_sum_to_100=100 · output=committee.allocations
 - Evidence Network / Claim Ledger: PASS · replicated_claims_with_provenance_ratio=1.0 · output=claim_ledger
-- DUALITY-X + Arbiter: PASS · mean_disagreement=8.3 · output=committee.portfolio
+- DUALITY-X + Arbiter: PASS · mean_disagreement=7.2 · output=committee.portfolio
 - Morpheus Adversarial Engine: PASS · falsifiable_failure_modes_per_program=5.167 · output=morpheus_audits
 - Ω-CAUSAL + Uncertainty Engine: PASS · claims_with_counterfactual_test=6 · output=causal_plans
 - Negative Knowledge Graph: PASS · repeated_dead_ends_prevented=0 · output=negative_filter
