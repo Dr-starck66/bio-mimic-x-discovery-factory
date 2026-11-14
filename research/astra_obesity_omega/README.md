@@ -67,3 +67,25 @@ Le dossier JSON déclare toujours les hypothèses comme `HYPOTHESIS`, les plans 
 - NHANES : https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?Cycle=2021-2023
 - Open Targets : https://platform.opentargets.org/
 - GWAS Catalog : https://www.ebi.ac.uk/gwas/labs/downloads/summary-statistics
+
+## NHANES Aug 2021–Aug 2023 : premier essai sur données authentiques (14 novembre 2026)
+
+**Sources authentifiées :** \`DEMO_L.xpt\` (11 933 enregistrements, SHA-256 \`ca4374a158b493b8b0163e1388da21d57a18d1b9cecff2aa4e2fa2bec494fe23\`), \`BMX_L.xpt\` (8 860 enregistrements, SHA-256 \`44440c416d9ad709e8b1708a5975378ab4d5b18edc39eb5015c2ae7186500170\`), \`GHB_L.xpt\` (7 199 enregistrements, SHA-256 \`67aee0353160e2392dc0a33bece99b90764a630c76d82415ac4639105ad9dd03\`). La récupération via HTTPS officiel a effectivement fonctionné depuis un runner public GitHub.
+
+**Analyse préspécifiée :** adultes ≥20 ans, exclusion des grossesses déclarées, jointure \`SEQN\`, variables complètes uniquement, \`WTPH2YR\` pour le biomarqueur sanguin, cinq validations en groupes de pseudo-PSU masqués \`SDMVSTRA+SDMVPSU\`. Critère biologique : **HbA1c ≥6,5 %**, marqueur transversal, **PAS une définition de l'obésité clinique**. Régression logistique, métrique ROC-AUC pondérée ; contrôle négatif avec tour de taille mélangé dans chaque fold. Unité PSA masquée ≠ site géographique indépendant.
+
+**Échantillon :** 6 023 adultes non enceintes dans la jointure, 5 453 observations complètes, 665 HbA1c élevées. Les 570 cas exclus et les traitements hypoglycémiants peuvent influer sur les conclusions.
+
+| Modèle | AUC pondérée | Brier pondéré |
+|---|---:|---:|
+| IMC seul | 0,679019 | 0,088668 |
+| IMC + tour de taille/taille | 0,745322 | 0,084606 |
+| IMC + âge + sexe | 0,761921 | 0,084412 |
+| IMC + tour de taille/taille + âge + sexe | 0,781072 | 0,082551 |
+| Contrôle négatif — tour de taille mélangé | 0,677623 | 0,088697 |
+
+AUC delta principal = **+0,066303** ; avec âge/sexe constants = **+0,019151**. Ré-échantillonnage exploratoire par pseudo-PSU pour la première différence : [0,036402 ; 0,090261] ; **ce n'est pas un intervalle de confiance corrigé pour le plan d'enquête NHANES** et ne suffit pas pour une conclusion clinique.
+
+**Preuves :** [Workflow et 12 contrôles logiciels PASS](https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/43640222018) ; [rapport persistant du résultat](evidence/nhanes_2021_2023_run_43640222018.json) ; artefact GitHub \`14132040620\`, digest ZIP \`sha256:e85bff84b3f2b3d44eb10be9fd92969dc683258ae0e78158546360617dd96c48\` ; SHA-256 du rapport recalculé et conforme : \`0f01c05860cbab1388712274d16667880985c206beba46e7254e09cca21c1bd9\`.
+
+**Statut :** PASS téléchargement, contrôle d'intégrité, analyse statistique sur véritables observations, tests logiciels et persistance du rapport résumé. **PARTIAL** : preuve biomédicale. **UNVERIFIED** : causalité, validation sur un autre pays, progrès longitudinal, efficacité thérapeutique, diagnostic clinique, déploiement autonome. Aucune donnée individuelle n'est publiée ni conservée dans le dépôt ; données brutes seulement sur le runner éphémère pendant l'exécution. Zéro dépense et aucune nouvelle tâche programmée.
