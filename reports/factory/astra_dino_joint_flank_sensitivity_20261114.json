@@ -1,0 +1,391 @@
+{
+  "alternate_species_fixed_effects": {
+    "endpoints": {
+      "shape_log_height_over_length": {
+        "coefficients_PC1_ALX1_HMGA2": [
+          -0.17294118,
+          0.23910161
+        ],
+        "empirical_p_global_null": 0.1227877212278772,
+        "familywise_empirical_p": 0.23617638236176383,
+        "within_population_r2": 0.09896669
+      },
+      "size_log_geometric_mean_3d": {
+        "coefficients_PC1_ALX1_HMGA2": [
+          0.03893337,
+          0.42594111
+        ],
+        "empirical_p_global_null": 0.013898610138986101,
+        "familywise_empirical_p": 0.027997200279972004,
+        "within_population_r2": 0.18778986
+      }
+    },
+    "exploratory_no_causal_claim": true,
+    "limits": "No independent holdout; unadjusted for gene-wide LD or other genomic loci, environment, pedigree or developmental stage; 50 nonrandom individuals",
+    "method": "Genotype-only PC1 per locus; joint two-covariate OLS after 11-population demeaning; 10000 shared within-population permutations of both endpoints; two-outcome familywise max-R2",
+    "permutations": 10000,
+    "permuted_null_max_r2_p95": 0.16565774962601706,
+    "population_group_sizes": {
+      "crassirostris": 4,
+      "fortis_L": 7,
+      "fortis_Z": 6,
+      "fuliginosa": 11,
+      "fusca": 2,
+      "magnirostris": 6,
+      "pallidus": 6,
+      "parvulus": 2,
+      "scandens": 6
+    },
+    "seed": 20261114
+  },
+  "assembly": "GCA_902806625.1",
+  "comparative_models": {
+    "left": {
+      "endpoints": {
+        "shape_log_height_over_length": {
+          "coefficients_PC1_ALX1_HMGA2": [
+            0.0198339,
+            0.26345588
+          ],
+          "empirical_p_global_null": 0.09259074092590741,
+          "familywise_empirical_p": 0.19818018198180182,
+          "within_population_r2": 0.11066824
+        },
+        "size_log_geometric_mean_3d": {
+          "coefficients_PC1_ALX1_HMGA2": [
+            0.02310765,
+            0.38348579
+          ],
+          "empirical_p_global_null": 0.039396060393960604,
+          "familywise_empirical_p": 0.057194280571942806,
+          "within_population_r2": 0.1765405
+        }
+      },
+      "exploratory_no_causal_claim": true,
+      "limits": "No independent holdout; unadjusted for gene-wide LD or other genomic loci, environment, pedigree or developmental stage; 50 nonrandom individuals",
+      "method": "Genotype-only PC1 per locus; joint two-covariate OLS after 11-population demeaning; 10000 shared within-population permutations of both endpoints; two-outcome familywise max-R2",
+      "permutations": 10000,
+      "permuted_null_max_r2_p95": 0.18247518966083395,
+      "population_group_sizes": {
+        "crassirostris_L": 2,
+        "crassirostris_Z": 2,
+        "fortis_L": 7,
+        "fortis_Z": 6,
+        "fuliginosa_L": 6,
+        "fuliginosa_Z": 5,
+        "fusca_L": 2,
+        "magnirostris_Z": 6,
+        "pallidus_L": 6,
+        "parvulus_L": 2,
+        "scandens_Z": 6
+      },
+      "seed": 20261114
+    },
+    "mixed": {
+      "endpoints": {
+        "shape_log_height_over_length": {
+          "coefficients_PC1_ALX1_HMGA2": [
+            0.01314973,
+            0.33176718
+          ],
+          "empirical_p_global_null": 0.0364963503649635,
+          "familywise_empirical_p": 0.0796920307969203,
+          "within_population_r2": 0.13737325
+        },
+        "size_log_geometric_mean_3d": {
+          "coefficients_PC1_ALX1_HMGA2": [
+            0.00967038,
+            0.55324213
+          ],
+          "empirical_p_global_null": 0.0012998700129987,
+          "familywise_empirical_p": 0.0013998600139986002,
+          "within_population_r2": 0.2870517
+        }
+      },
+      "exploratory_no_causal_claim": true,
+      "limits": "No independent holdout; unadjusted for gene-wide LD or other genomic loci, environment, pedigree or developmental stage; 50 nonrandom individuals",
+      "method": "Genotype-only PC1 per locus; joint two-covariate OLS after 11-population demeaning; 10000 shared within-population permutations of both endpoints; two-outcome familywise max-R2",
+      "permutations": 10000,
+      "permuted_null_max_r2_p95": 0.15521348563600146,
+      "population_group_sizes": {
+        "crassirostris_L": 2,
+        "crassirostris_Z": 2,
+        "fortis_L": 7,
+        "fortis_Z": 6,
+        "fuliginosa_L": 6,
+        "fuliginosa_Z": 5,
+        "fusca_L": 2,
+        "magnirostris_Z": 6,
+        "pallidus_L": 6,
+        "parvulus_L": 2,
+        "scandens_Z": 6
+      },
+      "seed": 20261114
+    },
+    "primary": {
+      "endpoints": {
+        "shape_log_height_over_length": {
+          "coefficients_PC1_ALX1_HMGA2": [
+            -0.13583813,
+            0.3009676
+          ],
+          "empirical_p_global_null": 0.0313968603139686,
+          "familywise_empirical_p": 0.08509149085091491,
+          "within_population_r2": 0.14513277
+        },
+        "size_log_geometric_mean_3d": {
+          "coefficients_PC1_ALX1_HMGA2": [
+            0.05422349,
+            0.42178963
+          ],
+          "empirical_p_global_null": 0.0231976802319768,
+          "familywise_empirical_p": 0.03469653034696531,
+          "within_population_r2": 0.18450212
+        }
+      },
+      "exploratory_no_causal_claim": true,
+      "limits": "No independent holdout; unadjusted for gene-wide LD or other genomic loci, environment, pedigree or developmental stage; 50 nonrandom individuals",
+      "method": "Genotype-only PC1 per locus; joint two-covariate OLS after 11-population demeaning; 10000 shared within-population permutations of both endpoints; two-outcome familywise max-R2",
+      "permutations": 10000,
+      "permuted_null_max_r2_p95": 0.1700606059096821,
+      "population_group_sizes": {
+        "crassirostris_L": 2,
+        "crassirostris_Z": 2,
+        "fortis_L": 7,
+        "fortis_Z": 6,
+        "fuliginosa_L": 6,
+        "fuliginosa_Z": 5,
+        "fusca_L": 2,
+        "magnirostris_Z": 6,
+        "pallidus_L": 6,
+        "parvulus_L": 2,
+        "scandens_Z": 6
+      },
+      "seed": 20261114
+    },
+    "right": {
+      "endpoints": {
+        "shape_log_height_over_length": {
+          "coefficients_PC1_ALX1_HMGA2": [
+            -0.0161405,
+            0.33255728
+          ],
+          "empirical_p_global_null": 0.028897110288971104,
+          "familywise_empirical_p": 0.0655934406559344,
+          "within_population_r2": 0.13768513
+        },
+        "size_log_geometric_mean_3d": {
+          "coefficients_PC1_ALX1_HMGA2": [
+            0.01936592,
+            0.55480899
+          ],
+          "empirical_p_global_null": 0.0013998600139986002,
+          "familywise_empirical_p": 0.0014998500149985001,
+          "within_population_r2": 0.28766202
+        }
+      },
+      "exploratory_no_causal_claim": true,
+      "limits": "No independent holdout; unadjusted for gene-wide LD or other genomic loci, environment, pedigree or developmental stage; 50 nonrandom individuals",
+      "method": "Genotype-only PC1 per locus; joint two-covariate OLS after 11-population demeaning; 10000 shared within-population permutations of both endpoints; two-outcome familywise max-R2",
+      "permutations": 10000,
+      "permuted_null_max_r2_p95": 0.1483253597851842,
+      "population_group_sizes": {
+        "crassirostris_L": 2,
+        "crassirostris_Z": 2,
+        "fortis_L": 7,
+        "fortis_Z": 6,
+        "fuliginosa_L": 6,
+        "fuliginosa_Z": 5,
+        "fusca_L": 2,
+        "magnirostris_Z": 6,
+        "pallidus_L": 6,
+        "parvulus_L": 2,
+        "scandens_Z": 6
+      },
+      "seed": 20261114
+    }
+  },
+  "familywise_across_four_models_and_two_endpoints": {
+    "adjusted_p": {
+      "left": {
+        "shape_log_height_over_length": 0.35436456354364565,
+        "size_log_geometric_mean_3d": 0.1004899510048995
+      },
+      "mixed": {
+        "shape_log_height_over_length": 0.21327867213278673,
+        "size_log_geometric_mean_3d": 0.008599140085991401
+      },
+      "primary": {
+        "shape_log_height_over_length": 0.18468153184681532,
+        "size_log_geometric_mean_3d": 0.0846915308469153
+      },
+      "right": {
+        "shape_log_height_over_length": 0.21257874212578742,
+        "size_log_geometric_mean_3d": 0.008399160083991601
+      }
+    },
+    "family": "four post-hoc locus-pair models times two phenotype outcomes; max-R2 null",
+    "null_max_r2_p95": 0.20850883961364217,
+    "permutations": 10000,
+    "scope": "Exploratory across 8 tests only; no genome-wide, independent sample or causal validation",
+    "shared_population_permutation": true
+  },
+  "flanking_comparators_not_independent_negative_controls": true,
+  "interpretation": "A stronger adjacent-window association does not prove gene-specificity. Flanking SNPs may be in LD with target loci. Neither model proves causal effects, clinical outcomes or fossil phenotype prediction.",
+  "leave_one_population_out": [
+    {
+      "coefficients": [
+        0.04443745,
+        0.42295396
+      ],
+      "excluded_population": "crassirostris_L",
+      "n": 48,
+      "within_population_r2": 0.19491663
+    },
+    {
+      "coefficients": [
+        0.05420692,
+        0.42088712
+      ],
+      "excluded_population": "crassirostris_Z",
+      "n": 48,
+      "within_population_r2": 0.18373276
+    },
+    {
+      "coefficients": [
+        0.21828666,
+        0.44087303
+      ],
+      "excluded_population": "fortis_L",
+      "n": 43,
+      "within_population_r2": 0.27404973
+    },
+    {
+      "coefficients": [
+        -0.03332095,
+        0.26862268
+      ],
+      "excluded_population": "fortis_Z",
+      "n": 44,
+      "within_population_r2": 0.09521872
+    },
+    {
+      "coefficients": [
+        -0.08999672,
+        0.55464802
+      ],
+      "excluded_population": "fuliginosa_L",
+      "n": 44,
+      "within_population_r2": 0.24813033
+    },
+    {
+      "coefficients": [
+        0.03234721,
+        0.43681842
+      ],
+      "excluded_population": "fuliginosa_Z",
+      "n": 45,
+      "within_population_r2": 0.16850504
+    },
+    {
+      "coefficients": [
+        0.05422349,
+        0.42178963
+      ],
+      "excluded_population": "fusca_L",
+      "n": 48,
+      "within_population_r2": 0.19263944
+    },
+    {
+      "coefficients": [
+        0.05151149,
+        0.37875677
+      ],
+      "excluded_population": "magnirostris_Z",
+      "n": 44,
+      "within_population_r2": 0.14848773
+    },
+    {
+      "coefficients": [
+        0.14358641,
+        0.49104306
+      ],
+      "excluded_population": "pallidus_L",
+      "n": 44,
+      "within_population_r2": 0.21951879
+    },
+    {
+      "coefficients": [
+        0.05607656,
+        0.41966612
+      ],
+      "excluded_population": "parvulus_L",
+      "n": 48,
+      "within_population_r2": 0.18057291
+    },
+    {
+      "coefficients": [
+        0.09708469,
+        0.41793674
+      ],
+      "excluded_population": "scandens_Z",
+      "n": 44,
+      "within_population_r2": 0.19507435
+    }
+  ],
+  "markers": {
+    "ALX1": {
+      "markers_maf_ge_005": 6,
+      "observed_variants": 9
+    },
+    "ALX1_LEFT": {
+      "markers_maf_ge_005": 5,
+      "observed_variants": 8,
+      "window_1based_inclusive": [
+        40834432,
+        40877643
+      ]
+    },
+    "ALX1_RIGHT": {
+      "markers_maf_ge_005": 6,
+      "observed_variants": 14,
+      "window_1based_inclusive": [
+        40920856,
+        40964067
+      ]
+    },
+    "HMGA2": {
+      "markers_maf_ge_005": 23,
+      "observed_variants": 36
+    },
+    "HMGA2_LEFT": {
+      "markers_maf_ge_005": 18,
+      "observed_variants": 35,
+      "window_1based_inclusive": [
+        33296167,
+        33408201
+      ]
+    },
+    "HMGA2_RIGHT": {
+      "markers_maf_ge_005": 27,
+      "observed_variants": 39,
+      "window_1based_inclusive": [
+        33520237,
+        33632271
+      ]
+    }
+  },
+  "original_file_hashes": {
+    "Morphometrics.txt": "4722f565feeda8290d3985b4a65d9e0c4e91690270264cfc931d26f24cc51555",
+    "Prun64_3miss2mafNoZ_1.vcf.gz": "471db73a5eb65a8bb6af8f25872a5a2d0bc0115556203250f69eb61988163d34",
+    "pPCAeigen.txt": "d615bd8dd3fd22091b971b20f18a49832d1f2afaf390a30ea3465f6a276b5bff"
+  },
+  "permutations": 10000,
+  "real_reference_mutant": {
+    "failure_code": "VCF_REF_FASTA_MISMATCH:1",
+    "status": "PASS_MUTATED_REF_REJECTED"
+  },
+  "sample_count": 50,
+  "seed": 20261114,
+  "status": "PASS_EXECUTION_PARTIAL_SCIENTIFIC_INTERPRETATION"
+}

@@ -1,0 +1,60 @@
+{
+  "schema": "astra.dino.rubin2022_source_crosscheck.v1",
+  "date": "2026-11-14",
+  "source": {
+    "doi": "10.1126/sciadv.abm5982",
+    "assembly": "GCA_902806625.1",
+    "bioproject": "PRJNA743742",
+    "code_doi": "10.5281/zenodo.6639328",
+    "loci_reported": 28,
+    "samples_2022_mapping": 75,
+    "phenotypes_2022": "Species rank 0/1/2, not individual beak measurements",
+    "individual_2022_holdout": false,
+    "ALX1_expression_in_situ": "PUBLISHED",
+    "recombination_hotspot": "PUBLISHED",
+    "haplotype_bounds": "UNVERIFIED_Data_S2_not_downloaded"
+  },
+  "prior_verified_metadata": {
+    "paired_oslo": 50,
+    "genes": {
+      "ALX1": {
+        "annotation": "unnamed gene; orthology verified by 37 protein 14-mers and 326/328 amino acids",
+        "end": 40920855,
+        "gene_id": "ENSCPVG00000017961",
+        "identity_to_Geospiza_ALX1": "326/328",
+        "protein_id": "ENSCPVP00000027391.1",
+        "start": 40877644
+      },
+      "HMGA2": {
+        "annotation": "named HMGA2 in Ensembl 116 GTF",
+        "end": 33520236,
+        "gene_id": "ENSCPVG00000006117",
+        "protein_id": "ENSCPVP00000008382.1",
+        "start": 33408202
+      }
+    },
+    "variants": {
+      "ALX1": 9,
+      "HMGA2": 36
+    },
+    "intergenic_gap_bases": 7357407,
+    "global_8_test_p_primary_size": 0.0846915308469153,
+    "global_8_test_p_right_size": 0.008399160083991601
+  },
+  "checks": {
+    "assembly": true,
+    "paired": true,
+    "variant_counts": true,
+    "gene_ids": true,
+    "global_p_not_significant": true,
+    "flank_not_independent": true
+  },
+  "verdict": {
+    "metadata": "PASS",
+    "individual_replication": "FAIL_NOT_SUPPORTED_BY_2022",
+    "haplotype_bounds": "UNVERIFIED",
+    "causality": "UNVERIFIED"
+  },
+  "original_genotype_rerun_in_this_update": false,
+  "expenses_eur": 0
+}

@@ -1,0 +1,245 @@
+{
+  "annotation_source": "Ensembl release 116 GTF; ALX1 orthology verified by protein ENSCPVP00000027391.1 vs Geospiza RefSeq XP_005421635.1 (326/328 aa)",
+  "assembly": "GCA_902806625.1",
+  "crosswalk_provenance": "Lifjeld email 2026-11-14 confirms sample ID matching for 50 newly sequenced genomes; independent per-specimen replication unavailable",
+  "dataset_doi": "10.5061/dryad.3ffbg79w8",
+  "flanking_windows_equal_width_counts": {
+    "ALX1_LEFT": 8,
+    "ALX1_RIGHT": 14,
+    "HMGA2_LEFT": 35,
+    "HMGA2_RIGHT": 39
+  },
+  "genes": {
+    "ALX1": {
+      "annotation": "unnamed gene; orthology verified by 37 protein 14-mers and 326/328 amino acids",
+      "end": 40920855,
+      "gene_id": "ENSCPVG00000017961",
+      "identity_to_Geospiza_ALX1": "326/328",
+      "protein_id": "ENSCPVP00000027391.1",
+      "start": 40877644
+    },
+    "HMGA2": {
+      "annotation": "named HMGA2 in Ensembl 116 GTF",
+      "end": 33520236,
+      "gene_id": "ENSCPVG00000006117",
+      "protein_id": "ENSCPVP00000008382.1",
+      "start": 33408202
+    }
+  },
+  "genotype_PC1_QC": {
+    "ALX1": [
+      {
+        "call_rate": 0.98,
+        "maf": 0.469388,
+        "pos": 40879172
+      },
+      {
+        "call_rate": 0.96,
+        "maf": 0.270833,
+        "pos": 40881588
+      },
+      {
+        "call_rate": 0.96,
+        "maf": 0.0625,
+        "pos": 40892939
+      },
+      {
+        "call_rate": 0.98,
+        "maf": 0.05102,
+        "pos": 40896626
+      },
+      {
+        "call_rate": 0.98,
+        "maf": 0.071429,
+        "pos": 40906073
+      },
+      {
+        "call_rate": 1,
+        "maf": 0.28,
+        "pos": 40908722
+      }
+    ],
+    "HMGA2": [
+      {
+        "call_rate": 0.98,
+        "maf": 0.081633,
+        "pos": 33414363
+      },
+      {
+        "call_rate": 0.96,
+        "maf": 0.0625,
+        "pos": 33417359
+      },
+      {
+        "call_rate": 1,
+        "maf": 0.48,
+        "pos": 33419934
+      },
+      {
+        "call_rate": 0.98,
+        "maf": 0.091837,
+        "pos": 33431022
+      },
+      {
+        "call_rate": 1,
+        "maf": 0.33,
+        "pos": 33433025
+      },
+      {
+        "call_rate": 0.94,
+        "maf": 0.287234,
+        "pos": 33438034
+      },
+      {
+        "call_rate": 0.98,
+        "maf": 0.306122,
+        "pos": 33447356
+      },
+      {
+        "call_rate": 0.98,
+        "maf": 0.091837,
+        "pos": 33449546
+      },
+      {
+        "call_rate": 0.98,
+        "maf": 0.459184,
+        "pos": 33453914
+      },
+      {
+        "call_rate": 0.98,
+        "maf": 0.071429,
+        "pos": 33459225
+      },
+      {
+        "call_rate": 1,
+        "maf": 0.06,
+        "pos": 33461426
+      },
+      {
+        "call_rate": 1,
+        "maf": 0.2,
+        "pos": 33463781
+      },
+      {
+        "call_rate": 0.98,
+        "maf": 0.255102,
+        "pos": 33472510
+      },
+      {
+        "call_rate": 1,
+        "maf": 0.29,
+        "pos": 33477471
+      },
+      {
+        "call_rate": 1,
+        "maf": 0.18,
+        "pos": 33481716
+      },
+      {
+        "call_rate": 0.98,
+        "maf": 0.112245,
+        "pos": 33487131
+      },
+      {
+        "call_rate": 1,
+        "maf": 0.3,
+        "pos": 33490908
+      },
+      {
+        "call_rate": 1,
+        "maf": 0.47,
+        "pos": 33495395
+      },
+      {
+        "call_rate": 0.98,
+        "maf": 0.469388,
+        "pos": 33497635
+      },
+      {
+        "call_rate": 1,
+        "maf": 0.29,
+        "pos": 33500626
+      },
+      {
+        "call_rate": 0.98,
+        "maf": 0.255102,
+        "pos": 33503432
+      },
+      {
+        "call_rate": 1,
+        "maf": 0.29,
+        "pos": 33505646
+      },
+      {
+        "call_rate": 0.98,
+        "maf": 0.071429,
+        "pos": 33510491
+      }
+    ]
+  },
+  "historical_sra_samples_without_authorized_crosswalk": 14,
+  "joint_exploratory_model": {
+    "endpoints": {
+      "shape_log_height_over_length": {
+        "coefficients_PC1_ALX1_HMGA2": [
+          -0.13583813,
+          0.3009676
+        ],
+        "empirical_p_global_null": 0.0313968603139686,
+        "familywise_empirical_p": 0.08509149085091491,
+        "within_population_r2": 0.14513277
+      },
+      "size_log_geometric_mean_3d": {
+        "coefficients_PC1_ALX1_HMGA2": [
+          0.05422349,
+          0.42178963
+        ],
+        "empirical_p_global_null": 0.0231976802319768,
+        "familywise_empirical_p": 0.03469653034696531,
+        "within_population_r2": 0.18450212
+      }
+    },
+    "exploratory_no_causal_claim": true,
+    "limits": "No independent holdout; unadjusted for gene-wide LD or other genomic loci, environment, pedigree or developmental stage; 50 nonrandom individuals",
+    "method": "Genotype-only PC1 per locus; joint two-covariate OLS after 11-population demeaning; 10000 shared within-population permutations of both endpoints; two-outcome familywise max-R2",
+    "permutations": 10000,
+    "permuted_null_max_r2_p95": 0.1700606059096821,
+    "population_group_sizes": {
+      "crassirostris_L": 2,
+      "crassirostris_Z": 2,
+      "fortis_L": 7,
+      "fortis_Z": 6,
+      "fuliginosa_L": 6,
+      "fuliginosa_Z": 5,
+      "fusca_L": 2,
+      "magnirostris_Z": 6,
+      "pallidus_L": 6,
+      "parvulus_L": 2,
+      "scandens_Z": 6
+    },
+    "seed": 20261114
+  },
+  "paired_individuals": 50,
+  "reference_chromosome_1a_sequence_sha256": "8f718d54d008f90f3d5075919a35a55354757d0b761d3a6313ae7b2772ed5803",
+  "reference_evidence": {
+    "mismatches": 0,
+    "shift_by_one_negative_control_matches": 4666,
+    "vcf_local_reference_label": "file://C_parvulus_sm.fa",
+    "vcf_ref_matches_chromosome_1a": 21809,
+    "whole_1756_contig_fasta_identity": "UNVERIFIED"
+  },
+  "scientific_conclusion": "SNP positions and exploratory associations only; no causal inference, no proven fossil prediction, no genome-wide multiple-testing inference",
+  "source_sha256": {
+    "Morphometrics.txt": "4722f565feeda8290d3985b4a65d9e0c4e91690270264cfc931d26f24cc51555",
+    "Prun64_3miss2mafNoZ_1.vcf.gz": "471db73a5eb65a8bb6af8f25872a5a2d0bc0115556203250f69eb61988163d34",
+    "pPCAeigen.txt": "d615bd8dd3fd22091b971b20f18a49832d1f2afaf390a30ea3465f6a276b5bff"
+  },
+  "status": "PARTIAL_SCIENTIFIC_EXPLORATORY",
+  "test_execution": "PASS",
+  "variants_in_gene_bodies": {
+    "ALX1": 9,
+    "HMGA2": 36
+  },
+  "vcf_chromosome_1a_records": 21809,
+  "vcf_records": 261754
+}
