@@ -205,6 +205,31 @@
       "seed": 20261114
     }
   },
+  "familywise_across_four_models_and_two_endpoints": {
+    "adjusted_p": {
+      "left": {
+        "shape_log_height_over_length": 0.35436456354364565,
+        "size_log_geometric_mean_3d": 0.1004899510048995
+      },
+      "mixed": {
+        "shape_log_height_over_length": 0.21327867213278673,
+        "size_log_geometric_mean_3d": 0.008599140085991401
+      },
+      "primary": {
+        "shape_log_height_over_length": 0.18468153184681532,
+        "size_log_geometric_mean_3d": 0.0846915308469153
+      },
+      "right": {
+        "shape_log_height_over_length": 0.21257874212578742,
+        "size_log_geometric_mean_3d": 0.008399160083991601
+      }
+    },
+    "family": "four post-hoc locus-pair models times two phenotype outcomes; max-R2 null",
+    "null_max_r2_p95": 0.20850883961364217,
+    "permutations": 10000,
+    "scope": "Exploratory across 8 tests only; no genome-wide, independent sample or causal validation",
+    "shared_population_permutation": true
+  },
   "flanking_comparators_not_independent_negative_controls": true,
   "interpretation": "A stronger adjacent-window association does not prove gene-specificity. Flanking SNPs may be in LD with target loci. Neither model proves causal effects, clinical outcomes or fossil phenotype prediction.",
   "leave_one_population_out": [
