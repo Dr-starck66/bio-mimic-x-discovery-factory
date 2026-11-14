@@ -1,0 +1,99 @@
+{
+  "project": "ASTRA DINO Ω / GENOME REVERSE Ω",
+  "experiment": "v0.7 independent external fossil matrix replication",
+  "date_utc": "2026-11-14",
+  "status_software": "PASS",
+  "status_scientific_superiority": "FAIL",
+  "zero_new_paid_costs": true,
+  "external_source": {
+    "archive": "https://zenodo.org/records/7979718",
+    "doi": "10.5281/zenodo.7979718",
+    "article": "Cerny and Simonoff (2023), Statistical evaluation of character support reveals the instability of higher-level dinosaur phylogeny",
+    "original_matrix_authors": "Baron, Norman and Barrett (2017)",
+    "matrix_filename": "baron.nex",
+    "matrix_size_bytes": 37128,
+    "matrix_md5_published_and_verified": "f7f0270ca0a524ebc49fa98b6a8540c5",
+    "matrix_sha256_verified": "aa38d15274fc9272f00a7ea818a15502ee3cdec93c3303c79cf9045fed38aff1",
+    "phylogenies": [
+      "ML_unconstrained.zip: ML_unconstrained/baron_unconstrained.treefile",
+      "Tree_comparisons.zip: Tree_comparisons/BEA/baron_saurischia.treefile",
+      "Tree_comparisons.zip: Tree_comparisons/BEA/baron_ornithischiformes.treefile",
+      "Tree_comparisons.zip: Tree_comparisons/BEA/comparison.treefile"
+    ],
+    "published_md5_archives": {
+      "ML_unconstrained.zip": "a815016680d6b5d55cf2456f53fab7bc",
+      "Tree_comparisons.zip": "dd229989cfca8861817b0ac86192a583"
+    }
+  },
+  "frozen_model": {
+    "baseline_script_path": "../ASTRA_DINO_HENDRICKX_V06/benchmark.py",
+    "baseline_script_sha256": "860bf1bc8909b58e01aab5f4f78e0ac2f71700d4d77af34ba30fe500032f617d",
+    "adapter_script": "benchmark_frozen_adapter.py",
+    "adapter_script_sha256_locally_and_in_vercel": "f42a15764dd7d85590f2d423f1f708f3f2681f8d05f7b5d6eedecb2afb04c445",
+    "model_parameters_changed": false,
+    "format_adaptations_only": ["457 instead of 71 character columns", "four published trees instead of six", "original seven possible discrete states unchanged", "source NEXUS DATA-block parser and ZIP tree source locations"],
+    "fixed_weighting": "inverse squared unit-edge topological distance",
+    "fixed_ensemble": "unweighted mode across all provided topologies",
+    "holdout": "remove every observed character of target taxon from direct predictors"
+  },
+  "matrix": {
+    "taxa": 74,
+    "characters": 457,
+    "observed_unambiguous": 14200,
+    "missing": 19618,
+    "inapplicable": 0,
+    "ambiguous": 0,
+    "class_counts": {"0": 8517, "1": 4957, "2": 671, "3": 54, "4": 1}
+  },
+  "models": {
+    "trivial_majority": {"correct": 10492, "n": 14200, "accuracy": 0.738873, "taxon_macro": 0.730999},
+    "nearest_ensemble": {"correct": 11908, "n": 14200, "accuracy": 0.838592, "taxon_macro": 0.847123},
+    "astra_topology_ensemble": {"correct": 11998, "n": 14200, "accuracy": 0.844930, "taxon_macro": 0.849310},
+    "fitch_ensemble_fallback": {"correct": 12092, "n": 14200, "accuracy": 0.851549, "taxon_macro": 0.858433}
+  },
+  "astra_vs_fitch": {
+    "additional_correct": -94,
+    "absolute_difference_percentage_points": -0.661972,
+    "taxon_macro_difference": -0.009122879322397656,
+    "paired_6000_taxon_bootstrap_ci95": [-0.014518078685706167, -0.004048177110495591],
+    "taxa_astra_better": 17,
+    "taxa_astra_worse": 43,
+    "taxa_tied": 14,
+    "scientific_verdict": "FAIL_to_replicate_superiority"
+  },
+  "negative_controls": {
+    "randomized_donor_permutations": 30,
+    "tree": 1,
+    "micro_accuracy_mean": 0.7154366333333333,
+    "micro_accuracy_min": 0.709155,
+    "micro_accuracy_max": 0.721127,
+    "qualification": "diagnostic loss of phylogenetic information; not a formal p-value of ASTRA versus Fitch"
+  },
+  "direct_leakage_audit": {
+    "target": "Euparkeria_capensis",
+    "masked_all_characters": 457,
+    "trees_tested": 4,
+    "prediction_changes_in_fitch": 0,
+    "prediction_changes_in_astra_weighted": 0,
+    "prediction_changes_in_nearest_neighbor": 0,
+    "direct_holdout_label_leakage": "PASS",
+    "published_tree_topology_independent_of_hidden_states": "FAIL_NOT_INDEPENDENT"
+  },
+  "execution": {
+    "environment": "Vercel Sandbox Python3.13, free-plan project, temporary",
+    "main_benchmark_exit_code": 0,
+    "full_thirty_permutations_exit_code": 0,
+    "main_runtime_ms_first": 27212,
+    "main_runtime_ms_with_permutations": 55101,
+    "full_remote_evidence_sha256": "bbd65d59320e34b00a2b8852e5ffa31e8566f106f36e10d13d22f6176d0bcd88",
+    "full_remote_evidence_bytes": 274083,
+    "full_remote_evidence_persisted_in_this_package": false,
+    "note": "Curated summary from real server stdout, remote evidence and tests; original full evidence JSON resided in a sandbox that expired without a confirmed durable snapshot. Reproducible from original source and frozen code."
+  },
+  "caveats": [
+    "The fixed published tree topologies were fitted using the full morphological matrix, so this is not a strictly independent topology-blind test.",
+    "Hendrickx integumentary characters and Baron skeletal characters measure different phenotypes.",
+    "No dinosaur DNA reconstructed, no independent causal links from fossil traits to DNA established.",
+    "Not proof of the impossibility of future methods; current fixed method fails on this external benchmark."
+  ]
+}
