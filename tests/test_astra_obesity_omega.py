@@ -27,12 +27,17 @@ class ResearchMissionTests(unittest.TestCase):
         self.assertEqual(d['status'], 'PARTIAL')
         self.assertFalse(d['clinical_efficacy_demonstrated'])
         self.assertFalse(d['worldwide_solution_demonstrated'])
-        self.assertEqual(len(d['research_questions']), 2)
+        self.assertEqual(len(d['research_questions']), 3)
+        self.assertEqual(sum(len(q['hypotheses']) for q in d['research_questions']), 6)
         for q in d['research_questions']:
-            self.assertEqual(len(q['hypotheses']), 3)
+            self.assertEqual(len(q['hypotheses']), 0 if q['research_mode'] == 'CLASSIFICATION' else 3)
             self.assertTrue(all(h['association_only'] and not h['clinical_efficacy_claim'] for h in q['hypotheses']))
             self.assertTrue(all(p['status'] == 'PROPOSED_NOT_EXECUTED' for p in q['experiments']))
-            self.assertEqual(q['adversarial_review']['surviving_hypothesis_ids'], [])
+            if q['research_mode'] == 'MECHANISM':
+                self.assertEqual(q['adversarial_review']['surviving_hypothesis_ids'], [])
+            else:
+                self.assertEqual(q['classification_benchmark']['baseline'], 'BMI_ALONE')
+                self.assertEqual(q['experiments'], [])
             self.assertFalse(q['human_data_independently_analyzed'])
 
     def test_unattributed_source_rejected(self):
