@@ -194,5 +194,4 @@ def main():
                                     for mode,conds in modes.items()}
                                  for m,modes in report["methods"].items()}},indent=2))
 
-
 if __name__=="__main__":main()
