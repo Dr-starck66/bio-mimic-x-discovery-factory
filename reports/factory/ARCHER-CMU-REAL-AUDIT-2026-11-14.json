@@ -1,0 +1,29 @@
+{
+  "project": "BIO-MIMIC X / ASTRA ARCHER VISION Omega",
+  "date": "2026-11-14",
+  "status": "PARTIAL",
+  "dataset": "CMU Face Images — UCI #124",
+  "license_documented": "UCI: CC BY 4.0; CMU: educational use with attribution",
+  "archive_source": "https://archive.ics.uci.edu/static/public/124/cmu%2Bface%2Bimages.zip",
+  "expected_archive_sha256": "01a8b6cc58ac2f825f72abd6cf2b393df067c6529d96f7a90b22dede71b142cc",
+  "verified_real_archive": false,
+  "real_sample_count": 0,
+  "training_on_real_images": "UNVERIFIED",
+  "evaluation_on_real_images": "UNVERIFIED",
+  "real_accuracy": null,
+  "software_unit_tests": {
+    "passed": 17,
+    "failed": 0,
+    "status": "PASS",
+    "command": "PYTHONPATH=. python -m unittest discover -s tests -p 'test_archer_vision_*.py' -v"
+  },
+  "missing_source_reason": "URL network resolution blocked in the local execution runtime",
+  "download_attempt_exit_code": 1,
+  "existing_models": [
+    "pixels",
+    "hog",
+    "retina_pool"
+  ],
+  "image_split": "training frontal neutral/happy; testing frontal sad/angry, left pose, sunglasses",
+  "notes": "No real face photographs or biometric feature vectors are distributed"
+}
