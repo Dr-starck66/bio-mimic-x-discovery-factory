@@ -89,7 +89,7 @@ class TestNHANES(unittest.TestCase):
             m.prepare(frames)
 
     def test_no_invented_clinical_effect(self):
-        self.assertIn("NOT a clinical obesity diagnosis",m.__doc__)
+        self.assertIn("not a clinical obesity diagnosis",m.__doc__)
 
 if __name__=="__main__":
     unittest.main()
