@@ -71,7 +71,8 @@
         "negative control: BMI-only baseline",
         "calibrate by age and sex without attributing causality",
         "avoid assuming coexisting dysfunction is caused by adiposity"
-      ]
+      ],
+      "mode": "CLASSIFICATION"
     },
     {
       "id": "OB-DURABILITY-02",
@@ -93,7 +94,31 @@
         "track discontinuation and long-term adverse events",
         "negative control: non-adiposity-related outcome",
         "compare care access across resource settings"
-      ]
+      ],
+      "mode": "MECHANISM"
+    },
+    {
+      "id": "OB-ADIPOSE-03",
+      "subject": "Investigate adipose tissue dysfunction and inflammatory signaling as candidates for obesity-related organ impairment",
+      "mechanisms": [
+        "adipose tissue dysfunction and inflammatory signaling"
+      ],
+      "source_ids": [
+        "WHO-OBESITY-2026",
+        "LANCET-CLINICAL-OBESITY-2025"
+      ],
+      "stage": "RESEARCH_HYPOTHESIS",
+      "claims_clinical_efficacy": false,
+      "individual_data_present": false,
+      "diagnostic_basis": "NOT_APPLICABLE",
+      "falsifier": "Independent human-relevant causal experiments find no specific functional change beyond negative-control conditions",
+      "counter_tests": [
+        "require independent human tissue evidence before intervention",
+        "negative controls matching inflammation unrelated to adiposity",
+        "separate exposure, mediator and outcome temporally",
+        "evaluate independent replication and toxicity"
+      ],
+      "mode": "MECHANISM"
     }
   ]
 }
