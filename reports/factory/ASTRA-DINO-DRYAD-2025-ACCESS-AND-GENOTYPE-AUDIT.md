@@ -9,7 +9,9 @@
   - `Morphometrics.txt` — 5,30 Ko — URL officielle `https://datadryad.org/downloads/file_stream/4416574` — accès actuel HTTP **403**.
   - `pPCAeigen.txt` — 6,42 Ko — URL officielle `https://datadryad.org/downloads/file_stream/4416577` — accès actuel HTTP **403**.
   - `Prun64_3miss2mafNoZ_1.vcf.gz` — 59,72 Mo — URL officielle `https://datadryad.org/downloads/file_stream/4416598` — accès actuel HTTP **403**.
-- Autre source évaluée : API Dryad v2 (`/api/v2/datasets/...`), page documentation accessible mais contenu de l'API inaccessible depuis les outils disponibles. Le navigateur d'agent connecté n'a pas pu être lancé, crédits du fournisseur insuffisants, **aucune dépense**.
+- **Correction de l'audit d'accès (14/11/2026)** : l'API Dryad v2 publique fournit effectivement les métadonnées du dataset **ID 155457**, version publiée **ID 402749**, et les enregistrements des 3 fichiers avec **SHA-256 vérifiables**. Elle répond toutefois **HTTP 401** lors des téléchargements de fichiers sans compte/token, tandis que les liens `file_stream` répondent **HTTP 403**. Aucun octet original des trois fichiers n'a été récupéré ; le navigateur d'agent connecté ne démarre pas avec la réserve de crédits actuelle, **aucune dépense**.
+- Référentiel des empreintes et des tailles officielles conservé dans `data/astra_dino_dryad2025_official_sha256_manifest.json`. À vérifier octet pour octet sur les originaux quand l'accès sera accordé.
+- **Prises de contact effectives et vérifiées Gmail (`SENT`)** : Jan Terje Lifjeld, auteur responsable, et `help@datadryad.org`, assistance officielle, sollicités pour une voie d'accès gratuite et autorisée.
 - L'environnement local de calcul n'a pas d'accès réseau sortant ; le téléchargement direct échoue par résolution DNS.
 
 ## Métadonnées scientifiques vérifiées
@@ -48,7 +50,7 @@ python validation/astra_dino_dryad2025_audit.py \
 
 | Contrôle | Statut | Preuve |
 | --- | --- | --- |
-| Métadonnées de 2025 et DOI | PASS | Dryad + article publié |
+| Métadonnées de 2025, DOI et SHA-256 | PASS | API Dryad v2 + tailles et empreintes officielles |
 | Assemblage GCA_902806625.1 | PASS | Rubin 2022, Lifjeld 2025 |
 | Téléchargement des fichiers originaux | FAIL/ACCESS_BLOCKED | liens officiels HTTP 403, local sans DNS |
 | Code de lecture et garde-fous | PASS local | 11/11 tests Python |
