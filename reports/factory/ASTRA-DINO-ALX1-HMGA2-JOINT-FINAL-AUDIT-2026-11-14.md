@@ -6,6 +6,8 @@
 - Les **50** échantillons récents suivent la règle `SampleID → AccNo` confirmée par courriel par Jan Terje Lifjeld ; les **14** anciennes séquences SRA ne sont pas appariées à des mesures par convention inventée.
 - Les originaux **ne sont pas conservés durablement dans le dépôt**. Le lien institutionnel doit rester privé ; son expiration annoncée est le **4 décembre 2026**. Aucun jeton ni lien confidentiel n'est écrit dans ce rapport.
 
+**Mise à jour des échanges (14/11/2026, 16:45 UTC).** Jan Terje Lifjeld a confirmé par retour d'email que la publication de référence et son matériel supplémentaire sont ceux de Rubin et al., *Science Advances*, DOI `10.1126/sciadv.abm5982`. Cette réponse est cohérente avec l'assemblage déjà retenu ; elle ne fournit pas de nouveaux génotypes ni de nouvelle validation indépendante. Les fichiers originaux ont été récupérés et vérifiés lors d'une session antérieure du même jour (3/3 SHA PASS) : **ne plus qualifier cette étape de bloquée par Dryad**. Les octets n'ont pas été archivés durablement ; ne pas publier le lien privé FileSender.
+
 ## 2. Localisation ALX1 et HMGA2 — coordonnées exactes
 **Assemblage unique :** Ensembl release 116 `Camarhynchus_parvulus_V1.1` / **`GCA_902806625.1`**, chromosome **1A**, coordonnées **1-based inclusives**.
 
