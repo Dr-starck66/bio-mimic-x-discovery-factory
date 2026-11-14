@@ -1,8 +1,8 @@
 name: ASTRA Archer — verify official UCI CMU archive
 on:
-  push:
+  pull_request:
     branches:
-      - astra/archer-vision-synthetic-20261114
+      - main
     paths:
       - .github/workflows/astra-archer-cmu-official.yml
   workflow_dispatch:
