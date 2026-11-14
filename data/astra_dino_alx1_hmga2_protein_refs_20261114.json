@@ -1,0 +1,160 @@
+{
+  "schema": "astra.dino.nuclear_proteins.v1",
+  "retrieved": "2026-11-14",
+  "source": "NCBI E-utilities db=protein rettype=fasta; source UID/protein accession confirmed with header and species",
+  "proteins": [
+    {
+      "gene": "ALX1",
+      "species": "Geospiza fortis",
+      "geneId": 102033603,
+      "proteinUID": "543262136",
+      "accession": "XP_005421635.1",
+      "length": 328,
+      "sequence": "MIMDFLSEKFALKSQPSKNSDFYMGAGGSLEHVMETLDNESFYSKTSGSKCVQAFNPLQRAEHHVRLERTSPCQDTNVNYGITKVEGQPLHTELSRPMDNCNNLRMSPVKGPQEKGDLDELGDKCDSNVSSSKKRRHRTTFTSLQLEELEKVFQKTHYPDVYVREQLALRTELTEARVQVWFQNRRAKWRKRERYGQIQQAKSHFAATYDVSVLPRTDSYPQIQNNLWAGNAASGSVVTSCMLPRDTSSCMTPYSHSPRTDSGYTGFSNHQNQFSHMPLNNFFTDSLLSGATNGHAFETKPEFERRSSSIAVLRMKAKEHAANISWAM",
+      "header": ">XP_005421635.1 ALX homeobox protein 1 [Geospiza fortis]"
+    },
+    {
+      "gene": "HMGA2",
+      "species": "Geospiza fortis",
+      "geneId": 102043846,
+      "proteinUID": "1756840563",
+      "accession": "XP_030911403.1",
+      "length": 109,
+      "sequence": "MSAQGEGPGQPSTAAQEQPATAEPQKRGRGRPRKQPQEPTGEPSPKRPRGRPKGSKNKSPSKAAQKKAEATGEKRPRGRPRKWPQQVVQKKPAQEETEETSSQESAEED",
+      "header": ">XP_030911403.1 high mobility group protein HMGI-C [Geospiza fortis]"
+    },
+    {
+      "gene": "ALX1",
+      "species": "Taeniopygia guttata",
+      "geneId": 100221834,
+      "proteinUID": "224094163",
+      "accession": "XP_002196043.1",
+      "length": 328,
+      "sequence": "MIMDFLSEKFALKSQPSKNSDFYMGAGGSLEHVMETLDNESFYSKTSGSKCVQAFNPLQRAEHHVRLERTSPCQDSNVNYGITKVEGQPLHTELSRPMDNCNNLRMSPVKGLQEKGDLDELGDKCDSNVSSSKKRRHRTTFTSLQLEELEKVFQKTHYPDVYVREQLALRTELTEARVQVWFQNRRAKWRKRERYGQIQQAKSHFAATYDISVLPRTDSYPQIQNNLWAGNAASGSVVTSCMLPRDTSSCMTPYSHSPRTDSGYTGFTNHQNQFSHMPLNNFFTDSLLSGATNGHAFETKPEFERRSSSIAVLRMKAKEHAANISWAM",
+      "header": ">XP_002196043.1 ALX homeobox protein 1 [Taeniopygia guttata]"
+    },
+    {
+      "gene": "HMGA2",
+      "species": "Taeniopygia guttata",
+      "geneId": 101233643,
+      "proteinUID": "449481418",
+      "accession": "XP_004176139.1",
+      "length": 109,
+      "sequence": "MSAQGEGPGQPSTAAQEQPATAEPQKRGRGRPRKQPQEPTGEPSPKRPRGRPKGSKNKSPSKAAQKKAEATGEKRPRGRPRKWPQQVVQKKPAQEETEETSSQESAEED",
+      "header": ">XP_004176139.1 high mobility group protein HMGI-C [Taeniopygia guttata]"
+    },
+    {
+      "gene": "ALX1",
+      "species": "Gallus gallus",
+      "geneId": 427871,
+      "proteinUID": "2024444684",
+      "accession": "XP_040516271.1",
+      "length": 328,
+      "sequence": "MIMDFLSEKFALKSQPSKNSDFYMGAGGTLEHVMETLDNESFYSKTSGSKCVQAFNPLQRAEHHVRLDRTSPCQDNNVNYGITKVEGQPLHTELNRPLDNCNNLRMSPVKGMQEKGELDELGDKCDSNVSSSKKRRHRTTFTSLQLEELEKVFQKTHYPDVYVREQLALRTELTEARVQVWFQNRRAKWRKRERYGQIQQAKSHFAATYDISVLPRTDSYPQIQNNLWAGNTASGSVVTSCMIPRDTSSCMTPYSHSPRTDSGYTGFSNHQNQFSHVPLNNFFTDSLLSGATNGHAFETKPEFERRSSSIAVLRMKAKEHAANISWAM",
+      "header": ">XP_040516271.1 ALX homeobox protein 1 [Gallus gallus]"
+    },
+    {
+      "gene": "HMGA2",
+      "species": "Gallus gallus",
+      "geneId": 395851,
+      "proteinUID": "45384530",
+      "accession": "NP_990332.1",
+      "length": 109,
+      "sequence": "MSAQGEGPGQSSTAAPEQPAAAEPQKRGRGRPRKQPQEPTGEPSPKRPRGRPKGSKNKSPSKAAQKKAEATGEKRPRGRPRKWPQQVVQKKPAQEETEETSSQESAEED",
+      "header": ">NP_990332.1 high mobility group protein HMGI-C [Gallus gallus]"
+    }
+  ],
+  "comparisons": [
+    {
+      "gene": "ALX1",
+      "species1": "Geospiza fortis",
+      "species2": "Taeniopygia guttata",
+      "matches": 324,
+      "total": 328,
+      "identity": 98.78048780487805,
+      "mismatchPositions": [
+        76,
+        112,
+        211,
+        268
+      ]
+    },
+    {
+      "gene": "ALX1",
+      "species1": "Geospiza fortis",
+      "species2": "Gallus gallus",
+      "matches": 317,
+      "total": 328,
+      "identity": 96.64634146341463,
+      "mismatchPositions": [
+        29,
+        68,
+        76,
+        95,
+        98,
+        112,
+        117,
+        211,
+        232,
+        243,
+        277
+      ]
+    },
+    {
+      "gene": "ALX1",
+      "species1": "Taeniopygia guttata",
+      "species2": "Gallus gallus",
+      "matches": 317,
+      "total": 328,
+      "identity": 96.64634146341463,
+      "mismatchPositions": [
+        29,
+        68,
+        76,
+        95,
+        98,
+        112,
+        117,
+        232,
+        243,
+        268,
+        277
+      ]
+    },
+    {
+      "gene": "HMGA2",
+      "species1": "Geospiza fortis",
+      "species2": "Taeniopygia guttata",
+      "matches": 109,
+      "total": 109,
+      "identity": 100,
+      "mismatchPositions": []
+    },
+    {
+      "gene": "HMGA2",
+      "species1": "Geospiza fortis",
+      "species2": "Gallus gallus",
+      "matches": 106,
+      "total": 109,
+      "identity": 97.24770642201835,
+      "mismatchPositions": [
+        11,
+        16,
+        21
+      ]
+    },
+    {
+      "gene": "HMGA2",
+      "species1": "Taeniopygia guttata",
+      "species2": "Gallus gallus",
+      "matches": 106,
+      "total": 109,
+      "identity": 97.24770642201835,
+      "mismatchPositions": [
+        11,
+        16,
+        21
+      ]
+    }
+  ]
+}
