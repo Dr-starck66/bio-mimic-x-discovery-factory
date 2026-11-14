@@ -1,0 +1,54 @@
+{
+  "schema": "astra.dino.rubin2022_oslo_intersect.v1",
+  "source_doi_oslo": "10.5061/dryad.3ffbg79w8",
+  "source_doi_rubin": "10.1126/sciadv.abm5982",
+  "reference_assembly": "GCA_902806625.1",
+  "reference_fasta_verified_in_previous_run_not_reloaded": true,
+  "originals_sha256": {
+    "Morphometrics.txt": "4722f565feeda8290d3985b4a65d9e0c4e91690270264cfc931d26f24cc51555",
+    "pPCAeigen.txt": "d615bd8dd3fd22091b971b20f18a49832d1f2afaf390a30ea3465f6a276b5bff",
+    "Prun64_3miss2mafNoZ_1.vcf.gz": "471db73a5eb65a8bb6af8f25872a5a2d0bc0115556203250f69eb61988163d34"
+  },
+  "records_all": 261754,
+  "records_chr1a": 21809,
+  "samples_vcf": 64,
+  "paired_oslo_samples": 50,
+  "controls": {
+    "ALX1_GENE_BODY": {
+      "all_records": 9,
+      "biallelic_snp": 9,
+      "paired_50_pass_maf05_call80": 6
+    },
+    "ALX1_LEFT_EQUAL_WIDTH": {
+      "all_records": 8,
+      "biallelic_snp": 8,
+      "paired_50_pass_maf05_call80": 5
+    },
+    "ALX1_RIGHT_EQUAL_WIDTH": {
+      "all_records": 14,
+      "biallelic_snp": 14,
+      "paired_50_pass_maf05_call80": 6
+    },
+    "HMGA2_GENE_BODY": {
+      "all_records": 36,
+      "biallelic_snp": 36,
+      "paired_50_pass_maf05_call80": 23
+    },
+    "HMGA2_LEFT_EQUAL_WIDTH": {
+      "all_records": 35,
+      "biallelic_snp": 35,
+      "paired_50_pass_maf05_call80": 18
+    },
+    "HMGA2_RIGHT_EQUAL_WIDTH": {
+      "all_records": 39,
+      "biallelic_snp": 39,
+      "paired_50_pass_maf05_call80": 27
+    }
+  },
+  "rubin_data_s2": {
+    "status": "BLOCKED_AUTHENTIC_INTERVAL_BOUNDS_UNAVAILABLE",
+    "rows": 0,
+    "note": "Rubin loci not defined by gene body or equal-width flank; Data S2 source coordinates required"
+  },
+  "scope": "Authentic Oslo VCF scan; no novel statistical association, no causality or independent validation"
+}
