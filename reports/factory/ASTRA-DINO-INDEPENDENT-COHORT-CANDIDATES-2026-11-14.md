@@ -10,7 +10,7 @@ Reproduire les associations ALX1/HMGA2 et la comparaison aux fenêtres adjacente
 
 | Priorité | Source et URL | Contenu scientifiquement établi | Verrou exact |
 |---|---|---|---|
-| **P0** | **Enbody et al. 2023, Science DOI 10.1126/science.adf6218 ; BioProject PRJNA897926** | **3 955** finches Daphne Major avec génomes basse couverture, **2 543** adultes avec longueur/profondeur/largeur de bec mesurées individuellement ; modèle GLIMPSE imputé ; mêmes thèmes ALX1 et supergène G03/HMGA2 | **Prometteur mais pas encore téléchargé** : la matrice imputée et la table `sample_id ↔ band/specimen ↔ beak dimensions` ne sont pas présentes dans nos fichiers ; provenance/reference/éventuels oiseaux déjà vus doivent être audités. Les 3 438 expériences SRA publiques sont des lectures brutes et ne suffisent pas à elles seules. |
+| **P0** | **Enbody et al. 2023, Science DOI 10.1126/science.adf6218 ; BioProject PRJNA897926** | **3 955** finches Daphne Major avec génomes basse couverture, **2 543** adultes avec longueur/profondeur/largeur de bec mesurées individuellement ; modèle GLIMPSE imputé ; mêmes thèmes ALX1 et supergène G03/HMGA2 | **Prometteur mais pas encore téléchargé** : Zenodo DOI 10.5281/zenodo.8044096 est cité par les auteurs comme dépôt de code/données associés (fichiers internes non inspectés). La matrice imputée et la table `sample_id ↔ band/specimen ↔ beak dimensions` ne sont pas présentes dans nos fichiers ; provenance/reference/éventuels oiseaux déjà vus doivent être audités. Les 3 438 expériences SRA publiques sont des lectures brutes et ne suffisent pas à elles seules. |
 | P1 | Sebastianelli Arbelaez et al., *Nature Communications* 2026, DOI 10.1038/s41467-026-78507-8; Figshare DOI 10.6084/m9.figshare.30284983; code GitHub MatteoSebastianelli/Tree_finches | Étude d'octobre 2026 ; 415 génomes de pinsons de Darwin dont 77 Camarhynchus, alignés sur C. parvulus ; G03 sur 1A près HMGA2 ; observations morphologiques muséales également analysées | **Non prouvé** que la morphométrie et les génotypes appartiennent aux mêmes individus ; fichiers Figshare et étiquettes par spécimen **non téléchargés** ; éventuel chevauchement avec cohorte Oslo 2025 **non contrôlé**. |
 | P2 | Chaves et al., *Molecular Ecology* 2016, PMID 27363308; SRA SRP066465 | RAD-seq, 32 569 SNPs ; étude beak/body size, mesures morphométriques de 87 oiseaux rapportées dans le supplément | Matrice génotypique individuelle ↔ morphométrie et assemblage/coordonnées ALX1-HMGA2 **non vérifiés** ; accès SRA de séquençage brut n'est pas un VCF apparié. |
 | P3 | Lawson & Petren 2017, Dryad DOI 10.5061/dryad.575md | Feuille 83Hapmap_simple2_filtered.xlsx (32,68 Mo) et tableaux GWAS ; 4 espèces Geospiza | Présence de morphométrie individuelle liée aux 83 profils **non démontrée** et génotypes non inspectés ; n'autorise pas une pseudo-cohorte. |
@@ -19,6 +19,7 @@ Reproduire les associations ALX1/HMGA2 et la comparaison aux fenêtres adjacente
 
 ### Liens de référence
 - https://doi.org/10.1126/science.adf6218
+- https://doi.org/10.5281/zenodo.8044096 (référence de dépôt citée par les auteurs, contenu exact non vérifié)
 - https://www.ncbi.nlm.nih.gov/bioproject/PRJNA897926
 - https://www.nature.com/articles/s41467-026-78507-8
 - https://doi.org/10.6084/m9.figshare.30284983
@@ -34,7 +35,7 @@ Reproduire les associations ALX1/HMGA2 et la comparaison aux fenêtres adjacente
 - Accès direct aux fichiers Figshare/figshare API par le navigateur distant **bloqué par le quota gratuit Firecrawl** le 14/11/2026. L'environnement local de calcul n'a pas de résolution DNS sortante. TinyFish a un solde négatif et n'est pas utilisé. **Aucun achat**.
 - Gmail a été vérifié : un email **déjà envoyé le 14/11/2026** à `leif.andersson@imbim.uu.se` demandait explicitement les couples génotype–phénotype. Pas de doublon à cet interlocuteur.
 - **Trois brouillons Gmail enregistrés et non envoyés** sur le compte principal :
-  1. **`erik.enbody@gmail.com`** — contacter l'auteur correspondant de la cohorte Daphne 2023, demander 2 543 couples individuels et 3 955 génotypes imputed/VCF, identifiants, chevauchements et G03.
+  1. **`erik.enbody@gmail.com`** — contacter l'auteur correspondant de la cohorte Daphne 2023, demander 2 543 couples individuels et 3 955 génotypes imputés/VCF, identifiants, chevauchements et G03 ; vérifier le dépôt Zenodo cité.
   2. `matteo.sebastianelli@imbim.uu.se` — demander fichier Figshare exact, table d'identifiants, preuve de non-chevauchement avec Oslo, génomes 1A/G03.
   3. `jachaves@usfq.edu.ec` — demander la table 87 oiseaux et le lien individuel SRA/RAD SNPs.
 - Aucune réponse des trois contacts n'est constatée : les brouillons ne valent pas des emails envoyés.
