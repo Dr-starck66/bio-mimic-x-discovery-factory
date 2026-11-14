@@ -1,0 +1,35 @@
+name: ASTRA OBESITY NHANES — one-shot independent data check
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "research/astra_obesity_omega/nhanes_analysis.py"
+      - "tests/test_astra_nhanes_validation.py"
+      - ".github/workflows/astra-obesity-nhanes.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-official-nhanes:
+    name: Authentic CDC data + negative controls (no patient export)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install open-source analysis dependencies
+        run: python -m pip install --disable-pip-version-check "numpy>=1.26,<3" "pandas>=2,<3" "scikit-learn>=1.3,<2" "requests>=2,<3"
+      - name: Run synthetic software controls (never published as clinical data)
+        run: python -m unittest discover -s tests -p test_astra_nhanes_validation.py -v
+      - name: Retrieve CDC public XPT originals and validate on held-out survey clusters
+        run: python research/astra_obesity_omega/nhanes_analysis.py
+      - name: Retain AGGREGATE evidence only
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: astra-obesity-nhanes-aggregate-report
+          path: artifacts/astra_obesity_nhanes_2021_2023.json
+          if-no-files-found: error
+          retention-days: 30
