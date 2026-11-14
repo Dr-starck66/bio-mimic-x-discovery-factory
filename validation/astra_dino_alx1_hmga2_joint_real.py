@@ -212,17 +212,20 @@ def permutation_test(pairs,g1,g2,nperm=2000,seed=20261114):
     rng=random.Random(seed);null_max=[]
     for it in range(nperm):
         vals={}
+        # One shared within-population permutation across both phenotypes:
+        # preserves individual-level shape/size correlation under the joint null.
+        perm_idx=list(range(len(pairs)))
+        for indices in groups.values():
+            shuffled=list(indices);rng.shuffle(shuffled)
+            for target,source in zip(indices,shuffled):perm_idx[target]=source
         for name,y in outcome.items():
-            yp=list(y)
-            for indices in groups.values():
-                rotated=[y[i] for i in indices];rng.shuffle(rotated)
-                for i,v in zip(indices,rotated):yp[i]=v
+            yp=[y[j] for j in perm_idx]
             vals[name]=r2(demean(yp,groups),x,z)['within_population_r2']
             if vals[name]>=obs[name]['within_population_r2']-1e-12:exceed[name]+=1
         maxi=max(vals.values());null_max.append(maxi)
         for k in outcome:
             if maxi>=obs[k]['within_population_r2']-1e-12:exceed_family[k]+=1
-    return {'method':'Genotype-only PC1 per locus; joint two-covariate OLS after 11-population demeaning; 2000 within-population phenotype permutations; two-outcome familywise max-R2',
+    return {'method':'Genotype-only PC1 per locus; joint two-covariate OLS after 11-population demeaning; shared within-population permutation for both endpoints; two-outcome familywise max-R2',
             'exploratory_no_causal_claim':True,'population_group_sizes':dict(Counter(x['population'] for x in pairs)),
             'permutations':nperm,'seed':seed,'endpoints':{
                 k:{'within_population_r2':round(v['within_population_r2'],8),
