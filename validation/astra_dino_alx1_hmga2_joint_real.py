@@ -225,7 +225,7 @@ def permutation_test(pairs,g1,g2,nperm=2000,seed=20261114):
         maxi=max(vals.values());null_max.append(maxi)
         for k in outcome:
             if maxi>=obs[k]['within_population_r2']-1e-12:exceed_family[k]+=1
-    return {'method':'Genotype-only PC1 per locus; joint two-covariate OLS after 11-population demeaning; shared within-population permutation for both endpoints; two-outcome familywise max-R2',
+    return {'method':f'Genotype-only PC1 per locus; joint two-covariate OLS after 11-population demeaning; shared within-population permutation for both endpoints; two-outcome familywise max-R2',
             'exploratory_no_causal_claim':True,'population_group_sizes':dict(Counter(x['population'] for x in pairs)),
             'permutations':nperm,'seed':seed,'endpoints':{
                 k:{'within_population_r2':round(v['within_population_r2'],8),
