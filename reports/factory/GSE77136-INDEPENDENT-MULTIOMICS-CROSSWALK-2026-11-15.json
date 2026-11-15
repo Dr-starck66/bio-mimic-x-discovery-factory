@@ -1,0 +1,413 @@
+{
+  "schema": "BIO-MIMIC-X/GSE77136-INDEPENDENT-MULTIOMICS-METADATA-CROSSWALK/2026-11-15",
+  "status": "PARTIAL_METADATA_PAIRING_PASS_NUMERIC_ANALYSIS_UNVERIFIED",
+  "sources": {
+    "rnaseq": {
+      "series": "GSE77131",
+      "sample_listing": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE77131",
+      "processed_counts": "GSE77131_geneCounts.csv.gz",
+      "count_format": "CSV.GZ",
+      "geo_rna_design_samples": 22
+    },
+    "methylation": {
+      "series": "GSE77135",
+      "sample_listing": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE77135",
+      "processed_intensity": "GSE77135_signal_intensities.csv.gz",
+      "intensity_format": "CSV.GZ",
+      "geo_methylation_samples": 21
+    },
+    "super_series": "GSE77136",
+    "paper": "https://doi.org/10.1371/journal.pgen.1005819",
+    "note": "Sample pairs identified by donor and tissue from public GEO listing; no assumption that aliquots are identical."
+  },
+  "rna_series_records": [
+    {
+      "gsm": "GSM2044628",
+      "key": "2468.Scalp"
+    },
+    {
+      "gsm": "GSM2044629",
+      "key": "2468.Dura"
+    },
+    {
+      "gsm": "GSM2044630",
+      "key": "2520.Dura"
+    },
+    {
+      "gsm": "GSM2044631",
+      "key": "2520.Scalp"
+    },
+    {
+      "gsm": "GSM2044632",
+      "key": "2435.Scalp"
+    },
+    {
+      "gsm": "GSM2044633",
+      "key": "2435.Dura"
+    },
+    {
+      "gsm": "GSM2044634",
+      "key": "2429.Scalp"
+    },
+    {
+      "gsm": "GSM2044635",
+      "key": "2429.Dura"
+    },
+    {
+      "gsm": "GSM2044636",
+      "key": "2371.Scalp"
+    },
+    {
+      "gsm": "GSM2044637",
+      "key": "2371.Dura"
+    },
+    {
+      "gsm": "GSM2044638",
+      "key": "2385.Scalp"
+    },
+    {
+      "gsm": "GSM2044639",
+      "key": "2385.Dura"
+    },
+    {
+      "gsm": "GSM2044640",
+      "key": "5054.Scalp"
+    },
+    {
+      "gsm": "GSM2044641",
+      "key": "5054.Dura"
+    },
+    {
+      "gsm": "GSM2044642",
+      "key": "2328.Scalp"
+    },
+    {
+      "gsm": "GSM2044643",
+      "key": "2328.Dura"
+    },
+    {
+      "gsm": "GSM2044644",
+      "key": "5008.Scalp"
+    },
+    {
+      "gsm": "GSM2044645",
+      "key": "5008.Dura"
+    },
+    {
+      "gsm": "GSM2044646",
+      "key": "2533.Scalp"
+    },
+    {
+      "gsm": "GSM2044647",
+      "key": "2533.Dura"
+    },
+    {
+      "gsm": "GSM2044648",
+      "key": "2540.Scalp"
+    },
+    {
+      "gsm": "GSM2044649",
+      "key": "2540.Dura"
+    }
+  ],
+  "dnam_series_records": [
+    {
+      "gsm": "GSM2044699",
+      "key": "2540.Dura"
+    },
+    {
+      "gsm": "GSM2044700",
+      "key": "2540.Scalp"
+    },
+    {
+      "gsm": "GSM2044701",
+      "key": "2533.Scalp"
+    },
+    {
+      "gsm": "GSM2044702",
+      "key": "5008.Dura"
+    },
+    {
+      "gsm": "GSM2044703",
+      "key": "5008.Scalp"
+    },
+    {
+      "gsm": "GSM2044704",
+      "key": "2328.Dura"
+    },
+    {
+      "gsm": "GSM2044705",
+      "key": "2328.Scalp"
+    },
+    {
+      "gsm": "GSM2044706",
+      "key": "5054.Dura"
+    },
+    {
+      "gsm": "GSM2044707",
+      "key": "5054.Scalp"
+    },
+    {
+      "gsm": "GSM2044708",
+      "key": "2385.Dura"
+    },
+    {
+      "gsm": "GSM2044709",
+      "key": "2385.Scalp"
+    },
+    {
+      "gsm": "GSM2044710",
+      "key": "2371.Dura"
+    },
+    {
+      "gsm": "GSM2044711",
+      "key": "2371.Scalp"
+    },
+    {
+      "gsm": "GSM2044712",
+      "key": "2429.Dura"
+    },
+    {
+      "gsm": "GSM2044713",
+      "key": "2429.Scalp"
+    },
+    {
+      "gsm": "GSM2044714",
+      "key": "2435.Dura"
+    },
+    {
+      "gsm": "GSM2044715",
+      "key": "2435.Scalp"
+    },
+    {
+      "gsm": "GSM2044716",
+      "key": "2520.Scalp"
+    },
+    {
+      "gsm": "GSM2044717",
+      "key": "2520.Dura"
+    },
+    {
+      "gsm": "GSM2044718",
+      "key": "2468.Dura"
+    },
+    {
+      "gsm": "GSM2044719",
+      "key": "2468.Scalp"
+    }
+  ],
+  "cross_assay_matched_samples": [
+    {
+      "donor": "2328",
+      "tissue": "Dura",
+      "rna_gsm": "GSM2044643",
+      "dnam_gsm": "GSM2044704",
+      "pairing_key": "2328.Dura"
+    },
+    {
+      "donor": "2328",
+      "tissue": "Scalp",
+      "rna_gsm": "GSM2044642",
+      "dnam_gsm": "GSM2044705",
+      "pairing_key": "2328.Scalp"
+    },
+    {
+      "donor": "2371",
+      "tissue": "Dura",
+      "rna_gsm": "GSM2044637",
+      "dnam_gsm": "GSM2044710",
+      "pairing_key": "2371.Dura"
+    },
+    {
+      "donor": "2371",
+      "tissue": "Scalp",
+      "rna_gsm": "GSM2044636",
+      "dnam_gsm": "GSM2044711",
+      "pairing_key": "2371.Scalp"
+    },
+    {
+      "donor": "2385",
+      "tissue": "Dura",
+      "rna_gsm": "GSM2044639",
+      "dnam_gsm": "GSM2044708",
+      "pairing_key": "2385.Dura"
+    },
+    {
+      "donor": "2385",
+      "tissue": "Scalp",
+      "rna_gsm": "GSM2044638",
+      "dnam_gsm": "GSM2044709",
+      "pairing_key": "2385.Scalp"
+    },
+    {
+      "donor": "2429",
+      "tissue": "Dura",
+      "rna_gsm": "GSM2044635",
+      "dnam_gsm": "GSM2044712",
+      "pairing_key": "2429.Dura"
+    },
+    {
+      "donor": "2429",
+      "tissue": "Scalp",
+      "rna_gsm": "GSM2044634",
+      "dnam_gsm": "GSM2044713",
+      "pairing_key": "2429.Scalp"
+    },
+    {
+      "donor": "2435",
+      "tissue": "Dura",
+      "rna_gsm": "GSM2044633",
+      "dnam_gsm": "GSM2044714",
+      "pairing_key": "2435.Dura"
+    },
+    {
+      "donor": "2435",
+      "tissue": "Scalp",
+      "rna_gsm": "GSM2044632",
+      "dnam_gsm": "GSM2044715",
+      "pairing_key": "2435.Scalp"
+    },
+    {
+      "donor": "2468",
+      "tissue": "Dura",
+      "rna_gsm": "GSM2044629",
+      "dnam_gsm": "GSM2044718",
+      "pairing_key": "2468.Dura"
+    },
+    {
+      "donor": "2468",
+      "tissue": "Scalp",
+      "rna_gsm": "GSM2044628",
+      "dnam_gsm": "GSM2044719",
+      "pairing_key": "2468.Scalp"
+    },
+    {
+      "donor": "2520",
+      "tissue": "Dura",
+      "rna_gsm": "GSM2044630",
+      "dnam_gsm": "GSM2044717",
+      "pairing_key": "2520.Dura"
+    },
+    {
+      "donor": "2520",
+      "tissue": "Scalp",
+      "rna_gsm": "GSM2044631",
+      "dnam_gsm": "GSM2044716",
+      "pairing_key": "2520.Scalp"
+    },
+    {
+      "donor": "2533",
+      "tissue": "Scalp",
+      "rna_gsm": "GSM2044646",
+      "dnam_gsm": "GSM2044701",
+      "pairing_key": "2533.Scalp"
+    },
+    {
+      "donor": "2540",
+      "tissue": "Dura",
+      "rna_gsm": "GSM2044649",
+      "dnam_gsm": "GSM2044699",
+      "pairing_key": "2540.Dura"
+    },
+    {
+      "donor": "2540",
+      "tissue": "Scalp",
+      "rna_gsm": "GSM2044648",
+      "dnam_gsm": "GSM2044700",
+      "pairing_key": "2540.Scalp"
+    },
+    {
+      "donor": "5008",
+      "tissue": "Dura",
+      "rna_gsm": "GSM2044645",
+      "dnam_gsm": "GSM2044702",
+      "pairing_key": "5008.Dura"
+    },
+    {
+      "donor": "5008",
+      "tissue": "Scalp",
+      "rna_gsm": "GSM2044644",
+      "dnam_gsm": "GSM2044703",
+      "pairing_key": "5008.Scalp"
+    },
+    {
+      "donor": "5054",
+      "tissue": "Dura",
+      "rna_gsm": "GSM2044641",
+      "dnam_gsm": "GSM2044706",
+      "pairing_key": "5054.Dura"
+    },
+    {
+      "donor": "5054",
+      "tissue": "Scalp",
+      "rna_gsm": "GSM2044640",
+      "dnam_gsm": "GSM2044707",
+      "pairing_key": "5054.Scalp"
+    }
+  ],
+  "donors_with_both_tissues": [
+    "2328",
+    "2371",
+    "2385",
+    "2429",
+    "2435",
+    "2468",
+    "2520",
+    "2540",
+    "5008",
+    "5054"
+  ],
+  "unmatched_rna_accessions": [
+    {
+      "gsm": "GSM2044647",
+      "key": "2533.Dura",
+      "reason": "NO_MATCHING_DNAM_AND_RNA_PROCESSED_EXCLUSION"
+    }
+  ],
+  "summary": {
+    "rna_listed": 22,
+    "dnam_listed": 21,
+    "donor_tissue_matched": 21,
+    "unique_donors": 11,
+    "full_within_donor_tissue_pairs": 10,
+    "donor_with_single_paired_tissue": "2533"
+  },
+  "checks": {
+    "RNA_series_22_accessions": true,
+    "DNAm_series_21_accessions": true,
+    "unique_rna_accessions": true,
+    "unique_dnam_accessions": true,
+    "unique_rna_keys": true,
+    "unique_dnam_keys": true,
+    "pairing_uses_both_donor_and_tissue": true,
+    "paired_samples_21": true,
+    "unique_donors_11": true,
+    "ten_donor_sc_dura_pairs": true,
+    "single_exclusion_2533_dura": true,
+    "singleton_donor_2533": true,
+    "negative_control_mutated_dnam_tissue_rejected": true,
+    "negative_control_duplicate_dnam_gsm_rejected": true,
+    "negative_control_pairing_by_order_detected": true
+  },
+  "checks_passed": 15,
+  "checks_total": 15,
+  "scientific_claims": {
+    "correct_metadata_join": "PASS",
+    "sample_level_rna_counts_retrieved": "UNVERIFIED",
+    "sample_level_dnam_beta_retrieved": "UNVERIFIED",
+    "matched_rna_dnam_aliquot_identity": "UNVERIFIED",
+    "tissue_adjusted_age_effect": "UNVERIFIED",
+    "independent_rejuvenation": "UNVERIFIED",
+    "age_metadata_all_samples": "UNVERIFIED",
+    "license_of_data": "PUBLIC_GEO_STUDY_ARTICLE_CC_BY_4_0",
+    "methylation_signal_intensities_not_proven_beta": true
+  },
+  "negative_results_retained": [
+    "2533.Dura absent from methylation series and excluded from processed RNA by study QC",
+    "Ordering the GEO accession listings independently would mispair samples",
+    "No raw/processed expression or beta values were fetched during this exercise"
+  ],
+  "access_limit": "URL for raw GEO processed files verified on NCBI pages; direct binary retrieval unavailable in current assistant environment.",
+  "created_at": "2026-11-15",
+  "cost_eur": 0
+}
