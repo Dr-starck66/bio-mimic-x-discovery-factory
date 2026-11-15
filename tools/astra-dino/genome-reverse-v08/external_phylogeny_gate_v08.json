@@ -1,0 +1,49 @@
+{
+  "external_public_backbones": [
+    {
+      "source": "Open Paleo data 2026.11 community clade hierarchy",
+      "sha_git": "d310d4c38199df38e3a83893666789b0129d29d9",
+      "tree_repository_commit": "016e3c627b62e03172f9a3e146146b11003acd01",
+      "bytes": 3039,
+      "contains": "higher clade names, not a species-resolved phylogeny",
+      "full_tree_sufficient_for_baron": false
+    },
+    {
+      "source": "Yang et al. 2025 PeerJ Fig17, manually checked topology transcript",
+      "git_sha": "e86b15619199e7d1fe92727d2f975a4b80502d01",
+      "source_git_commit": "8e37f5b60e1f44eb647ade6841fa040f8503d4e5",
+      "n_tree_tips": 74,
+      "sues_exact_matches": 7,
+      "exact_taxa": [
+        "Marasuchus_lilloensis",
+        "Silesaurus_opolensis",
+        "Eocursor_parvus",
+        "Heterodontosaurus_tucki",
+        "Lesothosaurus_diagnosticus",
+        "Scutellosaurus_lawleri",
+        "Eoraptor_lunensis"
+      ],
+      "sues_genus_matches": 9,
+      "genus_match_taxa": [
+        "Marasuchus_lilloensis",
+        "Silesaurus_opolensis",
+        "Eocursor_parvus",
+        "Pisanosaurus_mertii",
+        "Heterodontosaurus_tucki",
+        "Lesothosaurus_diagnosticus",
+        "Scutellosaurus_lawleri",
+        "Herrerasaurus_ischigualastensis",
+        "Eoraptor_lunensis"
+      ],
+      "full_tree_sufficient_for_sues": false
+    },
+    {
+      "source": "Černý & Simonoff 2023 Zenodo 7979718 ML_unconstrained.zip",
+      "archive_sha256": "0c17e92eef7605fb741e3bfffcd21ea17b4f7feab27a448b8c8e774454428e3d",
+      "contains_published_baron_unconstrained_treefile": true,
+      "issue": "This tree was inferred from Baron morphological characters; source is externally published but its scoring information is not independent",
+      "independent_tree_acceptance": false
+    }
+  ],
+  "conclusion": "PARTIAL: published external topologies identified/inspected, no 42- or 75-taxon independently inferred tree with adequate tip coverage and source-character independence validated"
+}
