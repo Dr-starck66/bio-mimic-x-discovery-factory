@@ -1,0 +1,54 @@
+{
+  "case_id": "synthetic-oncology-001",
+  "claims": [
+    {
+      "citation_status": "UNVERIFIED",
+      "claim_sha256": "4ae34384195c6a6e7772ed3b81816e3cfa4a34859ae5fce01466cb724d3281a0",
+      "id": "C1",
+      "issues": [
+        "NO_REFERENCES",
+        "POSSIBLE_TREATMENT_DIRECTIVE"
+      ],
+      "kind": "treatment",
+      "reference_checks": [],
+      "safety_screen": "FAIL",
+      "scientific_status": "UNVERIFIED"
+    },
+    {
+      "citation_status": "PARTIAL",
+      "claim_sha256": "f5176475bcfdb935322f09fe0d5f607096f8db722a8063243d11b7de62620c64",
+      "id": "C2",
+      "issues": [
+        "REFERENCES_NOT_INDEPENDENTLY_RETRIEVED"
+      ],
+      "kind": "other",
+      "reference_checks": [
+        {
+          "content_retrieval": "UNVERIFIED",
+          "locator": "Risques documentés",
+          "scientific_relevance": "UNVERIFIED",
+          "stance": "supports",
+          "title": "OMS, IA multimodale et santé, 2024",
+          "url": "https://www.who.int/fr/news/item/18-01-2024-who-releases-ai-ethics-and-governance-guidance-for-large-multi-modal-models",
+          "url_shape": "PASS"
+        }
+      ],
+      "safety_screen": "PARTIAL",
+      "scientific_status": "UNVERIFIED"
+    }
+  ],
+  "counts": {
+    "claims": 2,
+    "possible_directives": 1,
+    "unverified_science": 2
+  },
+  "external_network_requests": 0,
+  "input_sha256": "e53493c9b913a5744d06f654eff0da1425714cf292f08ed87a383e732eee0f0b",
+  "overall_audit_status": "FAIL",
+  "protocol": "ASTRA-MEDICAL-CLAIM-AUDIT-0.1.0",
+  "report_sha256": "c6312224e767f4b7edec48a09150a54f5d6074add8a5c9dc8969a2b7f5c95a73",
+  "requires_clinician_review": true,
+  "rules_are_not_exhaustive": true,
+  "schema_validation": "PASS",
+  "scientific_validity": "UNVERIFIED"
+}

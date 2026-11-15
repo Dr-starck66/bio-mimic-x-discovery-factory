@@ -1,0 +1,58 @@
+{
+  "version": "ASTRA MEDICAL CLAIM AUDIT Ω v0.4",
+  "executed_utc_date": "2026-11-12",
+  "execution": "Vercel Hobby sandbox sbx_vAfkJKpIvlrkp4XqnGFfgHGMENFM, Python 3.14.4",
+  "source": {
+    "dataset": "SciFact official 2020, development 300 claims, corpus 5183 abstracts",
+    "official_url": "https://github.com/allenai/scifact",
+    "archive": "https://scifact.s3-us-west-2.amazonaws.com/release/latest/data.tar.gz",
+    "archive_sha256": "11c621288d41ac144d29b13b0f8503b3820b7d6e8b1f6ff24dff335c196d76be",
+    "claims_dev_sha256": "86f0435d08fdb65d1aa41d1472684f57e6e71930626497bdf4d7a9ec1a632217",
+    "corpus_sha256": "b8d6c89624cb2ed74dee8938effc4f5d8bd2086887880af8110d64be4ceade62",
+    "data_license": "SciFact CC BY-NC 2.0; no commercial use"
+  },
+  "method": {
+    "retriever": "ASTRA BM25 from source-only claim text, lower-case tokenization title+abstract, k1=1.2, b=0.75",
+    "gold_oracle_used_for_retrieval": false,
+    "citation_doc_ids_used_for_retrieval": false,
+    "gold_used_only_after_retrieval_for_scoring": true,
+    "n_queries": 300,
+    "n_with_gold_evidence": 188,
+    "NEI_queries_without_gold_evidence": 112,
+    "recall_definition": "At least one annotated relevant document among top k, denominator=188 labeled claims, not all 300",
+    "query_ranked_results_full_sha256": "ea76b8bbd2d22e3e2ba4efbb41f0a62122aa26e30ba7cc4f4f9e7cf62939399f"
+  },
+  "retrieval": {
+    "top1": {
+      "hits": 133,
+      "recall": 0.7074468085106383
+    },
+    "top3": {
+      "hits": 158,
+      "recall": 0.8404255319148937
+    },
+    "top5": {
+      "hits": 166,
+      "recall": 0.8829787234042553
+    },
+    "top10": {
+      "hits": 176,
+      "recall": 0.9361702127659575
+    },
+    "mrr_at_10": 0.784468929415738
+  },
+  "regression_tests": {
+    "total": 45,
+    "passed": 45,
+    "status": "PASS",
+    "execution": "python3 -m unittest discover -s tests -v"
+  },
+  "limitations": [
+    "Document discovery is not fact verification",
+    "On the 112 NEI claims there are no positive documents in SciFact gold, so ranking precision is not evaluable from these labels",
+    "Metrics do not provide medical false-positive or false-negative rates",
+    "No independence from originating SciFact dataset, but retrieval is free of oracle hints",
+    "No clinical validation"
+  ],
+  "status": "PASS_RETRIEVAL_ONLY"
+}

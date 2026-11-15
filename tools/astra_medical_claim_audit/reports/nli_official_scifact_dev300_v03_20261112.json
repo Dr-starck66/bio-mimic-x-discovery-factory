@@ -1,0 +1,447 @@
+{
+  "audit": "ASTRA MEDICAL CLAIM AUDIT Ω v0.3",
+  "utc": "2026-11-12T10:46:45.695Z",
+  "environment": {
+    "runtime": "Vercel Hobby sandbox isolated",
+    "model_library": "@huggingface/transformers",
+    "library_version": "4.3.2",
+    "model_id": "onnx-community/EttinX-nli-xxs-ONNX",
+    "model_revision_sha": "73b90d860eddcece951b2f6776145fbc4df5be77",
+    "device": "cpu",
+    "dtype": "int8",
+    "model_weight_files": [
+      {
+        "file": "onnx-community/EttinX-nli-xxs-ONNX/onnx/model_int8.onnx",
+        "bytes": 17139627,
+        "sha256": "8a911863f5e9357d753102081ba30aa85129de9cea1cb2cff6e3f414415e4441"
+      }
+    ],
+    "model_label_mapping_source": "official model card (not generic LABEL_0 names)",
+    "model_mapping_index_to_label": [
+      "CONTRADICT",
+      "SUPPORT",
+      "NEI"
+    ],
+    "model_controls": [
+      {
+        "gold": "SUPPORT",
+        "predicted": "SUPPORT",
+        "pass": true
+      },
+      {
+        "gold": "CONTRADICT",
+        "predicted": "CONTRADICT",
+        "pass": true
+      },
+      {
+        "gold": "NEI",
+        "predicted": "CONTRADICT",
+        "pass": false
+      }
+    ]
+  },
+  "source": {
+    "official_dataset": "https://github.com/allenai/scifact",
+    "download": "https://scifact.s3-us-west-2.amazonaws.com/release/latest/data.tar.gz",
+    "claims_dev_sha256": "86f0435d08fdb65d1aa41d1472684f57e6e71930626497bdf4d7a9ec1a632217",
+    "corpus_sha256": "b8d6c89624cb2ed74dee8938effc4f5d8bd2086887880af8110d64be4ceade62",
+    "doc_count": 5183,
+    "dev_claim_count": 300,
+    "label_counts": {
+      "CONTRADICT": 64,
+      "SUPPORT": 124,
+      "NEI": 112
+    },
+    "license": "CC BY-NC 2.0; noncommercial research only"
+  },
+  "protocols": {
+    "oracle_rationale": "For SUPPORT/CONTRADICT, use first gold-labeled document and its gold rationale sentence indices; NEI uses first cited document full abstract. Oracle evidence is privileged, NOT an independent retrieval system.",
+    "abstract_context": "Same document selection (gold evidence doc for positives, first cited for NEI); whole abstract as NLI premise. NOT end-to-end retrieval.",
+    "hypothesis": "Claim text",
+    "token_limit": 384,
+    "positive_class": "CONTRADICT",
+    "other_classes": "SUPPORT,NEI",
+    "method": "argmax raw NLI logits",
+    "metrics": "3-way confusion + contradiction binary FP/FN; NOT medical false diagnosis rates",
+    "threshold": "none; model confidence uncalibrated",
+    "data_leakage": "Gold evidence document is selected for labeled positives; optimistic retrieval assumption.",
+    "clinical_validation": "UNVERIFIED"
+  },
+  "results": {
+    "oracle_rationale": {
+      "n": 300,
+      "accuracy": 0.36,
+      "confusion_gold_rows_prediction_cols": {
+        "CONTRADICT": {
+          "CONTRADICT": 22,
+          "SUPPORT": 20,
+          "NEI": 22
+        },
+        "SUPPORT": {
+          "CONTRADICT": 23,
+          "SUPPORT": 56,
+          "NEI": 45
+        },
+        "NEI": {
+          "CONTRADICT": 37,
+          "SUPPORT": 45,
+          "NEI": 30
+        }
+      },
+      "binary_contradiction": {
+        "TP": 22,
+        "FP": 60,
+        "FN": 42,
+        "TN": 176,
+        "precision": 0.2682926829268293,
+        "recall": 0.34375,
+        "specificity": 0.7457627118644068
+      }
+    },
+    "abstract_context": {
+      "n": 300,
+      "accuracy": 0.4533333333333333,
+      "confusion_gold_rows_prediction_cols": {
+        "CONTRADICT": {
+          "CONTRADICT": 26,
+          "SUPPORT": 32,
+          "NEI": 6
+        },
+        "SUPPORT": {
+          "CONTRADICT": 39,
+          "SUPPORT": 80,
+          "NEI": 5
+        },
+        "NEI": {
+          "CONTRADICT": 37,
+          "SUPPORT": 45,
+          "NEI": 30
+        }
+      },
+      "binary_contradiction": {
+        "TP": 26,
+        "FP": 76,
+        "FN": 38,
+        "TN": 160,
+        "precision": 0.2549019607843137,
+        "recall": 0.40625,
+        "specificity": 0.6779661016949152
+      }
+    }
+  },
+  "errors": {
+    "oracle_rationale": [
+      {
+        "id": 1,
+        "gold": "NEI",
+        "predicted": "CONTRADICT",
+        "doc_id": "31715818"
+      },
+      {
+        "id": 3,
+        "gold": "SUPPORT",
+        "predicted": "NEI",
+        "doc_id": "14717500"
+      },
+      {
+        "id": 5,
+        "gold": "SUPPORT",
+        "predicted": "NEI",
+        "doc_id": "13734012"
+      },
+      {
+        "id": 13,
+        "gold": "NEI",
+        "predicted": "CONTRADICT",
+        "doc_id": "1606628"
+      },
+      {
+        "id": 36,
+        "gold": "NEI",
+        "predicted": "SUPPORT",
+        "doc_id": "5152028"
+      },
+      {
+        "id": 42,
+        "gold": "CONTRADICT",
+        "predicted": "SUPPORT",
+        "doc_id": "18174210"
+      },
+      {
+        "id": 48,
+        "gold": "CONTRADICT",
+        "predicted": "NEI",
+        "doc_id": "13734012"
+      },
+      {
+        "id": 49,
+        "gold": "SUPPORT",
+        "predicted": "NEI",
+        "doc_id": "5953485"
+      },
+      {
+        "id": 50,
+        "gold": "SUPPORT",
+        "predicted": "NEI",
+        "doc_id": "12580014"
+      },
+      {
+        "id": 51,
+        "gold": "CONTRADICT",
+        "predicted": "SUPPORT",
+        "doc_id": "45638119"
+      },
+      {
+        "id": 72,
+        "gold": "NEI",
+        "predicted": "CONTRADICT",
+        "doc_id": "6076903"
+      },
+      {
+        "id": 75,
+        "gold": "NEI",
+        "predicted": "SUPPORT",
+        "doc_id": "4387784"
+      },
+      {
+        "id": 94,
+        "gold": "NEI",
+        "predicted": "SUPPORT",
+        "doc_id": "1215116"
+      },
+      {
+        "id": 115,
+        "gold": "CONTRADICT",
+        "predicted": "NEI",
+        "doc_id": "33872649"
+      },
+      {
+        "id": 124,
+        "gold": "SUPPORT",
+        "predicted": "CONTRADICT",
+        "doc_id": "4883040"
+      },
+      {
+        "id": 129,
+        "gold": "CONTRADICT",
+        "predicted": "NEI",
+        "doc_id": "27768226"
+      },
+      {
+        "id": 132,
+        "gold": "NEI",
+        "predicted": "SUPPORT",
+        "doc_id": "7975937"
+      },
+      {
+        "id": 133,
+        "gold": "SUPPORT",
+        "predicted": "CONTRADICT",
+        "doc_id": "16280642"
+      },
+      {
+        "id": 142,
+        "gold": "CONTRADICT",
+        "predicted": "SUPPORT",
+        "doc_id": "10582939"
+      },
+      {
+        "id": 163,
+        "gold": "SUPPORT",
+        "predicted": "NEI",
+        "doc_id": "18872233"
+      },
+      {
+        "id": 171,
+        "gold": "CONTRADICT",
+        "predicted": "NEI",
+        "doc_id": "12670680"
+      },
+      {
+        "id": 180,
+        "gold": "CONTRADICT",
+        "predicted": "NEI",
+        "doc_id": "16966326"
+      },
+      {
+        "id": 198,
+        "gold": "NEI",
+        "predicted": "CONTRADICT",
+        "doc_id": "2177022"
+      },
+      {
+        "id": 212,
+        "gold": "CONTRADICT",
+        "predicted": "SUPPORT",
+        "doc_id": "22038539"
+      },
+      {
+        "id": 213,
+        "gold": "NEI",
+        "predicted": "CONTRADICT",
+        "doc_id": "13625993"
+      }
+    ],
+    "abstract_context": [
+      {
+        "id": 1,
+        "gold": "NEI",
+        "predicted": "CONTRADICT",
+        "doc_id": "31715818"
+      },
+      {
+        "id": 13,
+        "gold": "NEI",
+        "predicted": "CONTRADICT",
+        "doc_id": "1606628"
+      },
+      {
+        "id": 36,
+        "gold": "NEI",
+        "predicted": "SUPPORT",
+        "doc_id": "5152028"
+      },
+      {
+        "id": 42,
+        "gold": "CONTRADICT",
+        "predicted": "SUPPORT",
+        "doc_id": "18174210"
+      },
+      {
+        "id": 48,
+        "gold": "CONTRADICT",
+        "predicted": "SUPPORT",
+        "doc_id": "13734012"
+      },
+      {
+        "id": 51,
+        "gold": "CONTRADICT",
+        "predicted": "SUPPORT",
+        "doc_id": "45638119"
+      },
+      {
+        "id": 56,
+        "gold": "SUPPORT",
+        "predicted": "CONTRADICT",
+        "doc_id": "4709641"
+      },
+      {
+        "id": 72,
+        "gold": "NEI",
+        "predicted": "CONTRADICT",
+        "doc_id": "6076903"
+      },
+      {
+        "id": 75,
+        "gold": "NEI",
+        "predicted": "SUPPORT",
+        "doc_id": "4387784"
+      },
+      {
+        "id": 94,
+        "gold": "NEI",
+        "predicted": "SUPPORT",
+        "doc_id": "1215116"
+      },
+      {
+        "id": 100,
+        "gold": "SUPPORT",
+        "predicted": "CONTRADICT",
+        "doc_id": "4381486"
+      },
+      {
+        "id": 124,
+        "gold": "SUPPORT",
+        "predicted": "CONTRADICT",
+        "doc_id": "4883040"
+      },
+      {
+        "id": 129,
+        "gold": "CONTRADICT",
+        "predicted": "SUPPORT",
+        "doc_id": "27768226"
+      },
+      {
+        "id": 132,
+        "gold": "NEI",
+        "predicted": "SUPPORT",
+        "doc_id": "7975937"
+      },
+      {
+        "id": 143,
+        "gold": "SUPPORT",
+        "predicted": "CONTRADICT",
+        "doc_id": "10582939"
+      },
+      {
+        "id": 146,
+        "gold": "SUPPORT",
+        "predicted": "CONTRADICT",
+        "doc_id": "10582939"
+      },
+      {
+        "id": 163,
+        "gold": "SUPPORT",
+        "predicted": "CONTRADICT",
+        "doc_id": "18872233"
+      },
+      {
+        "id": 171,
+        "gold": "CONTRADICT",
+        "predicted": "SUPPORT",
+        "doc_id": "12670680"
+      },
+      {
+        "id": 180,
+        "gold": "CONTRADICT",
+        "predicted": "SUPPORT",
+        "doc_id": "16966326"
+      },
+      {
+        "id": 185,
+        "gold": "CONTRADICT",
+        "predicted": "SUPPORT",
+        "doc_id": "18340282"
+      },
+      {
+        "id": 198,
+        "gold": "NEI",
+        "predicted": "CONTRADICT",
+        "doc_id": "2177022"
+      },
+      {
+        "id": 212,
+        "gold": "CONTRADICT",
+        "predicted": "SUPPORT",
+        "doc_id": "22038539"
+      },
+      {
+        "id": 213,
+        "gold": "NEI",
+        "predicted": "CONTRADICT",
+        "doc_id": "13625993"
+      },
+      {
+        "id": 216,
+        "gold": "CONTRADICT",
+        "predicted": "SUPPORT",
+        "doc_id": "21366394"
+      },
+      {
+        "id": 218,
+        "gold": "SUPPORT",
+        "predicted": "CONTRADICT",
+        "doc_id": "21366394"
+      }
+    ]
+  },
+  "limitations": [
+    "No clinical decision or treatment suggestions",
+    "NLI model is general-domain, not trained or calibrated for medicine",
+    "Evidence document selection uses gold labels; precision/recall are NOT end-to-end",
+    "Neutral failure in sanity controls is retained, not hidden",
+    "No independent external reproducibility run yet",
+    "Results cannot be compared head-to-head with a different published SciFact pipeline without identical retrieval protocol"
+  ],
+  "execution_ms": 13361
+}
