@@ -19,3 +19,29 @@
 - **Next unique decision gate:** obtain actual authorized identity mapping and reliable session metadata, then run the fully frozen benchmark once under the documented original splits. Do not merge PR or claim fish visual-neural validity from software tests.
 
 **ZERO paid services, ZERO production site changes.**
+
+
+## Evidence update — verified researcher replies and dataset documentation (15 Nov 2026)
+
+**Correspondence status PASS (outbound delivery accepted by Gmail, not scientific approval):**
+- Prof. Sébastien Marcel (Idiap/MOBIO): replied that MOBIO is distributed through Zenodo and instructed us to check licensing. Thank-you and official protocol clarification request sent, Gmail message `1a1e024299ae9c63`.
+- Prof. Ziwei Liu (CelebAMask-HQ): pointed to `https://github.com/ziqihuangg/CelebA-Dialog`; thank-you and precise identity/mask/session provenance clarification sent, Gmail message `1a1e0242e3f1442e`.
+
+### Primary-source checks (not authorized dataset acquisition)
+
+| Item | External evidence | Audit result |
+| --- | --- | --- |
+| MOBIO catalogue | https://www.idiap.ch/en/dataset/mobio | 150 subjects, 12 capture sessions; official citation DOI `10.1016/j.imavis.2013.10.001`. Metadata/source check PASS; image access NOT granted. |
+| MOBIO Zenodo | https://zenodo.org/records/4269551 | Public record **explicitly labelled `Dataset Restricted`** on 15 Nov 2026. This is **not unrestricted open download**. Access/terms UNVERIFIED; no files fetched. |
+| CelebA-Dialog/HQ mapping | https://github.com/ziqihuangg/CelebA-Dialog | Repository documents an HQ identity-label file (~400 KB), an HQ-to-standard mapping (~1 MB), and ~30k HQ images/masks; 10,177 identities reported across CelebA overall, ~3 HQ images/identity on average. This is *documented availability*, **not an independently checked mapping of all bytes**. |
+| CelebAMask-HQ | https://mmlab.ie.cuhk.edu.hk/projects/CelebA/CelebAMask_HQ.html | Original dataset documents 19 classes at 512×512 and manual annotation. Exact identity/mask crosswalk still requires source integrity checks. |
+| License | https://github.com/ziqihuangg/CelebA-Dialog/blob/master/LICENSE | **Non-commercial research only; no redistribution / commercial exploitation of images or derived data.** No portraits, original annotations, identity rows or embeddings are to be committed. |
+
+### Frozen experimental decision
+
+1. **Do not run claimed longitudinal testing on CelebA-HQ** unless original capture-session or acquisition-date metadata is independently authenticated. Multiple photos of a person alone do not establish different sessions or dates.
+2. For CelebA-HQ semantic region controls, require actual licensed images, original masks, verified HQ-to-standard mapping and identity file, each with per-file SHA-256 and deterministic sample manifests. Only then assess fixed full/inner/exterior/context-swap/uniform conditions on held-out identities.
+3. For MOBIO, obtain authorization under the *actual Zenodo record's* terms and choose an established cross-session evaluation protocol with fixed train/enrollment/test splits. The public catalogue, record and correspondence do not constitute permission or an evaluated score.
+4. Keep the previous **negative FG-NET/context dominance outcome** unchanged. **Research status remains PARTIAL**: evidence and source discovery improved; biometric validity, true session generalization and deployment are **UNVERIFIED**.
+
+**Source quality:** Official dataset pages and repository license checked; receipt timestamps verified in connected Gmail. No dataset bytes downloaded, no biometric subjects processed by this update, no software rerun, no code changes, no human evaluation. `PASS` here refers strictly to the source-documentation and GitHub-record update after independent readback.
