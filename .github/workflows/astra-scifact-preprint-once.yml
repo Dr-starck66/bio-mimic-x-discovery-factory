@@ -41,7 +41,7 @@ jobs:
             --notes 'Author-approved public preprint under CC BY 4.0 (original manuscript only). This release archives ONLY preprint.md, README.md and .zenodo.json. Exploratory SciFact development-set audit; NOT peer-reviewed and NOT clinically validated. The third-party SciFact dataset and model weights are excluded. Source evidence: https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/pull/48' \
             --latest=false
           gh release view "$TAG" --repo "${GITHUB_REPOSITORY}" --json url,tagName,isDraft,isPrerelease,targetCommitish
-- name: Verify public Zenodo DOI without inventing one
+      - name: Verify public Zenodo DOI without inventing one
         shell: bash
         run: |
           python3 - <<'PY'
