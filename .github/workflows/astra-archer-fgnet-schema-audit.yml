@@ -1,0 +1,38 @@
+name: ASTRA ARCHER — FG-NET manual landmark index scheme diagnostic
+on:
+  pull_request:
+    branches: [main]
+    paths: [.github/workflows/astra-archer-fgnet-schema-audit.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe-annotation-index:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - name: Install free numpy
+        run: pip install --quiet numpy
+      - name: Authenticate research archive and diagnose 68-point numbering
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p data/fgnet-secure reports/factory
+          curl --fail -LsS --retry 2 --max-time 120 \
+            https://yanweifu.github.io/FG_NET_data/FGNET.zip -o data/fgnet-secure/FGNET.zip
+          printf '%s  %s\n' '1206978cac3626321b84c22b24cc8d19' \
+            'data/fgnet-secure/FGNET.zip' | md5sum -c
+          python -m validation.archer_fgnet_landmark_schema_audit \
+            --zip data/fgnet-secure/FGNET.zip \
+            --out reports/factory/ARCHER-FGNET-LANDMARK-INDEX-SCHEMA-20261115.json
+      - name: Archive anonymous aggregate geometry only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: astra-archer-fgnet-anonymous-index-map
+          retention-days: 7
+          if-no-files-found: warn
+          path: reports/factory/ARCHER-FGNET-LANDMARK-INDEX-SCHEMA-20261115.json

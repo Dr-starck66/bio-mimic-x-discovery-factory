@@ -1,0 +1,72 @@
+name: ASTRA Archer — landmark detector coverage gate
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/astra-archer-landmark-coverage.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  landmark-coverage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install pinned free research dependencies
+        run: python -m pip install --quiet --disable-pip-version-check mediapipe==0.10.21 scikit-learn==1.6.1
+      - name: Check actual 40-person landmark detection coverage without publishing any portraits
+        run: |
+          mkdir -p reports/factory
+          python - <<'PY'
+          import json, hashlib
+          import numpy as np
+          from PIL import Image
+          from sklearn.datasets import fetch_olivetti_faces
+          import mediapipe as mp
+          from collections import Counter
+          ds=fetch_olivetti_faces(shuffle=False)
+          assert ds.images.shape==(400,64,64)
+          report={'dataset':'AT&T Olivetti, scikit-learn cache','tool':'mediapipe 0.10.21 FaceMesh','n':400,
+                  'expected_subjects':40,'per_subject':{},'geometry_rejections':0,
+                  'no_portraits_exported':True,'landmark_model_human_verified':False}
+          ok=set()
+          with mp.solutions.face_mesh.FaceMesh(static_image_mode=True,max_num_faces=1,
+                      refine_landmarks=False,min_detection_confidence=.5) as model:
+              for i,im in enumerate(ds.images):
+                  arr=np.repeat(np.uint8(np.clip(im,0,1)*255)[:,:,None],3,axis=2)
+                  arr=np.array(Image.fromarray(arr).resize((256,256),Image.Resampling.BICUBIC))
+                  r=model.process(arr)
+                  if not r.multi_face_landmarks or len(r.multi_face_landmarks)!=1:
+                      continue
+                  p=r.multi_face_landmarks[0].landmark
+                  def pt(j):return np.array([p[j].x,p[j].y],dtype=float)*64
+                  le=(pt(33)+pt(133))/2;re=(pt(263)+pt(362))/2
+                  eyes=sorted([le,re],key=lambda x:x[0])
+                  nose=pt(1);mouth=(pt(61)+pt(291))/2
+                  d=np.linalg.norm(eyes[1]-eyes[0]); midpoint=np.mean(eyes,axis=0)
+                  if not (10<=d<=45 and midpoint[1]+1.5<nose[1]<mouth[1]-.5
+                          and abs(midpoint[0]-nose[0])<=.45*d):
+                      report['geometry_rejections']+=1
+                      continue
+                  ok.add(i)
+          report['detected']=len(ok)
+          report['per_subject']={str(s):sum(i in ok for i in range(s*10,s*10+10)) for s in range(40)}
+          report['subjects_with_full_coverage']=sum(n==10 for n in report['per_subject'].values())
+          report['status']='COVERAGE_GE25' if report['subjects_with_full_coverage']>=25 else 'COVERAGE_BELOW_PREREGISTERED_THRESHOLD'
+          path='reports/factory/ARCHER-OLIVETTI-LANDMARK-COVERAGE-20261115.json'
+          with open(path,'w') as f:json.dump(report,f,sort_keys=True,indent=2)
+          print(json.dumps({k:report[k] for k in ['detected','subjects_with_full_coverage','geometry_rejections','status']},indent=2))
+          PY
+      - name: Upload coverage report, not images
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: astra-archer-landmark-coverage
+          if-no-files-found: warn
+          retention-days: 7
+          path: reports/factory/ARCHER-OLIVETTI-LANDMARK-COVERAGE-20261115.json

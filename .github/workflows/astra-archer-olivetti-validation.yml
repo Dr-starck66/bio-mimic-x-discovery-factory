@@ -1,0 +1,46 @@
+name: ASTRA Archer — independent AT&T Olivetti face-control benchmark
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - .github/workflows/astra-archer-olivetti-validation.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  olivetti-validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install CPU-only scientific dependencies
+        run: python -m pip install --disable-pip-version-check --quiet numpy scipy Pillow scikit-learn
+      - name: Evaluate frozen encoders on independent genuine photographs
+        run: python -m validation.archer_olivetti_independent
+      - name: Verify output and print compact model result
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json,hashlib
+          from pathlib import Path
+          f=Path('reports/factory/ARCHER-OLIVETTI-INDEPENDENT-20261115.json')
+          d=json.loads(f.read_text())
+          assert d['subject_count']==40 and d['test_count']==320
+          assert len(d['methods'])==3
+          for method,conds in d['methods'].items():
+            for condition,out in conds.items():
+              assert 0<=out['correct']<=320 and out['trials']==320
+          print('SCHEMA_PASS 3 models x 4 modes; sha256='+hashlib.sha256(f.read_bytes()).hexdigest())
+          PY
+      - name: Publish aggregate results only (no original faces)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: astra-archer-olivetti-40-subjects-aggregate
+          retention-days: 7
+          if-no-files-found: warn
+          path: reports/factory/ARCHER-OLIVETTI-INDEPENDENT-20261115.json
