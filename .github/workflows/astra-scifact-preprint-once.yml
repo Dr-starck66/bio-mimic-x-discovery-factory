@@ -82,8 +82,9 @@ jobs:
         run: |
           python3 - <<'PY'
           import json, urllib.request
-          doi="10.5281/zenodo.24262785"
-          url="https://zenodo.org/api/records/24262785"
+          doi="10.5281/zenodo.24262786"
+          concept_doi="10.5281/zenodo.24262785"
+          url="https://zenodo.org/api/records/24262786"
           try:
               req=urllib.request.Request(url,headers={"Accept":"application/json","User-Agent":"ASTRA-Research-Metadata-Audit/1.0"})
               with urllib.request.urlopen(req,timeout=18) as response:
@@ -98,8 +99,9 @@ jobs:
               if isinstance(files,list): filenames=[x.get("key","") for x in files]
               else: filenames=list(files.keys())
               licence=metadata.get("rights",metadata.get("license",{}))
-              ok=(record_doi==doi and "Oracle-Free Retrieval" in title and any("starck" in x.lower() for x in names))
-              print("ZENODO_EXACT_RECORD_"+("PASS" if ok else "FAIL"),json.dumps({"doi":record_doi,"title":title,"authors":names,"record_id":record.get("id"),"files":filenames,"rights":licence,"link":record.get("links",{}).get("self_html")},ensure_ascii=False)[:2500])
+              license_id=licence.get("id") if isinstance(licence,dict) else None
+              ok=(record_doi==doi and "Oracle-Free Retrieval" in title and any("starck" in x.lower() for x in names) and license_id=="cc-by-4.0" and len(filenames)==1 and filenames[0].endswith(".zip"))
+              print("ZENODO_EXACT_RECORD_"+("PASS" if ok else "FAIL"),json.dumps({"doi":record_doi,"title":title,"authors":names,"record_id":record.get("id"),"concept_doi":concept_doi,"files":filenames,"rights":licence,"link":record.get("links",{}).get("self_html")},ensure_ascii=False)[:2500])
               if not ok: raise SystemExit(1)
           except Exception as error:
               print("ZENODO_EXACT_RECORD_UNVERIFIED",str(error)[:450])
