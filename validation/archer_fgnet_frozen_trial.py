@@ -31,7 +31,7 @@ def preprocess(im:np.ndarray,pts:np.ndarray):
     import cv2
     if im.ndim!=2 or pts.shape!=(68,2) or not np.isfinite(pts).all():
         raise ValueError("Bad photo/landmarks")
-    left=pts[36:42].mean(axis=0);right=pts[42:48].mean(axis=0)
+    left=pts[27:32].mean(axis=0);right=pts[32:37].mean(axis=0)
     if left[0]>right[0]:left,right=right,left
     dx,dy=right-left
     dist=float(np.hypot(dx,dy))
@@ -40,8 +40,8 @@ def preprocess(im:np.ndarray,pts:np.ndarray):
     R=np.array([[u[0],u[1]],[-u[1],u[0]]])*24/dist
     center=(left+right)/2
     t=np.array([32,25])-R@center
-    nose=R@pts[30]+t
-    mouth=R@pts[62]+t
+    nose=R@pts[41]+t
+    mouth=R@pts[57]+t
     if not(18<nose[0]<46 and 29<nose[1]<47 and 35<mouth[1]<64
            and mouth[1]>nose[1]):raise ValueError("Eye-nose-mouth geometry implausible")
     M=np.concatenate([R,t[:,None]],axis=1).astype(np.float32)
@@ -93,7 +93,9 @@ def evaluate(zip_bytes:bytes):
     report={"schema":"ASTRA_FGNET_ANATOMICAL_CONTEXT_FROZEN_V1",
             "dataset_source":manifest["source_url"],"dataset_zip_sha256":manifest["zip_sha256"],
             "annotations_source":"68 manually annotated points, FG-NET research copy",
-            "landmark_indices_assumed_ibug68":True,"landmark_semantics_independently_verified":False,
+            "landmark_index_map":"FGNET-specific: eyes indices 27:32 and 32:37, nose 41, mouth 57 (zero-based)",
+            "landmark_index_map_evidence":"1002-sample normalized geometry audit, run 43666239077",
+            "landmark_indices_assumed_ibug68":False,"landmark_semantics_independently_verified":False,
             "min_eligible_subjects_preregistered":MIN_PERSONS,"eligible_subjects":len(people),
             "photos_passing_geometry":sum(len(v) for v in processed.values()),
             "rejected":dict(rejected),"methods_frozen":list(METHODS),"modes":list(MODES),
