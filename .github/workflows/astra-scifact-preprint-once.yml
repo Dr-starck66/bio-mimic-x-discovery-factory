@@ -1,0 +1,43 @@
+name: ASTRA Ω SciFact preprint — one-time Zenodo release
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/astra-scifact-preprint-once.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  publish-scifact-preprint:
+    if: github.repository == 'Dr-starck66/bio-mimic-x-discovery-factory'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check archived snapshot is manuscript-only (no code or datasets)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          FILES="$(gh api "repos/${GITHUB_REPOSITORY}/git/trees/7e06e9d167d2bc4c015fb7a7d64b4c81f748386a" --jq '[.tree[].path] | sort | join(",")')"
+          test "$FILES" = '.zenodo.json,README.md,preprint.md'
+          test "$(gh api "repos/${GITHUB_REPOSITORY}/git/commits/080670e0de62144d5fbe9f4b5a45c78f9aee0ab3" --jq '.tree.sha')" = '7e06e9d167d2bc4c015fb7a7d64b4c81f748386a'
+
+      - name: Create exactly one release if none exists
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          TAG='scifact-open-preprint-v0.5'
+          if gh release view "$TAG" --repo "${GITHUB_REPOSITORY}" >/dev/null 2>&1; then
+            echo "Release already exists; refusing to duplicate"
+            exit 0
+          fi
+          gh release create "$TAG" --repo "${GITHUB_REPOSITORY}" \
+            --target '080670e0de62144d5fbe9f4b5a45c78f9aee0ab3' \
+            --title 'Dr Starck — Oracle-Free Retrieval and Selective Scientific-Claim Verification (Open Preprint v0.5)' \
+            --notes 'Author-approved public preprint under CC BY 4.0 (original manuscript only). This release archives ONLY preprint.md, README.md and .zenodo.json. Exploratory SciFact development-set audit; NOT peer-reviewed and NOT clinically validated. The third-party SciFact dataset and model weights are excluded. Source evidence: https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/pull/48' \
+            --latest=false
+          gh release view "$TAG" --repo "${GITHUB_REPOSITORY}" --json url,tagName,isDraft,isPrerelease,targetCommitish
