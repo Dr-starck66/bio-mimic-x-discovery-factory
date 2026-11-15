@@ -1,0 +1,185 @@
+{
+  "binary_outcome_for_claim": "NOT_VALIDATED",
+  "chance_top1": 0.012195,
+  "context_swaps": {
+    "hog": {
+      "correct_face_owner": 11,
+      "fixed_donor_before_scores": true,
+      "followed_context_donor": 54,
+      "model_score_sha256": "5489633d02aad8dcbd73c676a7961cb0257c0fc65797a12fc0243fddf2cc79e4",
+      "models_enrolled_on_full_images": true,
+      "n_correlated_swaps": 779,
+      "n_faces_from_other_subject": 779,
+      "predicted_other_identity": 714
+    },
+    "pixels": {
+      "correct_face_owner": 13,
+      "fixed_donor_before_scores": true,
+      "followed_context_donor": 24,
+      "model_score_sha256": "b3e86feb0c3a58117ecefcc8a8fa2e043259f40b6216b5a9b3a93bd345acad4a",
+      "models_enrolled_on_full_images": true,
+      "n_correlated_swaps": 779,
+      "n_faces_from_other_subject": 779,
+      "predicted_other_identity": 742
+    },
+    "retina_pool": {
+      "correct_face_owner": 16,
+      "fixed_donor_before_scores": true,
+      "followed_context_donor": 19,
+      "model_score_sha256": "b86221a473aab42471eaf5b873e2e12c55e4d8ed135bacdd442dbd2ba4c555b1",
+      "models_enrolled_on_full_images": true,
+      "n_correlated_swaps": 779,
+      "n_faces_from_other_subject": 779,
+      "predicted_other_identity": 744
+    }
+  },
+  "dataset_source": "https://yanweifu.github.io/FG_NET_data/FGNET.zip",
+  "distinct_photo_periods_inferred_from_age_labels": true,
+  "enrollment": "earliest two photographs with distinct age labels per subject",
+  "face_specific_recognition_proven": false,
+  "hair_or_background_guaranteed_absent": false,
+  "manual_semantic_skin_hair_clothing_masks_available": false,
+  "mask": "inner eyes/nose/mouth soft geometry; based on 68 manually labelled landmarks",
+  "methods_frozen": [
+    "pixels",
+    "hog",
+    "retina_pool"
+  ],
+  "minimum_age_gap_years": 2,
+  "minimum_subjects_preregistered": 25,
+  "minimum_test_images_preregistered": 100,
+  "models_not_refit_or_hyperparameter_tuned": true,
+  "n_eligible_identities": 82,
+  "n_heldout_test_photos": 779,
+  "no_identity_disclosure": true,
+  "nonredistributive_images": true,
+  "original_encoder_file_sha256": "bba639c52bdbf58cfce5d802b8634603a4da7f48f2d9b3c5bbda1c02fdaa4e51",
+  "photo_session_ids_present": false,
+  "rejections": {
+    "geometry": 17,
+    "missing_photo_or_annotation": 1
+  },
+  "results": {
+    "hog": {
+      "aligned_full": {
+        "accuracy": 0.077022,
+        "hits": 60,
+        "model_score_sha256": "90a3738da5a3fc704f5eff117637f54796acc7a26f7bd7d0960f86ed4929e613",
+        "total": 779
+      },
+      "inner_face_only": {
+        "accuracy": 0.037227,
+        "hits": 29,
+        "model_score_sha256": "07c99c83e31fdd60191a4da5ec75502d3a6a49d9d24b922fa5a0c8cb98c00d50",
+        "total": 779
+      },
+      "inner_vs_outside_subject_bootstrap": {
+        "claim_preregistered": "inner_face_only should outperform outside_inner_face",
+        "interval_95pct_exploratory": [
+          -0.041286,
+          0.004362
+        ],
+        "mean_subject_difference": -0.017587,
+        "number_resamples": 2000,
+        "number_subjects": 82,
+        "passed_directional_claim": false,
+        "validation_of_face_specificity": false
+      },
+      "outside_inner_face": {
+        "accuracy": 0.057766,
+        "hits": 45,
+        "model_score_sha256": "4b3ef726923c53b4373e4f44619e0485e00ad3bd93e26e611136673b4be38893",
+        "total": 779
+      },
+      "uniform_negative": {
+        "accuracy": 0.014121,
+        "hits": 11,
+        "model_score_sha256": "24144f7b0a93e60dfadc1377385d0045028d73ba7eb6218ca955db0b5bcb74a2",
+        "total": 779
+      }
+    },
+    "pixels": {
+      "aligned_full": {
+        "accuracy": 0.033376,
+        "hits": 26,
+        "model_score_sha256": "6bfd12ede8adab70a4ee3f61cfab5f49dd55e1cc7d66ba887ddeeb7da9ac9753",
+        "total": 779
+      },
+      "inner_face_only": {
+        "accuracy": 0.017972,
+        "hits": 14,
+        "model_score_sha256": "a623593f580aecb1beaa2478a3c06f686857b7c201e25160fcb6aafde462ead1",
+        "total": 779
+      },
+      "inner_vs_outside_subject_bootstrap": {
+        "claim_preregistered": "inner_face_only should outperform outside_inner_face",
+        "interval_95pct_exploratory": [
+          -0.024302,
+          0.002037
+        ],
+        "mean_subject_difference": -0.010588,
+        "number_resamples": 2000,
+        "number_subjects": 82,
+        "passed_directional_claim": false,
+        "validation_of_face_specificity": false
+      },
+      "outside_inner_face": {
+        "accuracy": 0.030809,
+        "hits": 24,
+        "model_score_sha256": "90a694ab7fdbb6f3f66282c675022474d433d52d54ff2963cee59acf39b20823",
+        "total": 779
+      },
+      "uniform_negative": {
+        "accuracy": 0.012837,
+        "hits": 10,
+        "model_score_sha256": "24144f7b0a93e60dfadc1377385d0045028d73ba7eb6218ca955db0b5bcb74a2",
+        "total": 779
+      }
+    },
+    "retina_pool": {
+      "aligned_full": {
+        "accuracy": 0.035944,
+        "hits": 28,
+        "model_score_sha256": "0a6fb83ea59c243de10bc1ff0969347f7ac706ecf668cdb659e1d11943c10d62",
+        "total": 779
+      },
+      "inner_face_only": {
+        "accuracy": 0.037227,
+        "hits": 29,
+        "model_score_sha256": "99a68a17c092161a94e4bf18824a33f83ef8765a7b04c6f89e0975bd1de8cbd1",
+        "total": 779
+      },
+      "inner_vs_outside_subject_bootstrap": {
+        "claim_preregistered": "inner_face_only should outperform outside_inner_face",
+        "interval_95pct_exploratory": [
+          -0.035348,
+          0.010927
+        ],
+        "mean_subject_difference": -0.011768,
+        "number_resamples": 2000,
+        "number_subjects": 82,
+        "passed_directional_claim": false,
+        "validation_of_face_specificity": false
+      },
+      "outside_inner_face": {
+        "accuracy": 0.050064,
+        "hits": 39,
+        "model_score_sha256": "6fd9bd0785ebf04a76f96563641a1a10311f4c320f34dbd5164e1eefd3eaa81b",
+        "total": 779
+      },
+      "uniform_negative": {
+        "accuracy": 0.008986,
+        "hits": 7,
+        "model_score_sha256": "24144f7b0a93e60dfadc1377385d0045028d73ba7eb6218ca955db0b5bcb74a2",
+        "total": 779
+      }
+    }
+  },
+  "schema": "ASTRA_ARCHER_FGNET_LONGITUDINAL_CONTEXT_V1",
+  "seed": 20261115,
+  "source_sessions_verified_by_capture_date": false,
+  "source_sha256_measured": "228acddeba96e469f2ded9475ee87f4ab16398de27a2f3ec35a266a46ef2f7fc",
+  "status": "PASS_REAL_AGE_GAP_EVALUATION_PARTIAL_FACE_SPECIFICITY",
+  "subject_exclusions": {},
+  "test": "later photos >=2 age-label years after second enrollment photograph"
+}
