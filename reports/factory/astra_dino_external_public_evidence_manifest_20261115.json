@@ -1,0 +1,57 @@
+{
+  "status": "PARTIAL",
+  "scientific_external_validation": "UNVERIFIED",
+  "software_unit_tests": "17/17 PASS",
+  "synthetic_e2e": "PASS without positive claim",
+  "frozen_model_sha256": "4e2d80b60dde9906442856af26f218b16cfd0804370764e2ec17e207b6dcf18c",
+  "files": {
+    "validation/astra_dino_external_locked.py": {
+      "bytes": 18711,
+      "sha256": "491a40322512a43beae31654495dda69c4cdc8307b7a23f7331ef2379e4f226d"
+    },
+    "tests/test_external_locked.py": {
+      "bytes": 5598,
+      "sha256": "918e8a491aefb6cd17566429b9d27266d924c988ff07d247bc6922d25c761de0"
+    },
+    "tests/make_synthetic_external_fixture.py": {
+      "bytes": 1918,
+      "sha256": "07effcb755b0d4b5e0bac50afdded6989ccfca6d9e197f5859000c3ac93113cb"
+    },
+    "README.md": {
+      "bytes": 1694,
+      "sha256": "2ae232478972858e38dd8f916469bf3ba5dc311e077965a599e8a86489173d2e"
+    },
+    "reports/ASTRA_DINO_EXTERNAL_COHORT_FREEZE_AUDIT_20261115.md": {
+      "bytes": 8584,
+      "sha256": "734cb60ece07ed056e834e3a2d6153429d657429e2b4e25cea7a483d29e11204"
+    },
+    "reports/frozen_external_model_manifest.json": {
+      "bytes": 1674,
+      "sha256": "60c0bdae75cc7ebfaa705111b2cfe56c31f21bf7fe1dd8042e6b16446441468c"
+    },
+    "reports/synthetic_e2e_audit.json": {
+      "bytes": 1874,
+      "sha256": "ab8595b340923041755c6cfd7835f591dbc114a0306a552ea2bbc3bdfe2b64f6"
+    },
+    "reports/unit_tests.log": {
+      "bytes": 1932,
+      "sha256": "702c5eb37f91ba01fa7270e4f5441f9c522f6303c9b16a666ae7a8a63551d7f4"
+    },
+    "baseline/validation/astra_dino_rubin_block_profiles.py": {
+      "bytes": 18587,
+      "sha256": "2c589b278a3d320e24e62efe691f6724d81c3bf8b45b0a5e5ffc3d21fab80d73"
+    },
+    "baseline/validation/astra_dino_rubin2022_vcf_intersection.py": {
+      "bytes": 9207,
+      "sha256": "556ce9ced482888ec273c3f414f379da6a6aad31732b0fe8a0228db710399590"
+    },
+    "baseline/validation/astra_dino_data_s2_author_intersect.py": {
+      "bytes": 10143,
+      "sha256": "68595c326cf4a9d8fa0f80c4462e914a513c175b3a0e5a9b69f8562b68009f22"
+    },
+    "baseline/data/Rubin2022_28Loci_start_stop_author_original.txt": {
+      "bytes": 759,
+      "sha256": "9702730b625dc8a93eafe01025dda2ebacb0d2c34d34e418c5940df44ff28770"
+    }
+  }
+}
