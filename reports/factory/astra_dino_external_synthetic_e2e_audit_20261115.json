@@ -1,0 +1,55 @@
+{
+  "schema": "astra_dino_external_validation_v1",
+  "status": "PASS_EXTERNAL_EXECUTION__PRIMARY_HYPOTHESIS_NOT_CONFIRMED",
+  "primary_hypothesis_confirmed": false,
+  "n_external_samples": 30,
+  "n_independent_clusters": 5,
+  "n_permutations": 20000,
+  "seed": 20261115,
+  "source": {
+    "external_n": 30,
+    "clusters_count": 5,
+    "external_dataset_doi": "10.0000/synthetic-fixture-not-a-real-doi",
+    "source_url": "https://example.org/synthetic-fixture-only"
+  },
+  "training_only_baseline": [
+    2.4060723792425636,
+    -0.5087854630808099
+  ],
+  "models": [
+    {
+      "model": "HMGA2",
+      "size_mse_gain": -1.17e-05,
+      "shape_mse_gain": 0.0090591,
+      "size_p_raw": 0.8628069,
+      "shape_p_raw": 0.0524974,
+      "size_p_holm6": 1.0,
+      "shape_p_holm6": 0.3149843
+    },
+    {
+      "model": "ALX1",
+      "size_mse_gain": -0.0035722,
+      "shape_mse_gain": -0.0325537,
+      "size_p_raw": 0.180141,
+      "shape_p_raw": 0.8663067,
+      "size_p_holm6": 0.900705,
+      "shape_p_holm6": 1.0
+    },
+    {
+      "model": "JOINT_HMGA2_ALX1",
+      "size_mse_gain": -0.0035499,
+      "shape_mse_gain": -0.0441749,
+      "size_p_raw": 0.3835808,
+      "shape_p_raw": 0.940503,
+      "size_p_holm6": 1.0,
+      "shape_p_holm6": 1.0
+    }
+  ],
+  "note": "A PASS result is statistical predictive association, not biological causality or true haplotype phasing. Random within-cluster permutations need exchangeability and do not model bird kinship.",
+  "locked_model_sha256": "4e2d80b60dde9906442856af26f218b16cfd0804370764e2ec17e207b6dcf18c",
+  "external_file_digests": {
+    "vcf_sha256": "590fc6614bc0274e268939c242fdca9c7f6352984782bf7707a7f251103f4b40",
+    "phenotypes_sha256": "b1cb374de55cf188418bb4d7c33a38c2353f6016e4574cad93ea13b3b23f40f5",
+    "source_manifest_sha256": "8c3206ac7c50c09655b4682294b12592affd4178689722b18d6633dd526c07de"
+  }
+}
