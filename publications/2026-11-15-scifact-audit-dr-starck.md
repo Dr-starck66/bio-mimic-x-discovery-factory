@@ -2,11 +2,13 @@
 
 **Research programme:** ASTRA Ω Research  
 **Author:** Dr Starck    
+**Version DOI:** [10.5281/zenodo.24262786](https://doi.org/10.5281/zenodo.24262786)  
+**Concept DOI (all versions):** [10.5281/zenodo.24262785](https://doi.org/10.5281/zenodo.24262785)  
 **Version:** v0.5 — 15 November 2026 (author-authorized open preprint)  
-**Document status:** **PUBLIC PREPRINT — NOT PEER REVIEWED — NO DOI ASSIGNED AS OF 15 NOVEMBER 2026**  
+**Document status:** **PUBLIC PREPRINT — NOT PEER REVIEWED — ZENODO DOI ASSIGNED 15 NOVEMBER 2026**  
 **Scope:** Scientific-claim verification benchmarking, not clinical decision-making.
 
-**Publication scope and rights:** This report describes existing non-clinical, exploratory results; it excludes ASTRA Ω inventions not already disclosed. **Licence for original manuscript text only:** Creative Commons Attribution 4.0 International (CC BY 4.0), authorized for public release by the author on 15 November 2026. Third-party data, code and model weights retain their own terms and are not included in the release package. No affiliation, ORCID or given name is fabricated. **Public release authorized by Dr Starck on 15 November 2026; no DOI has been issued as of this date.**
+**Publication scope and rights:** This report describes existing non-clinical, exploratory results; it excludes ASTRA Ω inventions not already disclosed. **Licence for original manuscript text only:** Creative Commons Attribution 4.0 International (CC BY 4.0), authorized for public release by the author on 15 November 2026. Third-party data, code and model weights retain their own terms and are not included in the release package. No affiliation, ORCID or given name is fabricated. **Public release authorized by Dr Starck on 15 November 2026; archived on Zenodo under DOI [10.5281/zenodo.24262786](https://doi.org/10.5281/zenodo.24262786).**
 
 ## Abstract
 
@@ -98,7 +100,7 @@ This exploratory report must not be interpreted as a published peer-reviewed cli
 
 **Model revision:** `5bed61128b128f6f960aa80d1aa8ac3d1bdd9b0f` (pinning is not a guarantee of future access or permission to redistribute).
 
-The manuscript's supplementary audit script recalculates summary statistics from the ledger without accessing patient data, SciFact text, a neural-model API or paid infrastructure. Full reproducibility additionally requires authorized access to the upstream dataset, model checkpoint and compatible runtime. A GitHub draft branch is not an archival DOI; **no DOI has been issued for this report**.
+The manuscript's supplementary audit script recalculates summary statistics from the ledger without accessing patient data, SciFact text, a neural-model API or paid infrastructure. Full reproducibility additionally requires authorized access to the upstream dataset, model checkpoint and compatible runtime. A GitHub draft branch is not an archival DOI; the published preprint has version DOI **[10.5281/zenodo.24262786](https://doi.org/10.5281/zenodo.24262786)**, with concept DOI **[10.5281/zenodo.24262785](https://doi.org/10.5281/zenodo.24262785)**.
 
 ## 6. Declarations
 
@@ -107,7 +109,7 @@ The manuscript's supplementary audit script recalculates summary statistics from
 **Competing interests:** The author directs the ASTRA Ω Research programme, which may seek future commercial use of related scientific-audit tools. This potential interest is disclosed for transparency. No independent verification of additional financial interests or relationships has been performed.  
 **Author attribution and responsibility:** Dr Starck is the confirmed publication signature for this document. No institutional affiliation, ORCID or unprovided given name is claimed. The author remains responsible for approving the original work and its publication.  
 **Use of AI:** AI assistance was used in preparation of the manuscript and elements of the research workflow; the author must review and assume responsibility for the final content, data rights, methods and conclusions.  
-**Status:** Public exploratory technical preprint; peer review, external blind validation, journal acceptance and DOI **not obtained as of 15 November 2026**. Original manuscript text is licensed CC BY 4.0 by author authorization; references to SciFact or VeriSci do not imply ownership of third-party assets.
+**Status:** Public exploratory technical preprint archived on Zenodo (DOI **10.5281/zenodo.24262786**, 15 November 2026); **peer review, external blind validation and journal acceptance have not been obtained**. Original manuscript text is licensed CC BY 4.0 by author authorization; references to SciFact or VeriSci do not imply ownership of third-party assets.
 
 ## 7. Rights and publication note
 
