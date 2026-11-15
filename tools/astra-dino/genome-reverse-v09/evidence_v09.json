@@ -1,0 +1,82 @@
+{
+  "schema": "ASTRA.DINO.V09.FAIR_REFERENCE",
+  "date": "2026-11-15",
+  "study": "Sues et al. 2011",
+  "source": "https://github.com/rossmounce/cladistic-data/blob/ea2a30384cf1654271970d5c8b661c08dcd3158d/nexus_files/SuesEA11_Theropoda.nex",
+  "git_blob_sha1": "2c89cac975cdb8e2b13ebe109fd66a0a29a26907",
+  "source_sha256": "8d4ace096e1c0c2cfd7d0a7d9ec40b605395965518c20525516237e226adfff9",
+  "dimensions": {
+    "taxa": 42,
+    "characters": 319,
+    "heldout_labels": 6526
+  },
+  "frozen": {
+    "rate_mk": 0.25,
+    "lambda_mk": 0.65,
+    "lambda_neighbor": 0.35,
+    "anchor_rule": "j%5==0",
+    "max_neighbors": 12,
+    "min_shared_anchors": 3,
+    "bootstrap_taxon": 500,
+    "seed": 20261114
+  },
+  "results": {
+    "majority": {
+      "correct": 4780,
+      "accuracy": 0.7324547961998161,
+      "log_loss": 0.6483702021377599,
+      "brier": 0.3780603629091969
+    },
+    "mk_star": {
+      "correct": 4779,
+      "accuracy": 0.7323015629788538,
+      "log_loss": 0.9390292139200254,
+      "brier": 0.4434025550239196
+    },
+    "joint_v08": {
+      "correct": 4814,
+      "accuracy": 0.7376647257125345,
+      "log_loss": 0.7607948910203024,
+      "brier": 0.3795802054504472
+    },
+    "neighbor_same_anchors": {
+      "correct": 5436,
+      "accuracy": 0.8329757891510879,
+      "log_loss": 0.7601341034315025,
+      "brier": 0.364762073793942
+    },
+    "neighbor_uniform_same_anchors": {
+      "correct": 5274,
+      "accuracy": 0.8081520073551947,
+      "log_loss": 0.5816042666475221,
+      "brier": 0.29508362471658434
+    },
+    "shuffled_anchor": {
+      "correct": 4777,
+      "accuracy": 0.7319950965369292,
+      "log_loss": 0.8818612116711382,
+      "brier": 0.42969180468654866
+    }
+  },
+  "bootstrap_cluster_taxon_joint_minus_neighbor_95": [
+    -0.11821326515265454,
+    -0.07383966244725738
+  ],
+  "unseen_anatomical_states": {
+    "n": 16,
+    "correct_all_methods": 0
+  },
+  "external_tree_open_tree_of_life": {
+    "matched_names": 41,
+    "synthetic_tips": 24,
+    "input_taxa": 42,
+    "invalid_placement": "Plateosaurus engelhardti clustered under Platysaurus / Squamata",
+    "status": "REJECTED"
+  },
+  "remote_tests": {
+    "pass": 10,
+    "total": 10,
+    "environment": "Vercel isolated sandbox; source authenticated"
+  },
+  "conclusion": "NO superior ancestral inference; simple equal-information baseline outperforms joint by 9.53 percentage points. No dinosaur genome reconstructed."
+}
