@@ -1,0 +1,46 @@
+name: ASTRA ARCHER — FG-NET manual-landmark 3-model exploratory benchmark
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - .github/workflows/astra-archer-fgnet-frozen-trial.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  scientific-counterfactual:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install free CPU libraries
+        run: python -m pip install --quiet --disable-pip-version-check numpy scipy Pillow opencv-python-headless
+      - name: Run standalone scientific fail-closed tests
+        run: python -m unittest discover -s tests -p 'test_archer_fgnet_*.py' -v
+      - name: Authenticate FG-NET academic ZIP; evaluate fixed three models
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p data/fgnet-secure reports/factory
+          curl --fail --location --show-error --silent --retry 2 --connect-timeout 15 --max-time 120 \
+            'https://yanweifu.github.io/FG_NET_data/FGNET.zip' -o data/fgnet-secure/FGNET.zip
+          printf '%s  %s\n' '1206978cac3626321b84c22b24cc8d19' \
+             'data/fgnet-secure/FGNET.zip' | md5sum -c
+          python -m validation.archer_fgnet_frozen_trial \
+            --zip data/fgnet-secure/FGNET.zip \
+            --out reports/factory/ARCHER-FGNET-FROZEN-FACE-VS-CONTEXT-20261115.json
+          sha256sum reports/factory/ARCHER-FGNET-FROZEN-FACE-VS-CONTEXT-20261115.json \
+            > reports/factory/ARCHER-FGNET-TRIAL-REPORT-SHA256.txt
+      - name: Upload only aggregate JSON and SHA — never source portraits
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: astra-archer-fgnet-manually-annotated-frozen-trial
+          retention-days: 7
+          if-no-files-found: warn
+          path: |
+            reports/factory/ARCHER-FGNET-FROZEN-FACE-VS-CONTEXT-20261115.json
+            reports/factory/ARCHER-FGNET-TRIAL-REPORT-SHA256.txt
