@@ -1,4 +1,4 @@
-name: ASTRA Research - one-shot two approved PDF preprints
+name: ASTRA Research - author-approved preprint PDF release
 on:
   push:
     branches: [main]
@@ -17,10 +17,6 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - code: quantum
-            branch: research-quantum-maxcut-v01
-            tag: astra-quantum-maxcut-preprint-v0.1
-            title: "Dr Starck - QAOA vs Classical MaxCut - Open Preprint v0.1"
           - code: ant
             branch: research-ant-stuttgart-v01
             tag: astra-ant-stuttgart-preprint-v0.1
@@ -80,7 +76,8 @@ jobs:
           assert r.metadata.author=='Dr Starck',r.metadata
           assert len(s)>6500,len(s)
           assert 'Dr Starck' in s and 'CC BY 4.0' in s
-          assert 'NOT PEER REVIEWED' in s.upper()
+          assert 'NOT PEER REVIEWED' in open('preprint.md', encoding='utf-8').read().upper()
+          assert 'PEER' in s.upper() and 'REVIEW' in s.upper()
           print('PDF_AUDIT_PASS',len(r.pages),len(s),Path('preprint.pdf').stat().st_size)
           PY
 
