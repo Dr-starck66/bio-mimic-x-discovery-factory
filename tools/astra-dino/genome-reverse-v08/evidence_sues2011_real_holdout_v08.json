@@ -1,0 +1,376 @@
+{
+  "schema": "ASTRA.DINO.V08.HOLDOUT",
+  "source": "Sues et al. 2011 independently published Theropoda NEXUS",
+  "source_url": "https://github.com/rossmounce/cladistic-data/blob/ea2a30384cf1654271970d5c8b661c08dcd3158d/nexus_files/SuesEA11_Theropoda.nex",
+  "git_blob_sha": "2c89cac975cdb8e2b13ebe109fd66a0a29a26907",
+  "declared_taxa": 42,
+  "declared_characters": 319,
+  "source_characters": 15790,
+  "targets": 42,
+  "n_outcomes": 6526,
+  "alternative_source_audit": {
+    "xi_2024": "HTTP 401/403 (not evaluated)",
+    "yang_2025": "supplement TNT not recovered (not evaluated)"
+  },
+  "tree": "UNRESOLVED STAR; no independently verified tree for this matrix",
+  "hyperparameters": {
+    "mk_equal_branch_rate": 0.25,
+    "lambda": 0.35,
+    "anchors": "j%5==0",
+    "max_neighbors": 12,
+    "min_shared_anchors": 3,
+    "states": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "bootstrap_seed": 20261114,
+    "bootstrap_reps": 500
+  },
+  "methods": {
+    "majority": {
+      "n": 6526,
+      "correct": 4780,
+      "accuracy": 0.7324547961998161,
+      "log_loss": 0.6483702021377619,
+      "brier": 0.37806036290919465
+    },
+    "mk": {
+      "n": 6526,
+      "correct": 4779,
+      "accuracy": 0.7323015629788538,
+      "log_loss": 0.9390292139200338,
+      "brier": 0.44340255502395454
+    },
+    "joint": {
+      "n": 6526,
+      "correct": 4814,
+      "accuracy": 0.7376647257125345,
+      "log_loss": 0.7607948910203046,
+      "brier": 0.37958020545044585
+    },
+    "negative": {
+      "n": 6526,
+      "correct": 4777,
+      "accuracy": 0.7319950965369292,
+      "log_loss": 0.8818612116711346,
+      "brier": 0.42969180468654866
+    }
+  },
+  "negative_control": "deterministic substituted training-only source anchors",
+  "taxon_cluster_bootstrap_95_joint_minus_mk": {
+    "accuracy": [
+      0.0026604068857590812,
+      0.007651219864299175
+    ],
+    "log_loss": [
+      0.15097040830094302,
+      0.20724574805270451
+    ],
+    "brier": [
+      0.05271537636596476,
+      0.07551606676778458
+    ]
+  },
+  "novel_test_labels": 16,
+  "targets_with_usable_anchor": 42,
+  "by_target": [
+    {
+      "taxon": "Erythrosuchus_africanus",
+      "n": 228,
+      "anchor_neighbors": 12,
+      "correct_mk": 149,
+      "correct_joint": 149
+    },
+    {
+      "taxon": "Euparkeria_capensis",
+      "n": 244,
+      "anchor_neighbors": 12,
+      "correct_mk": 162,
+      "correct_joint": 162
+    },
+    {
+      "taxon": "Revueltosaurus_callenderi",
+      "n": 231,
+      "anchor_neighbors": 12,
+      "correct_mk": 151,
+      "correct_joint": 151
+    },
+    {
+      "taxon": "Aetosaurus_ferratus",
+      "n": 165,
+      "anchor_neighbors": 12,
+      "correct_mk": 100,
+      "correct_joint": 99
+    },
+    {
+      "taxon": "Arizonasaurus_babbitti",
+      "n": 148,
+      "anchor_neighbors": 12,
+      "correct_mk": 115,
+      "correct_joint": 116
+    },
+    {
+      "taxon": "Effigia_okeeffeae",
+      "n": 198,
+      "anchor_neighbors": 12,
+      "correct_mk": 121,
+      "correct_joint": 120
+    },
+    {
+      "taxon": "Batrachotomus_kuperferzellensis",
+      "n": 218,
+      "anchor_neighbors": 12,
+      "correct_mk": 134,
+      "correct_joint": 136
+    },
+    {
+      "taxon": "Postosuchus_kirkpatricki",
+      "n": 218,
+      "anchor_neighbors": 12,
+      "correct_mk": 137,
+      "correct_joint": 137
+    },
+    {
+      "taxon": "Dromicosuchus_grallator",
+      "n": 174,
+      "anchor_neighbors": 12,
+      "correct_mk": 113,
+      "correct_joint": 113
+    },
+    {
+      "taxon": "Eudimorphodon_ranzii",
+      "n": 128,
+      "anchor_neighbors": 12,
+      "correct_mk": 84,
+      "correct_joint": 84
+    },
+    {
+      "taxon": "Dimorphodon_macronyx",
+      "n": 141,
+      "anchor_neighbors": 12,
+      "correct_mk": 98,
+      "correct_joint": 97
+    },
+    {
+      "taxon": "Lagerpeton_chanarensis",
+      "n": 93,
+      "anchor_neighbors": 12,
+      "correct_mk": 66,
+      "correct_joint": 66
+    },
+    {
+      "taxon": "Dromomeron_romeri",
+      "n": 46,
+      "anchor_neighbors": 12,
+      "correct_mk": 29,
+      "correct_joint": 29
+    },
+    {
+      "taxon": "Dromomeron_gregorii",
+      "n": 32,
+      "anchor_neighbors": 12,
+      "correct_mk": 19,
+      "correct_joint": 19
+    },
+    {
+      "taxon": "Marasuchus_lilloensis",
+      "n": 136,
+      "anchor_neighbors": 12,
+      "correct_mk": 102,
+      "correct_joint": 100
+    },
+    {
+      "taxon": "Eucoelophysis_baldwini",
+      "n": 22,
+      "anchor_neighbors": 12,
+      "correct_mk": 12,
+      "correct_joint": 12
+    },
+    {
+      "taxon": "Sacisaurus_agudoensis",
+      "n": 63,
+      "anchor_neighbors": 12,
+      "correct_mk": 46,
+      "correct_joint": 46
+    },
+    {
+      "taxon": "Silesaurus_opolensis",
+      "n": 211,
+      "anchor_neighbors": 12,
+      "correct_mk": 167,
+      "correct_joint": 166
+    },
+    {
+      "taxon": "Eocursor_parvus",
+      "n": 98,
+      "anchor_neighbors": 12,
+      "correct_mk": 74,
+      "correct_joint": 73
+    },
+    {
+      "taxon": "Pisanosaurus_mertii",
+      "n": 62,
+      "anchor_neighbors": 12,
+      "correct_mk": 53,
+      "correct_joint": 53
+    },
+    {
+      "taxon": "Heterodontosaurus_tucki",
+      "n": 209,
+      "anchor_neighbors": 12,
+      "correct_mk": 155,
+      "correct_joint": 155
+    },
+    {
+      "taxon": "Lesothosaurus_diagnosticus",
+      "n": 201,
+      "anchor_neighbors": 12,
+      "correct_mk": 159,
+      "correct_joint": 160
+    },
+    {
+      "taxon": "Scutellosaurus_lawleri",
+      "n": 120,
+      "anchor_neighbors": 12,
+      "correct_mk": 94,
+      "correct_joint": 94
+    },
+    {
+      "taxon": "Saturnalia_tupiniquim",
+      "n": 134,
+      "anchor_neighbors": 12,
+      "correct_mk": 111,
+      "correct_joint": 113
+    },
+    {
+      "taxon": "Plateosaurus_engelhardti",
+      "n": 241,
+      "anchor_neighbors": 12,
+      "correct_mk": 195,
+      "correct_joint": 198
+    },
+    {
+      "taxon": "Efraasia_minor",
+      "n": 206,
+      "anchor_neighbors": 12,
+      "correct_mk": 177,
+      "correct_joint": 180
+    },
+    {
+      "taxon": "Herrerasaurus_ischigualastensis",
+      "n": 224,
+      "anchor_neighbors": 12,
+      "correct_mk": 190,
+      "correct_joint": 193
+    },
+    {
+      "taxon": "Staurikosaurus_pricei",
+      "n": 89,
+      "anchor_neighbors": 12,
+      "correct_mk": 80,
+      "correct_joint": 80
+    },
+    {
+      "taxon": "Chindesaurus_bryansmalli",
+      "n": 55,
+      "anchor_neighbors": 12,
+      "correct_mk": 46,
+      "correct_joint": 46
+    },
+    {
+      "taxon": "Eoraptor_lunensis",
+      "n": 178,
+      "anchor_neighbors": 12,
+      "correct_mk": 151,
+      "correct_joint": 153
+    },
+    {
+      "taxon": "Tawa_hallae",
+      "n": 219,
+      "anchor_neighbors": 12,
+      "correct_mk": 177,
+      "correct_joint": 180
+    },
+    {
+      "taxon": "Coelophysis_bauri",
+      "n": 234,
+      "anchor_neighbors": 12,
+      "correct_mk": 169,
+      "correct_joint": 172
+    },
+    {
+      "taxon": "Syntarsus_kayentakatae",
+      "n": 183,
+      "anchor_neighbors": 12,
+      "correct_mk": 130,
+      "correct_joint": 133
+    },
+    {
+      "taxon": "Liliensternus_liliensterni",
+      "n": 141,
+      "anchor_neighbors": 12,
+      "correct_mk": 110,
+      "correct_joint": 110
+    },
+    {
+      "taxon": "Zupaysaurus_rougieri",
+      "n": 72,
+      "anchor_neighbors": 12,
+      "correct_mk": 60,
+      "correct_joint": 61
+    },
+    {
+      "taxon": "Dilophosaurus_wetherilli",
+      "n": 220,
+      "anchor_neighbors": 12,
+      "correct_mk": 167,
+      "correct_joint": 170
+    },
+    {
+      "taxon": "Cryolophosaurus_ellioti",
+      "n": 89,
+      "anchor_neighbors": 12,
+      "correct_mk": 70,
+      "correct_joint": 71
+    },
+    {
+      "taxon": "Ceratosaurus_nasicornis",
+      "n": 199,
+      "anchor_neighbors": 12,
+      "correct_mk": 142,
+      "correct_joint": 145
+    },
+    {
+      "taxon": "Piatnitzkysaurus_floresi",
+      "n": 131,
+      "anchor_neighbors": 12,
+      "correct_mk": 95,
+      "correct_joint": 96
+    },
+    {
+      "taxon": "Allosaurus_fragilis",
+      "n": 238,
+      "anchor_neighbors": 12,
+      "correct_mk": 168,
+      "correct_joint": 172
+    },
+    {
+      "taxon": "Velociraptor_mongoliensis",
+      "n": 216,
+      "anchor_neighbors": 12,
+      "correct_mk": 149,
+      "correct_joint": 152
+    },
+    {
+      "taxon": "Daemonosaurus_chauliodus",
+      "n": 71,
+      "anchor_neighbors": 12,
+      "correct_mk": 52,
+      "correct_joint": 52
+    }
+  ],
+  "scientific_gate": "UNVERIFIED phylogenetic independence; conditional morphological prediction not genome inference"
+}
