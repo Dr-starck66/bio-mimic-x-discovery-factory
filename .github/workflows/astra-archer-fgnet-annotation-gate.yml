@@ -1,0 +1,40 @@
+name: ASTRA ARCHER — FG-NET manual landmarks provenance gate
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - .github/workflows/astra-archer-fgnet-annotation-gate.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  fgnet-manual-landmark-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run parser negatives and boundary tests
+        run: python -m unittest discover -s tests -p 'test_archer_fgnet_manifest_gate.py' -v
+      - name: Fetch researcher-published FG-NET; check known MD5 and count manual landmarks
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p data/fgnet-secure reports/factory
+          curl --fail --location --show-error --silent --retry 2 --connect-timeout 15 --max-time 120 \
+            'https://yanweifu.github.io/FG_NET_data/FGNET.zip' -o data/fgnet-secure/FGNET.zip
+          printf '%s  %s\n' '1206978cac3626321b84c22b24cc8d19' \
+             'data/fgnet-secure/FGNET.zip' | md5sum -c
+          python -m validation.archer_fgnet_manifest_gate \
+             --zip data/fgnet-secure/FGNET.zip \
+             --out reports/factory/ARCHER-FGNET-ANNOTATION-MANIFEST-20261115.json
+      - name: Archive only audit metadata — no portraits, no raw landmarks
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: astra-archer-fgnet-manual-landmarks-gate
+          retention-days: 7
+          if-no-files-found: warn
+          path: reports/factory/ARCHER-FGNET-ANNOTATION-MANIFEST-20261115.json
