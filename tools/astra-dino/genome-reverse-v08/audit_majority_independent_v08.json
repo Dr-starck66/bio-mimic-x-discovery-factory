@@ -1,0 +1,26 @@
+{
+  "source": "Sues et al. 2011 independently published Theropoda NEXUS",
+  "model": "Third Sues2011 whole-taxon anchor-assisted holdout",
+  "computed_from_git_blob": "2c89cac975cdb8e2b13ebe109fd66a0a29a26907",
+  "strict_source_match": true,
+  "majority_verified_counts": 4780,
+  "n": 6526,
+  "delta_joint_minus_majority": 0.005209929512718358,
+  "ci95_taxon_bootstrap": {
+    "joint_minus_majority_accuracy": [
+      0.0024405125076266015,
+      0.00764525993883792
+    ],
+    "mk_minus_majority_accuracy": [
+      -0.0004838709677419355,
+      0
+    ]
+  },
+  "bootstrap_seed": 20261114,
+  "bootstrap_reps": 500,
+  "limitations": [
+    "Accuracy improvement does not establish better calibration; majority has better Brier and log loss",
+    "Matrix predates Baron and may share morphological character definitions, independence of biological observations unverified",
+    "No taxon-resolved external phylogeny applied"
+  ]
+}
