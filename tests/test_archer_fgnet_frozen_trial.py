@@ -19,8 +19,8 @@ class FrozenTrialTests(unittest.TestCase):
     def test_expected_masks_on_generated_geometry(self):
         img=np.random.default_rng(1).random((128,128),dtype=np.float32)
         pts=np.zeros((68,2),dtype=np.float32)
-        pts[36:42]=[32,50];pts[42:48]=[84,50]
-        pts[30]=[58,76];pts[62]=[58,100]
+        pts[27:32]=[32,50];pts[32:37]=[84,50]
+        pts[41]=[58,76];pts[57]=[58,100]
         p=preprocess(img,pts)
         self.assertEqual(len(p),4)
         self.assertTrue(np.allclose(p["uniform_negative"],.5))
