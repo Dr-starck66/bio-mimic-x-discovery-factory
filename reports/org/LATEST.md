@@ -1,8 +1,8 @@
-# BIO-MIMIC X V6 Scientific Investment Committee — 2026-11-14T10:36:03.251700+00:00
+# BIO-MIMIC X V6 Scientific Investment Committee — 2026-11-15T10:59:35.069799+00:00
 
 **Scientific status:** PASS (not an efficacy claim)
 **Upstream provider failures:** 0
-**Organization replay SHA-256:** `35e3d8116c570afc7dabea4d1ddfc1dce873b2f83be59d8abd4be385cda561c2`
+**Organization replay SHA-256:** `e8edca75ee5673da427060c999f1da0a23d0e0662d8a1fa5a9dfea709c56110a`
 
 ## Laboratory status
 - ONCO-X Lab: PASS · 35 papers · 0 candidates
@@ -19,6 +19,11 @@
 - Sources: 3 · mechanisms: DNA repair, genome maintenance, proteostasis, senescence
 - Challenge flags: body-size confounding, correlation does not prove causation, human functional divergence remains possible, lifespan data quality, no gene symbol candidate, phylogeny confounding
 
+### Acomys cahirinus — Committee 59/100
+- Labs: regeneration
+- Sources: 3 · mechanisms: extracellular matrix, fibrosis, regeneration
+- Challenge flags: correlation does not prove causation, developmental-stage confounding, fibrosis tradeoffs, human functional divergence remains possible, no gene symbol candidate, regeneration-vs-repair ambiguity
+
 ### Danio rerio — Committee 55/100
 - Labs: regeneration
 - Sources: 3 · mechanisms: Wnt, regeneration
@@ -28,11 +33,6 @@
 - Labs: regeneration
 - Sources: 3 · mechanisms: fibrosis, regeneration
 - Challenge flags: correlation does not prove causation, developmental-stage confounding, fibrosis tradeoffs, human functional divergence remains possible, regeneration-vs-repair ambiguity
-
-### Acomys cahirinus — Committee 53/100
-- Labs: regeneration
-- Sources: 3 · mechanisms: extracellular matrix, fibrosis, regeneration
-- Challenge flags: correlation does not prove causation, developmental-stage confounding, fibrosis tradeoffs, human functional divergence remains possible, no gene symbol candidate, regeneration-vs-repair ambiguity
 
 ### Ambystoma mexicanum — Committee 49/100
 - Labs: regeneration
@@ -66,15 +66,15 @@
 
 ## Research-credit allocation
 - Somniosus microcephalus: 13 credits
-- Danio rerio: 12 credits
-- Cynops pyrrhogaster: 12 credits
-- Acomys cahirinus: 11 credits
+- Acomys cahirinus: 12 credits
+- Danio rerio: 11 credits
+- Cynops pyrrhogaster: 11 credits
 - Ambystoma mexicanum: 10 credits
 - Drosophila melanogaster: 9 credits
 - Paracentrotus lividus: 9 credits
 - Caenorhabditis elegans: 9 credits
 - Neophocaena asiaeorientalis: 7 credits
-- Tursiops truncatus: 8 credits
+- Tursiops truncatus: 9 credits
 
 ## Cross-lab challenge plan
 - immunology challenges cancer: Re-audit the top hypothesis using the challenger lab's confounders and require at least one falsifiable counter-test.

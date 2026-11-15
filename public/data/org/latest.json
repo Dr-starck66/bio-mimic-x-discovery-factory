@@ -9,12 +9,20 @@
       "research_credits": 13
     },
     {
+      "committee_score": 59,
+      "labs": [
+        "regeneration"
+      ],
+      "name": "Acomys cahirinus",
+      "research_credits": 12
+    },
+    {
       "committee_score": 55,
       "labs": [
         "regeneration"
       ],
       "name": "Danio rerio",
-      "research_credits": 12
+      "research_credits": 11
     },
     {
       "committee_score": 55,
@@ -22,14 +30,6 @@
         "regeneration"
       ],
       "name": "Cynops pyrrhogaster",
-      "research_credits": 12
-    },
-    {
-      "committee_score": 53,
-      "labs": [
-        "regeneration"
-      ],
-      "name": "Acomys cahirinus",
       "research_credits": 11
     },
     {
@@ -78,7 +78,7 @@
         "preservation"
       ],
       "name": "Tursiops truncatus",
-      "research_credits": 8
+      "research_credits": 9
     }
   ],
   "committee_rules": {
@@ -136,7 +136,7 @@
       "id": "cancer",
       "name": "ONCO-X Lab",
       "paper_count": 35,
-      "sha256": "53abfb5700f233684006a308e751ed120752899d4bb670eb3045328c76ec1967",
+      "sha256": "1e497c9ce6b02bb3cd2511be8e7c57947970491e4cdf2db519f116bbbb18932a",
       "status": "PASS"
     },
     {
@@ -144,7 +144,7 @@
       "id": "immunology",
       "name": "IMMUNO-X Lab",
       "paper_count": 35,
-      "sha256": "d5cc6b428b4cac04cb8e8d90f1994e8ff8d9251d89caddc7b583cef8cc7a19e9",
+      "sha256": "f717c6f8e85f128b9ac2083e8cbfcdef6dcfd9816ca7c307c45b15d89eabe394",
       "status": "PASS"
     },
     {
@@ -152,7 +152,7 @@
       "id": "longevity",
       "name": "LONGEVITY-X Lab",
       "paper_count": 35,
-      "sha256": "8ed90432d47c1c848c44f24194185f0d6eb05b76ff5aaa7904da43edf263d58f",
+      "sha256": "f05727907f950d6b562f10dfe4502aaae8183a9e60b5a7a139161047f196ec04",
       "status": "PASS"
     },
     {
@@ -160,7 +160,7 @@
       "id": "metabolism",
       "name": "METABOLIC-X Lab",
       "paper_count": 35,
-      "sha256": "af5daa7de0cc48109ae606136e74645860fbc18a334568513d6c58628f4a1097",
+      "sha256": "18fe8d675762732409a38e35b749e943543c7b7f9796da461f567f69dc23805f",
       "status": "PASS"
     },
     {
@@ -168,7 +168,7 @@
       "id": "neuro",
       "name": "NEURO-X Lab",
       "paper_count": 35,
-      "sha256": "bf86197f60391c0f00ab75045ac026cf6527a1c27a9abcd578444bff912e45f5",
+      "sha256": "9225f922a65c38a6a1f8e5213347c5bc0dd6fcb820b16262dbd48352681706c8",
       "status": "PASS"
     },
     {
@@ -176,7 +176,7 @@
       "id": "preservation",
       "name": "PRESERVE-X Lab",
       "paper_count": 35,
-      "sha256": "ee8462c50abe78454bada4e137f53e0dc73b5ee511de2750602fd796cf6f3741",
+      "sha256": "4690026c8e77bb69167c29ddde7bc45b4da589a1b0527cba3c34921259864d4d",
       "status": "PASS"
     },
     {
@@ -184,7 +184,7 @@
       "id": "regeneration",
       "name": "REGEN-X Lab",
       "paper_count": 35,
-      "sha256": "b461664e6ae254a4eacd9a87060a2eef3abd9d2c2fec715920793bbcf21f5cdb",
+      "sha256": "7dcb78be383f7926f04fa6880bc2c2a2c5d436b8464c1e2e2f7d6a5941447012",
       "status": "PASS"
     }
   ],
@@ -234,6 +234,54 @@
           "rank": "SPECIES",
           "status": "ACCEPTED",
           "taxon_key": 2421162
+        }
+      ],
+      "taxon_verified": true
+    },
+    {
+      "annotation_support": true,
+      "challenges": [
+        "correlation does not prove causation",
+        "developmental-stage confounding",
+        "fibrosis tradeoffs",
+        "human functional divergence remains possible",
+        "no gene symbol candidate",
+        "regeneration-vs-repair ambiguity"
+      ],
+      "committee_score": 59,
+      "genes": [],
+      "independent_source_count": 3,
+      "lab_count": 1,
+      "labs": [
+        "regeneration"
+      ],
+      "mean_arbiter": 72.0,
+      "mechanisms": [
+        "extracellular matrix",
+        "fibrosis",
+        "regeneration"
+      ],
+      "name": "Acomys cahirinus",
+      "pmid_sources": [
+        "PMID:41732917",
+        "PMID:42194064",
+        "PMID:42792965"
+      ],
+      "source_count": 3,
+      "sources": [
+        "PMID:41732917",
+        "PMID:42194064",
+        "PMID:42792965"
+      ],
+      "taxon_proofs": [
+        {
+          "canonical_name": "Acomys cahirinus",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 9800308
         }
       ],
       "taxon_verified": true
@@ -318,13 +366,13 @@
       ],
       "name": "Cynops pyrrhogaster",
       "pmid_sources": [
-        "PMID:40230354",
+        "PMID:34944708",
         "PMID:41751333",
         "PMID:42702818"
       ],
       "source_count": 3,
       "sources": [
-        "PMID:40230354",
+        "PMID:34944708",
         "PMID:41751333",
         "PMID:42702818"
       ],
@@ -337,55 +385,6 @@
           "rank": "SPECIES",
           "status": "ACCEPTED",
           "taxon_key": 2431862
-        }
-      ],
-      "taxon_verified": true
-    },
-    {
-      "annotation_support": false,
-      "challenges": [
-        "correlation does not prove causation",
-        "developmental-stage confounding",
-        "fibrosis tradeoffs",
-        "human functional divergence remains possible",
-        "no gene symbol candidate",
-        "regeneration-vs-repair ambiguity",
-        "taxonomy not annotation-supported"
-      ],
-      "committee_score": 53,
-      "genes": [],
-      "independent_source_count": 3,
-      "lab_count": 1,
-      "labs": [
-        "regeneration"
-      ],
-      "mean_arbiter": 55.0,
-      "mechanisms": [
-        "extracellular matrix",
-        "fibrosis",
-        "regeneration"
-      ],
-      "name": "Acomys cahirinus",
-      "pmid_sources": [
-        "PMID:41732917",
-        "PMID:42194064",
-        "PMID:42792965"
-      ],
-      "source_count": 3,
-      "sources": [
-        "PMID:41732917",
-        "PMID:42194064",
-        "PMID:42792965"
-      ],
-      "taxon_proofs": [
-        {
-          "canonical_name": "Acomys cahirinus",
-          "kingdom": "Animalia",
-          "match_type": "EXACT",
-          "provider": "GBIF",
-          "rank": "SPECIES",
-          "status": "ACCEPTED",
-          "taxon_key": 9800308
         }
       ],
       "taxon_verified": true
@@ -671,8 +670,8 @@
     }
   ],
   "schema": "biomimic-v6-org-run-v1",
-  "sha256": "35e3d8116c570afc7dabea4d1ddfc1dce873b2f83be59d8abd4be385cda561c2",
+  "sha256": "e8edca75ee5673da427060c999f1da0a23d0e0662d8a1fa5a9dfea709c56110a",
   "status": "PASS",
-  "time": "2026-11-14T10:36:03.251700+00:00",
+  "time": "2026-11-15T10:59:35.069799+00:00",
   "upstream_failures": []
 }
