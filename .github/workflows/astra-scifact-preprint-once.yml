@@ -47,25 +47,34 @@ jobs:
           python3 - <<'PY'
           import json, time, urllib.parse, urllib.request
           needle = "Oracle-Free Retrieval and Selective Scientific-Claim Verification"
-          q = 'title:"' + needle + '"'
-          url = 'https://zenodo.org/api/records/?' + urllib.parse.urlencode({"q": q, "size": "50"})
-          for attempt in range(1, 5):
+          probes = [
+              ("zenodo", "https://zenodo.org/api/records?" + urllib.parse.urlencode({"q":"SciFact","size":"50"})),
+              ("zenodo", "https://zenodo.org/api/records?" + urllib.parse.urlencode({"q":"Starck","size":"50"})),
+              ("datacite", "https://api.datacite.org/dois?" + urllib.parse.urlencode({"query":"SciFact", "page[size]":"100"})),
+          ]
+          for source, url in probes:
               try:
-                  req = urllib.request.Request(url, headers={"User-Agent": "ASTRA-Research-DOI-Verify/1.0"})
-                  with urllib.request.urlopen(req, timeout=15) as response:
-                      records = json.load(response).get("hits", {}).get("hits", [])
-                  for record in records:
-                      md = record.get("metadata", {})
-                      title = md.get("title", "")
-                      authors = [c.get("person_or_org", {}).get("name", c.get("name", "")) for c in md.get("creators", [])]
-                      doi = record.get("doi") or record.get("pids", {}).get("doi", {}).get("identifier")
-                      if needle.lower() in title.lower() and any("starck" in x.lower() for x in authors) and doi:
-                          print(json.dumps({"ZENODO_DOI":"PASS","doi":doi,"url":record.get("links",{}).get("self_html", "https://doi.org/"+doi),"record_id":record.get("id")}))
+                  req = urllib.request.Request(url, headers={"User-Agent":"ASTRA-Research-DOI-Verify/1.1 (+https://github.com/Dr-starck66/bio-mimic-x-discovery-factory)","Accept":"application/json"})
+                  with urllib.request.urlopen(req, timeout=18) as response:
+                      obj = json.load(response)
+                  items = obj.get("hits", {}).get("hits", []) if source == "zenodo" else obj.get("data", [])
+                  print("LOOKUP_OK",source,"items",len(items))
+                  for item in items:
+                      md = item.get("metadata", {}) if source == "zenodo" else item.get("attributes", {})
+                      title = md.get("title","") if source == "zenodo" else "\\n".join(md.get("titles", [{}])[0].get("title","") for _ in [0])
+                      authors = [str(c.get("name",c.get("person_or_org",{}).get("name",""))) for c in md.get("creators", [])]
+                      if source == "datacite" and not authors:
+                          authors = [str(c.get("name","")) for c in md.get("creators", [])]
+                      doi = (item.get("doi") or item.get("pids",{}).get("doi",{}).get("identifier")) if source == "zenodo" else md.get("doi")
+                      if needle.lower() in title.lower() and any("starck" in a.lower() for a in authors) and doi:
+                          print("ZENODO_DOI_PASS", json.dumps({"doi":doi,"source":source,"url":"https://doi.org/"+doi,"record_id":item.get("id")}))
                           raise SystemExit(0)
-                  print("ZENODO_DOI_UNVERIFIED attempt", attempt, "candidate_records", len(records))
               except Exception as error:
-                  print("ZENODO_LOOKUP_ERROR", attempt, str(error)[:220])
-              if attempt < 4: time.sleep(8)
-          print("ZENODO_DOI_UNVERIFIED: no verified matching public DOI at this time")
+                  detail = str(error)
+                  if hasattr(error,"read"):
+                      try: detail += " "+error.read(350).decode("utf-8","replace")
+                      except Exception: pass
+                  print("ZENODO_LOOKUP_ERROR",source,detail[:550])
+          print("ZENODO_DOI_UNVERIFIED: no matching DOI in accessible public indexes")
           PY
 
