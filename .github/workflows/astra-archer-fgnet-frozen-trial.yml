@@ -4,6 +4,8 @@ on:
     branches: [main]
     paths:
       - .github/workflows/astra-archer-fgnet-frozen-trial.yml
+      - validation/archer_fgnet_frozen_trial.py
+      - tests/test_archer_fgnet_frozen_trial.py
   workflow_dispatch:
 permissions:
   contents: read
