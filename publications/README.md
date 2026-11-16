@@ -24,6 +24,15 @@ Pour les **prochaines publications indépendantes**, interdire une nouvelle rele
 
 Ce problème de regroupement des DOI est **PARTIAL — À CORRIGER DANS ZENODO** pour les records déjà déposés ; ne pas créer de faux nouveaux DOI ni modifier des métadonnées sans preuve.
 
+## Incident Zenodo : ticket officiel et correction vérifiée (16 novembre 2026)
+
+- **Ticket Zenodo Support #3331841** : le support a accusé réception, sans fournir encore de réparation. Délai indicatif annoncé : **3–4 semaines**, non une échéance garantie.
+- **Trois releases GitHub corrigées en place** : ajout de leur DOI individuel, avertissement explicite de ne **pas** citer le DOI concept commun `10.5281/zenodo.24262785`, référence au ticket.
+- **Preuve d'exécution** : [workflow de correction DOI du 16/11/2026](https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/43855086786), `success`, puis lecture indépendante des trois descriptions GitHub : **3/3 PASS**.
+- **Aucun nouveau DOI généré** : modification de la description des releases existantes, **pas de nouvelle publication**.
+- **Pas résolu dans Zenodo** : ses relations de version et le concept DOI sont toujours à traiter par l'opérateur Zenodo. Éviter suppression ou republication hâtive qui casserait des citations.
+- [Documentation officielle Zenodo sur les versions et les DOI](https://help.zenodo.org/docs/deposit/manage-versions/). Pour un travail scientifique indépendant, créer une notice/famille distincte, non une version supplémentaire d'un autre article.
+
 ## Provenance et audits
 
 - [SciFact — release](https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/releases/tag/scifact-open-preprint-v0.5) · [audit Zenodo](https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/43766637916)
