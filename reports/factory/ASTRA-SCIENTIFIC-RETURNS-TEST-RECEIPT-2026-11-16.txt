@@ -1,0 +1,17 @@
+ASTRA Ω — local offline execution receipt — 2026-11-16
+Repository: Dr-starck66/bio-mimic-x-discovery-factory
+Branch: astra/scientific-returns-20261116
+Runtime: Node.js v22.16.0 (local, no network)
+Command from working directory:
+  node validation/astra_scientific_returns_gate.mjs
+stdout:
+  PASS 8/8: 1 evidence baseline + 7 adversarial negative controls; NOT genomic validation
+Exit code: 0
+Independent identity crosscheck via git hash-object after formatting JSON with JSON.stringify(...,null,2)+"\n":
+  validation/astra_scientific_returns_gate.mjs
+  e55ee299593b75b8f94930d0b606e1013bb3b86f
+  reports/factory/astra_scientific_returns_20261116.json
+  b0c8871cee4d7c5e713266bda945977ad06b98c2
+Both Git blob SHA-1 values matched GitHub connector readback for the branch.
+Scope: document consistency/anti-overclaim tests only. This is NOT a reciprocal genome alignment, independent cohort prediction, lab validation, CI pass, PR merge, or background deployment.
+No third-party payment, scheduler, CI execution or new private data.
