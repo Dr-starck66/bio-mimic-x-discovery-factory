@@ -1,0 +1,64 @@
+name: ASTRA Research - one-shot citation correction for existing releases
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/astra-doi-citation-correction-once.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  correct-citations:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - name: Edit only existing release descriptions (do not publish releases)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY' >/tmp/citation-targets.tsv
+          import json
+          for tag,doi in [
+            ('scifact-open-preprint-v0.5','10.5281/zenodo.24262786'),
+            ('astra-quantum-maxcut-preprint-v0.1','10.5281/zenodo.24264255'),
+            ('astra-ant-stuttgart-preprint-v0.1','10.5281/zenodo.24264285'),
+          ]:
+              print(tag + '\t' + doi)
+          PY
+          while IFS="$(printf '\t')" read -r tag versiondoi; do
+            gh release view "$tag" --repo "$GITHUB_REPOSITORY" --json tagName,body,isDraft > /tmp/old_release.json
+            python3 - "$tag" "$versiondoi" <<'PY'
+          import json, pathlib, sys
+          tag,doi = sys.argv[1:]
+          r=json.loads(pathlib.Path('/tmp/old_release.json').read_text())
+          assert r['tagName']==tag and not r['isDraft']
+          body=r.get('body') or ''
+          if 'ASTRA VERIFIED VERSION DOI' in body:
+              assert 'https://doi.org/'+doi in body
+              pathlib.Path('/tmp/skipedit').touch()
+          else:
+              notice=(
+                '\n\n---\n\n### ASTRA VERIFIED VERSION DOI\n\n'
+                'Cite this specific paper: https://doi.org/'+doi+'\n\n'
+                'Important: The Zenodo concept DOI 10.5281/zenodo.24262785 incorrectly groups three independent research papers as versions of one work. Do NOT use that shared concept DOI to cite this paper. Zenodo Support ticket #3331841 requests separation; the change is not yet confirmed.\n\n'
+                'This note corrects the GitHub release description only; the archived Zenodo record is unchanged.'
+              )
+              pathlib.Path('/tmp/new_notes.md').write_text(body+notice)
+          PY
+            if test -f /tmp/skipedit; then
+              rm /tmp/skipedit
+              echo "ALREADY_CORRECTED $tag"
+            else
+              gh release edit "$tag" --repo "$GITHUB_REPOSITORY" --notes-file /tmp/new_notes.md
+              echo "UPDATED $tag"
+            fi
+            gh release view "$tag" --repo "$GITHUB_REPOSITORY" --json body --jq .body > /tmp/after_notes.md
+            grep -Fq "https://doi.org/$versiondoi" /tmp/after_notes.md
+            grep -Fq "#3331841" /tmp/after_notes.md
+            echo "RELEASE_CITATION_PASS $tag $versiondoi"
+            rm -f /tmp/old_release.json /tmp/new_notes.md /tmp/after_notes.md
+          done < /tmp/citation-targets.tsv
+          echo "THREE_RELEASE_CITATIONS_PASS"
