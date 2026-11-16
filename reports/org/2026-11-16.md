@@ -1,8 +1,8 @@
-# BIO-MIMIC X V6 Scientific Investment Committee — 2026-11-16T11:26:09.805892+00:00
+# BIO-MIMIC X V6 Scientific Investment Committee — 2026-11-16T11:35:20.886015+00:00
 
 **Scientific status:** PASS (not an efficacy claim)
 **Upstream provider failures:** 0
-**Organization replay SHA-256:** `5e4b259f09c905c2a51a5fbfc11447625c826d8213106d77404592694cae8161`
+**Organization replay SHA-256:** `a5b308a2791282d620c23c0ede07c1a0f3f00fd5caeb8c107310e2ed4a24e487`
 
 ## Laboratory status
 - ONCO-X Lab: PASS · 35 papers · 0 candidates
