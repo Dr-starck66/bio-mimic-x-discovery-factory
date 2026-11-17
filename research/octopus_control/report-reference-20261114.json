@@ -1,0 +1,22 @@
+{
+  "both_fail": 147,
+  "both_success": 125,
+  "design": "deterministic, uncalibrated force/traction decision proxy, NOT physics",
+  "direct_faster_when_both_success": 125,
+  "direct_only_success": 0,
+  "direct_success": 125,
+  "geometry_block_cases": 40,
+  "no_anchor_cases": 80,
+  "notes": [
+    "Higher staged traction is a MODEL ASSUMPTION, not an observed robot benefit.",
+    "All entries are synthetic; no FEM, ROS, sensors, pneumatic hardware or deployments.",
+    "When anchor_quality=0, staged cannot improve success; extra stages have a time cost.",
+    "No training/test split because this is a parameter grid, not machine learning."
+  ],
+  "scenario_count": 400,
+  "sha256_observations": "4eca4532c9c19b51906ba38e93786967953e71b76493f95887914da20ecc3625",
+  "staged_faster_when_both_success": 0,
+  "staged_only_success": 128,
+  "staged_success": 253,
+  "units": "abstract effort/time; input aperture centimeters are assumed examples"
+}
