@@ -1,0 +1,50 @@
+{
+  "authors_weights_git_blob_sha": "7ba8c1f04264923f8e57fc9571d7543eb5e77bd8",
+  "authors_weights_upstream_check": "7ba8c1f04264923f8e57fc9571d7543eb5e77bd8",
+  "count_sha256": "f5ca68e03d0547cc9faad8940f75181640f1d99dbdbc6119faf85da8c49729ce",
+  "dataset": "GSE294705",
+  "events_ge2_recurrence": 16,
+  "formula": "mean(positive exact authors weights * row-wise z-score(ddof=1)) minus mean(negative exact authors weights * row-wise z-score(ddof=1))",
+  "limitations": [
+    "Same GSE294705 94 patients as historical replay, not an independent clinical cohort.",
+    "Authors' input expression preprocessing and model threshold not reproduced exactly.",
+    "FOXI2 below global CPM threshold retained; interpretation remains methodologically PARTIAL.",
+    "No patient treatment outcome from cretostimogene or clinical validation."
+  ],
+  "metadata_sha256": "15c06e2554466f65f43cbf38238eeaaf089cd650440b9b2f18dcf76c958e8212",
+  "negative_group": 41,
+  "normalized_gene_rows": 27175,
+  "official_gene_count": 75,
+  "patients": 94,
+  "positive_group": 34,
+  "results": {
+    "logCPM_no_quantile": {
+      "authors_scoring_algebra": {
+        "auc_descriptive": 0.57772436,
+        "mean_event_minus_other": 0.14763141,
+        "permutation_p_sex_stage_site": 0.70132987
+      },
+      "historical_astra_approx": {
+        "auc_descriptive": 0.58653846,
+        "mean_event_minus_other": 9.43581408,
+        "permutation_p_sex_stage_site": 0.50794921
+      }
+    },
+    "quantile_normalized": {
+      "authors_scoring_algebra": {
+        "auc_descriptive": 0.5849359,
+        "mean_event_minus_other": 0.22522792,
+        "permutation_p_sex_stage_site": 0.5810419
+      },
+      "historical_astra_approx": {
+        "auc_descriptive": 0.58653846,
+        "mean_event_minus_other": 8.9859267,
+        "permutation_p_sex_stage_site": 0.55134487
+      }
+    }
+  },
+  "source_filter_exceptions_retained": [
+    "ENSG00000186766"
+  ],
+  "status": "EXPLORATORY_AUTHORS_SCORING_FORMULA_NOT_FULL_PROTOCOL"
+}

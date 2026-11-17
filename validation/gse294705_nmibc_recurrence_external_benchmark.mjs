@@ -1,0 +1,44 @@
+#!/usr/bin/env node
+/** BIO-MIMIC X — Public GEO GSE294705 recurrence (>=2), negative biomarker benchmark.
+ * Reuses GSE176178's patient-level / null-test principles. No drug efficacy claim.
+ * Human Ensembl mappings cross-checked against MyGene.info (11 Nov 2026).
+ * Run: node validation/gse294705_nmibc_recurrence_external_benchmark.mjs [--self-test]
+ * No packages, credentials, deployment, patient files or payment required.
+ */
+import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
+import {gunzipSync} from 'node:zlib';
+const base='https://ftp.ncbi.nlm.nih.gov/geo/series/GSE294nnn/GSE294705/';
+const urls={counts:base+'suppl/GSE294705_CBNUH_n94_NMIBC_counts.txt.gz',metadata:base+'matrix/GSE294705_series_matrix.txt.gz'};
+const hashes={counts:'f5ca68e03d0547cc9faad8940f75181640f1d99dbdbc6119faf85da8c49729ce',metadata:'15c06e2554466f65f43cbf38238eeaaf089cd650440b9b2f18dcf76c958e8212'};
+const genes={CD8A:'ENSG00000153563',CD8B:'ENSG00000172116',CXCL9:'ENSG00000138755',CXCL10:'ENSG00000169245',CD68:'ENSG00000129226',CD163:'ENSG00000177575'};
+const signatures={T_CELL_CD8_PROXY:['CD8A','CD8B'],IFN_CHEMOKINE_PROXY:['CXCL9','CXCL10'],MACROPHAGE_PROXY:['CD68','CD163']};
+const ITER=20000,BOOT=2000,SEED=20261111;
+const sum=x=>x.reduce((a,b)=>a+b,0),mean=x=>sum(x)/x.length,hash=b=>createHash('sha256').update(b).digest('hex'),r8=x=>Math.round(x*1e8)/1e8;
+function rng(seed){let a=seed>>>0;return()=>{a=(a+0x6D2B79F5)>>>0;let t=Math.imul(a^(a>>>15),1|a);t^=t+Math.imul(t^(t>>>7),61|t);return((t^(t>>>14))>>>0)/4294967296}}
+function shuffle(a,rand){let x=a.slice();for(let i=x.length-1;i>0;i--){const j=Math.floor(rand()*(i+1));[x[i],x[j]]=[x[j],x[i]]}return x}
+function permuteWithin(labels,strata,rand){let out=labels.slice(),blocks={};for(let i=0;i<strata.length;i++)(blocks[strata[i]]??=[]).push(i);for(const ix of Object.values(blocks)){const b=shuffle(ix.map(i=>labels[i]),rand);ix.forEach((i,j)=>out[i]=b[j])}return out}
+function groups(vals,labels){return [vals.filter((_,i)=>labels[i]==='Yes'),vals.filter((_,i)=>labels[i]==='No')]}
+function contrast(vals,labels){const [y,n]=groups(vals,labels);if(!y.length||!n.length)throw Error('empty groups');return mean(y)-mean(n)}
+function auc(yes,no){let s=0;for(const y of yes)for(const n of no)s+=y>n?1:y===n?.5:0;return s/(yes.length*no.length)}
+function bH(ps){const sorted=ps.map((p,i)=>({p,i})).sort((a,b)=>a.p-b.p),qs=Array(ps.length);let low=1;for(let i=ps.length-1;i>=0;i--){low=Math.min(low,sorted[i].p*ps.length/(i+1));qs[sorted[i].i]=r8(low)}return qs}
+function pperm(vals,labels,strata,seed,n=ITER){const rand=rng(seed),obs=Math.abs(contrast(vals,labels));let hit=0;for(let i=0;i<n;i++){const perm=permuteWithin(labels,strata,rand);if(Math.abs(contrast(vals,perm))+1e-12>=obs)hit++}return(hit+1)/(n+1)}
+function percentile(v,p){const x=v.slice().sort((a,b)=>a-b),i=p*(x.length-1),a=Math.floor(i),b=Math.ceil(i);return x[a]+(x[b]-x[a])*(i-a)}
+function bootCI(vals,labels,seed){const [yes,no]=groups(vals,labels),rand=rng(seed),out=[];for(let i=0;i<BOOT;i++){let a=0,b=0;for(let j=0;j<yes.length;j++)a+=yes[Math.floor(rand()*yes.length)];for(let j=0;j<no.length;j++)b+=no[Math.floor(rand()*no.length)];out.push(a/yes.length-b/no.length)}return [r8(percentile(out,.025)),r8(percentile(out,.975))]}
+async function get(url,expected){const r=await fetch(url,{headers:{'User-Agent':'BIO-MIMIC-X public GEO recurrence reanalysis/1.0'}});if(!r.ok)throw Error('GEO_HTTP_'+r.status);const b=Buffer.from(await r.arrayBuffer());if(b[0]!==31||b[1]!==139||hash(b)!==expected)throw Error('SHA_GZIP_QC_FAIL');return{bytes:b.length,sha256:hash(b),text:gunzipSync(b).toString('utf8')}}
+function parseMeta(text){const lines=text.split(/\r?\n/),field=(name)=>lines.filter(x=>x.startsWith(name+'\t')).map(x=>x.split('\t').slice(1).map(v=>v.replace(/^"|"$/g,'')));const titles=field('!Sample_title')[0],c=field('!Sample_characteristics_ch1');if(titles?.length!==94||new Set(titles).size!==94||c.length<5||c.some(x=>x.length!==94))throw Error('SAMPLE_META_QC');const getKey=key=>{const row=c.find(x=>x.every(v=>v.startsWith(key+': ')));if(!row)throw Error('META_MISSING_'+key);return row.map(x=>x.slice(key.length+2))};
+const outcome=getKey('recurrence(2>=)'),sex=getKey('tissue'),stage=getKey('cell type'),grade=getKey('grade'),eortc=getKey('eortc-recur score').map(Number);
+if(outcome.some(x=>!['Yes','No'].includes(x))||outcome.filter(x=>x==='Yes').length!==16||outcome.filter(x=>x==='No').length!==78||eortc.some(x=>!Number.isFinite(x))||sex.some(x=>!['Male','Female'].includes(x)))throw Error('OUTCOME_META_QC');
+return {titles:titles.map(s=>s.replace(/^NMIBC_/,'')),original_titles:titles,outcome,sex,stage,grade,eortc}}
+function parseCounts(text,meta){const lines=text.trimEnd().split(/\r?\n/),hdr=lines.shift().split('\t');if(hdr[0]!=='geneID'||hdr.length!==95)throw Error('HEAD_COUNT_FAIL');const names=hdr.slice(1),ix=names.map(x=>meta.titles.indexOf(x));if(new Set(ix).size!==94||ix.some(x=>x<0))throw Error('PATIENT_SAMPLE_MISMATCH');const totals=Array(94).fill(0),targetById=Object.fromEntries(Object.entries(genes).map(([g,id])=>[id,g])),rows={},seen=new Set();let n=0;
+for(const line of lines){if(!line.trim())continue;const cols=line.split('\t');if(cols.length!==95)throw Error('ROW_WIDTH_ERROR_'+n);const name=cols[0];if(seen.has(name))throw Error('DUPLICATE_GENEID');seen.add(name);const vals=cols.slice(1).map(Number);if(vals.some(x=>!Number.isInteger(x)||x<0))throw Error('INVALID_GENE_COUNT');for(let j=0;j<94;j++)totals[j]+=vals[j];if(name in targetById)rows[targetById[name]]=vals;n++}
+if(n!==63241||totals.some(x=>x<=0)||Object.keys(rows).length!==6)throw Error('GENE_TOTAL_OR_MISSING_QC_'+n+'_'+Object.keys(rows).length);
+let expr={};for(const [gene,counts]of Object.entries(rows)){const x=Array(94);for(let j=0;j<94;j++)x[ix[j]]=Math.log2(1+1e6*counts[j]/totals[j]);expr[gene]=x}return {expr,gene_rows:n,sample_count:94}}
+function analyze(meta,mat){const y=meta.outcome,ans={accession:'GSE294705',comparison:'>=2 recurrences Yes versus No',endpoint:'longitudinal recurrence grouping from public GEO (not BCG durable response or cretostimogene sensitivity)',design:'observational retrospective exploratory endpoint transfer: not clinical predictor validation',n:94,events:16,nonevents:78,baseline_eortc_auc_descriptive:r8(auc(...groups(meta.eortc,y))),sex_cross_tab:{},stage_cross_tab:{},sigs:{},method:'log2(1+CPM) on all gene counts, three fixed two-gene signatures, 20k global and sex+stage-stratified shuffles, BH across three, 2k bootstraps',seed:SEED,permutations:ITER,bootstrap:BOOT,gene_symbol_to_ensembl:genes};
+for(let i=0;i<94;i++){const sk=meta.sex[i]+'/'+y[i],tk=meta.stage[i]+'/'+y[i];ans.sex_cross_tab[sk]=(ans.sex_cross_tab[sk]||0)+1;ans.stage_cross_tab[tk]=(ans.stage_cross_tab[tk]||0)+1}
+const names=Object.keys(signatures);for(let k=0;k<names.length;k++){const name=names[k],set=signatures[name],v=Array.from({length:94},(_,i)=>mean(set.map(g=>mat.expr[g][i]))),[yes,no]=groups(v,y),strata=meta.sex.map((x,i)=>x+'/'+meta.stage[i]);const all=pperm(v,y,Array(94).fill('all'),SEED+k+11),adj=pperm(v,y,strata,SEED+k+111);ans.sigs[name]={genes:set,mean_yes:r8(mean(yes)),mean_no:r8(mean(no)),effect_yes_minus_no_log2cpm1:r8(mean(yes)-mean(no)),auc_descriptive:r8(auc(yes,no)),p_global:r8(all),p_sex_stage_stratified:r8(adj),bootstrap_ci95_unadjusted:bootCI(v,y,SEED+k+311)}}
+const q1=bH(names.map(x=>ans.sigs[x].p_global)),q2=bH(names.map(x=>ans.sigs[x].p_sex_stage_stratified));for(let i=0;i<3;i++){ans.sigs[names[i]].BH_q_global=q1[i];ans.sigs[names[i]].BH_q_sex_stage_stratified=q2[i]}
+return ans}
+function selfTest(){assert.equal(auc([1,2],[0,1]),.875);assert.deepEqual(bH([.01,.02,.7]),[.03,.03,.7]);assert.equal(contrast([1,2,3,4],['No','No','Yes','Yes']),2);let rr=rng(11);for(let i=0;i<25;i++){const a=permuteWithin(['Yes','No','Yes','No'],['M','M','F','F'],rr);assert.equal(a.slice(0,2).filter(x=>x==='Yes').length,1)}assert.throws(()=>parseMeta('!Sample_title\t"a"'));assert.equal(rng(444)(),rng(444)());console.log('ASTRA_TESTS '+JSON.stringify({status:'PASS',n:6}))}
+if(process.argv.includes('--self-test'))selfTest();
+else{const[c,m]=await Promise.all([get(urls.counts,hashes.counts),get(urls.metadata,hashes.metadata)]);const meta=parseMeta(m.text),mat=parseCounts(c.text,meta),report=analyze(meta,mat);report.sha256={counts:c.sha256,metadata:m.sha256};report.bytes={counts:c.bytes,metadata:m.bytes};report.gene_rows=mat.gene_rows;report.result_status=Object.values(report.sigs).some(x=>x.BH_q_sex_stage_stratified<=.05)?'SIGNAL_EXPLORATORY_NOT_VALIDATED':'NO_SIGNIFICANT_SIGNALS';report.scope='RECURRENCE endpoint is distinct from BCG durable response; fixed proxies already examined in other datasets; not clinical validation';console.log('ASTRA_GSE294705_RESULT_START'+JSON.stringify(report)+'ASTRA_GSE294705_RESULT_END')}
