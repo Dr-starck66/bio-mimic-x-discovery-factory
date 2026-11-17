@@ -1,0 +1,842 @@
+{
+  "schema": "astra.dino.rubin2022.block_pca_permutation.v1",
+  "status": "PASS_LOCAL_EXECUTION__EXPLORATORY_SCIENTIFIC_RESULTS",
+  "source": {
+    "rubin_2022_doi": "10.1126/sciadv.abm5982",
+    "rubin_loci_git_blob_sha1": "dc6ec1da23aa6426fcc16dc5b5d1124d55699616",
+    "rubin_source_sha256": "9702730b625dc8a93eafe01025dda2ebacb0d2c34d34e418c5940df44ff28770",
+    "rubin_csv_git_blob_sha1": "383cebcfa21ec5bc898ddd5e3c2c2ab0560f2b21",
+    "rubin_csv_qc": "ALREADY_CROSSCHECKED_BY_GITHUB_CONNECTOR_NOT_LOCAL",
+    "oslo_dataset_doi": "10.5061/dryad.3ffbg79w8",
+    "oslo_originals_sha256": {
+      "Morphometrics.txt": "4722f565feeda8290d3985b4a65d9e0c4e91690270264cfc931d26f24cc51555",
+      "pPCAeigen.txt": "d615bd8dd3fd22091b971b20f18a49832d1f2afaf390a30ea3465f6a276b5bff",
+      "Prun64_3miss2mafNoZ_1.vcf.gz": "471db73a5eb65a8bb6af8f25872a5a2d0bc0115556203250f69eb61988163d34"
+    },
+    "assembly": "GCA_902806625.1"
+  },
+  "cohort": {
+    "vcf_records": 261754,
+    "vcf_total_samples": 64,
+    "paired_samples": 50,
+    "groups_count": 11,
+    "group_sizes_sorted": [
+      2,
+      2,
+      2,
+      2,
+      5,
+      6,
+      6,
+      6,
+      6,
+      6,
+      7
+    ],
+    "phenotypes": [
+      "log(beak_height/beak_length)",
+      "(log(length)+log(height)+log(width))/3"
+    ]
+  },
+  "primary_analysis": {
+    "method": "Unphased genotype-dose PCA, 2 PCs per block; population fixed-effect residualization; shared 2-phenotype within-population permutation; maxT across 28 blocks and joint ALX1+HMGA2 = 58 tests",
+    "blocks": [
+      3,
+      7
+    ],
+    "n_predeclared_models": 29,
+    "n_outcomes": 2,
+    "n_total_hypotheses": 58,
+    "n_permutations": 20000,
+    "seed": 20261114,
+    "maxT_null_p95": 0.354887,
+    "all_28_variant_count": 6928,
+    "all_28_passing_count": 3570,
+    "tested_models": [
+      {
+        "model": "LOCUS_01",
+        "block_locus": 1,
+        "n_predictors": 2,
+        "n_pass_filtered_snp": 115,
+        "pc_variance_ratios_genotype_only": [
+          0.213321,
+          0.128543
+        ],
+        "shape_within_pop_r2": 0.25792158,
+        "size_within_pop_r2": 0.25992159,
+        "p_shape_uncorrected": 0.00084996,
+        "p_size_uncorrected": 0.01134943,
+        "p_shape_maxT_58": 0.30743463,
+        "p_size_maxT_58": 0.29818509
+      },
+      {
+        "model": "LOCUS_02",
+        "block_locus": 2,
+        "n_predictors": 2,
+        "n_pass_filtered_snp": 25,
+        "pc_variance_ratios_genotype_only": [
+          0.267065,
+          0.190321
+        ],
+        "shape_within_pop_r2": 0.00241027,
+        "size_within_pop_r2": 0.20964049,
+        "p_shape_uncorrected": 0.94140293,
+        "p_size_uncorrected": 0.00774961,
+        "p_shape_maxT_58": 1.0,
+        "p_size_maxT_58": 0.61786911
+      },
+      {
+        "model": "LOCUS_03_HMGA2",
+        "block_locus": 3,
+        "n_predictors": 2,
+        "n_pass_filtered_snp": 394,
+        "pc_variance_ratios_genotype_only": [
+          0.199325,
+          0.14366
+        ],
+        "shape_within_pop_r2": 0.10806763,
+        "size_within_pop_r2": 0.22336857,
+        "p_shape_uncorrected": 0.05134743,
+        "p_size_uncorrected": 0.03334833,
+        "p_shape_maxT_58": 0.99935003,
+        "p_size_maxT_58": 0.52142393
+      },
+      {
+        "model": "LOCUS_04",
+        "block_locus": 4,
+        "n_predictors": 2,
+        "n_pass_filtered_snp": 58,
+        "pc_variance_ratios_genotype_only": [
+          0.176799,
+          0.122859
+        ],
+        "shape_within_pop_r2": 0.10224872,
+        "size_within_pop_r2": 0.08436183,
+        "p_shape_uncorrected": 0.10689466,
+        "p_size_uncorrected": 0.34068297,
+        "p_shape_maxT_58": 0.99955002,
+        "p_size_maxT_58": 1.0
+      },
+      {
+        "model": "LOCUS_05",
+        "block_locus": 5,
+        "n_predictors": 2,
+        "n_pass_filtered_snp": 156,
+        "pc_variance_ratios_genotype_only": [
+          0.182986,
+          0.1533
+        ],
+        "shape_within_pop_r2": 0.00445311,
+        "size_within_pop_r2": 0.16568991,
+        "p_shape_uncorrected": 0.89355532,
+        "p_size_uncorrected": 0.06234688,
+        "p_shape_maxT_58": 1.0,
+        "p_size_maxT_58": 0.89825509
+      },
+      {
+        "model": "LOCUS_06",
+        "block_locus": 6,
+        "n_predictors": 2,
+        "n_pass_filtered_snp": 44,
+        "pc_variance_ratios_genotype_only": [
+          0.204521,
+          0.165899
+        ],
+        "shape_within_pop_r2": 0.1121447,
+        "size_within_pop_r2": 0.20509773,
+        "p_shape_uncorrected": 0.09949503,
+        "p_size_uncorrected": 0.05164742,
+        "p_shape_maxT_58": 0.99855007,
+        "p_size_maxT_58": 0.65096745
+      },
+      {
+        "model": "LOCUS_07_ALX1",
+        "block_locus": 7,
+        "n_predictors": 2,
+        "n_pass_filtered_snp": 238,
+        "pc_variance_ratios_genotype_only": [
+          0.204758,
+          0.142288
+        ],
+        "shape_within_pop_r2": 0.03484802,
+        "size_within_pop_r2": 0.14269289,
+        "p_shape_uncorrected": 0.40517974,
+        "p_size_uncorrected": 0.10904455,
+        "p_shape_maxT_58": 1.0,
+        "p_size_maxT_58": 0.97255137
+      },
+      {
+        "model": "LOCUS_08",
+        "block_locus": 8,
+        "n_predictors": 2,
+        "n_pass_filtered_snp": 99,
+        "pc_variance_ratios_genotype_only": [
+          0.184153,
+          0.169391
+        ],
+        "shape_within_pop_r2": 0.00934563,
+        "size_within_pop_r2": 0.07038302,
+        "p_shape_uncorrected": 0.80715964,
+        "p_size_uncorrected": 0.35708215,
+        "p_shape_maxT_58": 1.0,
+        "p_size_maxT_58": 1.0
+      },
+      {
+        "model": "LOCUS_09",
+        "block_locus": 9,
+        "n_predictors": 2,
+        "n_pass_filtered_snp": 19,
+        "pc_variance_ratios_genotype_only": [
+          0.276788,
+          0.196577
+        ],
+        "shape_within_pop_r2": 0.01046038,
+        "size_within_pop_r2": 0.02076983,
+        "p_shape_uncorrected": 0.81905905,
+        "p_size_uncorrected": 0.68036598,
+        "p_shape_maxT_58": 1.0,
+        "p_size_maxT_58": 1.0
+      },
+      {
+        "model": "LOCUS_10",
+        "block_locus": 10,
+        "n_predictors": 2,
+        "n_pass_filtered_snp": 9,
+        "pc_variance_ratios_genotype_only": [
+          0.399667,
+          0.219141
+        ],
+        "shape_within_pop_r2": 0.00035845,
+        "size_within_pop_r2": 0.08457267,
+        "p_shape_uncorrected": 0.99415029,
+        "p_size_uncorrected": 0.28338583,
+        "p_shape_maxT_58": 1.0,
+        "p_size_maxT_58": 1.0
+      },
+      {
+        "model": "LOCUS_11",
+        "block_locus": 11,
+        "n_predictors": 2,
+        "n_pass_filtered_snp": 98,
+        "pc_variance_ratios_genotype_only": [
+          0.209768,
+          0.096961
+        ],
+        "shape_within_pop_r2": 0.08559045,
+        "size_within_pop_r2": 0.13735881,
+        "p_shape_uncorrected": 0.1340433,
+        "p_size_uncorrected": 0.10584471,
+        "p_shape_maxT_58": 1.0,
+        "p_size_maxT_58": 0.98155092
+      },
+      {
+        "model": "LOCUS_12",
+        "block_locus": 12,
+        "n_predictors": 2,
+        "n_pass_filtered_snp": 133,
+        "pc_variance_ratios_genotype_only": [
+          0.23102,
+          0.116286
+        ],
+        "shape_within_pop_r2": 0.10290809,
+        "size_within_pop_r2": 0.30489032,
+        "p_shape_uncorrected": 0.21153942,
+        "p_size_uncorrected": 0.0100495,
+        "p_shape_maxT_58": 0.99955002,
+        "p_size_maxT_58": 0.13314334
+      },
+      {
+        "model": "LOCUS_13",
+        "block_locus": 13,
+        "n_predictors": 2,
+        "n_pass_filtered_snp": 399,
+        "pc_variance_ratios_genotype_only": [
+          0.155001,
+          0.126
+        ],
+        "shape_within_pop_r2": 0.0648422,
+        "size_within_pop_r2": 0.28661613,
+        "p_shape_uncorrected": 0.3259337,
+        "p_size_uncorrected": 0.01379931,
+        "p_shape_maxT_58": 1.0,
+        "p_size_maxT_58": 0.18864057
+      },
+      {
+        "model": "LOCUS_14",
+        "block_locus": 14,
+        "n_predictors": 2,
+        "n_pass_filtered_snp": 97,
+        "pc_variance_ratios_genotype_only": [
+          0.165301,
+          0.135252
+        ],
+        "shape_within_pop_r2": 0.04330398,
+        "size_within_pop_r2": 0.06367916,
+        "p_shape_uncorrected": 0.41492925,
+        "p_size_uncorrected": 0.31873406,
+        "p_shape_maxT_58": 1.0,
+        "p_size_maxT_58": 1.0
+      },
+      {
+        "model": "LOCUS_15",
+        "block_locus": 15,
+        "n_predictors": 2,
+        "n_pass_filtered_snp": 131,
+        "pc_variance_ratios_genotype_only": [
+          0.214501,
+          0.141482
+        ],
+        "shape_within_pop_r2": 0.02425904,
+        "size_within_pop_r2": 0.0402023,
+        "p_shape_uncorrected": 0.55562222,
+        "p_size_uncorrected": 0.43022849,
+        "p_shape_maxT_58": 1.0,
+        "p_size_maxT_58": 1.0
+      },
+      {
+        "model": "LOCUS_16",
+        "block_locus": 16,
+        "n_predictors": 2,
+        "n_pass_filtered_snp": 250,
+        "pc_variance_ratios_genotype_only": [
+          0.156114,
+          0.111804
+        ],
+        "shape_within_pop_r2": 0.0178181,
+        "size_within_pop_r2": 0.05378901,
+        "p_shape_uncorrected": 0.66511674,
+        "p_size_uncorrected": 0.41142943,
+        "p_shape_maxT_58": 1.0,
+        "p_size_maxT_58": 1.0
+      },
+      {
+        "model": "LOCUS_17",
+        "block_locus": 17,
+        "n_predictors": 2,
+        "n_pass_filtered_snp": 124,
+        "pc_variance_ratios_genotype_only": [
+          0.202353,
+          0.139351
+        ],
+        "shape_within_pop_r2": 0.07698854,
+        "size_within_pop_r2": 0.00026652,
+        "p_shape_uncorrected": 0.18749063,
+        "p_size_uncorrected": 0.99740013,
+        "p_shape_maxT_58": 1.0,
+        "p_size_maxT_58": 1.0
+      },
+      {
+        "model": "LOCUS_18",
+        "block_locus": 18,
+        "n_predictors": 2,
+        "n_pass_filtered_snp": 119,
+        "pc_variance_ratios_genotype_only": [
+          0.190745,
+          0.128761
+        ],
+        "shape_within_pop_r2": 0.0306259,
+        "size_within_pop_r2": 0.01219235,
+        "p_shape_uncorrected": 0.45482726,
+        "p_size_uncorrected": 0.92380381,
+        "p_shape_maxT_58": 1.0,
+        "p_size_maxT_58": 1.0
+      },
+      {
+        "model": "LOCUS_19",
+        "block_locus": 19,
+        "n_predictors": 2,
+        "n_pass_filtered_snp": 123,
+        "pc_variance_ratios_genotype_only": [
+          0.182785,
+          0.160786
+        ],
+        "shape_within_pop_r2": 0.03759334,
+        "size_within_pop_r2": 0.07294857,
+        "p_shape_uncorrected": 0.44882756,
+        "p_size_uncorrected": 0.33103345,
+        "p_shape_maxT_58": 1.0,
+        "p_size_maxT_58": 1.0
+      },
+      {
+        "model": "LOCUS_20",
+        "block_locus": 20,
+        "n_predictors": 2,
+        "n_pass_filtered_snp": 89,
+        "pc_variance_ratios_genotype_only": [
+          0.177844,
+          0.15495
+        ],
+        "shape_within_pop_r2": 0.09805774,
+        "size_within_pop_r2": 0.13745964,
+        "p_shape_uncorrected": 0.08989551,
+        "p_size_uncorrected": 0.06024699,
+        "p_shape_maxT_58": 0.9999,
+        "p_size_maxT_58": 0.98140093
+      },
+      {
+        "model": "LOCUS_21",
+        "block_locus": 21,
+        "n_predictors": 2,
+        "n_pass_filtered_snp": 35,
+        "pc_variance_ratios_genotype_only": [
+          0.2904,
+          0.138684
+        ],
+        "shape_within_pop_r2": 0.04128927,
+        "size_within_pop_r2": 0.07454252,
+        "p_shape_uncorrected": 0.41877906,
+        "p_size_uncorrected": 0.29478526,
+        "p_shape_maxT_58": 1.0,
+        "p_size_maxT_58": 1.0
+      },
+      {
+        "model": "LOCUS_22",
+        "block_locus": 22,
+        "n_predictors": 2,
+        "n_pass_filtered_snp": 191,
+        "pc_variance_ratios_genotype_only": [
+          0.199856,
+          0.151201
+        ],
+        "shape_within_pop_r2": 0.06730044,
+        "size_within_pop_r2": 0.00401121,
+        "p_shape_uncorrected": 0.21243938,
+        "p_size_uncorrected": 0.91450427,
+        "p_shape_maxT_58": 1.0,
+        "p_size_maxT_58": 1.0
+      },
+      {
+        "model": "LOCUS_23",
+        "block_locus": 23,
+        "n_predictors": 2,
+        "n_pass_filtered_snp": 127,
+        "pc_variance_ratios_genotype_only": [
+          0.196425,
+          0.153328
+        ],
+        "shape_within_pop_r2": 0.07922962,
+        "size_within_pop_r2": 0.12407185,
+        "p_shape_uncorrected": 0.16844158,
+        "p_size_uncorrected": 0.11634418,
+        "p_shape_maxT_58": 1.0,
+        "p_size_maxT_58": 0.99415029
+      },
+      {
+        "model": "LOCUS_24",
+        "block_locus": 24,
+        "n_predictors": 2,
+        "n_pass_filtered_snp": 136,
+        "pc_variance_ratios_genotype_only": [
+          0.288799,
+          0.125929
+        ],
+        "shape_within_pop_r2": 0.11030798,
+        "size_within_pop_r2": 0.32737891,
+        "p_shape_uncorrected": 0.06474676,
+        "p_size_uncorrected": 0.00489976,
+        "p_shape_maxT_58": 0.99900005,
+        "p_size_maxT_58": 0.08754562
+      },
+      {
+        "model": "LOCUS_25",
+        "block_locus": 25,
+        "n_predictors": 2,
+        "n_pass_filtered_snp": 87,
+        "pc_variance_ratios_genotype_only": [
+          0.151792,
+          0.147382
+        ],
+        "shape_within_pop_r2": 0.11772484,
+        "size_within_pop_r2": 0.08906592,
+        "p_shape_uncorrected": 0.06509675,
+        "p_size_uncorrected": 0.17454127,
+        "p_shape_maxT_58": 0.99740013,
+        "p_size_maxT_58": 1.0
+      },
+      {
+        "model": "LOCUS_26",
+        "block_locus": 26,
+        "n_predictors": 2,
+        "n_pass_filtered_snp": 153,
+        "pc_variance_ratios_genotype_only": [
+          0.166915,
+          0.143472
+        ],
+        "shape_within_pop_r2": 0.00362402,
+        "size_within_pop_r2": 0.04378437,
+        "p_shape_uncorrected": 0.90885456,
+        "p_size_uncorrected": 0.65661717,
+        "p_shape_maxT_58": 1.0,
+        "p_size_maxT_58": 1.0
+      },
+      {
+        "model": "LOCUS_27",
+        "block_locus": 27,
+        "n_predictors": 2,
+        "n_pass_filtered_snp": 118,
+        "pc_variance_ratios_genotype_only": [
+          0.142009,
+          0.110052
+        ],
+        "shape_within_pop_r2": 0.01769477,
+        "size_within_pop_r2": 0.00278329,
+        "p_shape_uncorrected": 0.69461527,
+        "p_size_uncorrected": 0.95565222,
+        "p_shape_maxT_58": 1.0,
+        "p_size_maxT_58": 1.0
+      },
+      {
+        "model": "LOCUS_28",
+        "block_locus": 28,
+        "n_predictors": 2,
+        "n_pass_filtered_snp": 3,
+        "pc_variance_ratios_genotype_only": [
+          0.373679,
+          0.344834
+        ],
+        "shape_within_pop_r2": 4.404e-05,
+        "size_within_pop_r2": 0.00516994,
+        "p_shape_uncorrected": 0.99890005,
+        "p_size_uncorrected": 0.87910604,
+        "p_shape_maxT_58": 1.0,
+        "p_size_maxT_58": 1.0
+      },
+      {
+        "model": "JOINT_03_07",
+        "block_locus": null,
+        "n_predictors": 4,
+        "n_pass_filtered_snp": 632,
+        "pc_variance_ratios_genotype_only": null,
+        "shape_within_pop_r2": 0.1244495,
+        "size_within_pop_r2": 0.26682623,
+        "p_shape_uncorrected": 0.14504275,
+        "p_size_uncorrected": 0.07884606,
+        "p_shape_maxT_58": 0.9939503,
+        "p_size_maxT_58": 0.26558672
+      }
+    ]
+  },
+  "secondary_sensitivity_exploratory_NOT_CONFIRMATORY": {
+    "scope": "Focused 3 models x 2 endpoints, plus one-PC alternative; additional 12-test correction over model choice. Examined after broad 58-test primary family; not independent validation",
+    "results": [
+      {
+        "model": "LOCUS_03_HMGA2",
+        "two_pc_focal_family6": {
+          "shape_r2": 0.10806763,
+          "size_r2": 0.22336857,
+          "shape_p_maxR2_fwer6": 0.62051897,
+          "size_p_maxR2_fwer6": 0.14894255
+        },
+        "one_pc_exploratory_fwer6": {
+          "shape_r2": 0.08192826,
+          "size_r2": 0.21490156,
+          "shape_p_maxR2_fwer6": 0.48862557,
+          "size_p_maxR2_fwer6": 0.07244638
+        },
+        "across_both_pc_choices_family12": {
+          "twoPC_shape_p_maxR2_fwer12": 0.62051897,
+          "twoPC_size_p_maxR2_fwer12": 0.14894255,
+          "onePC_shape_p_maxR2_fwer12": 0.81340933,
+          "onePC_size_p_maxR2_fwer12": 0.16659167
+        }
+      },
+      {
+        "model": "LOCUS_07_ALX1",
+        "two_pc_focal_family6": {
+          "shape_r2": 0.03484802,
+          "size_r2": 0.14269289,
+          "shape_p_maxR2_fwer6": 0.99845008,
+          "size_p_maxR2_fwer6": 0.42127894
+        },
+        "one_pc_exploratory_fwer6": {
+          "shape_r2": 0.03477594,
+          "size_r2": 0.13927384,
+          "shape_p_maxR2_fwer6": 0.81905905,
+          "size_p_maxR2_fwer6": 0.22463877
+        },
+        "across_both_pc_choices_family12": {
+          "twoPC_shape_p_maxR2_fwer12": 0.99845008,
+          "twoPC_size_p_maxR2_fwer12": 0.42127894,
+          "onePC_shape_p_maxR2_fwer12": 0.99850007,
+          "onePC_size_p_maxR2_fwer12": 0.43822809
+        }
+      },
+      {
+        "model": "JOINT_03_07",
+        "two_pc_focal_family6": {
+          "shape_r2": 0.1244495,
+          "size_r2": 0.26682623,
+          "shape_p_maxR2_fwer6": 0.51562422,
+          "size_p_maxR2_fwer6": 0.08014599
+        },
+        "one_pc_exploratory_fwer6": {
+          "shape_r2": 0.08846065,
+          "size_r2": 0.25826977,
+          "shape_p_maxR2_fwer6": 0.44877756,
+          "size_p_maxR2_fwer6": 0.03829809
+        },
+        "across_both_pc_choices_family12": {
+          "twoPC_shape_p_maxR2_fwer12": 0.51562422,
+          "twoPC_size_p_maxR2_fwer12": 0.08014599,
+          "onePC_shape_p_maxR2_fwer12": 0.76451177,
+          "onePC_size_p_maxR2_fwer12": 0.09139543
+        }
+      }
+    ]
+  },
+  "negative_controls": {
+    "within_pop_permutation_null": "PASS_COMPUTED",
+    "sham_crosswalk": "PERMUTED_PHENOTYPES_NON_INDEPENDENT_SANITY_CHECK",
+    "sham_profiles": [
+      {
+        "model": "LOCUS_03_HMGA2",
+        "shape_r2": 0.029493,
+        "size_r2": 0.06124
+      },
+      {
+        "model": "LOCUS_07_ALX1",
+        "shape_r2": 0.010879,
+        "size_r2": 0.173345
+      },
+      {
+        "model": "JOINT_03_07",
+        "shape_r2": 0.069992,
+        "size_r2": 0.183636
+      }
+    ],
+    "other_26_author_selected_blocks": "COMPARATORS_NOT_NULL_REGIONS",
+    "source_digest_mutant_rejection": "TESTED_SEPARATELY_IN_UNIT_TESTS"
+  },
+  "leave_one_population_out_descriptive": {
+    "LOCUS_03_HMGA2": {
+      "n_deletions": 11,
+      "all_numeric": true,
+      "size_r2_min": 0.119524,
+      "size_r2_max": 0.372215,
+      "folds": [
+        {
+          "excluded_pop": "crassirostris_L",
+          "excluded_n": 2,
+          "shape_r2": 0.116965,
+          "size_r2": 0.230591
+        },
+        {
+          "excluded_pop": "crassirostris_Z",
+          "excluded_n": 2,
+          "shape_r2": 0.118378,
+          "size_r2": 0.223218
+        },
+        {
+          "excluded_pop": "fortis_L",
+          "excluded_n": 7,
+          "shape_r2": 0.138872,
+          "size_r2": 0.372215
+        },
+        {
+          "excluded_pop": "fortis_Z",
+          "excluded_n": 6,
+          "shape_r2": 0.052088,
+          "size_r2": 0.119524
+        },
+        {
+          "excluded_pop": "fuliginosa_L",
+          "excluded_n": 6,
+          "shape_r2": 0.132983,
+          "size_r2": 0.255815
+        },
+        {
+          "excluded_pop": "fuliginosa_Z",
+          "excluded_n": 5,
+          "shape_r2": 0.095147,
+          "size_r2": 0.229491
+        },
+        {
+          "excluded_pop": "fusca_L",
+          "excluded_n": 2,
+          "shape_r2": 0.116607,
+          "size_r2": 0.233443
+        },
+        {
+          "excluded_pop": "magnirostris_Z",
+          "excluded_n": 6,
+          "shape_r2": 0.06522,
+          "size_r2": 0.197496
+        },
+        {
+          "excluded_pop": "pallidus_L",
+          "excluded_n": 6,
+          "shape_r2": 0.126276,
+          "size_r2": 0.234778
+        },
+        {
+          "excluded_pop": "parvulus_L",
+          "excluded_n": 2,
+          "shape_r2": 0.108299,
+          "size_r2": 0.224404
+        },
+        {
+          "excluded_pop": "scandens_Z",
+          "excluded_n": 6,
+          "shape_r2": 0.137379,
+          "size_r2": 0.210371
+        }
+      ]
+    },
+    "LOCUS_07_ALX1": {
+      "n_deletions": 11,
+      "all_numeric": true,
+      "size_r2_min": 0.039601,
+      "size_r2_max": 0.391042,
+      "folds": [
+        {
+          "excluded_pop": "crassirostris_L",
+          "excluded_n": 2,
+          "shape_r2": 0.050224,
+          "size_r2": 0.1087
+        },
+        {
+          "excluded_pop": "crassirostris_Z",
+          "excluded_n": 2,
+          "shape_r2": 0.042259,
+          "size_r2": 0.143373
+        },
+        {
+          "excluded_pop": "fortis_L",
+          "excluded_n": 7,
+          "shape_r2": 0.073929,
+          "size_r2": 0.391042
+        },
+        {
+          "excluded_pop": "fortis_Z",
+          "excluded_n": 6,
+          "shape_r2": 0.029464,
+          "size_r2": 0.039601
+        },
+        {
+          "excluded_pop": "fuliginosa_L",
+          "excluded_n": 6,
+          "shape_r2": 0.051782,
+          "size_r2": 0.157662
+        },
+        {
+          "excluded_pop": "fuliginosa_Z",
+          "excluded_n": 5,
+          "shape_r2": 0.031672,
+          "size_r2": 0.130287
+        },
+        {
+          "excluded_pop": "fusca_L",
+          "excluded_n": 2,
+          "shape_r2": 0.038252,
+          "size_r2": 0.14956
+        },
+        {
+          "excluded_pop": "magnirostris_Z",
+          "excluded_n": 6,
+          "shape_r2": 0.064528,
+          "size_r2": 0.208386
+        },
+        {
+          "excluded_pop": "pallidus_L",
+          "excluded_n": 6,
+          "shape_r2": 0.035981,
+          "size_r2": 0.15
+        },
+        {
+          "excluded_pop": "parvulus_L",
+          "excluded_n": 2,
+          "shape_r2": 0.048816,
+          "size_r2": 0.201178
+        },
+        {
+          "excluded_pop": "scandens_Z",
+          "excluded_n": 6,
+          "shape_r2": 0.03327,
+          "size_r2": 0.155382
+        }
+      ]
+    },
+    "JOINT_03_07": {
+      "n_deletions": 11,
+      "all_numeric": true,
+      "size_r2_min": 0.209501,
+      "size_r2_max": 0.527619,
+      "folds": [
+        {
+          "excluded_pop": "crassirostris_L",
+          "excluded_n": 2,
+          "shape_r2": 0.129269,
+          "size_r2": 0.26363
+        },
+        {
+          "excluded_pop": "crassirostris_Z",
+          "excluded_n": 2,
+          "shape_r2": 0.139374,
+          "size_r2": 0.267048
+        },
+        {
+          "excluded_pop": "fortis_L",
+          "excluded_n": 7,
+          "shape_r2": 0.1821,
+          "size_r2": 0.527619
+        },
+        {
+          "excluded_pop": "fortis_Z",
+          "excluded_n": 6,
+          "shape_r2": 0.071668,
+          "size_r2": 0.209501
+        },
+        {
+          "excluded_pop": "fuliginosa_L",
+          "excluded_n": 6,
+          "shape_r2": 0.16232,
+          "size_r2": 0.296707
+        },
+        {
+          "excluded_pop": "fuliginosa_Z",
+          "excluded_n": 5,
+          "shape_r2": 0.11177,
+          "size_r2": 0.268968
+        },
+        {
+          "excluded_pop": "fusca_L",
+          "excluded_n": 2,
+          "shape_r2": 0.134653,
+          "size_r2": 0.279445
+        },
+        {
+          "excluded_pop": "magnirostris_Z",
+          "excluded_n": 6,
+          "shape_r2": 0.104885,
+          "size_r2": 0.254017
+        },
+        {
+          "excluded_pop": "pallidus_L",
+          "excluded_n": 6,
+          "shape_r2": 0.142108,
+          "size_r2": 0.280146
+        },
+        {
+          "excluded_pop": "parvulus_L",
+          "excluded_n": 2,
+          "shape_r2": 0.134247,
+          "size_r2": 0.309034
+        },
+        {
+          "excluded_pop": "scandens_Z",
+          "excluded_n": 6,
+          "shape_r2": 0.147041,
+          "size_r2": 0.259037
+        }
+      ]
+    }
+  },
+  "scientific_scope": {
+    "phased_haplotypes": false,
+    "genotype_PCs_are_true_haplotypes": false,
+    "genetic_ancestry_modules_causal": false,
+    "independent_validation": false,
+    "population_relatedness_fully_controlled": false,
+    "notes": "R² descriptive within training cohort, not held-out predictions. Population stratification and kinship remain possible. 28 blocks were discovered with another species comparison; selected panel is not genome-wide. Marker data SNPs do not prove whole-block LD/haplotype phase."
+  }
+}

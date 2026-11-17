@@ -1,0 +1,45 @@
+{
+  "author_intervals_sha256": "9702730b625dc8a93eafe01025dda2ebacb0d2c34d34e418c5940df44ff28770",
+  "baseline_train_script_sha256": "2c589b278a3d320e24e62efe691f6724d81c3bf8b45b0a5e5ffc3d21fab80d73",
+  "exclusions": [
+    "OSLO_SAMPLES_AND_DUPLICATE_ACCESSIONS",
+    "NON_MATCHING_REFERENCE_ASSEMBLY",
+    "UNVERIFIED_SAMPLE_CROSSWALK",
+    "PHENOTYPE_ONLY_MUSEUM_SAMPLES",
+    "LESS_THAN_80_PERCENT_MARKER_COVERAGE",
+    "PHENOTYPE_IN_TRAINING"
+  ],
+  "frozen_lock": {
+    "baseline": "OSLO_TRAIN_MEAN",
+    "call_train_min": 0.8,
+    "endpoints": [
+      "log_beak_size",
+      "log_beak_shape"
+    ],
+    "genotype_pcs_per_block": 2,
+    "maf_train_min": 0.05,
+    "minimum_clusters": 5,
+    "minimum_external_gt_call_rate": 0.8,
+    "minimum_independent_n": 30,
+    "minimum_marker_coverage_each_block": 0.8,
+    "permutation_count": 20000,
+    "permutation_seed": 20261115,
+    "primary_model": "JOINT_HMGA2_ALX1",
+    "primary_success": "paired_MSE_relative_gain_positive_and_within_cluster_perm_p_le_0.05",
+    "primary_target": "log_beak_size",
+    "ridge_lambda": 10.0,
+    "secondary_correction": "Holm FWER over 6 model-outcome comparisons (exploratory)"
+  },
+  "population_count_oslo": 11,
+  "private_model_bytes": 106658,
+  "private_model_sha256": "4e2d80b60dde9906442856af26f218b16cfd0804370764e2ec17e207b6dcf18c",
+  "sample_count_oslo": 50,
+  "schema": "astra_dino_external_pre_registration_v1",
+  "source_assembly": "GCA_902806625.1",
+  "status": "MODEL_FROZEN__EXTERNAL_COHORT_NOT_YET_VERIFIED",
+  "training_markers": {
+    "ALX1": 238,
+    "HMGA2": 394
+  },
+  "transfer_script_sha256": "491a40322512a43beae31654495dda69c4cdc8307b7a23f7331ef2379e4f226d"
+}
