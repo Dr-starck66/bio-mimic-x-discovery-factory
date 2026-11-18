@@ -1,6 +1,6 @@
 {
   "ecosystem_id": "camargue-vaccares-gbif-pilot",
-  "generated_at": "2026-11-17T11:10:16.384859+00:00",
+  "generated_at": "2026-11-18T10:45:41.915930+00:00",
   "generated_by": "factory/ecosystem_gbif_ingest.py",
   "measurement_semantics": "GBIF_OCCURRENCE_RECORD_COUNT_NOT_ABUNDANCE",
   "observations": [
@@ -4296,16 +4296,16 @@
           "6604187171",
           "6604459937"
         ],
-        "gbif_query_count": 119,
+        "gbif_query_count": 137,
         "licenses": [
           "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
           "http://creativecommons.org/licenses/by/4.0/legalcode"
         ],
         "provider": "GBIF",
         "query_sha256": "e0b84ff2bc3f66ae455e4712b5c88194ebedc718e7c4751b029e01c20cc7e082",
-        "record_id_sha256": "76848cca9ed69aea1b8da15639dd003303197344dc65f03cbdfbdaa53904f756",
-        "records_used": 118,
-        "records_without_species_resolution": 1,
+        "record_id_sha256": "daf8a09639f9b76bb74311cb82656aa8d479e9f511bc59c85906f871543a6b77",
+        "records_used": 123,
+        "records_without_species_resolution": 14,
         "window_end": "2026-10-31",
         "window_start": "2026-10-01"
       },
@@ -4343,6 +4343,7 @@
         "Empusa pennata": 2,
         "Emys orbicularis": 1,
         "Eobania vermiculata": 1,
+        "Epidalea calamita": 1,
         "Eublemma parva": 1,
         "Eupatorium cannabinum": 1,
         "Eupeodes corollae": 1,
@@ -4356,9 +4357,11 @@
         "Himantopus himantopus": 1,
         "Hoplodrina ambigua": 1,
         "Hydroprogne caspia": 1,
+        "Hyla meridionalis": 3,
         "Lampides boeticus": 2,
         "Leptoglossus occidentalis": 1,
         "Leptotes pirithous": 1,
+        "Lepus europaeus": 1,
         "Leucochlaena oditis": 1,
         "Limonium narbonense": 1,
         "Mantis religiosa": 5,
@@ -4400,7 +4403,7 @@
   ],
   "sampling_bias_note": "Monthly taxon values are counts of GBIF occurrence records inside the configured observation window. They are not organism abundance, density, occupancy, or standardized sampling effort.",
   "schema": "biomimic-ecosystem-observations-v2",
-  "sha256": "30ebcd373d7a1b8300ccf3e0ebcf6cc42859fe88b22a07153e304f94fe89ed03",
+  "sha256": "24e8af50c80f07c9792d14d946219a8c6f72e4edc91e548c854beb1da1558517",
   "source": {
     "api": "https://api.gbif.org/v1/occurrence/search",
     "authentication_required": false,
