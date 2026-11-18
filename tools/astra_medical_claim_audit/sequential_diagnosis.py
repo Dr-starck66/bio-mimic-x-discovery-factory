@@ -149,7 +149,7 @@ def run_case(case, *, threshold=0.85, max_steps=5):
                       "entropy_before_bits": round(entropy(before), 8), "entropy_after_bits": round(entropy(current), 8),
                       "status": "SIMULATED_STEP"})
     best = sorted(current, key=lambda h: (-current[h], h))[0]
-    decision = best if current[best] >= threshold and all(x["status"] == "SIMULATED_STEP" for x in trace) else None
+    decision = best if trace and current[best] >= threshold and all(x["status"] == "SIMULATED_STEP" for x in trace) else None
     return {"case_id": case["case_id"], "predicted_label": decision, "synthetic_ground_truth": case["ground_truth"],
             "correct_on_synthetic": (decision == case["ground_truth"]) if decision else None,
             "outcome": "SIMULATED_CLASSIFICATION" if decision else "ABSTAIN",
