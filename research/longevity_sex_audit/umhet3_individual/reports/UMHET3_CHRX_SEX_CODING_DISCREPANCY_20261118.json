@@ -1,0 +1,38 @@
+{
+  "name": "UM-HET3 phenotype sex coding / chrX genotype provenance audit",
+  "date": "2026-11-18",
+  "source": {
+    "original_repo": "DannyArends/UM-HET3",
+    "original_csv": "DataSet/um-het3-rqtl.csvr",
+    "original_git_blob_sha": "4b23a79950182df8564af63803b481179f6e8d17",
+    "author_sex_code": "Figures/Figure1.R: male pheno sex==1, female sex==0",
+    "nature_methods": "Arends et al. 2026 PMID 42020758: n=3401 females n=3037 males",
+    "paper_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13253337/"
+  },
+  "phenotype_counts": {
+    "sex_code_0": 3037,
+    "sex_code_1": 3401
+  },
+  "genotype_chromosome_X": {
+    "x_marker_rows": 11,
+    "calls_total_code0": 33407,
+    "calls_total_code1": 37411,
+    "code0_allele_calls": {
+      "1": 7988,
+      "2": 9854,
+      "3": 0,
+      "4": 0,
+      "missing": 15565
+    },
+    "code1_allele_calls": {
+      "1": 0,
+      "2": 0,
+      "3": 8614,
+      "4": 9112,
+      "missing": 19685
+    }
+  },
+  "negative_control": "Autosomal chr1 first 30 markers show genotype families 5–8 in both sex codes, unlike chrX whose two sex-code classes are completely disjoint among observed calls.",
+  "inference": "The genotype classes distinctly separate sex codes; however their mapping to biological male vs female is not independently proven by genotype codes alone. The author's Figure1.R maps code1 to male, conflicting with the sex counts in prose of Nature paper. Needs verification against original Sex and animal-level metadata; do not automatically swap classes.",
+  "status": "PARTIAL - coding discrepancy corroborated across sources, biological sex assignment not independently confirmed; author clarification pending"
+}
