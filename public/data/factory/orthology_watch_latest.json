@@ -3,17 +3,17 @@
   "pending_targets": 1,
   "promotion_ready_targets": 0,
   "schema": "biomimic-orthology-watch-v1",
-  "sha256": "0b16f202f68bdcffb60d47cb74aa37712ba0e9b78cbefc7c0c38da80bb81474f",
+  "sha256": "8fa35bcee97b80873ce93fe7d19c92a9216741ba25f332f3719db03dcd609a6b",
   "status": "WATCHING",
   "targets": [
     {
       "bridges": [],
       "candidate_status": [
         {
-          "bridges": 0,
+          "bridges": 1,
           "candidate": "Paracentrotus lividus",
           "direct_orthology_seed_records_checked": 1,
-          "direct_orthology_strict_bridges": 0,
+          "direct_orthology_strict_bridges": 1,
           "ensembl_species": null,
           "functional_orthology_context_validated": 0,
           "functional_orthology_evidence_validated": 0,
@@ -31,7 +31,7 @@
           "orthodb_seed_genes_checked": 1,
           "phylogenetic_seed_records_checked": 0,
           "phylogenetic_strict_bridges": 0,
-          "status": "NO_SUPPORTED_ORTHOLOGY_PROVIDER_MATCH",
+          "status": "BRIDGED",
           "uniprot_annotation_candidates": 10,
           "uniprot_candidates": 10,
           "uniprot_species_gene_candidates": 0,
@@ -61,9 +61,9 @@
         "Europe PMC annotations": "PASS",
         "NCBI Ortholog": "PARTIAL",
         "OMA orthology": "PARTIAL",
-        "Open Targets": "PARTIAL",
+        "Open Targets": "PASS",
         "OrthoDB v12": "PARTIAL",
-        "Peer-reviewed direct orthology": "PARTIAL",
+        "Peer-reviewed direct orthology": "PASS",
         "Peer-reviewed functional orthology": "PARTIAL",
         "Peer-reviewed phylogenetic orthology": "PARTIAL"
       },
@@ -73,5 +73,5 @@
       "strict_providers": []
     }
   ],
-  "time": "2026-11-17T13:09:04.867327+00:00"
+  "time": "2026-11-18T12:57:03.053163+00:00"
 }
