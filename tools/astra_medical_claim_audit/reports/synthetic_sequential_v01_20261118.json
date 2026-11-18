@@ -1,0 +1,95 @@
+{
+  "abstained": 1,
+  "accuracy_among_decided": 1.0,
+  "benchmark": "ASTRA sequential synthetic only",
+  "cases": [
+    {
+      "case_id": "synthetic-positive-marker",
+      "clinical_validity": "UNVERIFIED",
+      "correct_on_synthetic": true,
+      "evidence_status": "PASS_SIMULATION_ONLY",
+      "note": "No patients, no therapy advice. Synthetic likelihoods supplied by experiment designer, not clinically calibrated.",
+      "outcome": "SIMULATED_CLASSIFICATION",
+      "posterior": {
+        "A": 0.95,
+        "B": 0.05
+      },
+      "predicted_label": "A",
+      "steps": [
+        {
+          "cost_synthetic_units": 1,
+          "entropy_after_bits": 0.28639696,
+          "entropy_before_bits": 1.0,
+          "expected_gain_bits": 0.71360304,
+          "observed": "positive",
+          "posterior": {
+            "A": 0.95,
+            "B": 0.05
+          },
+          "status": "SIMULATED_STEP",
+          "test_id": "cheap-marker",
+          "utility": 0.35680152
+        }
+      ],
+      "synthetic_cost_units": 1,
+      "synthetic_ground_truth": "A",
+      "tests_used": 1
+    },
+    {
+      "case_id": "synthetic-negative-marker",
+      "clinical_validity": "UNVERIFIED",
+      "correct_on_synthetic": true,
+      "evidence_status": "PASS_SIMULATION_ONLY",
+      "note": "No patients, no therapy advice. Synthetic likelihoods supplied by experiment designer, not clinically calibrated.",
+      "outcome": "SIMULATED_CLASSIFICATION",
+      "posterior": {
+        "A": 0.05,
+        "B": 0.95
+      },
+      "predicted_label": "B",
+      "steps": [
+        {
+          "cost_synthetic_units": 1,
+          "entropy_after_bits": 0.28639696,
+          "entropy_before_bits": 1.0,
+          "expected_gain_bits": 0.71360304,
+          "observed": "negative",
+          "posterior": {
+            "A": 0.05,
+            "B": 0.95
+          },
+          "status": "SIMULATED_STEP",
+          "test_id": "cheap-marker",
+          "utility": 0.35680152
+        }
+      ],
+      "synthetic_cost_units": 1,
+      "synthetic_ground_truth": "B",
+      "tests_used": 1
+    },
+    {
+      "case_id": "synthetic-ambiguous-abstain",
+      "clinical_validity": "UNVERIFIED",
+      "correct_on_synthetic": null,
+      "evidence_status": "PASS_SIMULATION_ONLY",
+      "note": "No patients, no therapy advice. Synthetic likelihoods supplied by experiment designer, not clinically calibrated.",
+      "outcome": "ABSTAIN",
+      "posterior": {
+        "A": 0.5,
+        "B": 0.5
+      },
+      "predicted_label": null,
+      "steps": [],
+      "synthetic_cost_units": 0,
+      "synthetic_ground_truth": "B",
+      "tests_used": 0
+    }
+  ],
+  "clinical_validation": "UNVERIFIED",
+  "correct_decisions": 2,
+  "coverage": 0.6666666666666666,
+  "decided": 2,
+  "input_sha256": "705aff42086a8ae10037b24f7b71f9a73d0a00619eded4f0e6762a5651bc5c98",
+  "number_cases": 3,
+  "patient_data": "PROHIBITED"
+}
