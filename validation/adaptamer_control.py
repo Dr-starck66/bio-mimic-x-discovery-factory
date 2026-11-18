@@ -103,27 +103,36 @@ def evaluate_measurements(rows: list[dict]) -> dict:
             sources.add(row["study_doi"])
     except (TypeError, ValueError, KeyError) as exc:
         return {"status": "UNVERIFIED", "reason": "BAD_MEASUREMENTS", "detail": str(exc)}
-    # Distinct replicate IDs within each arm and at least two external laboratories.
+    # No cross-laboratory pooling: every arm must have >=3 distinct replicates
+    # in EACH laboratory. Reject missing arms to prevent batch confounding.
+    coverage = {lab: {arm: len({r[1] for r in groups[arm] if r[0] == lab})
+                      for arm in ARMS} for lab in sorted(labs)}
     if len(labs) < 2 or len(sources) < 2 or any(
-        len({(r[0], r[1]) for r in groups[a]}) < 3 for a in ARMS
+        n < 3 for arms in coverage.values() for n in arms.values()
     ):
         return {"status": "UNVERIFIED", "reason": "INSUFFICIENT_INDEPENDENT_COVERAGE",
-                "labs": len(labs), "studies": len(sources), "counts": {a: len(groups[a]) for a in ARMS}}
-    med = {a: statistics.median(r[2] for r in groups[a]) for a in ARMS}
-    # These thresholds are software demonstration defaults, NOT safety limits.
-    baseline = med["off"]
-    dynamic = med["on"] - baseline
-    criteria = {
-        "induction_2fold": baseline > 0 and med["on"] >= 2 * baseline,
-        "withdrawal_80pct_reversal": dynamic > 0 and med["withdrawal"] <= baseline + 0.2 * dynamic,
-        "negative_switch_near_baseline": med["switch_negative"] <= baseline * 1.25,
-        "viability_at_least_90pct": min(r[3] for arm in ARMS for r in groups[arm]) >= 90,
-        "offtarget_at_most_1pct": max(r[4] for arm in ARMS for r in groups[arm]) <= 0.01,
-    }
-    return {"status": "PASS" if all(criteria.values()) else "FAIL",
+                "labs": len(labs), "studies": len(sources), "counts_by_lab": coverage}
+    lab_results = {}
+    for lab in sorted(labs):
+        lab_data = {arm: [r for r in groups[arm] if r[0] == lab] for arm in ARMS}
+        med = {arm: statistics.median(r[2] for r in lab_data[arm]) for arm in ARMS}
+        baseline = med["off"]
+        dynamic = med["on"] - baseline
+        criteria = {
+            "induction_2fold": baseline > 0 and med["on"] >= 2 * baseline,
+            "withdrawal_80pct_reversal": dynamic > 0 and med["withdrawal"] <= baseline + 0.2 * dynamic,
+            "negative_switch_near_baseline": med["switch_negative"] <= baseline * 1.25,
+            "viability_at_least_90pct": min(r[3] for arm in ARMS for r in lab_data[arm]) >= 90,
+            "offtarget_at_most_1pct": max(r[4] for arm in ARMS for r in lab_data[arm]) <= 0.01,
+        }
+        lab_results[lab] = {"criteria": criteria, "median_protein": med}
+    all_criteria = {criterion: all(r["criteria"][criterion] for r in lab_results.values())
+                    for criterion in next(iter(lab_results.values()))["criteria"]}
+    return {"status": "PASS" if all(all_criteria.values()) else "FAIL",
             "status_scope": "ILLUSTRATIVE_NUMERIC_GATE_ONLY",
             "biological_validation": "UNVERIFIED", "external_provenance": "REVIEW_REQUIRED",
-            "criteria": criteria, "median_protein": med, "labs": len(labs), "studies": len(sources)}
+            "criteria": all_criteria, "by_lab": lab_results,
+            "labs": len(labs), "studies": len(sources)}
 
 
 def run_report(data_csv: str | None = None) -> dict:
