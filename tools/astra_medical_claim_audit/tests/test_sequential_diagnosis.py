@@ -69,6 +69,10 @@ class SequentialResearchTests(unittest.TestCase):
     def test_abstention_coverage(self):
         c=case(); c["tests"]=[]; c["observations"]={}
         r=run_suite([c]); self.assertEqual(r["coverage"],0);self.assertIsNone(r["accuracy_among_decided"])
+    def test_prior_only_must_abstain(self):
+        c=case(); c["hypotheses"][0]["prior"]=0.99; c["hypotheses"][1]["prior"]=0.01
+        c["tests"]=[]; c["observations"]={}
+        self.assertEqual(run_case(c)["outcome"], "ABSTAIN")
     def test_unreachable_observation_refused_to_classify(self):
         c=case(); c["tests"][1]["outcomes"]={"A":{"pos":0,"neg":1},"B":{"pos":0,"neg":1}}
         # With zero-information marker it is never selected.
