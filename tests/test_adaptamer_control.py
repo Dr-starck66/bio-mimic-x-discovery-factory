@@ -69,6 +69,21 @@ class AdaptamerModelTests(unittest.TestCase):
         result = evaluate_measurements([r for r in rows if r["laboratory"] == "lab_1"])
         self.assertEqual(result["status"], "UNVERIFIED")
 
+    def test_arms_must_be_measured_within_each_lab(self):
+        rows = [r for r in self.measurements() if not (
+            r["laboratory"] == "lab_2" and r["arm"] == "withdrawal")]
+        self.assertEqual(evaluate_measurements(rows)["status"], "UNVERIFIED")
+
+    def test_pooled_positive_cannot_hide_lab_failure(self):
+        rows = self.measurements()
+        for r in rows:
+            if r["laboratory"] == "lab_2" and r["arm"] == "withdrawal":
+                r["protein"] = 2.9
+        result = evaluate_measurements(rows)
+        self.assertEqual(result["status"], "FAIL")
+        self.assertFalse(result["criteria"]["withdrawal_80pct_reversal"])
+        self.assertTrue(result["by_lab"]["lab_1"]["criteria"]["withdrawal_80pct_reversal"])
+
     def test_malformed_observation_rejected(self):
         rows = self.measurements()
         rows[0]["viability_pct"] = math.nan
