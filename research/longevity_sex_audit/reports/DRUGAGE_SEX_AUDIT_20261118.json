@@ -1,0 +1,295 @@
+{
+  "id": "BIO-MIMIC-X-DRUGAGE-SEX-EXPLORATORY-20261118",
+  "origin": {
+    "dataset": "DrugAge Build 5, HAGR",
+    "source_url": "https://github.com/zwbao/longevity-skills/blob/main/skills/longevitybench/data/drugage.csv",
+    "github_blob_sha": "de17d28db4dc1337e627b7404e6fb01da796f113",
+    "citation": "Barardo et al., Aging Cell 2017; de Magalhães et al., NAR 2024",
+    "license": "CC BY 3.0",
+    "newer_release": "HAGR Build 6 available on 2026-11-15; not analyzed here"
+  },
+  "design": "Matched Female vs Male within drug, species, strain, dose, treatment-initiation age, treatment duration and PubMed study identifier; PMID-level clustering, Monte Carlo sign flip 20,000, cluster bootstrap 10,000; four-species BH FDR",
+  "source_rows": 3423,
+  "matched_conditions": 333,
+  "distinct_pubmed_all": 101,
+  "all_species": {
+    "n_conditions": 333,
+    "n_unique_pubmed": 101,
+    "mean_study_female_minus_male_pp": -0.8979778554489343,
+    "mean_conditions_pp": -0.8024690599690594,
+    "study_signs": {
+      "female_higher": 50,
+      "male_higher": 49,
+      "equal": 2
+    },
+    "p_two_sided_cluster_signflip": 0.2714364281785911,
+    "study_cluster_bootstrap_CI_95": [
+      -2.48000520931214,
+      0.6910825637508812
+    ],
+    "leave_one_pubmed_out_study_mean_range": [
+      -1.1919576340034235,
+      -0.5531576340034235
+    ]
+  },
+  "species_results": [
+    {
+      "species": "Drosophila melanogaster",
+      "n_conditions": 115,
+      "n_unique_pubmed": 43,
+      "mean_study_female_minus_male_pp": 0.6792838880146103,
+      "mean_conditions_pp": -0.24007971014492743,
+      "study_signs": {
+        "female_higher": 22,
+        "male_higher": 20,
+        "equal": 1
+      },
+      "p_two_sided_cluster_signflip": 0.42462876856157195,
+      "study_cluster_bootstrap_CI_95": [
+        -0.849449573546269,
+        2.3031574575974822
+      ],
+      "leave_one_pubmed_out_study_mean_range": [
+        0.21926683772924382,
+        0.9335525520149581
+      ],
+      "BH_FDR_q_across_tested_species": 0.7173641317934103
+    },
+    {
+      "species": "Mus musculus",
+      "n_conditions": 121,
+      "n_unique_pubmed": 35,
+      "mean_study_female_minus_male_pp": -2.1859431045145334,
+      "mean_conditions_pp": -2.37603305785124,
+      "study_signs": {
+        "female_higher": 17,
+        "male_higher": 17,
+        "equal": 1
+      },
+      "p_two_sided_cluster_signflip": 0.04904754762261887,
+      "study_cluster_bootstrap_CI_95": [
+        -4.285272108843537,
+        -0.15880952380952382
+      ],
+      "leave_one_pubmed_out_study_mean_range": [
+        -2.48552966641202,
+        -1.7943531958237846
+      ],
+      "BH_FDR_q_across_tested_species": 0.19619019049047548
+    },
+    {
+      "species": "Rattus norvegicus",
+      "n_conditions": 13,
+      "n_unique_pubmed": 6,
+      "mean_study_female_minus_male_pp": 2.1594444444444445,
+      "mean_conditions_pp": 0.903076923076923,
+      "study_signs": {
+        "female_higher": 3,
+        "male_higher": 3,
+        "equal": 0
+      },
+      "p_two_sided_cluster_signflip": 0.6939153042347883,
+      "study_cluster_bootstrap_CI_95": [
+        -6.602777777777779,
+        12.11
+      ],
+      "leave_one_pubmed_out_study_mean_range": [
+        -1.8826666666666667,
+        5.4013333333333335
+      ],
+      "BH_FDR_q_across_tested_species": 0.7173641317934103
+    },
+    {
+      "species": "Zaprionus paravittiger",
+      "n_conditions": 35,
+      "n_unique_pubmed": 7,
+      "mean_study_female_minus_male_pp": 3.081269841269841,
+      "mean_conditions_pp": 2.7871428571428565,
+      "study_signs": {
+        "female_higher": 3,
+        "male_higher": 4,
+        "equal": 0
+      },
+      "p_two_sided_cluster_signflip": 0.7173641317934103,
+      "study_cluster_bootstrap_CI_95": [
+        -3.7464761904761903,
+        12.583301587301587
+      ],
+      "leave_one_pubmed_out_study_mean_range": [
+        -1.1551851851851846,
+        4.697592592592593
+      ],
+      "BH_FDR_q_across_tested_species": 0.7173641317934103
+    }
+  ],
+  "mouse_compounds_2plus_pmid": [
+    {
+      "compound": "Rapamycin",
+      "matched_conditions": 11,
+      "independent_pubmed": 6,
+      "mean_study_delta_pp": 0.36111111111111116,
+      "sign_consistency_male_favored": false,
+      "study_deltas": [
+        {
+          "pmid": "19587680",
+          "delta": 4
+        },
+        {
+          "pmid": "20974732",
+          "delta": 8
+        },
+        {
+          "pmid": "24341993",
+          "delta": 8
+        },
+        {
+          "pmid": "24409289",
+          "delta": -7
+        },
+        {
+          "pmid": "27549339",
+          "delta": -9.5
+        },
+        {
+          "pmid": "33145977",
+          "delta": -1.3333333333333333
+        }
+      ]
+    },
+    {
+      "compound": "Acarbose",
+      "matched_conditions": 5,
+      "independent_pubmed": 3,
+      "mean_study_delta_pp": -10.888888888888888,
+      "sign_consistency_male_favored": true,
+      "study_deltas": [
+        {
+          "pmid": "24245565",
+          "delta": -17
+        },
+        {
+          "pmid": "27312235",
+          "delta": -4
+        },
+        {
+          "pmid": "30688027",
+          "delta": -11.666666666666666
+        }
+      ]
+    },
+    {
+      "compound": "17‐alpha‐estradiol",
+      "matched_conditions": 2,
+      "independent_pubmed": 2,
+      "mean_study_delta_pp": -15,
+      "sign_consistency_male_favored": true,
+      "study_deltas": [
+        {
+          "pmid": "24245565",
+          "delta": -12
+        },
+        {
+          "pmid": "27312235",
+          "delta": -18
+        }
+      ]
+    },
+    {
+      "compound": "Alpha-ketoglutarate",
+      "matched_conditions": 2,
+      "independent_pubmed": 2,
+      "mean_study_delta_pp": -0.75,
+      "sign_consistency_male_favored": false,
+      "study_deltas": [
+        {
+          "pmid": "32877690",
+          "delta": 0.5
+        },
+        {
+          "pmid": "38753230",
+          "delta": -2
+        }
+      ]
+    },
+    {
+      "compound": "Aspirin",
+      "matched_conditions": 3,
+      "independent_pubmed": 2,
+      "mean_study_delta_pp": -3.5,
+      "sign_consistency_male_favored": false,
+      "study_deltas": [
+        {
+          "pmid": "18631321",
+          "delta": -8
+        },
+        {
+          "pmid": "30916479",
+          "delta": 1
+        }
+      ]
+    },
+    {
+      "compound": "Canagliflozin",
+      "matched_conditions": 3,
+      "independent_pubmed": 2,
+      "mean_study_delta_pp": -14,
+      "sign_consistency_male_favored": true,
+      "study_deltas": [
+        {
+          "pmid": "32990681",
+          "delta": -13
+        },
+        {
+          "pmid": "38753230",
+          "delta": -15
+        }
+      ]
+    },
+    {
+      "compound": "Nordihydroguaiaretic acid",
+      "matched_conditions": 2,
+      "independent_pubmed": 2,
+      "mean_study_delta_pp": -12,
+      "sign_consistency_male_favored": true,
+      "study_deltas": [
+        {
+          "pmid": "18631321",
+          "delta": -12
+        },
+        {
+          "pmid": "27312235",
+          "delta": -12
+        }
+      ]
+    },
+    {
+      "compound": "Resveratrol",
+      "matched_conditions": 3,
+      "independent_pubmed": 2,
+      "mean_study_delta_pp": 1,
+      "sign_consistency_male_favored": false,
+      "study_deltas": [
+        {
+          "pmid": "20974732",
+          "delta": 0
+        },
+        {
+          "pmid": "22451473",
+          "delta": 2
+        }
+      ]
+    }
+  ],
+  "negative_controls": {
+    "swap_sex_signflip_p_same": true,
+    "zero_all_p": 1
+  },
+  "limitations": [
+    "Exploratory analysis; post hoc comparisons; BH FDR does not erase selection bias",
+    "Dataset curated for lifespan intervention reports; negative studies may be underreported",
+    "Study percent-change not individual time-to-event data",
+    "Biologically independent replication is not guaranteed by different PMID",
+    "No intervention effect causality, no clinical human claims or rajeunissement demonstrated"
+  ],
+  "computed_in": "Authenticated GitHub source fetched; JS statistical analysis in code execution tool; Python implementation separately unit tested"
+}

@@ -1,0 +1,192 @@
+{
+  "title": "UM-HET3 individual life span sex stratification, fully observed GitHub subset",
+  "assessed_at": "2026-11-18",
+  "source_repository": "DannyArends/UM-HET3",
+  "source_path": "DataSet/um-het3-rqtl.csvr",
+  "source_git_blob_sha": "4b23a79950182df8564af63803b481179f6e8d17",
+  "source_exact_bytes": 8702856,
+  "upstream_sample_count": 6438,
+  "source_rows": 903,
+  "genetic_marker_rows": 893,
+  "rows_extracted": 6438,
+  "sex_map": "1=M,0=F verified in Figures/Figure1.R",
+  "n_sex": {
+    "F": 3037,
+    "M": 3401
+  },
+  "n_site": {
+    "1.0": 1953,
+    "2.0": 2634,
+    "3.0": 1851
+  },
+  "missing_weight_values": {
+    "bw6": 1750,
+    "bw12": 6188,
+    "bw18": 2207,
+    "bw24": 4230
+  },
+  "number_of_site_cohort_treatment_strata": 40,
+  "unadjusted_female_minus_male_days": 81.56659893074118,
+  "adjusted_female_minus_male_days": 76.17000358977613,
+  "bootstrap_sex_within_strata_ci95": [
+    66.91410406740084,
+    85.77191702087724
+  ],
+  "stratified_permutation": {
+    "n_permutations": 5000,
+    "extreme_count": 0,
+    "two_sided_p": 0.0001999600079984003,
+    "rng": "mulberry32(20261118)",
+    "permutation_unit": "sex label within site/cohort/treatment strata; association test only"
+  },
+  "strata_signs": {
+    "female_higher": 34,
+    "male_higher": 6
+  },
+  "by_site": {
+    "1.0": {
+      "n": 1953,
+      "adjusted_delta_F_minus_M_days": 118.92501072222419,
+      "bootstrap_ci95": [
+        100.62686774008247,
+        136.55154303269603
+      ]
+    },
+    "2.0": {
+      "n": 2634,
+      "adjusted_delta_F_minus_M_days": 29.591879627983293,
+      "bootstrap_ci95": [
+        15.651099530801062,
+        44.34233981730298
+      ]
+    },
+    "3.0": {
+      "n": 1851,
+      "adjusted_delta_F_minus_M_days": 97.4379227094585,
+      "bootstrap_ci95": [
+        80.25035443226788,
+        115.29192728802283
+      ]
+    }
+  },
+  "site_effect_differences": {
+    "site1_minus_site2_days": 89.3331310942409,
+    "site1_minus_site2_ci95": [
+      65.4335470498293,
+      112.22984775955685
+    ],
+    "site3_minus_site2_days": 67.84604308147522,
+    "site3_minus_site2_ci95": [
+      45.08048143399421,
+      90.40602226843379
+    ]
+  },
+  "by_treatment_code": {
+    "0.0": {
+      "n": 3055,
+      "adjusted_delta_F_minus_M_days": 77.76338926853252
+    },
+    "1.0": {
+      "n": 3383,
+      "adjusted_delta_F_minus_M_days": 74.72659051652984
+    }
+  },
+  "treatment_code0_minus1_interaction_boot_ci95": [
+    -15.413801640174512,
+    21.63182988811255
+  ],
+  "by_cohort": [
+    {
+      "year": "2004.0",
+      "n": 654,
+      "delta_days": 104.92054279997598
+    },
+    {
+      "year": "2005.0",
+      "n": 1058,
+      "delta_days": 79.31603552180924
+    },
+    {
+      "year": "2006.0",
+      "n": 1280,
+      "delta_days": 63.57426881384637
+    },
+    {
+      "year": "2007.0",
+      "n": 1507,
+      "delta_days": 98.1276067823711
+    },
+    {
+      "year": "2009.0",
+      "n": 743,
+      "delta_days": 81.323046948048
+    },
+    {
+      "year": "2010.0",
+      "n": 472,
+      "delta_days": 91.10995343215794
+    },
+    {
+      "year": "2011.0",
+      "n": 367,
+      "delta_days": 25.568951377604773
+    },
+    {
+      "year": "2012.0",
+      "n": 318,
+      "delta_days": -9.086453005115136
+    },
+    {
+      "year": "2013.0",
+      "n": 39,
+      "delta_days": -47.09259259259261
+    }
+  ],
+  "leave_one_cohort_out": [
+    {
+      "exclude": "2004.0",
+      "delta_days": 72.95172065373676
+    },
+    {
+      "exclude": "2005.0",
+      "delta_days": 75.55252939309544
+    },
+    {
+      "exclude": "2006.0",
+      "delta_days": 79.30654416345567
+    },
+    {
+      "exclude": "2007.0",
+      "delta_days": 69.36326455982486
+    },
+    {
+      "exclude": "2009.0",
+      "delta_days": 75.51441997738661
+    },
+    {
+      "exclude": "2010.0",
+      "delta_days": 74.9706570755768
+    },
+    {
+      "exclude": "2011.0",
+      "delta_days": 79.21572436313494
+    },
+    {
+      "exclude": "2012.0",
+      "delta_days": 80.6630663501995
+    },
+    {
+      "exclude": "2013.0",
+      "delta_days": 76.81954908875657
+    }
+  ],
+  "limitations": [
+    "Only GitHub scientific subset 6438, not entire GeneNetwork 24296.",
+    "Lifespan values measured after minimum inclusion age 42 days; no explicit event/censoring indicator in phenotype file, no Kaplan–Meier or Cox inferred.",
+    "Treatment code 0.0/1.0 is not mapped to drug identities, thus cannot claim a specific intervention effect.",
+    "Observational mouse sex contrast and site heterogeneity are not new mechanisms or human intervention results.",
+    "Bootstrap resamples individual ages within strata; ignores within-stratum cage/site-cohort dependence, CI is exploratory.",
+    "No randomized causal sex comparison; permutation tests statistical association only; interpretation cautious.",
+    "Signals may have been reported previously in the 2026 Nature source."
+  ]
+}
