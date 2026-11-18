@@ -1,0 +1,22 @@
+[
+  {
+    "case_id":"synthetic-positive-marker", "synthetic":true, "ground_truth":"A",
+    "hypotheses":[{"id":"A","prior":0.5},{"id":"B","prior":0.5}],
+    "tests":[
+      {"id":"cheap-marker","cost":1,"outcomes":{"A":{"positive":0.95,"negative":0.05},"B":{"positive":0.05,"negative":0.95}}},
+      {"id":"irrelevant","cost":0,"outcomes":{"A":{"positive":0.5,"negative":0.5},"B":{"positive":0.5,"negative":0.5}}}
+    ], "observations":{"cheap-marker":"positive","irrelevant":"negative"}
+  },
+  {
+    "case_id":"synthetic-negative-marker", "synthetic":true, "ground_truth":"B",
+    "hypotheses":[{"id":"A","prior":0.5},{"id":"B","prior":0.5}],
+    "tests":[{"id":"cheap-marker","cost":1,"outcomes":{"A":{"positive":0.95,"negative":0.05},"B":{"positive":0.05,"negative":0.95}}}],
+    "observations":{"cheap-marker":"negative"}
+  },
+  {
+    "case_id":"synthetic-ambiguous-abstain", "synthetic":true, "ground_truth":"B",
+    "hypotheses":[{"id":"A","prior":0.5},{"id":"B","prior":0.5}],
+    "tests":[{"id":"unhelpful","cost":1,"outcomes":{"A":{"positive":0.5,"negative":0.5},"B":{"positive":0.5,"negative":0.5}}}],
+    "observations":{"unhelpful":"positive"}
+  }
+]
