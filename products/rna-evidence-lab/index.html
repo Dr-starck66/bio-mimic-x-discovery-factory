@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="robots" content="noindex,nofollow"/>
+  <title>RNA Evidence Lab | BIO-MIMIC X</title>
+  <meta name="description" content="Analyse comparative locale de comptages RNA-seq, contrôles négatifs et rapport exportable — outil de recherche BIO-MIMIC X."/>
+  <style>
+    :root {font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;background:#091b1c;color:#effbf5;}
+    * {box-sizing:border-box}body{margin:0}a{color:#a5ebd4}
+    header{border-bottom:1px solid #29514a;padding:20px max(20px,calc((100vw - 1100px)/2));display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+    header strong{letter-spacing:.15em}header a{text-decoration:none;font-size:.9rem}
+    main{max-width:1140px;margin:auto;padding:55px 25px 100px}
+    .eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.18em;color:#77c8ab;font-weight:800}
+    h1{font-size:clamp(2.5rem,5vw,5rem);letter-spacing:-.06em;line-height:1.06;max-width:850px;margin:20px 0}
+    h1 span{color:#8ed6bf}p{color:#b1ccc1;line-height:1.6}
+    .intro{max-width:770px;font-size:1.1rem}
+    .pill{display:inline-block;background:#173c32;color:#a3ebd3;padding:7px 11px;font-size:12px;border:1px solid #3a7462}
+    .panel{border:1px solid #2f5449;background:#102a29;padding:25px;margin-top:26px;border-radius:8px}
+    h2{font-size:1.3rem;margin:0 0 17px}
+    .actions{display:flex;align-items:center;gap:13px;flex-wrap:wrap}
+    button,.upload{display:inline-block;background:#a9eacb;color:#102925;border:0;padding:13px 19px;font-weight:750;cursor:pointer;font-size:.92rem;border-radius:3px}
+    button:hover,.upload:hover{background:#d6f5e6}button:focus-visible,.upload:focus-visible,a:focus-visible{outline:3px solid #fff;outline-offset:3px}
+    .secondary{background:transparent;border:1px solid #78a996;color:#d3ecdf}
+    .secondary:hover{background:#244c3e;color:white}
+    input[type=file]{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden}
+    .hint{font-size:.8rem;color:#8eab9c;margin-top:14px}
+    .message{padding:12px 15px;border-radius:4px;margin-top:15px;background:#22463b;color:#d3f5e4;display:none}
+    .message.error{display:block;background:#522e32;color:#ffe6e6}
+    .message:not(.error):not(:empty){display:block}
+    .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin-top:25px}
+    .stat{padding:20px;border:1px solid #3b6b56;background:#15392e;border-radius:4px}
+    .stat span{color:#a5cbb8;font-size:.82rem}.stat strong{display:block;font-size:2rem;letter-spacing:-.045em;margin-top:6px}
+    .metadata{font-size:.88rem;margin:15px 0;color:#badac9}
+    .table-wrap{overflow:auto;max-height:450px;border:1px solid #305749;border-radius:3px}
+    table{width:100%;border-collapse:collapse;min-width:600px;font-size:.87rem}
+    thead{position:sticky;top:0;background:#224538}
+    td,th{text-align:left;border-bottom:1px solid #305044;padding:11px 13px}
+    td{font-variant-numeric:tabular-nums}td.up{color:#96e9c6}td.down{color:#f3c691}
+    .limitations{border-left:3px solid #cfba80;padding-left:19px;margin-top:30px}
+    .limitations p{margin:7px 0;font-size:.88rem}
+    .results[hidden]{display:none}
+    .commercial{display:grid;grid-template-columns:1.15fr .85fr;gap:25px;margin-top:44px}
+    .commercial article{background:#e7f1eb;color:#16382f;padding:28px;border-radius:4px}
+    .commercial p{color:#48675c}.commercial a{color:#1e6950;font-weight:800}
+    footer{border-top:1px solid #2d5347;padding:30px 25px;color:#83a594;font-size:.8rem;text-align:center}
+    @media(max-width:850px){.stats{grid-template-columns:repeat(2,1fr)}.commercial{grid-template-columns:1fr}}
+    @media(max-width:500px){.stats{grid-template-columns:1fr 1fr}.stat strong{font-size:1.5rem}}
+  </style>
+</head>
+<body>
+<header><strong>BIO-MIMIC <span style="color:#a1ead0">X</span> / RNA LAB</strong><a href="/">← Retour au laboratoire principal</a></header>
+<main>
+ <div class="eyebrow">Evidence-first analytics · Research use only</div>
+ <h1>Vos comptages RNA-seq. <span>Des preuves auditées.</span></h1>
+ <p class="intro">Comparez trois réplicats témoins à trois réplicats expérimentaux. Normalisation par médiane des ratios, séparation entre réplicats, vingt permutations exhaustives et export CSV/JSON. <strong>Aucune donnée n'est envoyée à un serveur</strong> : tout le traitement s'effectue dans ce navigateur.</p>
+ <span class="pill">PROTOTYPE DE RECHERCHE · PAS UN DISPOSITIF MÉDICAL</span>
+ <section class="panel" aria-label="Charger les données">
+  <h2>01 — Analyser un jeu de données</h2>
+  <div class="actions">
+   <button type="button" id="demo">Lancer la démonstration synthétique</button>
+   <label for="inputfile" class="upload secondary" tabindex="0">Importer un CSV ou TSV</label><input id="inputfile" type="file" accept=".csv,.tsv,.txt,text/csv,text/tab-separated-values"/>
+   <button type="button" class="secondary" id="format">Télécharger le modèle CSV</button>
+  </div>
+  <p class="hint">Colonnes obligatoires : gene, whole_1, whole_2, whole_3, case_1, case_2, case_3. Les six colonnes contiennent uniquement des comptages entiers ≥ 0. N'importez pas de données confidentielles sur un poste non approuvé.</p>
+  <div id="message" class="message" role="status" aria-live="polite"></div>
+ </section>
+ <section id="results" class="results" hidden>
+  <div class="stats" aria-label="Statistiques de l'analyse">
+   <div class="stat"><span>Gènes inspectés</span><strong id="statgenes"></strong></div>
+   <div class="stat"><span>Enrichis (criblage)</span><strong id="statup"></strong></div>
+   <div class="stat"><span>Appauvris (criblage)</span><strong id="statdown"></strong></div>
+   <div class="stat"><span>p global / 20 permutations</span><strong id="statp"></strong></div>
+  </div>
+  <section class="panel">
+   <h2>02 — Pistes prioritaires, reproductibles</h2>
+   <p id="metadata" class="metadata"></p>
+   <div class="actions" style="margin-bottom:18px"><button id="exportCSV" type="button">Exporter les cibles CSV</button><button id="exportJSON" type="button" class="secondary">Exporter l'audit JSON</button></div>
+   <div class="table-wrap"><table><thead><tr><th>Gène</th><th>Sens</th><th>log₂ variation</th><th>Moyenne témoin</th><th>Moyenne cas</th></tr></thead><tbody id="rows"></tbody></table></div>
+   <div class="limitations"><strong>Limites scientifiques — toujours conservées</strong><p>Les cibles sont sélectionnées avec moyenne normalisée ≥ 10, variation ≥ 2× et séparation complète des trois réplicats. Ces filtres ne sont PAS des tests DESeq2 ni des gènes à FDR corrigé. Pour six échantillons, le plus petit p global bilatéral possible par les vingt permutations est 0,10. Aucun effet causal, clinique ou thérapeutique n'est établi.</p></div>
+  </section>
+ </section>
+ <section class="commercial">
+  <article><div class="eyebrow">Pilote industriel</div><h2>Faire auditer un jeu de données réel</h2><p>Un partenaire fournit des données avec droits d'utilisation clarifiés. Le protocole de réussite, les contrôles et les livrables sont convenus avant le pilote. Aucune performance industrielle n'est revendiquée sans validation.</p><a href="mailto:dr.starck66@gmail.com?subject=BIO-MIMIC%20X%20%7C%20RNA%20Evidence%20Lab%20pilot">Demander un pilote scientifique ↗</a></article>
+  <article><div class="eyebrow">Provenance et intégrité</div><h2>Une méthode inspectable</h2><p>Recherches, comparaisons, contrôles négatifs et limites explicites. La démonstration utilise uniquement des valeurs entièrement synthétiques. Aucune matrice Zollo sous embargo n'est distribuée ici.</p><a href="https://github.com/Dr-starck66/bio-mimic-x-discovery-factory" target="_blank" rel="noopener noreferrer">Dépôt de recherche ↗</a></article>
+ </section>
+</main>
+<footer>© 2026 BIO-MIMIC X · Recherche computationnelle uniquement · Aucune donnée client conservée · Non destiné à une décision médicale</footer>
+<script src="./engine.js"></script>
+<script>
+(function () {
+ 'use strict';
+ const $ = id => document.getElementById(id);
+ let report = null;
+ const message = (value, error) => { $('message').textContent = value; $('message').className = 'message' + (error ? ' error' : ''); };
+ function download(name, content, mime) {
+   const url = URL.createObjectURL(new Blob([content], {type: mime}));
+   const a = document.createElement('a'); a.href = url; a.download = name;
+   document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+ }
+ function run(text, label) {
+   try {
+     const matrix = RNAEvidence.parseCounts(text);
+     report = RNAEvidence.analyze(matrix);
+     $('statgenes').textContent = report.genes.toLocaleString('fr-FR');
+     $('statup').textContent = report.positives.toLocaleString('fr-FR');
+     $('statdown').textContent = report.negatives.toLocaleString('fr-FR');
+     $('statp').textContent = report.globalP.toFixed(2);
+     $('metadata').textContent = label + ' · 3 témoins / 3 cas · ' + report.effects.length + ' cibles exploratoires · ' + report.allSixPositive + ' gènes normalisateurs';
+     const tbody = $('rows'); tbody.replaceChildren();
+     for (const r of report.effects.slice(0, 60)) {
+       const tr = document.createElement('tr');
+       const cells = [r.id, r.call === 'UP' ? 'Enrichi' : 'Appauvri', r.log2fc.toFixed(2), r.whole.toFixed(1), r.caseMean.toFixed(1)];
+       cells.forEach((value, i) => { const td = document.createElement('td'); td.textContent = value; if (i === 1) td.className = r.call.toLowerCase(); tr.appendChild(td); });
+       tbody.appendChild(tr);
+     }
+     $('results').hidden = false;
+     message('Analyse locale terminée. Résultats exploratoires ; consulter les limites et le contrôle global.');
+   } catch(err) { $('results').hidden = true; report = null; message(err.message || String(err), true); }
+ }
+ $('demo').addEventListener('click', () => run(RNAEvidence.syntheticCSV(), 'Démo entièrement synthétique'));
+ $('format').addEventListener('click', () => download('rna-evidence-template.csv', 'gene,whole_1,whole_2,whole_3,case_1,case_2,case_3\nGENE_A,25,30,28,240,220,260\nGENE_B,50,51,52,53,54,55\n', 'text/csv'));
+ $('inputfile').addEventListener('change', async e => {
+   const file = e.target.files[0]; if (!file) return;
+   if(file.size > 40_000_000) {message('Fichier supérieur à 40 Mo.',true);return;}
+   try {run(await file.text(), file.name);} catch(err) {message(String(err),true);}
+   e.target.value = '';
+ });
+ $('exportCSV').addEventListener('click', () => {if(report) download('rna-evidence-targets.csv', RNAEvidence.reportCSV(report), 'text/csv');});
+ $('exportJSON').addEventListener('click', () => {
+   if (!report) return;
+   const { effects, ...meta } = report;
+   download('rna-evidence-audit.json', JSON.stringify({...meta, effects: effects.slice(0, 500)}, null, 2), 'application/json');
+ });
+ document.querySelector('.upload').addEventListener('keydown', e => {
+   if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); $('inputfile').click(); }
+ });
+})();
+</script>
+</body>
+</html>
