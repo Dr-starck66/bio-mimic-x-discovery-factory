@@ -1,0 +1,71 @@
+{
+  "project": "BIO-MIMIC X — UM-HET3 site heterogeneity reanalysis",
+  "date": "2026-11-18",
+  "status": "PARTIAL — observational exploratory statistical findings; no causal mediation established",
+  "source": {
+    "repo": "https://github.com/DannyArends/UM-HET3",
+    "path": "DataSet/um-het3-rqtl.csvr",
+    "github_blob_sha": "4b23a79950182df8564af63803b481179f6e8d17",
+    "derived_csv_path": "research/longevity_sex_audit/umhet3_individual/data/UMHET3_6438_PHENOTYPES.csv",
+    "derived_csv_git_blob_sha": "dea9bfa0086228b40e450c0e235f252c83eea528",
+    "sex_coding": {"0": "Female (in original author Figure1.R)", "1": "Male (in original author Figure1.R)"},
+    "site_coding": {"1.0": "Jackson Laboratory (JL); corroborated 1953 JL prefix IDs", "2.0": "University of Michigan (UM); corroborated 2634 UM prefix IDs", "3.0": "UT Health San Antonio (UT); corroborated 1851 UT prefix IDs"},
+    "treatment_coding": {"0.0": "control", "1.0": "pooled compounds not individually significant for lifespan; no specific compound identification"}
+  },
+  "full_subset": {"n_mice": 6438, "n_unique_ids": 6438, "n_female": 3037, "n_male": 3401, "n_sites": 3, "total_cohorts": 9},
+  "common_cohorts": {
+    "years": [2004, 2005, 2006, 2007, 2009], "n_mice": 5242,
+    "method": "Direct standardization of sex-specific mean lifespan in each site × cohort × treatment cell to the pooled cohort-by-treatment distribution across the 5242 animals; 3000 within-cell bootstrap resamples in JavaScript (Mulberry32)",
+    "female_minus_male_days": {"JL": 116.9255, "UM": 38.1885, "UT": 77.6194},
+    "bootstrap_ci95_days": {"JL": [98.84, 134.93], "UM": [19.55, 58.50], "UT": [58.43, 98.50]},
+    "contrast_JL_minus_UM_days": 78.7371,
+    "contrast_JL_minus_UM_ci95": [52.30, 104.89],
+    "contrast_UT_minus_UM_days": 39.4309,
+    "contrast_UT_minus_UM_ci95": [11.53, 67.91],
+    "untreated_only_female_minus_male_days": {"JL": 106.0609, "UM": 33.7946, "UT": 128.6043},
+    "untreated_only_contrast_JL_minus_UM_bootstrap_ci95": [27.42, 116.06],
+    "untreated_only_contrast_UT_minus_UM_bootstrap_ci95": [52.73, 134.90]
+  },
+  "age_pattern_control_males_common_cohorts": {
+    "died_before_365_days": {"JL": {"deaths": 26, "n": 363, "fraction": 0.07163}, "UM": {"deaths": 11, "n": 413, "fraction": 0.02663}, "UT": {"deaths": 42, "n": 470, "fraction": 0.08936}},
+    "note": "Observed fraction with documented lifespan <365; event/censoring status unavailable; not a Kaplan-Meier survival estimate"
+  },
+  "male_six_month_body_mass": {
+    "years": [2005, 2006, 2009],
+    "eligibility": "Male, with bw6, survived to >=183 days, 12 g < bw6 < 85 g",
+    "n_male": 1589, "n_female_comparator": 1385,
+    "mean_bw6_grams_male": {"JL": 41.7726, "UM": 36.1625, "UT": 41.5941},
+    "model": "sex-specific OLS: lifespan_days ~ site(UM,UT vs JL)+cohort(2006,2009 vs 2005)+treatment_code(1 vs 0); then add bw6_grams",
+    "UM_minus_JL_male_before_bw_days": 118.2489,
+    "UM_minus_JL_male_after_bw_days": 30.1791,
+    "coefficient_attenuation_fraction": 0.7448,
+    "bw6_slope_days_per_gram": -15.6221,
+    "stratified_bootstrap": {
+      "repetitions": 1100, "UM_minus_JL_before_95ci": [92.00, 144.08],
+      "UM_minus_JL_after_95ci": [2.40, 56.84],
+      "slope_95ci": [-17.81, -13.36],
+      "attenuation_fraction_95ci": [0.583, 0.977]
+    },
+    "within_site_cohort_treatment_weight_shuffle_negative_control": {
+      "repetitions": 600, "null_bw_slope_95ci": [-3.9256, 0.3879],
+      "null_attenuation_95ci": [-0.0183, 0.1889],
+      "p_one_sided": 0.001664,
+      "scope": "Tests individual weight-lifespan association beyond site/year/treatment distributions; not causality"
+    },
+    "robustness": {
+      "trim_bmi_1pct_to_99pct": {"n": 1559, "UM_minus_JL_before": 112.41, "UM_minus_JL_after": 31.16, "bw_slope": -15.44},
+      "controls_only": {"n": 774, "UM_minus_JL_before": 100.17, "UM_minus_JL_after": -8.60, "bw_slope": -17.67},
+      "pooled_nominally_ineffective_drugs": {"n": 815, "UM_minus_JL_before": 117.18, "UM_minus_JL_after": 57.22, "bw_slope": -11.96}
+    }
+  },
+  "negative_evidence": [
+    "Site-by-sex heterogeneity was already described in Cheng et al., Aging Cell 2019 (DOI 10.1111/acel.12905)",
+    "Body mass / longevity relations and sex-differential correlations were already published, including Arends et al. Nature 2026 (DOI 10.1038/s41586-026-10407-9)",
+    "A full cohort 24,296-mouse survival replication was not executed",
+    "Body mass at 6 months and survival are not contemporaneous randomized variables; survival-to-weight-measurement creates selection bias",
+    "Original study's Methods text says n=3401 females and n=3037 males, but authors' Figure1.R labels sex code 1 as male and corresponding CSV has 3401 code-1 mice; provenance discrepancy warrants author clarification, not unilateral correction",
+    "Censoring indicators, cage/litter, drug-specific dose, and comorbidity provenance not contained in derived 6,438-row snapshot",
+    "The new exploratory analysis does not establish a new biological mechanism, intervention effect or longevity treatment"
+  ],
+  "evidence_grade": {"GitHub_primary_data_retrieval": "PASS", "descriptive_site_calculations_JS": "PASS", "within_site_bootstrap_JS": "PASS", "6mo_mass_OLS_JS": "PASS", "within_stratum_permutation_JS": "PASS", "Python_synthetic_unit_tests": "PASS 12/12", "full_6438_Python_replay": "UNVERIFIED", "independent_external_replication": "UNVERIFIED", "causal_mediation_or_human_translation": "UNVERIFIED"}
+}
