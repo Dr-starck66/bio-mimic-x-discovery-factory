@@ -1,0 +1,548 @@
+{
+  "study": "BIO-MIMIC X UM-HET3 site heterogeneity decomposition and falsification",
+  "type": "exploratory secondary analysis; noncausal",
+  "date": "2026-11-18",
+  "provenance": {
+    "source_repo": "Dr-starck66/bio-mimic-x-discovery-factory",
+    "branch": "astra/longevity-sex-audit-20261118",
+    "source_csv": "research/longevity_sex_audit/umhet3_individual/data/UMHET3_6438_PHENOTYPES.csv",
+    "blob_sha": "dea9bfa0086228b40e450c0e235f252c83eea528",
+    "raw_original_git_blob_sha": "4b23a79950182df8564af63803b481179f6e8d17",
+    "primary_papers": [
+      "10.1038/s41586-026-10407-9",
+      "10.1111/acel.12905"
+    ]
+  },
+  "n_source": 6438,
+  "n_common_cohort": 5242,
+  "common_cohorts": [
+    2004,
+    2005,
+    2006,
+    2007,
+    2009
+  ],
+  "sex_code": {
+    "0": "female as author Figure1.R",
+    "1": "male as author Figure1.R"
+  },
+  "site_code": {
+    "1.0": "JL Jackson",
+    "2.0": "UM Michigan",
+    "3.0": "UT San Antonio"
+  },
+  "stratification": "direct standardization of site/sex means to same pooled year-treatment cell distribution, all sex and sites, 5 overlapping cohorts",
+  "results": {
+    "all": {
+      "n": 5242,
+      "1.0": {
+        "n": 1953,
+        "female": 857.8812278852517,
+        "female_trunc730": 703.8798369408794,
+        "male": 740.9556892190451,
+        "male_trunc730": 643.9675512939538,
+        "gap": 116.92553866620665,
+        "gap_trunc730": 59.912285646925625
+      },
+      "2.0": {
+        "n": 1803,
+        "female": 888.1984952823585,
+        "female_trunc730": 707.8111470675113,
+        "male": 850.0100380716864,
+        "male_trunc730": 683.1888566047154,
+        "gap": 38.18845721067214,
+        "gap_trunc730": 24.622290462795945
+      },
+      "3.0": {
+        "n": 1486,
+        "female": 918.3774519372994,
+        "female_trunc730": 712.0939832351812,
+        "male": 840.7580739259123,
+        "male_trunc730": 670.8914158715836,
+        "gap": 77.61937801138708,
+        "gap_trunc730": 41.20256736359761
+      },
+      "JL_minus_UM_gap": 78.73708145553451,
+      "UT_minus_UM_gap": 39.430920800714944,
+      "UM_male_minus_JL": 109.05434885264128,
+      "UM_female_minus_JL": 30.317267397106775,
+      "UM_male_minus_UT": 9.251964145774082,
+      "UM_female_minus_UT": -30.178956654940862,
+      "JL_minus_UM_trunc730": 35.28999518412968
+    },
+    "control": {
+      "n": 2258,
+      "1.0": {
+        "n": 639,
+        "female": 849.7067238776397,
+        "female_trunc730": 699.7211176454638,
+        "male": 743.6457964393458,
+        "male_trunc730": 641.5511007396304,
+        "gap": 106.0609274382939,
+        "gap_trunc730": 58.170016905833336
+      },
+      "2.0": {
+        "n": 750,
+        "female": 875.5613451864763,
+        "female_trunc730": 704.3028284419097,
+        "male": 841.7667464898063,
+        "male_trunc730": 681.2101817070586,
+        "gap": 33.79459869666994,
+        "gap_trunc730": 23.092646734851087
+      },
+      "3.0": {
+        "n": 869,
+        "female": 869.702367977212,
+        "female_trunc730": 710.8749889918608,
+        "male": 741.098095014517,
+        "male_trunc730": 634.768858369089,
+        "gap": 128.60427296269506,
+        "gap_trunc730": 76.10613062277184
+      },
+      "JL_minus_UM_gap": 72.26632874162397,
+      "UT_minus_UM_gap": 94.80967426602513,
+      "UM_male_minus_JL": 98.12095005046058,
+      "UM_female_minus_JL": 25.854621308836613,
+      "UM_male_minus_UT": 100.66865147528938,
+      "UM_female_minus_UT": 5.858977209264253,
+      "JL_minus_UM_trunc730": 35.07737017098225
+    },
+    "earlier2004to2006": {
+      "n": 2992,
+      "1.0": {
+        "n": 1184,
+        "female": 851.0105715198121,
+        "female_trunc730": 701.1392633526057,
+        "male": 744.8037768283734,
+        "male_trunc730": 645.9413493818065,
+        "gap": 106.20679469143863,
+        "gap_trunc730": 55.19791397079916
+      },
+      "2.0": {
+        "n": 903,
+        "female": 880.1008176476131,
+        "female_trunc730": 704.8428076006273,
+        "male": 857.8235123729374,
+        "male_trunc730": 688.5168081707833,
+        "gap": 22.277305274675655,
+        "gap_trunc730": 16.325999429844046
+      },
+      "3.0": {
+        "n": 905,
+        "female": 910.7898738757539,
+        "female_trunc730": 711.6163239770572,
+        "male": 825.3147856706456,
+        "male_trunc730": 672.8733082070455,
+        "gap": 85.47508820510825,
+        "gap_trunc730": 38.74301577001165
+      },
+      "JL_minus_UM_gap": 83.92948941676298,
+      "UT_minus_UM_gap": 63.197782930432595,
+      "UM_male_minus_JL": 113.01973554456401,
+      "UM_female_minus_JL": 29.090246127801038,
+      "UM_male_minus_UT": 32.508726702291824,
+      "UM_female_minus_UT": -30.68905622814077,
+      "JL_minus_UM_trunc730": 38.87191454095512
+    },
+    "later2007and2009": {
+      "n": 2250,
+      "1.0": {
+        "n": 769,
+        "female": 867.0176740387606,
+        "female_trunc730": 707.5241907969306,
+        "male": 735.8385878292178,
+        "male_trunc730": 641.342838458907,
+        "gap": 131.1790862095428,
+        "gap_trunc730": 66.18135233802366
+      },
+      "2.0": {
+        "n": 900,
+        "female": 898.9666070526512,
+        "female_trunc730": 711.7583789274745,
+        "male": 839.6198535786448,
+        "male_trunc730": 676.1038650110818,
+        "gap": 59.34675347400639,
+        "gap_trunc730": 35.654513916392716
+      },
+      "3.0": {
+        "n": 581,
+        "female": 928.4672446306968,
+        "female_trunc730": 712.7291639019847,
+        "male": 861.2942154635818,
+        "male_trunc730": 668.2559394859381,
+        "gap": 67.17302916711492,
+        "gap_trunc730": 44.473224416046605
+      },
+      "JL_minus_UM_gap": 71.8323327355364,
+      "UT_minus_UM_gap": 7.826275693108528,
+      "UM_male_minus_JL": 103.781265749427,
+      "UM_female_minus_JL": 31.94893301389061,
+      "UM_male_minus_UT": -21.67436188493707,
+      "UM_female_minus_UT": -29.5006375780456,
+      "JL_minus_UM_trunc730": 30.52683842163094
+    },
+    "byYear": {
+      "2004": {
+        "n": 654,
+        "1.0": {
+          "n": 269,
+          "female": 849.1487630901133,
+          "female_trunc730": 709.8242947584683,
+          "male": 715.8921386360937,
+          "male_trunc730": 631.0300603535446,
+          "gap": 133.25662445401963,
+          "gap_trunc730": 78.79423440492371
+        },
+        "2.0": {
+          "n": 124,
+          "female": 851.8686371493152,
+          "female_trunc730": 689.2124345166865,
+          "male": 826.2795980777631,
+          "male_trunc730": 677.5641388053692,
+          "gap": 25.589039071552065,
+          "gap_trunc730": 11.648295711317246
+        },
+        "3.0": {
+          "n": 261,
+          "female": 876.65026587686,
+          "female_trunc730": 701.5319680857318,
+          "male": 770.2548547400611,
+          "male_trunc730": 659.1315922991382,
+          "gap": 106.39541113679888,
+          "gap_trunc730": 42.4003757865936
+        },
+        "JL_minus_UM_gap": 107.66758538246756,
+        "UT_minus_UM_gap": 80.80637206524682,
+        "UM_male_minus_JL": 110.38745944166942,
+        "UM_female_minus_JL": 2.7198740592018567,
+        "UM_male_minus_UT": 56.024743337702034,
+        "UM_female_minus_UT": -24.781628727544785,
+        "JL_minus_UM_trunc730": 67.14593869360647
+      },
+      "2005": {
+        "n": 1058,
+        "1.0": {
+          "n": 434,
+          "female": 852.7967206377908,
+          "female_trunc730": 698.2761239418098,
+          "male": 751.1092332230623,
+          "male_trunc730": 644.8791469754253,
+          "gap": 101.68748741472848,
+          "gap_trunc730": 53.3969769663845
+        },
+        "2.0": {
+          "n": 354,
+          "female": 893.8993296829847,
+          "female_trunc730": 712.2625418657132,
+          "male": 869.4610463397672,
+          "male_trunc730": 682.528211199314,
+          "gap": 24.43828334321745,
+          "gap_trunc730": 29.73433066639916
+        },
+        "3.0": {
+          "n": 270,
+          "female": 924.4933870040254,
+          "female_trunc730": 717.513785816545,
+          "male": 833.9353539701149,
+          "male_trunc730": 673.7291618903016,
+          "gap": 90.55803303391053,
+          "gap_trunc730": 43.7846239262434
+        },
+        "JL_minus_UM_gap": 77.24920407151103,
+        "UT_minus_UM_gap": 66.11974969069308,
+        "UM_male_minus_JL": 118.35181311670488,
+        "UM_female_minus_JL": 41.102609045193844,
+        "UM_male_minus_UT": 35.52569236965235,
+        "UM_female_minus_UT": -30.594057321040736,
+        "JL_minus_UM_trunc730": 23.66264629998534
+      },
+      "2006": {
+        "n": 1280,
+        "1.0": {
+          "n": 481,
+          "female": 850.485475384032,
+          "female_trunc730": 699.0683187879088,
+          "male": 754.3639631660064,
+          "male_trunc730": 654.4380627962086,
+          "gap": 96.1215122180256,
+          "gap_trunc730": 44.63025599170021
+        },
+        "2.0": {
+          "n": 425,
+          "female": 883.1203647667254,
+          "female_trunc730": 706.6960772447183,
+          "male": 864.3213319136705,
+          "male_trunc730": 699.0628873589046,
+          "gap": 18.799032853054882,
+          "gap_trunc730": 7.6331898858136356
+        },
+        "3.0": {
+          "n": 374,
+          "female": 916.9062697676018,
+          "female_trunc730": 711.8941787635795,
+          "male": 846.3215306454613,
+          "male_trunc730": 679.1870496186756,
+          "gap": 70.58473912214049,
+          "gap_trunc730": 32.70712914490389
+        },
+        "JL_minus_UM_gap": 77.32247936497072,
+        "UT_minus_UM_gap": 51.78570626908561,
+        "UM_male_minus_JL": 109.95736874766408,
+        "UM_female_minus_JL": 32.63488938269336,
+        "UM_male_minus_UT": 17.99980126820924,
+        "UM_female_minus_UT": -33.78590500087637,
+        "JL_minus_UM_trunc730": 36.997066105886574
+      },
+      "2007": {
+        "n": 1507,
+        "1.0": {
+          "n": 553,
+          "female": 875.1576912309528,
+          "female_trunc730": 707.4899101325532,
+          "male": 733.805619601706,
+          "male_trunc730": 644.552085466948,
+          "gap": 141.35207162924678,
+          "gap_trunc730": 62.93782466560515
+        },
+        "2.0": {
+          "n": 590,
+          "female": 899.2224493881499,
+          "female_trunc730": 710.7444971214209,
+          "male": 810.9645667756456,
+          "male_trunc730": 663.3516442295164,
+          "gap": 88.25788261250432,
+          "gap_trunc730": 47.392852891904454
+        },
+        "3.0": {
+          "n": 364,
+          "female": 932.6422033305026,
+          "female_trunc730": 712.4125236412021,
+          "male": 889.4198903066019,
+          "male_trunc730": 677.6126461730289,
+          "gap": 43.22231302390071,
+          "gap_trunc730": 34.799877468173236
+        },
+        "JL_minus_UM_gap": 53.09418901674246,
+        "UT_minus_UM_gap": -45.03556958860361,
+        "UM_male_minus_JL": 77.15894717393962,
+        "UM_female_minus_JL": 24.06475815719716,
+        "UM_male_minus_UT": -78.45532353095632,
+        "UM_female_minus_UT": -33.41975394235271,
+        "JL_minus_UM_trunc730": 15.544971773700695
+      },
+      "2009": {
+        "n": 743,
+        "1.0": {
+          "n": 216,
+          "female": 850.5075718737082,
+          "female_trunc730": 707.5937210273702,
+          "male": 739.9619836823271,
+          "male_trunc730": 634.8336389419248,
+          "gap": 110.54558819138117,
+          "gap_trunc730": 72.76008208544533
+        },
+        "2.0": {
+          "n": 310,
+          "female": 898.4476913062219,
+          "female_trunc730": 713.8147986875324,
+          "male": 897.7403343486577,
+          "male_trunc730": 701.9687327335837,
+          "gap": 0.7073569575642296,
+          "gap_trunc730": 11.84606595394871
+        },
+        "3.0": {
+          "n": 217,
+          "female": 919.9993270524899,
+          "female_trunc730": 713.3713938791035,
+          "male": 804.2479274576178,
+          "male_trunc730": 649.2780700681104,
+          "gap": 115.75139959487205,
+          "gap_trunc730": 64.09332381099307
+        },
+        "JL_minus_UM_gap": 109.83823123381694,
+        "UT_minus_UM_gap": 115.04404263730783,
+        "UM_male_minus_JL": 157.77835066633065,
+        "UM_female_minus_JL": 47.94011943251371,
+        "UM_male_minus_UT": 93.49240689103988,
+        "UM_female_minus_UT": -21.551635746267948,
+        "JL_minus_UM_trunc730": 60.91401613149662
+      }
+    }
+  },
+  "intervals": {
+    "bootstrap_seed": 20261118,
+    "resamples": 2200,
+    "method": "resample animals within each site×year×treatment×sex cell, fixed observed cell sizes; exploratory conditional-independence intervals",
+    "ci95": {
+      "all": {
+        "JL_minus_UM_gap": [
+          51.911033710356605,
+          105.04132635159101
+        ],
+        "UT_minus_UM_gap": [
+          11.346434959990574,
+          66.633616538154
+        ],
+        "UM_male_minus_JL": [
+          89.61319788438357,
+          128.4788500209445
+        ],
+        "UM_female_minus_JL": [
+          12.71664497824895,
+          48.698710295502906
+        ],
+        "UM_male_minus_UT": [
+          -11.5342178878999,
+          29.551223455177364
+        ],
+        "UM_female_minus_UT": [
+          -48.22189589935272,
+          -11.543402800168224
+        ],
+        "JL_minus_UM_trunc730": [
+          22.479172822962596,
+          47.437113845067756
+        ]
+      },
+      "control": {
+        "JL_minus_UM_gap": [
+          27.89812662663917,
+          115.53590200676865
+        ],
+        "UT_minus_UM_gap": [
+          53.19500039081743,
+          134.2231969000743
+        ],
+        "UM_male_minus_JL": [
+          66.28047901754655,
+          129.61246786227707
+        ],
+        "UM_female_minus_JL": [
+          -3.4685443540439564,
+          56.62403755303819
+        ],
+        "UM_male_minus_UT": [
+          69.54272524491853,
+          130.74568886022246
+        ],
+        "UM_female_minus_UT": [
+          -20.898159756086898,
+          32.69486955240234
+        ],
+        "JL_minus_UM_trunc730": [
+          13.091454583800896,
+          55.85356174239382
+        ]
+      },
+      "early": {
+        "JL_minus_UM_gap": [
+          46.33019818185619,
+          119.95023265813063
+        ],
+        "UT_minus_UM_gap": [
+          24.857416595076188,
+          100.08043693842126
+        ],
+        "UM_male_minus_JL": [
+          86.41444015423838,
+          138.70338375185497
+        ],
+        "UM_female_minus_JL": [
+          3.9909049425396006,
+          54.52874939122296
+        ],
+        "UM_male_minus_UT": [
+          5.315205305167979,
+          59.16328107318702
+        ],
+        "UM_female_minus_UT": [
+          -56.43235616822142,
+          -3.5877941760163594
+        ],
+        "JL_minus_UM_trunc730": [
+          21.274195906664772,
+          55.60718401802774
+        ]
+      },
+      "late": {
+        "JL_minus_UM_gap": [
+          31.737011400703977,
+          110.39883370073869
+        ],
+        "UT_minus_UM_gap": [
+          -33.47510899117742,
+          49.35263889253201
+        ],
+        "UM_male_minus_JL": [
+          73.87210924471412,
+          134.3613798477419
+        ],
+        "UM_female_minus_JL": [
+          7.691363415397291,
+          56.215642187448566
+        ],
+        "UM_male_minus_UT": [
+          -52.8939346209404,
+          11.964395931815261
+        ],
+        "UM_female_minus_UT": [
+          -54.55191631733476,
+          -3.9613249125775383
+        ],
+        "JL_minus_UM_trunc730": [
+          11.638348659653275,
+          49.734634570842445
+        ]
+      }
+    }
+  },
+  "early_death_proportions_controls": {
+    "1.0": {
+      "control_males": 363,
+      "males_before_365": 26,
+      "control_females": 276,
+      "females_before_365": 4
+    },
+    "2.0": {
+      "control_males": 413,
+      "males_before_365": 11,
+      "control_females": 337,
+      "females_before_365": 4
+    },
+    "3.0": {
+      "control_males": 470,
+      "males_before_365": 42,
+      "control_females": 399,
+      "females_before_365": 2
+    }
+  },
+  "bw6_measured_by_site": {
+    "1.0": {
+      "n": 1953,
+      "bw6_eligible": 1577
+    },
+    "2.0": {
+      "n": 2634,
+      "bw6_eligible": 2072
+    },
+    "3.0": {
+      "n": 1851,
+      "bw6_eligible": 1039
+    }
+  },
+  "positive_and_negative_checks": {
+    "female_versus_male_gap_reduced_in_UM_vs_JL_in_both_eras": true,
+    "UT_versus_UM_gap_2007_negative": true,
+    "JL_UM_between_2004and2006_clearly_positive": true
+  },
+  "caveats": [
+    "Site contrast is observational; cannot assert why UM males live longer.",
+    "The full study reports sex-by-site and mass-survival effects already; no novelty claim.",
+    "Treatment=1 pools nominally noneffective drugs, not a specific randomized agent.",
+    "No event/censor flag in derived phenotype file. Truncated lifespan statistic is not Kaplan-Meier or hazard.",
+    "Birth cohorts 2010-2013 not jointly represented at all three sites and are excluded.",
+    "Mouse sex code verified against author's Figure1.R but prose counts in Nature 2026 appear reversed; needs author confirmation.",
+    "Selection bias after 183-day weight measurement; no mediation or causal claim.",
+    "Independence by cage and litter not established. All CIs exploratory."
+  ]
+}
