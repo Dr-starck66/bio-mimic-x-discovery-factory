@@ -70,7 +70,7 @@ def evaluate(scan_path:Path,root:Path):
             target,rec=fetch_interval(candidate["target"],start,end)
             strand=candidate["strand"]
             oriented=query if strand=="+" else query.translate(RC)[::-1]
-            distance=capped_semiglobal(oriented,target,MAX_EDIT,FLANK)
+            distance=capped_semiglobal(oriented,target,MAX_EDIT,FLANK+MAX_EDIT)
             outcomes.append({"target":candidate["target"],"strand":strand,
                              "anchor_support":candidate["unique_anchor_offsets"],
                              "approx_start_0based_min":projected,
