@@ -10,11 +10,16 @@ This does NOT prove biological orthology or exclude distant/partial homologs.
 """
 import argparse,hashlib,json,sys
 from collections import Counter
+from functools import lru_cache
 from pathlib import Path
 RC=bytes.maketrans(b"ACGTN",b"TGCAN")
 
+@lru_cache(maxsize=8)
+def _cached_qgram_counts(query:bytes,k:int):
+    return Counter(query[i:i+k] for i in range(len(query)-k+1))
+
 def necessary_qgram_count(query:bytes,target:bytes,k=12):
-    qcount=Counter(query[i:i+k] for i in range(len(query)-k+1))
+    qcount=_cached_qgram_counts(query,k)
     available={target[i:i+k] for i in range(len(target)-k+1)}
     observed=sum(count for kmer,count in qcount.items() if kmer in available)
     return observed,len(query)-k+1
