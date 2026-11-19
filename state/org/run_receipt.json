@@ -1,20 +1,12 @@
 {
   "allocations": [
     {
-      "committee_score": 56,
-      "labs": [
-        "longevity"
-      ],
-      "name": "Somniosus microcephalus",
-      "research_credits": 13
-    },
-    {
       "committee_score": 49,
       "labs": [
         "regeneration"
       ],
       "name": "Ambystoma mexicanum",
-      "research_credits": 11
+      "research_credits": 21
     },
     {
       "committee_score": 47,
@@ -22,23 +14,7 @@
         "regeneration"
       ],
       "name": "Acomys cahirinus",
-      "research_credits": 11
-    },
-    {
-      "committee_score": 45,
-      "labs": [
-        "preservation"
-      ],
-      "name": "Drosophila melanogaster",
-      "research_credits": 10
-    },
-    {
-      "committee_score": 45,
-      "labs": [
-        "preservation"
-      ],
-      "name": "Paracentrotus lividus",
-      "research_credits": 10
+      "research_credits": 20
     },
     {
       "committee_score": 45,
@@ -46,7 +22,7 @@
         "regeneration"
       ],
       "name": "Danio rerio",
-      "research_credits": 10
+      "research_credits": 20
     },
     {
       "committee_score": 45,
@@ -54,31 +30,15 @@
         "regeneration"
       ],
       "name": "Cynops pyrrhogaster",
-      "research_credits": 10
+      "research_credits": 20
     },
     {
-      "committee_score": 41,
+      "committee_score": 44,
       "labs": [
-        "preservation"
+        "longevity"
       ],
-      "name": "Caenorhabditis elegans",
-      "research_credits": 9
-    },
-    {
-      "committee_score": 35,
-      "labs": [
-        "preservation"
-      ],
-      "name": "Neophocaena asiaeorientalis",
-      "research_credits": 8
-    },
-    {
-      "committee_score": 35,
-      "labs": [
-        "preservation"
-      ],
-      "name": "Tursiops truncatus",
-      "research_credits": 8
+      "name": "Somniosus microcephalus",
+      "research_credits": 19
     }
   ],
   "committee_rules": {
@@ -136,7 +96,7 @@
       "id": "cancer",
       "name": "ONCO-X Lab",
       "paper_count": 35,
-      "sha256": "ce5ba523bcb3f238b4818a307f801f6f6d475b3a7c27fed51192302cb430a018",
+      "sha256": "5c1bddc66e71f6dad9faf1a4f3947e4ef57b5d014cb4d3b2c81654c6af068c9e",
       "status": "PASS"
     },
     {
@@ -144,7 +104,7 @@
       "id": "immunology",
       "name": "IMMUNO-X Lab",
       "paper_count": 35,
-      "sha256": "75df2cc465d7be31776125fccd1cb6832b1835b539109b172bf2c0bc19c504c5",
+      "sha256": "ade61ae5ce76d0a0d5a06d5ecaf5c57d6a68f9f5453a3c0c27779d1a5bfe4f91",
       "status": "PASS"
     },
     {
@@ -152,7 +112,7 @@
       "id": "longevity",
       "name": "LONGEVITY-X Lab",
       "paper_count": 35,
-      "sha256": "813e8de1932e51c3d78bc59a9a2b3440e2ce7af38d208a0c9f76f5064f06a246",
+      "sha256": "8d4cb6b737853ad2651a9643aca08b9d8110b646833d3f30848ca3fe06a5f37e",
       "status": "PASS"
     },
     {
@@ -160,7 +120,7 @@
       "id": "metabolism",
       "name": "METABOLIC-X Lab",
       "paper_count": 35,
-      "sha256": "1a938bc559244eee7034241a5a70de9e55be81eed2285ba206ae6229d13c055d",
+      "sha256": "8754ec4e72001b50a91ac6bcb16d3b17d4ccf654a8f9951b34b0b39c803b5486",
       "status": "PASS"
     },
     {
@@ -168,77 +128,27 @@
       "id": "neuro",
       "name": "NEURO-X Lab",
       "paper_count": 35,
-      "sha256": "06fd1bf9c4f4c7e55e7b779b7be3d076efded683ae43540dfae0b3237c89a324",
+      "sha256": "6aa2f4f3eca5fbbabc99bfbf999dbedb0fddd294a93ee2f0ced2b48ccd50dd37",
       "status": "PASS"
     },
     {
-      "candidate_count": 5,
+      "candidate_count": 0,
       "id": "preservation",
       "name": "PRESERVE-X Lab",
-      "paper_count": 35,
-      "sha256": "13908b799637a9177eca18c8544830645907f96614eae853680e9bc974e0f407",
-      "status": "PASS"
+      "paper_count": 0,
+      "sha256": "7b88b3061cc05ed668f848d48660dfbd280a0d5132097daee449ee6c29e3efdc",
+      "status": "FAIL"
     },
     {
       "candidate_count": 4,
       "id": "regeneration",
       "name": "REGEN-X Lab",
       "paper_count": 35,
-      "sha256": "1874f3d1fa57051ac75b0b02b77c4d02c0a8251f405e02d496e81188ce203965",
+      "sha256": "986edaff44a9c325b1275718dfb532d5e870f527145b5fac2c22839c19303c5d",
       "status": "PASS"
     }
   ],
   "portfolio": [
-    {
-      "annotation_support": false,
-      "challenges": [
-        "body-size confounding",
-        "correlation does not prove causation",
-        "human functional divergence remains possible",
-        "lifespan data quality",
-        "no gene symbol candidate",
-        "phylogeny confounding",
-        "taxonomy not annotation-supported"
-      ],
-      "committee_score": 56,
-      "genes": [],
-      "independent_source_count": 3,
-      "lab_count": 1,
-      "labs": [
-        "longevity"
-      ],
-      "mean_arbiter": 55.0,
-      "mechanisms": [
-        "DNA repair",
-        "genome maintenance",
-        "proteostasis",
-        "senescence"
-      ],
-      "name": "Somniosus microcephalus",
-      "pmid_sources": [
-        "PMID:42154556",
-        "PMID:42402335",
-        "PMID:42939468"
-      ],
-      "source_count": 3,
-      "sources": [
-        "PMID:42154556",
-        "PMID:42402335",
-        "PMID:42939468"
-      ],
-      "taxon_proofs": [
-        {
-          "canonical_name": "Somniosus microcephalus",
-          "kingdom": "Animalia",
-          "match_type": "EXACT",
-          "provider": "GBIF",
-          "rank": "SPECIES",
-          "status": "ACCEPTED",
-          "taxon_key": 2421162
-        }
-      ],
-      "taxon_verified": true
-    },
     {
       "annotation_support": false,
       "challenges": [
@@ -329,100 +239,6 @@
           "rank": "SPECIES",
           "status": "ACCEPTED",
           "taxon_key": 9800308
-        }
-      ],
-      "taxon_verified": true
-    },
-    {
-      "annotation_support": true,
-      "challenges": [
-        "correlation does not prove causation",
-        "cryoprotectant toxicity",
-        "human functional divergence remains possible",
-        "phenotype without extracted mechanism",
-        "reperfusion injury",
-        "whole-animal vs isolated-organ mismatch"
-      ],
-      "committee_score": 45,
-      "genes": [
-        "NIH-",
-        "USDA"
-      ],
-      "independent_source_count": 3,
-      "lab_count": 1,
-      "labs": [
-        "preservation"
-      ],
-      "mean_arbiter": 54.0,
-      "mechanisms": [],
-      "name": "Drosophila melanogaster",
-      "pmid_sources": [
-        "PMID:31988724",
-        "PMID:39995173",
-        "PMID:42208364"
-      ],
-      "source_count": 3,
-      "sources": [
-        "PMID:31988724",
-        "PMID:39995173",
-        "PMID:42208364"
-      ],
-      "taxon_proofs": [
-        {
-          "canonical_name": "Drosophila melanogaster",
-          "kingdom": "Animalia",
-          "match_type": "EXACT",
-          "provider": "GBIF",
-          "rank": "SPECIES",
-          "status": "ACCEPTED",
-          "taxon_key": 5073713
-        }
-      ],
-      "taxon_verified": true
-    },
-    {
-      "annotation_support": true,
-      "challenges": [
-        "correlation does not prove causation",
-        "cryoprotectant toxicity",
-        "human functional divergence remains possible",
-        "phenotype without extracted mechanism",
-        "reperfusion injury",
-        "whole-animal vs isolated-organ mismatch"
-      ],
-      "committee_score": 45,
-      "genes": [
-        "NIH-",
-        "USDA"
-      ],
-      "independent_source_count": 3,
-      "lab_count": 1,
-      "labs": [
-        "preservation"
-      ],
-      "mean_arbiter": 54.0,
-      "mechanisms": [],
-      "name": "Paracentrotus lividus",
-      "pmid_sources": [
-        "PMID:38622199",
-        "PMID:42208364",
-        "PMID:42738576"
-      ],
-      "source_count": 3,
-      "sources": [
-        "PMID:38622199",
-        "PMID:42208364",
-        "PMID:42738576"
-      ],
-      "taxon_proofs": [
-        {
-          "canonical_name": "Paracentrotus lividus",
-          "kingdom": "Animalia",
-          "match_type": "EXACT",
-          "provider": "GBIF",
-          "rank": "SPECIES",
-          "status": "ACCEPTED",
-          "taxon_key": 2278845
         }
       ],
       "taxon_verified": true
@@ -525,145 +341,64 @@
       "taxon_verified": true
     },
     {
-      "annotation_support": true,
-      "challenges": [
-        "correlation does not prove causation",
-        "cryoprotectant toxicity",
-        "human functional divergence remains possible",
-        "phenotype without extracted mechanism",
-        "reperfusion injury",
-        "whole-animal vs isolated-organ mismatch"
-      ],
-      "committee_score": 41,
-      "genes": [
-        "IBP",
-        "NIH-",
-        "USDA"
-      ],
-      "independent_source_count": 2,
-      "lab_count": 1,
-      "labs": [
-        "preservation"
-      ],
-      "mean_arbiter": 48.0,
-      "mechanisms": [],
-      "name": "Caenorhabditis elegans",
-      "pmid_sources": [
-        "PMID:42169464",
-        "PMID:42208364"
-      ],
-      "source_count": 2,
-      "sources": [
-        "PMID:42169464",
-        "PMID:42208364"
-      ],
-      "taxon_proofs": [
-        {
-          "canonical_name": "Caenorhabditis elegans",
-          "kingdom": "Animalia",
-          "match_type": "EXACT",
-          "provider": "GBIF",
-          "rank": "SPECIES",
-          "status": "ACCEPTED",
-          "taxon_key": 2283683
-        }
-      ],
-      "taxon_verified": true
-    },
-    {
       "annotation_support": false,
       "challenges": [
+        "body-size confounding",
         "correlation does not prove causation",
-        "cryoprotectant toxicity",
         "human functional divergence remains possible",
-        "reperfusion injury",
+        "lifespan data quality",
+        "no gene symbol candidate",
+        "phylogeny confounding",
         "single-paper dependence",
-        "taxonomy not annotation-supported",
-        "whole-animal vs isolated-organ mismatch"
+        "taxonomy not annotation-supported"
       ],
-      "committee_score": 35,
-      "genes": [
-        "CNKI"
-      ],
+      "committee_score": 44,
+      "genes": [],
       "independent_source_count": 1,
       "lab_count": 1,
       "labs": [
-        "preservation"
+        "longevity"
       ],
-      "mean_arbiter": 30.0,
+      "mean_arbiter": 33.0,
       "mechanisms": [
-        "cryoprotectant"
+        "DNA repair",
+        "genome maintenance",
+        "proteostasis",
+        "senescence"
       ],
-      "name": "Neophocaena asiaeorientalis",
+      "name": "Somniosus microcephalus",
       "pmid_sources": [
-        "PMID:42511070"
+        "PMID:42402335"
       ],
       "source_count": 1,
       "sources": [
-        "PMID:42511070"
+        "PMID:42402335"
       ],
       "taxon_proofs": [
         {
-          "canonical_name": "Neophocaena asiaeorientalis",
+          "canonical_name": "Somniosus microcephalus",
           "kingdom": "Animalia",
           "match_type": "EXACT",
           "provider": "GBIF",
           "rank": "SPECIES",
           "status": "ACCEPTED",
-          "taxon_key": 4352040
-        }
-      ],
-      "taxon_verified": true
-    },
-    {
-      "annotation_support": false,
-      "challenges": [
-        "correlation does not prove causation",
-        "cryoprotectant toxicity",
-        "human functional divergence remains possible",
-        "reperfusion injury",
-        "single-paper dependence",
-        "taxonomy not annotation-supported",
-        "whole-animal vs isolated-organ mismatch"
-      ],
-      "committee_score": 35,
-      "genes": [
-        "CNKI"
-      ],
-      "independent_source_count": 1,
-      "lab_count": 1,
-      "labs": [
-        "preservation"
-      ],
-      "mean_arbiter": 30.0,
-      "mechanisms": [
-        "cryoprotectant"
-      ],
-      "name": "Tursiops truncatus",
-      "pmid_sources": [
-        "PMID:42511070"
-      ],
-      "source_count": 1,
-      "sources": [
-        "PMID:42511070"
-      ],
-      "taxon_proofs": [
-        {
-          "canonical_name": "Tursiops truncatus",
-          "kingdom": "Animalia",
-          "match_type": "EXACT",
-          "provider": "GBIF",
-          "rank": "SPECIES",
-          "status": "ACCEPTED",
-          "taxon_key": 2440447
+          "taxon_key": 2421162
         }
       ],
       "taxon_verified": true
     }
   ],
   "schema": "biomimic-v6-org-run-v1",
-  "sha256": "3bbfe0ffa3b98c1f76c754869d896f5c5ddaa87070c349689a1ec4ae7228ddf1",
-  "status": "PASS",
-  "time": "2026-11-19T11:46:14.513679+00:00",
-  "upstream_failures": []
+  "sha256": "a8eb4dba405e2c494caef4a9c6c93efe639f50411a103a15e5dd2cda95877b65",
+  "status": "PARTIAL",
+  "time": "2026-11-19T11:50:46.454697+00:00",
+  "upstream_failures": [
+    {
+      "failures": [
+        "primary Europe PMC: The read operation timed out"
+      ],
+      "lab": "preservation",
+      "status": "FAIL"
+    }
+  ]
 }
