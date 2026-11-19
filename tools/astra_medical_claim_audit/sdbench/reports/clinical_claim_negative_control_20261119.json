@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-19",
+  "execution": "python3 local container; import clinical_validation_audit.audit and pass an explicitly public MedCaseReasoning provenance manifest with expected sample size 64",
+  "expected_result": "REJECT",
+  "actual_result": "REJECT",
+  "exception": "AuditError",
+  "reason": "Provenance not established: dataset_id must be 'mimic-iv-ext-sdbench/1.0.0'",
+  "result": "PASS_NEGATIVE_CONTROL",
+  "existing_clinical_validation_audit_unittests": {
+    "passed": 16,
+    "failed": 0,
+    "command": "python3 -m unittest discover -s /mnt/data/astra_medical_validation -p test_clinical_validation_audit.py -q"
+  },
+  "significance": "A separate clinical benchmark audit explicitly excludes published-case report measurements from being passed off as an official MIMIC retrospective clinical evaluation; independent clinical validation still not done.",
+  "dataset": "zou-lab/MedCaseReasoning/test",
+  "clinical_validity": "UNVERIFIED"
+}
