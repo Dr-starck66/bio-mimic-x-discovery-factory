@@ -45,7 +45,7 @@ def get_json(url: str) -> dict:
 def read_test_split() -> tuple[list[dict], str]:
     base = get_json(DATA_URL + "/splits?" + urllib.parse.urlencode({"dataset": DATASET}))
     splits = [s for s in base["splits"] if s["config"] == CONFIG and s["split"] == SPLIT]
-    assert len(splits) == 1 and splits[0]["num_rows"] == EXPECTED, "Unexpected dataset split; stop"
+    assert len(splits) == 1, "Expected a single official test partition"
     all_rows = []
     for off in range(0, EXPECTED, 100):
         url = DATA_URL + "/rows?" + urllib.parse.urlencode({
@@ -53,6 +53,7 @@ def read_test_split() -> tuple[list[dict], str]:
             "offset": off, "length": min(100, EXPECTED - off)})
         data = get_json(url)
         part = data["rows"]
+        assert data["num_rows_total"] == EXPECTED, "Unexpected test split size; stop"
         assert len(part) == min(100, EXPECTED - off), ("Incomplete test batch", off, len(part))
         assert [r["row_idx"] for r in part] == list(range(off, off + len(part)))
         all_rows.extend([r["row"] for r in part])
