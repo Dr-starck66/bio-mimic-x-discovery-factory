@@ -87,7 +87,14 @@ def cluster(by,inv,offset_by_name,querylen,span=350):
    start=max(0,left_proj-MARGIN)
    end=min(inv[acc]["length"],right_proj+querylen+MARGIN)
    if end-start < querylen-175:
-    skipped+=1;continue
+    # A reference contig shorter than querylen-max_edits cannot contain a
+    # complete <=175-edit alignment, but a projected window clipped at
+    # chromosome ends must be expanded rather than silently rejected.
+    if inv[acc]["length"]>=querylen-175:
+      start=max(0,min(start,inv[acc]["length"]-(querylen+MARGIN)))
+      end=min(inv[acc]["length"],max(end,start+querylen+MARGIN))
+    if end-start < querylen-175:
+      skipped+=1;continue
    candidates.append({"reference":acc,"role":inv[acc]["role"],"strand":strand,
     "projection_min_0based":left_proj,"projection_max_0based":right_proj,
     "seed_hit_count":len(g),
