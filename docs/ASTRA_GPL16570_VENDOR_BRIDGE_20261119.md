@@ -16,7 +16,7 @@ Le dépôt `Dr-starck66/bio-mimic-x-discovery-factory` possède déjà `validati
 ## Utilisation (lorsque les octets originaux sont disponibles)
 
 ```bash
-python vendor_probe_bridge.py \
+python validation/vendor_probe_bridge.py \
   --vendor-zip MoGene-2_0-st-v1-mm10-probe-tab.zip \
   --out artifacts/gpl16570
 # En option : --gene-map genes.tsv (colonnes probeset / gene_id ; annotation sourcée/versionnée)
@@ -35,7 +35,7 @@ Le moteur d'alignement exige **Bowtie 1 et bowtie-build**, qui n'ont pas été i
 ## Tests réellement exécutés
 
 ```bash
-python -m unittest -v test_vendor_probe_bridge.py
+python -m unittest discover -s tests -p "test_vendor_probe_bridge.py" -v
 ```
 
 9/9 PASS : lecture d'un format tabulaire représentatif, empreinte SHA-256, détection de doublons, validation de longueur et alphabet 25-mers, fichier ZIP sans tableau, annotation manquante/partielle, correspondance d'annotation versionnée, absence de faux PASS biologique.
