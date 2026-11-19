@@ -1,0 +1,65 @@
+{
+  "patients": 686,
+  "event_count": 299,
+  "no_hormonal_therapy_n": 440,
+  "hormonal_therapy_n": 246,
+  "nodes_prognostic_c_index": 0.6452416748101932,
+  "comparable_pairs": 133030,
+  "c_index_bootstrap_95": [
+    0.614902947680349,
+    0.6792927975919951
+  ],
+  "negative_permutations": 100,
+  "permutation_c_index_average": 0.5008411260617904,
+  "negative_permutations_at_least_observed": 0,
+  "hormone_3yr_rec_free": {
+    "groups": {
+      "nodes_le3": {
+        "treated_n": 128,
+        "control_n": 248,
+        "treated_survival": 0.8343812308658112,
+        "control_survival": 0.7382974147283577,
+        "difference": 0.09608381613745343
+      },
+      "nodes_gt3": {
+        "treated_n": 118,
+        "control_n": 192,
+        "treated_survival": 0.5730353870987821,
+        "control_survival": 0.4290312057952648,
+        "difference": 0.14400418130351728
+      }
+    },
+    "interaction": -0.04792036516606385
+  },
+  "interaction_exploratory_bootstrap_95": [
+    -0.19946655612290431,
+    0.11942455425056808
+  ],
+  "interaction_permutation_p_plus_one": 0.5182724252491694,
+  "interaction_permutations": 300,
+  "interaction_extreme_count": 155,
+  "seed": 20261119,
+  "limitations": [
+    "GBSG2 is historical randomized adjuvant hormonal treatment, not ribociclib or NATALEE",
+    "Prognostic C-index is not treatment-effect prediction",
+    "Subgroup cutpoint <=3 nodes explored with no independent holdout; not a clinical rule",
+    "Causal effect per individual unidentifiable; interaction confidence interval includes zero",
+    "Only aggregate output, no clinical use"
+  ],
+  "source_url": "https://github.com/sebp/scikit-survival/blob/main/sksurv/datasets/data/GBSG2.arff",
+  "source_git_blob_sha": "677e12eb6cc0e0a5e9a11acc74aff8266b403f8e",
+  "analysis_date": "2026-11-19",
+  "status": "PASS for executable public-dataset methodological audit; no ribociclib effect model",
+  "unit_tests": {
+    "concordant ranking": true,
+    "discordant ranking": true,
+    "no uncensored comparable pairs": true,
+    "KM all survive": true,
+    "KM single event": true,
+    "bad ARFF rejected": true,
+    "invalid row rejected": true,
+    "random determinism": true
+  },
+  "unit_test_count": 8,
+  "scope": "public GBSG2 rows accessed through GitHub connector and analyzed in JS isolate; no trial patient rows written to ASTRA GitHub"
+}
