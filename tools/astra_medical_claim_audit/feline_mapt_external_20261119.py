@@ -194,7 +194,7 @@ def self_test():
     assert auc([(1,True),(2,False)])==0
     assert auc([(2,True),(2,False)])==0.5
     assert exact_perm([(2,True),(1,False)])==(1,2)
-    assert interaction([(2,1,1),(2,0,0),(1,1,0),(1,0,0)],1.5) is None
+    assert abs(interaction([(2,1,1),(2,0,0),(1,1,0),(1,0,0)],1.5)["difference_of_risk_differences"] - 1.0)<1e-12
     assert median([1,2,3,4])==2.5
     print("UNIT_TESTS_PASS 6/6",flush=True)
 
