@@ -2,7 +2,9 @@ import csv
 import tempfile
 import unittest
 import zipfile
+import sys
 from pathlib import Path
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]/"validation"))
 from vendor_probe_bridge import convert,read_map
 A='ACGTACGTACGTACGTACGTACGTA'
 B='TGCATGCATGCATGCATGCATGCAT'
