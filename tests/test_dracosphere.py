@@ -24,6 +24,7 @@ class TransportTests(unittest.TestCase):
         self.assertTrue(calc(20,12)['lamellae_fit_in_506nm_shell'])
         self.assertFalse(calc(200,12)['lamellae_fit_in_506nm_shell'])
     def test_radial_vs_planar_limit(self):
+        # Spherical resistance converges to planar expression for thin shell.
         delta=1e-9
         c=calc(20,12,R_IN_M,R_IN_M+delta)
         r=R_IN_M+delta/2
