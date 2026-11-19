@@ -35,6 +35,19 @@ class Hand2ReciprocalSyntenyTests(unittest.TestCase):
         result=find_flanking_candidates([bad]+self.genes[1:],self.modern)
         self.assertEqual(result["status"],"UNVERIFIED_NO_FLANKING_ANCHORS")
         self.assertIn("SAP30",result["anchor_failures"])
+    def test_sequence_target_fallback_requires_exact_locus(self):
+        target={"gene_id":"AMEX60DD045298","start":884794726,
+                "end":884799066,"strand":"+","symbols":["HAND2"]}
+        result=find_flanking_candidates(self.genes+[target],{})
+        self.assertEqual(result["status"],"PARTIAL_SEQUENCE_TARGETED_FALLBACK")
+        self.assertEqual([g["gene_id"] for g in result["candidates"]],["AMEX60DD045298"])
+        self.assertEqual(result["selected_flanks"],[])
+        self.assertEqual(result["fallback_reason"],"INSUFFICIENT_VERIFIED_MODERN_GENE_ANCHORS")
+        wrong=dict(target,start=884794727)
+        rejected=find_flanking_candidates(self.genes+[wrong],{})
+        self.assertEqual(rejected["status"],"UNVERIFIED_NO_FLANKING_ANCHORS")
+        self.assertEqual(rejected["candidates"],[])
+
     def test_duplicate_anchor_blocks_shortlist(self):
         bad=dict(self.genes[0],gene_id="another_sap")
         result=find_flanking_candidates(self.genes+[bad],self.modern)
