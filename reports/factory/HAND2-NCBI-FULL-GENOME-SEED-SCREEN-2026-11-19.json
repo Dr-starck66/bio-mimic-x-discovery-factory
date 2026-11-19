@@ -1,0 +1,95 @@
+{
+  "schema": "BIO-MIMIC-X/REAL-COMPLETE-ASSEMBLY-NECESSARY-SEED-SCREEN/2026-11-19",
+  "evidence_kind": "ACTUAL_NCBI_GCF_GCA_FULL_ARCHIVES_VERCEL_HOBBY_EPHEMERAL_SESSION",
+  "status": "PARTIAL_WINDOW_ALIGNMENT_IN_PROGRESS",
+  "sources": {
+    "old": {
+      "accession": "GCA_002915635.3",
+      "archive_bytes": 8946044907,
+      "md5_official_and_verified": "a1eead5b530de52ad8c88c385b302db4",
+      "references": 27157,
+      "unplaced_unlocalized": 27129,
+      "bases_from_manifest_and_stream": 28206905576
+    },
+    "modern": {
+      "accession": "GCF_040938575.1",
+      "archive_bytes": 8871576465,
+      "md5_official_and_verified": "bbcffc138dcd879d45227ad9beaf770b",
+      "references": 221,
+      "unplaced_unlocalized": 199,
+      "bases_from_manifest_and_stream": 29117864639
+    }
+  },
+  "query_windows": {
+    "old": {
+      "accession": "CM010938.2",
+      "start_1based": 884794726,
+      "end_1based": 884799066,
+      "length": 4341,
+      "sha256": "6f899bcef46617d9d50e18a35139615e3ae3395e42f1c202155249c7a7c3b796"
+    },
+    "modern": {
+      "accession": "NC_090937.1",
+      "start_1based": 910028725,
+      "end_1based": 910032936,
+      "length": 4212,
+      "sha256": "eb707084770ecfd0c24538f10984563b8cddfc0fe467db96454a36fa516505b3"
+    },
+    "hand1_negative": {
+      "accession": "NC_090926.1",
+      "length": 28850,
+      "sha256": "99058cb5ba540e21359efbdd2dd047efb692cb8f47d731ec775ba7cbfeef9d8c"
+    }
+  },
+  "original_sparse_seeds": {
+    "old_to_modern": {
+      "genome_headers": 221,
+      "unique_31mer_candidate_anchors_expected": 27,
+      "isolated_alternatives": 4,
+      "isolated_alternatives_with_175_edit_alignment": 0
+    },
+    "modern_to_old": {
+      "genome_headers": 27157,
+      "unique_31mer_candidate_anchors_expected": 25,
+      "isolated_alternatives": 0
+    },
+    "real_bounded_edits_target_both_directions": 14
+  },
+  "dense_pigeonhole_screen": {
+    "assumption": "One complete query with <=175 Levenshtein edits against a genomic substring must preserve at least one of 176 disjoint exact blocks per query strand.",
+    "old_to_modern": {
+      "block_length": 24,
+      "blocks_per_strand": 176,
+      "matched_seed_occurrences": 7887,
+      "matched_seed_file_sha256": "362720ce41c29bcfb65c3eb226ee70d09c77a31e2d9f8e4faf4a7e063903e8bf",
+      "reference_bases_streamed": 29117864639,
+      "reference_accessions": 221,
+      "candidate_windows": 7665
+    },
+    "modern_to_old": {
+      "block_length": 23,
+      "blocks_per_strand": 176,
+      "matched_seed_occurrences": 184762,
+      "matched_seed_file_sha256": "94daa5e34651b5569979ced75c99706b226568bb8b98537223f980de06a69517",
+      "reference_bases_streamed": 28206905576,
+      "reference_accessions": 27157,
+      "candidate_windows": 140720,
+      "short_scaffolds_incapable_of_query_minus_175": 3
+    }
+  },
+  "interpretive_gates": {
+    "full_query_semiglobal_uniqueness_at_175": "UNVERIFIED_UNTIL_EVERY_CANDIDATE_WINDOW_ALIGNED",
+    "other_edit_thresholds": "UNVERIFIED",
+    "paralogs_and_structural_homology": "UNVERIFIED",
+    "liftoff_or_minimap2": "NOT_EXECUTED",
+    "clinical_and_commercial": "UNVERIFIED"
+  },
+  "operational_proof": {
+    "sandbox": "astra-biomimic-hand2-genome-20261119",
+    "session": "sbx_sztB2ASAVsR7AiVKr3HqMFu4GWST",
+    "no_github_actions": true,
+    "public_production_changed": false,
+    "created_paid_infrastructure": false
+  },
+  "note": "No whole-genome FASTA sequences republished; scientific audit statistics only, preserving limited permitted HAND1/HAND2 analysis."
+}
