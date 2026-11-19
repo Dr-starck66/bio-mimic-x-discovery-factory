@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-19",
+  "dataset": "zou-lab/MedCaseReasoning",
+  "dataset_revision": "469a5365bc534b5b2b9cfbc52b2ef2a10f43a339",
+  "split": "test",
+  "sample_n": 64,
+  "inference_rows": 128,
+  "model_sha256": "74a4da8c9fdbcd15bd1f6d01d621410d31c6fc00986f5eb687824e7b93d7a9db",
+  "test_suites": [
+    {
+      "name": "medcase_public_eval_tests.log",
+      "count": 15,
+      "success": true,
+      "sha256": "b0927498e2ed72022d46c448d86a3387f6f62e2682a097cac033ec119e84d431"
+    },
+    {
+      "name": "medcase_blind_review_tests.log",
+      "count": 14,
+      "success": true,
+      "sha256": "f6aec04b964c024a926ee95ce86d5031f6ffa4e4c386eb0a2b9ce2d4a50fbde3"
+    },
+    {
+      "name": "medcase_review_adjudication_tests.log",
+      "count": 14,
+      "success": true,
+      "sha256": "ecfbe9bf22243aac3d9e215945bc841159bbb6116ec8b6991224db4486330f9c"
+    }
+  ],
+  "tests_pass": 43,
+  "tests_failed": 0,
+  "predictions_sha256": "d8f84e746f9fddd40c9921a8c1c3f92523988a1564ffef4c91e44dc853f4b32b",
+  "github_prediction_archive_roundtrip": "PASS",
+  "clinical_validation": "NOT_DEMONSTRATED",
+  "actual_study": "Public published clinical cases, two prompt variants for Qwen, not full sequential ASTRA agent",
+  "licensed_clinician_adjudication": "NOT_PERFORMED"
+}
