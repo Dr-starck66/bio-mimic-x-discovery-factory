@@ -41,3 +41,17 @@ Separate local dossier **ASTRA_MEDICAL_MONALEESA2_ACCESS_KIT_20261119.zip** was 
 **Next external gate:** verified qualified clinical lead and authenticated formal research request through CSDR; any costs or irreversible commitments require explicit user authorization. No clinical efficacy prediction or sponsor authorization claimed.
 
 Useful links: [official study entry](https://www.clinicalstudydatarequest.com/Posting.aspx?ID=21159), [how to request](https://clinicalstudydatarequest.com/Help/Help-How-to-Request-Data.aspx), [Novartis sponsor rules](https://www.clinicalstudydatarequest.com/Study-Sponsors/Study-Sponsors-Novartis.aspx), [Novartis transparency](https://www.novartis.com/clinicaltrials/transparency).
+
+
+## Critical access gate confirmed 19 Nov 2026 — no substitute by more biomarker fishing
+
+The official CSDR Research Proposal process is **not immediately executable** on our present facts:
+
+- Official [CSDR how to request](https://clinicalstudydatarequest.com/Help/Help-How-to-Request-Data.aspx) requires an authenticated lead-researcher account. MONALEESA-2 is listed: select it and choose **Initiate Research Proposal** or **Ask a question about the selected study**; do **not** use the non-listed-study Enquiry.
+- Official [Review of Requests](https://clinicalstudydatarequest.com/Help/Help-Review-of-Requests.aspx) **Stage 1 requires a qualified statistician** as a team member, required fields, and a plan to publish. Sponsors and the Independent Review Panel also review qualifications, scientific methodology, conflict declarations and publication plans. A fake or assumed affiliation or clinical degree would be unacceptable.
+- The [Data Sharing Agreement](https://clinicalstudydatarequest.com/Help/Help-Data-Sharing-Agreement.aspx) restricts transfers of anonymized trial IPD. There is **no access approval, no signed agreement, no CSDR submission number, and no usable trial IPD in ASTRA**.
+- Existing scientific contact: `Frederick.Howard@bsd.uchicago.edu`, Gmail **draft only**, not sent. A prior real sent email to `camille.stephan@irbbarcelona.org` (IRB Barcelona Bioinformatics/Biostatistics unit) was found; a **reply draft in that original thread** was prepared to seek a qualified clinical statistician/method review, **not sent**. Do not duplicate the earlier outreach or claim partner acceptance.
+- The IRB Barcelona follow-up draft Gmail message ID is `1a1f439307b782f5` (draft ID `r-7794539874960400280`), corresponding to an existing sent thread, not a research proposal submission.
+- No further uncontrolled exploratory gene-panel search should be labeled clinical validation. Until approved IPD or an approved partner-run aggregate validation is available, preserve the existing negative results and prioritize an actual research collaboration and a properly reviewed CSDR application.
+
+**Status:** PASS official workflow and researcher prerequisite verification; PASS reply draft created; FAIL for access requested/submitted (no submitted application); UNVERIFIED clinical benefit individualization. No outgoing email sent and no new expenditure authorized.
