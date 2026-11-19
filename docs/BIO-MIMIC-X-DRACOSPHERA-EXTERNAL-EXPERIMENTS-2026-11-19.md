@@ -37,3 +37,13 @@
 | Tissue regeneration and epigenetic rejuvenation by artificial organelle | **FAIL — NOT EXECUTED** |
 
 This branch deliberately keeps failed/no-data evidence visible. No biomedical claim, no deployment, no new paid infrastructure. Experimental partnership is required for the remaining biological gates.
+
+
+## 2026-11-19 — Recorded collaboration outreach (not a laboratory result)
+
+Two proposals were sent from the project owner's previously used scientific correspondence account; Gmail confirmed SENT status and the messages were subsequently found under sent mail. No experiment has started, and delivery to recipients / acknowledgment / in-kind funding / collaboration acceptance remain unconfirmed.
+
+1. Original *Nature Communications* corresponding-author team: Jian-Wen Qiu (HKBU, primary recipient), Pei-Yuan Qian (HKUST, cc), Jin Sun (OUC, cc). Proposed exchange of original membrane data and a blinded 0/1/5/20-lamellae oxygen-equilibration experiment.
+2. Laboratoire Charles Coulomb, Université de Montpellier / CNRS (official secretariat): requested referral to the physics of living and biomimetic systems research team, emphasizing existing giant-vesicle microfluidics expertise and no financial commitment.
+
+Do not include private email IDs or assert replies from scientific partners. The project next requires a named principal investigator and access to measured oxygen-kinetic traces, verified multilamellar microscopy, controls, preparation batch IDs and all negative results, under the host laboratory's ethics/biosafety governance. The existing computation package remains analysis only.
