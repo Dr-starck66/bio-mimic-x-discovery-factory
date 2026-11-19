@@ -1,6 +1,6 @@
 import math
 import unittest
-from dracosphere_model import calc, report, R_IN_M, R_OUT_M
+from validation.dracosphere_model import calc, report, R_IN_M, R_OUT_M
 
 class TransportTests(unittest.TestCase):
     def test_n0_control(self):
