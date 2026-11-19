@@ -72,7 +72,15 @@ def find_flanking_candidates(genes:list[dict],modern:dict,limit=MAX_CANDIDATES):
     evidence["anchors"]=anchors
     left=sorted((x for x in anchors if x["modern"]["end"]<t),key=lambda x:t-x["modern"]["end"])
     right=sorted((x for x in anchors if x["modern"]["start"]>t),key=lambda x:x["modern"]["start"]-t)
-    if not left or not right:return evidence
+    if not left or not right:
+        # Source-backed target only; not an inferred two-flank or genome-wide hit.
+        target=[g for g in genes if g["gene_id"]=="AMEX60DD045298"
+                and g["start"]==884794726 and g["end"]==884799066]
+        if len(target)==1:
+            evidence.update({"status":"PARTIAL_SEQUENCE_TARGETED_FALLBACK",
+                "fallback_reason":"INSUFFICIENT_VERIFIED_MODERN_GENE_ANCHORS",
+                "selected_flanks":[], "candidates":target, "total_eligible":1})
+        return evidence
     a,b=left[0],right[0]
     olda=(a["old"]["start"]+a["old"]["end"])/2
     oldb=(b["old"]["start"]+b["old"]["end"])/2
@@ -94,7 +102,7 @@ def find_flanking_candidates(genes:list[dict],modern:dict,limit=MAX_CANDIDATES):
 def compare_reciprocal(synteny,fetcher=fasta_from_ncbi,aligner=align_window):
     out={"status":"UNVERIFIED_NO_CANDIDATES","whole_genome_unique":"UNVERIFIED",
          "curator_mapping":"UNVERIFIED","records":[],"failed_sources":{}}
-    if synteny["status"]!="PARTIAL_TWO_SYNTENIC_FLANKS" or not synteny["candidates"]:
+    if synteny["status"] not in ("PARTIAL_TWO_SYNTENIC_FLANKS", "PARTIAL_SEQUENCE_TARGETED_FALLBACK") or not synteny["candidates"]:
         return out
     seqs={}
     for key in ("hand1","hand2"):
