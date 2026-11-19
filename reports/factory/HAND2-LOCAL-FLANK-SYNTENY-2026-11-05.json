@@ -1,0 +1,159 @@
+{
+  "schema": "BIO-MIMIC-X/HAND2-LOCAL-FLANK-SYNTENY/1",
+  "observed": "2026-11-05",
+  "result_status": "PARTIAL_LOCAL_SYNTENY_SUPPORTED",
+  "evidence_type": "four actual NCBI EFetch 5000bp nucleotide windows, two strands, exact distinct 31-mers and positional offset histogram",
+  "genes": {
+    "legacy": "AMEX60DD045298",
+    "modern": "NCBI Gene 138516365",
+    "modern_hand1_negative": "NCBI Gene 138582569"
+  },
+  "sources": [
+    {
+      "key": "old_left",
+      "accession": "CM010938.2",
+      "chromosome": "chr6q",
+      "start_1based": 884789726,
+      "end_1based": 884794725,
+      "length": 5000,
+      "efetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=CM010938.2&seq_start=884789726&seq_stop=884794725&rettype=fasta&retmode=text"
+    },
+    {
+      "key": "old_right",
+      "accession": "CM010938.2",
+      "chromosome": "chr6q",
+      "start_1based": 884799067,
+      "end_1based": 884804066,
+      "length": 5000,
+      "efetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=CM010938.2&seq_start=884799067&seq_stop=884804066&rettype=fasta&retmode=text"
+    },
+    {
+      "key": "modern_left",
+      "accession": "NC_090937.1",
+      "chromosome": "6q",
+      "start_1based": 910023725,
+      "end_1based": 910028724,
+      "length": 5000,
+      "efetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NC_090937.1&seq_start=910023725&seq_stop=910028724&rettype=fasta&retmode=text"
+    },
+    {
+      "key": "modern_right",
+      "accession": "NC_090937.1",
+      "chromosome": "6q",
+      "start_1based": 910032937,
+      "end_1based": 910037936,
+      "length": 5000,
+      "efetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NC_090937.1&seq_start=910032937&seq_stop=910037936&rettype=fasta&retmode=text"
+    }
+  ],
+  "k": 31,
+  "old_distinct_31mers_per_flank": 4970,
+  "results": [
+    {
+      "old": "old_left",
+      "modern": "modern_right",
+      "modern_orientation": "reverse_complement",
+      "shared_distinct_31mers": 3888,
+      "top_1_offset_bp": -68,
+      "top_1_offset_count": 2930,
+      "other_common_offsets": [
+        {
+          "offset": 221,
+          "count": 535
+        },
+        {
+          "offset": 222,
+          "count": 248
+        },
+        {
+          "offset": 220,
+          "count": 175
+        }
+      ]
+    },
+    {
+      "old": "old_right",
+      "modern": "modern_left",
+      "modern_orientation": "reverse_complement",
+      "shared_distinct_31mers": 4268,
+      "top_1_offset_bp": 70,
+      "top_1_offset_count": 923,
+      "other_common_offsets": [
+        {
+          "offset": 66,
+          "count": 759
+        },
+        {
+          "offset": 61,
+          "count": 656
+        },
+        {
+          "offset": 58,
+          "count": 537
+        },
+        {
+          "offset": 56,
+          "count": 381
+        }
+      ]
+    },
+    {
+      "old": "old_left",
+      "modern": "modern_left",
+      "modern_orientation": "reverse_complement",
+      "shared_distinct_31mers": 0
+    },
+    {
+      "old": "old_right",
+      "modern": "modern_right",
+      "modern_orientation": "reverse_complement",
+      "shared_distinct_31mers": 0
+    },
+    {
+      "old": "old_left",
+      "modern": "modern_left",
+      "modern_orientation": "forward",
+      "shared_distinct_31mers": 0
+    },
+    {
+      "old": "old_left",
+      "modern": "modern_right",
+      "modern_orientation": "forward",
+      "shared_distinct_31mers": 0
+    },
+    {
+      "old": "old_right",
+      "modern": "modern_left",
+      "modern_orientation": "forward",
+      "shared_distinct_31mers": 0
+    },
+    {
+      "old": "old_right",
+      "modern": "modern_right",
+      "modern_orientation": "forward",
+      "shared_distinct_31mers": 0
+    }
+  ],
+  "cross_checks": {
+    "local_window_length_validation": "PASS_4_OF_4",
+    "DNA_only_ACGTN": "PASS_4_OF_4",
+    "opposite_flank_orientation_controls": "PASS_6_NEGATIVES",
+    "direct_hand2_historical_to_modern_gene_alignment": "PASS_PREVIOUS_2026_11_05_EXPERIMENT",
+    "whole_genome_unique_locus": "UNVERIFIED",
+    "independent_gene_neighborhood_annotation": "UNVERIFIED",
+    "official_curator_crosswalk": "UNVERIFIED",
+    "therapeutic_claim": "UNVERIFIED",
+    "commercial_valuation": "UNVERIFIED"
+  },
+  "provenance": {
+    "prior_direct_alignment": "reports/factory/HAND2-DIRECT-EXPERIMENT-2026-11-05.json",
+    "analysis_engine": "in-memory deterministic JavaScript 31mer set intersection with strand reverse complement",
+    "validation_warning": "Source extracted with TinyFish NCBI EFetch; no GitHub Actions complete-run validation obtained for this new flank scan."
+  },
+  "limitations": [
+    "Matched local 5kb flanks and orientation support locus continuity, NOT genome-wide uniqueness.",
+    "The gene neighborhood names and rank ordering have not been independently confirmed.",
+    "Highly repetitive regions may contain nonunique exact 31mers; offset histograms retained.",
+    "Not therapeutic efficacy, human biological proof, commercial sale, or official curator confirmation."
+  ]
+}
