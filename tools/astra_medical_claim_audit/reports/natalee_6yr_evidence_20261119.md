@@ -26,3 +26,30 @@ Ce document isolé ne modifie pas le système diagnostique SDBench et n'entraîn
 - **Limites :** valeurs publiques agrégées seulement, pas de bras individuels ni survies censurées ; impossible de mesurer l'hétérogénéité causale du traitement, l'AUC clinique, la calibration, l'amélioration du modèle de 2026 ou la décision thérapeutique.
 
 **Précaution :** branche de recherche seulement, aucune publication de données patient, aucun service payant, aucune nouvelle automatisation.
+
+## AUDIT ADDITIONNEL — SURVIE 6 ANS, SEPT PAIRES DE SOUS-GROUPES (2026-11-19)
+Source primaire : publication NATALEE DOI https://doi.org/10.1016/j.annonc.2026.10.1288. Les HR et IC95 ont été extraits des résultats de survie globale par sous-groupe de l'étude à six ans ; audit sur chiffres **agrégés et arrondis**, sans IPD.
+
+| Sous-groupes comparés | Ratio HR entre groupes | p Wald bilatéral APPROX | Holm approx |
+|---|---:|---:|---:|
+| N0 vs N1–3 | 0,967 | 0,9246 | 1,0 |
+| Stade II vs III | 1,040 | 0,8730 | 1,0 |
+| Chimiothérapie antérieure oui/non | 1,339 | 0,4633 | 1,0 |
+| Hormonothérapie antérieure oui/non | 1,119 | 0,6001 | 1,0 |
+| Préménopause vs postménopause | 0,798 | 0,3043 | 1,0 |
+| Région Amérique du Nord/Europe de l'Ouest/Océanie vs autres | 1,107 | 0,6236 | 1,0 |
+| Ki-67 ≤20 % vs >20 % | 1,018 | 0,9351 | 1,0 |
+
+**0/7 interactions approximatives significatives**. Méthode : SE(log HR) extrait des IC95 publiés, Z de différence de log(HR) entre groupes disjoints, p bilatéral, correction Holm sur sept tests. C'est une exploration **non équivalente** au test officiel de Cox traitement×variable effectué sur les données individuelles. Ne pas conclure à la preuve d'une absence d'hétérogénéité ni à un algorithme de sélection de patientes.
+
+Source moléculaire indépendante : abstract ASCO 2026, 3022 échantillons et interaction PAM50×traitement **p=0,34**, avec six gènes candidats exploratoires CEACAM6, NOD2, GPX3, GATA3, SLC39A6, MAPT : https://doi.org/10.1200/JCO.2026.44.16_suppl.501 . Aucun biomarqueur sélectionneur validé.
+
+**Point critique de relecture** : Howard et al., *Clinical Cancer Research* 2026, méthode du Cox pondéré (10 covariables plus indicateur de traitement), DOI https://doi.org/10.1158/1078-0432.CCR-25-1946 : sans interaction explicite traitement×covariable, un modèle Cox impose un **HR relatif constant pour tous x**, tout en permettant un bénéfice absolu variable selon le risque initial. Une telle personnalisation du risque n'est pas une démonstration d'une sensibilité biologique individuelle au médicament. Les auteurs indiquent des exemples de code sur https://osf.io/rnsua/ ; contenu non téléchargé ni exécuté (outil Web 403, conteneur DNS inaccessible).
+
+**Politique d'accès** : https://clinicalstudydatarequest.com/Study-Sponsors/Study-Sponsors-Novartis.aspx interdit normalement le partage des analyses intermédiaires des essais en cours et exclut certaines données génétiques / biomarqueurs exploratoires. Ceci restreint significativement la revalidation directe des six candidats. Aucune donnée individuelle NATALEE n'a été obtenue.
+
+**Exécution réellement confirmée en conteneur isolé** : 13/13 tests Python PASS + 13/13 sous `python -O` PASS, calcul et export JSON, contrôle ZIP d'intégrité PASS ; archive de conversation `ASTRA_MEDICAL_NATALEE_7_SOUS_GROUPES_20261119.zip`, SHA256 `e4d088a75b9e6da0db331b2574a2e5d8828496c37abb94adc2841ea559e5e142`. Code de référence GitHub ajouté :
+- `tools/astra_medical_claim_audit/natalee_6yr_os_subgroups_20261119.py`;
+- `tools/astra_medical_claim_audit/test_natalee_6yr_os_subgroups_20261119.py`.
+
+**Portée des preuves** : PASS calculs sur chiffres publiés, tests unitaires de la version locale, lecture GitHub après commit; UNVERIFIED exécutabilité de cette version GitHub dans un serveur externe et toute prédiction individualisée validée. Aucun déploiement clinique, aucune dépense ni nouveau cron.
