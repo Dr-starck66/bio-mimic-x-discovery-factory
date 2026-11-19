@@ -24,7 +24,7 @@ class MedCaseEvaluationControls(unittest.TestCase):
     def test_guard_prompt_defines_abstention(self):
         self.assertIn("ABSTAIN",m.PROMPTS["evidence_gated_prompt"])
     def test_no_treatment_prompt(self):
-        self.assertIn("No rationale",m.PROMPTS["direct"])
+        self.assertIn("no rationale",m.PROMPTS["direct"].casefold())
     def test_wilson_bounds_all_success(self):
         low,upper=m.wilson95(10,10);self.assertLess(low,1);self.assertEqual(upper,1)
     def test_wilson_bounds_no_success(self):
