@@ -208,6 +208,7 @@ def main():
         labels,cells,info=get()
         labels,profiles,detail=gene_scan(name,labels,cells)
         output["cohorts"][name]=analyse(name,labels,profiles,{**info,**detail})
+        print("COHORT_AGGREGATE "+json.dumps(output["cohorts"][name],sort_keys=True),flush=True)
         print(f"COHORT_DONE {name} {len(labels)} patients",flush=True)
     with open("/tmp/astra_feline_mapt_external_20261119.json","w") as f:json.dump(output,f,sort_keys=True,indent=2)
     print("AGGREGATE_REPORT "+json.dumps(output,sort_keys=True),flush=True)
