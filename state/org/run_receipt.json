@@ -1,44 +1,68 @@
 {
   "allocations": [
     {
+      "committee_score": 59,
+      "labs": [
+        "regeneration"
+      ],
+      "name": "Acomys cahirinus",
+      "research_credits": 15
+    },
+    {
+      "committee_score": 56,
+      "labs": [
+        "longevity"
+      ],
+      "name": "Somniosus microcephalus",
+      "research_credits": 14
+    },
+    {
+      "committee_score": 55,
+      "labs": [
+        "regeneration"
+      ],
+      "name": "Danio rerio",
+      "research_credits": 14
+    },
+    {
+      "committee_score": 55,
+      "labs": [
+        "regeneration"
+      ],
+      "name": "Cynops pyrrhogaster",
+      "research_credits": 14
+    },
+    {
       "committee_score": 49,
       "labs": [
         "regeneration"
       ],
       "name": "Ambystoma mexicanum",
-      "research_credits": 21
-    },
-    {
-      "committee_score": 47,
-      "labs": [
-        "regeneration"
-      ],
-      "name": "Acomys cahirinus",
-      "research_credits": 20
+      "research_credits": 12
     },
     {
       "committee_score": 45,
       "labs": [
-        "regeneration"
+        "preservation"
       ],
-      "name": "Danio rerio",
-      "research_credits": 20
+      "name": "Drosophila melanogaster",
+      "research_credits": 11
     },
     {
       "committee_score": 45,
       "labs": [
-        "regeneration"
+        "preservation"
       ],
-      "name": "Cynops pyrrhogaster",
-      "research_credits": 20
+      "name": "Paracentrotus lividus",
+      "research_credits": 11
     },
     {
-      "committee_score": 44,
+      "committee_score": 41,
       "labs": [
-        "longevity"
+        "preservation"
       ],
-      "name": "Somniosus microcephalus",
-      "research_credits": 19
+      "name": "Caenorhabditis elegans",
+      "research_credits": 9
     }
   ],
   "committee_rules": {
@@ -96,7 +120,7 @@
       "id": "cancer",
       "name": "ONCO-X Lab",
       "paper_count": 35,
-      "sha256": "5c1bddc66e71f6dad9faf1a4f3947e4ef57b5d014cb4d3b2c81654c6af068c9e",
+      "sha256": "ba34535ad23c8eb9c33301d517b029bba90654b2b2f3655e8321913fdad0231a",
       "status": "PASS"
     },
     {
@@ -104,7 +128,7 @@
       "id": "immunology",
       "name": "IMMUNO-X Lab",
       "paper_count": 35,
-      "sha256": "ade61ae5ce76d0a0d5a06d5ecaf5c57d6a68f9f5453a3c0c27779d1a5bfe4f91",
+      "sha256": "7691a36a29c4a35ca68fbdb42c2f84a2af407ef09e2abd19685c05e76dd4602f",
       "status": "PASS"
     },
     {
@@ -112,7 +136,7 @@
       "id": "longevity",
       "name": "LONGEVITY-X Lab",
       "paper_count": 35,
-      "sha256": "8d4cb6b737853ad2651a9643aca08b9d8110b646833d3f30848ca3fe06a5f37e",
+      "sha256": "a12994bc9fb65dc2c7da29f848f284007788ce1e971597cd02297534ef9764e6",
       "status": "PASS"
     },
     {
@@ -120,7 +144,7 @@
       "id": "metabolism",
       "name": "METABOLIC-X Lab",
       "paper_count": 35,
-      "sha256": "8754ec4e72001b50a91ac6bcb16d3b17d4ccf654a8f9951b34b0b39c803b5486",
+      "sha256": "9b799e56f3fa1e53757fa3e82f1b730c703ae6a642ca58a7c772c14bf025cb96",
       "status": "PASS"
     },
     {
@@ -128,27 +152,228 @@
       "id": "neuro",
       "name": "NEURO-X Lab",
       "paper_count": 35,
-      "sha256": "6aa2f4f3eca5fbbabc99bfbf999dbedb0fddd294a93ee2f0ced2b48ccd50dd37",
+      "sha256": "7fbe0346568afb7c5819e8643eaa0ba8624ec36e8fdf5bb8c673beb17d498447",
       "status": "PASS"
     },
     {
-      "candidate_count": 0,
+      "candidate_count": 3,
       "id": "preservation",
       "name": "PRESERVE-X Lab",
-      "paper_count": 0,
-      "sha256": "7b88b3061cc05ed668f848d48660dfbd280a0d5132097daee449ee6c29e3efdc",
-      "status": "FAIL"
+      "paper_count": 35,
+      "sha256": "f06d6196e08e62b19babfbe1f077325179721db915519f1745afa0817928d6a9",
+      "status": "PASS"
     },
     {
       "candidate_count": 4,
       "id": "regeneration",
       "name": "REGEN-X Lab",
       "paper_count": 35,
-      "sha256": "986edaff44a9c325b1275718dfb532d5e870f527145b5fac2c22839c19303c5d",
+      "sha256": "6580b56489730c03e2f56fdc7ba796a15539b99816d6bab25211cf929a785ab2",
       "status": "PASS"
     }
   ],
   "portfolio": [
+    {
+      "annotation_support": true,
+      "challenges": [
+        "correlation does not prove causation",
+        "developmental-stage confounding",
+        "fibrosis tradeoffs",
+        "human functional divergence remains possible",
+        "no gene symbol candidate",
+        "regeneration-vs-repair ambiguity"
+      ],
+      "committee_score": 59,
+      "genes": [],
+      "independent_source_count": 3,
+      "lab_count": 1,
+      "labs": [
+        "regeneration"
+      ],
+      "mean_arbiter": 72.0,
+      "mechanisms": [
+        "extracellular matrix",
+        "fibrosis",
+        "regeneration"
+      ],
+      "name": "Acomys cahirinus",
+      "pmid_sources": [
+        "PMID:41732917",
+        "PMID:42194064",
+        "PMID:42792965"
+      ],
+      "source_count": 3,
+      "sources": [
+        "PMID:41732917",
+        "PMID:42194064",
+        "PMID:42792965"
+      ],
+      "taxon_proofs": [
+        {
+          "canonical_name": "Acomys cahirinus",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 9800308
+        }
+      ],
+      "taxon_verified": true
+    },
+    {
+      "annotation_support": false,
+      "challenges": [
+        "body-size confounding",
+        "correlation does not prove causation",
+        "human functional divergence remains possible",
+        "lifespan data quality",
+        "no gene symbol candidate",
+        "phylogeny confounding",
+        "taxonomy not annotation-supported"
+      ],
+      "committee_score": 56,
+      "genes": [],
+      "independent_source_count": 3,
+      "lab_count": 1,
+      "labs": [
+        "longevity"
+      ],
+      "mean_arbiter": 55.0,
+      "mechanisms": [
+        "DNA repair",
+        "genome maintenance",
+        "proteostasis",
+        "senescence"
+      ],
+      "name": "Somniosus microcephalus",
+      "pmid_sources": [
+        "PMID:42154556",
+        "PMID:42402335",
+        "PMID:42939468"
+      ],
+      "source_count": 3,
+      "sources": [
+        "PMID:42154556",
+        "PMID:42402335",
+        "PMID:42939468"
+      ],
+      "taxon_proofs": [
+        {
+          "canonical_name": "Somniosus microcephalus",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 2421162
+        }
+      ],
+      "taxon_verified": true
+    },
+    {
+      "annotation_support": true,
+      "challenges": [
+        "correlation does not prove causation",
+        "developmental-stage confounding",
+        "fibrosis tradeoffs",
+        "human functional divergence remains possible",
+        "regeneration-vs-repair ambiguity"
+      ],
+      "committee_score": 55,
+      "genes": [
+        "MAPK",
+        "NF-",
+        "OCTA",
+        "SD-OCT",
+        "VEGF"
+      ],
+      "independent_source_count": 3,
+      "lab_count": 1,
+      "labs": [
+        "regeneration"
+      ],
+      "mean_arbiter": 67.0,
+      "mechanisms": [
+        "Wnt",
+        "regeneration"
+      ],
+      "name": "Danio rerio",
+      "pmid_sources": [
+        "PMID:42370366",
+        "PMID:42690612",
+        "PMID:42755729"
+      ],
+      "source_count": 3,
+      "sources": [
+        "PMID:42370366",
+        "PMID:42690612",
+        "PMID:42755729"
+      ],
+      "taxon_proofs": [
+        {
+          "canonical_name": "Danio rerio",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 9797255
+        }
+      ],
+      "taxon_verified": true
+    },
+    {
+      "annotation_support": true,
+      "challenges": [
+        "correlation does not prove causation",
+        "developmental-stage confounding",
+        "fibrosis tradeoffs",
+        "human functional divergence remains possible",
+        "regeneration-vs-repair ambiguity"
+      ],
+      "committee_score": 55,
+      "genes": [
+        "PBD",
+        "PCNA",
+        "PCNA-",
+        "RT-PCR"
+      ],
+      "independent_source_count": 3,
+      "lab_count": 1,
+      "labs": [
+        "regeneration"
+      ],
+      "mean_arbiter": 67.0,
+      "mechanisms": [
+        "fibrosis",
+        "regeneration"
+      ],
+      "name": "Cynops pyrrhogaster",
+      "pmid_sources": [
+        "PMID:40230354",
+        "PMID:41751333",
+        "PMID:42702818"
+      ],
+      "source_count": 3,
+      "sources": [
+        "PMID:40230354",
+        "PMID:41751333",
+        "PMID:42702818"
+      ],
+      "taxon_proofs": [
+        {
+          "canonical_name": "Cynops pyrrhogaster",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 2431862
+        }
+      ],
+      "taxon_verified": true
+    },
     {
       "annotation_support": false,
       "challenges": [
@@ -202,43 +427,45 @@
       "annotation_support": true,
       "challenges": [
         "correlation does not prove causation",
-        "developmental-stage confounding",
-        "fibrosis tradeoffs",
+        "cryoprotectant toxicity",
         "human functional divergence remains possible",
-        "no gene symbol candidate",
-        "regeneration-vs-repair ambiguity",
-        "single-paper dependence"
+        "phenotype without extracted mechanism",
+        "reperfusion injury",
+        "whole-animal vs isolated-organ mismatch"
       ],
-      "committee_score": 47,
-      "genes": [],
-      "independent_source_count": 1,
+      "committee_score": 45,
+      "genes": [
+        "NIH-",
+        "USDA"
+      ],
+      "independent_source_count": 3,
       "lab_count": 1,
       "labs": [
-        "regeneration"
+        "preservation"
       ],
-      "mean_arbiter": 50.0,
-      "mechanisms": [
-        "extracellular matrix",
-        "fibrosis",
-        "regeneration"
-      ],
-      "name": "Acomys cahirinus",
+      "mean_arbiter": 54.0,
+      "mechanisms": [],
+      "name": "Drosophila melanogaster",
       "pmid_sources": [
-        "PMID:41732917"
+        "PMID:42208364",
+        "PMID:42686794",
+        "PMID:42868151"
       ],
-      "source_count": 1,
+      "source_count": 3,
       "sources": [
-        "PMID:41732917"
+        "PMID:42208364",
+        "PMID:42686794",
+        "PMID:42868151"
       ],
       "taxon_proofs": [
         {
-          "canonical_name": "Acomys cahirinus",
+          "canonical_name": "Drosophila melanogaster",
           "kingdom": "Animalia",
           "match_type": "EXACT",
           "provider": "GBIF",
           "rank": "SPECIES",
           "status": "ACCEPTED",
-          "taxon_key": 9800308
+          "taxon_key": 5073713
         }
       ],
       "taxon_verified": true
@@ -247,47 +474,45 @@
       "annotation_support": true,
       "challenges": [
         "correlation does not prove causation",
-        "developmental-stage confounding",
-        "fibrosis tradeoffs",
+        "cryoprotectant toxicity",
         "human functional divergence remains possible",
-        "regeneration-vs-repair ambiguity",
-        "single-paper dependence"
+        "phenotype without extracted mechanism",
+        "reperfusion injury",
+        "whole-animal vs isolated-organ mismatch"
       ],
       "committee_score": 45,
       "genes": [
-        "MAPK",
-        "NF-",
-        "OCTA",
-        "SD-OCT",
-        "VEGF"
+        "NIH-",
+        "USDA"
       ],
-      "independent_source_count": 1,
+      "independent_source_count": 3,
       "lab_count": 1,
       "labs": [
-        "regeneration"
+        "preservation"
       ],
-      "mean_arbiter": 49.0,
-      "mechanisms": [
-        "Wnt",
-        "regeneration"
-      ],
-      "name": "Danio rerio",
+      "mean_arbiter": 54.0,
+      "mechanisms": [],
+      "name": "Paracentrotus lividus",
       "pmid_sources": [
-        "PMID:42755729"
+        "PMID:38622199",
+        "PMID:42208364",
+        "PMID:42738576"
       ],
-      "source_count": 1,
+      "source_count": 3,
       "sources": [
-        "PMID:42755729"
+        "PMID:38622199",
+        "PMID:42208364",
+        "PMID:42738576"
       ],
       "taxon_proofs": [
         {
-          "canonical_name": "Danio rerio",
+          "canonical_name": "Paracentrotus lividus",
           "kingdom": "Animalia",
           "match_type": "EXACT",
           "provider": "GBIF",
           "rank": "SPECIES",
           "status": "ACCEPTED",
-          "taxon_key": 9797255
+          "taxon_key": 2278845
         }
       ],
       "taxon_verified": true
@@ -296,109 +521,52 @@
       "annotation_support": true,
       "challenges": [
         "correlation does not prove causation",
-        "developmental-stage confounding",
-        "fibrosis tradeoffs",
+        "cryoprotectant toxicity",
         "human functional divergence remains possible",
-        "regeneration-vs-repair ambiguity",
-        "single-paper dependence"
+        "phenotype without extracted mechanism",
+        "reperfusion injury",
+        "whole-animal vs isolated-organ mismatch"
       ],
-      "committee_score": 45,
+      "committee_score": 41,
       "genes": [
-        "PBD",
-        "PCNA",
-        "PCNA-",
-        "RT-PCR"
+        "IBP",
+        "NIH-",
+        "USDA"
       ],
-      "independent_source_count": 1,
+      "independent_source_count": 2,
       "lab_count": 1,
       "labs": [
-        "regeneration"
+        "preservation"
       ],
-      "mean_arbiter": 49.0,
-      "mechanisms": [
-        "fibrosis",
-        "regeneration"
-      ],
-      "name": "Cynops pyrrhogaster",
+      "mean_arbiter": 48.0,
+      "mechanisms": [],
+      "name": "Caenorhabditis elegans",
       "pmid_sources": [
-        "PMID:42702818"
+        "PMID:42169464",
+        "PMID:42208364"
       ],
-      "source_count": 1,
+      "source_count": 2,
       "sources": [
-        "PMID:42702818"
+        "PMID:42169464",
+        "PMID:42208364"
       ],
       "taxon_proofs": [
         {
-          "canonical_name": "Cynops pyrrhogaster",
+          "canonical_name": "Caenorhabditis elegans",
           "kingdom": "Animalia",
           "match_type": "EXACT",
           "provider": "GBIF",
           "rank": "SPECIES",
           "status": "ACCEPTED",
-          "taxon_key": 2431862
-        }
-      ],
-      "taxon_verified": true
-    },
-    {
-      "annotation_support": false,
-      "challenges": [
-        "body-size confounding",
-        "correlation does not prove causation",
-        "human functional divergence remains possible",
-        "lifespan data quality",
-        "no gene symbol candidate",
-        "phylogeny confounding",
-        "single-paper dependence",
-        "taxonomy not annotation-supported"
-      ],
-      "committee_score": 44,
-      "genes": [],
-      "independent_source_count": 1,
-      "lab_count": 1,
-      "labs": [
-        "longevity"
-      ],
-      "mean_arbiter": 33.0,
-      "mechanisms": [
-        "DNA repair",
-        "genome maintenance",
-        "proteostasis",
-        "senescence"
-      ],
-      "name": "Somniosus microcephalus",
-      "pmid_sources": [
-        "PMID:42402335"
-      ],
-      "source_count": 1,
-      "sources": [
-        "PMID:42402335"
-      ],
-      "taxon_proofs": [
-        {
-          "canonical_name": "Somniosus microcephalus",
-          "kingdom": "Animalia",
-          "match_type": "EXACT",
-          "provider": "GBIF",
-          "rank": "SPECIES",
-          "status": "ACCEPTED",
-          "taxon_key": 2421162
+          "taxon_key": 2283683
         }
       ],
       "taxon_verified": true
     }
   ],
   "schema": "biomimic-v6-org-run-v1",
-  "sha256": "a8eb4dba405e2c494caef4a9c6c93efe639f50411a103a15e5dd2cda95877b65",
-  "status": "PARTIAL",
-  "time": "2026-11-19T11:50:46.454697+00:00",
-  "upstream_failures": [
-    {
-      "failures": [
-        "primary Europe PMC: The read operation timed out"
-      ],
-      "lab": "preservation",
-      "status": "FAIL"
-    }
-  ]
+  "sha256": "46982fad5566dd4c22e2cd9140b2c779818a5da40f1ceeea0282cca228caac36",
+  "status": "PASS",
+  "time": "2026-11-20T11:45:28.862192+00:00",
+  "upstream_failures": []
 }

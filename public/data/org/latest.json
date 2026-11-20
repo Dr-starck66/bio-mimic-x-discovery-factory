@@ -1,12 +1,36 @@
 {
   "allocations": [
     {
+      "committee_score": 59,
+      "labs": [
+        "regeneration"
+      ],
+      "name": "Acomys cahirinus",
+      "research_credits": 15
+    },
+    {
       "committee_score": 56,
       "labs": [
         "longevity"
       ],
       "name": "Somniosus microcephalus",
-      "research_credits": 13
+      "research_credits": 14
+    },
+    {
+      "committee_score": 55,
+      "labs": [
+        "regeneration"
+      ],
+      "name": "Danio rerio",
+      "research_credits": 14
+    },
+    {
+      "committee_score": 55,
+      "labs": [
+        "regeneration"
+      ],
+      "name": "Cynops pyrrhogaster",
+      "research_credits": 14
     },
     {
       "committee_score": 49,
@@ -14,15 +38,7 @@
         "regeneration"
       ],
       "name": "Ambystoma mexicanum",
-      "research_credits": 11
-    },
-    {
-      "committee_score": 47,
-      "labs": [
-        "regeneration"
-      ],
-      "name": "Acomys cahirinus",
-      "research_credits": 11
+      "research_credits": 12
     },
     {
       "committee_score": 45,
@@ -30,7 +46,7 @@
         "preservation"
       ],
       "name": "Drosophila melanogaster",
-      "research_credits": 10
+      "research_credits": 11
     },
     {
       "committee_score": 45,
@@ -38,23 +54,7 @@
         "preservation"
       ],
       "name": "Paracentrotus lividus",
-      "research_credits": 10
-    },
-    {
-      "committee_score": 45,
-      "labs": [
-        "regeneration"
-      ],
-      "name": "Danio rerio",
-      "research_credits": 10
-    },
-    {
-      "committee_score": 45,
-      "labs": [
-        "regeneration"
-      ],
-      "name": "Cynops pyrrhogaster",
-      "research_credits": 10
+      "research_credits": 11
     },
     {
       "committee_score": 41,
@@ -63,22 +63,6 @@
       ],
       "name": "Caenorhabditis elegans",
       "research_credits": 9
-    },
-    {
-      "committee_score": 35,
-      "labs": [
-        "preservation"
-      ],
-      "name": "Neophocaena asiaeorientalis",
-      "research_credits": 8
-    },
-    {
-      "committee_score": 35,
-      "labs": [
-        "preservation"
-      ],
-      "name": "Tursiops truncatus",
-      "research_credits": 8
     }
   ],
   "committee_rules": {
@@ -136,7 +120,7 @@
       "id": "cancer",
       "name": "ONCO-X Lab",
       "paper_count": 35,
-      "sha256": "ce5ba523bcb3f238b4818a307f801f6f6d475b3a7c27fed51192302cb430a018",
+      "sha256": "ba34535ad23c8eb9c33301d517b029bba90654b2b2f3655e8321913fdad0231a",
       "status": "PASS"
     },
     {
@@ -144,7 +128,7 @@
       "id": "immunology",
       "name": "IMMUNO-X Lab",
       "paper_count": 35,
-      "sha256": "75df2cc465d7be31776125fccd1cb6832b1835b539109b172bf2c0bc19c504c5",
+      "sha256": "7691a36a29c4a35ca68fbdb42c2f84a2af407ef09e2abd19685c05e76dd4602f",
       "status": "PASS"
     },
     {
@@ -152,7 +136,7 @@
       "id": "longevity",
       "name": "LONGEVITY-X Lab",
       "paper_count": 35,
-      "sha256": "813e8de1932e51c3d78bc59a9a2b3440e2ce7af38d208a0c9f76f5064f06a246",
+      "sha256": "a12994bc9fb65dc2c7da29f848f284007788ce1e971597cd02297534ef9764e6",
       "status": "PASS"
     },
     {
@@ -160,7 +144,7 @@
       "id": "metabolism",
       "name": "METABOLIC-X Lab",
       "paper_count": 35,
-      "sha256": "1a938bc559244eee7034241a5a70de9e55be81eed2285ba206ae6229d13c055d",
+      "sha256": "9b799e56f3fa1e53757fa3e82f1b730c703ae6a642ca58a7c772c14bf025cb96",
       "status": "PASS"
     },
     {
@@ -168,15 +152,15 @@
       "id": "neuro",
       "name": "NEURO-X Lab",
       "paper_count": 35,
-      "sha256": "06fd1bf9c4f4c7e55e7b779b7be3d076efded683ae43540dfae0b3237c89a324",
+      "sha256": "7fbe0346568afb7c5819e8643eaa0ba8624ec36e8fdf5bb8c673beb17d498447",
       "status": "PASS"
     },
     {
-      "candidate_count": 5,
+      "candidate_count": 3,
       "id": "preservation",
       "name": "PRESERVE-X Lab",
       "paper_count": 35,
-      "sha256": "13908b799637a9177eca18c8544830645907f96614eae853680e9bc974e0f407",
+      "sha256": "f06d6196e08e62b19babfbe1f077325179721db915519f1745afa0817928d6a9",
       "status": "PASS"
     },
     {
@@ -184,11 +168,59 @@
       "id": "regeneration",
       "name": "REGEN-X Lab",
       "paper_count": 35,
-      "sha256": "1874f3d1fa57051ac75b0b02b77c4d02c0a8251f405e02d496e81188ce203965",
+      "sha256": "6580b56489730c03e2f56fdc7ba796a15539b99816d6bab25211cf929a785ab2",
       "status": "PASS"
     }
   ],
   "portfolio": [
+    {
+      "annotation_support": true,
+      "challenges": [
+        "correlation does not prove causation",
+        "developmental-stage confounding",
+        "fibrosis tradeoffs",
+        "human functional divergence remains possible",
+        "no gene symbol candidate",
+        "regeneration-vs-repair ambiguity"
+      ],
+      "committee_score": 59,
+      "genes": [],
+      "independent_source_count": 3,
+      "lab_count": 1,
+      "labs": [
+        "regeneration"
+      ],
+      "mean_arbiter": 72.0,
+      "mechanisms": [
+        "extracellular matrix",
+        "fibrosis",
+        "regeneration"
+      ],
+      "name": "Acomys cahirinus",
+      "pmid_sources": [
+        "PMID:41732917",
+        "PMID:42194064",
+        "PMID:42792965"
+      ],
+      "source_count": 3,
+      "sources": [
+        "PMID:41732917",
+        "PMID:42194064",
+        "PMID:42792965"
+      ],
+      "taxon_proofs": [
+        {
+          "canonical_name": "Acomys cahirinus",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 9800308
+        }
+      ],
+      "taxon_verified": true
+    },
     {
       "annotation_support": false,
       "challenges": [
@@ -235,6 +267,109 @@
           "rank": "SPECIES",
           "status": "ACCEPTED",
           "taxon_key": 2421162
+        }
+      ],
+      "taxon_verified": true
+    },
+    {
+      "annotation_support": true,
+      "challenges": [
+        "correlation does not prove causation",
+        "developmental-stage confounding",
+        "fibrosis tradeoffs",
+        "human functional divergence remains possible",
+        "regeneration-vs-repair ambiguity"
+      ],
+      "committee_score": 55,
+      "genes": [
+        "MAPK",
+        "NF-",
+        "OCTA",
+        "SD-OCT",
+        "VEGF"
+      ],
+      "independent_source_count": 3,
+      "lab_count": 1,
+      "labs": [
+        "regeneration"
+      ],
+      "mean_arbiter": 67.0,
+      "mechanisms": [
+        "Wnt",
+        "regeneration"
+      ],
+      "name": "Danio rerio",
+      "pmid_sources": [
+        "PMID:42370366",
+        "PMID:42690612",
+        "PMID:42755729"
+      ],
+      "source_count": 3,
+      "sources": [
+        "PMID:42370366",
+        "PMID:42690612",
+        "PMID:42755729"
+      ],
+      "taxon_proofs": [
+        {
+          "canonical_name": "Danio rerio",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 9797255
+        }
+      ],
+      "taxon_verified": true
+    },
+    {
+      "annotation_support": true,
+      "challenges": [
+        "correlation does not prove causation",
+        "developmental-stage confounding",
+        "fibrosis tradeoffs",
+        "human functional divergence remains possible",
+        "regeneration-vs-repair ambiguity"
+      ],
+      "committee_score": 55,
+      "genes": [
+        "PBD",
+        "PCNA",
+        "PCNA-",
+        "RT-PCR"
+      ],
+      "independent_source_count": 3,
+      "lab_count": 1,
+      "labs": [
+        "regeneration"
+      ],
+      "mean_arbiter": 67.0,
+      "mechanisms": [
+        "fibrosis",
+        "regeneration"
+      ],
+      "name": "Cynops pyrrhogaster",
+      "pmid_sources": [
+        "PMID:40230354",
+        "PMID:41751333",
+        "PMID:42702818"
+      ],
+      "source_count": 3,
+      "sources": [
+        "PMID:40230354",
+        "PMID:41751333",
+        "PMID:42702818"
+      ],
+      "taxon_proofs": [
+        {
+          "canonical_name": "Cynops pyrrhogaster",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 2431862
         }
       ],
       "taxon_verified": true
@@ -292,51 +427,6 @@
       "annotation_support": true,
       "challenges": [
         "correlation does not prove causation",
-        "developmental-stage confounding",
-        "fibrosis tradeoffs",
-        "human functional divergence remains possible",
-        "no gene symbol candidate",
-        "regeneration-vs-repair ambiguity",
-        "single-paper dependence"
-      ],
-      "committee_score": 47,
-      "genes": [],
-      "independent_source_count": 1,
-      "lab_count": 1,
-      "labs": [
-        "regeneration"
-      ],
-      "mean_arbiter": 50.0,
-      "mechanisms": [
-        "extracellular matrix",
-        "fibrosis",
-        "regeneration"
-      ],
-      "name": "Acomys cahirinus",
-      "pmid_sources": [
-        "PMID:41732917"
-      ],
-      "source_count": 1,
-      "sources": [
-        "PMID:41732917"
-      ],
-      "taxon_proofs": [
-        {
-          "canonical_name": "Acomys cahirinus",
-          "kingdom": "Animalia",
-          "match_type": "EXACT",
-          "provider": "GBIF",
-          "rank": "SPECIES",
-          "status": "ACCEPTED",
-          "taxon_key": 9800308
-        }
-      ],
-      "taxon_verified": true
-    },
-    {
-      "annotation_support": true,
-      "challenges": [
-        "correlation does not prove causation",
         "cryoprotectant toxicity",
         "human functional divergence remains possible",
         "phenotype without extracted mechanism",
@@ -357,15 +447,15 @@
       "mechanisms": [],
       "name": "Drosophila melanogaster",
       "pmid_sources": [
-        "PMID:31988724",
-        "PMID:39995173",
-        "PMID:42208364"
+        "PMID:42208364",
+        "PMID:42686794",
+        "PMID:42868151"
       ],
       "source_count": 3,
       "sources": [
-        "PMID:31988724",
-        "PMID:39995173",
-        "PMID:42208364"
+        "PMID:42208364",
+        "PMID:42686794",
+        "PMID:42868151"
       ],
       "taxon_proofs": [
         {
@@ -431,103 +521,6 @@
       "annotation_support": true,
       "challenges": [
         "correlation does not prove causation",
-        "developmental-stage confounding",
-        "fibrosis tradeoffs",
-        "human functional divergence remains possible",
-        "regeneration-vs-repair ambiguity",
-        "single-paper dependence"
-      ],
-      "committee_score": 45,
-      "genes": [
-        "MAPK",
-        "NF-",
-        "OCTA",
-        "SD-OCT",
-        "VEGF"
-      ],
-      "independent_source_count": 1,
-      "lab_count": 1,
-      "labs": [
-        "regeneration"
-      ],
-      "mean_arbiter": 49.0,
-      "mechanisms": [
-        "Wnt",
-        "regeneration"
-      ],
-      "name": "Danio rerio",
-      "pmid_sources": [
-        "PMID:42755729"
-      ],
-      "source_count": 1,
-      "sources": [
-        "PMID:42755729"
-      ],
-      "taxon_proofs": [
-        {
-          "canonical_name": "Danio rerio",
-          "kingdom": "Animalia",
-          "match_type": "EXACT",
-          "provider": "GBIF",
-          "rank": "SPECIES",
-          "status": "ACCEPTED",
-          "taxon_key": 9797255
-        }
-      ],
-      "taxon_verified": true
-    },
-    {
-      "annotation_support": true,
-      "challenges": [
-        "correlation does not prove causation",
-        "developmental-stage confounding",
-        "fibrosis tradeoffs",
-        "human functional divergence remains possible",
-        "regeneration-vs-repair ambiguity",
-        "single-paper dependence"
-      ],
-      "committee_score": 45,
-      "genes": [
-        "PBD",
-        "PCNA",
-        "PCNA-",
-        "RT-PCR"
-      ],
-      "independent_source_count": 1,
-      "lab_count": 1,
-      "labs": [
-        "regeneration"
-      ],
-      "mean_arbiter": 49.0,
-      "mechanisms": [
-        "fibrosis",
-        "regeneration"
-      ],
-      "name": "Cynops pyrrhogaster",
-      "pmid_sources": [
-        "PMID:42702818"
-      ],
-      "source_count": 1,
-      "sources": [
-        "PMID:42702818"
-      ],
-      "taxon_proofs": [
-        {
-          "canonical_name": "Cynops pyrrhogaster",
-          "kingdom": "Animalia",
-          "match_type": "EXACT",
-          "provider": "GBIF",
-          "rank": "SPECIES",
-          "status": "ACCEPTED",
-          "taxon_key": 2431862
-        }
-      ],
-      "taxon_verified": true
-    },
-    {
-      "annotation_support": true,
-      "challenges": [
-        "correlation does not prove causation",
         "cryoprotectant toxicity",
         "human functional divergence remains possible",
         "phenotype without extracted mechanism",
@@ -569,101 +562,11 @@
         }
       ],
       "taxon_verified": true
-    },
-    {
-      "annotation_support": false,
-      "challenges": [
-        "correlation does not prove causation",
-        "cryoprotectant toxicity",
-        "human functional divergence remains possible",
-        "reperfusion injury",
-        "single-paper dependence",
-        "taxonomy not annotation-supported",
-        "whole-animal vs isolated-organ mismatch"
-      ],
-      "committee_score": 35,
-      "genes": [
-        "CNKI"
-      ],
-      "independent_source_count": 1,
-      "lab_count": 1,
-      "labs": [
-        "preservation"
-      ],
-      "mean_arbiter": 30.0,
-      "mechanisms": [
-        "cryoprotectant"
-      ],
-      "name": "Neophocaena asiaeorientalis",
-      "pmid_sources": [
-        "PMID:42511070"
-      ],
-      "source_count": 1,
-      "sources": [
-        "PMID:42511070"
-      ],
-      "taxon_proofs": [
-        {
-          "canonical_name": "Neophocaena asiaeorientalis",
-          "kingdom": "Animalia",
-          "match_type": "EXACT",
-          "provider": "GBIF",
-          "rank": "SPECIES",
-          "status": "ACCEPTED",
-          "taxon_key": 4352040
-        }
-      ],
-      "taxon_verified": true
-    },
-    {
-      "annotation_support": false,
-      "challenges": [
-        "correlation does not prove causation",
-        "cryoprotectant toxicity",
-        "human functional divergence remains possible",
-        "reperfusion injury",
-        "single-paper dependence",
-        "taxonomy not annotation-supported",
-        "whole-animal vs isolated-organ mismatch"
-      ],
-      "committee_score": 35,
-      "genes": [
-        "CNKI"
-      ],
-      "independent_source_count": 1,
-      "lab_count": 1,
-      "labs": [
-        "preservation"
-      ],
-      "mean_arbiter": 30.0,
-      "mechanisms": [
-        "cryoprotectant"
-      ],
-      "name": "Tursiops truncatus",
-      "pmid_sources": [
-        "PMID:42511070"
-      ],
-      "source_count": 1,
-      "sources": [
-        "PMID:42511070"
-      ],
-      "taxon_proofs": [
-        {
-          "canonical_name": "Tursiops truncatus",
-          "kingdom": "Animalia",
-          "match_type": "EXACT",
-          "provider": "GBIF",
-          "rank": "SPECIES",
-          "status": "ACCEPTED",
-          "taxon_key": 2440447
-        }
-      ],
-      "taxon_verified": true
     }
   ],
   "schema": "biomimic-v6-org-run-v1",
-  "sha256": "3bbfe0ffa3b98c1f76c754869d896f5c5ddaa87070c349689a1ec4ae7228ddf1",
+  "sha256": "46982fad5566dd4c22e2cd9140b2c779818a5da40f1ceeea0282cca228caac36",
   "status": "PASS",
-  "time": "2026-11-19T11:46:14.513679+00:00",
+  "time": "2026-11-20T11:45:28.862192+00:00",
   "upstream_failures": []
 }
