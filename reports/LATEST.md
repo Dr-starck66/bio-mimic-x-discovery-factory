@@ -1,23 +1,47 @@
-# BIO-MIMIC X Daily Lab — 20261119T113808Z
+# BIO-MIMIC X Daily Lab — 20261120T113744Z
 
-**SHA-256:** `eefa107c521eea985d499654606d57f30a3748a37913c42be86fa66028a3dc0b`
+**SHA-256:** `a8c3a2827d8011ab27c995a419935622af327764b9c6bee498fd51e03d73ed94`
 
 ## Run
-- Tracks: cancer_resistance, organ_preservation, pain_neuro, hypoxia_ischemia
+- Tracks: cancer_resistance, organ_preservation, pain_neuro, longevity_dna
 - Papers: 120
 - Novel candidates: 100
 - Verified candidates: 0
 - Plausible candidates: 1
-- Knowledge graph: 2332 nodes / 9845 edges
-- Mean Arbiter score: 32.83
+- Knowledge graph: 2350 nodes / 9913 edges
+- Mean Arbiter score: 33.69
 
 ## Top candidates
+### Implications for — UNVERIFIED_CANDIDATE — Arbiter 56
+- Papers: 4 | citations signal: 5
+- Annotation support: False | Ensembl verified: False
+- Mechanisms: DNA repair, ion channel
+- Genes: BER, DDR, MNP, NER, NHEJ, VBNC
+- Sources: PMC:PMC13666682, PMID:41296427, PMID:42506706, PMID:42608715
+- Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
+
+### Insights into — UNVERIFIED_CANDIDATE — Arbiter 54
+- Papers: 3 | citations signal: 6
+- Annotation support: False | Ensembl verified: False
+- Mechanisms: DNA repair, genome maintenance, immune
+- Genes: DNA-, EIF2AK2, PKR, RNA-
+- Sources: PMID:41960904, PMID:42649300, PMID:42655835
+- Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
+
 ### Emerging evidence — UNVERIFIED_CANDIDATE — Arbiter 50
 - Papers: 4 | citations signal: 0
 - Annotation support: False | Ensembl verified: False
-- Mechanisms: antioxidant, apoptosis, hypoxia, immune, ion channel, mitochondria, oxidative stress, stem cell
-- Genes: CRC, D-, GC, GPX4, GSH, HCC, HIF-1, L1
-- Sources: PMID:42897310, PMID:42938994, PMID:42959516, PMID:43022333
+- Mechanisms: antioxidant, apoptosis, immune, inflammation, ion channel, mitochondria, oxidative stress, senescence
+- Genes: CRC, D-, GC, GPX4, GSH, HCC, L1, N-
+- Sources: PMID:42897310, PMID:42928844, PMID:42938994, PMID:43022333
+- Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
+
+### Within this — UNVERIFIED_CANDIDATE — Arbiter 50
+- Papers: 4 | citations signal: 0
+- Annotation support: False | Ensembl verified: False
+- Mechanisms: antioxidant, apoptosis, ion channel, mitochondria, senescence, stem cell
+- Genes: L1, OXPHOS, TOR-
+- Sources: PMID:41745735, PMID:42280674, PMID:42375388, PMID:42938994
 - Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
 
 ### Particular attention — UNVERIFIED_CANDIDATE — Arbiter 50
@@ -36,13 +60,21 @@
 - Sources: PMID:42608715, PMID:42923116, PMID:42936277, PMID:42978985
 - Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
 
-### Implications for — UNVERIFIED_CANDIDATE — Arbiter 50
-- Papers: 3 | citations signal: 5
+### The present — UNVERIFIED_CANDIDATE — Arbiter 50
+- Papers: 4 | citations signal: 1
 - Annotation support: False | Ensembl verified: False
-- Mechanisms: DNA repair, ion channel
-- Genes: BER, DDR, MNP, NER, NHEJ, VBNC
-- Sources: PMID:41296427, PMID:42506706, PMID:42608715
-- Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
+- Mechanisms: inflammation, ion channel, mitochondria, oxidative stress
+- Genes: CIIMET, FM, FV, HDAC11, HDAC3, HDAC4, HDAC5, HDAC8
+- Sources: PMID:40715222, PMID:42430659, PMID:42741776, PMID:42941783
+- Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
+
+### Developmental circuits — UNVERIFIED_CANDIDATE — Arbiter 50
+- Papers: 4 | citations signal: 0
+- Annotation support: False | Ensembl verified: False
+- Mechanisms: DNA repair, genome maintenance, immune, inflammation, mitochondria, senescence, telomere
+- Genes: DDR, RNA-
+- Sources: PMID:43017732, PMID:43017736, PMID:43017737, PMID:43017742
+- Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
 
 ### The ability — UNVERIFIED_CANDIDATE — Arbiter 48
 - Papers: 3 | citations signal: 0
@@ -52,28 +84,12 @@
 - Sources: PMID:41918535, PMID:42208364, PMID:42788688
 - Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
 
-### The role — UNVERIFIED_CANDIDATE — Arbiter 48
-- Papers: 3 | citations signal: 0
-- Annotation support: False | Ensembl verified: False
-- Mechanisms: angiogenesis, antioxidant, apoptosis, hypoxia, immune, inflammation, mitochondria, p53
-- Genes: ASF1B, ERG, H3, H4, HIF-, IHD, PTEN, TMPRSS2-
-- Sources: PMID:42644087, PMID:42975377, PMID:42997210
-- Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
-
 ### Despite the — UNVERIFIED_CANDIDATE — Arbiter 48
 - Papers: 3 | citations signal: 0
 - Annotation support: False | Ensembl verified: False
 - Mechanisms: antioxidant, ion channel, mitochondria, p53
 - Genes: EGFR, ESM, FDA-, GE11, GRPR, MAPK, MARC, NF-
 - Sources: PMID:42164994, PMID:42729679, PMID:42943298
-- Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
-
-### The present — UNVERIFIED_CANDIDATE — Arbiter 48
-- Papers: 3 | citations signal: 1
-- Annotation support: False | Ensembl verified: False
-- Mechanisms: inflammation, ion channel, oxidative stress
-- Genes: CIIMET, FM, FV, HDAC11, HDAC3, HDAC4, HDAC5, HDAC8
-- Sources: PMID:40715222, PMID:42430659, PMID:42741776
 - Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
 
 ### Scorpion venom — UNVERIFIED_CANDIDATE — Arbiter 48
@@ -90,20 +106,4 @@
 - Mechanisms: ion channel, oxidative stress
 - Genes: ABC, CK, FM, FT, FV, NPQ, PSII, QZW5
 - Sources: PMID:41745735, PMID:42430659, PMID:42819804
-- Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
-
-### Tityus serrulatus — UNVERIFIED_CANDIDATE — Arbiter 45
-- Papers: 1 | citations signal: 1
-- Annotation support: True | Ensembl verified: False
-- Mechanisms: immune, inflammation, ion channel
-- Genes: AGAP, BMK, CCI, LD50, SVHRP
-- Sources: PMID:41893543
-- Morpheus: single-paper dependence, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
-
-### Peptides for — UNVERIFIED_CANDIDATE — Arbiter 44
-- Papers: 2 | citations signal: 1
-- Annotation support: False | Ensembl verified: False
-- Mechanisms: antioxidant, immune, inflammation, ion channel, mitochondria, p53
-- Genes: AGAP, BMK, CCI, EGFR, GE11, GRPR, LD50, MAPK
-- Sources: PMID:41893543, PMID:42943298
 - Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
