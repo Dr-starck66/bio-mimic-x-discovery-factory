@@ -1,0 +1,92 @@
+{
+  "project": "BIO-MIMIC X",
+  "date": "2026-11-22",
+  "accession": "PRJEB25514",
+  "evidence": {
+    "verified_human_samples": 59,
+    "groups": {
+      "centenarian": 19,
+      "elderly": 23,
+      "young": 17
+    },
+    "unique_sra_runs": 59,
+    "fastq_files": 118,
+    "total_fastq_bytes": 220446171975,
+    "data_manifest": "data/sardinia_2019_ENA_FASTQ_manifest_59.tsv",
+    "sample_mapping": "all 59 ENA aliases uniquely matched to all 59 published Data Set S1 identifiers, stripping _test suffix only",
+    "ena_fields": [
+      "run_accession",
+      "sample_alias",
+      "sample_accession",
+      "fastq_ftp",
+      "fastq_bytes",
+      "fastq_md5",
+      "library_layout",
+      "instrument_platform"
+    ],
+    "source": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB25514&result=read_run&fields=run_accession,sample_alias,sample_accession,fastq_ftp,fastq_bytes,fastq_md5,library_layout,instrument_platform&format=tsv",
+    "publication_doi": "10.1128/msystems.00325-19",
+    "measured_target_annotations": {
+      "BSH": "K01442",
+      "recA": "K03553",
+      "rpoB_control": "K03043"
+    },
+    "runs_per_prefix": {
+      "ERR239": {
+        "centenarian": 7,
+        "elderly": 1,
+        "young": 7
+      },
+      "ERR350": {
+        "centenarian": 11,
+        "elderly": 22,
+        "young": 10
+      },
+      "ERR347": {
+        "centenarian": 1,
+        "elderly": 0,
+        "young": 0
+      }
+    }
+  },
+  "completed_software": {
+    "source": "validation/sardinia_direct_KO_audit.py",
+    "tests": "tests/test_sardinia_direct_KO_audit.py",
+    "test_mode": "SYNTHETIC fixture of 59 pseudo-individuals; not biological measurements",
+    "local_python_tests_passed": 9,
+    "local_python_tests_failed": 0,
+    "python_compile": "PASS",
+    "checks": [
+      "exact cohort sample count",
+      "unique IDs",
+      "complete KO row availability",
+      "recA positivity",
+      "rpoB molecular control",
+      "stratified permutation",
+      "ERR350-only batch sensitivity",
+      "sensitivity to RPK pseudocount",
+      "no taxon-stratified double counting"
+    ]
+  },
+  "data_not_yet_available": {
+    "sardinia_59_per_sample_K01442_RPK": true,
+    "sardinia_59_per_sample_K03553_RPK": true,
+    "sardinia_59_per_sample_K03043_RPK": true,
+    "actual_humann_read_reprocessing": true,
+    "molecular_BSH_replication_auc": true,
+    "independent_human_metabolic_prediction": true
+  },
+  "status": {
+    "ena_manifest": "PASS",
+    "tests_local_synthetic": "PASS",
+    "published_repo_code_presence": "UNVERIFIED_until_readback",
+    "direct_K01442_recA_independent_replication": "UNVERIFIED",
+    "full_fastq_download": "NOT_PERFORMED",
+    "authentic_gene_counts": "NOT_OBTAINED"
+  },
+  "most_efficient_next_dependency": "Obtain existing KO gene family matrix for all 59 runs directly from Wu et al. 2019 corresponding authors; full 220 GB processing only as a fallback",
+  "corresponding_authors_from_published_paper": [
+    "carru@uniss.it",
+    "david.kelvin@dal.ca"
+  ]
+}
