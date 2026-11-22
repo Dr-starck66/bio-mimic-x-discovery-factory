@@ -1,7 +1,7 @@
-# BIO-MIMIC X V7 Discovery Factory — 2026-11-21T11:19:21.617510+00:00
+# BIO-MIMIC X V7 Discovery Factory — 2026-11-22T11:39:19.551128+00:00
 
 **Status:** PASS
-**Replay SHA-256:** `90cc3e89850d174fb45eedfe2898e32b034efb7d6b1430bda2c435865d1a9a4a`
+**Replay SHA-256:** `1a9704c17757e9a3335c5293b5d4c1505e64d69e4bb7dba1637cfc2831e913d8`
 
 ## Active programs
 - PRG-c73037fcfb · Acomys cahirinus · score 59 · labs regeneration
@@ -24,7 +24,7 @@
 - Morpheus Adversarial Engine: PASS · falsifiable_failure_modes_per_program=5.167 · output=morpheus_audits
 - Ω-CAUSAL + Uncertainty Engine: PASS · claims_with_counterfactual_test=6 · output=causal_plans
 - Negative Knowledge Graph: PASS · repeated_dead_ends_prevented=0 · output=negative_filter
-- Human Bridge: PARTIAL · supported_claim_bridge_coverage=0.875 · output=human_bridge_result
+- Human Bridge: PARTIAL · supported_claim_bridge_coverage=0.625 · output=human_bridge_result
 - Experiment Designer + Ω-EXPERIMENT: PASS · programs_with_explicit_kill_criteria=6 · output=experiments
 - Ω Scientific Reasoning Engine: PASS · reasoning_dossiers_generated=6 · output=scientific_reasoning
 - Ω Hypothesis Engine: PASS · falsifiable_hypotheses_generated=18 · output=scientific_reasoning
