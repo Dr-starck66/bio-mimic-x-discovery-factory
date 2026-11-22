@@ -84,9 +84,24 @@
     "full_fastq_download": "NOT_PERFORMED",
     "authentic_gene_counts": "NOT_OBTAINED"
   },
-  "most_efficient_next_dependency": "Obtain existing KO gene family matrix for all 59 runs directly from Wu et al. 2019 corresponding authors; full 220 GB processing only as a fallback",
+  "most_efficient_next_dependency": "Wait for corresponding authors' existing 59-run gene-family KO matrix or reproducible regrouping instructions; no raw-FASTQ processing until genuinely necessary",
   "corresponding_authors_from_published_paper": [
     "carru@uniss.it",
     "david.kelvin@dal.ca"
-  ]
+  ],
+  "outreach": {
+    "status": "SENT",
+    "date_local": "2026-11-23",
+    "contacts": [
+      "Ciriaco Carru",
+      "David J. Kelvin"
+    ],
+    "requested": [
+      "pre-computed HUMAnN2 per-sample UniRef90 abundance matrices",
+      "KO K01442, K03553, K03043 regrouped abundances",
+      "versioned references, abundance units and batch/QC information"
+    ],
+    "reply_received": "UNVERIFIED",
+    "note": "Sent by owner from established BIO-MIMIC X scientific mailbox; no private thread identifier stored in public repository."
+  }
 }
