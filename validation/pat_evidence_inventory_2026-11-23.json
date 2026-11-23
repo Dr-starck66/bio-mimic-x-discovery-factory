@@ -55,5 +55,43 @@
       "eligible_for_causal_controller_comparison": false
     }
   ],
-  "evidence_policy": "No effect size or biological PASS may be computed from unmatched published studies. No digitization of published plots as if individual raw donor measurements."
+  "evidence_policy": "No effect size or biological PASS may be computed from unmatched published studies. No digitization of published plots as if individual raw donor measurements.",
+  "open_data_identified": [
+    {
+      "repository": "Zenodo",
+      "record": "17750978",
+      "doi": "10.5281/zenodo.17750978",
+      "url": "https://zenodo.org/records/17750978",
+      "study": "Liquid-Suspendable Metabolic Sensors Allow Real-Time Oxygen Consumption Monitoring in Caco-2 and Colon Organoid-Based Gut-on-a-Chip Models",
+      "files": 11,
+      "recorded_size_kb": 337,
+      "reported_modalities": [
+        "original time-stamped oxygen fluorescence/oxygen consumption",
+        "TEER fig2B"
+      ],
+      "access": "public files listed; automatic binary download blocked in this execution; not analyzed",
+      "eligible_for_predictive_vs_reactive_effect": false,
+      "reason": "No matched predictive vs reactive controller interventions at identical perfusion in published record; oxygen and TEER support only an independent functional reference."
+    },
+    {
+      "repository": "TU Wien Research Data",
+      "record": "v9g29-fxf41",
+      "url": "https://researchdata.tuwien.ac.at/records/v9g29-fxf41",
+      "study": "Sensor-integrated gut-on-a-chip for monitoring senescence-mediated changes in the intestinal barrier",
+      "data_content": [
+        "impedance/TEER",
+        "FITC diffusion",
+        "imaging",
+        "cell size"
+      ],
+      "access": "restricted; access request sent to corresponding senior author; not downloaded or analyzed",
+      "eligible_for_predictive_vs_reactive_effect": false,
+      "reason": "Senescence treatment/barrier integrity, no matched predictive controller."
+    }
+  ],
+  "audit_updates": [
+    "2026-11-23: GitHub PR #73 includes validation script and tests, independently fetched and blob SHA verified.",
+    "2026-11-23: open WUR Zenodo record and restricted TU Wien Research Data record identified; files not downloaded; no computed effect sizes.",
+    "2026-11-23: invitation to collaborate sent in individual correspondence; delivery does not constitute scientific acceptance."
+  ]
 }
