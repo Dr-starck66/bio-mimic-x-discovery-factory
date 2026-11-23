@@ -1,8 +1,8 @@
-# BIO-MIMIC X V6 Scientific Investment Committee — 2026-11-22T11:36:42.212406+00:00
+# BIO-MIMIC X V6 Scientific Investment Committee — 2026-11-23T12:52:38.820563+00:00
 
 **Scientific status:** PASS (not an efficacy claim)
 **Upstream provider failures:** 0
-**Organization replay SHA-256:** `58c8baf2b0e6870ce944e884bf732b0823dca8a0806c6a03b763091de191e03f`
+**Organization replay SHA-256:** `53a5329825419952e8dac1dc20e5efa12fa3bc59266a4de67d551f27bd9ffe3f`
 
 ## Laboratory status
 - ONCO-X Lab: PASS · 35 papers · 0 candidates
@@ -14,7 +14,7 @@
 - REGEN-X Lab: PASS · 35 papers · 4 candidates
 
 ## Top portfolio
-### Acomys cahirinus — Committee 59/100
+### Acomys cahirinus — Committee 61/100
 - Labs: regeneration
 - Sources: 3 · mechanisms: extracellular matrix, fibrosis, regeneration
 - Challenge flags: correlation does not prove causation, developmental-stage confounding, fibrosis tradeoffs, human functional divergence remains possible, no gene symbol candidate, regeneration-vs-repair ambiguity
