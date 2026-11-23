@@ -20,7 +20,7 @@ Comparaison principale **C vs B**, afin de ne pas attribuer à un algorithme l'a
 
 ## Analyse informatique disponible
 
-Un analyseur Python local, fourni avec la présente mission mais **pas encore intégré au dépôt**, ingère un JSON avec exactement ces clés par enregistrement : `donor_id`, `arm` (`static`, `feedback`, `predictive`), `teer_ohm_cm2`, `permeability_cm_s`, `viable_cell_count`, `confluence_pct`. Chaque donneur doit être mesuré dans les trois groupes ; les puits techniques sont agrégés en une médiane par donneur et groupe, jamais comptés comme individus indépendants. Un minimum de 6 donneurs indépendants est imposé pour éviter un test de signe sous-puissant.
+L'analyseur Python, fourni avec cette mission et **désormais intégré sur la branche de la PR**, ingère un JSON avec exactement ces clés par enregistrement : `donor_id`, `arm` (`static`, `feedback`, `predictive`), `teer_ohm_cm2`, `permeability_cm_s`, `viable_cell_count`, `confluence_pct`. Chaque donneur doit être mesuré dans les trois groupes ; les puits techniques sont agrégés en une médiane par donneur et groupe, jamais comptés comme individus indépendants. Un minimum de 6 donneurs indépendants est imposé pour éviter un test de signe sous-puissant.
 
 Critères de filtrage exploratoires **non validés biologiquement** : gain médian TEER d'au moins 10 %, réduction médiane Papp d'au moins 10 %, tests de signe appariés unilatéraux p ≤ 0,05 pour les deux critères, comptes cellulaires à ±10 % et confluence à ±5 points de pourcentage. La règle des deux co-critères est une procédure intersection-union ; ces seuils et le plan d'étude doivent être pré-enregistrés avant l'expérience, avec calcul de puissance et justification tissulaire. Un résultat positif sort au mieux `PARTIAL` tant que les déclarations de provenance, de randomisation, de traitement en aveugle et de répétition indépendante ne sont pas auditées.
 
@@ -35,3 +35,17 @@ Critères de filtrage exploratoires **non validés biologiquement** : gain médi
 - Reproductibilité industrielle et preuve de régénération chez l'humain : **UNVERIFIED**.
 
 Il est interdit de présenter les sorties synthétiques du test informatique comme des mesures de cellules réelles.
+
+## Addendum du 23/11 — implémentation et audit des données sources
+
+Le code est maintenant **inclus sur la branche de cette PR** :
+
+- `validation/pat_tissue_function_gate.py` — audit apparié de TEER, perméabilité, croissance et confluence avec contrôle de la perfusion, logique fail-closed et empreinte SHA-256 d'entrée ;
+- `tests/test_pat_tissue_function_gate.py` — dix tests unitaires, dont contrôles négatifs de croissance seule, débit non apparié, groupe feedback absent, répétitions techniques et absence d'aveugle ;
+- `validation/pat_evidence_inventory_2026-11-23.json` — trois études primaires sourcées, toutes non éligibles pour conclure à la supériorité causale de la prédiction.
+
+**Preuve test locale séparée :** `python -m unittest discover -s tests -p test_pat_tissue_function_gate.py -v` → 10/10 OK lors de l'exécution en environnement local isolé le 23/11. Ce résultat n'est PAS un test CI GitHub ni une analyse biologique réelle.
+
+**Essai sans données originales :** la commande `python validation/pat_tissue_function_gate.py --input validation/pat_evidence_inventory_2026-11-23.json` aboutit intentionnellement à `UNVERIFIED / NO_RAW_FUNCTIONAL_MEASUREMENTS`, car un inventaire bibliographique n'est pas un fichier de mesures.
+
+**Limite testée :** PREDICT96 fournit des mesures de TEER et perméabilité mais ni contrôle prédictif ni données individuelles nécessaires à C vs B, dans les documents publics inspectés ; les autres données sont disponibles sur demande raisonnable auprès de l'auteur correspondant. Owusu 2026 compare la boucle fermée à la culture statique ; le papier 2022 est une simulation de contrôle de biomasse. Un calcul d'effet causal serait donc actuellement injustifié. Aucune revendication de régénération biologique réelle.
