@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """Only synthetic fixtures for implementation checks; never publish as biological findings."""
 import unittest
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 from vva_repair_gate import analyze, validate, two_sided_permutation_p
 
 
