@@ -1,15 +1,15 @@
-# BIO-MIMIC X Daily Lab — 20261122T112249Z
+# BIO-MIMIC X Daily Lab — 20261123T123615Z
 
-**SHA-256:** `b92febc1541c8c36374d55590ca067b24241480c2b609120d3e224cd99a88a5f`
+**SHA-256:** `db738c35b491bcc47aee3b779d503c42dee1f1f9254a45a8d0d82cf94f1bc5a9`
 
 ## Run
-- Tracks: organ_preservation, pain_neuro, infection_tolerance, longevity_dna
-- Papers: 120
+- Tracks: organ_preservation, infection_tolerance, pain_neuro, hypoxia_ischemia
+- Papers: 90
 - Novel candidates: 100
 - Verified candidates: 0
 - Plausible candidates: 3
-- Knowledge graph: 2459 nodes / 10371 edges
-- Mean Arbiter score: 33.72
+- Knowledge graph: 2461 nodes / 10375 edges
+- Mean Arbiter score: 31.4
 
 ## Top candidates
 ### Zika virus — PLAUSIBLE_CANDIDATE — Arbiter 58
@@ -28,44 +28,12 @@
 - Sources: PMID:43009698, PMID:43037917
 - Morpheus: taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
 
-### Insights into — UNVERIFIED_CANDIDATE — Arbiter 55
-- Papers: 3 | citations signal: 8
-- Annotation support: False | Ensembl verified: False
-- Mechanisms: DNA repair, genome maintenance, immune
-- Genes: DNA-, EIF2AK2, H1, N50, PKR, RNA-
-- Sources: PMID:41960904, PMID:42154556, PMID:42649300
-- Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
-
-### The present — UNVERIFIED_CANDIDATE — Arbiter 50
-- Papers: 4 | citations signal: 1
-- Annotation support: False | Ensembl verified: False
-- Mechanisms: inflammation, ion channel, mitochondria, oxidative stress
-- Genes: CIIMET, FM, FV, HDAC11, HDAC3, HDAC4, HDAC5, HDAC8
-- Sources: PMID:40715222, PMID:42430659, PMID:42741776, PMID:42941783
-- Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
-
 ### The results — UNVERIFIED_CANDIDATE — Arbiter 50
 - Papers: 4 | citations signal: 0
 - Annotation support: False | Ensembl verified: False
 - Mechanisms: extracellular matrix, fibrosis, ion channel, oxidative stress
 - Genes: ABC, CK, DCFH-DA, ERK, ERK1, FM, FT, FV
 - Sources: PMID:41745735, PMID:42430659, PMID:42819804, PMID:43028276
-- Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
-
-### Within this — UNVERIFIED_CANDIDATE — Arbiter 50
-- Papers: 4 | citations signal: 0
-- Annotation support: False | Ensembl verified: False
-- Mechanisms: antioxidant, immune, ion channel, mitochondria, senescence, stem cell
-- Genes: ASF, SI, TOR-
-- Sources: PMID:41745735, PMID:42280674, PMID:42375388, PMID:42840963
-- Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
-
-### Developmental circuits — UNVERIFIED_CANDIDATE — Arbiter 50
-- Papers: 4 | citations signal: 0
-- Annotation support: False | Ensembl verified: False
-- Mechanisms: DNA repair, genome maintenance, immune, inflammation, mitochondria, senescence, telomere
-- Genes: DDR, RNA-
-- Sources: PMID:43017732, PMID:43017736, PMID:43017737, PMID:43017742
 - Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
 
 ### Implications for — UNVERIFIED_CANDIDATE — Arbiter 50
@@ -76,13 +44,13 @@
 - Sources: PMID:41296427, PMID:42506706, PMID:42608715
 - Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
 
-### Caenorhabditis elegans — PLAUSIBLE_CANDIDATE — Arbiter 49
-- Papers: 3 | citations signal: 0
-- Annotation support: True | Ensembl verified: False
-- Mechanisms: none extracted
-- Genes: HRDE-1, HRDE-1-, IBP, IGF-1, IIS, NIH-, RNA-, USDA
-- Sources: PMID:42169464, PMID:42208364, PMID:43042730
-- Morpheus: taxon not Ensembl-verified, phenotype without extracted mechanism, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
+### The present — UNVERIFIED_CANDIDATE — Arbiter 48
+- Papers: 3 | citations signal: 1
+- Annotation support: False | Ensembl verified: False
+- Mechanisms: inflammation, ion channel, oxidative stress
+- Genes: CIIMET, FM, FV, HDAC11, HDAC3, HDAC4, HDAC5, HDAC8
+- Sources: PMID:40715222, PMID:42430659, PMID:42741776
+- Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
 
 ### Rather than — UNVERIFIED_CANDIDATE — Arbiter 48
 - Papers: 3 | citations signal: 0
@@ -100,10 +68,42 @@
 - Sources: PMID:42352053, PMID:42699082, PMID:42769669
 - Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
 
-### Emerging evidence — UNVERIFIED_CANDIDATE — Arbiter 48
-- Papers: 3 | citations signal: 0
+### Tityus serrulatus — UNVERIFIED_CANDIDATE — Arbiter 45
+- Papers: 1 | citations signal: 1
+- Annotation support: True | Ensembl verified: False
+- Mechanisms: immune, inflammation, ion channel
+- Genes: AGAP, BMK, CCI, LD50, SVHRP
+- Sources: PMID:41893543
+- Morpheus: single-paper dependence, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
+
+### Dryophytes versicolor — UNVERIFIED_CANDIDATE — Arbiter 44
+- Papers: 1 | citations signal: 0
+- Annotation support: True | Ensembl verified: False
+- Mechanisms: Wnt, cryoprotectant, immune, metabolic suppression
+- Genes: KEGG, WNT
+- Sources: PMID:41009943
+- Morpheus: single-paper dependence, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
+
+### Caenorhabditis elegans — PLAUSIBLE_CANDIDATE — Arbiter 43
+- Papers: 2 | citations signal: 0
+- Annotation support: True | Ensembl verified: False
+- Mechanisms: none extracted
+- Genes: IBP, NIH-, USDA
+- Sources: PMID:42169464, PMID:42208364
+- Morpheus: taxon not Ensembl-verified, phenotype without extracted mechanism, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
+
+### Pattern recognition — UNVERIFIED_CANDIDATE — Arbiter 43
+- Papers: 1 | citations signal: 0
+- Annotation support: True | Ensembl verified: False
+- Mechanisms: immune, interferon
+- Genes: AIV, H5N1, PRR, PRR-, SARS-
+- Sources: PMID:42849730
+- Morpheus: single-paper dependence, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible
+
+### Background and — UNVERIFIED_CANDIDATE — Arbiter 42
+- Papers: 2 | citations signal: 0
 - Annotation support: False | Ensembl verified: False
-- Mechanisms: immune, inflammation, ion channel, mitochondria, oxidative stress, senescence
-- Genes: D-, IBD, N-, NMDAR, NMDAR-, SIRT2, TRPM, TRPM-
-- Sources: PMID:42583033, PMID:42897310, PMID:42928844
+- Mechanisms: antioxidant, heat shock, mitochondria, oxidative stress
+- Genes: C0, C1, C2, C3, C4, FM, FV, GAPDH
+- Sources: PMID:42430659, PMID:42765071
 - Morpheus: taxon not annotation-supported, taxon not Ensembl-verified, weak citation signal, phylogeny confound must be tested, correlation does not establish causality, human functional divergence remains possible

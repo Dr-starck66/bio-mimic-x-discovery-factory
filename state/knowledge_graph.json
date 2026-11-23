@@ -11720,6 +11720,14 @@
       "source": "species:four_primary",
       "target": "phenotype:hypoxia_ischemia"
     },
+    "23afda22f69c44d6": {
+      "id": "23afda22f69c44d6",
+      "provenance": "PMID:42840581",
+      "relation": "candidate_for",
+      "score": 0.5,
+      "source": "species:beyond_classical",
+      "target": "phenotype:infection_tolerance"
+    },
     "23bbf89a08fe3845": {
       "id": "23bbf89a08fe3845",
       "provenance": "PMID:42936277",
@@ -49536,6 +49544,14 @@
       "source": "species:despite_these",
       "target": "mechanism:oxidative_stress"
     },
+    "98d5d00b9e16aaed": {
+      "id": "98d5d00b9e16aaed",
+      "provenance": "PMID:42840581",
+      "relation": "mentions",
+      "score": 1.0,
+      "source": "paper:PMID:42840581",
+      "target": "species:beyond_classical"
+    },
     "98d691921f9dd485": {
       "id": "98d691921f9dd485",
       "provenance": "PMID:42945831",
@@ -55223,6 +55239,14 @@
       "score": 0.5,
       "source": "species:among_them",
       "target": "mechanism:hypoxia"
+    },
+    "a9cac1a1a56c32d4": {
+      "id": "a9cac1a1a56c32d4",
+      "provenance": "PMID:42840581",
+      "relation": "associated_with",
+      "score": 0.5,
+      "source": "species:beyond_classical",
+      "target": "mechanism:immune"
     },
     "a9cc53688e8b7162": {
       "id": "a9cc53688e8b7162",
@@ -62367,6 +62391,14 @@
       "score": 1.0,
       "source": "paper:PMID:42608715",
       "target": "species:this_review"
+    },
+    "c0515006bf64cf9f": {
+      "id": "c0515006bf64cf9f",
+      "provenance": "PMID:42840581",
+      "relation": "studies",
+      "score": 1.0,
+      "source": "paper:PMID:42840581",
+      "target": "phenotype:infection_tolerance"
     },
     "c05f7c48b955df96": {
       "id": "c05f7c48b955df96",
@@ -86224,6 +86256,14 @@
       "label": "Targeting oral cancer with curcumin and its structural analogs: molecular mechanisms, pharmacokinetic optimization, and clinical translation.",
       "type": "paper"
     },
+    "paper:PMID:42840581": {
+      "attrs": {
+        "year": "2026"
+      },
+      "id": "paper:PMID:42840581",
+      "label": "Molecular mimicry revisited: novel perspectives on autoimmune disease initiation and progression.",
+      "type": "paper"
+    },
     "paper:PMID:42840963": {
       "attrs": {
         "year": "2026"
@@ -87456,7 +87496,7 @@
     },
     "species:across_the": {
       "attrs": {
-        "arbiter": 42,
+        "arbiter": 27,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -89054,6 +89094,16 @@
       "label": "Beyond chronological",
       "type": "species"
     },
+    "species:beyond_classical": {
+      "attrs": {
+        "arbiter": 18,
+        "ensembl_species": null,
+        "status": "UNVERIFIED_CANDIDATE"
+      },
+      "id": "species:beyond_classical",
+      "label": "Beyond classical",
+      "type": "species"
+    },
     "species:beyond_direct": {
       "attrs": {
         "arbiter": 24,
@@ -89106,7 +89156,7 @@
     },
     "species:beyond_the": {
       "attrs": {
-        "arbiter": 35,
+        "arbiter": 24,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -89656,7 +89706,7 @@
     },
     "species:caenorhabditis_elegans": {
       "attrs": {
-        "arbiter": 49,
+        "arbiter": 43,
         "ensembl_species": null,
         "status": "PLAUSIBLE_CANDIDATE"
       },
@@ -91176,7 +91226,7 @@
     },
     "species:despite_its": {
       "attrs": {
-        "arbiter": 45,
+        "arbiter": 26,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -91326,7 +91376,7 @@
     },
     "species:developmental_circuits": {
       "attrs": {
-        "arbiter": 50,
+        "arbiter": 21,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -91986,7 +92036,7 @@
     },
     "species:emerging_evidence": {
       "attrs": {
-        "arbiter": 48,
+        "arbiter": 42,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -92526,7 +92576,7 @@
     },
     "species:experimental_studies": {
       "attrs": {
-        "arbiter": 42,
+        "arbiter": 27,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -92926,7 +92976,7 @@
     },
     "species:framework_for": {
       "attrs": {
-        "arbiter": 42,
+        "arbiter": 27,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -95546,7 +95596,7 @@
     },
     "species:lychas_mucronatus": {
       "attrs": {
-        "arbiter": 12,
+        "arbiter": 28,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -95606,7 +95656,7 @@
     },
     "species:macrothele_guizhouensis": {
       "attrs": {
-        "arbiter": 12,
+        "arbiter": 29,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -97366,7 +97416,7 @@
     },
     "species:our_findings": {
       "attrs": {
-        "arbiter": 28,
+        "arbiter": 6,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -101446,7 +101496,7 @@
     },
     "species:the_evidence": {
       "attrs": {
-        "arbiter": 42,
+        "arbiter": 12,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -102376,7 +102426,7 @@
     },
     "species:the_present": {
       "attrs": {
-        "arbiter": 50,
+        "arbiter": 48,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -105256,7 +105306,7 @@
     },
     "species:understanding_these": {
       "attrs": {
-        "arbiter": 48,
+        "arbiter": 26,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -105266,7 +105316,7 @@
     },
     "species:understanding_this": {
       "attrs": {
-        "arbiter": 42,
+        "arbiter": 27,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
@@ -106276,7 +106326,7 @@
     },
     "species:within_this": {
       "attrs": {
-        "arbiter": 50,
+        "arbiter": 42,
         "ensembl_species": null,
         "status": "UNVERIFIED_CANDIDATE"
       },
