@@ -4,7 +4,7 @@ import unittest
 from pathlib import Path
 from vva_duration_registry import audit, evaluate
 
-SAMPLE = json.loads((Path(__file__).parent/'study_registry.json').read_text(encoding='utf8'))
+SAMPLE = json.loads((Path(__file__).parent/'data'/'vva_longitudinal_study_registry_20261123.json').read_text(encoding='utf8'))
 
 class TestLiteratureSafety(unittest.TestCase):
     def test_registry_has_five_separate_families(self):
