@@ -1,13 +1,13 @@
-# BIO-MIMIC X V7 Discovery Factory — 2026-11-22T11:39:19.551128+00:00
+# BIO-MIMIC X V7 Discovery Factory — 2026-11-23T13:06:20.412522+00:00
 
 **Status:** PASS
-**Replay SHA-256:** `1a9704c17757e9a3335c5293b5d4c1505e64d69e4bb7dba1637cfc2831e913d8`
+**Replay SHA-256:** `fcc8943efe039895de6b7155de2aa411b67fc227910d20e23f522936a66c2c65`
 
 ## Active programs
-- PRG-c73037fcfb · Acomys cahirinus · score 59 · labs regeneration
-- PRG-4514111357 · Somniosus microcephalus · score 56 · labs longevity
+- PRG-c73037fcfb · Acomys cahirinus · score 61 · labs regeneration
 - PRG-5fdcf74e81 · Danio rerio · score 55 · labs regeneration
 - PRG-14c747bea5 · Cynops pyrrhogaster · score 55 · labs regeneration
+- PRG-4514111357 · Somniosus microcephalus · score 52 · labs longevity
 - PRG-2420f4dcfa · Ambystoma mexicanum · score 49 · labs regeneration
 - PRG-70175ca5b4 · Drosophila melanogaster · score 45 · labs preservation
 
@@ -20,7 +20,7 @@
 - Novel Species Hunter: PASS · novel_candidate_yield=13 · output=committee.portfolio
 - Deterministic Decision Engine / Scientific Investment Committee: PASS · credits_sum_to_100=100 · output=committee.allocations
 - Evidence Network / Claim Ledger: PASS · replicated_claims_with_provenance_ratio=1.0 · output=claim_ledger
-- DUALITY-X + Arbiter: PASS · mean_disagreement=6.846 · output=committee.portfolio
+- DUALITY-X + Arbiter: PASS · mean_disagreement=7.0 · output=committee.portfolio
 - Morpheus Adversarial Engine: PASS · falsifiable_failure_modes_per_program=5.167 · output=morpheus_audits
 - Ω-CAUSAL + Uncertainty Engine: PASS · claims_with_counterfactual_test=6 · output=causal_plans
 - Negative Knowledge Graph: PASS · repeated_dead_ends_prevented=0 · output=negative_filter
@@ -35,7 +35,7 @@
 - Ω-FOUNDRY + MAP-Elites/Novelty: PASS · policy_variant_diversity=8 · output=policy_variants
 - Model Immune System / Self-Improvement Gate: PASS · unsafe_policy_changes_blocked=1 · output=policy_gate
 - Ω-MEMORY / Knowledge Graph: PASS · new_provenance_edges=19 · output=state/factory/long_term_memory.json
-- Ω Scientific Discovery Memory: PASS · reasoning_hypotheses_retained=63 · output=state/factory/scientific_reasoning_memory.json
+- Ω Scientific Discovery Memory: PASS · reasoning_hypotheses_retained=66 · output=state/factory/scientific_reasoning_memory.json
 - Ω-TELEMETRY: PASS · brick_observability_ratio=1.0 · output=telemetry
 - DEVOPS-X Reliability Layer: PASS · successful_daily_cycle_ratio=1.0 · output=validated_state
 
