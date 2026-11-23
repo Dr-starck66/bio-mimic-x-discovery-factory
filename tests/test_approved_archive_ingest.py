@@ -83,6 +83,33 @@ class TestArchiveImport(unittest.TestCase):
         with self.assertRaisesRegex(FileExistsError, 'different_sha256'):
             ingest(path=self.z, url=None, output=self.dest)
 
+    def test_official_20261123_thermo_url_is_approved(self):
+        # Source supplied by the vendor scientist, not guessed from filename.
+        url = ('https://www.thermofisher.com/store/v3/products/sec/assets?url='
+               'TFS-Assets/LSG/Support-Files/MoGene-2_0-st-v1-mm10-probe-tab.zip')
+        self.assertEqual(approved_url(url, {'www.thermofisher.com'}), url)
+
+    def test_vendor_url_to_existing_converter_offline_integration(self):
+        # A mocked download: proves wiring ONLY, not remote archive retrieval.
+        import shutil
+        url = ('https://www.thermofisher.com/store/v3/products/sec/assets?url='
+               'TFS-Assets/LSG/Support-Files/MoGene-2_0-st-v1-mm10-probe-tab.zip')
+        probe = 'ACGTACGTACGTACGTACGTACGTA'
+        self.make_zip('MoGene-2_0-st-v1-mm10-probe-tab.txt',
+                      'Probe Set Name\\tProbe X\\tProbe Y\\tProbe Interrogation Position\\t'
+                      'Probe Sequence\\tTarget Strandedness\\n'
+                      f'17200001\\t1\\t2\\t13\\t{probe}\\tsense\\n')
+        def copy_only(request_url, target, approved_hosts):
+            self.assertEqual(approved_url(request_url, approved_hosts), url)
+            shutil.copyfile(self.z, target)
+        with patch('approved_archive_ingest.download', side_effect=copy_only):
+            result = ingest(path=None, url=url, output=self.dest,
+                            expected_size=self.z.stat().st_size, convert_probes=True)
+        self.assertEqual(result['status'], 'PASS_ARCHIVE_INGEST')
+        self.assertEqual(result['probe_conversion']['probe_rows'], 1)
+        self.assertFalse(result['probe_conversion']['gene_annotation_complete'])
+        self.assertFalse(result['probe_conversion']['cross_species_probe_alignment_executed'])
+
     def test_both_sources_rejected(self):
         with self.assertRaisesRegex(ValueError, 'exactly_one_source_required'):
             ingest(path=self.z, url='https://sec-assets.thermofisher.com/a.zip', output=self.dest)
