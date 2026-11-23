@@ -1,0 +1,278 @@
+{
+  "schema": "ASTRA-BIOMIMICX/VVA-PUBLISHED-AGGREGATES/1",
+  "extraction": "Transcription de moyennes et écarts-types publiés, sans reconstruction de patients. Vérification humaine indépendante requise avant publication scientifique.",
+  "studies": [
+    {
+      "id": "chen2018_erzhi",
+      "doi": "10.1155/2018/6452709",
+      "url": "https://onlinelibrary.wiley.com/doi/10.1155/2018/6452709",
+      "design": "double-blind randomized placebo; 12 weeks on; four weeks after withdrawal",
+      "randomized_or_enrolled_n": 88,
+      "completer_n": {
+        "active": 39,
+        "vehicle": 36
+      },
+      "timepoints": [
+        "pre",
+        "week12_on",
+        "week16_off"
+      ],
+      "limitations": [
+        "11 lost to follow up and two additional exclusions",
+        "no individual paired measures",
+        "only four weeks off treatment",
+        "no histology or TEER or ECM architecture",
+        "different intervention than vECM and estradiol"
+      ],
+      "endpoints": [
+        {
+          "name": "superficial_cells_pct",
+          "domain": "epithelial_cytology",
+          "direction": 1,
+          "source_table": 4,
+          "means": {
+            "active": [
+              0.67,
+              5.49,
+              4.59
+            ],
+            "vehicle": [
+              1.06,
+              0.86,
+              0.86
+            ]
+          },
+          "sd": {
+            "active": [
+              1.18,
+              1.64,
+              1.68
+            ],
+            "vehicle": [
+              1.24,
+              0.96,
+              1.25
+            ]
+          }
+        },
+        {
+          "name": "basal_cells_pct",
+          "domain": "epithelial_cytology",
+          "direction": -1,
+          "source_table": 4,
+          "means": {
+            "active": [
+              55.23,
+              33.85,
+              41.26
+            ],
+            "vehicle": [
+              53.53,
+              55.17,
+              57.53
+            ]
+          },
+          "sd": {
+            "active": [
+              10.32,
+              7.91,
+              8.48
+            ],
+            "vehicle": [
+              9.95,
+              9.09,
+              8.78
+            ]
+          }
+        },
+        {
+          "name": "vaginal_health_score",
+          "domain": "clinical_composite_not_structure",
+          "direction": 1,
+          "source_table": 2,
+          "means": {
+            "active": [
+              9.87,
+              14.64,
+              13.41
+            ],
+            "vehicle": [
+              10.44,
+              10.39,
+              10.42
+            ]
+          },
+          "sd": {
+            "active": [
+              2.33,
+              1.37,
+              1.37
+            ],
+            "vehicle": [
+              2.35,
+              2.13,
+              2.29
+            ]
+          }
+        },
+        {
+          "name": "moisture_score",
+          "domain": "hydration",
+          "direction": 1,
+          "source_table": 2,
+          "means": {
+            "active": [
+              2,
+              3.08,
+              2.85
+            ],
+            "vehicle": [
+              2.08,
+              2.11,
+              2.11
+            ]
+          },
+          "sd": {
+            "active": [
+              0.76,
+              0.42,
+              0.54
+            ],
+            "vehicle": [
+              0.73,
+              0.71,
+              0.75
+            ]
+          }
+        },
+        {
+          "name": "vaginal_elasticity_clinical_score",
+          "domain": "clinical_proxy_not_ECM",
+          "direction": 1,
+          "source_table": 2,
+          "means": {
+            "active": [
+              2.18,
+              2.82,
+              2.77
+            ],
+            "vehicle": [
+              2.25,
+              2.22,
+              2.22
+            ]
+          },
+          "sd": {
+            "active": [
+              0.56,
+              0.39,
+              0.43
+            ],
+            "vehicle": [
+              0.55,
+              0.54,
+              0.54
+            ]
+          }
+        },
+        {
+          "name": "mucosa_appearance_score",
+          "domain": "clinical_proxy_not_structure",
+          "direction": 1,
+          "source_table": 2,
+          "means": {
+            "active": [
+              1.95,
+              2.97,
+              2.85
+            ],
+            "vehicle": [
+              2.14,
+              2.08,
+              2.06
+            ]
+          },
+          "sd": {
+            "active": [
+              0.89,
+              0.28,
+              0.43
+            ],
+            "vehicle": [
+              0.72,
+              0.55,
+              0.58
+            ]
+          }
+        },
+        {
+          "name": "vaginitis_score",
+          "domain": "symptoms_signs",
+          "direction": -1,
+          "source_table": 3,
+          "means": {
+            "active": [
+              4.5,
+              1.41,
+              2.09
+            ],
+            "vehicle": [
+              4.58,
+              4.63,
+              4.58
+            ]
+          },
+          "sd": {
+            "active": [
+              1.57,
+              0.85,
+              1.02
+            ],
+            "vehicle": [
+              1.57,
+              1.54,
+              1.64
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mitchell2018_estradiol_moisturizer",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5885275/",
+      "design": "randomized 3 arms, 12 weeks; no off-treatment follow-up",
+      "randomized_n": {
+        "estradiol": 102,
+        "moisturizer": 100,
+        "dual_placebo": 100
+      },
+      "endpoints": [
+        {
+          "name": "MBS_mean_change_baseline_to_week12",
+          "domain": "symptoms",
+          "values": {
+            "estradiol": -1.4,
+            "moisturizer": -1.2,
+            "dual_placebo": -1.3
+          },
+          "source_table": 2
+        },
+        {
+          "name": "crossed_5pct_superficial_VMI_at_week12_pct",
+          "domain": "epithelial_cytology",
+          "values": {
+            "estradiol": 57,
+            "moisturizer": 11,
+            "dual_placebo": 11
+          },
+          "source": "Results text; among evaluable VMI specimens, NOT all randomized participants"
+        }
+      ],
+      "limitations": [
+        "No off-treatment period",
+        "No TEER, blinded ECM, or wall histology",
+        "No subject-level patient data"
+      ]
+    }
+  ]
+}
