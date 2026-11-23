@@ -96,9 +96,9 @@ class TestArchiveImport(unittest.TestCase):
                'TFS-Assets/LSG/Support-Files/MoGene-2_0-st-v1-mm10-probe-tab.zip')
         probe = 'ACGTACGTACGTACGTACGTACGTA'
         self.make_zip('MoGene-2_0-st-v1-mm10-probe-tab.txt',
-                      'Probe Set Name\\tProbe X\\tProbe Y\\tProbe Interrogation Position\\t'
-                      'Probe Sequence\\tTarget Strandedness\\n'
-                      f'17200001\\t1\\t2\\t13\\t{probe}\\tsense\\n')
+                      'Probe Set Name\tProbe X\tProbe Y\tProbe Interrogation Position\t'
+                      'Probe Sequence\tTarget Strandedness\n'
+                      f'17200001\t1\t2\t13\t{probe}\tsense\n')
         def copy_only(request_url, target, approved_hosts):
             self.assertEqual(approved_url(request_url, approved_hosts), url)
             shutil.copyfile(self.z, target)
