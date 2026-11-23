@@ -1,0 +1,82 @@
+{
+  "schema": "astra.biomicx.vva_duration_registry.v1",
+  "compiled_on": "2026-11-23",
+  "method": "Manually curated from cited primary articles, reporting aggregated public evidence only. No IPD access claimed.",
+  "studies": [
+    {
+      "id": "JACOBSEN_2026_ECM",
+      "cohort_family": "VAGLASER_NCT06007027_STUDY_I",
+      "name": "Jacobsen et al 2026 exploratory dose-response stromal histology",
+      "source_urls": ["https://doi.org/10.1007/s10103-026-04829-0"],
+      "comparison": "single_arm", "sham_or_placebo": false,
+      "histology_paired": true, "quantitative_epithelium": false, "quantitative_ecm": true,
+      "observations_after_last_treatment_months": [], "time_reference": "last_treatment",
+      "observed_short_term_interval": "4-6 weeks after session five; no 3/6/12-month biopsy",
+      "post_treatment_biopsy_per_timepoint": false, "any_booster_before_followup": false,
+      "participant_level_data_available_to_pipeline": false, "participant_level_pairing_verified": false,
+      "published_results": {"biopsies_paired_n": 26, "elastin_index_pre_pct": 33.1, "elastin_index_post_pct": 56.8, "collagen_III_index_pre_pct": 44.5, "collagen_III_index_post_pct": 58.4, "collagen_I_significant": false, "total_collagen_significant": false, "epithelial_morphology_significant": false},
+      "data_access": "ON_REQUEST_PATIENT_PROTECTED", "correspondence": "au309162@uni.au.dk",
+      "limitations": ["No sham group; early follow-up", "Different left/right vaginal biopsy sides", "Epithelium thickness not quantifiable due to section orientation", "No independent subject-level data in pipeline"]
+    },
+    {
+      "id": "GASPAR_2017_LONGITUDINAL",
+      "cohort_family": "GASPAR_BRANDI_ER_YAG_2017",
+      "name": "Gaspar et al 2017 Er:YAG vs estriol qualitative long-follow-up biopsy",
+      "source_urls": ["https://doi.org/10.1002/lsm.22569"],
+      "comparison": "active_estriol", "sham_or_placebo": false,
+      "histology_paired": true, "quantitative_epithelium": false, "quantitative_ecm": false,
+      "observations_after_last_treatment_months": [1,3,6,12], "time_reference": "last_treatment",
+      "observed_short_term_interval": "Biopsies 1,3,6,12 months post-treatment, 6 people per intervention group",
+      "post_treatment_biopsy_per_timepoint": true, "any_booster_before_followup": false,
+      "participant_level_data_available_to_pipeline": false, "participant_level_pairing_verified": false,
+      "published_results": {"group_n": 25, "biopsy_per_group_n": 6, "biopsy_endpoints": "Qualitative H&E morphology; no reproducible numeric ECM architecture per person"},
+      "data_access": "NOT_PUBLICLY_IDENTIFIED", "correspondence": "author listed in Wiley; address should be manually reconfirmed",
+      "limitations": ["Prospective comparator is estriol, no sham", "Laser arm received estriol pre-treatment", "Histological effects chiefly qualitative", "12-month source labels are post-treatment but original patient visit times unavailable"]
+    },
+    {
+      "id": "LIGHT_2023_2026",
+      "cohort_family": "LIGHT_NCT04619485",
+      "name": "LIGHT sham randomized cohort and 2026 12-month companion followup, same cohort",
+      "source_urls": ["https://doi.org/10.1001/jamanetworkopen.2022.55697", "https://doi.org/10.1001/jamanetworkopen.2026.38937"],
+      "comparison": "sham", "sham_or_placebo": true,
+      "histology_paired": true, "quantitative_epithelium": true, "quantitative_ecm": false,
+      "observations_after_last_treatment_months": [1], "time_reference": "last_treatment",
+      "observed_short_term_interval": "6 month visit 1 month after fifth laser/sham session; 12-month followup (about 7 months off intervention) no repeat quantifiable epithelial biopsies",
+      "post_treatment_biopsy_per_timepoint": false, "any_booster_before_followup": false,
+      "participant_level_data_available_to_pipeline": false, "participant_level_pairing_verified": false,
+      "published_results": {"6month_epithelial_thickness_change_mm_laser": 0.021, "6month_epithelial_thickness_change_mm_sham": 0.013, "reported_comparison_p": 0.30, "12month_biopsy_reanalysis": "NOT_ESTIMABLE_REFUSALS", "12month_between_group_clinical_benefit": "NO_SIGNIFICANT_ADVANTAGE"},
+      "data_access": "JAMA_SUPPLEMENT_DATA_SHARING_UNVERIFIED", "correspondence": "Eduard Mension, Hospital Clínic Barcelona; institution-listed email needs independent extraction",
+      "limitations": ["Follow-up JAMA 2026 is SAME cohort, not independent", "No 3,6,12-month structural biopsy after last dose", "Other first-line nonhormonal therapies concurrently used", "Elasticity change is AFM material stiffness, not collagen microarchitecture"]
+    },
+    {
+      "id": "LI_2021_2023",
+      "cohort_family": "LI_2021_JAMA_2023_AJOG",
+      "name": "Li randomized sham laser with 46 paired biopsies and histology report",
+      "source_urls": ["https://doi.org/10.1001/jama.2021.14892", "https://doi.org/10.1016/j.ajog.2023.05.005"],
+      "comparison": "sham", "sham_or_placebo": true,
+      "histology_paired": true, "quantitative_epithelium": false, "quantitative_ecm": false,
+      "observations_after_last_treatment_months": [], "time_reference": "first_treatment",
+      "observed_short_term_interval": "Histology measured six months AFTER FIRST session; duration from last session not independently verified",
+      "post_treatment_biopsy_per_timepoint": false, "any_booster_before_followup": null,
+      "participant_level_data_available_to_pipeline": false, "participant_level_pairing_verified": false,
+      "published_results": {"paired_biopsy_n": 46, "laser_ordinal_histology_improved": 2, "laser_histology_group_n": 22, "sham_ordinal_histology_improved": 3, "sham_histology_group_n": 24},
+      "data_access": "NOT_IN_PIPELINE", "correspondence": "Study team per JAMA/AJOG publications",
+      "limitations": ["No statistically significant histological difference", "6 months after FIRST treatment not 6 months after LAST treatment", "Histological classes not directly quantitative collagen/elastin", "2021 and 2023 are same trial family"]
+    },
+    {
+      "id": "GSE11622_ESTROGEN_RNA",
+      "cohort_family": "GSE11622_HUMAN_VAGINAL_19",
+      "name": "Human vaginal biopsies pre/post 3 months transdermal estradiol, expression only",
+      "source_urls": ["https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE11622", "https://pmc.ncbi.nlm.nih.gov/articles/PMC2453134/"],
+      "comparison": "pre_post_only", "sham_or_placebo": false,
+      "histology_paired": false, "quantitative_epithelium": false, "quantitative_ecm": false,
+      "observations_after_last_treatment_months": [], "time_reference": "end_of_protocol_unspecified",
+      "observed_short_term_interval": "Biopsy last day of treatment, no followup post-cessation",
+      "post_treatment_biopsy_per_timepoint": false, "any_booster_before_followup": null,
+      "participant_level_data_available_to_pipeline": false, "participant_level_pairing_verified": false,
+      "published_results": {"human_biopsies_paired_n": 19, "rna_expression_only": true, "geo_matrix_downloaded": false},
+      "data_access": "GEO_PUBLIC_MICROARRAY_NOT_MATERIALIZED", "correspondence": "NCBI GEO accession with authors' contact",
+      "limitations": ["Public microarray not histomorphometry", "No cessation", "Raw sample pairing not confirmed in current environment", "Rodent samples also present in GEO family"]
+    }
+  ]
+}
