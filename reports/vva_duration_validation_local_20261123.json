@@ -1,0 +1,31 @@
+{
+  "schema": "astra.biomicx.vva.duration-validation.v1",
+  "created_on": "2026-11-23",
+  "provenance": "Local Python execution in transient container, no CI or remote runner executed",
+  "command": "cd /mnt/data/astra_vva && PYTHONPATH=/mnt/data/astra_vva:/mnt/data/astra_vva/validation:/mnt/data/astra_vva_duration python -m unittest -v test_vva_repair_gate test_vva_published_aggregate_bridge test_vva_independent_histology_gate test_vva_duration_registry",
+  "tests_total": 53,
+  "tests_passed": 53,
+  "tests_failed": 0,
+  "log_sha256": "557c6b60ae87c8e4423afa2e72830da079d7f9df06b82792061e2544e39c2129",
+  "registry_sha256": "e937460e22af7c291bffb2bbe44ec0681077601560690a0c28c8c5f877dca728",
+  "duration_gate_sha256": "8cb64548615a7c2ce20abdd925960b867304b553e0974719220afe32f1d4de9d",
+  "duration_tests_sha256": "d6fd0a3f46aac7a7cdc8c1ea0911bcb9a6ab62ab1f19a6b5c728ccad3e67c983",
+  "evaluated_independent_study_families": 5,
+  "complete_3_6_12_month_controlled_quantitative_paired_structural_datasets": 0,
+  "original_patient_level_data_analyzed": false,
+  "clinical_regeneration_proven": false,
+  "remote_CI_executed": false,
+  "source_claim_note": "Five selected study families, not an exhaustive systematic review",
+  "status": {
+    "local_software": "PASS",
+    "published_evidence_audit": "PARTIAL",
+    "long_term_structural_regeneration": "UNVERIFIED"
+  },
+  "unresolved": [
+    "No 3,6,12-month paired structural quantitative biopsy series with verified cessation, placebo/sham and patient-level data",
+    "Jacobsen protected patient data by author request",
+    "LIGHT longitudinal epithelial 12-month biopsy not estimable due refusals",
+    "No remote CI / no clinical assay executed"
+  ],
+  "remote_files_verified_exact_text": true
+}
