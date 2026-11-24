@@ -1,13 +1,13 @@
-# BIO-MIMIC X V7 Discovery Factory — 2026-11-23T13:06:20.412522+00:00
+# BIO-MIMIC X V7 Discovery Factory — 2026-11-24T13:57:37.770466+00:00
 
 **Status:** PASS
-**Replay SHA-256:** `fcc8943efe039895de6b7155de2aa411b67fc227910d20e23f522936a66c2c65`
+**Replay SHA-256:** `09127a152912505b4995432d7b997149d24d7ef3ae67b8aa1487dcbbf5fdada3`
 
 ## Active programs
 - PRG-c73037fcfb · Acomys cahirinus · score 61 · labs regeneration
+- PRG-4514111357 · Somniosus microcephalus · score 56 · labs longevity
 - PRG-5fdcf74e81 · Danio rerio · score 55 · labs regeneration
 - PRG-14c747bea5 · Cynops pyrrhogaster · score 55 · labs regeneration
-- PRG-4514111357 · Somniosus microcephalus · score 52 · labs longevity
 - PRG-2420f4dcfa · Ambystoma mexicanum · score 49 · labs regeneration
 - PRG-70175ca5b4 · Drosophila melanogaster · score 45 · labs preservation
 
