@@ -1,8 +1,8 @@
-# BIO-MIMIC X V6 Scientific Investment Committee — 2026-11-23T13:03:35.507276+00:00
+# BIO-MIMIC X V6 Scientific Investment Committee — 2026-11-24T13:48:39.868674+00:00
 
 **Scientific status:** PASS (not an efficacy claim)
 **Upstream provider failures:** 0
-**Organization replay SHA-256:** `d46034d8342a9b1d1bc6d7c9954da2172e241b719126d1d3bf69ff1cc784e5dc`
+**Organization replay SHA-256:** `5251a9074a24de7e4a6cb3a334d68041072c227a29d8322166ee8db52eb63a05`
 
 ## Laboratory status
 - ONCO-X Lab: PASS · 35 papers · 0 candidates
@@ -19,6 +19,11 @@
 - Sources: 3 · mechanisms: extracellular matrix, fibrosis, regeneration
 - Challenge flags: correlation does not prove causation, developmental-stage confounding, fibrosis tradeoffs, human functional divergence remains possible, no gene symbol candidate, regeneration-vs-repair ambiguity
 
+### Somniosus microcephalus — Committee 56/100
+- Labs: longevity
+- Sources: 3 · mechanisms: DNA repair, genome maintenance, proteostasis, senescence
+- Challenge flags: body-size confounding, correlation does not prove causation, human functional divergence remains possible, lifespan data quality, no gene symbol candidate, phylogeny confounding
+
 ### Danio rerio — Committee 55/100
 - Labs: regeneration
 - Sources: 3 · mechanisms: Wnt, regeneration
@@ -28,11 +33,6 @@
 - Labs: regeneration
 - Sources: 3 · mechanisms: fibrosis, regeneration
 - Challenge flags: correlation does not prove causation, developmental-stage confounding, fibrosis tradeoffs, human functional divergence remains possible, regeneration-vs-repair ambiguity
-
-### Somniosus microcephalus — Committee 52/100
-- Labs: longevity
-- Sources: 2 · mechanisms: DNA repair, genome maintenance, proteostasis, senescence
-- Challenge flags: body-size confounding, correlation does not prove causation, human functional divergence remains possible, lifespan data quality, no gene symbol candidate, phylogeny confounding
 
 ### Ambystoma mexicanum — Committee 49/100
 - Labs: regeneration
@@ -80,10 +80,10 @@
 - Challenge flags: correlation does not prove causation, cryoprotectant toxicity, human functional divergence remains possible, reperfusion injury, single-paper dependence, taxonomy not annotation-supported
 
 ## Research-credit allocation
-- Acomys cahirinus: 11 credits
-- Danio rerio: 10 credits
-- Cynops pyrrhogaster: 10 credits
-- Somniosus microcephalus: 9 credits
+- Acomys cahirinus: 10 credits
+- Somniosus microcephalus: 10 credits
+- Danio rerio: 9 credits
+- Cynops pyrrhogaster: 9 credits
 - Ambystoma mexicanum: 8 credits
 - Drosophila melanogaster: 8 credits
 - Paracentrotus lividus: 8 credits
@@ -92,7 +92,7 @@
 - Tursiops truncatus: 6 credits
 - Lagenorhynchus obliquidens: 6 credits
 - Orcinus orca: 6 credits
-- Delphinapterus leucas: 5 credits
+- Delphinapterus leucas: 7 credits
 
 ## Cross-lab challenge plan
 - immunology challenges cancer: Re-audit the top hypothesis using the challenger lab's confounders and require at least one falsifiable counter-test.

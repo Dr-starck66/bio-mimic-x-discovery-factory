@@ -6,7 +6,15 @@
         "regeneration"
       ],
       "name": "Acomys cahirinus",
-      "research_credits": 11
+      "research_credits": 10
+    },
+    {
+      "committee_score": 56,
+      "labs": [
+        "longevity"
+      ],
+      "name": "Somniosus microcephalus",
+      "research_credits": 10
     },
     {
       "committee_score": 55,
@@ -14,7 +22,7 @@
         "regeneration"
       ],
       "name": "Danio rerio",
-      "research_credits": 10
+      "research_credits": 9
     },
     {
       "committee_score": 55,
@@ -22,14 +30,6 @@
         "regeneration"
       ],
       "name": "Cynops pyrrhogaster",
-      "research_credits": 10
-    },
-    {
-      "committee_score": 52,
-      "labs": [
-        "longevity"
-      ],
-      "name": "Somniosus microcephalus",
       "research_credits": 9
     },
     {
@@ -102,7 +102,7 @@
         "preservation"
       ],
       "name": "Delphinapterus leucas",
-      "research_credits": 5
+      "research_credits": 7
     }
   ],
   "committee_rules": {
@@ -160,7 +160,7 @@
       "id": "cancer",
       "name": "ONCO-X Lab",
       "paper_count": 35,
-      "sha256": "977bb0e1714a68d6764b1dcf8ecba28537f6be7fbeb120c40888946ef6be63aa",
+      "sha256": "0517e2ccf8e92e1b700ee7aa6941f263f73aae8449f558ecdfdcee4bb028829d",
       "status": "PASS"
     },
     {
@@ -168,7 +168,7 @@
       "id": "immunology",
       "name": "IMMUNO-X Lab",
       "paper_count": 35,
-      "sha256": "89e21ece17856dd26a07edd48d6196f6e82b95bbefb5b2563999d2e6db288a3e",
+      "sha256": "5c834d2e76a744f10b0d45e9065d3ecc1388a9df95a3ff3721867d78320368fa",
       "status": "PASS"
     },
     {
@@ -176,7 +176,7 @@
       "id": "longevity",
       "name": "LONGEVITY-X Lab",
       "paper_count": 35,
-      "sha256": "aed537b7c7751f321b02302a1c60e3df1de23633b25b19d73f4e9f7524aaadad",
+      "sha256": "8091b639f8825ddd44317f311e5b58d05c73aba062be8fe41545b2cc23950aa5",
       "status": "PASS"
     },
     {
@@ -184,7 +184,7 @@
       "id": "metabolism",
       "name": "METABOLIC-X Lab",
       "paper_count": 35,
-      "sha256": "cd8ec68ba1c262138ff9c8fbea787f9ff86dab09d18d9027c1d6ec82d5178115",
+      "sha256": "1dcd42797c3d28bd6e5eb6cc4fadcd9ff55574111684924d4a3332df3811d26a",
       "status": "PASS"
     },
     {
@@ -192,7 +192,7 @@
       "id": "neuro",
       "name": "NEURO-X Lab",
       "paper_count": 35,
-      "sha256": "e170eacb41896425aa3acfbcaa1d2c5a28e6c4e30f3d8c3d35da3a4c1cdb1451",
+      "sha256": "8db620c354345a49b0ee7ac85c220a339c9b384ea5df7e9e96497aac57e7cbd8",
       "status": "PASS"
     },
     {
@@ -200,7 +200,7 @@
       "id": "preservation",
       "name": "PRESERVE-X Lab",
       "paper_count": 35,
-      "sha256": "6593162bb3330bf18d2de7bfa3038ffe5ccb1573a60c4811effdf3ed83eb692b",
+      "sha256": "7b7a91cadd8a270fe28349dd736106682ee9da28d91eebbe69d8ee710a3405ff",
       "status": "PASS"
     },
     {
@@ -208,7 +208,7 @@
       "id": "regeneration",
       "name": "REGEN-X Lab",
       "paper_count": 35,
-      "sha256": "89af39af9eb12c31883b979dd15f7c7d30e4b024c9a24e448714ca3bd2a4431a",
+      "sha256": "2586eeb8db6b6e61f5b434e8e721435a0db119b08be07859b09ab924170353e7",
       "status": "PASS"
     }
   ],
@@ -262,6 +262,56 @@
       "taxon_verified": true
     },
     {
+      "annotation_support": false,
+      "challenges": [
+        "body-size confounding",
+        "correlation does not prove causation",
+        "human functional divergence remains possible",
+        "lifespan data quality",
+        "no gene symbol candidate",
+        "phylogeny confounding",
+        "taxonomy not annotation-supported"
+      ],
+      "committee_score": 56,
+      "genes": [],
+      "independent_source_count": 3,
+      "lab_count": 1,
+      "labs": [
+        "longevity"
+      ],
+      "mean_arbiter": 55.0,
+      "mechanisms": [
+        "DNA repair",
+        "genome maintenance",
+        "proteostasis",
+        "senescence"
+      ],
+      "name": "Somniosus microcephalus",
+      "pmid_sources": [
+        "PMID:41491153",
+        "PMID:42402335",
+        "PMID:42939468"
+      ],
+      "source_count": 3,
+      "sources": [
+        "PMID:41491153",
+        "PMID:42402335",
+        "PMID:42939468"
+      ],
+      "taxon_proofs": [
+        {
+          "canonical_name": "Somniosus microcephalus",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 2421162
+        }
+      ],
+      "taxon_verified": true
+    },
+    {
       "annotation_support": true,
       "challenges": [
         "correlation does not prove causation",
@@ -290,13 +340,13 @@
       ],
       "name": "Danio rerio",
       "pmid_sources": [
-        "PMID:42314834",
+        "PMID:42370366",
         "PMID:42690612",
         "PMID:42755729"
       ],
       "source_count": 3,
       "sources": [
-        "PMID:42314834",
+        "PMID:42370366",
         "PMID:42690612",
         "PMID:42755729"
       ],
@@ -341,13 +391,13 @@
       ],
       "name": "Cynops pyrrhogaster",
       "pmid_sources": [
-        "PMID:34944708",
+        "PMID:40230354",
         "PMID:41751333",
         "PMID:42702818"
       ],
       "source_count": 3,
       "sources": [
-        "PMID:34944708",
+        "PMID:40230354",
         "PMID:41751333",
         "PMID:42702818"
       ],
@@ -360,54 +410,6 @@
           "rank": "SPECIES",
           "status": "ACCEPTED",
           "taxon_key": 2431862
-        }
-      ],
-      "taxon_verified": true
-    },
-    {
-      "annotation_support": false,
-      "challenges": [
-        "body-size confounding",
-        "correlation does not prove causation",
-        "human functional divergence remains possible",
-        "lifespan data quality",
-        "no gene symbol candidate",
-        "phylogeny confounding",
-        "taxonomy not annotation-supported"
-      ],
-      "committee_score": 52,
-      "genes": [],
-      "independent_source_count": 2,
-      "lab_count": 1,
-      "labs": [
-        "longevity"
-      ],
-      "mean_arbiter": 51.0,
-      "mechanisms": [
-        "DNA repair",
-        "genome maintenance",
-        "proteostasis",
-        "senescence"
-      ],
-      "name": "Somniosus microcephalus",
-      "pmid_sources": [
-        "PMID:42402335",
-        "PMID:42939468"
-      ],
-      "source_count": 2,
-      "sources": [
-        "PMID:42402335",
-        "PMID:42939468"
-      ],
-      "taxon_proofs": [
-        {
-          "canonical_name": "Somniosus microcephalus",
-          "kingdom": "Animalia",
-          "match_type": "EXACT",
-          "provider": "GBIF",
-          "rank": "SPECIES",
-          "status": "ACCEPTED",
-          "taxon_key": 2421162
         }
       ],
       "taxon_verified": true
@@ -487,13 +489,13 @@
       "pmid_sources": [
         "PMID:42208364",
         "PMID:42686794",
-        "PMID:42782463"
+        "PMID:42868151"
       ],
       "source_count": 3,
       "sources": [
         "PMID:42208364",
         "PMID:42686794",
-        "PMID:42782463"
+        "PMID:42868151"
       ],
       "taxon_proofs": [
         {
@@ -828,8 +830,8 @@
     }
   ],
   "schema": "biomimic-v6-org-run-v1",
-  "sha256": "d46034d8342a9b1d1bc6d7c9954da2172e241b719126d1d3bf69ff1cc784e5dc",
+  "sha256": "5251a9074a24de7e4a6cb3a334d68041072c227a29d8322166ee8db52eb63a05",
   "status": "PASS",
-  "time": "2026-11-23T13:03:35.507276+00:00",
+  "time": "2026-11-24T13:48:39.868674+00:00",
   "upstream_failures": []
 }
