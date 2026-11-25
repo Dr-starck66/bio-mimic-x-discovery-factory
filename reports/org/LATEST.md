@@ -1,15 +1,15 @@
-# BIO-MIMIC X V6 Scientific Investment Committee — 2026-11-25T13:02:30.402437+00:00
+# BIO-MIMIC X V6 Scientific Investment Committee — 2026-11-25T13:09:25.744786+00:00
 
-**Scientific status:** PARTIAL (not an efficacy claim)
-**Upstream provider failures:** 3
-**Organization replay SHA-256:** `3eab2cfd04a84c97f920a155b3ad71b8c99de9bab5181d46975291b712876014`
+**Scientific status:** PASS (not an efficacy claim)
+**Upstream provider failures:** 0
+**Organization replay SHA-256:** `341c0b3c601090eabaa45fe3ce843236047e541025ee4285fa6109aa79ca6e7f`
 
 ## Laboratory status
 - ONCO-X Lab: PASS · 35 papers · 0 candidates
-- IMMUNO-X Lab: FAIL · 0 papers · 0 candidates
+- IMMUNO-X Lab: PASS · 35 papers · 0 candidates
 - LONGEVITY-X Lab: PASS · 35 papers · 1 candidates
-- METABOLIC-X Lab: FAIL · 0 papers · 0 candidates
-- NEURO-X Lab: FAIL · 0 papers · 0 candidates
+- METABOLIC-X Lab: PASS · 35 papers · 0 candidates
+- NEURO-X Lab: PASS · 35 papers · 0 candidates
 - PRESERVE-X Lab: PASS · 35 papers · 8 candidates
 - REGEN-X Lab: PASS · 35 papers · 4 candidates
 
