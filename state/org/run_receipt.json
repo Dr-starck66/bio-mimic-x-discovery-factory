@@ -160,47 +160,47 @@
       "id": "cancer",
       "name": "ONCO-X Lab",
       "paper_count": 35,
-      "sha256": "2bd8604063f48a327e8365776b70cc01f646639afc43ad7a9959676ffa18872f",
+      "sha256": "6cdfac8f1d7f0136b35c7c6c90380dc3d055637c4ba408096fb01c9961ad0f51",
       "status": "PASS"
     },
     {
       "candidate_count": 0,
       "id": "immunology",
       "name": "IMMUNO-X Lab",
-      "paper_count": 35,
-      "sha256": "8f814f0dea01cbe2c08f1a581ec5f5366b2a4208ef9654b1300231ef4064e6ff",
-      "status": "PASS"
+      "paper_count": 0,
+      "sha256": "bc1341e748eb5876f89cd511e75427f9260c721dc283f1f590e8c902f3616160",
+      "status": "FAIL"
     },
     {
       "candidate_count": 1,
       "id": "longevity",
       "name": "LONGEVITY-X Lab",
       "paper_count": 35,
-      "sha256": "a26f18fb9e26e70a29878b8a2b560a168588ea6e707171941264c584603d995e",
+      "sha256": "ef40ffe22e47fc1bbc3bc349bb136d9acb3bd28ae6c8e688793312c261425348",
       "status": "PASS"
     },
     {
       "candidate_count": 0,
       "id": "metabolism",
       "name": "METABOLIC-X Lab",
-      "paper_count": 35,
-      "sha256": "f03dbb14f234e62f024d33be240cb86ad8a86278d5706feb316125e3d2281054",
-      "status": "PASS"
+      "paper_count": 0,
+      "sha256": "da715a26c23594231f9a176d6397b67583809006f3f5a1048230504696d6ca01",
+      "status": "FAIL"
     },
     {
       "candidate_count": 0,
       "id": "neuro",
       "name": "NEURO-X Lab",
-      "paper_count": 35,
-      "sha256": "8cc1a0a8c8bffb433d25ce5a8599ceec1dbb0b772d89a169ba77012ef02c38f1",
-      "status": "PASS"
+      "paper_count": 0,
+      "sha256": "d6b994fa067ac2be946bbff2f2d0549faf6efe321e981bea523bd92522707411",
+      "status": "FAIL"
     },
     {
       "candidate_count": 8,
       "id": "preservation",
       "name": "PRESERVE-X Lab",
       "paper_count": 35,
-      "sha256": "9591bb87f71573da005d57481041f822ba8803b6754fb9c5dee3d362cb680f2c",
+      "sha256": "1b1f36ba0d860150530bf31d8010127ac8f00ad558002a5c673dbe3029038de6",
       "status": "PASS"
     },
     {
@@ -208,7 +208,7 @@
       "id": "regeneration",
       "name": "REGEN-X Lab",
       "paper_count": 35,
-      "sha256": "46bb80d53f948802bea90dfb984fff03db90c357d02c46717c2fbcb9a687011f",
+      "sha256": "fbd8ba8ebe8fbcd5706201e3b002ef70e671ffc907cd4166f750a749483cb8bd",
       "status": "PASS"
     }
   ],
@@ -289,14 +289,14 @@
       "name": "Somniosus microcephalus",
       "pmid_sources": [
         "PMID:41491153",
-        "PMID:42402335",
-        "PMID:42939468"
+        "PMID:42154556",
+        "PMID:42402335"
       ],
       "source_count": 3,
       "sources": [
         "PMID:41491153",
-        "PMID:42402335",
-        "PMID:42939468"
+        "PMID:42154556",
+        "PMID:42402335"
       ],
       "taxon_proofs": [
         {
@@ -340,13 +340,13 @@
       ],
       "name": "Danio rerio",
       "pmid_sources": [
-        "PMID:42370366",
+        "PMID:42314834",
         "PMID:42690612",
         "PMID:42755729"
       ],
       "source_count": 3,
       "sources": [
-        "PMID:42370366",
+        "PMID:42314834",
         "PMID:42690612",
         "PMID:42755729"
       ],
@@ -487,15 +487,15 @@
       "mechanisms": [],
       "name": "Drosophila melanogaster",
       "pmid_sources": [
-        "PMID:42208364",
-        "PMID:42686794",
-        "PMID:42782463"
+        "PMID:31988724",
+        "PMID:39995173",
+        "PMID:42208364"
       ],
       "source_count": 3,
       "sources": [
-        "PMID:42208364",
-        "PMID:42686794",
-        "PMID:42782463"
+        "PMID:31988724",
+        "PMID:39995173",
+        "PMID:42208364"
       ],
       "taxon_proofs": [
         {
@@ -830,8 +830,30 @@
     }
   ],
   "schema": "biomimic-v6-org-run-v1",
-  "sha256": "092baa2221d1a348000904fa9bc7a11b5ad46201c673438b7def1959a2938dd9",
-  "status": "PASS",
-  "time": "2026-11-24T13:54:18.604694+00:00",
-  "upstream_failures": []
+  "sha256": "3eab2cfd04a84c97f920a155b3ad71b8c99de9bab5181d46975291b712876014",
+  "status": "PARTIAL",
+  "time": "2026-11-25T13:02:30.402437+00:00",
+  "upstream_failures": [
+    {
+      "failures": [
+        "primary Europe PMC: The read operation timed out"
+      ],
+      "lab": "immunology",
+      "status": "FAIL"
+    },
+    {
+      "failures": [
+        "primary Europe PMC: The read operation timed out"
+      ],
+      "lab": "metabolism",
+      "status": "FAIL"
+    },
+    {
+      "failures": [
+        "primary Europe PMC: The read operation timed out"
+      ],
+      "lab": "neuro",
+      "status": "FAIL"
+    }
+  ]
 }
