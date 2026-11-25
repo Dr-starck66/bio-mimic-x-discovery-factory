@@ -1,17 +1,17 @@
 # MICROCLEAN-X Live Evidence Radar
 
 - Status: **PASS**
-- Microplastic records: **66**
-- Material signals: **8**
+- Microplastic records: **65**
+- Material signals: **9**
 - Review queue signals: **5**
 - Source errors: **1**
-- Evidence fingerprint: `d1e70a89776bc50b320c6d35ba7da0b25b4cc79bbd5467a65a0293656efb2d89`
+- Evidence fingerprint: `ba973e4496770b742dfa84a6146039180c1a26bf01db1af053bf5e0e0a537a5d`
 
 ## Highest-evidence material signals
 
-- **biochar** — REVIEW_QUEUE — 9 independent records, 2 magnetic-context records
+- **biochar** — REVIEW_QUEUE — 11 independent records, 3 magnetic-context records
 - **ferrite** — REVIEW_QUEUE — 5 independent records, 5 magnetic-context records
-- **MOF** — REVIEW_QUEUE — 5 independent records, 4 magnetic-context records
+- **MOF** — REVIEW_QUEUE — 4 independent records, 3 magnetic-context records
 - **chitosan** — REVIEW_QUEUE — 3 independent records, 1 magnetic-context records
 - **MXene** — REVIEW_QUEUE — 2 independent records, 1 magnetic-context records
 - **Fe3O4** — SCOUT — 1 independent records, 1 magnetic-context records
