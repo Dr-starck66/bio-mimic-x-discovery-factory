@@ -17,7 +17,7 @@ class Atom:
     def dimensions(self,normalized=True):
         d={k:(0,0) if normalized else v for k,v in DIM.items()}
         names=self.arg.replace('-','+').split('+');out=d[names[0]]
-        if any(d[n]!=out for n in names[1:]) or out!=(0,0):raise ValueError('incompatible or dimensional function argument')
+        if any(d[n]!=out for n in names) or out!=(0,0):raise ValueError('incompatible or dimensional function argument')
         return d[self.env]
     def evaluate(self,x,v,u,k):
         a={'x':x,'v':v,'u':u,'x+v':x+v,'x-v':x-v}[self.arg]*k
