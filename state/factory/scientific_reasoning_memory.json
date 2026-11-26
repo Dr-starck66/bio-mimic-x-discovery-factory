@@ -447,6 +447,13 @@
       "reasoning_sha256": "0dd265bc420fe318decedc7b827c7dd0a38ab9b6e4b99922ebce6d51330688fc",
       "subject": "Danio rerio",
       "time": "2026-11-25T13:12:22.851831+00:00"
+    },
+    {
+      "event": "REASONING_DOSSIER_UPDATED",
+      "program_id": "PRG-5e1f85b349",
+      "reasoning_sha256": "af01b739d3aeff405540920fa34a0d4b9c14a9b4d563c2ac92c8742791de1f4e",
+      "subject": "Caenorhabditis elegans",
+      "time": "2026-11-26T12:47:10.804027+00:00"
     }
   ],
   "hypotheses": {
@@ -506,6 +513,19 @@
       "subject": "Drosophila melanogaster",
       "updated_at": "2026-11-22T11:39:19.648135+00:00"
     },
+    "HYP-11f0883bb068": {
+      "clinical_efficacy_claim": false,
+      "kind": "PRIMARY_CAUSAL",
+      "program_id": "PRG-5e1f85b349",
+      "source_pmids": [
+        "PMID:42169464",
+        "PMID:42208364"
+      ],
+      "statement": "In Caenorhabditis elegans, IBP contributes causally to the reported phenotype rather than merely correlating with it.",
+      "status": "HYPOTHESIS",
+      "subject": "Caenorhabditis elegans",
+      "updated_at": "2026-11-26T12:47:10.804027+00:00"
+    },
     "HYP-1e43e2271fa5": {
       "clinical_efficacy_claim": false,
       "kind": "PRIMARY_CAUSAL",
@@ -518,6 +538,19 @@
       "status": "HYPOTHESIS",
       "subject": "Hydra oligactis",
       "updated_at": "2026-11-08T10:33:56.101896+00:00"
+    },
+    "HYP-2aae3dc98548": {
+      "clinical_efficacy_claim": false,
+      "kind": "CONTEXT_DEPENDENT_ALTERNATIVE",
+      "program_id": "PRG-5e1f85b349",
+      "source_pmids": [
+        "PMID:42169464",
+        "PMID:42208364"
+      ],
+      "statement": "In Caenorhabditis elegans, the effect associated with IBP depends on biological context or interacting pathways.",
+      "status": "HYPOTHESIS",
+      "subject": "Caenorhabditis elegans",
+      "updated_at": "2026-11-26T12:47:10.804027+00:00"
     },
     "HYP-2c72c51a4520": {
       "clinical_efficacy_claim": false,
@@ -696,7 +729,7 @@
       "statement": "In Ambystoma mexicanum, fibrosis is a downstream marker or correlate rather than a causal driver.",
       "status": "HYPOTHESIS",
       "subject": "Ambystoma mexicanum",
-      "updated_at": "2026-11-25T13:12:22.851831+00:00"
+      "updated_at": "2026-11-26T12:47:10.804027+00:00"
     },
     "HYP-5800546b6cc1": {
       "clinical_efficacy_claim": false,
@@ -889,7 +922,7 @@
       "statement": "In Ambystoma mexicanum, the effect associated with fibrosis depends on biological context or interacting pathways.",
       "status": "HYPOTHESIS",
       "subject": "Ambystoma mexicanum",
-      "updated_at": "2026-11-25T13:12:22.851831+00:00"
+      "updated_at": "2026-11-26T12:47:10.804027+00:00"
     },
     "HYP-8544e891d429": {
       "clinical_efficacy_claim": false,
@@ -933,6 +966,19 @@
       "subject": "Somniosus microcephalus",
       "updated_at": "2026-11-20T11:53:06.727019+00:00"
     },
+    "HYP-8aa0b542326e": {
+      "clinical_efficacy_claim": false,
+      "kind": "MARKER_ONLY_ALTERNATIVE",
+      "program_id": "PRG-5e1f85b349",
+      "source_pmids": [
+        "PMID:42169464",
+        "PMID:42208364"
+      ],
+      "statement": "In Caenorhabditis elegans, IBP is a downstream marker or correlate rather than a causal driver.",
+      "status": "HYPOTHESIS",
+      "subject": "Caenorhabditis elegans",
+      "updated_at": "2026-11-26T12:47:10.804027+00:00"
+    },
     "HYP-8afccdd7a7e0": {
       "clinical_efficacy_claim": false,
       "kind": "PRIMARY_CAUSAL",
@@ -944,7 +990,7 @@
       "statement": "In Ambystoma mexicanum, fibrosis contributes causally to the reported phenotype rather than merely correlating with it.",
       "status": "HYPOTHESIS",
       "subject": "Ambystoma mexicanum",
-      "updated_at": "2026-11-25T13:12:22.851831+00:00"
+      "updated_at": "2026-11-26T12:47:10.804027+00:00"
     },
     "HYP-8fac987baa17": {
       "clinical_efficacy_claim": false,
@@ -1386,7 +1432,7 @@
       "latest_reasoning_sha256": "c2d9e4e5554f6dbc17e0f073004a7ce56532d5403a1044911de15c2599788f24",
       "latest_status": "PROPOSED_AND_FALSIFIABLE",
       "subject": "Ambystoma mexicanum",
-      "updated_at": "2026-11-25T13:12:22.851831+00:00"
+      "updated_at": "2026-11-26T12:47:10.804027+00:00"
     },
     "PRG-28a10135e4": {
       "latest_reasoning_sha256": "840814f9d51383a56d2192893d5851f5b4cc27fe0a16feea854d933f63d4f26b",
@@ -1399,6 +1445,12 @@
       "latest_status": "PROPOSED_AND_FALSIFIABLE",
       "subject": "Somniosus microcephalus",
       "updated_at": "2026-11-25T13:12:22.851831+00:00"
+    },
+    "PRG-5e1f85b349": {
+      "latest_reasoning_sha256": "af01b739d3aeff405540920fa34a0d4b9c14a9b4d563c2ac92c8742791de1f4e",
+      "latest_status": "PROPOSED_AND_FALSIFIABLE",
+      "subject": "Caenorhabditis elegans",
+      "updated_at": "2026-11-26T12:47:10.804027+00:00"
     },
     "PRG-5fdcf74e81": {
       "latest_reasoning_sha256": "0dd265bc420fe318decedc7b827c7dd0a38ab9b6e4b99922ebce6d51330688fc",
@@ -1432,5 +1484,5 @@
     }
   },
   "schema": "biomimic-scientific-memory-v1",
-  "updated_at": "2026-11-25T13:12:22.851831+00:00"
+  "updated_at": "2026-11-26T12:47:10.804027+00:00"
 }

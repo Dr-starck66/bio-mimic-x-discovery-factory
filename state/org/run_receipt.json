@@ -1,28 +1,12 @@
 {
   "allocations": [
     {
-      "committee_score": 56,
-      "labs": [
-        "longevity"
-      ],
-      "name": "Somniosus microcephalus",
-      "research_credits": 15
-    },
-    {
-      "committee_score": 51,
-      "labs": [
-        "regeneration"
-      ],
-      "name": "Cynops pyrrhogaster",
-      "research_credits": 13
-    },
-    {
       "committee_score": 50,
       "labs": [
         "regeneration"
       ],
       "name": "Acomys cahirinus",
-      "research_credits": 13
+      "research_credits": 15
     },
     {
       "committee_score": 49,
@@ -30,23 +14,7 @@
         "regeneration"
       ],
       "name": "Ambystoma mexicanum",
-      "research_credits": 13
-    },
-    {
-      "committee_score": 45,
-      "labs": [
-        "preservation"
-      ],
-      "name": "Drosophila melanogaster",
-      "research_credits": 12
-    },
-    {
-      "committee_score": 45,
-      "labs": [
-        "preservation"
-      ],
-      "name": "Paracentrotus lividus",
-      "research_credits": 12
+      "research_credits": 14
     },
     {
       "committee_score": 45,
@@ -54,7 +22,23 @@
         "regeneration"
       ],
       "name": "Danio rerio",
-      "research_credits": 12
+      "research_credits": 13
+    },
+    {
+      "committee_score": 45,
+      "labs": [
+        "regeneration"
+      ],
+      "name": "Cynops pyrrhogaster",
+      "research_credits": 13
+    },
+    {
+      "committee_score": 44,
+      "labs": [
+        "longevity"
+      ],
+      "name": "Somniosus microcephalus",
+      "research_credits": 13
     },
     {
       "committee_score": 41,
@@ -62,6 +46,22 @@
         "preservation"
       ],
       "name": "Caenorhabditis elegans",
+      "research_credits": 12
+    },
+    {
+      "committee_score": 35,
+      "labs": [
+        "preservation"
+      ],
+      "name": "Drosophila melanogaster",
+      "research_credits": 10
+    },
+    {
+      "committee_score": 35,
+      "labs": [
+        "preservation"
+      ],
+      "name": "Paracentrotus lividus",
       "research_credits": 10
     }
   ],
@@ -120,7 +120,7 @@
       "id": "cancer",
       "name": "ONCO-X Lab",
       "paper_count": 35,
-      "sha256": "8485177d2791ff5c382abfb82e4b210dc815c320343cc6bc82c42996712f2b3d",
+      "sha256": "a4d3d5c35f96c48328b6289a2c583b4720ae3433aa0d1dca84e3e78e30f0c11c",
       "status": "PASS"
     },
     {
@@ -128,7 +128,7 @@
       "id": "immunology",
       "name": "IMMUNO-X Lab",
       "paper_count": 35,
-      "sha256": "0c1d6752c2a863ad6931483442f33dc2296496d28c839ede26badce5a59e287b",
+      "sha256": "467911b158fbddc1593c8b7f9028afb0be70a5d61bdbe64efae15a7c259c04ac",
       "status": "PASS"
     },
     {
@@ -136,7 +136,7 @@
       "id": "longevity",
       "name": "LONGEVITY-X Lab",
       "paper_count": 35,
-      "sha256": "c2c65d379465bd01704a088dc83792d4f25737e3824a594094f38028b3b7b742",
+      "sha256": "7fe3f89e8c96ad122fd8180b8009d75fa8c680d8e7c16a18b6c3988143b5d6cb",
       "status": "PASS"
     },
     {
@@ -144,7 +144,7 @@
       "id": "metabolism",
       "name": "METABOLIC-X Lab",
       "paper_count": 35,
-      "sha256": "25315964f1b862c692267281427f3a492825680b53515acd993e0930fb8fb797",
+      "sha256": "2d419df3bd8c5156738fd28e5f3cbba2beef762c4233bd5fb02c8dae64a900c1",
       "status": "PASS"
     },
     {
@@ -152,7 +152,7 @@
       "id": "neuro",
       "name": "NEURO-X Lab",
       "paper_count": 35,
-      "sha256": "9809afbe132ce0075201e1798165f7db614762e496d760ace87ed4cc38f99248",
+      "sha256": "b68ca66d325a2aa7d634836b3c3790f502fee9bef961a4f4965628f7e2295c47",
       "status": "PASS"
     },
     {
@@ -160,7 +160,7 @@
       "id": "preservation",
       "name": "PRESERVE-X Lab",
       "paper_count": 35,
-      "sha256": "18786c62f1764c75b09839d167bee4780c53a2f45a2aea958864a7b7fcd5092a",
+      "sha256": "7fad73ba43b7293187620cfea15df337620de5d3c920d157717a5ff30fb204ac",
       "status": "PASS"
     },
     {
@@ -168,110 +168,11 @@
       "id": "regeneration",
       "name": "REGEN-X Lab",
       "paper_count": 35,
-      "sha256": "b55a7e330f3dff7c0de90eb30973f632a2046fdab7279df6d763a888fc880907",
+      "sha256": "f3077acb924ed158604717aa2ec0cdab325e61d15f251c93a70d96058530b891",
       "status": "PASS"
     }
   ],
   "portfolio": [
-    {
-      "annotation_support": false,
-      "challenges": [
-        "body-size confounding",
-        "correlation does not prove causation",
-        "human functional divergence remains possible",
-        "lifespan data quality",
-        "no gene symbol candidate",
-        "phylogeny confounding",
-        "taxonomy not annotation-supported"
-      ],
-      "committee_score": 56,
-      "genes": [],
-      "independent_source_count": 3,
-      "lab_count": 1,
-      "labs": [
-        "longevity"
-      ],
-      "mean_arbiter": 55.0,
-      "mechanisms": [
-        "DNA repair",
-        "genome maintenance",
-        "proteostasis",
-        "senescence"
-      ],
-      "name": "Somniosus microcephalus",
-      "pmid_sources": [
-        "PMID:41491153",
-        "PMID:42154556",
-        "PMID:42402335"
-      ],
-      "source_count": 3,
-      "sources": [
-        "PMID:41491153",
-        "PMID:42154556",
-        "PMID:42402335"
-      ],
-      "taxon_proofs": [
-        {
-          "canonical_name": "Somniosus microcephalus",
-          "kingdom": "Animalia",
-          "match_type": "EXACT",
-          "provider": "GBIF",
-          "rank": "SPECIES",
-          "status": "ACCEPTED",
-          "taxon_key": 2421162
-        }
-      ],
-      "taxon_verified": true
-    },
-    {
-      "annotation_support": true,
-      "challenges": [
-        "correlation does not prove causation",
-        "developmental-stage confounding",
-        "fibrosis tradeoffs",
-        "human functional divergence remains possible",
-        "regeneration-vs-repair ambiguity"
-      ],
-      "committee_score": 51,
-      "genes": [
-        "PBD",
-        "PCNA",
-        "PCNA-",
-        "RT-PCR"
-      ],
-      "independent_source_count": 2,
-      "lab_count": 1,
-      "labs": [
-        "regeneration"
-      ],
-      "mean_arbiter": 61.0,
-      "mechanisms": [
-        "fibrosis",
-        "regeneration"
-      ],
-      "name": "Cynops pyrrhogaster",
-      "pmid_sources": [
-        "PMID:34944708",
-        "PMID:42702818"
-      ],
-      "source_count": 2,
-      "sources": [
-        "PMID:34944708",
-        "PMID:42702818"
-      ],
-      "taxon_proofs": [
-        {
-          "canonical_name": "Cynops pyrrhogaster",
-          "kingdom": "Animalia",
-          "match_type": "EXACT",
-          "provider": "GBIF",
-          "rank": "SPECIES",
-          "status": "ACCEPTED",
-          "taxon_key": 2431862
-        }
-      ],
-      "taxon_verified": true
-    },
     {
       "annotation_support": true,
       "challenges": [
@@ -370,100 +271,6 @@
       "annotation_support": true,
       "challenges": [
         "correlation does not prove causation",
-        "cryoprotectant toxicity",
-        "human functional divergence remains possible",
-        "phenotype without extracted mechanism",
-        "reperfusion injury",
-        "whole-animal vs isolated-organ mismatch"
-      ],
-      "committee_score": 45,
-      "genes": [
-        "NIH-",
-        "USDA"
-      ],
-      "independent_source_count": 3,
-      "lab_count": 1,
-      "labs": [
-        "preservation"
-      ],
-      "mean_arbiter": 54.0,
-      "mechanisms": [],
-      "name": "Drosophila melanogaster",
-      "pmid_sources": [
-        "PMID:42208364",
-        "PMID:42686794",
-        "PMID:42782463"
-      ],
-      "source_count": 3,
-      "sources": [
-        "PMID:42208364",
-        "PMID:42686794",
-        "PMID:42782463"
-      ],
-      "taxon_proofs": [
-        {
-          "canonical_name": "Drosophila melanogaster",
-          "kingdom": "Animalia",
-          "match_type": "EXACT",
-          "provider": "GBIF",
-          "rank": "SPECIES",
-          "status": "ACCEPTED",
-          "taxon_key": 5073713
-        }
-      ],
-      "taxon_verified": true
-    },
-    {
-      "annotation_support": true,
-      "challenges": [
-        "correlation does not prove causation",
-        "cryoprotectant toxicity",
-        "human functional divergence remains possible",
-        "phenotype without extracted mechanism",
-        "reperfusion injury",
-        "whole-animal vs isolated-organ mismatch"
-      ],
-      "committee_score": 45,
-      "genes": [
-        "NIH-",
-        "USDA"
-      ],
-      "independent_source_count": 3,
-      "lab_count": 1,
-      "labs": [
-        "preservation"
-      ],
-      "mean_arbiter": 54.0,
-      "mechanisms": [],
-      "name": "Paracentrotus lividus",
-      "pmid_sources": [
-        "PMID:38622199",
-        "PMID:42208364",
-        "PMID:42738576"
-      ],
-      "source_count": 3,
-      "sources": [
-        "PMID:38622199",
-        "PMID:42208364",
-        "PMID:42738576"
-      ],
-      "taxon_proofs": [
-        {
-          "canonical_name": "Paracentrotus lividus",
-          "kingdom": "Animalia",
-          "match_type": "EXACT",
-          "provider": "GBIF",
-          "rank": "SPECIES",
-          "status": "ACCEPTED",
-          "taxon_key": 2278845
-        }
-      ],
-      "taxon_verified": true
-    },
-    {
-      "annotation_support": true,
-      "challenges": [
-        "correlation does not prove causation",
         "developmental-stage confounding",
         "fibrosis tradeoffs",
         "human functional divergence remains possible",
@@ -513,6 +320,101 @@
       "annotation_support": true,
       "challenges": [
         "correlation does not prove causation",
+        "developmental-stage confounding",
+        "fibrosis tradeoffs",
+        "human functional divergence remains possible",
+        "regeneration-vs-repair ambiguity",
+        "single-paper dependence"
+      ],
+      "committee_score": 45,
+      "genes": [
+        "PBD",
+        "PCNA",
+        "PCNA-",
+        "RT-PCR"
+      ],
+      "independent_source_count": 1,
+      "lab_count": 1,
+      "labs": [
+        "regeneration"
+      ],
+      "mean_arbiter": 49.0,
+      "mechanisms": [
+        "fibrosis",
+        "regeneration"
+      ],
+      "name": "Cynops pyrrhogaster",
+      "pmid_sources": [
+        "PMID:42702818"
+      ],
+      "source_count": 1,
+      "sources": [
+        "PMID:42702818"
+      ],
+      "taxon_proofs": [
+        {
+          "canonical_name": "Cynops pyrrhogaster",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 2431862
+        }
+      ],
+      "taxon_verified": true
+    },
+    {
+      "annotation_support": false,
+      "challenges": [
+        "body-size confounding",
+        "correlation does not prove causation",
+        "human functional divergence remains possible",
+        "lifespan data quality",
+        "no gene symbol candidate",
+        "phylogeny confounding",
+        "single-paper dependence",
+        "taxonomy not annotation-supported"
+      ],
+      "committee_score": 44,
+      "genes": [],
+      "independent_source_count": 1,
+      "lab_count": 1,
+      "labs": [
+        "longevity"
+      ],
+      "mean_arbiter": 33.0,
+      "mechanisms": [
+        "DNA repair",
+        "genome maintenance",
+        "proteostasis",
+        "senescence"
+      ],
+      "name": "Somniosus microcephalus",
+      "pmid_sources": [
+        "PMID:42402335"
+      ],
+      "source_count": 1,
+      "sources": [
+        "PMID:42402335"
+      ],
+      "taxon_proofs": [
+        {
+          "canonical_name": "Somniosus microcephalus",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 2421162
+        }
+      ],
+      "taxon_verified": true
+    },
+    {
+      "annotation_support": true,
+      "challenges": [
+        "correlation does not prove causation",
         "cryoprotectant toxicity",
         "human functional divergence remains possible",
         "phenotype without extracted mechanism",
@@ -554,11 +456,99 @@
         }
       ],
       "taxon_verified": true
+    },
+    {
+      "annotation_support": true,
+      "challenges": [
+        "correlation does not prove causation",
+        "cryoprotectant toxicity",
+        "human functional divergence remains possible",
+        "phenotype without extracted mechanism",
+        "reperfusion injury",
+        "single-paper dependence",
+        "whole-animal vs isolated-organ mismatch"
+      ],
+      "committee_score": 35,
+      "genes": [
+        "NIH-",
+        "USDA"
+      ],
+      "independent_source_count": 1,
+      "lab_count": 1,
+      "labs": [
+        "preservation"
+      ],
+      "mean_arbiter": 36.0,
+      "mechanisms": [],
+      "name": "Drosophila melanogaster",
+      "pmid_sources": [
+        "PMID:42208364"
+      ],
+      "source_count": 1,
+      "sources": [
+        "PMID:42208364"
+      ],
+      "taxon_proofs": [
+        {
+          "canonical_name": "Drosophila melanogaster",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 5073713
+        }
+      ],
+      "taxon_verified": true
+    },
+    {
+      "annotation_support": true,
+      "challenges": [
+        "correlation does not prove causation",
+        "cryoprotectant toxicity",
+        "human functional divergence remains possible",
+        "phenotype without extracted mechanism",
+        "reperfusion injury",
+        "single-paper dependence",
+        "whole-animal vs isolated-organ mismatch"
+      ],
+      "committee_score": 35,
+      "genes": [
+        "NIH-",
+        "USDA"
+      ],
+      "independent_source_count": 1,
+      "lab_count": 1,
+      "labs": [
+        "preservation"
+      ],
+      "mean_arbiter": 36.0,
+      "mechanisms": [],
+      "name": "Paracentrotus lividus",
+      "pmid_sources": [
+        "PMID:42208364"
+      ],
+      "source_count": 1,
+      "sources": [
+        "PMID:42208364"
+      ],
+      "taxon_proofs": [
+        {
+          "canonical_name": "Paracentrotus lividus",
+          "kingdom": "Animalia",
+          "match_type": "EXACT",
+          "provider": "GBIF",
+          "rank": "SPECIES",
+          "status": "ACCEPTED",
+          "taxon_key": 2278845
+        }
+      ],
+      "taxon_verified": true
     }
   ],
   "schema": "biomimic-v6-org-run-v1",
-  "sha256": "b0dcfcf66b2ce1c4859f02dd16847fdf2dc743d07babb59791466740544599b5",
+  "sha256": "45842afbe2c8b07d042ea5c4c1e3ca58f419b82fa3688e39c3573a1c7beb73df",
   "status": "PASS",
-  "time": "2026-11-26T12:43:40.887593+00:00",
+  "time": "2026-11-26T12:46:31.340373+00:00",
   "upstream_failures": []
 }
