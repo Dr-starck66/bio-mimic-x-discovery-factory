@@ -1,0 +1,82 @@
+{
+  "title": "BIO-MIMIC X BSH K01442 published human cohort replication + independent orthogonal check",
+  "date": "2026-11-22",
+  "source_primary": {
+    "doi": "10.1016/j.cmet.2026.10.016",
+    "data": "https://ars.els-cdn.com/content/image/1-s2.0-S1550413126004535-mmc2.xlsx",
+    "sheets": [
+      "Fig 2",
+      "Fig S2"
+    ],
+    "feature": "ln(cbh_K01442/recA)",
+    "sample_sizes": {
+      "young": 44,
+      "elderly": 110,
+      "centenarian": 154
+    },
+    "subject_id_ledger": false,
+    "source_separate_gene_counts": false
+  },
+  "primary_results": {
+    "median_ln_ratio": {
+      "young": -1.12816768343881,
+      "elderly": -1.51115381059003,
+      "centenarian": -1.293279908151955
+    },
+    "AUC_centenarian_vs_elderly": 0.6207201889020071,
+    "bootstrap_95_AUC_exploratory": [
+      0.5517709563164109,
+      0.6880755608028335
+    ],
+    "permutation_p_two_sided_2000_unadjusted": 0.0009995002498750624,
+    "original_p_reported_mann_whitney": 0.00083,
+    "comparators_auc": {
+      "hdhA": 0.7032467532467532,
+      "baiA": 0.42154663518299884,
+      "baiB": 0.678099173553719,
+      "baiH": 0.8354191263282172
+    },
+    "comparators_are_not_negative_controls": true
+  },
+  "source_external": {
+    "doi": "10.1128/msystems.00325-19",
+    "data": "https://journals.asm.org/doi/suppl/10.1128/msystems.00325-19/suppl_file/msystems.00325-19-sd001.xlsx",
+    "cohort": "PRJEB25514 Sardinia",
+    "samples": {
+      "young": 17,
+      "elderly": 23,
+      "centenarian": 19
+    },
+    "measured_variable": "7ALPHADEHYDROX-PWY pathway abundance (not BSH/K01442)"
+  },
+  "external_results": {
+    "AUC_centenarian_vs_elderly": 0.5640732265446224,
+    "permutation_p_two_sided_4999_unadjusted": 0.2752,
+    "centenarian_nonzero": 4,
+    "elderly_nonzero": 2,
+    "young_nonzero": 0,
+    "interpretation": "No clear pathway signal in this cohort; NOT a direct BSH gene replication; negative finding retained"
+  },
+  "assumptions_and_limits": [
+    "Different source data modalities, protocols and cohorts",
+    "Unstratified rank tests; demographics and batch effects not adjusted",
+    "Source plotted values have no matching participant IDs or gene counts",
+    "AUCs are post-hoc apparent class separation, not prospective predictive validation",
+    "Comparator genes are bile-acid-pathway members, not unrelated negative controls",
+    "No multiple-comparisons corrected confirmatory tests",
+    "No direct bacterial enzyme activity assay in humans",
+    "Downstream extracted CSVs reflect public spreadsheets parsed to markdown; original bytes not locally preserved"
+  ],
+  "test_provenance": {
+    "methods": "JavaScript tool extraction and numerical analysis on public source values; local Node regression algorithm unit tests",
+    "local_unit_test_result": "8/8 PASS on synthetic cases, code validation only",
+    "source_extract_counts": "308+1232+59",
+    "github_integration_status": "UNVERIFIED, GitHub checks not provided"
+  },
+  "status": {
+    "primary_reanalysis": "PASS_numeric_independent_calculation_from_published_figure_source",
+    "same_cohort_biological_external_replication": "UNVERIFIED",
+    "independent_cholate_pathway": "PARTIAL_non_significant_orthogonal_test",
+    "prospective_metabolic_biomarker": "UNVERIFIED"
+  }
+}
