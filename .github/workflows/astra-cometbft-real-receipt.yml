@@ -56,6 +56,7 @@ jobs:
           bin='/tmp/cometbft'
           subprocess.run([bin,'testnet','--v','7','--o',str(lab),'--populate-persistent-peers=false'],check=True)
           homes=[lab/f'node{i}' for i in range(7)]
+          (p/'genesis.json').write_bytes((homes[0]/'config/genesis.json').read_bytes())
           ids=[subprocess.check_output([bin,'show-node-id','--home',str(h)],text=True).strip() for h in homes]
           addresses=[json.loads((h/'config/priv_validator_key.json').read_text())['address'] for h in homes]
           ports=[28000+10*i for i in range(7)]
@@ -130,7 +131,35 @@ jobs:
                           if time.monotonic()>deadline:raise
                           time.sleep(.25)
               assert len(set(hashes))==1
-              print('PASS: cryptographically verified nonzero-round commit after validator process kill; six peers agree; proposer identity at round zero still requires trace verification')
+              print('PASS: cryptographically verified nonzero-round commit after validator process kill; six peers agree')
+              # Archive all preceding commits for independent proposer-priority replay.
+              for prior in range(1,h):
+                  save_commit(1,prior,f'prior-{prior}-commit')
+              # Test loss of quorum: three crashed validators leave four of seven.
+              for j in (1,2):
+                  procs[j].kill();procs[j].wait()
+              time.sleep(2)
+              before=[int(rpc(j,'status')['sync_info']['latest_block_height']) for j in range(3,7)]
+              time.sleep(8)
+              after=[int(rpc(j,'status')['sync_info']['latest_block_height']) for j in range(3,7)]
+              assert before==after,(before,after)
+              print('PASS: four of seven cannot finalize',before,after)
+              (p/'quorum-loss.json').write_text(json.dumps({'before':before,'after':after,'observation_seconds':8,'stopped':[addresses[j] for j in (0,1,2)]},indent=2))
+              # Restore two validators with the original keys and persisted state.
+              for j in (1,2):
+                  log=open(p/f'node{j}.log','a')
+                  procs[j]=subprocess.Popen([bin,'node','--home',str(homes[j]),'--proxy_app=kvstore'],stdout=log,stderr=subprocess.STDOUT)
+              deadline=time.monotonic()+80
+              target=max(after)+1
+              while True:
+                  try:
+                      if min(int(rpc(j,'status')['sync_info']['latest_block_height']) for j in range(1,7))>target:break
+                  except Exception:pass
+                  if time.monotonic()>deadline:raise RuntimeError('quorum restoration timed out')
+                  time.sleep(.25)
+              hashes=[save_commit(j,target,f'restored-peer-{j}-commit')['commit']['block_id']['hash'] for j in range(1,7)]
+              assert len(set(hashes))==1
+              print('PASS: quorum restored and six validators agree',target,hashes[0])
           finally:
               for proc in procs:
                   if proc.poll() is None:proc.terminate()
