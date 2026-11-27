@@ -1,0 +1,74 @@
+{
+  "experiment": "ASTRA MEDICAL CLAIM AUDIT Ω v0.4 negative control: INVALID model input protocol",
+  "run_date_utc": "2026-11-12",
+  "provenance": {
+    "sandbox": "sbx_vAfkJKpIvlrkp4XqnGFfgHGMENFM",
+    "full_report_sha256": "f1db8d575aeffc8ce0e0330a5a77a8b4c8ea2e700686233445ad8d04c77d4c74",
+    "full_report_bytes": 114575,
+    "rows_verified": 300,
+    "unique_ids_verified": 300,
+    "model": "rishhh/verisci-claim-verifier-retrieval-adapted-seed123",
+    "revision": "5bed61128b128f6f960aa80d1aa8ac3d1bdd9b0f",
+    "retrieval_sha256": "ea76b8bbd2d22e3e2ba4efbb41f0a62122aa26e30ba7cc4f4f9e7cf62939399f"
+  },
+  "invalid_protocol": "Tokenizer order evidence first, claim second; upstream official training/predict.py use claim first, evidence second. Entire abstract was passed instead of claim-selected snippets.",
+  "original_thresholds": {
+    "min_bm25": 8,
+    "min_prob": 0.9,
+    "min_margin": 0.2,
+    "accept_NEI": false
+  },
+  "raw": {
+    "n": 300,
+    "accuracy": 0.37666666666666665,
+    "confusion_gold_rows": {
+      "SUPPORT": {
+        "SUPPORT": 8,
+        "CONTRADICT": 0,
+        "NEI": 116
+      },
+      "CONTRADICT": {
+        "SUPPORT": 0,
+        "CONTRADICT": 0,
+        "NEI": 64
+      },
+      "NEI": {
+        "SUPPORT": 7,
+        "CONTRADICT": 0,
+        "NEI": 105
+      }
+    },
+    "binary_contradiction": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 64,
+      "TN": 236
+    }
+  },
+  "selective": {
+    "n": 300,
+    "coverage": 0.016666666666666666,
+    "accepted": 5,
+    "decisive_accuracy": 0.8,
+    "confusion_gold_rows": {
+      "SUPPORT": {
+        "SUPPORT": 4,
+        "CONTRADICT": 0,
+        "ABSTAIN": 120
+      },
+      "CONTRADICT": {
+        "ABSTAIN": 64
+      },
+      "NEI": {
+        "SUPPORT": 1,
+        "ABSTAIN": 111
+      }
+    }
+  },
+  "upstream_basis": [
+    "https://huggingface.co/spaces/rishhh/verisci-claim-space/blob/main/src/verisci/verification/predict.py",
+    "https://huggingface.co/spaces/rishhh/verisci-claim-space/blob/main/src/verisci/verification/train.py",
+    "https://huggingface.co/spaces/rishhh/verisci-claim-space/blob/main/src/verisci/pipeline/verify_claim.py"
+  ],
+  "audit_conclusion": "FAIL_PROTOCOL. This run does not establish model failure/success. All numbers retained as adverse control. The later corrected run is separate. Clinical validity UNVERIFIED."
+}
