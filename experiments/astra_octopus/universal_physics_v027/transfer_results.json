@@ -1,0 +1,2428 @@
+{
+  "source": {
+    "raw_flow": {
+      "center": 0.803,
+      "threshold": 0.0040000000000000036
+    },
+    "absolute_difference": {
+      "center": -0.02499999999999991,
+      "threshold": 0.007000000000000006
+    },
+    "log_ratio": {
+      "center": -0.030658440438497928,
+      "threshold": 0.008562272714783228
+    },
+    "pressure_difference": {
+      "center": 0.0050000000000000044,
+      "threshold": 0.0010000000000000009
+    }
+  },
+  "hashes": [
+    "02ff555383e4128d2f286b6206f253ef9ca51feb",
+    "2b047b91d3f56aed812fa2d02ce4c94dce3078ea",
+    "f58409ab4aa36c4fb250536ea0206f75fb0160d8",
+    "87e99e44c8585c74601fef3f8427289b4663302f",
+    "fdb95f33f2259175c05fdb1f7f5f6209521c0dc4"
+  ],
+  "code": "b25e0aeaeac4e412377e7ee13a339325b5ebf5a3",
+  "rows": [
+    6587,
+    6140,
+    6383,
+    7763,
+    7154
+  ],
+  "blocks": [
+    65,
+    61,
+    63,
+    77,
+    71
+  ],
+  "results": [
+    {
+      "configuration": 2,
+      "name": "raw_flow",
+      "mode": "zero_shot",
+      "perturbation": "none",
+      "n": 55,
+      "alarms": 55,
+      "unknown": 0,
+      "center": 0.803,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 2,
+      "name": "raw_flow",
+      "mode": "zero_shot",
+      "perturbation": "flow1_minus_5pct",
+      "n": 55,
+      "alarms": 55,
+      "unknown": 0,
+      "center": 0.803,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 2,
+      "name": "raw_flow",
+      "mode": "zero_shot",
+      "perturbation": "flow1_minus_10pct",
+      "n": 55,
+      "alarms": 55,
+      "unknown": 0,
+      "center": 0.803,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 2,
+      "name": "raw_flow",
+      "mode": "zero_shot",
+      "perturbation": "flow2_plus_10pct",
+      "n": 55,
+      "alarms": 55,
+      "unknown": 0,
+      "center": 0.803,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 2,
+      "name": "raw_flow",
+      "mode": "zero_shot",
+      "perturbation": "common_gain_10pct",
+      "n": 55,
+      "alarms": 55,
+      "unknown": 0,
+      "center": 0.803,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 2,
+      "name": "raw_flow",
+      "mode": "zero_shot",
+      "perturbation": "missing_flow2",
+      "n": 55,
+      "alarms": 55,
+      "unknown": 0,
+      "center": 0.803,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 2,
+      "name": "raw_flow",
+      "mode": "six_blocks",
+      "perturbation": "none",
+      "n": 55,
+      "alarms": 2,
+      "unknown": 0,
+      "center": 1.169744968,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 2,
+      "name": "raw_flow",
+      "mode": "six_blocks",
+      "perturbation": "flow1_minus_5pct",
+      "n": 55,
+      "alarms": 55,
+      "unknown": 0,
+      "center": 1.169744968,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 2,
+      "name": "raw_flow",
+      "mode": "six_blocks",
+      "perturbation": "flow1_minus_10pct",
+      "n": 55,
+      "alarms": 55,
+      "unknown": 0,
+      "center": 1.169744968,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 2,
+      "name": "raw_flow",
+      "mode": "six_blocks",
+      "perturbation": "flow2_plus_10pct",
+      "n": 55,
+      "alarms": 2,
+      "unknown": 0,
+      "center": 1.169744968,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 2,
+      "name": "raw_flow",
+      "mode": "six_blocks",
+      "perturbation": "common_gain_10pct",
+      "n": 55,
+      "alarms": 55,
+      "unknown": 0,
+      "center": 1.169744968,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 2,
+      "name": "raw_flow",
+      "mode": "six_blocks",
+      "perturbation": "missing_flow2",
+      "n": 55,
+      "alarms": 2,
+      "unknown": 0,
+      "center": 1.169744968,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 2,
+      "name": "absolute_difference",
+      "mode": "zero_shot",
+      "perturbation": "none",
+      "n": 55,
+      "alarms": 55,
+      "unknown": 0,
+      "center": -0.02499999999999991,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 2,
+      "name": "absolute_difference",
+      "mode": "zero_shot",
+      "perturbation": "flow1_minus_5pct",
+      "n": 55,
+      "alarms": 55,
+      "unknown": 0,
+      "center": -0.02499999999999991,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 2,
+      "name": "absolute_difference",
+      "mode": "zero_shot",
+      "perturbation": "flow1_minus_10pct",
+      "n": 55,
+      "alarms": 55,
+      "unknown": 0,
+      "center": -0.02499999999999991,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 2,
+      "name": "absolute_difference",
+      "mode": "zero_shot",
+      "perturbation": "flow2_plus_10pct",
+      "n": 55,
+      "alarms": 55,
+      "unknown": 0,
+      "center": -0.02499999999999991,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 2,
+      "name": "absolute_difference",
+      "mode": "zero_shot",
+      "perturbation": "common_gain_10pct",
+      "n": 55,
+      "alarms": 55,
+      "unknown": 0,
+      "center": -0.02499999999999991,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 2,
+      "name": "absolute_difference",
+      "mode": "zero_shot",
+      "perturbation": "missing_flow2",
+      "n": 55,
+      "alarms": 0,
+      "unknown": 55,
+      "center": -0.02499999999999991,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 2,
+      "name": "absolute_difference",
+      "mode": "six_blocks",
+      "perturbation": "none",
+      "n": 55,
+      "alarms": 4,
+      "unknown": 0,
+      "center": 0.02206414950000002,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 2,
+      "name": "absolute_difference",
+      "mode": "six_blocks",
+      "perturbation": "flow1_minus_5pct",
+      "n": 55,
+      "alarms": 55,
+      "unknown": 0,
+      "center": 0.02206414950000002,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 2,
+      "name": "absolute_difference",
+      "mode": "six_blocks",
+      "perturbation": "flow1_minus_10pct",
+      "n": 55,
+      "alarms": 55,
+      "unknown": 0,
+      "center": 0.02206414950000002,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 2,
+      "name": "absolute_difference",
+      "mode": "six_blocks",
+      "perturbation": "flow2_plus_10pct",
+      "n": 55,
+      "alarms": 55,
+      "unknown": 0,
+      "center": 0.02206414950000002,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 2,
+      "name": "absolute_difference",
+      "mode": "six_blocks",
+      "perturbation": "common_gain_10pct",
+      "n": 55,
+      "alarms": 2,
+      "unknown": 0,
+      "center": 0.02206414950000002,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 2,
+      "name": "absolute_difference",
+      "mode": "six_blocks",
+      "perturbation": "missing_flow2",
+      "n": 55,
+      "alarms": 0,
+      "unknown": 55,
+      "center": 0.02206414950000002,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 2,
+      "name": "log_ratio",
+      "mode": "zero_shot",
+      "perturbation": "none",
+      "n": 55,
+      "alarms": 55,
+      "unknown": 0,
+      "center": -0.030658440438497928,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 2,
+      "name": "log_ratio",
+      "mode": "zero_shot",
+      "perturbation": "flow1_minus_5pct",
+      "n": 55,
+      "alarms": 2,
+      "unknown": 0,
+      "center": -0.030658440438497928,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 2,
+      "name": "log_ratio",
+      "mode": "zero_shot",
+      "perturbation": "flow1_minus_10pct",
+      "n": 55,
+      "alarms": 55,
+      "unknown": 0,
+      "center": -0.030658440438497928,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 2,
+      "name": "log_ratio",
+      "mode": "zero_shot",
+      "perturbation": "flow2_plus_10pct",
+      "n": 55,
+      "alarms": 55,
+      "unknown": 0,
+      "center": -0.030658440438497928,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 2,
+      "name": "log_ratio",
+      "mode": "zero_shot",
+      "perturbation": "common_gain_10pct",
+      "n": 55,
+      "alarms": 55,
+      "unknown": 0,
+      "center": -0.030658440438497928,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 2,
+      "name": "log_ratio",
+      "mode": "zero_shot",
+      "perturbation": "missing_flow2",
+      "n": 55,
+      "alarms": 0,
+      "unknown": 55,
+      "center": -0.030658440438497928,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 2,
+      "name": "log_ratio",
+      "mode": "six_blocks",
+      "perturbation": "none",
+      "n": 55,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.019071655038170515,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 2,
+      "name": "log_ratio",
+      "mode": "six_blocks",
+      "perturbation": "flow1_minus_5pct",
+      "n": 55,
+      "alarms": 55,
+      "unknown": 0,
+      "center": 0.019071655038170515,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 2,
+      "name": "log_ratio",
+      "mode": "six_blocks",
+      "perturbation": "flow1_minus_10pct",
+      "n": 55,
+      "alarms": 55,
+      "unknown": 0,
+      "center": 0.019071655038170515,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 2,
+      "name": "log_ratio",
+      "mode": "six_blocks",
+      "perturbation": "flow2_plus_10pct",
+      "n": 55,
+      "alarms": 55,
+      "unknown": 0,
+      "center": 0.019071655038170515,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 2,
+      "name": "log_ratio",
+      "mode": "six_blocks",
+      "perturbation": "common_gain_10pct",
+      "n": 55,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.019071655038170515,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 2,
+      "name": "log_ratio",
+      "mode": "six_blocks",
+      "perturbation": "missing_flow2",
+      "n": 55,
+      "alarms": 0,
+      "unknown": 55,
+      "center": 0.019071655038170515,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 2,
+      "name": "pressure_difference",
+      "mode": "zero_shot",
+      "perturbation": "none",
+      "n": 55,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.0050000000000000044,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 2,
+      "name": "pressure_difference",
+      "mode": "zero_shot",
+      "perturbation": "flow1_minus_5pct",
+      "n": 55,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.0050000000000000044,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 2,
+      "name": "pressure_difference",
+      "mode": "zero_shot",
+      "perturbation": "flow1_minus_10pct",
+      "n": 55,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.0050000000000000044,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 2,
+      "name": "pressure_difference",
+      "mode": "zero_shot",
+      "perturbation": "flow2_plus_10pct",
+      "n": 55,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.0050000000000000044,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 2,
+      "name": "pressure_difference",
+      "mode": "zero_shot",
+      "perturbation": "common_gain_10pct",
+      "n": 55,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.0050000000000000044,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 2,
+      "name": "pressure_difference",
+      "mode": "zero_shot",
+      "perturbation": "missing_flow2",
+      "n": 55,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.0050000000000000044,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 2,
+      "name": "pressure_difference",
+      "mode": "six_blocks",
+      "perturbation": "none",
+      "n": 55,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.005288138500000011,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 2,
+      "name": "pressure_difference",
+      "mode": "six_blocks",
+      "perturbation": "flow1_minus_5pct",
+      "n": 55,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.005288138500000011,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 2,
+      "name": "pressure_difference",
+      "mode": "six_blocks",
+      "perturbation": "flow1_minus_10pct",
+      "n": 55,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.005288138500000011,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 2,
+      "name": "pressure_difference",
+      "mode": "six_blocks",
+      "perturbation": "flow2_plus_10pct",
+      "n": 55,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.005288138500000011,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 2,
+      "name": "pressure_difference",
+      "mode": "six_blocks",
+      "perturbation": "common_gain_10pct",
+      "n": 55,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.005288138500000011,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 2,
+      "name": "pressure_difference",
+      "mode": "six_blocks",
+      "perturbation": "missing_flow2",
+      "n": 55,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.005288138500000011,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 3,
+      "name": "raw_flow",
+      "mode": "zero_shot",
+      "perturbation": "none",
+      "n": 57,
+      "alarms": 57,
+      "unknown": 0,
+      "center": 0.803,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 3,
+      "name": "raw_flow",
+      "mode": "zero_shot",
+      "perturbation": "flow1_minus_5pct",
+      "n": 57,
+      "alarms": 57,
+      "unknown": 0,
+      "center": 0.803,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 3,
+      "name": "raw_flow",
+      "mode": "zero_shot",
+      "perturbation": "flow1_minus_10pct",
+      "n": 57,
+      "alarms": 57,
+      "unknown": 0,
+      "center": 0.803,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 3,
+      "name": "raw_flow",
+      "mode": "zero_shot",
+      "perturbation": "flow2_plus_10pct",
+      "n": 57,
+      "alarms": 57,
+      "unknown": 0,
+      "center": 0.803,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 3,
+      "name": "raw_flow",
+      "mode": "zero_shot",
+      "perturbation": "common_gain_10pct",
+      "n": 57,
+      "alarms": 57,
+      "unknown": 0,
+      "center": 0.803,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 3,
+      "name": "raw_flow",
+      "mode": "zero_shot",
+      "perturbation": "missing_flow2",
+      "n": 57,
+      "alarms": 57,
+      "unknown": 0,
+      "center": 0.803,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 3,
+      "name": "raw_flow",
+      "mode": "six_blocks",
+      "perturbation": "none",
+      "n": 57,
+      "alarms": 17,
+      "unknown": 0,
+      "center": 1.443,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 3,
+      "name": "raw_flow",
+      "mode": "six_blocks",
+      "perturbation": "flow1_minus_5pct",
+      "n": 57,
+      "alarms": 57,
+      "unknown": 0,
+      "center": 1.443,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 3,
+      "name": "raw_flow",
+      "mode": "six_blocks",
+      "perturbation": "flow1_minus_10pct",
+      "n": 57,
+      "alarms": 57,
+      "unknown": 0,
+      "center": 1.443,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 3,
+      "name": "raw_flow",
+      "mode": "six_blocks",
+      "perturbation": "flow2_plus_10pct",
+      "n": 57,
+      "alarms": 17,
+      "unknown": 0,
+      "center": 1.443,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 3,
+      "name": "raw_flow",
+      "mode": "six_blocks",
+      "perturbation": "common_gain_10pct",
+      "n": 57,
+      "alarms": 57,
+      "unknown": 0,
+      "center": 1.443,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 3,
+      "name": "raw_flow",
+      "mode": "six_blocks",
+      "perturbation": "missing_flow2",
+      "n": 57,
+      "alarms": 17,
+      "unknown": 0,
+      "center": 1.443,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 3,
+      "name": "absolute_difference",
+      "mode": "zero_shot",
+      "perturbation": "none",
+      "n": 57,
+      "alarms": 57,
+      "unknown": 0,
+      "center": -0.02499999999999991,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 3,
+      "name": "absolute_difference",
+      "mode": "zero_shot",
+      "perturbation": "flow1_minus_5pct",
+      "n": 57,
+      "alarms": 51,
+      "unknown": 0,
+      "center": -0.02499999999999991,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 3,
+      "name": "absolute_difference",
+      "mode": "zero_shot",
+      "perturbation": "flow1_minus_10pct",
+      "n": 57,
+      "alarms": 57,
+      "unknown": 0,
+      "center": -0.02499999999999991,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 3,
+      "name": "absolute_difference",
+      "mode": "zero_shot",
+      "perturbation": "flow2_plus_10pct",
+      "n": 57,
+      "alarms": 57,
+      "unknown": 0,
+      "center": -0.02499999999999991,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 3,
+      "name": "absolute_difference",
+      "mode": "zero_shot",
+      "perturbation": "common_gain_10pct",
+      "n": 57,
+      "alarms": 57,
+      "unknown": 0,
+      "center": -0.02499999999999991,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 3,
+      "name": "absolute_difference",
+      "mode": "zero_shot",
+      "perturbation": "missing_flow2",
+      "n": 57,
+      "alarms": 0,
+      "unknown": 57,
+      "center": -0.02499999999999991,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 3,
+      "name": "absolute_difference",
+      "mode": "six_blocks",
+      "perturbation": "none",
+      "n": 57,
+      "alarms": 3,
+      "unknown": 0,
+      "center": 0.060000000000000164,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 3,
+      "name": "absolute_difference",
+      "mode": "six_blocks",
+      "perturbation": "flow1_minus_5pct",
+      "n": 57,
+      "alarms": 57,
+      "unknown": 0,
+      "center": 0.060000000000000164,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 3,
+      "name": "absolute_difference",
+      "mode": "six_blocks",
+      "perturbation": "flow1_minus_10pct",
+      "n": 57,
+      "alarms": 57,
+      "unknown": 0,
+      "center": 0.060000000000000164,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 3,
+      "name": "absolute_difference",
+      "mode": "six_blocks",
+      "perturbation": "flow2_plus_10pct",
+      "n": 57,
+      "alarms": 57,
+      "unknown": 0,
+      "center": 0.060000000000000164,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 3,
+      "name": "absolute_difference",
+      "mode": "six_blocks",
+      "perturbation": "common_gain_10pct",
+      "n": 57,
+      "alarms": 6,
+      "unknown": 0,
+      "center": 0.060000000000000164,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 3,
+      "name": "absolute_difference",
+      "mode": "six_blocks",
+      "perturbation": "missing_flow2",
+      "n": 57,
+      "alarms": 0,
+      "unknown": 57,
+      "center": 0.060000000000000164,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 3,
+      "name": "log_ratio",
+      "mode": "zero_shot",
+      "perturbation": "none",
+      "n": 57,
+      "alarms": 57,
+      "unknown": 0,
+      "center": -0.030658440438497928,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 3,
+      "name": "log_ratio",
+      "mode": "zero_shot",
+      "perturbation": "flow1_minus_5pct",
+      "n": 57,
+      "alarms": 57,
+      "unknown": 0,
+      "center": -0.030658440438497928,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 3,
+      "name": "log_ratio",
+      "mode": "zero_shot",
+      "perturbation": "flow1_minus_10pct",
+      "n": 57,
+      "alarms": 57,
+      "unknown": 0,
+      "center": -0.030658440438497928,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 3,
+      "name": "log_ratio",
+      "mode": "zero_shot",
+      "perturbation": "flow2_plus_10pct",
+      "n": 57,
+      "alarms": 57,
+      "unknown": 0,
+      "center": -0.030658440438497928,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 3,
+      "name": "log_ratio",
+      "mode": "zero_shot",
+      "perturbation": "common_gain_10pct",
+      "n": 57,
+      "alarms": 57,
+      "unknown": 0,
+      "center": -0.030658440438497928,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 3,
+      "name": "log_ratio",
+      "mode": "zero_shot",
+      "perturbation": "missing_flow2",
+      "n": 57,
+      "alarms": 0,
+      "unknown": 57,
+      "center": -0.030658440438497928,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 3,
+      "name": "log_ratio",
+      "mode": "six_blocks",
+      "perturbation": "none",
+      "n": 57,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.04243894348258699,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 3,
+      "name": "log_ratio",
+      "mode": "six_blocks",
+      "perturbation": "flow1_minus_5pct",
+      "n": 57,
+      "alarms": 57,
+      "unknown": 0,
+      "center": 0.04243894348258699,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 3,
+      "name": "log_ratio",
+      "mode": "six_blocks",
+      "perturbation": "flow1_minus_10pct",
+      "n": 57,
+      "alarms": 57,
+      "unknown": 0,
+      "center": 0.04243894348258699,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 3,
+      "name": "log_ratio",
+      "mode": "six_blocks",
+      "perturbation": "flow2_plus_10pct",
+      "n": 57,
+      "alarms": 57,
+      "unknown": 0,
+      "center": 0.04243894348258699,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 3,
+      "name": "log_ratio",
+      "mode": "six_blocks",
+      "perturbation": "common_gain_10pct",
+      "n": 57,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.04243894348258699,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 3,
+      "name": "log_ratio",
+      "mode": "six_blocks",
+      "perturbation": "missing_flow2",
+      "n": 57,
+      "alarms": 0,
+      "unknown": 57,
+      "center": 0.04243894348258699,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 3,
+      "name": "pressure_difference",
+      "mode": "zero_shot",
+      "perturbation": "none",
+      "n": 57,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.0050000000000000044,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 3,
+      "name": "pressure_difference",
+      "mode": "zero_shot",
+      "perturbation": "flow1_minus_5pct",
+      "n": 57,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.0050000000000000044,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 3,
+      "name": "pressure_difference",
+      "mode": "zero_shot",
+      "perturbation": "flow1_minus_10pct",
+      "n": 57,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.0050000000000000044,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 3,
+      "name": "pressure_difference",
+      "mode": "zero_shot",
+      "perturbation": "flow2_plus_10pct",
+      "n": 57,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.0050000000000000044,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 3,
+      "name": "pressure_difference",
+      "mode": "zero_shot",
+      "perturbation": "common_gain_10pct",
+      "n": 57,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.0050000000000000044,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 3,
+      "name": "pressure_difference",
+      "mode": "zero_shot",
+      "perturbation": "missing_flow2",
+      "n": 57,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.0050000000000000044,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 3,
+      "name": "pressure_difference",
+      "mode": "six_blocks",
+      "perturbation": "none",
+      "n": 57,
+      "alarms": 5,
+      "unknown": 0,
+      "center": 0.004999999999999949,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 3,
+      "name": "pressure_difference",
+      "mode": "six_blocks",
+      "perturbation": "flow1_minus_5pct",
+      "n": 57,
+      "alarms": 5,
+      "unknown": 0,
+      "center": 0.004999999999999949,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 3,
+      "name": "pressure_difference",
+      "mode": "six_blocks",
+      "perturbation": "flow1_minus_10pct",
+      "n": 57,
+      "alarms": 5,
+      "unknown": 0,
+      "center": 0.004999999999999949,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 3,
+      "name": "pressure_difference",
+      "mode": "six_blocks",
+      "perturbation": "flow2_plus_10pct",
+      "n": 57,
+      "alarms": 5,
+      "unknown": 0,
+      "center": 0.004999999999999949,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 3,
+      "name": "pressure_difference",
+      "mode": "six_blocks",
+      "perturbation": "common_gain_10pct",
+      "n": 57,
+      "alarms": 5,
+      "unknown": 0,
+      "center": 0.004999999999999949,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 3,
+      "name": "pressure_difference",
+      "mode": "six_blocks",
+      "perturbation": "missing_flow2",
+      "n": 57,
+      "alarms": 5,
+      "unknown": 0,
+      "center": 0.004999999999999949,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 4,
+      "name": "raw_flow",
+      "mode": "zero_shot",
+      "perturbation": "none",
+      "n": 71,
+      "alarms": 71,
+      "unknown": 0,
+      "center": 0.803,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 4,
+      "name": "raw_flow",
+      "mode": "zero_shot",
+      "perturbation": "flow1_minus_5pct",
+      "n": 71,
+      "alarms": 71,
+      "unknown": 0,
+      "center": 0.803,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 4,
+      "name": "raw_flow",
+      "mode": "zero_shot",
+      "perturbation": "flow1_minus_10pct",
+      "n": 71,
+      "alarms": 71,
+      "unknown": 0,
+      "center": 0.803,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 4,
+      "name": "raw_flow",
+      "mode": "zero_shot",
+      "perturbation": "flow2_plus_10pct",
+      "n": 71,
+      "alarms": 71,
+      "unknown": 0,
+      "center": 0.803,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 4,
+      "name": "raw_flow",
+      "mode": "zero_shot",
+      "perturbation": "common_gain_10pct",
+      "n": 71,
+      "alarms": 71,
+      "unknown": 0,
+      "center": 0.803,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 4,
+      "name": "raw_flow",
+      "mode": "zero_shot",
+      "perturbation": "missing_flow2",
+      "n": 71,
+      "alarms": 71,
+      "unknown": 0,
+      "center": 0.803,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 4,
+      "name": "raw_flow",
+      "mode": "six_blocks",
+      "perturbation": "none",
+      "n": 71,
+      "alarms": 35,
+      "unknown": 0,
+      "center": 1.651,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 4,
+      "name": "raw_flow",
+      "mode": "six_blocks",
+      "perturbation": "flow1_minus_5pct",
+      "n": 71,
+      "alarms": 71,
+      "unknown": 0,
+      "center": 1.651,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 4,
+      "name": "raw_flow",
+      "mode": "six_blocks",
+      "perturbation": "flow1_minus_10pct",
+      "n": 71,
+      "alarms": 71,
+      "unknown": 0,
+      "center": 1.651,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 4,
+      "name": "raw_flow",
+      "mode": "six_blocks",
+      "perturbation": "flow2_plus_10pct",
+      "n": 71,
+      "alarms": 35,
+      "unknown": 0,
+      "center": 1.651,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 4,
+      "name": "raw_flow",
+      "mode": "six_blocks",
+      "perturbation": "common_gain_10pct",
+      "n": 71,
+      "alarms": 71,
+      "unknown": 0,
+      "center": 1.651,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 4,
+      "name": "raw_flow",
+      "mode": "six_blocks",
+      "perturbation": "missing_flow2",
+      "n": 71,
+      "alarms": 35,
+      "unknown": 0,
+      "center": 1.651,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 4,
+      "name": "absolute_difference",
+      "mode": "zero_shot",
+      "perturbation": "none",
+      "n": 71,
+      "alarms": 71,
+      "unknown": 0,
+      "center": -0.02499999999999991,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 4,
+      "name": "absolute_difference",
+      "mode": "zero_shot",
+      "perturbation": "flow1_minus_5pct",
+      "n": 71,
+      "alarms": 71,
+      "unknown": 0,
+      "center": -0.02499999999999991,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 4,
+      "name": "absolute_difference",
+      "mode": "zero_shot",
+      "perturbation": "flow1_minus_10pct",
+      "n": 71,
+      "alarms": 71,
+      "unknown": 0,
+      "center": -0.02499999999999991,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 4,
+      "name": "absolute_difference",
+      "mode": "zero_shot",
+      "perturbation": "flow2_plus_10pct",
+      "n": 71,
+      "alarms": 71,
+      "unknown": 0,
+      "center": -0.02499999999999991,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 4,
+      "name": "absolute_difference",
+      "mode": "zero_shot",
+      "perturbation": "common_gain_10pct",
+      "n": 71,
+      "alarms": 71,
+      "unknown": 0,
+      "center": -0.02499999999999991,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 4,
+      "name": "absolute_difference",
+      "mode": "zero_shot",
+      "perturbation": "missing_flow2",
+      "n": 71,
+      "alarms": 0,
+      "unknown": 71,
+      "center": -0.02499999999999991,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 4,
+      "name": "absolute_difference",
+      "mode": "six_blocks",
+      "perturbation": "none",
+      "n": 71,
+      "alarms": 1,
+      "unknown": 0,
+      "center": 0.08350000000000002,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 4,
+      "name": "absolute_difference",
+      "mode": "six_blocks",
+      "perturbation": "flow1_minus_5pct",
+      "n": 71,
+      "alarms": 71,
+      "unknown": 0,
+      "center": 0.08350000000000002,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 4,
+      "name": "absolute_difference",
+      "mode": "six_blocks",
+      "perturbation": "flow1_minus_10pct",
+      "n": 71,
+      "alarms": 71,
+      "unknown": 0,
+      "center": 0.08350000000000002,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 4,
+      "name": "absolute_difference",
+      "mode": "six_blocks",
+      "perturbation": "flow2_plus_10pct",
+      "n": 71,
+      "alarms": 71,
+      "unknown": 0,
+      "center": 0.08350000000000002,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 4,
+      "name": "absolute_difference",
+      "mode": "six_blocks",
+      "perturbation": "common_gain_10pct",
+      "n": 71,
+      "alarms": 42,
+      "unknown": 0,
+      "center": 0.08350000000000002,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 4,
+      "name": "absolute_difference",
+      "mode": "six_blocks",
+      "perturbation": "missing_flow2",
+      "n": 71,
+      "alarms": 0,
+      "unknown": 71,
+      "center": 0.08350000000000002,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 4,
+      "name": "log_ratio",
+      "mode": "zero_shot",
+      "perturbation": "none",
+      "n": 71,
+      "alarms": 71,
+      "unknown": 0,
+      "center": -0.030658440438497928,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 4,
+      "name": "log_ratio",
+      "mode": "zero_shot",
+      "perturbation": "flow1_minus_5pct",
+      "n": 71,
+      "alarms": 71,
+      "unknown": 0,
+      "center": -0.030658440438497928,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 4,
+      "name": "log_ratio",
+      "mode": "zero_shot",
+      "perturbation": "flow1_minus_10pct",
+      "n": 71,
+      "alarms": 71,
+      "unknown": 0,
+      "center": -0.030658440438497928,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 4,
+      "name": "log_ratio",
+      "mode": "zero_shot",
+      "perturbation": "flow2_plus_10pct",
+      "n": 71,
+      "alarms": 71,
+      "unknown": 0,
+      "center": -0.030658440438497928,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 4,
+      "name": "log_ratio",
+      "mode": "zero_shot",
+      "perturbation": "common_gain_10pct",
+      "n": 71,
+      "alarms": 71,
+      "unknown": 0,
+      "center": -0.030658440438497928,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 4,
+      "name": "log_ratio",
+      "mode": "zero_shot",
+      "perturbation": "missing_flow2",
+      "n": 71,
+      "alarms": 0,
+      "unknown": 71,
+      "center": -0.030658440438497928,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 4,
+      "name": "log_ratio",
+      "mode": "six_blocks",
+      "perturbation": "none",
+      "n": 71,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.051899222286941035,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 4,
+      "name": "log_ratio",
+      "mode": "six_blocks",
+      "perturbation": "flow1_minus_5pct",
+      "n": 71,
+      "alarms": 71,
+      "unknown": 0,
+      "center": 0.051899222286941035,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 4,
+      "name": "log_ratio",
+      "mode": "six_blocks",
+      "perturbation": "flow1_minus_10pct",
+      "n": 71,
+      "alarms": 71,
+      "unknown": 0,
+      "center": 0.051899222286941035,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 4,
+      "name": "log_ratio",
+      "mode": "six_blocks",
+      "perturbation": "flow2_plus_10pct",
+      "n": 71,
+      "alarms": 71,
+      "unknown": 0,
+      "center": 0.051899222286941035,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 4,
+      "name": "log_ratio",
+      "mode": "six_blocks",
+      "perturbation": "common_gain_10pct",
+      "n": 71,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.051899222286941035,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 4,
+      "name": "log_ratio",
+      "mode": "six_blocks",
+      "perturbation": "missing_flow2",
+      "n": 71,
+      "alarms": 0,
+      "unknown": 71,
+      "center": 0.051899222286941035,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 4,
+      "name": "pressure_difference",
+      "mode": "zero_shot",
+      "perturbation": "none",
+      "n": 71,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.0050000000000000044,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 4,
+      "name": "pressure_difference",
+      "mode": "zero_shot",
+      "perturbation": "flow1_minus_5pct",
+      "n": 71,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.0050000000000000044,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 4,
+      "name": "pressure_difference",
+      "mode": "zero_shot",
+      "perturbation": "flow1_minus_10pct",
+      "n": 71,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.0050000000000000044,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 4,
+      "name": "pressure_difference",
+      "mode": "zero_shot",
+      "perturbation": "flow2_plus_10pct",
+      "n": 71,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.0050000000000000044,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 4,
+      "name": "pressure_difference",
+      "mode": "zero_shot",
+      "perturbation": "common_gain_10pct",
+      "n": 71,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.0050000000000000044,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 4,
+      "name": "pressure_difference",
+      "mode": "zero_shot",
+      "perturbation": "missing_flow2",
+      "n": 71,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.0050000000000000044,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 4,
+      "name": "pressure_difference",
+      "mode": "six_blocks",
+      "perturbation": "none",
+      "n": 71,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.005499999999999949,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 4,
+      "name": "pressure_difference",
+      "mode": "six_blocks",
+      "perturbation": "flow1_minus_5pct",
+      "n": 71,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.005499999999999949,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 4,
+      "name": "pressure_difference",
+      "mode": "six_blocks",
+      "perturbation": "flow1_minus_10pct",
+      "n": 71,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.005499999999999949,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 4,
+      "name": "pressure_difference",
+      "mode": "six_blocks",
+      "perturbation": "flow2_plus_10pct",
+      "n": 71,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.005499999999999949,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 4,
+      "name": "pressure_difference",
+      "mode": "six_blocks",
+      "perturbation": "common_gain_10pct",
+      "n": 71,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.005499999999999949,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 4,
+      "name": "pressure_difference",
+      "mode": "six_blocks",
+      "perturbation": "missing_flow2",
+      "n": 71,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.005499999999999949,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 5,
+      "name": "raw_flow",
+      "mode": "zero_shot",
+      "perturbation": "none",
+      "n": 65,
+      "alarms": 65,
+      "unknown": 0,
+      "center": 0.803,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 5,
+      "name": "raw_flow",
+      "mode": "zero_shot",
+      "perturbation": "flow1_minus_5pct",
+      "n": 65,
+      "alarms": 65,
+      "unknown": 0,
+      "center": 0.803,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 5,
+      "name": "raw_flow",
+      "mode": "zero_shot",
+      "perturbation": "flow1_minus_10pct",
+      "n": 65,
+      "alarms": 65,
+      "unknown": 0,
+      "center": 0.803,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 5,
+      "name": "raw_flow",
+      "mode": "zero_shot",
+      "perturbation": "flow2_plus_10pct",
+      "n": 65,
+      "alarms": 65,
+      "unknown": 0,
+      "center": 0.803,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 5,
+      "name": "raw_flow",
+      "mode": "zero_shot",
+      "perturbation": "common_gain_10pct",
+      "n": 65,
+      "alarms": 65,
+      "unknown": 0,
+      "center": 0.803,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 5,
+      "name": "raw_flow",
+      "mode": "zero_shot",
+      "perturbation": "missing_flow2",
+      "n": 65,
+      "alarms": 65,
+      "unknown": 0,
+      "center": 0.803,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 5,
+      "name": "raw_flow",
+      "mode": "six_blocks",
+      "perturbation": "none",
+      "n": 65,
+      "alarms": 46,
+      "unknown": 0,
+      "center": 1.838,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 5,
+      "name": "raw_flow",
+      "mode": "six_blocks",
+      "perturbation": "flow1_minus_5pct",
+      "n": 65,
+      "alarms": 65,
+      "unknown": 0,
+      "center": 1.838,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 5,
+      "name": "raw_flow",
+      "mode": "six_blocks",
+      "perturbation": "flow1_minus_10pct",
+      "n": 65,
+      "alarms": 65,
+      "unknown": 0,
+      "center": 1.838,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 5,
+      "name": "raw_flow",
+      "mode": "six_blocks",
+      "perturbation": "flow2_plus_10pct",
+      "n": 65,
+      "alarms": 46,
+      "unknown": 0,
+      "center": 1.838,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 5,
+      "name": "raw_flow",
+      "mode": "six_blocks",
+      "perturbation": "common_gain_10pct",
+      "n": 65,
+      "alarms": 65,
+      "unknown": 0,
+      "center": 1.838,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 5,
+      "name": "raw_flow",
+      "mode": "six_blocks",
+      "perturbation": "missing_flow2",
+      "n": 65,
+      "alarms": 46,
+      "unknown": 0,
+      "center": 1.838,
+      "threshold": 0.0040000000000000036
+    },
+    {
+      "configuration": 5,
+      "name": "absolute_difference",
+      "mode": "zero_shot",
+      "perturbation": "none",
+      "n": 65,
+      "alarms": 65,
+      "unknown": 0,
+      "center": -0.02499999999999991,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 5,
+      "name": "absolute_difference",
+      "mode": "zero_shot",
+      "perturbation": "flow1_minus_5pct",
+      "n": 65,
+      "alarms": 65,
+      "unknown": 0,
+      "center": -0.02499999999999991,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 5,
+      "name": "absolute_difference",
+      "mode": "zero_shot",
+      "perturbation": "flow1_minus_10pct",
+      "n": 65,
+      "alarms": 65,
+      "unknown": 0,
+      "center": -0.02499999999999991,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 5,
+      "name": "absolute_difference",
+      "mode": "zero_shot",
+      "perturbation": "flow2_plus_10pct",
+      "n": 65,
+      "alarms": 65,
+      "unknown": 0,
+      "center": -0.02499999999999991,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 5,
+      "name": "absolute_difference",
+      "mode": "zero_shot",
+      "perturbation": "common_gain_10pct",
+      "n": 65,
+      "alarms": 65,
+      "unknown": 0,
+      "center": -0.02499999999999991,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 5,
+      "name": "absolute_difference",
+      "mode": "zero_shot",
+      "perturbation": "missing_flow2",
+      "n": 65,
+      "alarms": 0,
+      "unknown": 65,
+      "center": -0.02499999999999991,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 5,
+      "name": "absolute_difference",
+      "mode": "six_blocks",
+      "perturbation": "none",
+      "n": 65,
+      "alarms": 6,
+      "unknown": 0,
+      "center": 0.11049999999999993,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 5,
+      "name": "absolute_difference",
+      "mode": "six_blocks",
+      "perturbation": "flow1_minus_5pct",
+      "n": 65,
+      "alarms": 65,
+      "unknown": 0,
+      "center": 0.11049999999999993,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 5,
+      "name": "absolute_difference",
+      "mode": "six_blocks",
+      "perturbation": "flow1_minus_10pct",
+      "n": 65,
+      "alarms": 65,
+      "unknown": 0,
+      "center": 0.11049999999999993,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 5,
+      "name": "absolute_difference",
+      "mode": "six_blocks",
+      "perturbation": "flow2_plus_10pct",
+      "n": 65,
+      "alarms": 65,
+      "unknown": 0,
+      "center": 0.11049999999999993,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 5,
+      "name": "absolute_difference",
+      "mode": "six_blocks",
+      "perturbation": "common_gain_10pct",
+      "n": 65,
+      "alarms": 37,
+      "unknown": 0,
+      "center": 0.11049999999999993,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 5,
+      "name": "absolute_difference",
+      "mode": "six_blocks",
+      "perturbation": "missing_flow2",
+      "n": 65,
+      "alarms": 0,
+      "unknown": 65,
+      "center": 0.11049999999999993,
+      "threshold": 0.007000000000000006
+    },
+    {
+      "configuration": 5,
+      "name": "log_ratio",
+      "mode": "zero_shot",
+      "perturbation": "none",
+      "n": 65,
+      "alarms": 65,
+      "unknown": 0,
+      "center": -0.030658440438497928,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 5,
+      "name": "log_ratio",
+      "mode": "zero_shot",
+      "perturbation": "flow1_minus_5pct",
+      "n": 65,
+      "alarms": 65,
+      "unknown": 0,
+      "center": -0.030658440438497928,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 5,
+      "name": "log_ratio",
+      "mode": "zero_shot",
+      "perturbation": "flow1_minus_10pct",
+      "n": 65,
+      "alarms": 65,
+      "unknown": 0,
+      "center": -0.030658440438497928,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 5,
+      "name": "log_ratio",
+      "mode": "zero_shot",
+      "perturbation": "flow2_plus_10pct",
+      "n": 65,
+      "alarms": 0,
+      "unknown": 0,
+      "center": -0.030658440438497928,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 5,
+      "name": "log_ratio",
+      "mode": "zero_shot",
+      "perturbation": "common_gain_10pct",
+      "n": 65,
+      "alarms": 65,
+      "unknown": 0,
+      "center": -0.030658440438497928,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 5,
+      "name": "log_ratio",
+      "mode": "zero_shot",
+      "perturbation": "missing_flow2",
+      "n": 65,
+      "alarms": 0,
+      "unknown": 65,
+      "center": -0.030658440438497928,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 5,
+      "name": "log_ratio",
+      "mode": "six_blocks",
+      "perturbation": "none",
+      "n": 65,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.06202011591870038,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 5,
+      "name": "log_ratio",
+      "mode": "six_blocks",
+      "perturbation": "flow1_minus_5pct",
+      "n": 65,
+      "alarms": 65,
+      "unknown": 0,
+      "center": 0.06202011591870038,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 5,
+      "name": "log_ratio",
+      "mode": "six_blocks",
+      "perturbation": "flow1_minus_10pct",
+      "n": 65,
+      "alarms": 65,
+      "unknown": 0,
+      "center": 0.06202011591870038,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 5,
+      "name": "log_ratio",
+      "mode": "six_blocks",
+      "perturbation": "flow2_plus_10pct",
+      "n": 65,
+      "alarms": 65,
+      "unknown": 0,
+      "center": 0.06202011591870038,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 5,
+      "name": "log_ratio",
+      "mode": "six_blocks",
+      "perturbation": "common_gain_10pct",
+      "n": 65,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.06202011591870038,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 5,
+      "name": "log_ratio",
+      "mode": "six_blocks",
+      "perturbation": "missing_flow2",
+      "n": 65,
+      "alarms": 0,
+      "unknown": 65,
+      "center": 0.06202011591870038,
+      "threshold": 0.008562272714783228
+    },
+    {
+      "configuration": 5,
+      "name": "pressure_difference",
+      "mode": "zero_shot",
+      "perturbation": "none",
+      "n": 65,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.0050000000000000044,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 5,
+      "name": "pressure_difference",
+      "mode": "zero_shot",
+      "perturbation": "flow1_minus_5pct",
+      "n": 65,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.0050000000000000044,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 5,
+      "name": "pressure_difference",
+      "mode": "zero_shot",
+      "perturbation": "flow1_minus_10pct",
+      "n": 65,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.0050000000000000044,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 5,
+      "name": "pressure_difference",
+      "mode": "zero_shot",
+      "perturbation": "flow2_plus_10pct",
+      "n": 65,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.0050000000000000044,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 5,
+      "name": "pressure_difference",
+      "mode": "zero_shot",
+      "perturbation": "common_gain_10pct",
+      "n": 65,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.0050000000000000044,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 5,
+      "name": "pressure_difference",
+      "mode": "zero_shot",
+      "perturbation": "missing_flow2",
+      "n": 65,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.0050000000000000044,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 5,
+      "name": "pressure_difference",
+      "mode": "six_blocks",
+      "perturbation": "none",
+      "n": 65,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.005500000000000005,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 5,
+      "name": "pressure_difference",
+      "mode": "six_blocks",
+      "perturbation": "flow1_minus_5pct",
+      "n": 65,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.005500000000000005,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 5,
+      "name": "pressure_difference",
+      "mode": "six_blocks",
+      "perturbation": "flow1_minus_10pct",
+      "n": 65,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.005500000000000005,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 5,
+      "name": "pressure_difference",
+      "mode": "six_blocks",
+      "perturbation": "flow2_plus_10pct",
+      "n": 65,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.005500000000000005,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 5,
+      "name": "pressure_difference",
+      "mode": "six_blocks",
+      "perturbation": "common_gain_10pct",
+      "n": 65,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.005500000000000005,
+      "threshold": 0.0010000000000000009
+    },
+    {
+      "configuration": 5,
+      "name": "pressure_difference",
+      "mode": "six_blocks",
+      "perturbation": "missing_flow2",
+      "n": 65,
+      "alarms": 0,
+      "unknown": 0,
+      "center": 0.005500000000000005,
+      "threshold": 0.0010000000000000009
+    }
+  ],
+  "notes": "100-sample medians; nominal 10 Hz; no actual fault events; injected sensor shifts not simulated physical leaks; no clock continuity verification",
+  "summary": {
+    "raw_flow/zero_shot/none": {
+      "n": 248,
+      "alarms": 248,
+      "unknown": 0
+    },
+    "raw_flow/zero_shot/flow1_minus_5pct": {
+      "n": 248,
+      "alarms": 248,
+      "unknown": 0
+    },
+    "raw_flow/zero_shot/flow1_minus_10pct": {
+      "n": 248,
+      "alarms": 248,
+      "unknown": 0
+    },
+    "raw_flow/zero_shot/flow2_plus_10pct": {
+      "n": 248,
+      "alarms": 248,
+      "unknown": 0
+    },
+    "raw_flow/zero_shot/common_gain_10pct": {
+      "n": 248,
+      "alarms": 248,
+      "unknown": 0
+    },
+    "raw_flow/zero_shot/missing_flow2": {
+      "n": 248,
+      "alarms": 248,
+      "unknown": 0
+    },
+    "raw_flow/six_blocks/none": {
+      "n": 248,
+      "alarms": 100,
+      "unknown": 0
+    },
+    "raw_flow/six_blocks/flow1_minus_5pct": {
+      "n": 248,
+      "alarms": 248,
+      "unknown": 0
+    },
+    "raw_flow/six_blocks/flow1_minus_10pct": {
+      "n": 248,
+      "alarms": 248,
+      "unknown": 0
+    },
+    "raw_flow/six_blocks/flow2_plus_10pct": {
+      "n": 248,
+      "alarms": 100,
+      "unknown": 0
+    },
+    "raw_flow/six_blocks/common_gain_10pct": {
+      "n": 248,
+      "alarms": 248,
+      "unknown": 0
+    },
+    "raw_flow/six_blocks/missing_flow2": {
+      "n": 248,
+      "alarms": 100,
+      "unknown": 0
+    },
+    "absolute_difference/zero_shot/none": {
+      "n": 248,
+      "alarms": 248,
+      "unknown": 0
+    },
+    "absolute_difference/zero_shot/flow1_minus_5pct": {
+      "n": 248,
+      "alarms": 242,
+      "unknown": 0
+    },
+    "absolute_difference/zero_shot/flow1_minus_10pct": {
+      "n": 248,
+      "alarms": 248,
+      "unknown": 0
+    },
+    "absolute_difference/zero_shot/flow2_plus_10pct": {
+      "n": 248,
+      "alarms": 248,
+      "unknown": 0
+    },
+    "absolute_difference/zero_shot/common_gain_10pct": {
+      "n": 248,
+      "alarms": 248,
+      "unknown": 0
+    },
+    "absolute_difference/zero_shot/missing_flow2": {
+      "n": 248,
+      "alarms": 0,
+      "unknown": 248
+    },
+    "absolute_difference/six_blocks/none": {
+      "n": 248,
+      "alarms": 14,
+      "unknown": 0
+    },
+    "absolute_difference/six_blocks/flow1_minus_5pct": {
+      "n": 248,
+      "alarms": 248,
+      "unknown": 0
+    },
+    "absolute_difference/six_blocks/flow1_minus_10pct": {
+      "n": 248,
+      "alarms": 248,
+      "unknown": 0
+    },
+    "absolute_difference/six_blocks/flow2_plus_10pct": {
+      "n": 248,
+      "alarms": 248,
+      "unknown": 0
+    },
+    "absolute_difference/six_blocks/common_gain_10pct": {
+      "n": 248,
+      "alarms": 87,
+      "unknown": 0
+    },
+    "absolute_difference/six_blocks/missing_flow2": {
+      "n": 248,
+      "alarms": 0,
+      "unknown": 248
+    },
+    "log_ratio/zero_shot/none": {
+      "n": 248,
+      "alarms": 248,
+      "unknown": 0
+    },
+    "log_ratio/zero_shot/flow1_minus_5pct": {
+      "n": 248,
+      "alarms": 195,
+      "unknown": 0
+    },
+    "log_ratio/zero_shot/flow1_minus_10pct": {
+      "n": 248,
+      "alarms": 248,
+      "unknown": 0
+    },
+    "log_ratio/zero_shot/flow2_plus_10pct": {
+      "n": 248,
+      "alarms": 183,
+      "unknown": 0
+    },
+    "log_ratio/zero_shot/common_gain_10pct": {
+      "n": 248,
+      "alarms": 248,
+      "unknown": 0
+    },
+    "log_ratio/zero_shot/missing_flow2": {
+      "n": 248,
+      "alarms": 0,
+      "unknown": 248
+    },
+    "log_ratio/six_blocks/none": {
+      "n": 248,
+      "alarms": 0,
+      "unknown": 0
+    },
+    "log_ratio/six_blocks/flow1_minus_5pct": {
+      "n": 248,
+      "alarms": 248,
+      "unknown": 0
+    },
+    "log_ratio/six_blocks/flow1_minus_10pct": {
+      "n": 248,
+      "alarms": 248,
+      "unknown": 0
+    },
+    "log_ratio/six_blocks/flow2_plus_10pct": {
+      "n": 248,
+      "alarms": 248,
+      "unknown": 0
+    },
+    "log_ratio/six_blocks/common_gain_10pct": {
+      "n": 248,
+      "alarms": 0,
+      "unknown": 0
+    },
+    "log_ratio/six_blocks/missing_flow2": {
+      "n": 248,
+      "alarms": 0,
+      "unknown": 248
+    },
+    "pressure_difference/zero_shot/none": {
+      "n": 248,
+      "alarms": 0,
+      "unknown": 0
+    },
+    "pressure_difference/zero_shot/flow1_minus_5pct": {
+      "n": 248,
+      "alarms": 0,
+      "unknown": 0
+    },
+    "pressure_difference/zero_shot/flow1_minus_10pct": {
+      "n": 248,
+      "alarms": 0,
+      "unknown": 0
+    },
+    "pressure_difference/zero_shot/flow2_plus_10pct": {
+      "n": 248,
+      "alarms": 0,
+      "unknown": 0
+    },
+    "pressure_difference/zero_shot/common_gain_10pct": {
+      "n": 248,
+      "alarms": 0,
+      "unknown": 0
+    },
+    "pressure_difference/zero_shot/missing_flow2": {
+      "n": 248,
+      "alarms": 0,
+      "unknown": 0
+    },
+    "pressure_difference/six_blocks/none": {
+      "n": 248,
+      "alarms": 5,
+      "unknown": 0
+    },
+    "pressure_difference/six_blocks/flow1_minus_5pct": {
+      "n": 248,
+      "alarms": 5,
+      "unknown": 0
+    },
+    "pressure_difference/six_blocks/flow1_minus_10pct": {
+      "n": 248,
+      "alarms": 5,
+      "unknown": 0
+    },
+    "pressure_difference/six_blocks/flow2_plus_10pct": {
+      "n": 248,
+      "alarms": 5,
+      "unknown": 0
+    },
+    "pressure_difference/six_blocks/common_gain_10pct": {
+      "n": 248,
+      "alarms": 5,
+      "unknown": 0
+    },
+    "pressure_difference/six_blocks/missing_flow2": {
+      "n": 248,
+      "alarms": 5,
+      "unknown": 0
+    }
+  },
+  "tests": {
+    "common_gain_invariance": true,
+    "missing_abstains": true,
+    "zero_abstains": true,
+    "absolute_changes": true
+  },
+  "replay": true,
+  "integrity": [
+    {
+      "sha": "02ff555383e4128d2f286b6206f253ef9ca51feb",
+      "missing": 152
+    },
+    {
+      "sha": "2b047b91d3f56aed812fa2d02ce4c94dce3078ea",
+      "missing": 0
+    },
+    {
+      "sha": "f58409ab4aa36c4fb250536ea0206f75fb0160d8",
+      "missing": 0
+    },
+    {
+      "sha": "87e99e44c8585c74601fef3f8427289b4663302f",
+      "missing": 0
+    },
+    {
+      "sha": "fdb95f33f2259175c05fdb1f7f5f6209521c0dc4",
+      "missing": 0
+    }
+  ]
+}
