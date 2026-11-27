@@ -1,0 +1,97 @@
+{
+  "project": "BIO-MIMIC X",
+  "question": "Predictive controller vs reactive feedback with identical perfusion, functional epithelial endpoints separated from proliferation",
+  "audit_date": "2026-11-23",
+  "status": "UNVERIFIED",
+  "matched_three_arm_per_donor_raw_dataset_identified": false,
+  "studies_screened": [
+    {
+      "doi": "10.1016/j.gene.2026.150074",
+      "source": "https://pubmed.ncbi.nlm.nih.gov/41763503/",
+      "actual_comparator": "closed-loop microfluidic vs static culture",
+      "supported_endpoints": [
+        "organoid viability >95%",
+        "hypoxic core formation ~50% lower than static",
+        "reported differentiation"
+      ],
+      "critical_absences": [
+        "reactive feedback arm with matched flow",
+        "paired donor-level TEER",
+        "paired donor-level molecular permeability"
+      ],
+      "eligible_for_causal_controller_comparison": false
+    },
+    {
+      "doi": "10.1038/s41598-023-36020-8",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10235044/",
+      "actual_comparator": "cytokine damage and recovery in human colon epithelium; differentiated vs proliferative culture",
+      "supported_endpoints": [
+        "TEER",
+        "molecular permeability",
+        "differentiation/proliferation markers",
+        "3 colon donors"
+      ],
+      "critical_absences": [
+        "predictive versus reactive controller",
+        "same-perfusion control intervention",
+        "individual source measurements available for this comparison"
+      ],
+      "data_availability": "Datasets not provided in paper available from corresponding author on reasonable request",
+      "eligible_for_causal_controller_comparison": false
+    },
+    {
+      "doi": "10.1007/s00449-022-02759-z",
+      "source": "https://link.springer.com/article/10.1007/s00449-022-02759-z",
+      "actual_comparator": "simulated predictive vs feedback in continuous perfusion bioprocess",
+      "supported_endpoints": [
+        "simulated viable-cell concentration",
+        "simulated product/harvest flow stability"
+      ],
+      "critical_absences": [
+        "measured epithelial TEER",
+        "measured permeability",
+        "observed biological tissue repair"
+      ],
+      "eligible_for_causal_controller_comparison": false
+    }
+  ],
+  "evidence_policy": "No effect size or biological PASS may be computed from unmatched published studies. No digitization of published plots as if individual raw donor measurements.",
+  "open_data_identified": [
+    {
+      "repository": "Zenodo",
+      "record": "17750978",
+      "doi": "10.5281/zenodo.17750978",
+      "url": "https://zenodo.org/records/17750978",
+      "study": "Liquid-Suspendable Metabolic Sensors Allow Real-Time Oxygen Consumption Monitoring in Caco-2 and Colon Organoid-Based Gut-on-a-Chip Models",
+      "files": 11,
+      "recorded_size_kb": 337,
+      "reported_modalities": [
+        "original time-stamped oxygen fluorescence/oxygen consumption",
+        "TEER fig2B"
+      ],
+      "access": "public files listed; automatic binary download blocked in this execution; not analyzed",
+      "eligible_for_predictive_vs_reactive_effect": false,
+      "reason": "No matched predictive vs reactive controller interventions at identical perfusion in published record; oxygen and TEER support only an independent functional reference."
+    },
+    {
+      "repository": "TU Wien Research Data",
+      "record": "v9g29-fxf41",
+      "url": "https://researchdata.tuwien.ac.at/records/v9g29-fxf41",
+      "study": "Sensor-integrated gut-on-a-chip for monitoring senescence-mediated changes in the intestinal barrier",
+      "data_content": [
+        "impedance/TEER",
+        "FITC diffusion",
+        "imaging",
+        "cell size"
+      ],
+      "access": "restricted; access request sent to corresponding senior author; not downloaded or analyzed",
+      "eligible_for_predictive_vs_reactive_effect": false,
+      "reason": "Senescence treatment/barrier integrity, no matched predictive controller."
+    }
+  ],
+  "audit_updates": [
+    "2026-11-23: GitHub PR #73 includes validation script and tests, independently fetched and blob SHA verified.",
+    "2026-11-23: open WUR Zenodo record and restricted TU Wien Research Data record identified; files not downloaded; no computed effect sizes.",
+    "2026-11-23: invitation to collaborate sent in individual correspondence; delivery does not constitute scientific acceptance."
+  ]
+}
