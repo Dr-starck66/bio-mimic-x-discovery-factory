@@ -1,0 +1,82 @@
+{
+  "id": "BIO-MIMIC-X-INSERM-2026-11",
+  "existing_program_id": "PRG-c73037fcfb",
+  "contact": "Florence Apparailly (Inserm), scientifique; aucune collaboration institutionnelle confirmee",
+  "question": "Acomys cahirinus vs Mus musculus : macrophages, matrice extracellulaire et regenerations tissulaires par contexte anatomique",
+  "candidate_mechanisms": [
+    "regeneration des tissus de l'oreille",
+    "macrophages VEGFC et LTF"
+  ],
+  "candidate_genes": [
+    "VEGFC",
+    "LTF",
+    "PDGFA"
+  ],
+  "counterfactual_tests": [
+    "Comparer les tissus auriculaires Acomys/Mus au meme temps post-lesion",
+    "Tester les mecanismes alternatifs et les reponses pro-fibrotiques cardiaques",
+    "Separarer contexte tissulaire et mecanisme causal avec controles negatifs"
+  ],
+  "contains_personal_health_data": false,
+  "authorized_additional_cost_eur": 0,
+  "evidence": {
+    "source_records": [
+      {
+        "ref": "PMID:38228141",
+        "status": "WEB_VERIFIED",
+        "study_role": "SUPPORTING_PRIMARY",
+        "scope": "macrophages, Acomys/Mus, VEGFC/LTF, oreille",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38228141/",
+        "independent_replication_same_mechanism": "UNVERIFIED"
+      },
+      {
+        "ref": "PMID:40534468",
+        "status": "WEB_VERIFIED",
+        "study_role": "SUPPORTING_PRIMARY",
+        "scope": "proteomique matrice extracellulaire, Acomys/Mus, oreille",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40534468/",
+        "independent_replication_same_mechanism": "UNVERIFIED"
+      },
+      {
+        "ref": "PMID:41732917",
+        "status": "WEB_VERIFIED",
+        "study_role": "REVIEW",
+        "scope": "revue generale cicatrisation sans fibrose",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/41732917/"
+      },
+      {
+        "ref": "PMID:42194064",
+        "status": "WEB_VERIFIED",
+        "study_role": "NEGATIVE_CONTEXT",
+        "scope": "reponse mesotheliale epicardique profibrotique a l'hypoxie chez Acomys",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42194064/"
+      },
+      {
+        "ref": "PMID:42792965",
+        "status": "UNVERIFIED",
+        "study_role": "UNVERIFIED",
+        "scope": "Reference legacy non confirme",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42792965/"
+      }
+    ],
+    "genome_assembly_accessions": [
+      "GCA_030555615.1"
+    ],
+    "macrophage_evidence": [
+      "PMID:38228141"
+    ],
+    "ecm_evidence": [
+      "PMID:40534468"
+    ],
+    "negative_control_species": [
+      "Mus musculus"
+    ],
+    "analysis_artifacts": [
+      {
+        "path": "state/factory/programs.json",
+        "source_git_blob_sha1": "d3b53a713b2a7b96c28f24a2f9de6e50b6560978",
+        "recomputed_raw_data": "UNVERIFIED"
+      }
+    ]
+  }
+}
