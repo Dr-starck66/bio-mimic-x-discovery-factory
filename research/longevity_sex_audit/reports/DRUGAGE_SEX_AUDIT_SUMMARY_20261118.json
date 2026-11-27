@@ -1,0 +1,50 @@
+{
+  "source": "HAGR DrugAge Build 5 mirrored from zwbao/longevity-skills",
+  "source_blob_sha": "de17d28db4dc1337e627b7404e6fb01da796f113",
+  "source_rows": 3423,
+  "matched_conditions": 333,
+  "unique_pmids": 101,
+  "all_species": {
+    "difference_female_minus_male_pp": -0.8979778554489343,
+    "p_signflip": 0.2714364281785911,
+    "bootstrap_95pct_ci": [
+      -2.48000520931214,
+      0.6910825637508812
+    ]
+  },
+  "mouse": {
+    "matched_conditions": 121,
+    "unique_pmids": 35,
+    "difference_female_minus_male_pp": -2.1859431045145334,
+    "p_signflip": 0.04904754762261887,
+    "q_BH_four_species": 0.19619019049047548,
+    "bootstrap_95pct_ci": [
+      -4.285272108843537,
+      -0.15880952380952382
+    ]
+  },
+  "fly_drosophila": {
+    "matched_conditions": 115,
+    "unique_pmids": 43,
+    "difference_pp": 0.6792838880146103,
+    "p_signflip": 0.42462876856157195
+  },
+  "replicated_mouse_descriptive_male_bias": {
+    "Acarbose": {
+      "pmids": 3,
+      "delta_pp": -10.888888888888888
+    },
+    "Canagliflozin": {
+      "pmids": 2,
+      "delta_pp": -14.0
+    },
+    "17-alpha-estradiol": {
+      "pmids": 2,
+      "delta_pp": -15.0
+    }
+  },
+  "source_analysis": "JavaScript executed on full 3423 rows via GitHub connector, raw reproducible results in GitHub PR JSON",
+  "no_aging_discovery": true,
+  "python_tests": 12,
+  "python_full_dataset_run_local": "UNVERIFIED"
+}

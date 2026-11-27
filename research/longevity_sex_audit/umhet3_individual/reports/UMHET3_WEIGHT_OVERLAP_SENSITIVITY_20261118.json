@@ -1,0 +1,973 @@
+{
+  "date": "2026-11-18",
+  "name": "UM-HET3: body weight overlap and nonlinear standardization sensitivity",
+  "status": "PARTIAL — exploratory, conditional on 183-day survivor and weight measurement, no causal mediation",
+  "source": {
+    "repository": "Dr-starck66/bio-mimic-x-discovery-factory",
+    "branch": "astra/longevity-sex-audit-20261118",
+    "git_blob_sha": "dea9bfa0086228b40e450c0e235f252c83eea528",
+    "scientific_original_blob": "4b23a79950182df8564af63803b481179f6e8d17"
+  },
+  "design": {
+    "population": "Males and females separately, years 2005, 2006, 2009, measured BW6 with age ≥183 and 12<BW6<85",
+    "note": "These criteria select on future survival and measurement. NOT a cohort causal estimate.",
+    "weightBins": "Fixed-width coarsened weight strata; require each site >=3 animals in year×treatment×weight-bin; common overlap only.",
+    "standardization": "Within matched subset, raw site outcomes standardized to common year×treatment frequency; additionally standardized to common year×treatment×BW6-bin frequency for weight-adjusted comparison; same selected animals both times",
+    "unit": "age at recorded death in days",
+    "bootstrap": "Resample animals WITHIN matched site×year×treatment×weight-bin cells, fixed cells; 1500 iterations; naive independence assumed"
+  },
+  "source_male_eligible": 1589,
+  "source_female_eligible": 1385,
+  "primary_male_6g_0shift_3minimum": {
+    "n_total": 1415,
+    "n_by_site": {
+      "1.0": 521,
+      "2.0": 489,
+      "3.0": 405
+    },
+    "n_shared_site_year_tx_weight_bins": 17,
+    "raw_site_year_tx_mean": {
+      "1.0": 778.497566051833,
+      "2.0": 865.9970296244146,
+      "3.0": 834.0434932738206
+    },
+    "adjusted_site_year_tx_bin_bw6_mean": {
+      "1.0": 803.2476925663098,
+      "2.0": 830.6824821037936,
+      "3.0": 844.769133844989
+    },
+    "raw_UM_minus_JL": 87.49946357258159,
+    "matched_UM_minus_JL": 27.43478953748388,
+    "raw_UM_minus_UT": 31.95353635059405,
+    "matched_UM_minus_UT": -14.086651741195396,
+    "attenuation_of_UM_JL_fraction": 0.6864576259404553
+  },
+  "primary_ci95": {
+    "before": [
+      63.074844949517455,
+      113.84921578095691
+    ],
+    "after": [
+      -4.318066531432464,
+      57.90060414711138
+    ],
+    "attenuation": [
+      0.4606638977785653,
+      1.0729022304234135
+    ],
+    "UT_before": [
+      4.742374342854305,
+      59.02126166904111
+    ],
+    "UT_after": [
+      -47.793939009406586,
+      17.655338821233613
+    ]
+  },
+  "sensitivity": [
+    {
+      "sex": "Male",
+      "binWidthGrams": 5,
+      "binShiftGrams": 0,
+      "treatment": "pooled-control-plus-NDE",
+      "n_total": 1180,
+      "n_by_site": {
+        "1.0": 455,
+        "2.0": 395,
+        "3.0": 330
+      },
+      "n_shared_site_year_tx_weight_bins": 16,
+      "raw_site_year_tx_mean": {
+        "1.0": 787.1240069124157,
+        "2.0": 856.7313366360498,
+        "3.0": 847.8691215917465
+      },
+      "adjusted_site_year_tx_bin_bw6_mean": {
+        "1.0": 793.415542780187,
+        "2.0": 827.1328973528394,
+        "3.0": 857.0484902826694
+      },
+      "raw_UM_minus_JL": 69.60732972363417,
+      "matched_UM_minus_JL": 33.717354572652425,
+      "raw_UM_minus_UT": 8.862215044303298,
+      "matched_UM_minus_UT": -29.915592929829927,
+      "attenuation_of_UM_JL_fraction": 0.5156062629248629
+    },
+    {
+      "sex": "Male",
+      "binWidthGrams": 5,
+      "binShiftGrams": 0,
+      "treatment": "controls-only",
+      "n_total": 511,
+      "n_by_site": {
+        "1.0": 160,
+        "2.0": 171,
+        "3.0": 180
+      },
+      "n_shared_site_year_tx_weight_bins": 8,
+      "raw_site_year_tx_mean": {
+        "1.0": 802.4507992673077,
+        "2.0": 843.9926715500009,
+        "3.0": 758.7112192631669
+      },
+      "adjusted_site_year_tx_bin_bw6_mean": {
+        "1.0": 806.3318121730878,
+        "2.0": 806.3736736321323,
+        "3.0": 786.9215109836769
+      },
+      "raw_UM_minus_JL": 41.541872282693134,
+      "matched_UM_minus_JL": 0.04186145904452587,
+      "raw_UM_minus_UT": 85.281452286834,
+      "matched_UM_minus_UT": 19.45216264845544,
+      "attenuation_of_UM_JL_fraction": 0.9989923068763088
+    },
+    {
+      "sex": "Male",
+      "binWidthGrams": 5,
+      "binShiftGrams": 2.5,
+      "treatment": "pooled-control-plus-NDE",
+      "n_total": 1341,
+      "n_by_site": {
+        "1.0": 513,
+        "2.0": 436,
+        "3.0": 392
+      },
+      "n_shared_site_year_tx_weight_bins": 19,
+      "raw_site_year_tx_mean": {
+        "1.0": 775.2555151954138,
+        "2.0": 855.8654269455226,
+        "3.0": 840.350252838233
+      },
+      "adjusted_site_year_tx_bin_bw6_mean": {
+        "1.0": 793.5616903792035,
+        "2.0": 828.2963446423308,
+        "3.0": 850.8742961476573
+      },
+      "raw_UM_minus_JL": 80.60991175010884,
+      "matched_UM_minus_JL": 34.73465426312737,
+      "raw_UM_minus_UT": 15.515174107289567,
+      "matched_UM_minus_UT": -22.577951505326496,
+      "attenuation_of_UM_JL_fraction": 0.5691019440536669
+    },
+    {
+      "sex": "Male",
+      "binWidthGrams": 5,
+      "binShiftGrams": 2.5,
+      "treatment": "controls-only",
+      "n_total": 609,
+      "n_by_site": {
+        "1.0": 177,
+        "2.0": 205,
+        "3.0": 227
+      },
+      "n_shared_site_year_tx_weight_bins": 9,
+      "raw_site_year_tx_mean": {
+        "1.0": 788.4687985688686,
+        "2.0": 849.9406858845272,
+        "3.0": 752.0823114571037
+      },
+      "adjusted_site_year_tx_bin_bw6_mean": {
+        "1.0": 813.3193497154575,
+        "2.0": 802.8411528569504,
+        "3.0": 779.2716466752697
+      },
+      "raw_UM_minus_JL": 61.47188731565859,
+      "matched_UM_minus_JL": -10.47819685850709,
+      "raw_UM_minus_UT": 97.85837442742343,
+      "matched_UM_minus_UT": 23.56950618168071,
+      "attenuation_of_UM_JL_fraction": 1.1704551025853733
+    },
+    {
+      "sex": "Male",
+      "binWidthGrams": 6,
+      "binShiftGrams": 0,
+      "treatment": "pooled-control-plus-NDE",
+      "n_total": 1415,
+      "n_by_site": {
+        "1.0": 521,
+        "2.0": 489,
+        "3.0": 405
+      },
+      "n_shared_site_year_tx_weight_bins": 17,
+      "raw_site_year_tx_mean": {
+        "1.0": 778.497566051833,
+        "2.0": 865.9970296244146,
+        "3.0": 834.0434932738206
+      },
+      "adjusted_site_year_tx_bin_bw6_mean": {
+        "1.0": 803.2476925663098,
+        "2.0": 830.6824821037936,
+        "3.0": 844.769133844989
+      },
+      "raw_UM_minus_JL": 87.49946357258159,
+      "matched_UM_minus_JL": 27.43478953748388,
+      "raw_UM_minus_UT": 31.95353635059405,
+      "matched_UM_minus_UT": -14.086651741195396,
+      "attenuation_of_UM_JL_fraction": 0.6864576259404553
+    },
+    {
+      "sex": "Male",
+      "binWidthGrams": 6,
+      "binShiftGrams": 0,
+      "treatment": "controls-only",
+      "n_total": 689,
+      "n_by_site": {
+        "1.0": 184,
+        "2.0": 265,
+        "3.0": 240
+      },
+      "n_shared_site_year_tx_weight_bins": 9,
+      "raw_site_year_tx_mean": {
+        "1.0": 794.1094266255975,
+        "2.0": 867.631262620838,
+        "3.0": 752.5502854378325
+      },
+      "adjusted_site_year_tx_bin_bw6_mean": {
+        "1.0": 829.0462215211271,
+        "2.0": 822.5515298913084,
+        "3.0": 778.2949182530825
+      },
+      "raw_UM_minus_JL": 73.52183599524051,
+      "matched_UM_minus_JL": -6.494691629818703,
+      "raw_UM_minus_UT": 115.08097718300553,
+      "matched_UM_minus_UT": 44.25661163822588,
+      "attenuation_of_UM_JL_fraction": 1.0883369075581728
+    },
+    {
+      "sex": "Male",
+      "binWidthGrams": 6,
+      "binShiftGrams": 3,
+      "treatment": "pooled-control-plus-NDE",
+      "n_total": 1229,
+      "n_by_site": {
+        "1.0": 453,
+        "2.0": 427,
+        "3.0": 349
+      },
+      "n_shared_site_year_tx_weight_bins": 15,
+      "raw_site_year_tx_mean": {
+        "1.0": 785.0183206694155,
+        "2.0": 857.7139003506629,
+        "3.0": 845.2918140862447
+      },
+      "adjusted_site_year_tx_bin_bw6_mean": {
+        "1.0": 792.3889273002084,
+        "2.0": 830.7013014476465,
+        "3.0": 852.9853753867425
+      },
+      "raw_UM_minus_JL": 72.69557968124741,
+      "matched_UM_minus_JL": 38.31237414743816,
+      "raw_UM_minus_UT": 12.422086264418226,
+      "matched_UM_minus_UT": -22.284073939095947,
+      "attenuation_of_UM_JL_fraction": 0.4729751889258097
+    },
+    {
+      "sex": "Male",
+      "binWidthGrams": 6,
+      "binShiftGrams": 3,
+      "treatment": "controls-only",
+      "n_total": 542,
+      "n_by_site": {
+        "1.0": 156,
+        "2.0": 191,
+        "3.0": 195
+      },
+      "n_shared_site_year_tx_weight_bins": 7,
+      "raw_site_year_tx_mean": {
+        "1.0": 795.9915006842375,
+        "2.0": 849.3642645249981,
+        "3.0": 757.283750936228
+      },
+      "adjusted_site_year_tx_bin_bw6_mean": {
+        "1.0": 803.097774207407,
+        "2.0": 809.3092314986454,
+        "3.0": 780.2636873202534
+      },
+      "raw_UM_minus_JL": 53.372763840760626,
+      "matched_UM_minus_JL": 6.211457291238389,
+      "raw_UM_minus_UT": 92.08051358877015,
+      "matched_UM_minus_UT": 29.045544178391992,
+      "attenuation_of_UM_JL_fraction": 0.883621217185408
+    },
+    {
+      "sex": "Male",
+      "binWidthGrams": 8,
+      "binShiftGrams": 0,
+      "treatment": "pooled-control-plus-NDE",
+      "n_total": 1385,
+      "n_by_site": {
+        "1.0": 522,
+        "2.0": 462,
+        "3.0": 401
+      },
+      "n_shared_site_year_tx_weight_bins": 14,
+      "raw_site_year_tx_mean": {
+        "1.0": 777.495320391565,
+        "2.0": 860.3569772930782,
+        "3.0": 836.5686629676579
+      },
+      "adjusted_site_year_tx_bin_bw6_mean": {
+        "1.0": 786.6495025072577,
+        "2.0": 834.886878454792,
+        "3.0": 847.8268894596905
+      },
+      "raw_UM_minus_JL": 82.86165690151324,
+      "matched_UM_minus_JL": 48.23737594753436,
+      "raw_UM_minus_UT": 23.788314325420288,
+      "matched_UM_minus_UT": -12.940011004898452,
+      "attenuation_of_UM_JL_fraction": 0.4178564881357877
+    },
+    {
+      "sex": "Male",
+      "binWidthGrams": 8,
+      "binShiftGrams": 0,
+      "treatment": "controls-only",
+      "n_total": 636,
+      "n_by_site": {
+        "1.0": 181,
+        "2.0": 221,
+        "3.0": 234
+      },
+      "n_shared_site_year_tx_weight_bins": 6,
+      "raw_site_year_tx_mean": {
+        "1.0": 793.4699085567693,
+        "2.0": 854.6434684955366,
+        "3.0": 745.9324559224151
+      },
+      "adjusted_site_year_tx_bin_bw6_mean": {
+        "1.0": 801.6055453698791,
+        "2.0": 827.582596132627,
+        "3.0": 772.4549487987294
+      },
+      "raw_UM_minus_JL": 61.17355993876731,
+      "matched_UM_minus_JL": 25.977050762747922,
+      "raw_UM_minus_UT": 108.71101257312148,
+      "matched_UM_minus_UT": 55.127647333897585,
+      "attenuation_of_UM_JL_fraction": 0.5753549280318151
+    },
+    {
+      "sex": "Male",
+      "binWidthGrams": 8,
+      "binShiftGrams": 4,
+      "treatment": "pooled-control-plus-NDE",
+      "n_total": 1361,
+      "n_by_site": {
+        "1.0": 486,
+        "2.0": 520,
+        "3.0": 355
+      },
+      "n_shared_site_year_tx_weight_bins": 14,
+      "raw_site_year_tx_mean": {
+        "1.0": 785.1294942983376,
+        "2.0": 867.913367651707,
+        "3.0": 853.7654589240343
+      },
+      "adjusted_site_year_tx_bin_bw6_mean": {
+        "1.0": 806.22848385279,
+        "2.0": 841.4872964425317,
+        "3.0": 857.5577301689243
+      },
+      "raw_UM_minus_JL": 82.78387335336936,
+      "matched_UM_minus_JL": 35.25881258974175,
+      "raw_UM_minus_UT": 14.147908727672643,
+      "matched_UM_minus_UT": -16.070433726392594,
+      "attenuation_of_UM_JL_fraction": 0.5740859763925663
+    },
+    {
+      "sex": "Male",
+      "binWidthGrams": 8,
+      "binShiftGrams": 4,
+      "treatment": "controls-only",
+      "n_total": 617,
+      "n_by_site": {
+        "1.0": 153,
+        "2.0": 274,
+        "3.0": 190
+      },
+      "n_shared_site_year_tx_weight_bins": 7,
+      "raw_site_year_tx_mean": {
+        "1.0": 807.6437777114676,
+        "2.0": 874.9472303918169,
+        "3.0": 784.9163616035577
+      },
+      "adjusted_site_year_tx_bin_bw6_mean": {
+        "1.0": 836.9079162042618,
+        "2.0": 829.770986536288,
+        "3.0": 793.0565191048684
+      },
+      "raw_UM_minus_JL": 67.30345268034932,
+      "matched_UM_minus_JL": -7.136929667973845,
+      "raw_UM_minus_UT": 90.03086878825923,
+      "matched_UM_minus_UT": 36.71446743141962,
+      "attenuation_of_UM_JL_fraction": 1.1060410630323818
+    },
+    {
+      "sex": "Male",
+      "binWidthGrams": 10,
+      "binShiftGrams": 0,
+      "treatment": "pooled-control-plus-NDE",
+      "n_total": 1464,
+      "n_by_site": {
+        "1.0": 543,
+        "2.0": 491,
+        "3.0": 430
+      },
+      "n_shared_site_year_tx_weight_bins": 11,
+      "raw_site_year_tx_mean": {
+        "1.0": 773.1550262134839,
+        "2.0": 867.1819433249955,
+        "3.0": 824.4105965214178
+      },
+      "adjusted_site_year_tx_bin_bw6_mean": {
+        "1.0": 785.9820273058681,
+        "2.0": 839.3850484909276,
+        "3.0": 840.2040365201194
+      },
+      "raw_UM_minus_JL": 94.02691711151158,
+      "matched_UM_minus_JL": 53.403021185059515,
+      "raw_UM_minus_UT": 42.77134680357767,
+      "matched_UM_minus_UT": -0.8189880291918143,
+      "attenuation_of_UM_JL_fraction": 0.43204538843142115
+    },
+    {
+      "sex": "Male",
+      "binWidthGrams": 10,
+      "binShiftGrams": 0,
+      "treatment": "controls-only",
+      "n_total": 725,
+      "n_by_site": {
+        "1.0": 194,
+        "2.0": 265,
+        "3.0": 266
+      },
+      "n_shared_site_year_tx_weight_bins": 6,
+      "raw_site_year_tx_mean": {
+        "1.0": 787.091499868854,
+        "2.0": 867.8200756189126,
+        "3.0": 736.592346955379
+      },
+      "adjusted_site_year_tx_bin_bw6_mean": {
+        "1.0": 799.5219675969038,
+        "2.0": 834.5034826535835,
+        "3.0": 771.8007376943877
+      },
+      "raw_UM_minus_JL": 80.72857575005855,
+      "matched_UM_minus_JL": 34.98151505667977,
+      "raw_UM_minus_UT": 131.22772866353364,
+      "matched_UM_minus_UT": 62.7027449591958,
+      "attenuation_of_UM_JL_fraction": 0.5666774158758228
+    },
+    {
+      "sex": "Male",
+      "binWidthGrams": 10,
+      "binShiftGrams": 5,
+      "treatment": "pooled-control-plus-NDE",
+      "n_total": 1241,
+      "n_by_site": {
+        "1.0": 463,
+        "2.0": 434,
+        "3.0": 344
+      },
+      "n_shared_site_year_tx_weight_bins": 11,
+      "raw_site_year_tx_mean": {
+        "1.0": 783.6848839826663,
+        "2.0": 858.3350513582359,
+        "3.0": 848.1416895768365
+      },
+      "adjusted_site_year_tx_bin_bw6_mean": {
+        "1.0": 788.6018664200202,
+        "2.0": 833.9276638794956,
+        "3.0": 855.7706006336009
+      },
+      "raw_UM_minus_JL": 74.6501673755696,
+      "matched_UM_minus_JL": 45.32579745947544,
+      "raw_UM_minus_UT": 10.193361781399403,
+      "matched_UM_minus_UT": -21.842936754105267,
+      "attenuation_of_UM_JL_fraction": 0.3928239004282662
+    },
+    {
+      "sex": "Male",
+      "binWidthGrams": 10,
+      "binShiftGrams": 5,
+      "treatment": "controls-only",
+      "n_total": 526,
+      "n_by_site": {
+        "1.0": 163,
+        "2.0": 175,
+        "3.0": 188
+      },
+      "n_shared_site_year_tx_weight_bins": 5,
+      "raw_site_year_tx_mean": {
+        "1.0": 795.1762154574328,
+        "2.0": 847.731687877648,
+        "3.0": 751.6885815837329
+      },
+      "adjusted_site_year_tx_bin_bw6_mean": {
+        "1.0": 799.9387144520699,
+        "2.0": 807.6698528125779,
+        "3.0": 772.2895184448951
+      },
+      "raw_UM_minus_JL": 52.55547242021521,
+      "matched_UM_minus_JL": 7.731138360507998,
+      "raw_UM_minus_UT": 96.04310629391512,
+      "matched_UM_minus_UT": 35.38033436768285,
+      "attenuation_of_UM_JL_fraction": 0.8528956547342489
+    },
+    {
+      "sex": "Female",
+      "binWidthGrams": 5,
+      "binShiftGrams": 0,
+      "treatment": "pooled-control-plus-NDE",
+      "n_total": 1215,
+      "n_by_site": {
+        "1.0": 354,
+        "2.0": 505,
+        "3.0": 356
+      },
+      "n_shared_site_year_tx_weight_bins": 19,
+      "raw_site_year_tx_mean": {
+        "1.0": 864.4495665480454,
+        "2.0": 893.7552568019372,
+        "3.0": 920.4672615074916
+      },
+      "adjusted_site_year_tx_bin_bw6_mean": {
+        "1.0": 863.9603320504805,
+        "2.0": 895.8421519858381,
+        "3.0": 918.007883854225
+      },
+      "raw_UM_minus_JL": 29.30569025389184,
+      "matched_UM_minus_JL": 31.881819935357612,
+      "raw_UM_minus_UT": -26.712004705554364,
+      "matched_UM_minus_UT": -22.165731868386956,
+      "attenuation_of_UM_JL_fraction": -0.08790544290707025
+    },
+    {
+      "sex": "Female",
+      "binWidthGrams": 5,
+      "binShiftGrams": 0,
+      "treatment": "controls-only",
+      "n_total": 553,
+      "n_by_site": {
+        "1.0": 124,
+        "2.0": 226,
+        "3.0": 203
+      },
+      "n_shared_site_year_tx_weight_bins": 10,
+      "raw_site_year_tx_mean": {
+        "1.0": 867.3619650391802,
+        "2.0": 878.5257443598844,
+        "3.0": 882.2277767593305
+      },
+      "adjusted_site_year_tx_bin_bw6_mean": {
+        "1.0": 868.1657747627884,
+        "2.0": 886.6788854538354,
+        "3.0": 882.1709226402094
+      },
+      "raw_UM_minus_JL": 11.16377932070418,
+      "matched_UM_minus_JL": 18.513110691047018,
+      "raw_UM_minus_UT": -3.702032399446125,
+      "matched_UM_minus_UT": 4.507962813626023,
+      "attenuation_of_UM_JL_fraction": -0.6583192984398103
+    },
+    {
+      "sex": "Female",
+      "binWidthGrams": 5,
+      "binShiftGrams": 2.5,
+      "treatment": "pooled-control-plus-NDE",
+      "n_total": 1199,
+      "n_by_site": {
+        "1.0": 373,
+        "2.0": 472,
+        "3.0": 354
+      },
+      "n_shared_site_year_tx_weight_bins": 19,
+      "raw_site_year_tx_mean": {
+        "1.0": 868.8955743440765,
+        "2.0": 893.7634019793043,
+        "3.0": 923.211118670007
+      },
+      "adjusted_site_year_tx_bin_bw6_mean": {
+        "1.0": 866.9851116530106,
+        "2.0": 895.9316639723083,
+        "3.0": 921.8964330848895
+      },
+      "raw_UM_minus_JL": 24.86782763522774,
+      "matched_UM_minus_JL": 28.94655231929778,
+      "raw_UM_minus_UT": -29.44771669070269,
+      "matched_UM_minus_UT": -25.964769112581166,
+      "attenuation_of_UM_JL_fraction": -0.1640161233179902
+    },
+    {
+      "sex": "Female",
+      "binWidthGrams": 5,
+      "binShiftGrams": 2.5,
+      "treatment": "controls-only",
+      "n_total": 542,
+      "n_by_site": {
+        "1.0": 129,
+        "2.0": 211,
+        "3.0": 202
+      },
+      "n_shared_site_year_tx_weight_bins": 9,
+      "raw_site_year_tx_mean": {
+        "1.0": 873.7888909977967,
+        "2.0": 879.0154165957405,
+        "3.0": 886.250678596612
+      },
+      "adjusted_site_year_tx_bin_bw6_mean": {
+        "1.0": 875.4381107054077,
+        "2.0": 885.1328576123041,
+        "3.0": 891.5658780346445
+      },
+      "raw_UM_minus_JL": 5.226525597943805,
+      "matched_UM_minus_JL": 9.694746906896398,
+      "raw_UM_minus_UT": -7.235262000871558,
+      "matched_UM_minus_UT": -6.433020422340405,
+      "attenuation_of_UM_JL_fraction": -0.8549123552959272
+    },
+    {
+      "sex": "Female",
+      "binWidthGrams": 6,
+      "binShiftGrams": 0,
+      "treatment": "pooled-control-plus-NDE",
+      "n_total": 1231,
+      "n_by_site": {
+        "1.0": 364,
+        "2.0": 506,
+        "3.0": 361
+      },
+      "n_shared_site_year_tx_weight_bins": 17,
+      "raw_site_year_tx_mean": {
+        "1.0": 863.8078035851357,
+        "2.0": 891.6492723649935,
+        "3.0": 923.260065499115
+      },
+      "adjusted_site_year_tx_bin_bw6_mean": {
+        "1.0": 862.6691634443308,
+        "2.0": 893.6096195385321,
+        "3.0": 918.6740035446074
+      },
+      "raw_UM_minus_JL": 27.84146877985779,
+      "matched_UM_minus_JL": 30.940456094201295,
+      "raw_UM_minus_UT": -31.610793134121423,
+      "matched_UM_minus_UT": -25.06438400607533,
+      "attenuation_of_UM_JL_fraction": -0.11130832711618655
+    },
+    {
+      "sex": "Female",
+      "binWidthGrams": 6,
+      "binShiftGrams": 0,
+      "treatment": "controls-only",
+      "n_total": 556,
+      "n_by_site": {
+        "1.0": 127,
+        "2.0": 218,
+        "3.0": 211
+      },
+      "n_shared_site_year_tx_weight_bins": 9,
+      "raw_site_year_tx_mean": {
+        "1.0": 865.6856527162172,
+        "2.0": 874.5780771530272,
+        "3.0": 880.8579433435143
+      },
+      "adjusted_site_year_tx_bin_bw6_mean": {
+        "1.0": 866.8952590868482,
+        "2.0": 883.0231122003576,
+        "3.0": 877.0913968731401
+      },
+      "raw_UM_minus_JL": 8.89242443680996,
+      "matched_UM_minus_JL": 16.12785311350933,
+      "raw_UM_minus_UT": -6.279866190487155,
+      "matched_UM_minus_UT": 5.931715327217489,
+      "attenuation_of_UM_JL_fraction": -0.8136620927301335
+    },
+    {
+      "sex": "Female",
+      "binWidthGrams": 6,
+      "binShiftGrams": 3,
+      "treatment": "pooled-control-plus-NDE",
+      "n_total": 1207,
+      "n_by_site": {
+        "1.0": 369,
+        "2.0": 485,
+        "3.0": 353
+      },
+      "n_shared_site_year_tx_weight_bins": 16,
+      "raw_site_year_tx_mean": {
+        "1.0": 868.3942329238766,
+        "2.0": 892.3701674579919,
+        "3.0": 921.0352613351317
+      },
+      "adjusted_site_year_tx_bin_bw6_mean": {
+        "1.0": 866.9451429191565,
+        "2.0": 891.8524952145968,
+        "3.0": 921.2333729090383
+      },
+      "raw_UM_minus_JL": 23.975934534115254,
+      "matched_UM_minus_JL": 24.90735229544032,
+      "raw_UM_minus_UT": -28.66509387713984,
+      "matched_UM_minus_UT": -29.380877694441438,
+      "attenuation_of_UM_JL_fraction": -0.03884802738344795
+    },
+    {
+      "sex": "Female",
+      "binWidthGrams": 6,
+      "binShiftGrams": 3,
+      "treatment": "controls-only",
+      "n_total": 552,
+      "n_by_site": {
+        "1.0": 127,
+        "2.0": 225,
+        "3.0": 200
+      },
+      "n_shared_site_year_tx_weight_bins": 8,
+      "raw_site_year_tx_mean": {
+        "1.0": 869.5858754090697,
+        "2.0": 877.7753523600519,
+        "3.0": 882.9162624668849
+      },
+      "adjusted_site_year_tx_bin_bw6_mean": {
+        "1.0": 870.5478444589297,
+        "2.0": 880.7546932074092,
+        "3.0": 886.5114174460513
+      },
+      "raw_UM_minus_JL": 8.189476950982225,
+      "matched_UM_minus_JL": 10.206848748479501,
+      "raw_UM_minus_UT": -5.140910106832962,
+      "matched_UM_minus_UT": -5.75672423864205,
+      "attenuation_of_UM_JL_fraction": -0.24633707495267054
+    },
+    {
+      "sex": "Female",
+      "binWidthGrams": 8,
+      "binShiftGrams": 0,
+      "treatment": "pooled-control-plus-NDE",
+      "n_total": 1251,
+      "n_by_site": {
+        "1.0": 389,
+        "2.0": 507,
+        "3.0": 355
+      },
+      "n_shared_site_year_tx_weight_bins": 15,
+      "raw_site_year_tx_mean": {
+        "1.0": 864.9685202267593,
+        "2.0": 891.8544917668313,
+        "3.0": 925.247254298447
+      },
+      "adjusted_site_year_tx_bin_bw6_mean": {
+        "1.0": 860.0535892658677,
+        "2.0": 887.5174732195196,
+        "3.0": 925.7847486968988
+      },
+      "raw_UM_minus_JL": 26.885971540071978,
+      "matched_UM_minus_JL": 27.46388395365193,
+      "raw_UM_minus_UT": -33.392762531615745,
+      "matched_UM_minus_UT": -38.267275477379144,
+      "attenuation_of_UM_JL_fraction": -0.021494942547216844
+    },
+    {
+      "sex": "Female",
+      "binWidthGrams": 8,
+      "binShiftGrams": 0,
+      "treatment": "controls-only",
+      "n_total": 541,
+      "n_by_site": {
+        "1.0": 128,
+        "2.0": 217,
+        "3.0": 196
+      },
+      "n_shared_site_year_tx_weight_bins": 7,
+      "raw_site_year_tx_mean": {
+        "1.0": 864.9744359358037,
+        "2.0": 872.9560267640956,
+        "3.0": 880.6604914909205
+      },
+      "adjusted_site_year_tx_bin_bw6_mean": {
+        "1.0": 863.5970032407185,
+        "2.0": 869.4863634678078,
+        "3.0": 880.6787746713478
+      },
+      "raw_UM_minus_JL": 7.981590828291814,
+      "matched_UM_minus_JL": 5.889360227089242,
+      "raw_UM_minus_UT": -7.704464726824995,
+      "matched_UM_minus_UT": -11.192411203540019,
+      "attenuation_of_UM_JL_fraction": 0.2621320293426196
+    },
+    {
+      "sex": "Female",
+      "binWidthGrams": 8,
+      "binShiftGrams": 4,
+      "treatment": "pooled-control-plus-NDE",
+      "n_total": 1262,
+      "n_by_site": {
+        "1.0": 367,
+        "2.0": 526,
+        "3.0": 369
+      },
+      "n_shared_site_year_tx_weight_bins": 13,
+      "raw_site_year_tx_mean": {
+        "1.0": 867.9927018090829,
+        "2.0": 893.6861922799467,
+        "3.0": 922.3183305133809
+      },
+      "adjusted_site_year_tx_bin_bw6_mean": {
+        "1.0": 869.4432007622993,
+        "2.0": 895.4332095799464,
+        "3.0": 922.7861873043088
+      },
+      "raw_UM_minus_JL": 25.69349047086382,
+      "matched_UM_minus_JL": 25.990008817647094,
+      "raw_UM_minus_UT": -28.63213823343426,
+      "matched_UM_minus_UT": -27.352977724362404,
+      "attenuation_of_UM_JL_fraction": -0.011540601971519626
+    },
+    {
+      "sex": "Female",
+      "binWidthGrams": 8,
+      "binShiftGrams": 4,
+      "treatment": "controls-only",
+      "n_total": 578,
+      "n_by_site": {
+        "1.0": 131,
+        "2.0": 227,
+        "3.0": 220
+      },
+      "n_shared_site_year_tx_weight_bins": 7,
+      "raw_site_year_tx_mean": {
+        "1.0": 869.5999295638853,
+        "2.0": 879.7007349796572,
+        "3.0": 880.5920962872219
+      },
+      "adjusted_site_year_tx_bin_bw6_mean": {
+        "1.0": 871.1489843142474,
+        "2.0": 885.4903864388568,
+        "3.0": 881.4091853235452
+      },
+      "raw_UM_minus_JL": 10.100805415771902,
+      "matched_UM_minus_JL": 14.34140212460943,
+      "raw_UM_minus_UT": -0.8913613075646936,
+      "matched_UM_minus_UT": 4.081201115311615,
+      "attenuation_of_UM_JL_fraction": -0.41982758149325883
+    },
+    {
+      "sex": "Female",
+      "binWidthGrams": 10,
+      "binShiftGrams": 0,
+      "treatment": "pooled-control-plus-NDE",
+      "n_total": 1297,
+      "n_by_site": {
+        "1.0": 396,
+        "2.0": 529,
+        "3.0": 372
+      },
+      "n_shared_site_year_tx_weight_bins": 12,
+      "raw_site_year_tx_mean": {
+        "1.0": 865.8953555943167,
+        "2.0": 894.0977053647548,
+        "3.0": 925.3852067735842
+      },
+      "adjusted_site_year_tx_bin_bw6_mean": {
+        "1.0": 866.7603672487033,
+        "2.0": 893.89138486652,
+        "3.0": 924.5076187670815
+      },
+      "raw_UM_minus_JL": 28.202349770438104,
+      "matched_UM_minus_JL": 27.13101761781661,
+      "raw_UM_minus_UT": -31.28750140882937,
+      "matched_UM_minus_UT": -30.616233900561497,
+      "attenuation_of_UM_JL_fraction": 0.03798733656386577
+    },
+    {
+      "sex": "Female",
+      "binWidthGrams": 10,
+      "binShiftGrams": 0,
+      "treatment": "controls-only",
+      "n_total": 578,
+      "n_by_site": {
+        "1.0": 136,
+        "2.0": 228,
+        "3.0": 214
+      },
+      "n_shared_site_year_tx_weight_bins": 6,
+      "raw_site_year_tx_mean": {
+        "1.0": 862.2650562079629,
+        "2.0": 879.2837346163501,
+        "3.0": 883.8187292785485
+      },
+      "adjusted_site_year_tx_bin_bw6_mean": {
+        "1.0": 865.2142707534276,
+        "2.0": 883.3082640376736,
+        "3.0": 885.056109620603
+      },
+      "raw_UM_minus_JL": 17.018678408387245,
+      "matched_UM_minus_JL": 18.093993284245926,
+      "raw_UM_minus_UT": -4.5349946621984145,
+      "matched_UM_minus_UT": -1.7478455829294717,
+      "attenuation_of_UM_JL_fraction": -0.06318439364414674
+    },
+    {
+      "sex": "Female",
+      "binWidthGrams": 10,
+      "binShiftGrams": 5,
+      "treatment": "pooled-control-plus-NDE",
+      "n_total": 1250,
+      "n_by_site": {
+        "1.0": 368,
+        "2.0": 507,
+        "3.0": 375
+      },
+      "n_shared_site_year_tx_weight_bins": 13,
+      "raw_site_year_tx_mean": {
+        "1.0": 863.2054006928792,
+        "2.0": 893.9406633803947,
+        "3.0": 918.5580205660325
+      },
+      "adjusted_site_year_tx_bin_bw6_mean": {
+        "1.0": 860.9927681972712,
+        "2.0": 898.4566596504059,
+        "3.0": 918.7851951052791
+      },
+      "raw_UM_minus_JL": 30.7352626875155,
+      "matched_UM_minus_JL": 37.46389145313469,
+      "raw_UM_minus_UT": -24.617357185637843,
+      "matched_UM_minus_UT": -20.32853545487319,
+      "attenuation_of_UM_JL_fraction": -0.21892211672400386
+    },
+    {
+      "sex": "Female",
+      "binWidthGrams": 10,
+      "binShiftGrams": 5,
+      "treatment": "controls-only",
+      "n_total": 577,
+      "n_by_site": {
+        "1.0": 129,
+        "2.0": 228,
+        "3.0": 220
+      },
+      "n_shared_site_year_tx_weight_bins": 7,
+      "raw_site_year_tx_mean": {
+        "1.0": 869.4658038084781,
+        "2.0": 879.0372726202863,
+        "3.0": 875.6268181481855
+      },
+      "adjusted_site_year_tx_bin_bw6_mean": {
+        "1.0": 866.9747535548476,
+        "2.0": 889.6703180176738,
+        "3.0": 878.3343827771657
+      },
+      "raw_UM_minus_JL": 9.571468811808245,
+      "matched_UM_minus_JL": 22.69556446282627,
+      "raw_UM_minus_UT": 3.4104544721008097,
+      "matched_UM_minus_UT": 11.335935240508093,
+      "attenuation_of_UM_JL_fraction": -1.371168407802461
+    }
+  ],
+  "known_prior": "Published sex differences in body weight/lifespan already described Cheng 2019 and Arends 2026",
+  "limitations": [
+    "Nonlinear coarsened results depend on bin width and phase, and subset with positive support.",
+    "Pooled NDE treatment code cannot isolate compounds.",
+    "Cage/litter and event/censor metadata not represented.",
+    "Matching on 6month bodyweight induces selection and collider bias. Associations do not prove mediation.",
+    "No novel treatment effect."
+  ]
+}
