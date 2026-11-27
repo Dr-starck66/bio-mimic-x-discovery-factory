@@ -1,0 +1,105 @@
+{
+  "status": "PASS_COMPUTATIONAL_PARTIAL_SCIENTIFIC",
+  "executed_at_utc": "2026-11-14T20:58:12Z",
+  "source": "GitHub Actions public runner logs; three CDC official SAS XPORT files processed in memory",
+  "run_url": "https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/43640222018",
+  "run_id": 43640222018,
+  "job_id": 132585942827,
+  "source_commit": "fcdb5d81ca9be4aec5b4b617aff7fee6867ab685",
+  "workflow_file": ".github/workflows/astra-obesity-nhanes.yml",
+  "test_result": "12/12 PASS on runner (synthetic unit controls only)",
+  "artifact_id": 14132040620,
+  "artifact_name": "astra-obesity-nhanes-aggregate-report",
+  "artifact_zip_sha256": "e85bff84b3f2b3d44eb10be9fd92969dc683258ae0e78158546360617dd96c48",
+  "canonical_report_sha256": "0f01c05860cbab1388712274d16667880985c206beba46e7254e09cca21c1bd9",
+  "data_xpt_sha256": {
+    "BMX_L": "44440c416d9ad709e8b1708a5975378ab4d5b18edc39eb5015c2ae7186500170",
+    "DEMO_L": "ca4374a158b493b8b0163e1388da21d57a18d1b9cecff2aa4e2fa2bec494fe23",
+    "GHB_L": "67aee0353160e2392dc0a33bece99b90764a630c76d82415ac4639105ad9dd03"
+  },
+  "sample": {
+    "adults_excluding_pregnant": 6023,
+    "complete_cases": 5453,
+    "elevated_hba1c_6_5_n": 665,
+    "excluded_for_missingness": 570,
+    "joined": 7199,
+    "masked_psus": 30,
+    "unweighted_elevated_hba1c_fraction": 0.121951
+  },
+  "analysis": {
+    "bootstrap_accepted": 200,
+    "delta_auc_adjusted_age_sex": 0.019151,
+    "delta_auc_descriptive_cluster_resample_95": [
+      0.036402,
+      0.090261
+    ],
+    "delta_auc_primary": 0.066303,
+    "folds": [
+      {
+        "fold": 1,
+        "heldout_n": 1077,
+        "heldout_positives": 148,
+        "heldout_psu_n": 6
+      },
+      {
+        "fold": 2,
+        "heldout_n": 1100,
+        "heldout_positives": 125,
+        "heldout_psu_n": 6
+      },
+      {
+        "fold": 3,
+        "heldout_n": 1089,
+        "heldout_positives": 142,
+        "heldout_psu_n": 6
+      },
+      {
+        "fold": 4,
+        "heldout_n": 1095,
+        "heldout_positives": 130,
+        "heldout_psu_n": 6
+      },
+      {
+        "fold": 5,
+        "heldout_n": 1092,
+        "heldout_positives": 120,
+        "heldout_psu_n": 6
+      }
+    ],
+    "geographically_independent": false,
+    "intervention_effect_evaluated": false,
+    "weighted_metrics": {
+      "BMI_AGE_SEX": {
+        "weighted_brier": 0.084412,
+        "weighted_roc_auc": 0.761921
+      },
+      "BMI_ONLY": {
+        "weighted_brier": 0.088668,
+        "weighted_roc_auc": 0.679019
+      },
+      "BMI_PLUS_WHTR": {
+        "weighted_brier": 0.084606,
+        "weighted_roc_auc": 0.745322
+      },
+      "BMI_WHTR_AGE_SEX": {
+        "weighted_brier": 0.082551,
+        "weighted_roc_auc": 0.781072
+      },
+      "NEGATIVE_SHUFFLED_WHTR": {
+        "weighted_brier": 0.088697,
+        "weighted_roc_auc": 0.677623
+      }
+    }
+  },
+  "inferential_cautions": [
+    "No human clinical obesity diagnosis or treatment effect assessed",
+    "NHANES cross-sectional association only, elevated HbA1c >=6.5% is a lab marker not an obesity-caused organ impairment",
+    "Group holdout on masked PSUs does not provide independent geographic or longitudinal validation",
+    "Descriptive PSU resampling is not a survey-design-consistent confidence interval",
+    "Bivariate anthropometry association cannot resolve causality, treatment effects or obesity global cure",
+    "Model performance for one US survey cycle does not establish transportability to other countries"
+  ],
+  "production_deployment": false,
+  "clinical_efficacy_proven": false,
+  "additional_cost_eur": 0
+}
