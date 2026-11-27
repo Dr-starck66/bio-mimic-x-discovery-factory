@@ -167,8 +167,8 @@
       "output_ref": "human_translation_result",
       "stage": "TRANSLATE",
       "status": "PARTIAL",
-      "time": "2026-11-26T13:10:33.656513+00:00",
-      "value": 0.0
+      "time": "2026-11-27T13:08:20.238704+00:00",
+      "value": 0.5
     },
     {
       "brick_id": "experiment-forge",
@@ -302,14 +302,14 @@
     }
   ],
   "bridge_refresh": {
-    "previous_cycle_sha256": "fc7619ad97114ee642a5d11dfb51dcf6ed2a8482f7a22a8f262797b590bf7e76",
+    "previous_cycle_sha256": "dd8386489a5d30d4ac05a5b8764cc1ba0d7283d86d015a73cd184e6bc9aa8a8d",
     "status": "PARTIAL",
-    "strict_orthology_candidates": 0,
-    "strict_orthology_coverage_ratio": 0.0,
+    "strict_orthology_candidates": 1,
+    "strict_orthology_coverage_ratio": 0.5,
     "supported_claims": 2,
-    "time": "2026-11-26T13:10:33.656513+00:00",
-    "translation_coverage_ratio": 0.0,
-    "translation_verified_candidates": 0
+    "time": "2026-11-27T13:08:20.238704+00:00",
+    "translation_coverage_ratio": 0.5,
+    "translation_verified_candidates": 1
   },
   "causal_plans": [
     {
@@ -434858,10 +434858,72 @@
   ],
   "human_bridge_result": {
     "attempted_candidates": 2,
-    "bridged_candidates": 0,
-    "bridges": [],
+    "bridged_candidates": 1,
+    "bridges": [
+      {
+        "animal_ensembl_species": null,
+        "animal_gene": "daf-16",
+        "animal_ncbi_gene_id": "172981",
+        "animal_species": "Caenorhabditis elegans",
+        "animal_taxon_id": "6239",
+        "bridge_evidence_pmids": [
+          "26635120",
+          "11747821"
+        ],
+        "bridge_scope": "endogenous freeze-tolerance mechanism; independent of the exogenous ice-binding-protein intervention",
+        "bridge_seed_rationale": "Exact-species freeze-thaw genetics requires DAF-16 downstream of daf-2, while independent human-to-worm complementation work demonstrates that human FKHRL1/FOXO3 can partially replace DAF-16. This supports a conserved FOXO-family relationship without asserting one-to-one orthology or human clinical efficacy.",
+        "clinical_efficacy_claim": false,
+        "human_biotype": "protein_coding",
+        "human_ensembl_id": "ENSG00000118689",
+        "human_name": "forkhead box O3",
+        "human_symbol": "FOXO3",
+        "orthology": {
+          "functional_orthology_doi": "10.1016/S0960-9822(01)00595-4",
+          "functional_orthology_pmid": "11747821",
+          "human_paralog_context": [
+            "FOXO1",
+            "FOXO3",
+            "FOXO4"
+          ],
+          "method": "exact-species genetics + cross-species functional complementation",
+          "provider": "Peer-reviewed functional orthology",
+          "relation": "one_to_many_functional_orthology",
+          "selected_human_target": "FOXO3",
+          "source_ncbi_gene_id": "172981"
+        },
+        "source_chain": [
+          "replicated exact-species research claim",
+          "NCBI Datasets exact Caenorhabditis elegans daf-16 gene",
+          "exact-species freeze-thaw genetics requiring DAF-16/FOXO",
+          "peer-reviewed human FKHRL1/FOXO3-to-DAF-16 functional complementation",
+          "Open Targets human FOXO3 target validation"
+        ],
+        "source_claim_pmids": [
+          "PMID:42169464",
+          "PMID:42208364"
+        ],
+        "tractability": [
+          {
+            "label": "Structure with Ligand",
+            "modality": "SM"
+          },
+          {
+            "label": "UniProt loc high conf",
+            "modality": "AB"
+          },
+          {
+            "label": "UniProt Ubiquitination",
+            "modality": "PR"
+          },
+          {
+            "label": "Database Ubiquitination",
+            "modality": "PR"
+          }
+        ],
+        "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+      }
+    ],
     "cached_bridged_candidates": 0,
-    "cached_subjects": [],
     "candidate_status": [
       {
         "bridges": 0,
@@ -434892,16 +434954,16 @@
         "validated_gene_candidates": []
       },
       {
-        "bridges": 0,
+        "bridges": 1,
         "candidate": "Caenorhabditis elegans",
         "direct_orthology_seed_records_checked": 0,
         "direct_orthology_strict_bridges": 0,
         "ensembl_species": null,
-        "functional_orthology_context_validated": 0,
-        "functional_orthology_evidence_validated": 0,
+        "functional_orthology_context_validated": 1,
+        "functional_orthology_evidence_validated": 1,
         "functional_orthology_exact_genes": 1,
         "functional_orthology_seed_records_checked": 1,
-        "functional_orthology_strict_bridges": 0,
+        "functional_orthology_strict_bridges": 1,
         "gene_candidates": 10,
         "ncbi_exact_genes": 1,
         "ncbi_human_orthologs": 0,
@@ -434913,36 +434975,35 @@
         "orthodb_seed_genes_checked": 1,
         "phylogenetic_seed_records_checked": 0,
         "phylogenetic_strict_bridges": 0,
-        "status": "NO_VALIDATED_ORTHOLOGUE",
+        "status": "BRIDGED",
         "uniprot_annotation_candidates": 10,
         "uniprot_candidates": 14,
         "uniprot_species_gene_candidates": 4,
         "validated_gene_candidates": []
       }
     ],
-    "coverage_ratio": 0.0,
+    "coverage_ratio": 0.5,
     "direct_orthology_hits": 0,
     "ensembl_orthologue_hits": 0,
     "errors": [],
-    "functional_orthology_hits": 0,
-    "live_bridged_candidates": 0,
+    "functional_orthology_hits": 1,
+    "live_bridged_candidates": 1,
     "ncbi_orthologue_hits": 0,
     "oma_orthologue_hits": 0,
-    "open_targets_hits": 0,
+    "open_targets_hits": 1,
     "orthodb_orthologue_hits": 0,
-    "orthologue_hits": 0,
+    "orthologue_hits": 1,
     "phylogenetic_orthologue_hits": 0,
     "provider_status": {
       "Ensembl homology": "PARTIAL",
       "Ensembl species": "PASS",
       "Europe PMC annotations": "PASS",
-      "Last-known-good cache": "IDLE",
       "NCBI Ortholog": "PARTIAL",
       "OMA orthology": "PARTIAL",
-      "Open Targets": "PARTIAL",
+      "Open Targets": "PASS",
       "OrthoDB v12": "PARTIAL",
       "Peer-reviewed direct orthology": "PARTIAL",
-      "Peer-reviewed functional orthology": "PARTIAL",
+      "Peer-reviewed functional orthology": "PASS",
       "Peer-reviewed phylogenetic orthology": "PARTIAL"
     },
     "resolved_species": 0,
@@ -434965,17 +435026,152 @@
     },
     {
       "animal_claim_not_promoted_to_human_efficacy": true,
-      "bridges": [],
+      "bridges": [
+        {
+          "animal_ensembl_species": null,
+          "animal_gene": "daf-16",
+          "animal_ncbi_gene_id": "172981",
+          "animal_species": "Caenorhabditis elegans",
+          "animal_taxon_id": "6239",
+          "bridge_evidence_pmids": [
+            "26635120",
+            "11747821"
+          ],
+          "bridge_scope": "endogenous freeze-tolerance mechanism; independent of the exogenous ice-binding-protein intervention",
+          "bridge_seed_rationale": "Exact-species freeze-thaw genetics requires DAF-16 downstream of daf-2, while independent human-to-worm complementation work demonstrates that human FKHRL1/FOXO3 can partially replace DAF-16. This supports a conserved FOXO-family relationship without asserting one-to-one orthology or human clinical efficacy.",
+          "clinical_efficacy_claim": false,
+          "human_biotype": "protein_coding",
+          "human_ensembl_id": "ENSG00000118689",
+          "human_name": "forkhead box O3",
+          "human_symbol": "FOXO3",
+          "orthology": {
+            "functional_orthology_doi": "10.1016/S0960-9822(01)00595-4",
+            "functional_orthology_pmid": "11747821",
+            "human_paralog_context": [
+              "FOXO1",
+              "FOXO3",
+              "FOXO4"
+            ],
+            "method": "exact-species genetics + cross-species functional complementation",
+            "provider": "Peer-reviewed functional orthology",
+            "relation": "one_to_many_functional_orthology",
+            "selected_human_target": "FOXO3",
+            "source_ncbi_gene_id": "172981"
+          },
+          "source_chain": [
+            "replicated exact-species research claim",
+            "NCBI Datasets exact Caenorhabditis elegans daf-16 gene",
+            "exact-species freeze-thaw genetics requiring DAF-16/FOXO",
+            "peer-reviewed human FKHRL1/FOXO3-to-DAF-16 functional complementation",
+            "Open Targets human FOXO3 target validation"
+          ],
+          "source_claim_pmids": [
+            "PMID:42169464",
+            "PMID:42208364"
+          ],
+          "tractability": [
+            {
+              "label": "Structure with Ligand",
+              "modality": "SM"
+            },
+            {
+              "label": "UniProt loc high conf",
+              "modality": "AB"
+            },
+            {
+              "label": "UniProt Ubiquitination",
+              "modality": "PR"
+            },
+            {
+              "label": "Database Ubiquitination",
+              "modality": "PR"
+            }
+          ],
+          "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+        }
+      ],
       "claim_pmids": [
         "PMID:42169464",
         "PMID:42208364"
       ],
-      "remaining": [
-        "provider-verified orthology or a separately typed evidence-backed translation path"
-      ],
-      "status": "UNVERIFIED_HUMAN_BRIDGE",
+      "remaining": [],
+      "status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED",
       "subject": "Caenorhabditis elegans",
-      "translation_path": null
+      "translation_path": {
+        "bridges": [
+          {
+            "animal_ensembl_species": null,
+            "animal_gene": "daf-16",
+            "animal_ncbi_gene_id": "172981",
+            "animal_species": "Caenorhabditis elegans",
+            "animal_taxon_id": "6239",
+            "bridge_evidence_pmids": [
+              "26635120",
+              "11747821"
+            ],
+            "bridge_scope": "endogenous freeze-tolerance mechanism; independent of the exogenous ice-binding-protein intervention",
+            "bridge_seed_rationale": "Exact-species freeze-thaw genetics requires DAF-16 downstream of daf-2, while independent human-to-worm complementation work demonstrates that human FKHRL1/FOXO3 can partially replace DAF-16. This supports a conserved FOXO-family relationship without asserting one-to-one orthology or human clinical efficacy.",
+            "clinical_efficacy_claim": false,
+            "human_biotype": "protein_coding",
+            "human_ensembl_id": "ENSG00000118689",
+            "human_name": "forkhead box O3",
+            "human_symbol": "FOXO3",
+            "orthology": {
+              "functional_orthology_doi": "10.1016/S0960-9822(01)00595-4",
+              "functional_orthology_pmid": "11747821",
+              "human_paralog_context": [
+                "FOXO1",
+                "FOXO3",
+                "FOXO4"
+              ],
+              "method": "exact-species genetics + cross-species functional complementation",
+              "provider": "Peer-reviewed functional orthology",
+              "relation": "one_to_many_functional_orthology",
+              "selected_human_target": "FOXO3",
+              "source_ncbi_gene_id": "172981"
+            },
+            "source_chain": [
+              "replicated exact-species research claim",
+              "NCBI Datasets exact Caenorhabditis elegans daf-16 gene",
+              "exact-species freeze-thaw genetics requiring DAF-16/FOXO",
+              "peer-reviewed human FKHRL1/FOXO3-to-DAF-16 functional complementation",
+              "Open Targets human FOXO3 target validation"
+            ],
+            "source_claim_pmids": [
+              "PMID:42169464",
+              "PMID:42208364"
+            ],
+            "tractability": [
+              {
+                "label": "Structure with Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "UniProt loc high conf",
+                "modality": "AB"
+              },
+              {
+                "label": "UniProt Ubiquitination",
+                "modality": "PR"
+              },
+              {
+                "label": "Database Ubiquitination",
+                "modality": "PR"
+              }
+            ],
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+          }
+        ],
+        "clinical_efficacy_claim": false,
+        "path_type": "STRICT_ORTHOLOGY_TARGET",
+        "source_chain": [
+          "provider-verified animal-to-human orthology",
+          "Open Targets human target validation"
+        ],
+        "status": "VERIFIED",
+        "strict_bridge_count": 1,
+        "subject": "Caenorhabditis elegans"
+      }
     }
   ],
   "human_translation_result": {
@@ -434988,29 +435184,102 @@
       },
       {
         "candidate": "Caenorhabditis elegans",
-        "path_type": "FUNCTIONAL_ICE_BINDING_PROTEIN_INTERVENTION",
-        "reason": "PMID 42169464 unavailable",
-        "status": "UNVERIFIED"
+        "path_type": "STRICT_ORTHOLOGY_TARGET",
+        "status": "VERIFIED"
       }
     ],
     "errors": [
       {
         "candidate": "Ambystoma mexicanum",
         "error": "no typed fallback translation seed"
-      },
-      {
-        "candidate": "Caenorhabditis elegans",
-        "error": "PMID 42169464 unavailable"
       }
     ],
     "fallback_verified_candidates": 0,
-    "path_type_counts": {},
-    "paths": [],
+    "path_type_counts": {
+      "STRICT_ORTHOLOGY_TARGET": 1
+    },
+    "paths": [
+      {
+        "bridges": [
+          {
+            "animal_ensembl_species": null,
+            "animal_gene": "daf-16",
+            "animal_ncbi_gene_id": "172981",
+            "animal_species": "Caenorhabditis elegans",
+            "animal_taxon_id": "6239",
+            "bridge_evidence_pmids": [
+              "26635120",
+              "11747821"
+            ],
+            "bridge_scope": "endogenous freeze-tolerance mechanism; independent of the exogenous ice-binding-protein intervention",
+            "bridge_seed_rationale": "Exact-species freeze-thaw genetics requires DAF-16 downstream of daf-2, while independent human-to-worm complementation work demonstrates that human FKHRL1/FOXO3 can partially replace DAF-16. This supports a conserved FOXO-family relationship without asserting one-to-one orthology or human clinical efficacy.",
+            "clinical_efficacy_claim": false,
+            "human_biotype": "protein_coding",
+            "human_ensembl_id": "ENSG00000118689",
+            "human_name": "forkhead box O3",
+            "human_symbol": "FOXO3",
+            "orthology": {
+              "functional_orthology_doi": "10.1016/S0960-9822(01)00595-4",
+              "functional_orthology_pmid": "11747821",
+              "human_paralog_context": [
+                "FOXO1",
+                "FOXO3",
+                "FOXO4"
+              ],
+              "method": "exact-species genetics + cross-species functional complementation",
+              "provider": "Peer-reviewed functional orthology",
+              "relation": "one_to_many_functional_orthology",
+              "selected_human_target": "FOXO3",
+              "source_ncbi_gene_id": "172981"
+            },
+            "source_chain": [
+              "replicated exact-species research claim",
+              "NCBI Datasets exact Caenorhabditis elegans daf-16 gene",
+              "exact-species freeze-thaw genetics requiring DAF-16/FOXO",
+              "peer-reviewed human FKHRL1/FOXO3-to-DAF-16 functional complementation",
+              "Open Targets human FOXO3 target validation"
+            ],
+            "source_claim_pmids": [
+              "PMID:42169464",
+              "PMID:42208364"
+            ],
+            "tractability": [
+              {
+                "label": "Structure with Ligand",
+                "modality": "SM"
+              },
+              {
+                "label": "UniProt loc high conf",
+                "modality": "AB"
+              },
+              {
+                "label": "UniProt Ubiquitination",
+                "modality": "PR"
+              },
+              {
+                "label": "Database Ubiquitination",
+                "modality": "PR"
+              }
+            ],
+            "translation_status": "ORTHOLOGUE_AND_HUMAN_TARGET_VERIFIED"
+          }
+        ],
+        "clinical_efficacy_claim": false,
+        "path_type": "STRICT_ORTHOLOGY_TARGET",
+        "source_chain": [
+          "provider-verified animal-to-human orthology",
+          "Open Targets human target validation"
+        ],
+        "status": "VERIFIED",
+        "strict_bridge_count": 1,
+        "subject": "Caenorhabditis elegans"
+      }
+    ],
     "status": "PARTIAL",
-    "strict_orthology_candidates": 0,
-    "strict_orthology_coverage_ratio": 0.0,
-    "translation_coverage_ratio": 0.0,
-    "translation_verified_candidates": 0
+    "strict_orthology_candidates": 1,
+    "strict_orthology_coverage_ratio": 0.5,
+    "translation_coverage_ratio": 0.5,
+    "translation_verified_candidates": 1
   },
   "mission_graphs": [
     {
@@ -436283,7 +436552,7 @@
       "taxon_verified": true
     }
   ],
-  "sha256": "dd8386489a5d30d4ac05a5b8764cc1ba0d7283d86d015a73cd184e6bc9aa8a8d",
+  "sha256": "d6ef0e05f9c5bc22e481b8499be7ea0a4104ed3f68731442ea383037a4a472de",
   "status": "PASS",
   "telemetry": {
     "brick_observability_ratio": 1.0,
