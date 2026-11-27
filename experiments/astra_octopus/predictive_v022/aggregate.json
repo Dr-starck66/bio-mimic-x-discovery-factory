@@ -1,0 +1,109 @@
+{
+  "summary": {
+    "rms": {
+      "episodes": 104,
+      "proxy_hours": 4078.9666666664366,
+      "episodes_per_1000h": 25.496653564221134,
+      "alert_windows": 5154,
+      "monitored_windows": 24609,
+      "alert_fraction": 0.2094355723515787,
+      "detected": 4,
+      "leads": [
+        76.68333333334203,
+        142.78333333334186,
+        76.1666666666658,
+        109.01666666666188
+      ],
+      "median_lead": 92.85000000000196
+    },
+    "ewma": {
+      "episodes": 76,
+      "proxy_hours": 4078.9666666664366,
+      "episodes_per_1000h": 18.632169912315444,
+      "alert_windows": 5666,
+      "monitored_windows": 24609,
+      "alert_fraction": 0.23024096875126987,
+      "detected": 4,
+      "leads": [
+        143.11666666667517,
+        120.11666666667648,
+        79.16666666666589,
+        193.51666666664266
+      ],
+      "median_lead": 131.61666666667583
+    },
+    "kurtosis": {
+      "episodes": 72,
+      "proxy_hours": 4078.9666666664366,
+      "episodes_per_1000h": 17.65152939061463,
+      "alert_windows": 303,
+      "monitored_windows": 24609,
+      "alert_fraction": 0.012312568572473485,
+      "detected": 1,
+      "leads": [
+        60.18333333334016,
+        null,
+        1.3333333333332575,
+        2.833333333334622
+      ],
+      "median_lead": 2.833333333334622
+    },
+    "multifeature": {
+      "episodes": 178,
+      "proxy_hours": 4078.9666666664366,
+      "episodes_per_1000h": 43.63850321568617,
+      "alert_windows": 14766,
+      "monitored_windows": 24609,
+      "alert_fraction": 0.6000243813239059,
+      "detected": 4,
+      "leads": [
+        76.68333333334203,
+        142.78333333334186,
+        74.16666666666575,
+        58.666666666673336
+      ],
+      "median_lead": 75.42500000000389
+    },
+    "peer_ratio": {
+      "episodes": 53,
+      "proxy_hours": 4078.9666666664366,
+      "episodes_per_1000h": 12.99348691253577,
+      "alert_windows": 5049,
+      "monitored_windows": 24609,
+      "alert_fraction": 0.20516884066804827,
+      "detected": 4,
+      "leads": [
+        49.15000000000555,
+        143.11666666667517,
+        100.49999999999979,
+        246.01666666663073
+      ],
+      "median_lead": 121.80833333333749
+    },
+    "astra": {
+      "episodes": 301,
+      "proxy_hours": 4078.9666666664366,
+      "episodes_per_1000h": 73.79319925798617,
+      "alert_windows": 12883,
+      "monitored_windows": 24609,
+      "alert_fraction": 0.5235076597992604,
+      "detected": 4,
+      "leads": [
+        58.18333333333993,
+        112.78333333334356,
+        82.33333333333265,
+        107.34999999999559
+      ],
+      "median_lead": 94.84166666666411
+    }
+  },
+  "source_blobs": [
+    "1b1d56cb2eba6fae5ff6ac2cc423f869d3eede36",
+    "a5d71bc8d0813f778c556aefd4b5d25fc7318532",
+    "bd3bb2324866255aefcf3bb99f6765505b6364b9",
+    "57b815904042edd37a15bed89eca0e8e0b1b1fe3"
+  ],
+  "only_run_config_changed": true,
+  "valid_rows": 37840,
+  "notes": "Proxy alert episodes and occupancy are not labeled false alarms. Sustained lead is retrospective, relative to last retained snapshot, not onset or causal prediction of time-to-failure. Baseline uses first 100 and calibrates next 100 snapshots per bearing. No external blind trial."
+}
