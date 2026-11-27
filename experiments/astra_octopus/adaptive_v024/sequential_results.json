@@ -1,0 +1,120 @@
+{
+  "n": 200,
+  "seeds": {
+    "cal": 1829001,
+    "test": 1929001
+  },
+  "start": 202,
+  "onset": 250,
+  "horizon": 198,
+  "alpha": 0.05,
+  "drift": 0.25,
+  "limits": {
+    "dual": 1,
+    "calibrated_dual": 1.3828164146092876,
+    "sequential": 29.380740881166638
+  },
+  "results": {
+    "healthy": {
+      "dual": {
+        "any": 145,
+        "early": 88,
+        "detected": 57,
+        "medianDelay": 55
+      },
+      "calibrated_dual": {
+        "any": 7,
+        "early": 3,
+        "detected": 4,
+        "medianDelay": 60.5
+      },
+      "sequential": {
+        "any": 14,
+        "early": 0,
+        "detected": 14,
+        "medianDelay": 87
+      }
+    },
+    "local_strong": {
+      "dual": {
+        "any": 200,
+        "early": 88,
+        "detected": 112,
+        "medianDelay": 4
+      },
+      "calibrated_dual": {
+        "any": 200,
+        "early": 3,
+        "detected": 197,
+        "medianDelay": 4
+      },
+      "sequential": {
+        "any": 200,
+        "early": 0,
+        "detected": 200,
+        "medianDelay": 4
+      }
+    },
+    "common_strong": {
+      "dual": {
+        "any": 200,
+        "early": 88,
+        "detected": 112,
+        "medianDelay": 4
+      },
+      "calibrated_dual": {
+        "any": 200,
+        "early": 3,
+        "detected": 197,
+        "medianDelay": 4
+      },
+      "sequential": {
+        "any": 200,
+        "early": 0,
+        "detected": 200,
+        "medianDelay": 3
+      }
+    },
+    "local_weak": {
+      "dual": {
+        "any": 192,
+        "early": 88,
+        "detected": 104,
+        "medianDelay": 16.5
+      },
+      "calibrated_dual": {
+        "any": 80,
+        "early": 3,
+        "detected": 77,
+        "medianDelay": 53
+      },
+      "sequential": {
+        "any": 200,
+        "early": 0,
+        "detected": 200,
+        "medianDelay": 21.5
+      }
+    },
+    "common_weak": {
+      "dual": {
+        "any": 200,
+        "early": 88,
+        "detected": 112,
+        "medianDelay": 5
+      },
+      "calibrated_dual": {
+        "any": 170,
+        "early": 3,
+        "detected": 167,
+        "medianDelay": 17
+      },
+      "sequential": {
+        "any": 200,
+        "early": 0,
+        "detected": 200,
+        "medianDelay": 16
+      }
+    }
+  },
+  "scope": "simulated iid Gaussian noise; first alarm before onset disqualifies a fault detection"
+}
