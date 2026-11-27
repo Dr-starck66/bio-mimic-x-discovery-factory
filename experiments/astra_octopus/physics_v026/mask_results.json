@@ -1,0 +1,2417 @@
+{
+  "priority": [
+    "raw_plus_physics",
+    "physical_logistic",
+    "efficiency_proxy",
+    "flow_only",
+    "published_SE"
+  ],
+  "thresholds": {
+    "raw_plus_physics": -0.33955614668984135,
+    "physical_logistic": 0.9171894839746626,
+    "efficiency_proxy": 0.3665281266896633,
+    "flow_only": -6.478800000000008,
+    "published_SE": -57.93265000000003
+  },
+  "summary": {
+    "0": {
+      "raw_plus_physics": {
+        "recall": 1,
+        "fpr": 0,
+        "coverage": 1,
+        "fp": 0,
+        "tp": 328,
+        "unknownFault": 0,
+        "unknownNormal": 0
+      },
+      "physical_logistic": {
+        "recall": 1,
+        "fpr": 0.7027027027027027,
+        "coverage": 1,
+        "fp": 286,
+        "tp": 328,
+        "unknownFault": 0,
+        "unknownNormal": 0
+      },
+      "efficiency_proxy": {
+        "recall": 1,
+        "fpr": 0,
+        "coverage": 1,
+        "fp": 0,
+        "tp": 328,
+        "unknownFault": 0,
+        "unknownNormal": 0
+      },
+      "flow_only": {
+        "recall": 0.5945121951219512,
+        "fpr": 0,
+        "coverage": 1,
+        "fp": 0,
+        "tp": 195,
+        "unknownFault": 0,
+        "unknownNormal": 0
+      },
+      "published_SE": {
+        "recall": 1,
+        "fpr": 0,
+        "coverage": 1,
+        "fp": 0,
+        "tp": 328,
+        "unknownFault": 0,
+        "unknownNormal": 0
+      },
+      "fallback": {
+        "recall": 1,
+        "fpr": 0,
+        "coverage": 1,
+        "fp": 0,
+        "tp": 328,
+        "unknownFault": 0,
+        "unknownNormal": 0
+      }
+    },
+    "0.1": {
+      "raw_plus_physics": {
+        "recall": 0.3966463414634146,
+        "fpr": 0,
+        "coverage": 0.38911564625850337,
+        "fp": 0,
+        "tp": 130.1,
+        "unknownFault": 197.9,
+        "unknownNormal": 251.1
+      },
+      "physical_logistic": {
+        "recall": 0.5445121951219513,
+        "fpr": 0.7192055304229853,
+        "coverage": 0.5326530612244896,
+        "fp": 153.1,
+        "tp": 178.6,
+        "unknownFault": 149.4,
+        "unknownNormal": 194.1
+      },
+      "efficiency_proxy": {
+        "recall": 0.7420731707317073,
+        "fpr": 0,
+        "coverage": 0.7326530612244897,
+        "fp": 0,
+        "tp": 243.4,
+        "unknownFault": 84.6,
+        "unknownNormal": 111.9
+      },
+      "flow_only": {
+        "recall": 0.5402439024390244,
+        "fpr": 0,
+        "coverage": 0.9058503401360545,
+        "fp": 0,
+        "tp": 177.2,
+        "unknownFault": 29.4,
+        "unknownNormal": 39.8
+      },
+      "published_SE": {
+        "recall": 0.8978658536585366,
+        "fpr": 0,
+        "coverage": 0.9024489795918367,
+        "fp": 0,
+        "tp": 294.5,
+        "unknownFault": 33.5,
+        "unknownNormal": 38.2
+      },
+      "fallback": {
+        "recall": 0.9152439024390244,
+        "fpr": 0.10449464283823848,
+        "coverage": 0.9895238095238096,
+        "fp": 42,
+        "tp": 300.2,
+        "unknownFault": 2.7,
+        "unknownNormal": 5
+      }
+    },
+    "0.25": {
+      "raw_plus_physics": {
+        "recall": 0.07195121951219512,
+        "fpr": 0,
+        "coverage": 0.07319727891156463,
+        "fp": 0,
+        "tp": 23.6,
+        "unknownFault": 304.4,
+        "unknownNormal": 376.8
+      },
+      "physical_logistic": {
+        "recall": 0.17682926829268292,
+        "fpr": 0.7325147768873588,
+        "coverage": 0.17564625850340138,
+        "fp": 51.9,
+        "tp": 58,
+        "unknownFault": 270,
+        "unknownNormal": 335.9
+      },
+      "efficiency_proxy": {
+        "recall": 0.426219512195122,
+        "fpr": 0,
+        "coverage": 0.41741496598639466,
+        "fp": 0,
+        "tp": 139.8,
+        "unknownFault": 188.2,
+        "unknownNormal": 240
+      },
+      "flow_only": {
+        "recall": 0.44939024390243903,
+        "fpr": 0,
+        "coverage": 0.751156462585034,
+        "fp": 0,
+        "tp": 147.4,
+        "unknownFault": 81.2,
+        "unknownNormal": 101.7
+      },
+      "published_SE": {
+        "recall": 0.7384146341463415,
+        "fpr": 0,
+        "coverage": 0.7496598639455783,
+        "fp": 0,
+        "tp": 242.2,
+        "unknownFault": 85.8,
+        "unknownNormal": 98.2
+      },
+      "fallback": {
+        "recall": 0.7996951219512194,
+        "fpr": 0.0769343793381959,
+        "coverage": 0.9360544217687075,
+        "fp": 29.3,
+        "tp": 262.3,
+        "unknownFault": 20.7,
+        "unknownNormal": 26.3
+      }
+    }
+  },
+  "results": [
+    {
+      "name": "raw_plus_physics",
+      "rate": 0,
+      "seed": 84001,
+      "tp": 328,
+      "fp": 0,
+      "tn": 407,
+      "fn": 0,
+      "unknownNormal": 0,
+      "unknownFault": 0,
+      "route": {
+        "raw_plus_physics": 735
+      },
+      "recall": 1,
+      "fpr": 0,
+      "coverage": 1
+    },
+    {
+      "name": "physical_logistic",
+      "rate": 0,
+      "seed": 84001,
+      "tp": 328,
+      "fp": 286,
+      "tn": 121,
+      "fn": 0,
+      "unknownNormal": 0,
+      "unknownFault": 0,
+      "route": {
+        "physical_logistic": 735
+      },
+      "recall": 1,
+      "fpr": 0.7027027027027027,
+      "coverage": 1
+    },
+    {
+      "name": "efficiency_proxy",
+      "rate": 0,
+      "seed": 84001,
+      "tp": 328,
+      "fp": 0,
+      "tn": 407,
+      "fn": 0,
+      "unknownNormal": 0,
+      "unknownFault": 0,
+      "route": {
+        "efficiency_proxy": 735
+      },
+      "recall": 1,
+      "fpr": 0,
+      "coverage": 1
+    },
+    {
+      "name": "flow_only",
+      "rate": 0,
+      "seed": 84001,
+      "tp": 195,
+      "fp": 0,
+      "tn": 407,
+      "fn": 133,
+      "unknownNormal": 0,
+      "unknownFault": 0,
+      "route": {
+        "flow_only": 735
+      },
+      "recall": 0.5945121951219512,
+      "fpr": 0,
+      "coverage": 1
+    },
+    {
+      "name": "published_SE",
+      "rate": 0,
+      "seed": 84001,
+      "tp": 328,
+      "fp": 0,
+      "tn": 407,
+      "fn": 0,
+      "unknownNormal": 0,
+      "unknownFault": 0,
+      "route": {
+        "published_SE": 735
+      },
+      "recall": 1,
+      "fpr": 0,
+      "coverage": 1
+    },
+    {
+      "name": "fallback",
+      "rate": 0,
+      "seed": 84001,
+      "tp": 328,
+      "fp": 0,
+      "tn": 407,
+      "fn": 0,
+      "unknownNormal": 0,
+      "unknownFault": 0,
+      "route": {
+        "raw_plus_physics": 735
+      },
+      "recall": 1,
+      "fpr": 0,
+      "coverage": 1
+    },
+    {
+      "name": "raw_plus_physics",
+      "rate": 0.1,
+      "seed": 84001,
+      "tp": 121,
+      "fp": 0,
+      "tn": 156,
+      "fn": 207,
+      "unknownNormal": 251,
+      "unknownFault": 207,
+      "route": {
+        "raw_plus_physics": 277
+      },
+      "recall": 0.36890243902439024,
+      "fpr": 0,
+      "coverage": 0.3768707482993197
+    },
+    {
+      "name": "physical_logistic",
+      "rate": 0.1,
+      "seed": 84001,
+      "tp": 175,
+      "fp": 146,
+      "tn": 65,
+      "fn": 153,
+      "unknownNormal": 196,
+      "unknownFault": 153,
+      "route": {
+        "physical_logistic": 386
+      },
+      "recall": 0.5335365853658537,
+      "fpr": 0.6919431279620853,
+      "coverage": 0.5251700680272109
+    },
+    {
+      "name": "efficiency_proxy",
+      "rate": 0.1,
+      "seed": 84001,
+      "tp": 233,
+      "fp": 0,
+      "tn": 286,
+      "fn": 95,
+      "unknownNormal": 121,
+      "unknownFault": 95,
+      "route": {
+        "efficiency_proxy": 519
+      },
+      "recall": 0.7103658536585366,
+      "fpr": 0,
+      "coverage": 0.7061224489795919
+    },
+    {
+      "name": "flow_only",
+      "rate": 0.1,
+      "seed": 84001,
+      "tp": 180,
+      "fp": 0,
+      "tn": 364,
+      "fn": 148,
+      "unknownNormal": 43,
+      "unknownFault": 27,
+      "route": {
+        "flow_only": 665
+      },
+      "recall": 0.5487804878048781,
+      "fpr": 0,
+      "coverage": 0.9047619047619048
+    },
+    {
+      "name": "published_SE",
+      "rate": 0.1,
+      "seed": 84001,
+      "tp": 296,
+      "fp": 0,
+      "tn": 370,
+      "fn": 32,
+      "unknownNormal": 37,
+      "unknownFault": 32,
+      "route": {
+        "published_SE": 666
+      },
+      "recall": 0.9024390243902439,
+      "fpr": 0,
+      "coverage": 0.9061224489795918
+    },
+    {
+      "name": "fallback",
+      "rate": 0.1,
+      "seed": 84001,
+      "tp": 286,
+      "fp": 35,
+      "tn": 368,
+      "fn": 42,
+      "unknownNormal": 4,
+      "unknownFault": 3,
+      "route": {
+        "flow_only": 146,
+        "raw_plus_physics": 277,
+        "physical_logistic": 109,
+        "efficiency_proxy": 133,
+        "published_SE": 63
+      },
+      "recall": 0.8719512195121951,
+      "fpr": 0.08684863523573201,
+      "coverage": 0.9904761904761905
+    },
+    {
+      "name": "raw_plus_physics",
+      "rate": 0.1,
+      "seed": 84002,
+      "tp": 130,
+      "fp": 0,
+      "tn": 161,
+      "fn": 198,
+      "unknownNormal": 246,
+      "unknownFault": 198,
+      "route": {
+        "raw_plus_physics": 291
+      },
+      "recall": 0.39634146341463417,
+      "fpr": 0,
+      "coverage": 0.39591836734693875
+    },
+    {
+      "name": "physical_logistic",
+      "rate": 0.1,
+      "seed": 84002,
+      "tp": 177,
+      "fp": 163,
+      "tn": 57,
+      "fn": 151,
+      "unknownNormal": 187,
+      "unknownFault": 151,
+      "route": {
+        "physical_logistic": 397
+      },
+      "recall": 0.5396341463414634,
+      "fpr": 0.740909090909091,
+      "coverage": 0.5401360544217687
+    },
+    {
+      "name": "efficiency_proxy",
+      "rate": 0.1,
+      "seed": 84002,
+      "tp": 243,
+      "fp": 0,
+      "tn": 295,
+      "fn": 85,
+      "unknownNormal": 112,
+      "unknownFault": 85,
+      "route": {
+        "efficiency_proxy": 538
+      },
+      "recall": 0.7408536585365854,
+      "fpr": 0,
+      "coverage": 0.7319727891156462
+    },
+    {
+      "name": "flow_only",
+      "rate": 0.1,
+      "seed": 84002,
+      "tp": 176,
+      "fp": 0,
+      "tn": 363,
+      "fn": 152,
+      "unknownNormal": 44,
+      "unknownFault": 35,
+      "route": {
+        "flow_only": 656
+      },
+      "recall": 0.5365853658536586,
+      "fpr": 0,
+      "coverage": 0.8925170068027211
+    },
+    {
+      "name": "published_SE",
+      "rate": 0.1,
+      "seed": 84002,
+      "tp": 293,
+      "fp": 0,
+      "tn": 373,
+      "fn": 35,
+      "unknownNormal": 34,
+      "unknownFault": 35,
+      "route": {
+        "published_SE": 666
+      },
+      "recall": 0.8932926829268293,
+      "fpr": 0,
+      "coverage": 0.9061224489795918
+    },
+    {
+      "name": "fallback",
+      "rate": 0.1,
+      "seed": 84002,
+      "tp": 296,
+      "fp": 46,
+      "tn": 355,
+      "fn": 32,
+      "unknownNormal": 6,
+      "unknownFault": 6,
+      "route": {
+        "raw_plus_physics": 291,
+        "flow_only": 118,
+        "physical_logistic": 106,
+        "published_SE": 67,
+        "efficiency_proxy": 141
+      },
+      "recall": 0.9024390243902439,
+      "fpr": 0.11471321695760599,
+      "coverage": 0.9836734693877551
+    },
+    {
+      "name": "raw_plus_physics",
+      "rate": 0.1,
+      "seed": 84003,
+      "tp": 135,
+      "fp": 0,
+      "tn": 152,
+      "fn": 193,
+      "unknownNormal": 255,
+      "unknownFault": 193,
+      "route": {
+        "raw_plus_physics": 287
+      },
+      "recall": 0.4115853658536585,
+      "fpr": 0,
+      "coverage": 0.3904761904761905
+    },
+    {
+      "name": "physical_logistic",
+      "rate": 0.1,
+      "seed": 84003,
+      "tp": 184,
+      "fp": 154,
+      "tn": 57,
+      "fn": 144,
+      "unknownNormal": 196,
+      "unknownFault": 144,
+      "route": {
+        "physical_logistic": 395
+      },
+      "recall": 0.5609756097560976,
+      "fpr": 0.7298578199052133,
+      "coverage": 0.5374149659863946
+    },
+    {
+      "name": "efficiency_proxy",
+      "rate": 0.1,
+      "seed": 84003,
+      "tp": 240,
+      "fp": 0,
+      "tn": 287,
+      "fn": 88,
+      "unknownNormal": 120,
+      "unknownFault": 88,
+      "route": {
+        "efficiency_proxy": 527
+      },
+      "recall": 0.7317073170731707,
+      "fpr": 0,
+      "coverage": 0.7170068027210884
+    },
+    {
+      "name": "flow_only",
+      "rate": 0.1,
+      "seed": 84003,
+      "tp": 178,
+      "fp": 0,
+      "tn": 366,
+      "fn": 150,
+      "unknownNormal": 41,
+      "unknownFault": 28,
+      "route": {
+        "flow_only": 666
+      },
+      "recall": 0.5426829268292683,
+      "fpr": 0,
+      "coverage": 0.9061224489795918
+    },
+    {
+      "name": "published_SE",
+      "rate": 0.1,
+      "seed": 84003,
+      "tp": 297,
+      "fp": 0,
+      "tn": 358,
+      "fn": 31,
+      "unknownNormal": 49,
+      "unknownFault": 31,
+      "route": {
+        "published_SE": 655
+      },
+      "recall": 0.9054878048780488,
+      "fpr": 0,
+      "coverage": 0.891156462585034
+    },
+    {
+      "name": "fallback",
+      "rate": 0.1,
+      "seed": 84003,
+      "tp": 299,
+      "fp": 39,
+      "tn": 364,
+      "fn": 29,
+      "unknownNormal": 4,
+      "unknownFault": 2,
+      "route": {
+        "raw_plus_physics": 287,
+        "efficiency_proxy": 132,
+        "physical_logistic": 108,
+        "published_SE": 63,
+        "flow_only": 139
+      },
+      "recall": 0.9115853658536586,
+      "fpr": 0.0967741935483871,
+      "coverage": 0.9918367346938776
+    },
+    {
+      "name": "raw_plus_physics",
+      "rate": 0.1,
+      "seed": 84004,
+      "tp": 132,
+      "fp": 0,
+      "tn": 165,
+      "fn": 196,
+      "unknownNormal": 242,
+      "unknownFault": 196,
+      "route": {
+        "raw_plus_physics": 297
+      },
+      "recall": 0.4024390243902439,
+      "fpr": 0,
+      "coverage": 0.40408163265306124
+    },
+    {
+      "name": "physical_logistic",
+      "rate": 0.1,
+      "seed": 84004,
+      "tp": 179,
+      "fp": 156,
+      "tn": 64,
+      "fn": 149,
+      "unknownNormal": 187,
+      "unknownFault": 149,
+      "route": {
+        "physical_logistic": 399
+      },
+      "recall": 0.5457317073170732,
+      "fpr": 0.7090909090909091,
+      "coverage": 0.5428571428571428
+    },
+    {
+      "name": "efficiency_proxy",
+      "rate": 0.1,
+      "seed": 84004,
+      "tp": 262,
+      "fp": 0,
+      "tn": 307,
+      "fn": 66,
+      "unknownNormal": 100,
+      "unknownFault": 66,
+      "route": {
+        "efficiency_proxy": 569
+      },
+      "recall": 0.7987804878048781,
+      "fpr": 0,
+      "coverage": 0.7741496598639456
+    },
+    {
+      "name": "flow_only",
+      "rate": 0.1,
+      "seed": 84004,
+      "tp": 180,
+      "fp": 0,
+      "tn": 373,
+      "fn": 148,
+      "unknownNormal": 34,
+      "unknownFault": 21,
+      "route": {
+        "flow_only": 680
+      },
+      "recall": 0.5487804878048781,
+      "fpr": 0,
+      "coverage": 0.9251700680272109
+    },
+    {
+      "name": "published_SE",
+      "rate": 0.1,
+      "seed": 84004,
+      "tp": 302,
+      "fp": 0,
+      "tn": 374,
+      "fn": 26,
+      "unknownNormal": 33,
+      "unknownFault": 26,
+      "route": {
+        "published_SE": 676
+      },
+      "recall": 0.9207317073170732,
+      "fpr": 0,
+      "coverage": 0.9197278911564626
+    },
+    {
+      "name": "fallback",
+      "rate": 0.1,
+      "seed": 84004,
+      "tp": 305,
+      "fp": 44,
+      "tn": 358,
+      "fn": 23,
+      "unknownNormal": 5,
+      "unknownFault": 1,
+      "route": {
+        "efficiency_proxy": 170,
+        "raw_plus_physics": 297,
+        "flow_only": 111,
+        "physical_logistic": 102,
+        "published_SE": 49
+      },
+      "recall": 0.9298780487804879,
+      "fpr": 0.10945273631840796,
+      "coverage": 0.9918367346938776
+    },
+    {
+      "name": "raw_plus_physics",
+      "rate": 0.1,
+      "seed": 84005,
+      "tp": 130,
+      "fp": 0,
+      "tn": 141,
+      "fn": 198,
+      "unknownNormal": 266,
+      "unknownFault": 198,
+      "route": {
+        "raw_plus_physics": 271
+      },
+      "recall": 0.39634146341463417,
+      "fpr": 0,
+      "coverage": 0.3687074829931973
+    },
+    {
+      "name": "physical_logistic",
+      "rate": 0.1,
+      "seed": 84005,
+      "tp": 178,
+      "fp": 146,
+      "tn": 52,
+      "fn": 150,
+      "unknownNormal": 209,
+      "unknownFault": 150,
+      "route": {
+        "physical_logistic": 376
+      },
+      "recall": 0.5426829268292683,
+      "fpr": 0.7373737373737373,
+      "coverage": 0.5115646258503401
+    },
+    {
+      "name": "efficiency_proxy",
+      "rate": 0.1,
+      "seed": 84005,
+      "tp": 240,
+      "fp": 0,
+      "tn": 287,
+      "fn": 88,
+      "unknownNormal": 120,
+      "unknownFault": 88,
+      "route": {
+        "efficiency_proxy": 527
+      },
+      "recall": 0.7317073170731707,
+      "fpr": 0,
+      "coverage": 0.7170068027210884
+    },
+    {
+      "name": "flow_only",
+      "rate": 0.1,
+      "seed": 84005,
+      "tp": 178,
+      "fp": 0,
+      "tn": 364,
+      "fn": 150,
+      "unknownNormal": 43,
+      "unknownFault": 31,
+      "route": {
+        "flow_only": 661
+      },
+      "recall": 0.5426829268292683,
+      "fpr": 0,
+      "coverage": 0.8993197278911564
+    },
+    {
+      "name": "published_SE",
+      "rate": 0.1,
+      "seed": 84005,
+      "tp": 290,
+      "fp": 0,
+      "tn": 365,
+      "fn": 38,
+      "unknownNormal": 42,
+      "unknownFault": 38,
+      "route": {
+        "published_SE": 655
+      },
+      "recall": 0.8841463414634146,
+      "fpr": 0,
+      "coverage": 0.891156462585034
+    },
+    {
+      "name": "fallback",
+      "rate": 0.1,
+      "seed": 84005,
+      "tp": 302,
+      "fp": 44,
+      "tn": 357,
+      "fn": 26,
+      "unknownNormal": 6,
+      "unknownFault": 4,
+      "route": {
+        "efficiency_proxy": 151,
+        "flow_only": 134,
+        "published_SE": 64,
+        "physical_logistic": 105,
+        "raw_plus_physics": 271
+      },
+      "recall": 0.9207317073170732,
+      "fpr": 0.10972568578553615,
+      "coverage": 0.9863945578231292
+    },
+    {
+      "name": "raw_plus_physics",
+      "rate": 0.1,
+      "seed": 84006,
+      "tp": 125,
+      "fp": 0,
+      "tn": 152,
+      "fn": 203,
+      "unknownNormal": 255,
+      "unknownFault": 203,
+      "route": {
+        "raw_plus_physics": 277
+      },
+      "recall": 0.38109756097560976,
+      "fpr": 0,
+      "coverage": 0.3768707482993197
+    },
+    {
+      "name": "physical_logistic",
+      "rate": 0.1,
+      "seed": 84006,
+      "tp": 171,
+      "fp": 149,
+      "tn": 62,
+      "fn": 157,
+      "unknownNormal": 196,
+      "unknownFault": 157,
+      "route": {
+        "physical_logistic": 382
+      },
+      "recall": 0.5213414634146342,
+      "fpr": 0.7061611374407583,
+      "coverage": 0.5197278911564626
+    },
+    {
+      "name": "efficiency_proxy",
+      "rate": 0.1,
+      "seed": 84006,
+      "tp": 240,
+      "fp": 0,
+      "tn": 299,
+      "fn": 88,
+      "unknownNormal": 108,
+      "unknownFault": 88,
+      "route": {
+        "efficiency_proxy": 539
+      },
+      "recall": 0.7317073170731707,
+      "fpr": 0,
+      "coverage": 0.7333333333333333
+    },
+    {
+      "name": "flow_only",
+      "rate": 0.1,
+      "seed": 84006,
+      "tp": 175,
+      "fp": 0,
+      "tn": 365,
+      "fn": 153,
+      "unknownNormal": 42,
+      "unknownFault": 32,
+      "route": {
+        "flow_only": 661
+      },
+      "recall": 0.5335365853658537,
+      "fpr": 0,
+      "coverage": 0.8993197278911564
+    },
+    {
+      "name": "published_SE",
+      "rate": 0.1,
+      "seed": 84006,
+      "tp": 300,
+      "fp": 0,
+      "tn": 361,
+      "fn": 28,
+      "unknownNormal": 46,
+      "unknownFault": 28,
+      "route": {
+        "published_SE": 661
+      },
+      "recall": 0.9146341463414634,
+      "fpr": 0,
+      "coverage": 0.8993197278911564
+    },
+    {
+      "name": "fallback",
+      "rate": 0.1,
+      "seed": 84006,
+      "tp": 305,
+      "fp": 45,
+      "tn": 359,
+      "fn": 23,
+      "unknownNormal": 3,
+      "unknownFault": 1,
+      "route": {
+        "physical_logistic": 105,
+        "efficiency_proxy": 157,
+        "raw_plus_physics": 277,
+        "published_SE": 70,
+        "flow_only": 122
+      },
+      "recall": 0.9298780487804879,
+      "fpr": 0.11138613861386139,
+      "coverage": 0.9945578231292517
+    },
+    {
+      "name": "raw_plus_physics",
+      "rate": 0.1,
+      "seed": 84007,
+      "tp": 127,
+      "fp": 0,
+      "tn": 172,
+      "fn": 201,
+      "unknownNormal": 235,
+      "unknownFault": 201,
+      "route": {
+        "raw_plus_physics": 299
+      },
+      "recall": 0.3871951219512195,
+      "fpr": 0,
+      "coverage": 0.40680272108843535
+    },
+    {
+      "name": "physical_logistic",
+      "rate": 0.1,
+      "seed": 84007,
+      "tp": 186,
+      "fp": 159,
+      "tn": 65,
+      "fn": 142,
+      "unknownNormal": 183,
+      "unknownFault": 142,
+      "route": {
+        "physical_logistic": 410
+      },
+      "recall": 0.5670731707317073,
+      "fpr": 0.7098214285714286,
+      "coverage": 0.5578231292517006
+    },
+    {
+      "name": "efficiency_proxy",
+      "rate": 0.1,
+      "seed": 84007,
+      "tp": 257,
+      "fp": 0,
+      "tn": 309,
+      "fn": 71,
+      "unknownNormal": 98,
+      "unknownFault": 71,
+      "route": {
+        "efficiency_proxy": 566
+      },
+      "recall": 0.7835365853658537,
+      "fpr": 0,
+      "coverage": 0.7700680272108843
+    },
+    {
+      "name": "flow_only",
+      "rate": 0.1,
+      "seed": 84007,
+      "tp": 178,
+      "fp": 0,
+      "tn": 375,
+      "fn": 150,
+      "unknownNormal": 32,
+      "unknownFault": 23,
+      "route": {
+        "flow_only": 680
+      },
+      "recall": 0.5426829268292683,
+      "fpr": 0,
+      "coverage": 0.9251700680272109
+    },
+    {
+      "name": "published_SE",
+      "rate": 0.1,
+      "seed": 84007,
+      "tp": 293,
+      "fp": 0,
+      "tn": 374,
+      "fn": 35,
+      "unknownNormal": 33,
+      "unknownFault": 35,
+      "route": {
+        "published_SE": 667
+      },
+      "recall": 0.8932926829268293,
+      "fpr": 0,
+      "coverage": 0.9074829931972789
+    },
+    {
+      "name": "fallback",
+      "rate": 0.1,
+      "seed": 84007,
+      "tp": 306,
+      "fp": 38,
+      "tn": 365,
+      "fn": 22,
+      "unknownNormal": 4,
+      "unknownFault": 2,
+      "route": {
+        "efficiency_proxy": 156,
+        "published_SE": 49,
+        "raw_plus_physics": 299,
+        "flow_only": 114,
+        "physical_logistic": 111
+      },
+      "recall": 0.9329268292682927,
+      "fpr": 0.09429280397022333,
+      "coverage": 0.9918367346938776
+    },
+    {
+      "name": "raw_plus_physics",
+      "rate": 0.1,
+      "seed": 84008,
+      "tp": 120,
+      "fp": 0,
+      "tn": 161,
+      "fn": 208,
+      "unknownNormal": 246,
+      "unknownFault": 208,
+      "route": {
+        "raw_plus_physics": 281
+      },
+      "recall": 0.36585365853658536,
+      "fpr": 0,
+      "coverage": 0.38231292517006804
+    },
+    {
+      "name": "physical_logistic",
+      "rate": 0.1,
+      "seed": 84008,
+      "tp": 171,
+      "fp": 162,
+      "tn": 61,
+      "fn": 157,
+      "unknownNormal": 184,
+      "unknownFault": 157,
+      "route": {
+        "physical_logistic": 394
+      },
+      "recall": 0.5213414634146342,
+      "fpr": 0.726457399103139,
+      "coverage": 0.5360544217687074
+    },
+    {
+      "name": "efficiency_proxy",
+      "rate": 0.1,
+      "seed": 84008,
+      "tp": 225,
+      "fp": 0,
+      "tn": 300,
+      "fn": 103,
+      "unknownNormal": 107,
+      "unknownFault": 103,
+      "route": {
+        "efficiency_proxy": 525
+      },
+      "recall": 0.6859756097560976,
+      "fpr": 0,
+      "coverage": 0.7142857142857143
+    },
+    {
+      "name": "flow_only",
+      "rate": 0.1,
+      "seed": 84008,
+      "tp": 173,
+      "fp": 0,
+      "tn": 372,
+      "fn": 155,
+      "unknownNormal": 35,
+      "unknownFault": 38,
+      "route": {
+        "flow_only": 662
+      },
+      "recall": 0.5274390243902439,
+      "fpr": 0,
+      "coverage": 0.9006802721088435
+    },
+    {
+      "name": "published_SE",
+      "rate": 0.1,
+      "seed": 84008,
+      "tp": 288,
+      "fp": 0,
+      "tn": 367,
+      "fn": 40,
+      "unknownNormal": 40,
+      "unknownFault": 40,
+      "route": {
+        "published_SE": 655
+      },
+      "recall": 0.8780487804878049,
+      "fpr": 0,
+      "coverage": 0.891156462585034
+    },
+    {
+      "name": "fallback",
+      "rate": 0.1,
+      "seed": 84008,
+      "tp": 299,
+      "fp": 46,
+      "tn": 355,
+      "fn": 29,
+      "unknownNormal": 6,
+      "unknownFault": 3,
+      "route": {
+        "raw_plus_physics": 281,
+        "physical_logistic": 113,
+        "flow_only": 137,
+        "efficiency_proxy": 131,
+        "published_SE": 64
+      },
+      "recall": 0.9115853658536586,
+      "fpr": 0.11471321695760599,
+      "coverage": 0.9877551020408163
+    },
+    {
+      "name": "raw_plus_physics",
+      "rate": 0.1,
+      "seed": 84009,
+      "tp": 139,
+      "fp": 0,
+      "tn": 149,
+      "fn": 189,
+      "unknownNormal": 258,
+      "unknownFault": 189,
+      "route": {
+        "raw_plus_physics": 288
+      },
+      "recall": 0.42378048780487804,
+      "fpr": 0,
+      "coverage": 0.39183673469387753
+    },
+    {
+      "name": "physical_logistic",
+      "rate": 0.1,
+      "seed": 84009,
+      "tp": 180,
+      "fp": 151,
+      "tn": 59,
+      "fn": 148,
+      "unknownNormal": 197,
+      "unknownFault": 148,
+      "route": {
+        "physical_logistic": 390
+      },
+      "recall": 0.5487804878048781,
+      "fpr": 0.719047619047619,
+      "coverage": 0.5306122448979592
+    },
+    {
+      "name": "efficiency_proxy",
+      "rate": 0.1,
+      "seed": 84009,
+      "tp": 242,
+      "fp": 0,
+      "tn": 293,
+      "fn": 86,
+      "unknownNormal": 114,
+      "unknownFault": 86,
+      "route": {
+        "efficiency_proxy": 535
+      },
+      "recall": 0.7378048780487805,
+      "fpr": 0,
+      "coverage": 0.7278911564625851
+    },
+    {
+      "name": "flow_only",
+      "rate": 0.1,
+      "seed": 84009,
+      "tp": 175,
+      "fp": 0,
+      "tn": 365,
+      "fn": 153,
+      "unknownNormal": 42,
+      "unknownFault": 31,
+      "route": {
+        "flow_only": 662
+      },
+      "recall": 0.5335365853658537,
+      "fpr": 0,
+      "coverage": 0.9006802721088435
+    },
+    {
+      "name": "published_SE",
+      "rate": 0.1,
+      "seed": 84009,
+      "tp": 286,
+      "fp": 0,
+      "tn": 377,
+      "fn": 42,
+      "unknownNormal": 30,
+      "unknownFault": 42,
+      "route": {
+        "published_SE": 663
+      },
+      "recall": 0.8719512195121951,
+      "fpr": 0,
+      "coverage": 0.9020408163265307
+    },
+    {
+      "name": "fallback",
+      "rate": 0.1,
+      "seed": 84009,
+      "tp": 296,
+      "fp": 46,
+      "tn": 354,
+      "fn": 32,
+      "unknownNormal": 7,
+      "unknownFault": 3,
+      "route": {
+        "efficiency_proxy": 145,
+        "physical_logistic": 102,
+        "flow_only": 127,
+        "raw_plus_physics": 288,
+        "published_SE": 63
+      },
+      "recall": 0.9024390243902439,
+      "fpr": 0.115,
+      "coverage": 0.9863945578231292
+    },
+    {
+      "name": "raw_plus_physics",
+      "rate": 0.1,
+      "seed": 84010,
+      "tp": 142,
+      "fp": 0,
+      "tn": 150,
+      "fn": 186,
+      "unknownNormal": 257,
+      "unknownFault": 186,
+      "route": {
+        "raw_plus_physics": 292
+      },
+      "recall": 0.4329268292682927,
+      "fpr": 0,
+      "coverage": 0.39727891156462586
+    },
+    {
+      "name": "physical_logistic",
+      "rate": 0.1,
+      "seed": 84010,
+      "tp": 185,
+      "fp": 145,
+      "tn": 56,
+      "fn": 143,
+      "unknownNormal": 206,
+      "unknownFault": 143,
+      "route": {
+        "physical_logistic": 386
+      },
+      "recall": 0.5640243902439024,
+      "fpr": 0.7213930348258707,
+      "coverage": 0.5251700680272109
+    },
+    {
+      "name": "efficiency_proxy",
+      "rate": 0.1,
+      "seed": 84010,
+      "tp": 252,
+      "fp": 0,
+      "tn": 288,
+      "fn": 76,
+      "unknownNormal": 119,
+      "unknownFault": 76,
+      "route": {
+        "efficiency_proxy": 540
+      },
+      "recall": 0.7682926829268293,
+      "fpr": 0,
+      "coverage": 0.7346938775510204
+    },
+    {
+      "name": "flow_only",
+      "rate": 0.1,
+      "seed": 84010,
+      "tp": 179,
+      "fp": 0,
+      "tn": 365,
+      "fn": 149,
+      "unknownNormal": 42,
+      "unknownFault": 28,
+      "route": {
+        "flow_only": 665
+      },
+      "recall": 0.5457317073170732,
+      "fpr": 0,
+      "coverage": 0.9047619047619048
+    },
+    {
+      "name": "published_SE",
+      "rate": 0.1,
+      "seed": 84010,
+      "tp": 300,
+      "fp": 0,
+      "tn": 369,
+      "fn": 28,
+      "unknownNormal": 38,
+      "unknownFault": 28,
+      "route": {
+        "published_SE": 669
+      },
+      "recall": 0.9146341463414634,
+      "fpr": 0,
+      "coverage": 0.9102040816326531
+    },
+    {
+      "name": "fallback",
+      "rate": 0.1,
+      "seed": 84010,
+      "tp": 308,
+      "fp": 37,
+      "tn": 365,
+      "fn": 20,
+      "unknownNormal": 5,
+      "unknownFault": 2,
+      "route": {
+        "raw_plus_physics": 292,
+        "physical_logistic": 94,
+        "flow_only": 125,
+        "efficiency_proxy": 154,
+        "published_SE": 63
+      },
+      "recall": 0.9390243902439024,
+      "fpr": 0.09203980099502487,
+      "coverage": 0.9904761904761905
+    },
+    {
+      "name": "raw_plus_physics",
+      "rate": 0.25,
+      "seed": 84001,
+      "tp": 23,
+      "fp": 0,
+      "tn": 24,
+      "fn": 305,
+      "unknownNormal": 383,
+      "unknownFault": 305,
+      "route": {
+        "raw_plus_physics": 47
+      },
+      "recall": 0.0701219512195122,
+      "fpr": 0,
+      "coverage": 0.06394557823129252
+    },
+    {
+      "name": "physical_logistic",
+      "rate": 0.25,
+      "seed": 84001,
+      "tp": 59,
+      "fp": 48,
+      "tn": 20,
+      "fn": 269,
+      "unknownNormal": 339,
+      "unknownFault": 269,
+      "route": {
+        "physical_logistic": 127
+      },
+      "recall": 0.1798780487804878,
+      "fpr": 0.7058823529411765,
+      "coverage": 0.1727891156462585
+    },
+    {
+      "name": "efficiency_proxy",
+      "rate": 0.25,
+      "seed": 84001,
+      "tp": 140,
+      "fp": 0,
+      "tn": 168,
+      "fn": 188,
+      "unknownNormal": 239,
+      "unknownFault": 188,
+      "route": {
+        "efficiency_proxy": 308
+      },
+      "recall": 0.4268292682926829,
+      "fpr": 0,
+      "coverage": 0.41904761904761906
+    },
+    {
+      "name": "flow_only",
+      "rate": 0.25,
+      "seed": 84001,
+      "tp": 154,
+      "fp": 0,
+      "tn": 299,
+      "fn": 174,
+      "unknownNormal": 108,
+      "unknownFault": 74,
+      "route": {
+        "flow_only": 553
+      },
+      "recall": 0.4695121951219512,
+      "fpr": 0,
+      "coverage": 0.7523809523809524
+    },
+    {
+      "name": "published_SE",
+      "rate": 0.25,
+      "seed": 84001,
+      "tp": 244,
+      "fp": 0,
+      "tn": 300,
+      "fn": 84,
+      "unknownNormal": 107,
+      "unknownFault": 84,
+      "route": {
+        "published_SE": 544
+      },
+      "recall": 0.7439024390243902,
+      "fpr": 0,
+      "coverage": 0.7401360544217687
+    },
+    {
+      "name": "fallback",
+      "rate": 0.25,
+      "seed": 84001,
+      "tp": 256,
+      "fp": 30,
+      "tn": 351,
+      "fn": 72,
+      "unknownNormal": 26,
+      "unknownFault": 14,
+      "route": {
+        "published_SE": 142,
+        "flow_only": 245,
+        "physical_logistic": 80,
+        "efficiency_proxy": 181,
+        "raw_plus_physics": 47
+      },
+      "recall": 0.7804878048780488,
+      "fpr": 0.07874015748031496,
+      "coverage": 0.9455782312925171
+    },
+    {
+      "name": "raw_plus_physics",
+      "rate": 0.25,
+      "seed": 84002,
+      "tp": 16,
+      "fp": 0,
+      "tn": 28,
+      "fn": 312,
+      "unknownNormal": 379,
+      "unknownFault": 312,
+      "route": {
+        "raw_plus_physics": 44
+      },
+      "recall": 0.04878048780487805,
+      "fpr": 0,
+      "coverage": 0.05986394557823129
+    },
+    {
+      "name": "physical_logistic",
+      "rate": 0.25,
+      "seed": 84002,
+      "tp": 45,
+      "fp": 50,
+      "tn": 20,
+      "fn": 283,
+      "unknownNormal": 337,
+      "unknownFault": 283,
+      "route": {
+        "physical_logistic": 115
+      },
+      "recall": 0.13719512195121952,
+      "fpr": 0.7142857142857143,
+      "coverage": 0.1564625850340136
+    },
+    {
+      "name": "efficiency_proxy",
+      "rate": 0.25,
+      "seed": 84002,
+      "tp": 140,
+      "fp": 0,
+      "tn": 167,
+      "fn": 188,
+      "unknownNormal": 240,
+      "unknownFault": 188,
+      "route": {
+        "efficiency_proxy": 307
+      },
+      "recall": 0.4268292682926829,
+      "fpr": 0,
+      "coverage": 0.41768707482993195
+    },
+    {
+      "name": "flow_only",
+      "rate": 0.25,
+      "seed": 84002,
+      "tp": 152,
+      "fp": 0,
+      "tn": 295,
+      "fn": 176,
+      "unknownNormal": 112,
+      "unknownFault": 82,
+      "route": {
+        "flow_only": 541
+      },
+      "recall": 0.4634146341463415,
+      "fpr": 0,
+      "coverage": 0.7360544217687075
+    },
+    {
+      "name": "published_SE",
+      "rate": 0.25,
+      "seed": 84002,
+      "tp": 231,
+      "fp": 0,
+      "tn": 321,
+      "fn": 97,
+      "unknownNormal": 86,
+      "unknownFault": 97,
+      "route": {
+        "published_SE": 552
+      },
+      "recall": 0.7042682926829268,
+      "fpr": 0,
+      "coverage": 0.7510204081632653
+    },
+    {
+      "name": "fallback",
+      "rate": 0.25,
+      "seed": 84002,
+      "tp": 251,
+      "fp": 29,
+      "tn": 351,
+      "fn": 77,
+      "unknownNormal": 27,
+      "unknownFault": 27,
+      "route": {
+        "physical_logistic": 71,
+        "flow_only": 234,
+        "published_SE": 140,
+        "raw_plus_physics": 44,
+        "efficiency_proxy": 192
+      },
+      "recall": 0.7652439024390244,
+      "fpr": 0.07631578947368421,
+      "coverage": 0.926530612244898
+    },
+    {
+      "name": "raw_plus_physics",
+      "rate": 0.25,
+      "seed": 84003,
+      "tp": 22,
+      "fp": 0,
+      "tn": 27,
+      "fn": 306,
+      "unknownNormal": 380,
+      "unknownFault": 306,
+      "route": {
+        "raw_plus_physics": 49
+      },
+      "recall": 0.06707317073170732,
+      "fpr": 0,
+      "coverage": 0.06666666666666667
+    },
+    {
+      "name": "physical_logistic",
+      "rate": 0.25,
+      "seed": 84003,
+      "tp": 49,
+      "fp": 48,
+      "tn": 13,
+      "fn": 279,
+      "unknownNormal": 346,
+      "unknownFault": 279,
+      "route": {
+        "physical_logistic": 110
+      },
+      "recall": 0.14939024390243902,
+      "fpr": 0.7868852459016393,
+      "coverage": 0.14965986394557823
+    },
+    {
+      "name": "efficiency_proxy",
+      "rate": 0.25,
+      "seed": 84003,
+      "tp": 113,
+      "fp": 0,
+      "tn": 158,
+      "fn": 215,
+      "unknownNormal": 249,
+      "unknownFault": 215,
+      "route": {
+        "efficiency_proxy": 271
+      },
+      "recall": 0.3445121951219512,
+      "fpr": 0,
+      "coverage": 0.3687074829931973
+    },
+    {
+      "name": "flow_only",
+      "rate": 0.25,
+      "seed": 84003,
+      "tp": 144,
+      "fp": 0,
+      "tn": 298,
+      "fn": 184,
+      "unknownNormal": 109,
+      "unknownFault": 93,
+      "route": {
+        "flow_only": 533
+      },
+      "recall": 0.43902439024390244,
+      "fpr": 0,
+      "coverage": 0.7251700680272108
+    },
+    {
+      "name": "published_SE",
+      "rate": 0.25,
+      "seed": 84003,
+      "tp": 241,
+      "fp": 0,
+      "tn": 302,
+      "fn": 87,
+      "unknownNormal": 105,
+      "unknownFault": 87,
+      "route": {
+        "published_SE": 543
+      },
+      "recall": 0.7347560975609756,
+      "fpr": 0,
+      "coverage": 0.7387755102040816
+    },
+    {
+      "name": "fallback",
+      "rate": 0.25,
+      "seed": 84003,
+      "tp": 258,
+      "fp": 24,
+      "tn": 352,
+      "fn": 70,
+      "unknownNormal": 31,
+      "unknownFault": 24,
+      "route": {
+        "flow_only": 262,
+        "published_SE": 147,
+        "physical_logistic": 61,
+        "efficiency_proxy": 161,
+        "raw_plus_physics": 49
+      },
+      "recall": 0.7865853658536586,
+      "fpr": 0.06382978723404255,
+      "coverage": 0.9251700680272109
+    },
+    {
+      "name": "raw_plus_physics",
+      "rate": 0.25,
+      "seed": 84004,
+      "tp": 24,
+      "fp": 0,
+      "tn": 28,
+      "fn": 304,
+      "unknownNormal": 379,
+      "unknownFault": 304,
+      "route": {
+        "raw_plus_physics": 52
+      },
+      "recall": 0.07317073170731707,
+      "fpr": 0,
+      "coverage": 0.0707482993197279
+    },
+    {
+      "name": "physical_logistic",
+      "rate": 0.25,
+      "seed": 84004,
+      "tp": 62,
+      "fp": 51,
+      "tn": 21,
+      "fn": 266,
+      "unknownNormal": 335,
+      "unknownFault": 266,
+      "route": {
+        "physical_logistic": 134
+      },
+      "recall": 0.18902439024390244,
+      "fpr": 0.7083333333333334,
+      "coverage": 0.18231292517006803
+    },
+    {
+      "name": "efficiency_proxy",
+      "rate": 0.25,
+      "seed": 84004,
+      "tp": 160,
+      "fp": 0,
+      "tn": 174,
+      "fn": 168,
+      "unknownNormal": 233,
+      "unknownFault": 168,
+      "route": {
+        "efficiency_proxy": 334
+      },
+      "recall": 0.4878048780487805,
+      "fpr": 0,
+      "coverage": 0.454421768707483
+    },
+    {
+      "name": "flow_only",
+      "rate": 0.25,
+      "seed": 84004,
+      "tp": 154,
+      "fp": 0,
+      "tn": 310,
+      "fn": 174,
+      "unknownNormal": 97,
+      "unknownFault": 67,
+      "route": {
+        "flow_only": 571
+      },
+      "recall": 0.4695121951219512,
+      "fpr": 0,
+      "coverage": 0.7768707482993197
+    },
+    {
+      "name": "published_SE",
+      "rate": 0.25,
+      "seed": 84004,
+      "tp": 255,
+      "fp": 0,
+      "tn": 315,
+      "fn": 73,
+      "unknownNormal": 92,
+      "unknownFault": 73,
+      "route": {
+        "published_SE": 570
+      },
+      "recall": 0.7774390243902439,
+      "fpr": 0,
+      "coverage": 0.7755102040816326
+    },
+    {
+      "name": "fallback",
+      "rate": 0.25,
+      "seed": 84004,
+      "tp": 278,
+      "fp": 32,
+      "tn": 351,
+      "fn": 50,
+      "unknownNormal": 24,
+      "unknownFault": 14,
+      "route": {
+        "published_SE": 126,
+        "physical_logistic": 82,
+        "efficiency_proxy": 200,
+        "flow_only": 237,
+        "raw_plus_physics": 52
+      },
+      "recall": 0.8475609756097561,
+      "fpr": 0.0835509138381201,
+      "coverage": 0.9482993197278912
+    },
+    {
+      "name": "raw_plus_physics",
+      "rate": 0.25,
+      "seed": 84005,
+      "tp": 28,
+      "fp": 0,
+      "tn": 25,
+      "fn": 300,
+      "unknownNormal": 382,
+      "unknownFault": 300,
+      "route": {
+        "raw_plus_physics": 53
+      },
+      "recall": 0.08536585365853659,
+      "fpr": 0,
+      "coverage": 0.07210884353741497
+    },
+    {
+      "name": "physical_logistic",
+      "rate": 0.25,
+      "seed": 84005,
+      "tp": 71,
+      "fp": 47,
+      "tn": 13,
+      "fn": 257,
+      "unknownNormal": 347,
+      "unknownFault": 257,
+      "route": {
+        "physical_logistic": 131
+      },
+      "recall": 0.21646341463414634,
+      "fpr": 0.7833333333333333,
+      "coverage": 0.1782312925170068
+    },
+    {
+      "name": "efficiency_proxy",
+      "rate": 0.25,
+      "seed": 84005,
+      "tp": 139,
+      "fp": 0,
+      "tn": 160,
+      "fn": 189,
+      "unknownNormal": 247,
+      "unknownFault": 189,
+      "route": {
+        "efficiency_proxy": 299
+      },
+      "recall": 0.42378048780487804,
+      "fpr": 0,
+      "coverage": 0.40680272108843535
+    },
+    {
+      "name": "flow_only",
+      "rate": 0.25,
+      "seed": 84005,
+      "tp": 142,
+      "fp": 0,
+      "tn": 300,
+      "fn": 186,
+      "unknownNormal": 107,
+      "unknownFault": 88,
+      "route": {
+        "flow_only": 540
+      },
+      "recall": 0.4329268292682927,
+      "fpr": 0,
+      "coverage": 0.7346938775510204
+    },
+    {
+      "name": "published_SE",
+      "rate": 0.25,
+      "seed": 84005,
+      "tp": 235,
+      "fp": 0,
+      "tn": 312,
+      "fn": 93,
+      "unknownNormal": 95,
+      "unknownFault": 93,
+      "route": {
+        "published_SE": 547
+      },
+      "recall": 0.7164634146341463,
+      "fpr": 0,
+      "coverage": 0.7442176870748299
+    },
+    {
+      "name": "fallback",
+      "rate": 0.25,
+      "seed": 84005,
+      "tp": 262,
+      "fp": 29,
+      "tn": 353,
+      "fn": 66,
+      "unknownNormal": 25,
+      "unknownFault": 25,
+      "route": {
+        "flow_only": 241,
+        "published_SE": 145,
+        "efficiency_proxy": 168,
+        "raw_plus_physics": 53,
+        "physical_logistic": 78
+      },
+      "recall": 0.7987804878048781,
+      "fpr": 0.07591623036649214,
+      "coverage": 0.9319727891156463
+    },
+    {
+      "name": "raw_plus_physics",
+      "rate": 0.25,
+      "seed": 84006,
+      "tp": 27,
+      "fp": 0,
+      "tn": 36,
+      "fn": 301,
+      "unknownNormal": 371,
+      "unknownFault": 301,
+      "route": {
+        "raw_plus_physics": 63
+      },
+      "recall": 0.08231707317073171,
+      "fpr": 0,
+      "coverage": 0.08571428571428572
+    },
+    {
+      "name": "physical_logistic",
+      "rate": 0.25,
+      "seed": 84006,
+      "tp": 56,
+      "fp": 55,
+      "tn": 22,
+      "fn": 272,
+      "unknownNormal": 330,
+      "unknownFault": 272,
+      "route": {
+        "physical_logistic": 133
+      },
+      "recall": 0.17073170731707318,
+      "fpr": 0.7142857142857143,
+      "coverage": 0.18095238095238095
+    },
+    {
+      "name": "efficiency_proxy",
+      "rate": 0.25,
+      "seed": 84006,
+      "tp": 138,
+      "fp": 0,
+      "tn": 171,
+      "fn": 190,
+      "unknownNormal": 236,
+      "unknownFault": 190,
+      "route": {
+        "efficiency_proxy": 309
+      },
+      "recall": 0.42073170731707316,
+      "fpr": 0,
+      "coverage": 0.4204081632653061
+    },
+    {
+      "name": "flow_only",
+      "rate": 0.25,
+      "seed": 84006,
+      "tp": 150,
+      "fp": 0,
+      "tn": 304,
+      "fn": 178,
+      "unknownNormal": 103,
+      "unknownFault": 80,
+      "route": {
+        "flow_only": 552
+      },
+      "recall": 0.4573170731707317,
+      "fpr": 0,
+      "coverage": 0.7510204081632653
+    },
+    {
+      "name": "published_SE",
+      "rate": 0.25,
+      "seed": 84006,
+      "tp": 250,
+      "fp": 0,
+      "tn": 304,
+      "fn": 78,
+      "unknownNormal": 103,
+      "unknownFault": 78,
+      "route": {
+        "published_SE": 554
+      },
+      "recall": 0.7621951219512195,
+      "fpr": 0,
+      "coverage": 0.7537414965986394
+    },
+    {
+      "name": "fallback",
+      "rate": 0.25,
+      "seed": 84006,
+      "tp": 270,
+      "fp": 30,
+      "tn": 348,
+      "fn": 58,
+      "unknownNormal": 29,
+      "unknownFault": 17,
+      "route": {
+        "physical_logistic": 70,
+        "flow_only": 243,
+        "efficiency_proxy": 176,
+        "published_SE": 137,
+        "raw_plus_physics": 63
+      },
+      "recall": 0.823170731707317,
+      "fpr": 0.07936507936507936,
+      "coverage": 0.9374149659863945
+    },
+    {
+      "name": "raw_plus_physics",
+      "rate": 0.25,
+      "seed": 84007,
+      "tp": 21,
+      "fp": 0,
+      "tn": 37,
+      "fn": 307,
+      "unknownNormal": 370,
+      "unknownFault": 307,
+      "route": {
+        "raw_plus_physics": 58
+      },
+      "recall": 0.06402439024390244,
+      "fpr": 0,
+      "coverage": 0.07891156462585033
+    },
+    {
+      "name": "physical_logistic",
+      "rate": 0.25,
+      "seed": 84007,
+      "tp": 50,
+      "fp": 59,
+      "tn": 24,
+      "fn": 278,
+      "unknownNormal": 324,
+      "unknownFault": 278,
+      "route": {
+        "physical_logistic": 133
+      },
+      "recall": 0.1524390243902439,
+      "fpr": 0.7108433734939759,
+      "coverage": 0.18095238095238095
+    },
+    {
+      "name": "efficiency_proxy",
+      "rate": 0.25,
+      "seed": 84007,
+      "tp": 139,
+      "fp": 0,
+      "tn": 173,
+      "fn": 189,
+      "unknownNormal": 234,
+      "unknownFault": 189,
+      "route": {
+        "efficiency_proxy": 312
+      },
+      "recall": 0.42378048780487804,
+      "fpr": 0,
+      "coverage": 0.42448979591836733
+    },
+    {
+      "name": "flow_only",
+      "rate": 0.25,
+      "seed": 84007,
+      "tp": 145,
+      "fp": 0,
+      "tn": 319,
+      "fn": 183,
+      "unknownNormal": 88,
+      "unknownFault": 81,
+      "route": {
+        "flow_only": 566
+      },
+      "recall": 0.4420731707317073,
+      "fpr": 0,
+      "coverage": 0.7700680272108843
+    },
+    {
+      "name": "published_SE",
+      "rate": 0.25,
+      "seed": 84007,
+      "tp": 248,
+      "fp": 0,
+      "tn": 306,
+      "fn": 80,
+      "unknownNormal": 101,
+      "unknownFault": 80,
+      "route": {
+        "published_SE": 554
+      },
+      "recall": 0.7560975609756098,
+      "fpr": 0,
+      "coverage": 0.7537414965986394
+    },
+    {
+      "name": "fallback",
+      "rate": 0.25,
+      "seed": 84007,
+      "tp": 261,
+      "fp": 36,
+      "tn": 346,
+      "fn": 67,
+      "unknownNormal": 25,
+      "unknownFault": 19,
+      "route": {
+        "published_SE": 125,
+        "flow_only": 254,
+        "efficiency_proxy": 179,
+        "physical_logistic": 75,
+        "raw_plus_physics": 58
+      },
+      "recall": 0.7957317073170732,
+      "fpr": 0.09424083769633508,
+      "coverage": 0.9401360544217687
+    },
+    {
+      "name": "raw_plus_physics",
+      "rate": 0.25,
+      "seed": 84008,
+      "tp": 21,
+      "fp": 0,
+      "tn": 29,
+      "fn": 307,
+      "unknownNormal": 378,
+      "unknownFault": 307,
+      "route": {
+        "raw_plus_physics": 50
+      },
+      "recall": 0.06402439024390244,
+      "fpr": 0,
+      "coverage": 0.06802721088435375
+    },
+    {
+      "name": "physical_logistic",
+      "rate": 0.25,
+      "seed": 84008,
+      "tp": 63,
+      "fp": 51,
+      "tn": 15,
+      "fn": 265,
+      "unknownNormal": 341,
+      "unknownFault": 265,
+      "route": {
+        "physical_logistic": 129
+      },
+      "recall": 0.19207317073170732,
+      "fpr": 0.7727272727272727,
+      "coverage": 0.17551020408163265
+    },
+    {
+      "name": "efficiency_proxy",
+      "rate": 0.25,
+      "seed": 84008,
+      "tp": 131,
+      "fp": 0,
+      "tn": 153,
+      "fn": 197,
+      "unknownNormal": 254,
+      "unknownFault": 197,
+      "route": {
+        "efficiency_proxy": 284
+      },
+      "recall": 0.39939024390243905,
+      "fpr": 0,
+      "coverage": 0.38639455782312926
+    },
+    {
+      "name": "flow_only",
+      "rate": 0.25,
+      "seed": 84008,
+      "tp": 140,
+      "fp": 0,
+      "tn": 301,
+      "fn": 188,
+      "unknownNormal": 106,
+      "unknownFault": 91,
+      "route": {
+        "flow_only": 538
+      },
+      "recall": 0.4268292682926829,
+      "fpr": 0,
+      "coverage": 0.7319727891156462
+    },
+    {
+      "name": "published_SE",
+      "rate": 0.25,
+      "seed": 84008,
+      "tp": 240,
+      "fp": 0,
+      "tn": 316,
+      "fn": 88,
+      "unknownNormal": 91,
+      "unknownFault": 88,
+      "route": {
+        "published_SE": 556
+      },
+      "recall": 0.7317073170731707,
+      "fpr": 0,
+      "coverage": 0.7564625850340136
+    },
+    {
+      "name": "fallback",
+      "rate": 0.25,
+      "seed": 84008,
+      "tp": 262,
+      "fp": 23,
+      "tn": 358,
+      "fn": 66,
+      "unknownNormal": 26,
+      "unknownFault": 23,
+      "route": {
+        "efficiency_proxy": 155,
+        "physical_logistic": 79,
+        "published_SE": 148,
+        "flow_only": 254,
+        "raw_plus_physics": 50
+      },
+      "recall": 0.7987804878048781,
+      "fpr": 0.06036745406824147,
+      "coverage": 0.9333333333333333
+    },
+    {
+      "name": "raw_plus_physics",
+      "rate": 0.25,
+      "seed": 84009,
+      "tp": 27,
+      "fp": 0,
+      "tn": 35,
+      "fn": 301,
+      "unknownNormal": 372,
+      "unknownFault": 301,
+      "route": {
+        "raw_plus_physics": 62
+      },
+      "recall": 0.08231707317073171,
+      "fpr": 0,
+      "coverage": 0.08435374149659863
+    },
+    {
+      "name": "physical_logistic",
+      "rate": 0.25,
+      "seed": 84009,
+      "tp": 59,
+      "fp": 51,
+      "tn": 26,
+      "fn": 269,
+      "unknownNormal": 330,
+      "unknownFault": 269,
+      "route": {
+        "physical_logistic": 136
+      },
+      "recall": 0.1798780487804878,
+      "fpr": 0.6623376623376623,
+      "coverage": 0.18503401360544217
+    },
+    {
+      "name": "efficiency_proxy",
+      "rate": 0.25,
+      "seed": 84009,
+      "tp": 138,
+      "fp": 0,
+      "tn": 169,
+      "fn": 190,
+      "unknownNormal": 238,
+      "unknownFault": 190,
+      "route": {
+        "efficiency_proxy": 307
+      },
+      "recall": 0.42073170731707316,
+      "fpr": 0,
+      "coverage": 0.41768707482993195
+    },
+    {
+      "name": "flow_only",
+      "rate": 0.25,
+      "seed": 84009,
+      "tp": 139,
+      "fp": 0,
+      "tn": 312,
+      "fn": 189,
+      "unknownNormal": 95,
+      "unknownFault": 88,
+      "route": {
+        "flow_only": 552
+      },
+      "recall": 0.42378048780487804,
+      "fpr": 0,
+      "coverage": 0.7510204081632653
+    },
+    {
+      "name": "published_SE",
+      "rate": 0.25,
+      "seed": 84009,
+      "tp": 229,
+      "fp": 0,
+      "tn": 305,
+      "fn": 99,
+      "unknownNormal": 102,
+      "unknownFault": 99,
+      "route": {
+        "published_SE": 534
+      },
+      "recall": 0.698170731707317,
+      "fpr": 0,
+      "coverage": 0.726530612244898
+    },
+    {
+      "name": "fallback",
+      "rate": 0.25,
+      "seed": 84009,
+      "tp": 250,
+      "fp": 28,
+      "tn": 352,
+      "fn": 78,
+      "unknownNormal": 27,
+      "unknownFault": 30,
+      "route": {
+        "flow_only": 245,
+        "raw_plus_physics": 62,
+        "physical_logistic": 74,
+        "published_SE": 126,
+        "efficiency_proxy": 171
+      },
+      "recall": 0.7621951219512195,
+      "fpr": 0.07368421052631578,
+      "coverage": 0.9224489795918367
+    },
+    {
+      "name": "raw_plus_physics",
+      "rate": 0.25,
+      "seed": 84010,
+      "tp": 27,
+      "fp": 0,
+      "tn": 33,
+      "fn": 301,
+      "unknownNormal": 374,
+      "unknownFault": 301,
+      "route": {
+        "raw_plus_physics": 60
+      },
+      "recall": 0.08231707317073171,
+      "fpr": 0,
+      "coverage": 0.08163265306122448
+    },
+    {
+      "name": "physical_logistic",
+      "rate": 0.25,
+      "seed": 84010,
+      "tp": 66,
+      "fp": 59,
+      "tn": 18,
+      "fn": 262,
+      "unknownNormal": 330,
+      "unknownFault": 262,
+      "route": {
+        "physical_logistic": 143
+      },
+      "recall": 0.20121951219512196,
+      "fpr": 0.7662337662337663,
+      "coverage": 0.1945578231292517
+    },
+    {
+      "name": "efficiency_proxy",
+      "rate": 0.25,
+      "seed": 84010,
+      "tp": 160,
+      "fp": 0,
+      "tn": 177,
+      "fn": 168,
+      "unknownNormal": 230,
+      "unknownFault": 168,
+      "route": {
+        "efficiency_proxy": 337
+      },
+      "recall": 0.4878048780487805,
+      "fpr": 0,
+      "coverage": 0.45850340136054424
+    },
+    {
+      "name": "flow_only",
+      "rate": 0.25,
+      "seed": 84010,
+      "tp": 154,
+      "fp": 0,
+      "tn": 315,
+      "fn": 174,
+      "unknownNormal": 92,
+      "unknownFault": 68,
+      "route": {
+        "flow_only": 575
+      },
+      "recall": 0.4695121951219512,
+      "fpr": 0,
+      "coverage": 0.782312925170068
+    },
+    {
+      "name": "published_SE",
+      "rate": 0.25,
+      "seed": 84010,
+      "tp": 249,
+      "fp": 0,
+      "tn": 307,
+      "fn": 79,
+      "unknownNormal": 100,
+      "unknownFault": 79,
+      "route": {
+        "published_SE": 556
+      },
+      "recall": 0.7591463414634146,
+      "fpr": 0,
+      "coverage": 0.7564625850340136
+    },
+    {
+      "name": "fallback",
+      "rate": 0.25,
+      "seed": 84010,
+      "tp": 275,
+      "fp": 32,
+      "tn": 352,
+      "fn": 53,
+      "unknownNormal": 23,
+      "unknownFault": 14,
+      "route": {
+        "published_SE": 123,
+        "efficiency_proxy": 194,
+        "flow_only": 238,
+        "physical_logistic": 83,
+        "raw_plus_physics": 60
+      },
+      "recall": 0.8384146341463414,
+      "fpr": 0.08333333333333333,
+      "coverage": 0.9496598639455782
+    }
+  ],
+  "checks": {
+    "conversion": true,
+    "missingPressureAbstains": true,
+    "zeroPowerAbstains": true,
+    "labelsNotFeatures": true,
+    "replay": true
+  }
+}
