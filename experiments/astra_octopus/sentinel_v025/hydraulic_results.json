@@ -1,0 +1,5188 @@
+{
+  "source": "elahi-me-kuet/hydraulic-system-condition-monitoring",
+  "blob": "ef3eaa673310ffa2f2693d2b74d7c757f388037e",
+  "profileCrosscheck": true,
+  "rows": 2205,
+  "missing": 0,
+  "replay": true,
+  "result": {
+    "fit": 407,
+    "cal": 735,
+    "calCleanBlocks": 23,
+    "test": 735,
+    "rate": 0,
+    "seed": 0,
+    "thresholds": {
+      "absolute_cusum": 372232.08333333326,
+      "relative_cusum": 697598.4266312681,
+      "sequential_dual": 697598.4266312681,
+      "sentinel": 348799.21331563406,
+      "pointwise_dual": 563090.1254001185
+    },
+    "out": {
+      "absolute_cusum": {
+        "tp": 328,
+        "fp": 406,
+        "tn": 1,
+        "fn": 0,
+        "unknownNormal": 0,
+        "unknownFault": 0,
+        "bySeverity": {
+          "0": {
+            "n": 407,
+            "alarms": 406,
+            "unknown": 0
+          },
+          "1": {
+            "n": 164,
+            "alarms": 164,
+            "unknown": 0
+          },
+          "2": {
+            "n": 164,
+            "alarms": 164,
+            "unknown": 0
+          }
+        },
+        "fullHealthy": {
+          "n": 21,
+          "alarms": 21,
+          "unknown": 0
+        },
+        "byStability": {
+          "0": {
+            "n": 489,
+            "alarms": 489,
+            "unknown": 0
+          },
+          "1": {
+            "n": 246,
+            "alarms": 245,
+            "unknown": 0
+          }
+        },
+        "fpr": 0.9975429975429976,
+        "recall": 1,
+        "coverage": 1
+      },
+      "relative_cusum": {
+        "tp": 328,
+        "fp": 406,
+        "tn": 1,
+        "fn": 0,
+        "unknownNormal": 0,
+        "unknownFault": 0,
+        "bySeverity": {
+          "0": {
+            "n": 407,
+            "alarms": 406,
+            "unknown": 0
+          },
+          "1": {
+            "n": 164,
+            "alarms": 164,
+            "unknown": 0
+          },
+          "2": {
+            "n": 164,
+            "alarms": 164,
+            "unknown": 0
+          }
+        },
+        "fullHealthy": {
+          "n": 21,
+          "alarms": 21,
+          "unknown": 0
+        },
+        "byStability": {
+          "0": {
+            "n": 489,
+            "alarms": 489,
+            "unknown": 0
+          },
+          "1": {
+            "n": 246,
+            "alarms": 245,
+            "unknown": 0
+          }
+        },
+        "fpr": 0.9975429975429976,
+        "recall": 1,
+        "coverage": 1
+      },
+      "sequential_dual": {
+        "tp": 328,
+        "fp": 406,
+        "tn": 1,
+        "fn": 0,
+        "unknownNormal": 0,
+        "unknownFault": 0,
+        "bySeverity": {
+          "0": {
+            "n": 407,
+            "alarms": 406,
+            "unknown": 0
+          },
+          "1": {
+            "n": 164,
+            "alarms": 164,
+            "unknown": 0
+          },
+          "2": {
+            "n": 164,
+            "alarms": 164,
+            "unknown": 0
+          }
+        },
+        "fullHealthy": {
+          "n": 21,
+          "alarms": 21,
+          "unknown": 0
+        },
+        "byStability": {
+          "0": {
+            "n": 489,
+            "alarms": 489,
+            "unknown": 0
+          },
+          "1": {
+            "n": 246,
+            "alarms": 245,
+            "unknown": 0
+          }
+        },
+        "fpr": 0.9975429975429976,
+        "recall": 1,
+        "coverage": 1
+      },
+      "sentinel": {
+        "tp": 328,
+        "fp": 406,
+        "tn": 1,
+        "fn": 0,
+        "unknownNormal": 0,
+        "unknownFault": 0,
+        "bySeverity": {
+          "0": {
+            "n": 407,
+            "alarms": 406,
+            "unknown": 0
+          },
+          "1": {
+            "n": 164,
+            "alarms": 164,
+            "unknown": 0
+          },
+          "2": {
+            "n": 164,
+            "alarms": 164,
+            "unknown": 0
+          }
+        },
+        "fullHealthy": {
+          "n": 21,
+          "alarms": 21,
+          "unknown": 0
+        },
+        "byStability": {
+          "0": {
+            "n": 489,
+            "alarms": 489,
+            "unknown": 0
+          },
+          "1": {
+            "n": 246,
+            "alarms": 245,
+            "unknown": 0
+          }
+        },
+        "fpr": 0.9975429975429976,
+        "recall": 1,
+        "coverage": 1
+      },
+      "pointwise_dual": {
+        "tp": 328,
+        "fp": 386,
+        "tn": 21,
+        "fn": 0,
+        "unknownNormal": 0,
+        "unknownFault": 0,
+        "bySeverity": {
+          "0": {
+            "n": 407,
+            "alarms": 386,
+            "unknown": 0
+          },
+          "1": {
+            "n": 164,
+            "alarms": 164,
+            "unknown": 0
+          },
+          "2": {
+            "n": 164,
+            "alarms": 164,
+            "unknown": 0
+          }
+        },
+        "fullHealthy": {
+          "n": 21,
+          "alarms": 21,
+          "unknown": 0
+        },
+        "byStability": {
+          "0": {
+            "n": 489,
+            "alarms": 488,
+            "unknown": 0
+          },
+          "1": {
+            "n": 246,
+            "alarms": 226,
+            "unknown": 0
+          }
+        },
+        "fpr": 0.9484029484029484,
+        "recall": 1,
+        "coverage": 1
+      }
+    }
+  },
+  "masked10": [
+    {
+      "fit": 407,
+      "cal": 735,
+      "calCleanBlocks": 23,
+      "test": 735,
+      "rate": 0.1,
+      "seed": 27001,
+      "thresholds": {
+        "absolute_cusum": 372232.08333333326,
+        "relative_cusum": 697598.4266312681,
+        "sequential_dual": 697598.4266312681,
+        "sentinel": 348799.21331563406,
+        "pointwise_dual": 563090.1254001185
+      },
+      "out": {
+        "absolute_cusum": {
+          "tp": 280,
+          "fp": 342,
+          "tn": 35,
+          "fn": 48,
+          "unknownNormal": 30,
+          "unknownFault": 24,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 342,
+              "unknown": 30
+            },
+            "1": {
+              "n": 164,
+              "alarms": 143,
+              "unknown": 11
+            },
+            "2": {
+              "n": 164,
+              "alarms": 137,
+              "unknown": 13
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 20,
+            "unknown": 0
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 413,
+              "unknown": 37
+            },
+            "1": {
+              "n": 246,
+              "alarms": 209,
+              "unknown": 17
+            }
+          },
+          "fpr": 0.9071618037135278,
+          "recall": 0.8536585365853658,
+          "coverage": 0.926530612244898
+        },
+        "relative_cusum": {
+          "tp": 272,
+          "fp": 335,
+          "tn": 42,
+          "fn": 56,
+          "unknownNormal": 30,
+          "unknownFault": 24,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 335,
+              "unknown": 30
+            },
+            "1": {
+              "n": 164,
+              "alarms": 137,
+              "unknown": 11
+            },
+            "2": {
+              "n": 164,
+              "alarms": 135,
+              "unknown": 13
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 19,
+            "unknown": 0
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 403,
+              "unknown": 37
+            },
+            "1": {
+              "n": 246,
+              "alarms": 204,
+              "unknown": 17
+            }
+          },
+          "fpr": 0.8885941644562334,
+          "recall": 0.8292682926829268,
+          "coverage": 0.926530612244898
+        },
+        "sequential_dual": {
+          "tp": 280,
+          "fp": 342,
+          "tn": 35,
+          "fn": 48,
+          "unknownNormal": 30,
+          "unknownFault": 24,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 342,
+              "unknown": 30
+            },
+            "1": {
+              "n": 164,
+              "alarms": 143,
+              "unknown": 11
+            },
+            "2": {
+              "n": 164,
+              "alarms": 137,
+              "unknown": 13
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 20,
+            "unknown": 0
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 413,
+              "unknown": 37
+            },
+            "1": {
+              "n": 246,
+              "alarms": 209,
+              "unknown": 17
+            }
+          },
+          "fpr": 0.9071618037135278,
+          "recall": 0.8536585365853658,
+          "coverage": 0.926530612244898
+        },
+        "sentinel": {
+          "tp": 272,
+          "fp": 335,
+          "tn": 42,
+          "fn": 56,
+          "unknownNormal": 30,
+          "unknownFault": 24,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 335,
+              "unknown": 30
+            },
+            "1": {
+              "n": 164,
+              "alarms": 137,
+              "unknown": 11
+            },
+            "2": {
+              "n": 164,
+              "alarms": 135,
+              "unknown": 13
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 19,
+            "unknown": 0
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 403,
+              "unknown": 37
+            },
+            "1": {
+              "n": 246,
+              "alarms": 204,
+              "unknown": 17
+            }
+          },
+          "fpr": 0.8885941644562334,
+          "recall": 0.8292682926829268,
+          "coverage": 0.926530612244898
+        },
+        "pointwise_dual": {
+          "tp": 280,
+          "fp": 329,
+          "tn": 48,
+          "fn": 48,
+          "unknownNormal": 30,
+          "unknownFault": 24,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 329,
+              "unknown": 30
+            },
+            "1": {
+              "n": 164,
+              "alarms": 143,
+              "unknown": 11
+            },
+            "2": {
+              "n": 164,
+              "alarms": 137,
+              "unknown": 13
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 20,
+            "unknown": 0
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 413,
+              "unknown": 37
+            },
+            "1": {
+              "n": 246,
+              "alarms": 196,
+              "unknown": 17
+            }
+          },
+          "fpr": 0.8726790450928382,
+          "recall": 0.8536585365853658,
+          "coverage": 0.926530612244898
+        }
+      }
+    },
+    {
+      "fit": 407,
+      "cal": 735,
+      "calCleanBlocks": 23,
+      "test": 735,
+      "rate": 0.1,
+      "seed": 27002,
+      "thresholds": {
+        "absolute_cusum": 372232.08333333326,
+        "relative_cusum": 697598.4266312681,
+        "sequential_dual": 697598.4266312681,
+        "sentinel": 348799.21331563406,
+        "pointwise_dual": 563090.1254001185
+      },
+      "out": {
+        "absolute_cusum": {
+          "tp": 286,
+          "fp": 349,
+          "tn": 26,
+          "fn": 42,
+          "unknownNormal": 32,
+          "unknownFault": 20,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 349,
+              "unknown": 32
+            },
+            "1": {
+              "n": 164,
+              "alarms": 142,
+              "unknown": 10
+            },
+            "2": {
+              "n": 164,
+              "alarms": 144,
+              "unknown": 10
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 12,
+            "unknown": 5
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 432,
+              "unknown": 25
+            },
+            "1": {
+              "n": 246,
+              "alarms": 203,
+              "unknown": 27
+            }
+          },
+          "fpr": 0.9306666666666666,
+          "recall": 0.8719512195121951,
+          "coverage": 0.9292517006802721
+        },
+        "relative_cusum": {
+          "tp": 283,
+          "fp": 343,
+          "tn": 32,
+          "fn": 45,
+          "unknownNormal": 32,
+          "unknownFault": 20,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 343,
+              "unknown": 32
+            },
+            "1": {
+              "n": 164,
+              "alarms": 139,
+              "unknown": 10
+            },
+            "2": {
+              "n": 164,
+              "alarms": 144,
+              "unknown": 10
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 12,
+            "unknown": 5
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 427,
+              "unknown": 25
+            },
+            "1": {
+              "n": 246,
+              "alarms": 199,
+              "unknown": 27
+            }
+          },
+          "fpr": 0.9146666666666666,
+          "recall": 0.8628048780487805,
+          "coverage": 0.9292517006802721
+        },
+        "sequential_dual": {
+          "tp": 286,
+          "fp": 349,
+          "tn": 26,
+          "fn": 42,
+          "unknownNormal": 32,
+          "unknownFault": 20,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 349,
+              "unknown": 32
+            },
+            "1": {
+              "n": 164,
+              "alarms": 142,
+              "unknown": 10
+            },
+            "2": {
+              "n": 164,
+              "alarms": 144,
+              "unknown": 10
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 12,
+            "unknown": 5
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 432,
+              "unknown": 25
+            },
+            "1": {
+              "n": 246,
+              "alarms": 203,
+              "unknown": 27
+            }
+          },
+          "fpr": 0.9306666666666666,
+          "recall": 0.8719512195121951,
+          "coverage": 0.9292517006802721
+        },
+        "sentinel": {
+          "tp": 283,
+          "fp": 343,
+          "tn": 32,
+          "fn": 45,
+          "unknownNormal": 32,
+          "unknownFault": 20,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 343,
+              "unknown": 32
+            },
+            "1": {
+              "n": 164,
+              "alarms": 139,
+              "unknown": 10
+            },
+            "2": {
+              "n": 164,
+              "alarms": 144,
+              "unknown": 10
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 12,
+            "unknown": 5
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 427,
+              "unknown": 25
+            },
+            "1": {
+              "n": 246,
+              "alarms": 199,
+              "unknown": 27
+            }
+          },
+          "fpr": 0.9146666666666666,
+          "recall": 0.8628048780487805,
+          "coverage": 0.9292517006802721
+        },
+        "pointwise_dual": {
+          "tp": 286,
+          "fp": 334,
+          "tn": 41,
+          "fn": 42,
+          "unknownNormal": 32,
+          "unknownFault": 20,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 334,
+              "unknown": 32
+            },
+            "1": {
+              "n": 164,
+              "alarms": 142,
+              "unknown": 10
+            },
+            "2": {
+              "n": 164,
+              "alarms": 144,
+              "unknown": 10
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 12,
+            "unknown": 5
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 431,
+              "unknown": 25
+            },
+            "1": {
+              "n": 246,
+              "alarms": 189,
+              "unknown": 27
+            }
+          },
+          "fpr": 0.8906666666666667,
+          "recall": 0.8719512195121951,
+          "coverage": 0.9292517006802721
+        }
+      }
+    },
+    {
+      "fit": 407,
+      "cal": 735,
+      "calCleanBlocks": 23,
+      "test": 735,
+      "rate": 0.1,
+      "seed": 27003,
+      "thresholds": {
+        "absolute_cusum": 372232.08333333326,
+        "relative_cusum": 697598.4266312681,
+        "sequential_dual": 697598.4266312681,
+        "sentinel": 348799.21331563406,
+        "pointwise_dual": 563090.1254001185
+      },
+      "out": {
+        "absolute_cusum": {
+          "tp": 280,
+          "fp": 339,
+          "tn": 38,
+          "fn": 48,
+          "unknownNormal": 30,
+          "unknownFault": 21,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 339,
+              "unknown": 30
+            },
+            "1": {
+              "n": 164,
+              "alarms": 143,
+              "unknown": 7
+            },
+            "2": {
+              "n": 164,
+              "alarms": 137,
+              "unknown": 14
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 19,
+            "unknown": 1
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 418,
+              "unknown": 29
+            },
+            "1": {
+              "n": 246,
+              "alarms": 201,
+              "unknown": 22
+            }
+          },
+          "fpr": 0.8992042440318302,
+          "recall": 0.8536585365853658,
+          "coverage": 0.9306122448979591
+        },
+        "relative_cusum": {
+          "tp": 273,
+          "fp": 335,
+          "tn": 42,
+          "fn": 55,
+          "unknownNormal": 30,
+          "unknownFault": 21,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 335,
+              "unknown": 30
+            },
+            "1": {
+              "n": 164,
+              "alarms": 140,
+              "unknown": 7
+            },
+            "2": {
+              "n": 164,
+              "alarms": 133,
+              "unknown": 14
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 19,
+            "unknown": 1
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 410,
+              "unknown": 29
+            },
+            "1": {
+              "n": 246,
+              "alarms": 198,
+              "unknown": 22
+            }
+          },
+          "fpr": 0.8885941644562334,
+          "recall": 0.8323170731707317,
+          "coverage": 0.9306122448979591
+        },
+        "sequential_dual": {
+          "tp": 280,
+          "fp": 339,
+          "tn": 38,
+          "fn": 48,
+          "unknownNormal": 30,
+          "unknownFault": 21,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 339,
+              "unknown": 30
+            },
+            "1": {
+              "n": 164,
+              "alarms": 143,
+              "unknown": 7
+            },
+            "2": {
+              "n": 164,
+              "alarms": 137,
+              "unknown": 14
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 19,
+            "unknown": 1
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 418,
+              "unknown": 29
+            },
+            "1": {
+              "n": 246,
+              "alarms": 201,
+              "unknown": 22
+            }
+          },
+          "fpr": 0.8992042440318302,
+          "recall": 0.8536585365853658,
+          "coverage": 0.9306122448979591
+        },
+        "sentinel": {
+          "tp": 273,
+          "fp": 335,
+          "tn": 42,
+          "fn": 55,
+          "unknownNormal": 30,
+          "unknownFault": 21,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 335,
+              "unknown": 30
+            },
+            "1": {
+              "n": 164,
+              "alarms": 140,
+              "unknown": 7
+            },
+            "2": {
+              "n": 164,
+              "alarms": 133,
+              "unknown": 14
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 19,
+            "unknown": 1
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 410,
+              "unknown": 29
+            },
+            "1": {
+              "n": 246,
+              "alarms": 198,
+              "unknown": 22
+            }
+          },
+          "fpr": 0.8885941644562334,
+          "recall": 0.8323170731707317,
+          "coverage": 0.9306122448979591
+        },
+        "pointwise_dual": {
+          "tp": 280,
+          "fp": 331,
+          "tn": 46,
+          "fn": 48,
+          "unknownNormal": 30,
+          "unknownFault": 21,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 331,
+              "unknown": 30
+            },
+            "1": {
+              "n": 164,
+              "alarms": 143,
+              "unknown": 7
+            },
+            "2": {
+              "n": 164,
+              "alarms": 137,
+              "unknown": 14
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 19,
+            "unknown": 1
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 417,
+              "unknown": 29
+            },
+            "1": {
+              "n": 246,
+              "alarms": 194,
+              "unknown": 22
+            }
+          },
+          "fpr": 0.8779840848806366,
+          "recall": 0.8536585365853658,
+          "coverage": 0.9306122448979591
+        }
+      }
+    },
+    {
+      "fit": 407,
+      "cal": 735,
+      "calCleanBlocks": 23,
+      "test": 735,
+      "rate": 0.1,
+      "seed": 27004,
+      "thresholds": {
+        "absolute_cusum": 372232.08333333326,
+        "relative_cusum": 697598.4266312681,
+        "sequential_dual": 697598.4266312681,
+        "sentinel": 348799.21331563406,
+        "pointwise_dual": 563090.1254001185
+      },
+      "out": {
+        "absolute_cusum": {
+          "tp": 273,
+          "fp": 335,
+          "tn": 34,
+          "fn": 55,
+          "unknownNormal": 38,
+          "unknownFault": 28,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 335,
+              "unknown": 38
+            },
+            "1": {
+              "n": 164,
+              "alarms": 129,
+              "unknown": 18
+            },
+            "2": {
+              "n": 164,
+              "alarms": 144,
+              "unknown": 10
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 18,
+            "unknown": 3
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 408,
+              "unknown": 41
+            },
+            "1": {
+              "n": 246,
+              "alarms": 200,
+              "unknown": 25
+            }
+          },
+          "fpr": 0.907859078590786,
+          "recall": 0.8323170731707317,
+          "coverage": 0.9102040816326531
+        },
+        "relative_cusum": {
+          "tp": 273,
+          "fp": 330,
+          "tn": 39,
+          "fn": 55,
+          "unknownNormal": 38,
+          "unknownFault": 28,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 330,
+              "unknown": 38
+            },
+            "1": {
+              "n": 164,
+              "alarms": 129,
+              "unknown": 18
+            },
+            "2": {
+              "n": 164,
+              "alarms": 144,
+              "unknown": 10
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 17,
+            "unknown": 3
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 406,
+              "unknown": 41
+            },
+            "1": {
+              "n": 246,
+              "alarms": 197,
+              "unknown": 25
+            }
+          },
+          "fpr": 0.8943089430894309,
+          "recall": 0.8323170731707317,
+          "coverage": 0.9102040816326531
+        },
+        "sequential_dual": {
+          "tp": 273,
+          "fp": 335,
+          "tn": 34,
+          "fn": 55,
+          "unknownNormal": 38,
+          "unknownFault": 28,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 335,
+              "unknown": 38
+            },
+            "1": {
+              "n": 164,
+              "alarms": 129,
+              "unknown": 18
+            },
+            "2": {
+              "n": 164,
+              "alarms": 144,
+              "unknown": 10
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 18,
+            "unknown": 3
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 408,
+              "unknown": 41
+            },
+            "1": {
+              "n": 246,
+              "alarms": 200,
+              "unknown": 25
+            }
+          },
+          "fpr": 0.907859078590786,
+          "recall": 0.8323170731707317,
+          "coverage": 0.9102040816326531
+        },
+        "sentinel": {
+          "tp": 273,
+          "fp": 330,
+          "tn": 39,
+          "fn": 55,
+          "unknownNormal": 38,
+          "unknownFault": 28,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 330,
+              "unknown": 38
+            },
+            "1": {
+              "n": 164,
+              "alarms": 129,
+              "unknown": 18
+            },
+            "2": {
+              "n": 164,
+              "alarms": 144,
+              "unknown": 10
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 17,
+            "unknown": 3
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 406,
+              "unknown": 41
+            },
+            "1": {
+              "n": 246,
+              "alarms": 197,
+              "unknown": 25
+            }
+          },
+          "fpr": 0.8943089430894309,
+          "recall": 0.8323170731707317,
+          "coverage": 0.9102040816326531
+        },
+        "pointwise_dual": {
+          "tp": 273,
+          "fp": 323,
+          "tn": 46,
+          "fn": 55,
+          "unknownNormal": 38,
+          "unknownFault": 28,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 323,
+              "unknown": 38
+            },
+            "1": {
+              "n": 164,
+              "alarms": 129,
+              "unknown": 18
+            },
+            "2": {
+              "n": 164,
+              "alarms": 144,
+              "unknown": 10
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 18,
+            "unknown": 3
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 407,
+              "unknown": 41
+            },
+            "1": {
+              "n": 246,
+              "alarms": 189,
+              "unknown": 25
+            }
+          },
+          "fpr": 0.8753387533875339,
+          "recall": 0.8323170731707317,
+          "coverage": 0.9102040816326531
+        }
+      }
+    },
+    {
+      "fit": 407,
+      "cal": 735,
+      "calCleanBlocks": 23,
+      "test": 735,
+      "rate": 0.1,
+      "seed": 27005,
+      "thresholds": {
+        "absolute_cusum": 372232.08333333326,
+        "relative_cusum": 697598.4266312681,
+        "sequential_dual": 697598.4266312681,
+        "sentinel": 348799.21331563406,
+        "pointwise_dual": 563090.1254001185
+      },
+      "out": {
+        "absolute_cusum": {
+          "tp": 269,
+          "fp": 336,
+          "tn": 46,
+          "fn": 59,
+          "unknownNormal": 25,
+          "unknownFault": 29,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 336,
+              "unknown": 25
+            },
+            "1": {
+              "n": 164,
+              "alarms": 134,
+              "unknown": 15
+            },
+            "2": {
+              "n": 164,
+              "alarms": 135,
+              "unknown": 14
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 19,
+            "unknown": 0
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 410,
+              "unknown": 36
+            },
+            "1": {
+              "n": 246,
+              "alarms": 195,
+              "unknown": 18
+            }
+          },
+          "fpr": 0.8795811518324608,
+          "recall": 0.8201219512195121,
+          "coverage": 0.926530612244898
+        },
+        "relative_cusum": {
+          "tp": 264,
+          "fp": 329,
+          "tn": 53,
+          "fn": 64,
+          "unknownNormal": 25,
+          "unknownFault": 29,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 329,
+              "unknown": 25
+            },
+            "1": {
+              "n": 164,
+              "alarms": 132,
+              "unknown": 15
+            },
+            "2": {
+              "n": 164,
+              "alarms": 132,
+              "unknown": 14
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 17,
+            "unknown": 0
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 401,
+              "unknown": 36
+            },
+            "1": {
+              "n": 246,
+              "alarms": 192,
+              "unknown": 18
+            }
+          },
+          "fpr": 0.8612565445026178,
+          "recall": 0.8048780487804879,
+          "coverage": 0.926530612244898
+        },
+        "sequential_dual": {
+          "tp": 269,
+          "fp": 336,
+          "tn": 46,
+          "fn": 59,
+          "unknownNormal": 25,
+          "unknownFault": 29,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 336,
+              "unknown": 25
+            },
+            "1": {
+              "n": 164,
+              "alarms": 134,
+              "unknown": 15
+            },
+            "2": {
+              "n": 164,
+              "alarms": 135,
+              "unknown": 14
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 19,
+            "unknown": 0
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 410,
+              "unknown": 36
+            },
+            "1": {
+              "n": 246,
+              "alarms": 195,
+              "unknown": 18
+            }
+          },
+          "fpr": 0.8795811518324608,
+          "recall": 0.8201219512195121,
+          "coverage": 0.926530612244898
+        },
+        "sentinel": {
+          "tp": 264,
+          "fp": 329,
+          "tn": 53,
+          "fn": 64,
+          "unknownNormal": 25,
+          "unknownFault": 29,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 329,
+              "unknown": 25
+            },
+            "1": {
+              "n": 164,
+              "alarms": 132,
+              "unknown": 15
+            },
+            "2": {
+              "n": 164,
+              "alarms": 132,
+              "unknown": 14
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 17,
+            "unknown": 0
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 401,
+              "unknown": 36
+            },
+            "1": {
+              "n": 246,
+              "alarms": 192,
+              "unknown": 18
+            }
+          },
+          "fpr": 0.8612565445026178,
+          "recall": 0.8048780487804879,
+          "coverage": 0.926530612244898
+        },
+        "pointwise_dual": {
+          "tp": 269,
+          "fp": 324,
+          "tn": 58,
+          "fn": 59,
+          "unknownNormal": 25,
+          "unknownFault": 29,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 324,
+              "unknown": 25
+            },
+            "1": {
+              "n": 164,
+              "alarms": 134,
+              "unknown": 15
+            },
+            "2": {
+              "n": 164,
+              "alarms": 135,
+              "unknown": 14
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 19,
+            "unknown": 0
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 409,
+              "unknown": 36
+            },
+            "1": {
+              "n": 246,
+              "alarms": 184,
+              "unknown": 18
+            }
+          },
+          "fpr": 0.8481675392670157,
+          "recall": 0.8201219512195121,
+          "coverage": 0.926530612244898
+        }
+      }
+    },
+    {
+      "fit": 407,
+      "cal": 735,
+      "calCleanBlocks": 23,
+      "test": 735,
+      "rate": 0.1,
+      "seed": 27006,
+      "thresholds": {
+        "absolute_cusum": 372232.08333333326,
+        "relative_cusum": 697598.4266312681,
+        "sequential_dual": 697598.4266312681,
+        "sentinel": 348799.21331563406,
+        "pointwise_dual": 563090.1254001185
+      },
+      "out": {
+        "absolute_cusum": {
+          "tp": 278,
+          "fp": 333,
+          "tn": 37,
+          "fn": 50,
+          "unknownNormal": 37,
+          "unknownFault": 25,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 333,
+              "unknown": 37
+            },
+            "1": {
+              "n": 164,
+              "alarms": 138,
+              "unknown": 16
+            },
+            "2": {
+              "n": 164,
+              "alarms": 140,
+              "unknown": 9
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 19,
+            "unknown": 0
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 411,
+              "unknown": 43
+            },
+            "1": {
+              "n": 246,
+              "alarms": 200,
+              "unknown": 19
+            }
+          },
+          "fpr": 0.9,
+          "recall": 0.8475609756097561,
+          "coverage": 0.9156462585034013
+        },
+        "relative_cusum": {
+          "tp": 273,
+          "fp": 324,
+          "tn": 46,
+          "fn": 55,
+          "unknownNormal": 37,
+          "unknownFault": 25,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 324,
+              "unknown": 37
+            },
+            "1": {
+              "n": 164,
+              "alarms": 137,
+              "unknown": 16
+            },
+            "2": {
+              "n": 164,
+              "alarms": 136,
+              "unknown": 9
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 18,
+            "unknown": 0
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 404,
+              "unknown": 43
+            },
+            "1": {
+              "n": 246,
+              "alarms": 193,
+              "unknown": 19
+            }
+          },
+          "fpr": 0.8756756756756757,
+          "recall": 0.8323170731707317,
+          "coverage": 0.9156462585034013
+        },
+        "sequential_dual": {
+          "tp": 278,
+          "fp": 333,
+          "tn": 37,
+          "fn": 50,
+          "unknownNormal": 37,
+          "unknownFault": 25,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 333,
+              "unknown": 37
+            },
+            "1": {
+              "n": 164,
+              "alarms": 138,
+              "unknown": 16
+            },
+            "2": {
+              "n": 164,
+              "alarms": 140,
+              "unknown": 9
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 19,
+            "unknown": 0
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 411,
+              "unknown": 43
+            },
+            "1": {
+              "n": 246,
+              "alarms": 200,
+              "unknown": 19
+            }
+          },
+          "fpr": 0.9,
+          "recall": 0.8475609756097561,
+          "coverage": 0.9156462585034013
+        },
+        "sentinel": {
+          "tp": 273,
+          "fp": 324,
+          "tn": 46,
+          "fn": 55,
+          "unknownNormal": 37,
+          "unknownFault": 25,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 324,
+              "unknown": 37
+            },
+            "1": {
+              "n": 164,
+              "alarms": 137,
+              "unknown": 16
+            },
+            "2": {
+              "n": 164,
+              "alarms": 136,
+              "unknown": 9
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 18,
+            "unknown": 0
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 404,
+              "unknown": 43
+            },
+            "1": {
+              "n": 246,
+              "alarms": 193,
+              "unknown": 19
+            }
+          },
+          "fpr": 0.8756756756756757,
+          "recall": 0.8323170731707317,
+          "coverage": 0.9156462585034013
+        },
+        "pointwise_dual": {
+          "tp": 278,
+          "fp": 319,
+          "tn": 51,
+          "fn": 50,
+          "unknownNormal": 37,
+          "unknownFault": 25,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 319,
+              "unknown": 37
+            },
+            "1": {
+              "n": 164,
+              "alarms": 138,
+              "unknown": 16
+            },
+            "2": {
+              "n": 164,
+              "alarms": 140,
+              "unknown": 9
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 19,
+            "unknown": 0
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 410,
+              "unknown": 43
+            },
+            "1": {
+              "n": 246,
+              "alarms": 187,
+              "unknown": 19
+            }
+          },
+          "fpr": 0.8621621621621621,
+          "recall": 0.8475609756097561,
+          "coverage": 0.9156462585034013
+        }
+      }
+    },
+    {
+      "fit": 407,
+      "cal": 735,
+      "calCleanBlocks": 23,
+      "test": 735,
+      "rate": 0.1,
+      "seed": 27007,
+      "thresholds": {
+        "absolute_cusum": 372232.08333333326,
+        "relative_cusum": 697598.4266312681,
+        "sequential_dual": 697598.4266312681,
+        "sentinel": 348799.21331563406,
+        "pointwise_dual": 563090.1254001185
+      },
+      "out": {
+        "absolute_cusum": {
+          "tp": 279,
+          "fp": 327,
+          "tn": 46,
+          "fn": 49,
+          "unknownNormal": 34,
+          "unknownFault": 25,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 327,
+              "unknown": 34
+            },
+            "1": {
+              "n": 164,
+              "alarms": 140,
+              "unknown": 13
+            },
+            "2": {
+              "n": 164,
+              "alarms": 139,
+              "unknown": 12
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 13,
+            "unknown": 5
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 409,
+              "unknown": 40
+            },
+            "1": {
+              "n": 246,
+              "alarms": 197,
+              "unknown": 19
+            }
+          },
+          "fpr": 0.8766756032171582,
+          "recall": 0.850609756097561,
+          "coverage": 0.9197278911564626
+        },
+        "relative_cusum": {
+          "tp": 276,
+          "fp": 318,
+          "tn": 55,
+          "fn": 52,
+          "unknownNormal": 34,
+          "unknownFault": 25,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 318,
+              "unknown": 34
+            },
+            "1": {
+              "n": 164,
+              "alarms": 139,
+              "unknown": 13
+            },
+            "2": {
+              "n": 164,
+              "alarms": 137,
+              "unknown": 12
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 12,
+            "unknown": 5
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 404,
+              "unknown": 40
+            },
+            "1": {
+              "n": 246,
+              "alarms": 190,
+              "unknown": 19
+            }
+          },
+          "fpr": 0.8525469168900804,
+          "recall": 0.8414634146341463,
+          "coverage": 0.9197278911564626
+        },
+        "sequential_dual": {
+          "tp": 279,
+          "fp": 327,
+          "tn": 46,
+          "fn": 49,
+          "unknownNormal": 34,
+          "unknownFault": 25,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 327,
+              "unknown": 34
+            },
+            "1": {
+              "n": 164,
+              "alarms": 140,
+              "unknown": 13
+            },
+            "2": {
+              "n": 164,
+              "alarms": 139,
+              "unknown": 12
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 13,
+            "unknown": 5
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 409,
+              "unknown": 40
+            },
+            "1": {
+              "n": 246,
+              "alarms": 197,
+              "unknown": 19
+            }
+          },
+          "fpr": 0.8766756032171582,
+          "recall": 0.850609756097561,
+          "coverage": 0.9197278911564626
+        },
+        "sentinel": {
+          "tp": 276,
+          "fp": 318,
+          "tn": 55,
+          "fn": 52,
+          "unknownNormal": 34,
+          "unknownFault": 25,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 318,
+              "unknown": 34
+            },
+            "1": {
+              "n": 164,
+              "alarms": 139,
+              "unknown": 13
+            },
+            "2": {
+              "n": 164,
+              "alarms": 137,
+              "unknown": 12
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 12,
+            "unknown": 5
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 404,
+              "unknown": 40
+            },
+            "1": {
+              "n": 246,
+              "alarms": 190,
+              "unknown": 19
+            }
+          },
+          "fpr": 0.8525469168900804,
+          "recall": 0.8414634146341463,
+          "coverage": 0.9197278911564626
+        },
+        "pointwise_dual": {
+          "tp": 279,
+          "fp": 318,
+          "tn": 55,
+          "fn": 49,
+          "unknownNormal": 34,
+          "unknownFault": 25,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 318,
+              "unknown": 34
+            },
+            "1": {
+              "n": 164,
+              "alarms": 140,
+              "unknown": 13
+            },
+            "2": {
+              "n": 164,
+              "alarms": 139,
+              "unknown": 12
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 13,
+            "unknown": 5
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 409,
+              "unknown": 40
+            },
+            "1": {
+              "n": 246,
+              "alarms": 188,
+              "unknown": 19
+            }
+          },
+          "fpr": 0.8525469168900804,
+          "recall": 0.850609756097561,
+          "coverage": 0.9197278911564626
+        }
+      }
+    },
+    {
+      "fit": 407,
+      "cal": 735,
+      "calCleanBlocks": 23,
+      "test": 735,
+      "rate": 0.1,
+      "seed": 27008,
+      "thresholds": {
+        "absolute_cusum": 372232.08333333326,
+        "relative_cusum": 697598.4266312681,
+        "sequential_dual": 697598.4266312681,
+        "sentinel": 348799.21331563406,
+        "pointwise_dual": 563090.1254001185
+      },
+      "out": {
+        "absolute_cusum": {
+          "tp": 290,
+          "fp": 323,
+          "tn": 49,
+          "fn": 38,
+          "unknownNormal": 35,
+          "unknownFault": 21,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 323,
+              "unknown": 35
+            },
+            "1": {
+              "n": 164,
+              "alarms": 147,
+              "unknown": 9
+            },
+            "2": {
+              "n": 164,
+              "alarms": 143,
+              "unknown": 12
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 17,
+            "unknown": 3
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 415,
+              "unknown": 36
+            },
+            "1": {
+              "n": 246,
+              "alarms": 198,
+              "unknown": 20
+            }
+          },
+          "fpr": 0.8682795698924731,
+          "recall": 0.8841463414634146,
+          "coverage": 0.9238095238095239
+        },
+        "relative_cusum": {
+          "tp": 285,
+          "fp": 318,
+          "tn": 54,
+          "fn": 43,
+          "unknownNormal": 35,
+          "unknownFault": 21,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 318,
+              "unknown": 35
+            },
+            "1": {
+              "n": 164,
+              "alarms": 144,
+              "unknown": 9
+            },
+            "2": {
+              "n": 164,
+              "alarms": 141,
+              "unknown": 12
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 16,
+            "unknown": 3
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 409,
+              "unknown": 36
+            },
+            "1": {
+              "n": 246,
+              "alarms": 194,
+              "unknown": 20
+            }
+          },
+          "fpr": 0.8548387096774194,
+          "recall": 0.8689024390243902,
+          "coverage": 0.9238095238095239
+        },
+        "sequential_dual": {
+          "tp": 290,
+          "fp": 323,
+          "tn": 49,
+          "fn": 38,
+          "unknownNormal": 35,
+          "unknownFault": 21,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 323,
+              "unknown": 35
+            },
+            "1": {
+              "n": 164,
+              "alarms": 147,
+              "unknown": 9
+            },
+            "2": {
+              "n": 164,
+              "alarms": 143,
+              "unknown": 12
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 17,
+            "unknown": 3
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 415,
+              "unknown": 36
+            },
+            "1": {
+              "n": 246,
+              "alarms": 198,
+              "unknown": 20
+            }
+          },
+          "fpr": 0.8682795698924731,
+          "recall": 0.8841463414634146,
+          "coverage": 0.9238095238095239
+        },
+        "sentinel": {
+          "tp": 285,
+          "fp": 318,
+          "tn": 54,
+          "fn": 43,
+          "unknownNormal": 35,
+          "unknownFault": 21,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 318,
+              "unknown": 35
+            },
+            "1": {
+              "n": 164,
+              "alarms": 144,
+              "unknown": 9
+            },
+            "2": {
+              "n": 164,
+              "alarms": 141,
+              "unknown": 12
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 16,
+            "unknown": 3
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 409,
+              "unknown": 36
+            },
+            "1": {
+              "n": 246,
+              "alarms": 194,
+              "unknown": 20
+            }
+          },
+          "fpr": 0.8548387096774194,
+          "recall": 0.8689024390243902,
+          "coverage": 0.9238095238095239
+        },
+        "pointwise_dual": {
+          "tp": 290,
+          "fp": 315,
+          "tn": 57,
+          "fn": 38,
+          "unknownNormal": 35,
+          "unknownFault": 21,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 315,
+              "unknown": 35
+            },
+            "1": {
+              "n": 164,
+              "alarms": 147,
+              "unknown": 9
+            },
+            "2": {
+              "n": 164,
+              "alarms": 143,
+              "unknown": 12
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 17,
+            "unknown": 3
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 415,
+              "unknown": 36
+            },
+            "1": {
+              "n": 246,
+              "alarms": 190,
+              "unknown": 20
+            }
+          },
+          "fpr": 0.8467741935483871,
+          "recall": 0.8841463414634146,
+          "coverage": 0.9238095238095239
+        }
+      }
+    },
+    {
+      "fit": 407,
+      "cal": 735,
+      "calCleanBlocks": 23,
+      "test": 735,
+      "rate": 0.1,
+      "seed": 27009,
+      "thresholds": {
+        "absolute_cusum": 372232.08333333326,
+        "relative_cusum": 697598.4266312681,
+        "sequential_dual": 697598.4266312681,
+        "sentinel": 348799.21331563406,
+        "pointwise_dual": 563090.1254001185
+      },
+      "out": {
+        "absolute_cusum": {
+          "tp": 270,
+          "fp": 333,
+          "tn": 39,
+          "fn": 58,
+          "unknownNormal": 35,
+          "unknownFault": 19,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 333,
+              "unknown": 35
+            },
+            "1": {
+              "n": 164,
+              "alarms": 137,
+              "unknown": 7
+            },
+            "2": {
+              "n": 164,
+              "alarms": 133,
+              "unknown": 12
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 19,
+            "unknown": 1
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 410,
+              "unknown": 33
+            },
+            "1": {
+              "n": 246,
+              "alarms": 193,
+              "unknown": 21
+            }
+          },
+          "fpr": 0.8951612903225806,
+          "recall": 0.823170731707317,
+          "coverage": 0.926530612244898
+        },
+        "relative_cusum": {
+          "tp": 265,
+          "fp": 328,
+          "tn": 44,
+          "fn": 63,
+          "unknownNormal": 35,
+          "unknownFault": 19,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 328,
+              "unknown": 35
+            },
+            "1": {
+              "n": 164,
+              "alarms": 134,
+              "unknown": 7
+            },
+            "2": {
+              "n": 164,
+              "alarms": 131,
+              "unknown": 12
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 19,
+            "unknown": 1
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 404,
+              "unknown": 33
+            },
+            "1": {
+              "n": 246,
+              "alarms": 189,
+              "unknown": 21
+            }
+          },
+          "fpr": 0.8817204301075269,
+          "recall": 0.8079268292682927,
+          "coverage": 0.926530612244898
+        },
+        "sequential_dual": {
+          "tp": 270,
+          "fp": 333,
+          "tn": 39,
+          "fn": 58,
+          "unknownNormal": 35,
+          "unknownFault": 19,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 333,
+              "unknown": 35
+            },
+            "1": {
+              "n": 164,
+              "alarms": 137,
+              "unknown": 7
+            },
+            "2": {
+              "n": 164,
+              "alarms": 133,
+              "unknown": 12
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 19,
+            "unknown": 1
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 410,
+              "unknown": 33
+            },
+            "1": {
+              "n": 246,
+              "alarms": 193,
+              "unknown": 21
+            }
+          },
+          "fpr": 0.8951612903225806,
+          "recall": 0.823170731707317,
+          "coverage": 0.926530612244898
+        },
+        "sentinel": {
+          "tp": 265,
+          "fp": 328,
+          "tn": 44,
+          "fn": 63,
+          "unknownNormal": 35,
+          "unknownFault": 19,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 328,
+              "unknown": 35
+            },
+            "1": {
+              "n": 164,
+              "alarms": 134,
+              "unknown": 7
+            },
+            "2": {
+              "n": 164,
+              "alarms": 131,
+              "unknown": 12
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 19,
+            "unknown": 1
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 404,
+              "unknown": 33
+            },
+            "1": {
+              "n": 246,
+              "alarms": 189,
+              "unknown": 21
+            }
+          },
+          "fpr": 0.8817204301075269,
+          "recall": 0.8079268292682927,
+          "coverage": 0.926530612244898
+        },
+        "pointwise_dual": {
+          "tp": 270,
+          "fp": 323,
+          "tn": 49,
+          "fn": 58,
+          "unknownNormal": 35,
+          "unknownFault": 19,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 323,
+              "unknown": 35
+            },
+            "1": {
+              "n": 164,
+              "alarms": 137,
+              "unknown": 7
+            },
+            "2": {
+              "n": 164,
+              "alarms": 133,
+              "unknown": 12
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 19,
+            "unknown": 1
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 409,
+              "unknown": 33
+            },
+            "1": {
+              "n": 246,
+              "alarms": 184,
+              "unknown": 21
+            }
+          },
+          "fpr": 0.8682795698924731,
+          "recall": 0.823170731707317,
+          "coverage": 0.926530612244898
+        }
+      }
+    },
+    {
+      "fit": 407,
+      "cal": 735,
+      "calCleanBlocks": 23,
+      "test": 735,
+      "rate": 0.1,
+      "seed": 27010,
+      "thresholds": {
+        "absolute_cusum": 372232.08333333326,
+        "relative_cusum": 697598.4266312681,
+        "sequential_dual": 697598.4266312681,
+        "sentinel": 348799.21331563406,
+        "pointwise_dual": 563090.1254001185
+      },
+      "out": {
+        "absolute_cusum": {
+          "tp": 269,
+          "fp": 338,
+          "tn": 34,
+          "fn": 59,
+          "unknownNormal": 35,
+          "unknownFault": 26,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 338,
+              "unknown": 35
+            },
+            "1": {
+              "n": 164,
+              "alarms": 136,
+              "unknown": 11
+            },
+            "2": {
+              "n": 164,
+              "alarms": 133,
+              "unknown": 15
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 19,
+            "unknown": 0
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 408,
+              "unknown": 35
+            },
+            "1": {
+              "n": 246,
+              "alarms": 199,
+              "unknown": 26
+            }
+          },
+          "fpr": 0.9086021505376344,
+          "recall": 0.8201219512195121,
+          "coverage": 0.9170068027210885
+        },
+        "relative_cusum": {
+          "tp": 260,
+          "fp": 335,
+          "tn": 37,
+          "fn": 68,
+          "unknownNormal": 35,
+          "unknownFault": 26,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 335,
+              "unknown": 35
+            },
+            "1": {
+              "n": 164,
+              "alarms": 132,
+              "unknown": 11
+            },
+            "2": {
+              "n": 164,
+              "alarms": 128,
+              "unknown": 15
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 19,
+            "unknown": 0
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 399,
+              "unknown": 35
+            },
+            "1": {
+              "n": 246,
+              "alarms": 196,
+              "unknown": 26
+            }
+          },
+          "fpr": 0.9005376344086021,
+          "recall": 0.7926829268292683,
+          "coverage": 0.9170068027210885
+        },
+        "sequential_dual": {
+          "tp": 269,
+          "fp": 338,
+          "tn": 34,
+          "fn": 59,
+          "unknownNormal": 35,
+          "unknownFault": 26,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 338,
+              "unknown": 35
+            },
+            "1": {
+              "n": 164,
+              "alarms": 136,
+              "unknown": 11
+            },
+            "2": {
+              "n": 164,
+              "alarms": 133,
+              "unknown": 15
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 19,
+            "unknown": 0
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 408,
+              "unknown": 35
+            },
+            "1": {
+              "n": 246,
+              "alarms": 199,
+              "unknown": 26
+            }
+          },
+          "fpr": 0.9086021505376344,
+          "recall": 0.8201219512195121,
+          "coverage": 0.9170068027210885
+        },
+        "sentinel": {
+          "tp": 260,
+          "fp": 335,
+          "tn": 37,
+          "fn": 68,
+          "unknownNormal": 35,
+          "unknownFault": 26,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 335,
+              "unknown": 35
+            },
+            "1": {
+              "n": 164,
+              "alarms": 132,
+              "unknown": 11
+            },
+            "2": {
+              "n": 164,
+              "alarms": 128,
+              "unknown": 15
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 19,
+            "unknown": 0
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 399,
+              "unknown": 35
+            },
+            "1": {
+              "n": 246,
+              "alarms": 196,
+              "unknown": 26
+            }
+          },
+          "fpr": 0.9005376344086021,
+          "recall": 0.7926829268292683,
+          "coverage": 0.9170068027210885
+        },
+        "pointwise_dual": {
+          "tp": 269,
+          "fp": 323,
+          "tn": 49,
+          "fn": 59,
+          "unknownNormal": 35,
+          "unknownFault": 26,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 323,
+              "unknown": 35
+            },
+            "1": {
+              "n": 164,
+              "alarms": 136,
+              "unknown": 11
+            },
+            "2": {
+              "n": 164,
+              "alarms": 133,
+              "unknown": 15
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 19,
+            "unknown": 0
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 407,
+              "unknown": 35
+            },
+            "1": {
+              "n": 246,
+              "alarms": 185,
+              "unknown": 26
+            }
+          },
+          "fpr": 0.8682795698924731,
+          "recall": 0.8201219512195121,
+          "coverage": 0.9170068027210885
+        }
+      }
+    }
+  ],
+  "masked25": [
+    {
+      "fit": 407,
+      "cal": 735,
+      "calCleanBlocks": 23,
+      "test": 735,
+      "rate": 0.25,
+      "seed": 37001,
+      "thresholds": {
+        "absolute_cusum": 372232.08333333326,
+        "relative_cusum": 697598.4266312681,
+        "sequential_dual": 697598.4266312681,
+        "sentinel": 348799.21331563406,
+        "pointwise_dual": 563090.1254001185
+      },
+      "out": {
+        "absolute_cusum": {
+          "tp": 147,
+          "fp": 173,
+          "tn": 47,
+          "fn": 181,
+          "unknownNormal": 187,
+          "unknownFault": 165,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 173,
+              "unknown": 187
+            },
+            "1": {
+              "n": 164,
+              "alarms": 70,
+              "unknown": 84
+            },
+            "2": {
+              "n": 164,
+              "alarms": 77,
+              "unknown": 81
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 8,
+            "unknown": 11
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 222,
+              "unknown": 235
+            },
+            "1": {
+              "n": 246,
+              "alarms": 98,
+              "unknown": 117
+            }
+          },
+          "fpr": 0.7863636363636364,
+          "recall": 0.4481707317073171,
+          "coverage": 0.5210884353741496
+        },
+        "relative_cusum": {
+          "tp": 141,
+          "fp": 166,
+          "tn": 54,
+          "fn": 187,
+          "unknownNormal": 187,
+          "unknownFault": 165,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 166,
+              "unknown": 187
+            },
+            "1": {
+              "n": 164,
+              "alarms": 67,
+              "unknown": 84
+            },
+            "2": {
+              "n": 164,
+              "alarms": 74,
+              "unknown": 81
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 7,
+            "unknown": 11
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 214,
+              "unknown": 235
+            },
+            "1": {
+              "n": 246,
+              "alarms": 93,
+              "unknown": 117
+            }
+          },
+          "fpr": 0.7545454545454545,
+          "recall": 0.4298780487804878,
+          "coverage": 0.5210884353741496
+        },
+        "sequential_dual": {
+          "tp": 147,
+          "fp": 173,
+          "tn": 47,
+          "fn": 181,
+          "unknownNormal": 187,
+          "unknownFault": 165,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 173,
+              "unknown": 187
+            },
+            "1": {
+              "n": 164,
+              "alarms": 70,
+              "unknown": 84
+            },
+            "2": {
+              "n": 164,
+              "alarms": 77,
+              "unknown": 81
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 8,
+            "unknown": 11
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 222,
+              "unknown": 235
+            },
+            "1": {
+              "n": 246,
+              "alarms": 98,
+              "unknown": 117
+            }
+          },
+          "fpr": 0.7863636363636364,
+          "recall": 0.4481707317073171,
+          "coverage": 0.5210884353741496
+        },
+        "sentinel": {
+          "tp": 141,
+          "fp": 166,
+          "tn": 54,
+          "fn": 187,
+          "unknownNormal": 187,
+          "unknownFault": 165,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 166,
+              "unknown": 187
+            },
+            "1": {
+              "n": 164,
+              "alarms": 67,
+              "unknown": 84
+            },
+            "2": {
+              "n": 164,
+              "alarms": 74,
+              "unknown": 81
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 7,
+            "unknown": 11
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 214,
+              "unknown": 235
+            },
+            "1": {
+              "n": 246,
+              "alarms": 93,
+              "unknown": 117
+            }
+          },
+          "fpr": 0.7545454545454545,
+          "recall": 0.4298780487804878,
+          "coverage": 0.5210884353741496
+        },
+        "pointwise_dual": {
+          "tp": 147,
+          "fp": 170,
+          "tn": 50,
+          "fn": 181,
+          "unknownNormal": 187,
+          "unknownFault": 165,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 170,
+              "unknown": 187
+            },
+            "1": {
+              "n": 164,
+              "alarms": 70,
+              "unknown": 84
+            },
+            "2": {
+              "n": 164,
+              "alarms": 77,
+              "unknown": 81
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 8,
+            "unknown": 11
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 222,
+              "unknown": 235
+            },
+            "1": {
+              "n": 246,
+              "alarms": 95,
+              "unknown": 117
+            }
+          },
+          "fpr": 0.7727272727272727,
+          "recall": 0.4481707317073171,
+          "coverage": 0.5210884353741496
+        }
+      }
+    },
+    {
+      "fit": 407,
+      "cal": 735,
+      "calCleanBlocks": 23,
+      "test": 735,
+      "rate": 0.25,
+      "seed": 37002,
+      "thresholds": {
+        "absolute_cusum": 372232.08333333326,
+        "relative_cusum": 697598.4266312681,
+        "sequential_dual": 697598.4266312681,
+        "sentinel": 348799.21331563406,
+        "pointwise_dual": 563090.1254001185
+      },
+      "out": {
+        "absolute_cusum": {
+          "tp": 152,
+          "fp": 156,
+          "tn": 42,
+          "fn": 176,
+          "unknownNormal": 209,
+          "unknownFault": 144,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 156,
+              "unknown": 209
+            },
+            "1": {
+              "n": 164,
+              "alarms": 76,
+              "unknown": 76
+            },
+            "2": {
+              "n": 164,
+              "alarms": 76,
+              "unknown": 68
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 11,
+            "unknown": 9
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 227,
+              "unknown": 216
+            },
+            "1": {
+              "n": 246,
+              "alarms": 81,
+              "unknown": 137
+            }
+          },
+          "fpr": 0.7878787878787878,
+          "recall": 0.4634146341463415,
+          "coverage": 0.5197278911564626
+        },
+        "relative_cusum": {
+          "tp": 146,
+          "fp": 151,
+          "tn": 47,
+          "fn": 182,
+          "unknownNormal": 209,
+          "unknownFault": 144,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 151,
+              "unknown": 209
+            },
+            "1": {
+              "n": 164,
+              "alarms": 73,
+              "unknown": 76
+            },
+            "2": {
+              "n": 164,
+              "alarms": 73,
+              "unknown": 68
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 11,
+            "unknown": 9
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 220,
+              "unknown": 216
+            },
+            "1": {
+              "n": 246,
+              "alarms": 77,
+              "unknown": 137
+            }
+          },
+          "fpr": 0.7626262626262627,
+          "recall": 0.4451219512195122,
+          "coverage": 0.5197278911564626
+        },
+        "sequential_dual": {
+          "tp": 152,
+          "fp": 154,
+          "tn": 44,
+          "fn": 176,
+          "unknownNormal": 209,
+          "unknownFault": 144,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 154,
+              "unknown": 209
+            },
+            "1": {
+              "n": 164,
+              "alarms": 76,
+              "unknown": 76
+            },
+            "2": {
+              "n": 164,
+              "alarms": 76,
+              "unknown": 68
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 11,
+            "unknown": 9
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 227,
+              "unknown": 216
+            },
+            "1": {
+              "n": 246,
+              "alarms": 79,
+              "unknown": 137
+            }
+          },
+          "fpr": 0.7777777777777778,
+          "recall": 0.4634146341463415,
+          "coverage": 0.5197278911564626
+        },
+        "sentinel": {
+          "tp": 146,
+          "fp": 151,
+          "tn": 47,
+          "fn": 182,
+          "unknownNormal": 209,
+          "unknownFault": 144,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 151,
+              "unknown": 209
+            },
+            "1": {
+              "n": 164,
+              "alarms": 73,
+              "unknown": 76
+            },
+            "2": {
+              "n": 164,
+              "alarms": 73,
+              "unknown": 68
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 11,
+            "unknown": 9
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 220,
+              "unknown": 216
+            },
+            "1": {
+              "n": 246,
+              "alarms": 77,
+              "unknown": 137
+            }
+          },
+          "fpr": 0.7626262626262627,
+          "recall": 0.4451219512195122,
+          "coverage": 0.5197278911564626
+        },
+        "pointwise_dual": {
+          "tp": 152,
+          "fp": 159,
+          "tn": 39,
+          "fn": 176,
+          "unknownNormal": 209,
+          "unknownFault": 144,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 159,
+              "unknown": 209
+            },
+            "1": {
+              "n": 164,
+              "alarms": 76,
+              "unknown": 76
+            },
+            "2": {
+              "n": 164,
+              "alarms": 76,
+              "unknown": 68
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 11,
+            "unknown": 9
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 227,
+              "unknown": 216
+            },
+            "1": {
+              "n": 246,
+              "alarms": 84,
+              "unknown": 137
+            }
+          },
+          "fpr": 0.803030303030303,
+          "recall": 0.4634146341463415,
+          "coverage": 0.5197278911564626
+        }
+      }
+    },
+    {
+      "fit": 407,
+      "cal": 735,
+      "calCleanBlocks": 23,
+      "test": 735,
+      "rate": 0.25,
+      "seed": 37003,
+      "thresholds": {
+        "absolute_cusum": 372232.08333333326,
+        "relative_cusum": 697598.4266312681,
+        "sequential_dual": 697598.4266312681,
+        "sentinel": 348799.21331563406,
+        "pointwise_dual": 563090.1254001185
+      },
+      "out": {
+        "absolute_cusum": {
+          "tp": 159,
+          "fp": 176,
+          "tn": 56,
+          "fn": 169,
+          "unknownNormal": 175,
+          "unknownFault": 146,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 176,
+              "unknown": 175
+            },
+            "1": {
+              "n": 164,
+              "alarms": 84,
+              "unknown": 70
+            },
+            "2": {
+              "n": 164,
+              "alarms": 75,
+              "unknown": 76
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 8,
+            "unknown": 12
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 233,
+              "unknown": 217
+            },
+            "1": {
+              "n": 246,
+              "alarms": 102,
+              "unknown": 104
+            }
+          },
+          "fpr": 0.7586206896551724,
+          "recall": 0.4847560975609756,
+          "coverage": 0.563265306122449
+        },
+        "relative_cusum": {
+          "tp": 156,
+          "fp": 166,
+          "tn": 66,
+          "fn": 172,
+          "unknownNormal": 175,
+          "unknownFault": 146,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 166,
+              "unknown": 175
+            },
+            "1": {
+              "n": 164,
+              "alarms": 83,
+              "unknown": 70
+            },
+            "2": {
+              "n": 164,
+              "alarms": 73,
+              "unknown": 76
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 8,
+            "unknown": 12
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 229,
+              "unknown": 217
+            },
+            "1": {
+              "n": 246,
+              "alarms": 93,
+              "unknown": 104
+            }
+          },
+          "fpr": 0.7155172413793104,
+          "recall": 0.47560975609756095,
+          "coverage": 0.563265306122449
+        },
+        "sequential_dual": {
+          "tp": 159,
+          "fp": 175,
+          "tn": 57,
+          "fn": 169,
+          "unknownNormal": 175,
+          "unknownFault": 146,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 175,
+              "unknown": 175
+            },
+            "1": {
+              "n": 164,
+              "alarms": 84,
+              "unknown": 70
+            },
+            "2": {
+              "n": 164,
+              "alarms": 75,
+              "unknown": 76
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 8,
+            "unknown": 12
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 233,
+              "unknown": 217
+            },
+            "1": {
+              "n": 246,
+              "alarms": 101,
+              "unknown": 104
+            }
+          },
+          "fpr": 0.7543103448275862,
+          "recall": 0.4847560975609756,
+          "coverage": 0.563265306122449
+        },
+        "sentinel": {
+          "tp": 156,
+          "fp": 166,
+          "tn": 66,
+          "fn": 172,
+          "unknownNormal": 175,
+          "unknownFault": 146,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 166,
+              "unknown": 175
+            },
+            "1": {
+              "n": 164,
+              "alarms": 83,
+              "unknown": 70
+            },
+            "2": {
+              "n": 164,
+              "alarms": 73,
+              "unknown": 76
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 8,
+            "unknown": 12
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 229,
+              "unknown": 217
+            },
+            "1": {
+              "n": 246,
+              "alarms": 93,
+              "unknown": 104
+            }
+          },
+          "fpr": 0.7155172413793104,
+          "recall": 0.47560975609756095,
+          "coverage": 0.563265306122449
+        },
+        "pointwise_dual": {
+          "tp": 159,
+          "fp": 177,
+          "tn": 55,
+          "fn": 169,
+          "unknownNormal": 175,
+          "unknownFault": 146,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 177,
+              "unknown": 175
+            },
+            "1": {
+              "n": 164,
+              "alarms": 84,
+              "unknown": 70
+            },
+            "2": {
+              "n": 164,
+              "alarms": 75,
+              "unknown": 76
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 8,
+            "unknown": 12
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 233,
+              "unknown": 217
+            },
+            "1": {
+              "n": 246,
+              "alarms": 103,
+              "unknown": 104
+            }
+          },
+          "fpr": 0.7629310344827587,
+          "recall": 0.4847560975609756,
+          "coverage": 0.563265306122449
+        }
+      }
+    },
+    {
+      "fit": 407,
+      "cal": 735,
+      "calCleanBlocks": 23,
+      "test": 735,
+      "rate": 0.25,
+      "seed": 37004,
+      "thresholds": {
+        "absolute_cusum": 372232.08333333326,
+        "relative_cusum": 697598.4266312681,
+        "sequential_dual": 697598.4266312681,
+        "sentinel": 348799.21331563406,
+        "pointwise_dual": 563090.1254001185
+      },
+      "out": {
+        "absolute_cusum": {
+          "tp": 156,
+          "fp": 172,
+          "tn": 23,
+          "fn": 172,
+          "unknownNormal": 212,
+          "unknownFault": 151,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 172,
+              "unknown": 212
+            },
+            "1": {
+              "n": 164,
+              "alarms": 85,
+              "unknown": 69
+            },
+            "2": {
+              "n": 164,
+              "alarms": 71,
+              "unknown": 82
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 15,
+            "unknown": 6
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 237,
+              "unknown": 225
+            },
+            "1": {
+              "n": 246,
+              "alarms": 91,
+              "unknown": 138
+            }
+          },
+          "fpr": 0.882051282051282,
+          "recall": 0.47560975609756095,
+          "coverage": 0.5061224489795918
+        },
+        "relative_cusum": {
+          "tp": 146,
+          "fp": 169,
+          "tn": 26,
+          "fn": 182,
+          "unknownNormal": 212,
+          "unknownFault": 151,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 169,
+              "unknown": 212
+            },
+            "1": {
+              "n": 164,
+              "alarms": 81,
+              "unknown": 69
+            },
+            "2": {
+              "n": 164,
+              "alarms": 65,
+              "unknown": 82
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 14,
+            "unknown": 6
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 225,
+              "unknown": 225
+            },
+            "1": {
+              "n": 246,
+              "alarms": 90,
+              "unknown": 138
+            }
+          },
+          "fpr": 0.8666666666666667,
+          "recall": 0.4451219512195122,
+          "coverage": 0.5061224489795918
+        },
+        "sequential_dual": {
+          "tp": 156,
+          "fp": 172,
+          "tn": 23,
+          "fn": 172,
+          "unknownNormal": 212,
+          "unknownFault": 151,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 172,
+              "unknown": 212
+            },
+            "1": {
+              "n": 164,
+              "alarms": 85,
+              "unknown": 69
+            },
+            "2": {
+              "n": 164,
+              "alarms": 71,
+              "unknown": 82
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 15,
+            "unknown": 6
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 237,
+              "unknown": 225
+            },
+            "1": {
+              "n": 246,
+              "alarms": 91,
+              "unknown": 138
+            }
+          },
+          "fpr": 0.882051282051282,
+          "recall": 0.47560975609756095,
+          "coverage": 0.5061224489795918
+        },
+        "sentinel": {
+          "tp": 146,
+          "fp": 169,
+          "tn": 26,
+          "fn": 182,
+          "unknownNormal": 212,
+          "unknownFault": 151,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 169,
+              "unknown": 212
+            },
+            "1": {
+              "n": 164,
+              "alarms": 81,
+              "unknown": 69
+            },
+            "2": {
+              "n": 164,
+              "alarms": 65,
+              "unknown": 82
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 14,
+            "unknown": 6
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 225,
+              "unknown": 225
+            },
+            "1": {
+              "n": 246,
+              "alarms": 90,
+              "unknown": 138
+            }
+          },
+          "fpr": 0.8666666666666667,
+          "recall": 0.4451219512195122,
+          "coverage": 0.5061224489795918
+        },
+        "pointwise_dual": {
+          "tp": 156,
+          "fp": 169,
+          "tn": 26,
+          "fn": 172,
+          "unknownNormal": 212,
+          "unknownFault": 151,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 169,
+              "unknown": 212
+            },
+            "1": {
+              "n": 164,
+              "alarms": 85,
+              "unknown": 69
+            },
+            "2": {
+              "n": 164,
+              "alarms": 71,
+              "unknown": 82
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 15,
+            "unknown": 6
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 237,
+              "unknown": 225
+            },
+            "1": {
+              "n": 246,
+              "alarms": 88,
+              "unknown": 138
+            }
+          },
+          "fpr": 0.8666666666666667,
+          "recall": 0.47560975609756095,
+          "coverage": 0.5061224489795918
+        }
+      }
+    },
+    {
+      "fit": 407,
+      "cal": 735,
+      "calCleanBlocks": 23,
+      "test": 735,
+      "rate": 0.25,
+      "seed": 37005,
+      "thresholds": {
+        "absolute_cusum": 372232.08333333326,
+        "relative_cusum": 697598.4266312681,
+        "sequential_dual": 697598.4266312681,
+        "sentinel": 348799.21331563406,
+        "pointwise_dual": 563090.1254001185
+      },
+      "out": {
+        "absolute_cusum": {
+          "tp": 130,
+          "fp": 176,
+          "tn": 42,
+          "fn": 198,
+          "unknownNormal": 189,
+          "unknownFault": 163,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 176,
+              "unknown": 189
+            },
+            "1": {
+              "n": 164,
+              "alarms": 65,
+              "unknown": 83
+            },
+            "2": {
+              "n": 164,
+              "alarms": 65,
+              "unknown": 80
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 8,
+            "unknown": 9
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 198,
+              "unknown": 244
+            },
+            "1": {
+              "n": 246,
+              "alarms": 108,
+              "unknown": 108
+            }
+          },
+          "fpr": 0.8073394495412844,
+          "recall": 0.39634146341463417,
+          "coverage": 0.5210884353741496
+        },
+        "relative_cusum": {
+          "tp": 128,
+          "fp": 167,
+          "tn": 51,
+          "fn": 200,
+          "unknownNormal": 189,
+          "unknownFault": 163,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 167,
+              "unknown": 189
+            },
+            "1": {
+              "n": 164,
+              "alarms": 64,
+              "unknown": 83
+            },
+            "2": {
+              "n": 164,
+              "alarms": 64,
+              "unknown": 80
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 7,
+            "unknown": 9
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 193,
+              "unknown": 244
+            },
+            "1": {
+              "n": 246,
+              "alarms": 102,
+              "unknown": 108
+            }
+          },
+          "fpr": 0.7660550458715596,
+          "recall": 0.3902439024390244,
+          "coverage": 0.5210884353741496
+        },
+        "sequential_dual": {
+          "tp": 130,
+          "fp": 175,
+          "tn": 43,
+          "fn": 198,
+          "unknownNormal": 189,
+          "unknownFault": 163,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 175,
+              "unknown": 189
+            },
+            "1": {
+              "n": 164,
+              "alarms": 65,
+              "unknown": 83
+            },
+            "2": {
+              "n": 164,
+              "alarms": 65,
+              "unknown": 80
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 8,
+            "unknown": 9
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 198,
+              "unknown": 244
+            },
+            "1": {
+              "n": 246,
+              "alarms": 107,
+              "unknown": 108
+            }
+          },
+          "fpr": 0.8027522935779816,
+          "recall": 0.39634146341463417,
+          "coverage": 0.5210884353741496
+        },
+        "sentinel": {
+          "tp": 128,
+          "fp": 167,
+          "tn": 51,
+          "fn": 200,
+          "unknownNormal": 189,
+          "unknownFault": 163,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 167,
+              "unknown": 189
+            },
+            "1": {
+              "n": 164,
+              "alarms": 64,
+              "unknown": 83
+            },
+            "2": {
+              "n": 164,
+              "alarms": 64,
+              "unknown": 80
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 7,
+            "unknown": 9
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 193,
+              "unknown": 244
+            },
+            "1": {
+              "n": 246,
+              "alarms": 102,
+              "unknown": 108
+            }
+          },
+          "fpr": 0.7660550458715596,
+          "recall": 0.3902439024390244,
+          "coverage": 0.5210884353741496
+        },
+        "pointwise_dual": {
+          "tp": 130,
+          "fp": 176,
+          "tn": 42,
+          "fn": 198,
+          "unknownNormal": 189,
+          "unknownFault": 163,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 176,
+              "unknown": 189
+            },
+            "1": {
+              "n": 164,
+              "alarms": 65,
+              "unknown": 83
+            },
+            "2": {
+              "n": 164,
+              "alarms": 65,
+              "unknown": 80
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 8,
+            "unknown": 9
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 197,
+              "unknown": 244
+            },
+            "1": {
+              "n": 246,
+              "alarms": 109,
+              "unknown": 108
+            }
+          },
+          "fpr": 0.8073394495412844,
+          "recall": 0.39634146341463417,
+          "coverage": 0.5210884353741496
+        }
+      }
+    },
+    {
+      "fit": 407,
+      "cal": 735,
+      "calCleanBlocks": 23,
+      "test": 735,
+      "rate": 0.25,
+      "seed": 37006,
+      "thresholds": {
+        "absolute_cusum": 372232.08333333326,
+        "relative_cusum": 697598.4266312681,
+        "sequential_dual": 697598.4266312681,
+        "sentinel": 348799.21331563406,
+        "pointwise_dual": 563090.1254001185
+      },
+      "out": {
+        "absolute_cusum": {
+          "tp": 153,
+          "fp": 164,
+          "tn": 44,
+          "fn": 175,
+          "unknownNormal": 199,
+          "unknownFault": 140,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 164,
+              "unknown": 199
+            },
+            "1": {
+              "n": 164,
+              "alarms": 75,
+              "unknown": 68
+            },
+            "2": {
+              "n": 164,
+              "alarms": 78,
+              "unknown": 72
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 7,
+            "unknown": 12
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 218,
+              "unknown": 225
+            },
+            "1": {
+              "n": 246,
+              "alarms": 99,
+              "unknown": 114
+            }
+          },
+          "fpr": 0.7884615384615384,
+          "recall": 0.46646341463414637,
+          "coverage": 0.5387755102040817
+        },
+        "relative_cusum": {
+          "tp": 142,
+          "fp": 148,
+          "tn": 60,
+          "fn": 186,
+          "unknownNormal": 199,
+          "unknownFault": 140,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 148,
+              "unknown": 199
+            },
+            "1": {
+              "n": 164,
+              "alarms": 68,
+              "unknown": 68
+            },
+            "2": {
+              "n": 164,
+              "alarms": 74,
+              "unknown": 72
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 7,
+            "unknown": 12
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 202,
+              "unknown": 225
+            },
+            "1": {
+              "n": 246,
+              "alarms": 88,
+              "unknown": 114
+            }
+          },
+          "fpr": 0.7115384615384616,
+          "recall": 0.4329268292682927,
+          "coverage": 0.5387755102040817
+        },
+        "sequential_dual": {
+          "tp": 153,
+          "fp": 161,
+          "tn": 47,
+          "fn": 175,
+          "unknownNormal": 199,
+          "unknownFault": 140,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 161,
+              "unknown": 199
+            },
+            "1": {
+              "n": 164,
+              "alarms": 75,
+              "unknown": 68
+            },
+            "2": {
+              "n": 164,
+              "alarms": 78,
+              "unknown": 72
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 7,
+            "unknown": 12
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 218,
+              "unknown": 225
+            },
+            "1": {
+              "n": 246,
+              "alarms": 96,
+              "unknown": 114
+            }
+          },
+          "fpr": 0.7740384615384616,
+          "recall": 0.46646341463414637,
+          "coverage": 0.5387755102040817
+        },
+        "sentinel": {
+          "tp": 142,
+          "fp": 148,
+          "tn": 60,
+          "fn": 186,
+          "unknownNormal": 199,
+          "unknownFault": 140,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 148,
+              "unknown": 199
+            },
+            "1": {
+              "n": 164,
+              "alarms": 68,
+              "unknown": 68
+            },
+            "2": {
+              "n": 164,
+              "alarms": 74,
+              "unknown": 72
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 7,
+            "unknown": 12
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 202,
+              "unknown": 225
+            },
+            "1": {
+              "n": 246,
+              "alarms": 88,
+              "unknown": 114
+            }
+          },
+          "fpr": 0.7115384615384616,
+          "recall": 0.4329268292682927,
+          "coverage": 0.5387755102040817
+        },
+        "pointwise_dual": {
+          "tp": 153,
+          "fp": 162,
+          "tn": 46,
+          "fn": 175,
+          "unknownNormal": 199,
+          "unknownFault": 140,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 162,
+              "unknown": 199
+            },
+            "1": {
+              "n": 164,
+              "alarms": 75,
+              "unknown": 68
+            },
+            "2": {
+              "n": 164,
+              "alarms": 78,
+              "unknown": 72
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 7,
+            "unknown": 12
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 218,
+              "unknown": 225
+            },
+            "1": {
+              "n": 246,
+              "alarms": 97,
+              "unknown": 114
+            }
+          },
+          "fpr": 0.7788461538461539,
+          "recall": 0.46646341463414637,
+          "coverage": 0.5387755102040817
+        }
+      }
+    },
+    {
+      "fit": 407,
+      "cal": 735,
+      "calCleanBlocks": 23,
+      "test": 735,
+      "rate": 0.25,
+      "seed": 37007,
+      "thresholds": {
+        "absolute_cusum": 372232.08333333326,
+        "relative_cusum": 697598.4266312681,
+        "sequential_dual": 697598.4266312681,
+        "sentinel": 348799.21331563406,
+        "pointwise_dual": 563090.1254001185
+      },
+      "out": {
+        "absolute_cusum": {
+          "tp": 145,
+          "fp": 165,
+          "tn": 43,
+          "fn": 183,
+          "unknownNormal": 199,
+          "unknownFault": 161,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 165,
+              "unknown": 199
+            },
+            "1": {
+              "n": 164,
+              "alarms": 71,
+              "unknown": 81
+            },
+            "2": {
+              "n": 164,
+              "alarms": 74,
+              "unknown": 80
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 11,
+            "unknown": 10
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 219,
+              "unknown": 236
+            },
+            "1": {
+              "n": 246,
+              "alarms": 91,
+              "unknown": 124
+            }
+          },
+          "fpr": 0.7932692307692307,
+          "recall": 0.4420731707317073,
+          "coverage": 0.5102040816326531
+        },
+        "relative_cusum": {
+          "tp": 140,
+          "fp": 155,
+          "tn": 53,
+          "fn": 188,
+          "unknownNormal": 199,
+          "unknownFault": 161,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 155,
+              "unknown": 199
+            },
+            "1": {
+              "n": 164,
+              "alarms": 68,
+              "unknown": 81
+            },
+            "2": {
+              "n": 164,
+              "alarms": 72,
+              "unknown": 80
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 11,
+            "unknown": 10
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 211,
+              "unknown": 236
+            },
+            "1": {
+              "n": 246,
+              "alarms": 84,
+              "unknown": 124
+            }
+          },
+          "fpr": 0.7451923076923077,
+          "recall": 0.4268292682926829,
+          "coverage": 0.5102040816326531
+        },
+        "sequential_dual": {
+          "tp": 145,
+          "fp": 163,
+          "tn": 45,
+          "fn": 183,
+          "unknownNormal": 199,
+          "unknownFault": 161,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 163,
+              "unknown": 199
+            },
+            "1": {
+              "n": 164,
+              "alarms": 71,
+              "unknown": 81
+            },
+            "2": {
+              "n": 164,
+              "alarms": 74,
+              "unknown": 80
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 11,
+            "unknown": 10
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 219,
+              "unknown": 236
+            },
+            "1": {
+              "n": 246,
+              "alarms": 89,
+              "unknown": 124
+            }
+          },
+          "fpr": 0.7836538461538461,
+          "recall": 0.4420731707317073,
+          "coverage": 0.5102040816326531
+        },
+        "sentinel": {
+          "tp": 140,
+          "fp": 155,
+          "tn": 53,
+          "fn": 188,
+          "unknownNormal": 199,
+          "unknownFault": 161,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 155,
+              "unknown": 199
+            },
+            "1": {
+              "n": 164,
+              "alarms": 68,
+              "unknown": 81
+            },
+            "2": {
+              "n": 164,
+              "alarms": 72,
+              "unknown": 80
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 11,
+            "unknown": 10
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 211,
+              "unknown": 236
+            },
+            "1": {
+              "n": 246,
+              "alarms": 84,
+              "unknown": 124
+            }
+          },
+          "fpr": 0.7451923076923077,
+          "recall": 0.4268292682926829,
+          "coverage": 0.5102040816326531
+        },
+        "pointwise_dual": {
+          "tp": 145,
+          "fp": 167,
+          "tn": 41,
+          "fn": 183,
+          "unknownNormal": 199,
+          "unknownFault": 161,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 167,
+              "unknown": 199
+            },
+            "1": {
+              "n": 164,
+              "alarms": 71,
+              "unknown": 81
+            },
+            "2": {
+              "n": 164,
+              "alarms": 74,
+              "unknown": 80
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 11,
+            "unknown": 10
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 219,
+              "unknown": 236
+            },
+            "1": {
+              "n": 246,
+              "alarms": 93,
+              "unknown": 124
+            }
+          },
+          "fpr": 0.8028846153846154,
+          "recall": 0.4420731707317073,
+          "coverage": 0.5102040816326531
+        }
+      }
+    },
+    {
+      "fit": 407,
+      "cal": 735,
+      "calCleanBlocks": 23,
+      "test": 735,
+      "rate": 0.25,
+      "seed": 37008,
+      "thresholds": {
+        "absolute_cusum": 372232.08333333326,
+        "relative_cusum": 697598.4266312681,
+        "sequential_dual": 697598.4266312681,
+        "sentinel": 348799.21331563406,
+        "pointwise_dual": 563090.1254001185
+      },
+      "out": {
+        "absolute_cusum": {
+          "tp": 149,
+          "fp": 183,
+          "tn": 46,
+          "fn": 179,
+          "unknownNormal": 178,
+          "unknownFault": 153,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 183,
+              "unknown": 178
+            },
+            "1": {
+              "n": 164,
+              "alarms": 77,
+              "unknown": 77
+            },
+            "2": {
+              "n": 164,
+              "alarms": 72,
+              "unknown": 76
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 13,
+            "unknown": 6
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 220,
+              "unknown": 226
+            },
+            "1": {
+              "n": 246,
+              "alarms": 112,
+              "unknown": 105
+            }
+          },
+          "fpr": 0.7991266375545851,
+          "recall": 0.45426829268292684,
+          "coverage": 0.5496598639455782
+        },
+        "relative_cusum": {
+          "tp": 146,
+          "fp": 175,
+          "tn": 54,
+          "fn": 182,
+          "unknownNormal": 178,
+          "unknownFault": 153,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 175,
+              "unknown": 178
+            },
+            "1": {
+              "n": 164,
+              "alarms": 76,
+              "unknown": 77
+            },
+            "2": {
+              "n": 164,
+              "alarms": 70,
+              "unknown": 76
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 13,
+            "unknown": 6
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 214,
+              "unknown": 226
+            },
+            "1": {
+              "n": 246,
+              "alarms": 107,
+              "unknown": 105
+            }
+          },
+          "fpr": 0.7641921397379913,
+          "recall": 0.4451219512195122,
+          "coverage": 0.5496598639455782
+        },
+        "sequential_dual": {
+          "tp": 149,
+          "fp": 183,
+          "tn": 46,
+          "fn": 179,
+          "unknownNormal": 178,
+          "unknownFault": 153,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 183,
+              "unknown": 178
+            },
+            "1": {
+              "n": 164,
+              "alarms": 77,
+              "unknown": 77
+            },
+            "2": {
+              "n": 164,
+              "alarms": 72,
+              "unknown": 76
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 13,
+            "unknown": 6
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 220,
+              "unknown": 226
+            },
+            "1": {
+              "n": 246,
+              "alarms": 112,
+              "unknown": 105
+            }
+          },
+          "fpr": 0.7991266375545851,
+          "recall": 0.45426829268292684,
+          "coverage": 0.5496598639455782
+        },
+        "sentinel": {
+          "tp": 146,
+          "fp": 175,
+          "tn": 54,
+          "fn": 182,
+          "unknownNormal": 178,
+          "unknownFault": 153,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 175,
+              "unknown": 178
+            },
+            "1": {
+              "n": 164,
+              "alarms": 76,
+              "unknown": 77
+            },
+            "2": {
+              "n": 164,
+              "alarms": 70,
+              "unknown": 76
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 13,
+            "unknown": 6
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 214,
+              "unknown": 226
+            },
+            "1": {
+              "n": 246,
+              "alarms": 107,
+              "unknown": 105
+            }
+          },
+          "fpr": 0.7641921397379913,
+          "recall": 0.4451219512195122,
+          "coverage": 0.5496598639455782
+        },
+        "pointwise_dual": {
+          "tp": 149,
+          "fp": 181,
+          "tn": 48,
+          "fn": 179,
+          "unknownNormal": 178,
+          "unknownFault": 153,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 181,
+              "unknown": 178
+            },
+            "1": {
+              "n": 164,
+              "alarms": 77,
+              "unknown": 77
+            },
+            "2": {
+              "n": 164,
+              "alarms": 72,
+              "unknown": 76
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 13,
+            "unknown": 6
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 220,
+              "unknown": 226
+            },
+            "1": {
+              "n": 246,
+              "alarms": 110,
+              "unknown": 105
+            }
+          },
+          "fpr": 0.7903930131004366,
+          "recall": 0.45426829268292684,
+          "coverage": 0.5496598639455782
+        }
+      }
+    },
+    {
+      "fit": 407,
+      "cal": 735,
+      "calCleanBlocks": 23,
+      "test": 735,
+      "rate": 0.25,
+      "seed": 37009,
+      "thresholds": {
+        "absolute_cusum": 372232.08333333326,
+        "relative_cusum": 697598.4266312681,
+        "sequential_dual": 697598.4266312681,
+        "sentinel": 348799.21331563406,
+        "pointwise_dual": 563090.1254001185
+      },
+      "out": {
+        "absolute_cusum": {
+          "tp": 141,
+          "fp": 164,
+          "tn": 44,
+          "fn": 187,
+          "unknownNormal": 199,
+          "unknownFault": 167,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 164,
+              "unknown": 199
+            },
+            "1": {
+              "n": 164,
+              "alarms": 69,
+              "unknown": 85
+            },
+            "2": {
+              "n": 164,
+              "alarms": 72,
+              "unknown": 82
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 10,
+            "unknown": 9
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 217,
+              "unknown": 239
+            },
+            "1": {
+              "n": 246,
+              "alarms": 88,
+              "unknown": 127
+            }
+          },
+          "fpr": 0.7884615384615384,
+          "recall": 0.4298780487804878,
+          "coverage": 0.5020408163265306
+        },
+        "relative_cusum": {
+          "tp": 136,
+          "fp": 154,
+          "tn": 54,
+          "fn": 192,
+          "unknownNormal": 199,
+          "unknownFault": 167,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 154,
+              "unknown": 199
+            },
+            "1": {
+              "n": 164,
+              "alarms": 66,
+              "unknown": 85
+            },
+            "2": {
+              "n": 164,
+              "alarms": 70,
+              "unknown": 82
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 10,
+            "unknown": 9
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 206,
+              "unknown": 239
+            },
+            "1": {
+              "n": 246,
+              "alarms": 84,
+              "unknown": 127
+            }
+          },
+          "fpr": 0.7403846153846154,
+          "recall": 0.4146341463414634,
+          "coverage": 0.5020408163265306
+        },
+        "sequential_dual": {
+          "tp": 141,
+          "fp": 164,
+          "tn": 44,
+          "fn": 187,
+          "unknownNormal": 199,
+          "unknownFault": 167,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 164,
+              "unknown": 199
+            },
+            "1": {
+              "n": 164,
+              "alarms": 69,
+              "unknown": 85
+            },
+            "2": {
+              "n": 164,
+              "alarms": 72,
+              "unknown": 82
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 10,
+            "unknown": 9
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 217,
+              "unknown": 239
+            },
+            "1": {
+              "n": 246,
+              "alarms": 88,
+              "unknown": 127
+            }
+          },
+          "fpr": 0.7884615384615384,
+          "recall": 0.4298780487804878,
+          "coverage": 0.5020408163265306
+        },
+        "sentinel": {
+          "tp": 136,
+          "fp": 154,
+          "tn": 54,
+          "fn": 192,
+          "unknownNormal": 199,
+          "unknownFault": 167,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 154,
+              "unknown": 199
+            },
+            "1": {
+              "n": 164,
+              "alarms": 66,
+              "unknown": 85
+            },
+            "2": {
+              "n": 164,
+              "alarms": 70,
+              "unknown": 82
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 10,
+            "unknown": 9
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 206,
+              "unknown": 239
+            },
+            "1": {
+              "n": 246,
+              "alarms": 84,
+              "unknown": 127
+            }
+          },
+          "fpr": 0.7403846153846154,
+          "recall": 0.4146341463414634,
+          "coverage": 0.5020408163265306
+        },
+        "pointwise_dual": {
+          "tp": 141,
+          "fp": 163,
+          "tn": 45,
+          "fn": 187,
+          "unknownNormal": 199,
+          "unknownFault": 167,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 163,
+              "unknown": 199
+            },
+            "1": {
+              "n": 164,
+              "alarms": 69,
+              "unknown": 85
+            },
+            "2": {
+              "n": 164,
+              "alarms": 72,
+              "unknown": 82
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 10,
+            "unknown": 9
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 217,
+              "unknown": 239
+            },
+            "1": {
+              "n": 246,
+              "alarms": 87,
+              "unknown": 127
+            }
+          },
+          "fpr": 0.7836538461538461,
+          "recall": 0.4298780487804878,
+          "coverage": 0.5020408163265306
+        }
+      }
+    },
+    {
+      "fit": 407,
+      "cal": 735,
+      "calCleanBlocks": 23,
+      "test": 735,
+      "rate": 0.25,
+      "seed": 37010,
+      "thresholds": {
+        "absolute_cusum": 372232.08333333326,
+        "relative_cusum": 697598.4266312681,
+        "sequential_dual": 697598.4266312681,
+        "sentinel": 348799.21331563406,
+        "pointwise_dual": 563090.1254001185
+      },
+      "out": {
+        "absolute_cusum": {
+          "tp": 149,
+          "fp": 174,
+          "tn": 40,
+          "fn": 179,
+          "unknownNormal": 193,
+          "unknownFault": 153,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 174,
+              "unknown": 193
+            },
+            "1": {
+              "n": 164,
+              "alarms": 68,
+              "unknown": 84
+            },
+            "2": {
+              "n": 164,
+              "alarms": 81,
+              "unknown": 69
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 8,
+            "unknown": 10
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 219,
+              "unknown": 230
+            },
+            "1": {
+              "n": 246,
+              "alarms": 104,
+              "unknown": 116
+            }
+          },
+          "fpr": 0.8130841121495327,
+          "recall": 0.45426829268292684,
+          "coverage": 0.5292517006802722
+        },
+        "relative_cusum": {
+          "tp": 143,
+          "fp": 167,
+          "tn": 47,
+          "fn": 185,
+          "unknownNormal": 193,
+          "unknownFault": 153,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 167,
+              "unknown": 193
+            },
+            "1": {
+              "n": 164,
+              "alarms": 64,
+              "unknown": 84
+            },
+            "2": {
+              "n": 164,
+              "alarms": 79,
+              "unknown": 69
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 8,
+            "unknown": 10
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 211,
+              "unknown": 230
+            },
+            "1": {
+              "n": 246,
+              "alarms": 99,
+              "unknown": 116
+            }
+          },
+          "fpr": 0.780373831775701,
+          "recall": 0.43597560975609756,
+          "coverage": 0.5292517006802722
+        },
+        "sequential_dual": {
+          "tp": 149,
+          "fp": 171,
+          "tn": 43,
+          "fn": 179,
+          "unknownNormal": 193,
+          "unknownFault": 153,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 171,
+              "unknown": 193
+            },
+            "1": {
+              "n": 164,
+              "alarms": 68,
+              "unknown": 84
+            },
+            "2": {
+              "n": 164,
+              "alarms": 81,
+              "unknown": 69
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 8,
+            "unknown": 10
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 219,
+              "unknown": 230
+            },
+            "1": {
+              "n": 246,
+              "alarms": 101,
+              "unknown": 116
+            }
+          },
+          "fpr": 0.7990654205607477,
+          "recall": 0.45426829268292684,
+          "coverage": 0.5292517006802722
+        },
+        "sentinel": {
+          "tp": 143,
+          "fp": 167,
+          "tn": 47,
+          "fn": 185,
+          "unknownNormal": 193,
+          "unknownFault": 153,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 167,
+              "unknown": 193
+            },
+            "1": {
+              "n": 164,
+              "alarms": 64,
+              "unknown": 84
+            },
+            "2": {
+              "n": 164,
+              "alarms": 79,
+              "unknown": 69
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 8,
+            "unknown": 10
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 211,
+              "unknown": 230
+            },
+            "1": {
+              "n": 246,
+              "alarms": 99,
+              "unknown": 116
+            }
+          },
+          "fpr": 0.780373831775701,
+          "recall": 0.43597560975609756,
+          "coverage": 0.5292517006802722
+        },
+        "pointwise_dual": {
+          "tp": 149,
+          "fp": 171,
+          "tn": 43,
+          "fn": 179,
+          "unknownNormal": 193,
+          "unknownFault": 153,
+          "bySeverity": {
+            "0": {
+              "n": 407,
+              "alarms": 171,
+              "unknown": 193
+            },
+            "1": {
+              "n": 164,
+              "alarms": 68,
+              "unknown": 84
+            },
+            "2": {
+              "n": 164,
+              "alarms": 81,
+              "unknown": 69
+            }
+          },
+          "fullHealthy": {
+            "n": 21,
+            "alarms": 8,
+            "unknown": 10
+          },
+          "byStability": {
+            "0": {
+              "n": 489,
+              "alarms": 218,
+              "unknown": 230
+            },
+            "1": {
+              "n": 246,
+              "alarms": 102,
+              "unknown": 116
+            }
+          },
+          "fpr": 0.7990654205607477,
+          "recall": 0.45426829268292684,
+          "coverage": 0.5292517006802722
+        }
+      }
+    }
+  ],
+  "summary10": {
+    "absolute_cusum": {
+      "fpr": 0.8973191558805118,
+      "recall": 0.8457317073170731,
+      "coverage": 0.9225850340136054,
+      "fp": 335.5,
+      "tp": 277.4,
+      "unknownNormal": 33.1,
+      "unknownFault": 23.8
+    },
+    "relative_cusum": {
+      "fpr": 0.8812739849930488,
+      "recall": 0.8304878048780487,
+      "coverage": 0.9225850340136054,
+      "fp": 329.5,
+      "tp": 272.4,
+      "unknownNormal": 33.1,
+      "unknownFault": 23.8
+    },
+    "sequential_dual": {
+      "fpr": 0.8973191558805118,
+      "recall": 0.8457317073170731,
+      "coverage": 0.9225850340136054,
+      "fp": 335.5,
+      "tp": 277.4,
+      "unknownNormal": 33.1,
+      "unknownFault": 23.8
+    },
+    "sentinel": {
+      "fpr": 0.8812739849930488,
+      "recall": 0.8304878048780487,
+      "coverage": 0.9225850340136054,
+      "fp": 329.5,
+      "tp": 272.4,
+      "unknownNormal": 33.1,
+      "unknownFault": 23.8
+    },
+    "pointwise_dual": {
+      "fpr": 0.8662878501680268,
+      "recall": 0.8457317073170731,
+      "coverage": 0.9225850340136054,
+      "fp": 323.9,
+      "tp": 277.4,
+      "unknownNormal": 33.1,
+      "unknownFault": 23.8
+    }
+  },
+  "summary25": {
+    "absolute_cusum": {
+      "fpr": 0.8004656902886589,
+      "recall": 0.4515243902439024,
+      "coverage": 0.5261224489795919,
+      "fp": 170.3,
+      "tp": 148.1,
+      "unknownNormal": 194,
+      "unknownFault": 154.3
+    },
+    "relative_cusum": {
+      "fpr": 0.760709202721833,
+      "recall": 0.4341463414634147,
+      "coverage": 0.5261224489795919,
+      "fp": 161.8,
+      "tp": 142.4,
+      "unknownNormal": 194,
+      "unknownFault": 154.3
+    },
+    "sequential_dual": {
+      "fpr": 0.7947601238867443,
+      "recall": 0.4515243902439024,
+      "coverage": 0.5261224489795919,
+      "fp": 169.1,
+      "tp": 148.1,
+      "unknownNormal": 194,
+      "unknownFault": 154.3
+    },
+    "sentinel": {
+      "fpr": 0.760709202721833,
+      "recall": 0.4341463414634147,
+      "coverage": 0.5261224489795919,
+      "fp": 161.8,
+      "tp": 142.4,
+      "unknownNormal": 194,
+      "unknownFault": 154.3
+    },
+    "pointwise_dual": {
+      "fpr": 0.7967537775494085,
+      "recall": 0.4515243902439024,
+      "coverage": 0.5261224489795919,
+      "fp": 169.5,
+      "tp": 148.1,
+      "unknownNormal": 194,
+      "unknownFault": 154.3
+    }
+  }
+}
