@@ -1,0 +1,168 @@
+{
+  "analysis_seed": 20261108,
+  "caveats": [
+    "No randomization or untreated comparator; pre/post effects can reflect time, recurrence, sampling.",
+    "Post specimens from a patient averaged; unequal sampling timepoints not modeled.",
+    "GEO cohort does not label cretostimogene outcome; no therapy prediction claim.",
+    "No external BCG validation or clinical predictive-performance evaluation.",
+    "Sign-flip exchangeability and sample annotations require independent verification."
+  ],
+  "dataset": "GSE244895",
+  "negative_control": {
+    "results": {
+      "CD163": {
+        "exact_signflip_p": 0.81347656,
+        "mean_delta_log2_tpm1": -0.020261
+      },
+      "CD68": {
+        "exact_signflip_p": 0.54931641,
+        "mean_delta_log2_tpm1": 0.025654
+      },
+      "CD8A": {
+        "exact_signflip_p": 0.27978516,
+        "mean_delta_log2_tpm1": -0.193472
+      },
+      "CD8B": {
+        "exact_signflip_p": 0.39550781,
+        "mean_delta_log2_tpm1": -0.104
+      },
+      "CTLA4": {
+        "exact_signflip_p": 0.54833984,
+        "mean_delta_log2_tpm1": -0.114762
+      },
+      "CXADR": {
+        "exact_signflip_p": 0.56982422,
+        "mean_delta_log2_tpm1": -0.041199
+      },
+      "CXCL10": {
+        "exact_signflip_p": 0.34716797,
+        "mean_delta_log2_tpm1": -0.175445
+      },
+      "CXCL9": {
+        "exact_signflip_p": 0.31103516,
+        "mean_delta_log2_tpm1": -0.236075
+      }
+    },
+    "type": "fixed-seed patient-level random sign flip (one placebo contrast)"
+  },
+  "predeclared_gene_effects": {
+    "CD163": {
+      "bh_fdr_within_predeclared_markers": 0.50097656,
+      "bootstrap_95pct_ci": [
+        -0.105018,
+        0.220637
+      ],
+      "mean_delta_log2_tpm1": 0.057506,
+      "median_delta_log2_tpm1": 0.091088,
+      "two_sided_exact_signflip_p": 0.50097656
+    },
+    "CD68": {
+      "bh_fdr_within_predeclared_markers": 0.29785156,
+      "bootstrap_95pct_ci": [
+        -0.000388,
+        0.134864
+      ],
+      "mean_delta_log2_tpm1": 0.067726,
+      "median_delta_log2_tpm1": 0.053177,
+      "two_sided_exact_signflip_p": 0.09619141
+    },
+    "CD8A": {
+      "bh_fdr_within_predeclared_markers": 0.29785156,
+      "bootstrap_95pct_ci": [
+        -0.040552,
+        0.571952
+      ],
+      "mean_delta_log2_tpm1": 0.25822,
+      "median_delta_log2_tpm1": 0.223754,
+      "two_sided_exact_signflip_p": 0.14892578
+    },
+    "CD8B": {
+      "bh_fdr_within_predeclared_markers": 0.29785156,
+      "bootstrap_95pct_ci": [
+        -0.026335,
+        0.374526
+      ],
+      "mean_delta_log2_tpm1": 0.178855,
+      "median_delta_log2_tpm1": 0.162876,
+      "two_sided_exact_signflip_p": 0.12890625
+    },
+    "CTLA4": {
+      "bh_fdr_within_predeclared_markers": 0.35221354,
+      "bootstrap_95pct_ci": [
+        -0.124891,
+        0.563193
+      ],
+      "mean_delta_log2_tpm1": 0.204588,
+      "median_delta_log2_tpm1": 0.004369,
+      "two_sided_exact_signflip_p": 0.26416016
+    },
+    "CXADR": {
+      "bh_fdr_within_predeclared_markers": 0.50097656,
+      "bootstrap_95pct_ci": [
+        -0.183027,
+        0.068554
+      ],
+      "mean_delta_log2_tpm1": -0.053662,
+      "median_delta_log2_tpm1": 0.007165,
+      "two_sided_exact_signflip_p": 0.45361328
+    },
+    "CXCL10": {
+      "bh_fdr_within_predeclared_markers": 0.34296875,
+      "bootstrap_95pct_ci": [
+        -0.106316,
+        0.539284
+      ],
+      "mean_delta_log2_tpm1": 0.227664,
+      "median_delta_log2_tpm1": 0.336257,
+      "two_sided_exact_signflip_p": 0.21435547
+    },
+    "CXCL9": {
+      "bh_fdr_within_predeclared_markers": 0.29785156,
+      "bootstrap_95pct_ci": [
+        0.004432,
+        0.745703
+      ],
+      "mean_delta_log2_tpm1": 0.353408,
+      "median_delta_log2_tpm1": 0.341668,
+      "two_sided_exact_signflip_p": 0.09863281
+    }
+  },
+  "qc": {
+    "columns": 35,
+    "compressed_bytes": 623705,
+    "genes": 4639,
+    "matrix_sha256": "712480491eb29d56e645650893692f9db2fa3e7ebc30bb41c08e5f9ccc30bac8",
+    "n_patients_with_pairs": 12,
+    "n_post_specimens": 22,
+    "n_pre_specimens": 13,
+    "n_specimens": 35,
+    "n_unique_patients": 14,
+    "patient_ids": [
+      "P-1",
+      "P-2",
+      "P-3",
+      "P-4",
+      "P-5",
+      "P-6",
+      "P-7",
+      "P-8",
+      "P-9",
+      "P-10",
+      "P-12",
+      "P-13"
+    ],
+    "quarantined_source_rows": [
+      {
+        "gene": "DEFB110",
+        "line": 4641,
+        "observed_columns": 7
+      }
+    ],
+    "repeated_posts_averaged_within_patient": true,
+    "retrieval": "downloaded_geo",
+    "source_accession": "GSE244895",
+    "source_integrity_gate": "PASS_PINNED_TERMINAL_EXCEPTION"
+  },
+  "scope": "paired pre/post BCG only; NO BCG clinical response and NO cretostimogene treated patients",
+  "status": "EXPLORATORY_GEO_DOWNLOADED"
+}

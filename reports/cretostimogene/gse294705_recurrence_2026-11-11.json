@@ -1,0 +1,103 @@
+{
+  "accession": "GSE294705",
+  "comparison": ">=2 recurrences Yes versus No",
+  "endpoint": "longitudinal recurrence grouping from public GEO (not BCG durable response or cretostimogene sensitivity)",
+  "design": "observational retrospective exploratory endpoint transfer: not clinical predictor validation",
+  "n": 94,
+  "events": 16,
+  "nonevents": 78,
+  "baseline_eortc_auc_descriptive": 0.38501603,
+  "sex_cross_tab": {
+    "Male/No": 63,
+    "Female/No": 15,
+    "Female/Yes": 3,
+    "Male/Yes": 13
+  },
+  "stage_cross_tab": {
+    "T1/No": 66,
+    "T1/Yes": 12,
+    "Ta/No": 11,
+    "Ta/Yes": 4,
+    "CIS/No": 1
+  },
+  "sigs": {
+    "T_CELL_CD8_PROXY": {
+      "genes": [
+        "CD8A",
+        "CD8B"
+      ],
+      "mean_yes": 0.78502031,
+      "mean_no": 1.11002964,
+      "effect_yes_minus_no_log2cpm1": -0.32500933,
+      "auc_descriptive": 0.36538462,
+      "p_global": 0.10704465,
+      "p_sex_stage_stratified": 0.08659567,
+      "bootstrap_ci95_unadjusted": [
+        -0.67475656,
+        0.03799627
+      ],
+      "BH_q_global": 0.32113395,
+      "BH_q_sex_stage_stratified": 0.25978701
+    },
+    "IFN_CHEMOKINE_PROXY": {
+      "genes": [
+        "CXCL9",
+        "CXCL10"
+      ],
+      "mean_yes": 1.61375427,
+      "mean_no": 1.89232854,
+      "effect_yes_minus_no_log2cpm1": -0.27857426,
+      "auc_descriptive": 0.44511218,
+      "p_global": 0.51732413,
+      "p_sex_stage_stratified": 0.50342483,
+      "bootstrap_ci95_unadjusted": [
+        -1.056825,
+        0.56250984
+      ],
+      "BH_q_global": 0.51732413,
+      "BH_q_sex_stage_stratified": 0.50342483
+    },
+    "MACROPHAGE_PROXY": {
+      "genes": [
+        "CD68",
+        "CD163"
+      ],
+      "mean_yes": 2.45898721,
+      "mean_no": 2.74791493,
+      "effect_yes_minus_no_log2cpm1": -0.28892772,
+      "auc_descriptive": 0.41105769,
+      "p_global": 0.23243838,
+      "p_sex_stage_stratified": 0.20453977,
+      "bootstrap_ci95_unadjusted": [
+        -0.58298527,
+        0.01057773
+      ],
+      "BH_q_global": 0.34865757,
+      "BH_q_sex_stage_stratified": 0.30680966
+    }
+  },
+  "method": "log2(1+CPM) on all gene counts, three fixed two-gene signatures, 20k global and sex+stage-stratified shuffles, BH across three, 2k bootstraps",
+  "seed": 20261111,
+  "permutations": 20000,
+  "bootstrap": 2000,
+  "gene_symbol_to_ensembl": {
+    "CD8A": "ENSG00000153563",
+    "CD8B": "ENSG00000172116",
+    "CXCL9": "ENSG00000138755",
+    "CXCL10": "ENSG00000169245",
+    "CD68": "ENSG00000129226",
+    "CD163": "ENSG00000177575"
+  },
+  "sha256": {
+    "counts": "f5ca68e03d0547cc9faad8940f75181640f1d99dbdbc6119faf85da8c49729ce",
+    "metadata": "15c06e2554466f65f43cbf38238eeaaf089cd650440b9b2f18dcf76c958e8212"
+  },
+  "bytes": {
+    "counts": 5371960,
+    "metadata": 6014
+  },
+  "gene_rows": 63241,
+  "result_status": "NO_SIGNIFICANT_SIGNALS",
+  "scope": "RECURRENCE endpoint is distinct from BCG durable response; fixed proxies already examined in other datasets; not clinical validation",
+  "analysis_code_sha256": "87242b71330aeda73700c5de88ab6552fbe53605c7566fe7e2288b9053ba9c51"
+}

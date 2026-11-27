@@ -1,0 +1,34 @@
+{
+  "a_priori_weighted_genes_below_cpm_threshold_kept": [
+    "ENSG00000186766"
+  ],
+  "baseline_eortc_auc_descriptive": 0.38501603,
+  "dataset": "GSE294705",
+  "doi": "10.1186/s12916-026-04745-8",
+  "events_ge_2_recurrence": 16,
+  "genes_used_in_normalization": 27175,
+  "method": "Published Table S2 75-gene coefficients; CPM >=1 filter; log2(1+CPM); between-sample quantile normalization with ties; per-gene cohort z-standardization; weighted sum; no fitting / direction flip.",
+  "not_identical_to_published_protocol_warning": "One published weighted gene (FOXI2) is under the cohort-wide mean CPM filter and explicitly retained; full published analysis may use different normalization, annotation and a high/low threshold. This is an approximate quantitative implementation, NOT proof of exact original HfRI reproduction.",
+  "patients": 94,
+  "results": {
+    "logCPM_without_quantile_sensitivity": {
+      "auc_in_sample": 0.58653846,
+      "mean_yes_minus_no": 9.43581408,
+      "orientation": "higher HfRI means higher recurrence risk, weights fixed a priori",
+      "permutation_p_sex_stage_site": 0.51534847
+    },
+    "quantile_normalized": {
+      "auc_in_sample": 0.58653846,
+      "mean_yes_minus_no": 8.9859267,
+      "orientation": "higher HfRI means higher recurrence risk, weights fixed a priori",
+      "permutation_p_sex_stage_site": 0.55134487
+    }
+  },
+  "scientific_status": "EXPLORATORY_PUBLISHED_SCORE_REPLAY_NOT_CLINICALLY_VALIDATED",
+  "source_sha256": {
+    "counts": "f5ca68e03d0547cc9faad8940f75181640f1d99dbdbc6119faf85da8c49729ce",
+    "metadata": "15c06e2554466f65f43cbf38238eeaaf089cd650440b9b2f18dcf76c958e8212",
+    "published_docx": "7a2f33a66ca2f024be6e15019682a2f697d3dbb91715fc4c63d9946b1077a7a4"
+  },
+  "weight_gene_count": 75
+}
