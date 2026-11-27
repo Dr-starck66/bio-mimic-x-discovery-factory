@@ -1,0 +1,57 @@
+{
+  "schema": "BIO-MIMIC-X/HAND2-CHR6Q-OBSERVED-CANDIDATE/1",
+  "observed_run_url": "https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/42021538248",
+  "observed_artifact_url": "https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/42021538248/artifacts/13411887589",
+  "observed_artifact_id": 13411887589,
+  "observed_artifact_zip_sha256": "78cdc6ae5dd6042633630f22eb8273c930bfcd0f529204e07a47480e118b0a9b",
+  "observed_report_receipt_sha256": "f7b705fadbf6237fb18d9ad115486da5ad90a104dddf63796f7c94966fa15ad6",
+  "gtf_sha256": "cc0c3c4e39f3afedcbe2bc5aad1d63fc461714aeb75051f4d109390455874c5d",
+  "gtf_gene_rows_count": 99088,
+  "gtf_chr6q_gene_rows_count": 2873,
+  "candidate": {
+    "id": "AMEX60DD045298",
+    "symbol": "HAND2",
+    "assembly": "GCA_002915635.3",
+    "chromosome": "chr6q",
+    "accession": "CM010938.2",
+    "start_1based": 884794726,
+    "end_1based": 884799066,
+    "strand": "+"
+  },
+  "modern": {
+    "gene_id": "138516365",
+    "symbol": "HAND2",
+    "assembly": "GCF_040938575.1",
+    "accession": "NC_090937.1",
+    "start_1based": 910028725,
+    "end_1based": 910032936,
+    "strand": "-"
+  },
+  "negative_control": {
+    "gene_id": "138582569",
+    "symbol": "HAND1",
+    "accession": "NC_090926.1",
+    "start_1based": 348891291,
+    "end_1based": 348920140
+  },
+  "original_mixed_locus": {
+    "id": "AMEX60DD030069",
+    "chromosome": "chr3q",
+    "start_1based": 632140538,
+    "end_1based": 632169448,
+    "symbols": [
+      "HAND1",
+      "HAND2"
+    ]
+  },
+  "prior_synteny_result": {
+    "status": "UNVERIFIED_NO_FLANKING_ANCHORS",
+    "modern_anchor_fetch_failures_count": 8,
+    "modern_anchor_fetch_error": "HTTP 500",
+    "candidates_aligned": 0
+  },
+  "scientific_identity": "UNVERIFIED",
+  "whole_genome_reciprocal": "UNVERIFIED",
+  "curator_confirmation": "UNVERIFIED",
+  "comment": "Copied observed evidence from GitHub Actions artifact, not curator-certified mapping. Candidate is a label/position hypothesis only."
+}

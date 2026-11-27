@@ -1,0 +1,90 @@
+{
+  "schema": "BIO-MIMIC-X/HAND2-DISTAL-FLANK-ANCHORS/1",
+  "date": "2026-11-08",
+  "status": "PARTIAL_DISTAL_LOCAL_SYNTENY",
+  "method": "NCBI EFetch 4 independent 5000bp windows, 31-mer distinct set intersection, modern sequence reverse-complemented; controls wrong flank and wrong orientation",
+  "windows": [
+    {
+      "name": "old_far_left",
+      "accession": "CM010938.2",
+      "start": 884769726,
+      "end": 884774725,
+      "source": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=CM010938.2&seq_start=884769726&seq_stop=884774725&rettype=fasta&retmode=text",
+      "length_bp": 5000,
+      "format_valid": true
+    },
+    {
+      "name": "modern_far_right",
+      "accession": "NC_090937.1",
+      "start": 910052937,
+      "end": 910057936,
+      "source": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NC_090937.1&seq_start=910052937&seq_stop=910057936&rettype=fasta&retmode=text",
+      "length_bp": 5000,
+      "format_valid": true
+    },
+    {
+      "name": "old_far_right",
+      "accession": "CM010938.2",
+      "start": 884819067,
+      "end": 884824066,
+      "source": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=CM010938.2&seq_start=884819067&seq_stop=884824066&rettype=fasta&retmode=text",
+      "length_bp": 5000,
+      "format_valid": true
+    },
+    {
+      "name": "modern_far_left",
+      "accession": "NC_090937.1",
+      "start": 910003725,
+      "end": 910008724,
+      "source": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NC_090937.1&seq_start=910003725&seq_stop=910008724&rettype=fasta&retmode=text",
+      "length_bp": 5000,
+      "format_valid": true
+    }
+  ],
+  "comparisons": [
+    {
+      "old": "old_far_left",
+      "modern": "modern_far_right",
+      "orientation": "reverse_complement",
+      "shared_distinct_31mers": 4173
+    },
+    {
+      "old": "old_far_right",
+      "modern": "modern_far_left",
+      "orientation": "reverse_complement",
+      "shared_distinct_31mers": 4674
+    },
+    {
+      "old": "old_far_left",
+      "modern": "modern_far_left",
+      "orientation": "reverse_complement",
+      "shared_distinct_31mers": 0
+    },
+    {
+      "old": "old_far_right",
+      "modern": "modern_far_right",
+      "orientation": "reverse_complement",
+      "shared_distinct_31mers": 0
+    },
+    {
+      "old": "old_far_left",
+      "modern": "modern_far_right",
+      "orientation": "forward",
+      "shared_distinct_31mers": 0
+    },
+    {
+      "old": "old_far_right",
+      "modern": "modern_far_left",
+      "orientation": "forward",
+      "shared_distinct_31mers": 0
+    }
+  ],
+  "limitations": [
+    "Windows selected by extrapolating prior local coordinate orientation; not independently discovered neighboring genes",
+    "Not a whole-genome reciprocal best hit or uniqueness test",
+    "No curator confirmation",
+    "Not a clinical or therapeutic result"
+  ],
+  "genome_wide_uniqueness": "UNVERIFIED",
+  "independent_gene_neighbor_anchors": "UNVERIFIED"
+}
