@@ -1,0 +1,92 @@
+{
+  "audit": {
+    "normal": {
+      "unsupported_voltage": 2,
+      "sequence_warmup_after_gap_or_context": 8,
+      "scored": 141,
+      "missing_or_nonpositive_sensor": 1
+    },
+    "fault": {
+      "unsupported_voltage": 558,
+      "sequence_warmup_after_gap_or_context": 192,
+      "missing_or_nonpositive_sensor": 298,
+      "scored": 439
+    }
+  },
+  "summary": {
+    "absolute": {
+      "fpr": 0,
+      "recall_all": 0.28177538668459984,
+      "recall_scored": 0.9544419134396356,
+      "normal_coverage": 0.9276315789473685,
+      "fault_coverage": 0.2952252858103564
+    },
+    "relative": {
+      "fpr": 0,
+      "recall_all": 0,
+      "recall_scored": 0,
+      "normal_coverage": 0.9276315789473685,
+      "fault_coverage": 0.2952252858103564
+    },
+    "multivariate": {
+      "fpr": 0.06382978723404255,
+      "recall_all": 0.28177538668459984,
+      "recall_scored": 0.9544419134396356,
+      "normal_coverage": 0.9276315789473685,
+      "fault_coverage": 0.2952252858103564
+    },
+    "parent": {
+      "fpr": 0,
+      "recall_all": 0.28177538668459984,
+      "recall_scored": 0.9544419134396356,
+      "normal_coverage": 0.9276315789473685,
+      "fault_coverage": 0.2952252858103564
+    },
+    "adaptive": {
+      "fpr": 0.6524822695035462,
+      "recall_all": 0.2952252858103564,
+      "recall_scored": 1,
+      "normal_coverage": 0.9276315789473685,
+      "fault_coverage": 0.2952252858103564
+    },
+    "conditional_absolute": {
+      "fpr": 0.6524822695035462,
+      "recall_all": 0.2952252858103564,
+      "recall_scored": 1,
+      "normal_coverage": 0.9276315789473685,
+      "fault_coverage": 0.2952252858103564
+    },
+    "conditional_relative": {
+      "fpr": 0.04964539007092199,
+      "recall_all": 0.2952252858103564,
+      "recall_scored": 1,
+      "normal_coverage": 0.9276315789473685,
+      "fault_coverage": 0.2952252858103564
+    },
+    "conditional_multivariate": {
+      "fpr": 0.6950354609929078,
+      "recall_all": 0.2952252858103564,
+      "recall_scored": 1,
+      "normal_coverage": 0.9276315789473685,
+      "fault_coverage": 0.2952252858103564
+    }
+  },
+  "checks": {
+    "disjoint": true,
+    "no_fault_in_fit_or_cal": true,
+    "causal_prefix": true,
+    "gap_reset": true,
+    "missing_reset": true,
+    "unsupported_voltage": true,
+    "labels_not_in_score": true,
+    "gate_reject": true,
+    "same_test_support": true
+  },
+  "decision": "REJECT",
+  "reasons": [
+    "parent false positives zero, no possible positive reduction on this split",
+    "adaptive false positives 92",
+    "insufficient coverage",
+    "no independent physical witness in evaluated data"
+  ]
+}

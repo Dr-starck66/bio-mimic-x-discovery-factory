@@ -1,0 +1,112 @@
+{
+  "hashes": {
+    "physics.js": "9d35cbd0c8e2e87986cfa37df45858a7fb459b8c",
+    "results.json": "a4150a107384e8c373e0b0b995b1cf5038acdbf3",
+    "mask_fallback.js": "0e0744fa72db3ebd6be08205398bc012c58d31c0",
+    "mask_results.json": "b1528fc611e4997c934e9d418ff24db5cf596114",
+    "mask_fallback_revised.js": "52654df826a40afb2854ebc2808d8f9d39f2d27a",
+    "mask_revised_results.json": "b339dd434ae50ecb4de438cd2f697f20f507cf35"
+  },
+  "aggregate": {
+    "fpr5": {
+      "raw_logistic": {
+        "tp": 777,
+        "fp": 19,
+        "tn": 1202,
+        "fn": 207,
+        "recall": 0.7896341463414634,
+        "fpr": 0.015561015561015561
+      },
+      "physical_logistic": {
+        "tp": 984,
+        "fp": 425,
+        "tn": 796,
+        "fn": 0,
+        "recall": 1,
+        "fpr": 0.34807534807534807
+      },
+      "raw_plus_physics": {
+        "tp": 972,
+        "fp": 19,
+        "tn": 1202,
+        "fn": 12,
+        "recall": 0.9878048780487805,
+        "fpr": 0.015561015561015561
+      },
+      "efficiency_proxy": {
+        "tp": 984,
+        "fp": 444,
+        "tn": 777,
+        "fn": 0,
+        "recall": 1,
+        "fpr": 0.36363636363636365
+      },
+      "published_SE": {
+        "tp": 983,
+        "fp": 137,
+        "tn": 1084,
+        "fn": 1,
+        "recall": 0.9989837398373984,
+        "fpr": 0.1122031122031122
+      },
+      "flow_only": {
+        "tp": 984,
+        "fp": 389,
+        "tn": 832,
+        "fn": 0,
+        "recall": 1,
+        "fpr": 0.3185913185913186
+      }
+    },
+    "recall95": {
+      "raw_logistic": {
+        "tp": 468,
+        "fp": 15,
+        "tn": 1206,
+        "fn": 516,
+        "recall": 0.47560975609756095,
+        "fpr": 0.012285012285012284
+      },
+      "physical_logistic": {
+        "tp": 924,
+        "fp": 295,
+        "tn": 926,
+        "fn": 60,
+        "recall": 0.9390243902439024,
+        "fpr": 0.2416052416052416
+      },
+      "raw_plus_physics": {
+        "tp": 913,
+        "fp": 15,
+        "tn": 1206,
+        "fn": 71,
+        "recall": 0.9278455284552846,
+        "fpr": 0.012285012285012284
+      },
+      "efficiency_proxy": {
+        "tp": 860,
+        "fp": 15,
+        "tn": 1206,
+        "fn": 124,
+        "recall": 0.8739837398373984,
+        "fpr": 0.012285012285012284
+      },
+      "published_SE": {
+        "tp": 933,
+        "fp": 15,
+        "tn": 1206,
+        "fn": 51,
+        "recall": 0.948170731707317,
+        "fpr": 0.012285012285012284
+      },
+      "flow_only": {
+        "tp": 657,
+        "fp": 22,
+        "tn": 1199,
+        "fn": 327,
+        "recall": 0.6676829268292683,
+        "fpr": 0.018018018018018018
+      }
+    }
+  }
+}

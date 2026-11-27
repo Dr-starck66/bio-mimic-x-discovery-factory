@@ -1,0 +1,60 @@
+{
+  "summary": {
+    "normal": {
+      "correct": 100,
+      "total": 100,
+      "labels": {
+        "compatible_normal": 100
+      }
+    },
+    "individual": {
+      "correct": 100,
+      "total": 100,
+      "labels": {
+        "individual_physical_candidate": 100
+      }
+    },
+    "collective": {
+      "correct": 100,
+      "total": 100,
+      "labels": {
+        "collective_physical_candidate": 100
+      }
+    },
+    "sensor": {
+      "correct": 100,
+      "total": 100,
+      "labels": {
+        "sensor_bias_candidate": 100
+      }
+    },
+    "mixed": {
+      "correct": 100,
+      "total": 100,
+      "labels": {
+        "mixed_physical_sensor": 100
+      }
+    },
+    "weak": {
+      "correct": 100,
+      "total": 100,
+      "labels": {
+        "unknown": 100
+      }
+    }
+  },
+  "checks": {
+    "alias_without_witness": true,
+    "physical_with_witness": true,
+    "sensor_with_witness": true,
+    "unvalidated_witness": true,
+    "unknown_context": true,
+    "missing": true
+  },
+  "negative": {
+    "actual": "common sensor bias on both paths",
+    "claimed": "collective_physical_candidate",
+    "detected": false
+  },
+  "assumptions": "bounded errors and genuinely independent witness; simulated only"
+}

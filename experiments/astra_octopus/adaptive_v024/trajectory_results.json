@@ -1,0 +1,49 @@
+{
+  "seeds": {
+    "cal": 572001,
+    "test": 983001
+  },
+  "n": 200,
+  "horizon": 150,
+  "alpha": 0.05,
+  "rank": 191,
+  "factor": 1.3323975271137327,
+  "results": {
+    "healthy": {
+      "old": 131,
+      "corrected": 8,
+      "n": 200,
+      "oldMedianDetectedDelay": 27,
+      "newMedianDetectedDelay": 66
+    },
+    "local_strong": {
+      "old": 200,
+      "corrected": 200,
+      "n": 200,
+      "oldMedianDetectedDelay": 3,
+      "newMedianDetectedDelay": 4
+    },
+    "common_strong": {
+      "old": 200,
+      "corrected": 200,
+      "n": 200,
+      "oldMedianDetectedDelay": 4,
+      "newMedianDetectedDelay": 4
+    },
+    "local_weak": {
+      "old": 192,
+      "corrected": 95,
+      "n": 200,
+      "oldMedianDetectedDelay": 12,
+      "newMedianDetectedDelay": 47
+    },
+    "common_weak": {
+      "old": 200,
+      "corrected": 182,
+      "n": 200,
+      "oldMedianDetectedDelay": 5,
+      "newMedianDetectedDelay": 16
+    }
+  },
+  "scope": "independent simulated Gaussian trajectories, exchangeability assumed; not validated on industrial data"
+}

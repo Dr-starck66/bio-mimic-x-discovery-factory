@@ -1,0 +1,288 @@
+{
+  "source": "UTK-ASL/Dataset_digital_twin_predictive_maintenance",
+  "blob": "0e610e6269bc6f032f3a90eea4fd9b84620f5422",
+  "counts": {
+    "baseline@40": 2,
+    "baseline@50": 93,
+    "baseline@60": 371,
+    "baseline@70": 130,
+    "imbalance@30": 82,
+    "imbalance@40": 209,
+    "imbalance@50": 78,
+    "imbalance@60": 109,
+    "imbalance@70": 60,
+    "looseness@30": 91,
+    "looseness@40": 71,
+    "looseness@50": 67,
+    "looseness@60": 91,
+    "looseness@70": 308,
+    "angular_misalignment@70": 77,
+    "angular_misalignment@60": 59,
+    "angular_misalignment@50": 80,
+    "angular_misalignment@40": 43,
+    "angular_misalignment@30": 62
+  },
+  "replay": true,
+  "rows": 2083,
+  "fit": 296,
+  "cal": 148,
+  "calScored": 142,
+  "test": 1639,
+  "supported": [
+    "50",
+    "60",
+    "70"
+  ],
+  "thresholds": {
+    "absolute": 11.533920203437056,
+    "relative": 9.301094126688689,
+    "multivariate": 5.5571100645597555,
+    "parent": 1.0235618848021426,
+    "adaptive": 0.9599711775480921,
+    "conditional_absolute": 2.008406109637413,
+    "conditional_relative": 0.7946753035762799,
+    "conditional_multivariate": 1.0036283480533301
+  },
+  "result": {
+    "absolute": {
+      "tp": 419,
+      "fp": 0,
+      "tn": 141,
+      "fn": 1068,
+      "unknownNormal": 11,
+      "unknownFault": 1048,
+      "byState": {
+        "baseline": {
+          "n": 152,
+          "alarms": 0,
+          "unknown": 11
+        },
+        "imbalance": {
+          "n": 538,
+          "alarms": 0,
+          "unknown": 518
+        },
+        "looseness": {
+          "n": 628,
+          "alarms": 209,
+          "unknown": 419
+        },
+        "angular_misalignment": {
+          "n": 321,
+          "alarms": 210,
+          "unknown": 111
+        }
+      }
+    },
+    "relative": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 141,
+      "fn": 1487,
+      "unknownNormal": 11,
+      "unknownFault": 1048,
+      "byState": {
+        "baseline": {
+          "n": 152,
+          "alarms": 0,
+          "unknown": 11
+        },
+        "imbalance": {
+          "n": 538,
+          "alarms": 0,
+          "unknown": 518
+        },
+        "looseness": {
+          "n": 628,
+          "alarms": 0,
+          "unknown": 419
+        },
+        "angular_misalignment": {
+          "n": 321,
+          "alarms": 0,
+          "unknown": 111
+        }
+      }
+    },
+    "multivariate": {
+      "tp": 419,
+      "fp": 9,
+      "tn": 132,
+      "fn": 1068,
+      "unknownNormal": 11,
+      "unknownFault": 1048,
+      "byState": {
+        "baseline": {
+          "n": 152,
+          "alarms": 9,
+          "unknown": 11
+        },
+        "imbalance": {
+          "n": 538,
+          "alarms": 0,
+          "unknown": 518
+        },
+        "looseness": {
+          "n": 628,
+          "alarms": 209,
+          "unknown": 419
+        },
+        "angular_misalignment": {
+          "n": 321,
+          "alarms": 210,
+          "unknown": 111
+        }
+      }
+    },
+    "parent": {
+      "tp": 419,
+      "fp": 0,
+      "tn": 141,
+      "fn": 1068,
+      "unknownNormal": 11,
+      "unknownFault": 1048,
+      "byState": {
+        "baseline": {
+          "n": 152,
+          "alarms": 0,
+          "unknown": 11
+        },
+        "imbalance": {
+          "n": 538,
+          "alarms": 0,
+          "unknown": 518
+        },
+        "looseness": {
+          "n": 628,
+          "alarms": 209,
+          "unknown": 419
+        },
+        "angular_misalignment": {
+          "n": 321,
+          "alarms": 210,
+          "unknown": 111
+        }
+      }
+    },
+    "adaptive": {
+      "tp": 439,
+      "fp": 92,
+      "tn": 49,
+      "fn": 1048,
+      "unknownNormal": 11,
+      "unknownFault": 1048,
+      "byState": {
+        "baseline": {
+          "n": 152,
+          "alarms": 92,
+          "unknown": 11
+        },
+        "imbalance": {
+          "n": 538,
+          "alarms": 20,
+          "unknown": 518
+        },
+        "looseness": {
+          "n": 628,
+          "alarms": 209,
+          "unknown": 419
+        },
+        "angular_misalignment": {
+          "n": 321,
+          "alarms": 210,
+          "unknown": 111
+        }
+      }
+    },
+    "conditional_absolute": {
+      "tp": 439,
+      "fp": 92,
+      "tn": 49,
+      "fn": 1048,
+      "unknownNormal": 11,
+      "unknownFault": 1048,
+      "byState": {
+        "baseline": {
+          "n": 152,
+          "alarms": 92,
+          "unknown": 11
+        },
+        "imbalance": {
+          "n": 538,
+          "alarms": 20,
+          "unknown": 518
+        },
+        "looseness": {
+          "n": 628,
+          "alarms": 209,
+          "unknown": 419
+        },
+        "angular_misalignment": {
+          "n": 321,
+          "alarms": 210,
+          "unknown": 111
+        }
+      }
+    },
+    "conditional_relative": {
+      "tp": 439,
+      "fp": 7,
+      "tn": 134,
+      "fn": 1048,
+      "unknownNormal": 11,
+      "unknownFault": 1048,
+      "byState": {
+        "baseline": {
+          "n": 152,
+          "alarms": 7,
+          "unknown": 11
+        },
+        "imbalance": {
+          "n": 538,
+          "alarms": 20,
+          "unknown": 518
+        },
+        "looseness": {
+          "n": 628,
+          "alarms": 209,
+          "unknown": 419
+        },
+        "angular_misalignment": {
+          "n": 321,
+          "alarms": 210,
+          "unknown": 111
+        }
+      }
+    },
+    "conditional_multivariate": {
+      "tp": 439,
+      "fp": 98,
+      "tn": 43,
+      "fn": 1048,
+      "unknownNormal": 11,
+      "unknownFault": 1048,
+      "byState": {
+        "baseline": {
+          "n": 152,
+          "alarms": 98,
+          "unknown": 11
+        },
+        "imbalance": {
+          "n": 538,
+          "alarms": 20,
+          "unknown": 518
+        },
+        "looseness": {
+          "n": 628,
+          "alarms": 209,
+          "unknown": 419
+        },
+        "angular_misalignment": {
+          "n": 321,
+          "alarms": 210,
+          "unknown": 111
+        }
+      }
+    }
+  }
+}

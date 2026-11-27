@@ -1,0 +1,1393 @@
+[
+  {
+    "path": "data/anomaly-free/anomaly-free.csv",
+    "sha": "cbad1cdbe8c64db96e4a750c89af327224987469",
+    "eligible": true,
+    "rows": 9405,
+    "methods": {
+      "absolute": {
+        "tp": 0,
+        "fp": 13,
+        "tn": 9190,
+        "fn": 0,
+        "unknown": 0,
+        "episodes": 8,
+        "events": 0,
+        "delays": [],
+        "threshold": 327927.00000000006
+      },
+      "relative": {
+        "tp": 0,
+        "fp": 70,
+        "tn": 9133,
+        "fn": 0,
+        "unknown": 0,
+        "episodes": 43,
+        "events": 0,
+        "delays": [],
+        "threshold": 327926.9649438747
+      },
+      "dual": {
+        "tp": 0,
+        "fp": 70,
+        "tn": 9133,
+        "fn": 0,
+        "unknown": 0,
+        "episodes": 43,
+        "events": 0,
+        "delays": [],
+        "threshold": 1.0000001512911711
+      },
+      "multivariate": {
+        "tp": 0,
+        "fp": 2487,
+        "tn": 6716,
+        "fn": 0,
+        "unknown": 0,
+        "episodes": 500,
+        "events": 0,
+        "delays": [],
+        "threshold": 115939.70272251083
+      },
+      "ewma": {
+        "tp": 0,
+        "fp": 416,
+        "tn": 8787,
+        "fn": 0,
+        "unknown": 0,
+        "episodes": 164,
+        "events": 0,
+        "delays": [],
+        "threshold": 250341.1413697803
+      },
+      "common": {
+        "tp": 0,
+        "fp": 2837,
+        "tn": 6366,
+        "fn": 0,
+        "unknown": 0,
+        "episodes": 478,
+        "events": 0,
+        "delays": [],
+        "threshold": 0.7330917766976113
+      }
+    }
+  },
+  {
+    "path": "data/other/1.csv",
+    "sha": "1d5cb568fbd330367d3af3f57d2ffe37bc3d68b6",
+    "eligible": true,
+    "rows": 745,
+    "methods": {
+      "absolute": {
+        "tp": 152,
+        "fp": 54,
+        "tn": 301,
+        "fn": 36,
+        "unknown": 0,
+        "episodes": 9,
+        "events": 2,
+        "delays": [
+          38,
+          null
+        ],
+        "threshold": 66.85107383099441
+      },
+      "relative": {
+        "tp": 151,
+        "fp": 35,
+        "tn": 320,
+        "fn": 37,
+        "unknown": 0,
+        "episodes": 5,
+        "events": 2,
+        "delays": [
+          39,
+          null
+        ],
+        "threshold": 67.4203580905852
+      },
+      "dual": {
+        "tp": 152,
+        "fp": 54,
+        "tn": 301,
+        "fn": 36,
+        "unknown": 0,
+        "episodes": 9,
+        "events": 2,
+        "delays": [
+          38,
+          null
+        ],
+        "threshold": 1
+      },
+      "multivariate": {
+        "tp": 154,
+        "fp": 57,
+        "tn": 298,
+        "fn": 34,
+        "unknown": 0,
+        "episodes": 10,
+        "events": 2,
+        "delays": [
+          25,
+          null
+        ],
+        "threshold": 23.726962989075723
+      },
+      "ewma": {
+        "tp": 152,
+        "fp": 32,
+        "tn": 323,
+        "fn": 36,
+        "unknown": 0,
+        "episodes": 4,
+        "events": 2,
+        "delays": [
+          38,
+          null
+        ],
+        "threshold": 45.076756081028606
+      },
+      "common": {
+        "tp": 173,
+        "fp": 73,
+        "tn": 282,
+        "fn": 15,
+        "unknown": 0,
+        "episodes": 10,
+        "events": 2,
+        "delays": [
+          25,
+          null
+        ],
+        "threshold": 0.9115576471313941
+      }
+    }
+  },
+  {
+    "path": "data/other/2.csv",
+    "sha": "dd66fd4413c28890447d062a69759b42c06fbbb1",
+    "eligible": false,
+    "reason": "labelled anomaly or change during commissioning",
+    "rows": 780
+  },
+  {
+    "path": "data/other/3.csv",
+    "sha": "42c6ba2e36ff3b7e25e4a90dfa6c25a93dc7ac82",
+    "eligible": true,
+    "rows": 1137,
+    "methods": {
+      "absolute": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 537,
+        "fn": 398,
+        "unknown": 0,
+        "episodes": 0,
+        "events": 4,
+        "delays": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "threshold": 655854
+      },
+      "relative": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 537,
+        "fn": 398,
+        "unknown": 0,
+        "episodes": 0,
+        "events": 4,
+        "delays": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "threshold": 655853.1310035199
+      },
+      "dual": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 537,
+        "fn": 398,
+        "unknown": 0,
+        "episodes": 0,
+        "events": 4,
+        "delays": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "threshold": 1.9999999999999996
+      },
+      "multivariate": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 537,
+        "fn": 398,
+        "unknown": 0,
+        "episodes": 0,
+        "events": 4,
+        "delays": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "threshold": 231879.40543464126
+      },
+      "ewma": {
+        "tp": 4,
+        "fp": 4,
+        "tn": 533,
+        "fn": 394,
+        "unknown": 0,
+        "episodes": 3,
+        "events": 4,
+        "delays": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "threshold": 309400.79294695857
+      },
+      "common": {
+        "tp": 133,
+        "fp": 81,
+        "tn": 456,
+        "fn": 265,
+        "unknown": 0,
+        "episodes": 18,
+        "events": 4,
+        "delays": [
+          27,
+          46,
+          18,
+          2
+        ],
+        "threshold": 0.48925255123723765
+      }
+    }
+  },
+  {
+    "path": "data/other/4.csv",
+    "sha": "c453c17da21df13c6609d76df0dbfab2d4a62426",
+    "eligible": true,
+    "rows": 1191,
+    "methods": {
+      "absolute": {
+        "tp": 1,
+        "fp": 1,
+        "tn": 593,
+        "fn": 394,
+        "unknown": 0,
+        "episodes": 1,
+        "events": 3,
+        "delays": [
+          8,
+          null,
+          null
+        ],
+        "threshold": 327927.00000000006
+      },
+      "relative": {
+        "tp": 22,
+        "fp": 28,
+        "tn": 566,
+        "fn": 373,
+        "unknown": 0,
+        "episodes": 11,
+        "events": 3,
+        "delays": [
+          8,
+          31,
+          35
+        ],
+        "threshold": 327926.8762219311
+      },
+      "dual": {
+        "tp": 22,
+        "fp": 28,
+        "tn": 566,
+        "fn": 373,
+        "unknown": 0,
+        "episodes": 11,
+        "events": 3,
+        "delays": [
+          8,
+          31,
+          35
+        ],
+        "threshold": 1.0000000292380145
+      },
+      "multivariate": {
+        "tp": 142,
+        "fp": 107,
+        "tn": 487,
+        "fn": 253,
+        "unknown": 0,
+        "episodes": 24,
+        "events": 3,
+        "delays": [
+          2,
+          11,
+          3
+        ],
+        "threshold": 115939.70272118505
+      },
+      "ewma": {
+        "tp": 10,
+        "fp": 7,
+        "tn": 587,
+        "fn": 385,
+        "unknown": 0,
+        "episodes": 7,
+        "events": 3,
+        "delays": [
+          7,
+          25,
+          51
+        ],
+        "threshold": 285527.3543990228
+      },
+      "common": {
+        "tp": 64,
+        "fp": 135,
+        "tn": 459,
+        "fn": 331,
+        "unknown": 0,
+        "episodes": 25,
+        "events": 3,
+        "delays": [
+          44,
+          34,
+          null
+        ],
+        "threshold": 0.3650388991876668
+      }
+    }
+  },
+  {
+    "path": "data/other/5.csv",
+    "sha": "f302805c7afb73e215cb9b8af874232720871678",
+    "eligible": true,
+    "rows": 1155,
+    "methods": {
+      "absolute": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 543,
+        "fn": 410,
+        "unknown": 0,
+        "episodes": 0,
+        "events": 2,
+        "delays": [
+          null,
+          null
+        ],
+        "threshold": 327927.00000000006
+      },
+      "relative": {
+        "tp": 1,
+        "fp": 3,
+        "tn": 540,
+        "fn": 409,
+        "unknown": 0,
+        "episodes": 2,
+        "events": 2,
+        "delays": [
+          null,
+          null
+        ],
+        "threshold": 327927.76102549344
+      },
+      "dual": {
+        "tp": 1,
+        "fp": 3,
+        "tn": 540,
+        "fn": 409,
+        "unknown": 0,
+        "episodes": 2,
+        "events": 2,
+        "delays": [
+          null,
+          null
+        ],
+        "threshold": 1.0000018769219792
+      },
+      "multivariate": {
+        "tp": 133,
+        "fp": 83,
+        "tn": 460,
+        "fn": 277,
+        "unknown": 0,
+        "episodes": 21,
+        "events": 2,
+        "delays": [
+          2,
+          5
+        ],
+        "threshold": 115939.70273998729
+      },
+      "ewma": {
+        "tp": 18,
+        "fp": 9,
+        "tn": 534,
+        "fn": 392,
+        "unknown": 0,
+        "episodes": 3,
+        "events": 2,
+        "delays": [
+          20,
+          13
+        ],
+        "threshold": 303921.8695719331
+      },
+      "common": {
+        "tp": 124,
+        "fp": 31,
+        "tn": 512,
+        "fn": 286,
+        "unknown": 0,
+        "episodes": 13,
+        "events": 2,
+        "delays": [
+          4,
+          5
+        ],
+        "threshold": 1.2046839999376946
+      }
+    }
+  },
+  {
+    "path": "data/other/6.csv",
+    "sha": "8fbda89f0245c38fee59bac9e7349394bb660d5d",
+    "eligible": true,
+    "rows": 1147,
+    "methods": {
+      "absolute": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 543,
+        "fn": 402,
+        "unknown": 0,
+        "episodes": 0,
+        "events": 4,
+        "delays": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "threshold": 327927.00000000006
+      },
+      "relative": {
+        "tp": 4,
+        "fp": 16,
+        "tn": 527,
+        "fn": 398,
+        "unknown": 0,
+        "episodes": 8,
+        "events": 4,
+        "delays": [
+          0,
+          null,
+          null,
+          53
+        ],
+        "threshold": 327926.7335352467
+      },
+      "dual": {
+        "tp": 4,
+        "fp": 16,
+        "tn": 527,
+        "fn": 398,
+        "unknown": 0,
+        "episodes": 8,
+        "events": 4,
+        "delays": [
+          0,
+          null,
+          null,
+          53
+        ],
+        "threshold": 1
+      },
+      "multivariate": {
+        "tp": 101,
+        "fp": 54,
+        "tn": 489,
+        "fn": 301,
+        "unknown": 0,
+        "episodes": 17,
+        "events": 4,
+        "delays": [
+          6,
+          3,
+          2,
+          16
+        ],
+        "threshold": 115939.70272094039
+      },
+      "ewma": {
+        "tp": 5,
+        "fp": 1,
+        "tn": 542,
+        "fn": 397,
+        "unknown": 0,
+        "episodes": 1,
+        "events": 4,
+        "delays": [
+          null,
+          null,
+          18,
+          null
+        ],
+        "threshold": 285188.00388466916
+      },
+      "common": {
+        "tp": 128,
+        "fp": 43,
+        "tn": 500,
+        "fn": 274,
+        "unknown": 0,
+        "episodes": 8,
+        "events": 4,
+        "delays": [
+          5,
+          3,
+          15,
+          18
+        ],
+        "threshold": 0.5891015365343703
+      }
+    }
+  },
+  {
+    "path": "data/other/7.csv",
+    "sha": "326c7b4f2f0beb430674e7328fcbc8daf22d4c9a",
+    "eligible": true,
+    "rows": 1090,
+    "methods": {
+      "absolute": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 541,
+        "fn": 347,
+        "unknown": 0,
+        "episodes": 0,
+        "events": 4,
+        "delays": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "threshold": 327927.00000000006
+      },
+      "relative": {
+        "tp": 3,
+        "fp": 30,
+        "tn": 511,
+        "fn": 344,
+        "unknown": 0,
+        "episodes": 11,
+        "events": 4,
+        "delays": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "threshold": 327926.96971017704
+      },
+      "dual": {
+        "tp": 3,
+        "fp": 30,
+        "tn": 511,
+        "fn": 344,
+        "unknown": 0,
+        "episodes": 11,
+        "events": 4,
+        "delays": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "threshold": 1.0000005307053461
+      },
+      "multivariate": {
+        "tp": 73,
+        "fp": 87,
+        "tn": 454,
+        "fn": 274,
+        "unknown": 0,
+        "episodes": 14,
+        "events": 4,
+        "delays": [
+          11,
+          10,
+          4,
+          21
+        ],
+        "threshold": 115939.7027318854
+      },
+      "ewma": {
+        "tp": 0,
+        "fp": 3,
+        "tn": 538,
+        "fn": 347,
+        "unknown": 0,
+        "episodes": 1,
+        "events": 4,
+        "delays": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "threshold": 344458.44889677525
+      },
+      "common": {
+        "tp": 97,
+        "fp": 14,
+        "tn": 527,
+        "fn": 250,
+        "unknown": 0,
+        "episodes": 8,
+        "events": 4,
+        "delays": [
+          10,
+          4,
+          1,
+          null
+        ],
+        "threshold": 0.9979959515241512
+      }
+    }
+  },
+  {
+    "path": "data/other/8.csv",
+    "sha": "2676697f46974ae32de8c1a9775a89431dc9e0ab",
+    "eligible": true,
+    "rows": 1147,
+    "methods": {
+      "absolute": {
+        "tp": 345,
+        "fp": 204,
+        "tn": 338,
+        "fn": 58,
+        "unknown": 0,
+        "episodes": 1,
+        "events": 4,
+        "delays": [
+          47,
+          46,
+          null,
+          null
+        ],
+        "threshold": 5.425770799684401
+      },
+      "relative": {
+        "tp": 346,
+        "fp": 214,
+        "tn": 328,
+        "fn": 57,
+        "unknown": 0,
+        "episodes": 3,
+        "events": 4,
+        "delays": [
+          47,
+          46,
+          null,
+          null
+        ],
+        "threshold": 5.163057256499103
+      },
+      "dual": {
+        "tp": 346,
+        "fp": 214,
+        "tn": 328,
+        "fn": 57,
+        "unknown": 0,
+        "episodes": 3,
+        "events": 4,
+        "delays": [
+          47,
+          46,
+          null,
+          null
+        ],
+        "threshold": 1.0373825157953058
+      },
+      "multivariate": {
+        "tp": 344,
+        "fp": 205,
+        "tn": 337,
+        "fn": 59,
+        "unknown": 0,
+        "episodes": 2,
+        "events": 4,
+        "delays": [
+          46,
+          45,
+          null,
+          null
+        ],
+        "threshold": 2.6790866416047607
+      },
+      "ewma": {
+        "tp": 364,
+        "fp": 218,
+        "tn": 324,
+        "fn": 39,
+        "unknown": 0,
+        "episodes": 3,
+        "events": 4,
+        "delays": [
+          3,
+          2,
+          null,
+          null
+        ],
+        "threshold": 5.065158661844199
+      },
+      "common": {
+        "tp": 0,
+        "fp": 5,
+        "tn": 537,
+        "fn": 403,
+        "unknown": 0,
+        "episodes": 1,
+        "events": 4,
+        "delays": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "threshold": 1.1019096163402324
+      }
+    }
+  },
+  {
+    "path": "data/other/9.csv",
+    "sha": "5f7ec3c03b535dbafa1ed3d18e0f4679e0c4a69a",
+    "eligible": true,
+    "rows": 1144,
+    "methods": {
+      "absolute": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 541,
+        "fn": 401,
+        "unknown": 0,
+        "episodes": 0,
+        "events": 4,
+        "delays": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "threshold": 327927.00000000006
+      },
+      "relative": {
+        "tp": 4,
+        "fp": 2,
+        "tn": 539,
+        "fn": 397,
+        "unknown": 0,
+        "episodes": 1,
+        "events": 4,
+        "delays": [
+          null,
+          49,
+          null,
+          null
+        ],
+        "threshold": 327927.6290680045
+      },
+      "dual": {
+        "tp": 4,
+        "fp": 2,
+        "tn": 539,
+        "fn": 397,
+        "unknown": 0,
+        "episodes": 1,
+        "events": 4,
+        "delays": [
+          null,
+          49,
+          null,
+          null
+        ],
+        "threshold": 1.0000017553856286
+      },
+      "multivariate": {
+        "tp": 123,
+        "fp": 47,
+        "tn": 494,
+        "fn": 278,
+        "unknown": 0,
+        "episodes": 8,
+        "events": 4,
+        "delays": [
+          16,
+          4,
+          4,
+          1
+        ],
+        "threshold": 115939.70276899243
+      },
+      "ewma": {
+        "tp": 8,
+        "fp": 2,
+        "tn": 539,
+        "fn": 393,
+        "unknown": 0,
+        "episodes": 1,
+        "events": 4,
+        "delays": [
+          null,
+          null,
+          null,
+          60
+        ],
+        "threshold": 297377.878052512
+      },
+      "common": {
+        "tp": 181,
+        "fp": 142,
+        "tn": 399,
+        "fn": 220,
+        "unknown": 0,
+        "episodes": 17,
+        "events": 4,
+        "delays": [
+          4,
+          5,
+          16,
+          2
+        ],
+        "threshold": 0.7025146484555082
+      }
+    }
+  },
+  {
+    "path": "data/other/10.csv",
+    "sha": "ef35c57b869390be8ca1ddf9a6de518f86cd744c",
+    "eligible": true,
+    "rows": 1327,
+    "methods": {
+      "absolute": {
+        "tp": 535,
+        "fp": 171,
+        "tn": 368,
+        "fn": 51,
+        "unknown": 0,
+        "episodes": 0,
+        "events": 4,
+        "delays": [
+          13,
+          3,
+          null,
+          null
+        ],
+        "threshold": 4.760067750251238
+      },
+      "relative": {
+        "tp": 534,
+        "fp": 171,
+        "tn": 368,
+        "fn": 52,
+        "unknown": 0,
+        "episodes": 0,
+        "events": 4,
+        "delays": [
+          7,
+          2,
+          null,
+          null
+        ],
+        "threshold": 4.604903901799577
+      },
+      "dual": {
+        "tp": 534,
+        "fp": 171,
+        "tn": 368,
+        "fn": 52,
+        "unknown": 0,
+        "episodes": 0,
+        "events": 4,
+        "delays": [
+          7,
+          2,
+          null,
+          null
+        ],
+        "threshold": 1.2098512823192555
+      },
+      "multivariate": {
+        "tp": 559,
+        "fp": 190,
+        "tn": 349,
+        "fn": 27,
+        "unknown": 0,
+        "episodes": 7,
+        "events": 4,
+        "delays": [
+          5,
+          null,
+          null,
+          null
+        ],
+        "threshold": 1.8713201286645869
+      },
+      "ewma": {
+        "tp": 562,
+        "fp": 197,
+        "tn": 342,
+        "fn": 24,
+        "unknown": 0,
+        "episodes": 3,
+        "events": 4,
+        "delays": [
+          54,
+          0,
+          null,
+          null
+        ],
+        "threshold": 3.8210924240144357
+      },
+      "common": {
+        "tp": 151,
+        "fp": 112,
+        "tn": 427,
+        "fn": 435,
+        "unknown": 0,
+        "episodes": 15,
+        "events": 4,
+        "delays": [
+          18,
+          null,
+          23,
+          40
+        ],
+        "threshold": 0.7500945394991781
+      }
+    }
+  },
+  {
+    "path": "data/other/11.csv",
+    "sha": "9887341c06a845f372f64ddc26cb3b71e2dd94c5",
+    "eligible": true,
+    "rows": 1190,
+    "methods": {
+      "absolute": {
+        "tp": 451,
+        "fp": 479,
+        "tn": 58,
+        "fn": 0,
+        "unknown": 0,
+        "episodes": 2,
+        "events": 4,
+        "delays": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "threshold": 2.6875729363483574
+      },
+      "relative": {
+        "tp": 451,
+        "fp": 469,
+        "tn": 68,
+        "fn": 0,
+        "unknown": 0,
+        "episodes": 4,
+        "events": 4,
+        "delays": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "threshold": 2.686638808815587
+      },
+      "dual": {
+        "tp": 451,
+        "fp": 485,
+        "tn": 52,
+        "fn": 0,
+        "unknown": 0,
+        "episodes": 2,
+        "events": 4,
+        "delays": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "threshold": 1.0019120593145963
+      },
+      "multivariate": {
+        "tp": 451,
+        "fp": 465,
+        "tn": 72,
+        "fn": 0,
+        "unknown": 0,
+        "episodes": 4,
+        "events": 4,
+        "delays": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "threshold": 1.3144318054003588
+      },
+      "ewma": {
+        "tp": 451,
+        "fp": 481,
+        "tn": 56,
+        "fn": 0,
+        "unknown": 0,
+        "episodes": 2,
+        "events": 4,
+        "delays": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "threshold": 2.6492161644354435
+      },
+      "common": {
+        "tp": 136,
+        "fp": 110,
+        "tn": 427,
+        "fn": 315,
+        "unknown": 0,
+        "episodes": 15,
+        "events": 4,
+        "delays": [
+          20,
+          16,
+          6,
+          10
+        ],
+        "threshold": 0.5373661068059559
+      }
+    }
+  },
+  {
+    "path": "data/other/12.csv",
+    "sha": "5f1e94f1ff74992c92c632fee358299dd8a8bc85",
+    "eligible": true,
+    "rows": 1048,
+    "methods": {
+      "absolute": {
+        "tp": 1,
+        "fp": 1,
+        "tn": 536,
+        "fn": 308,
+        "unknown": 34,
+        "episodes": 1,
+        "events": 4,
+        "delays": [
+          1,
+          null,
+          null,
+          null
+        ],
+        "threshold": 327927.00000000006
+      },
+      "relative": {
+        "tp": 4,
+        "fp": 33,
+        "tn": 504,
+        "fn": 305,
+        "unknown": 34,
+        "episodes": 13,
+        "events": 4,
+        "delays": [
+          null,
+          null,
+          18,
+          0
+        ],
+        "threshold": 327926.887168223
+      },
+      "dual": {
+        "tp": 4,
+        "fp": 33,
+        "tn": 504,
+        "fn": 305,
+        "unknown": 34,
+        "episodes": 13,
+        "events": 4,
+        "delays": [
+          null,
+          null,
+          18,
+          0
+        ],
+        "threshold": 1
+      },
+      "multivariate": {
+        "tp": 57,
+        "fp": 112,
+        "tn": 425,
+        "fn": 252,
+        "unknown": 34,
+        "episodes": 24,
+        "events": 4,
+        "delays": [
+          null,
+          12,
+          8,
+          26
+        ],
+        "threshold": 115939.70272204815
+      },
+      "ewma": {
+        "tp": 5,
+        "fp": 5,
+        "tn": 532,
+        "fn": 304,
+        "unknown": 34,
+        "episodes": 4,
+        "events": 4,
+        "delays": [
+          null,
+          null,
+          60,
+          42
+        ],
+        "threshold": 292075.7522894766
+      },
+      "common": {
+        "tp": 77,
+        "fp": 210,
+        "tn": 327,
+        "fn": 232,
+        "unknown": 34,
+        "episodes": 28,
+        "events": 4,
+        "delays": [
+          14,
+          19,
+          9,
+          26
+        ],
+        "threshold": 0.4558287389125396
+      }
+    }
+  },
+  {
+    "path": "data/other/13.csv",
+    "sha": "3a6a89a7c5e63d1a5beb6358748ba1aafed9456c",
+    "eligible": true,
+    "rows": 923,
+    "methods": {
+      "absolute": {
+        "tp": 0,
+        "fp": 1,
+        "tn": 453,
+        "fn": 265,
+        "unknown": 10,
+        "episodes": 1,
+        "events": 3,
+        "delays": [
+          null,
+          null,
+          null
+        ],
+        "threshold": 327927.00000000006
+      },
+      "relative": {
+        "tp": 7,
+        "fp": 15,
+        "tn": 439,
+        "fn": 258,
+        "unknown": 10,
+        "episodes": 7,
+        "events": 3,
+        "delays": [
+          null,
+          15,
+          null
+        ],
+        "threshold": 327926.8337873092
+      },
+      "dual": {
+        "tp": 2,
+        "fp": 6,
+        "tn": 448,
+        "fn": 263,
+        "unknown": 10,
+        "episodes": 4,
+        "events": 3,
+        "delays": [
+          null,
+          15,
+          null
+        ],
+        "threshold": 1
+      },
+      "multivariate": {
+        "tp": 73,
+        "fp": 114,
+        "tn": 340,
+        "fn": 192,
+        "unknown": 10,
+        "episodes": 21,
+        "events": 3,
+        "delays": [
+          2,
+          13,
+          3
+        ],
+        "threshold": 115939.70274762387
+      },
+      "ewma": {
+        "tp": 5,
+        "fp": 7,
+        "tn": 447,
+        "fn": 260,
+        "unknown": 10,
+        "episodes": 4,
+        "events": 3,
+        "delays": [
+          null,
+          15,
+          null
+        ],
+        "threshold": 274445.53041140107
+      },
+      "common": {
+        "tp": 9,
+        "fp": 16,
+        "tn": 438,
+        "fn": 256,
+        "unknown": 10,
+        "episodes": 9,
+        "events": 3,
+        "delays": [
+          null,
+          7,
+          null
+        ],
+        "threshold": 1.1127399382648269
+      }
+    }
+  },
+  {
+    "path": "data/other/14.csv",
+    "sha": "c3934e4d80b842fb114711dbf586798d25f5c82e",
+    "eligible": true,
+    "rows": 905,
+    "methods": {
+      "absolute": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 401,
+        "fn": 302,
+        "unknown": 0,
+        "episodes": 0,
+        "events": 3,
+        "delays": [
+          null,
+          null,
+          null
+        ],
+        "threshold": 327927.00000000006
+      },
+      "relative": {
+        "tp": 7,
+        "fp": 8,
+        "tn": 393,
+        "fn": 295,
+        "unknown": 0,
+        "episodes": 6,
+        "events": 3,
+        "delays": [
+          null,
+          null,
+          33
+        ],
+        "threshold": 327927.02401288523
+      },
+      "dual": {
+        "tp": 7,
+        "fp": 8,
+        "tn": 393,
+        "fn": 295,
+        "unknown": 0,
+        "episodes": 6,
+        "events": 3,
+        "delays": [
+          null,
+          null,
+          33
+        ],
+        "threshold": 1
+      },
+      "multivariate": {
+        "tp": 97,
+        "fp": 25,
+        "tn": 376,
+        "fn": 205,
+        "unknown": 0,
+        "episodes": 9,
+        "events": 3,
+        "delays": [
+          9,
+          0,
+          5
+        ],
+        "threshold": 115939.70273113638
+      },
+      "ewma": {
+        "tp": 11,
+        "fp": 17,
+        "tn": 384,
+        "fn": 291,
+        "unknown": 0,
+        "episodes": 7,
+        "events": 3,
+        "delays": [
+          24,
+          15,
+          null
+        ],
+        "threshold": 271769.12316186074
+      },
+      "common": {
+        "tp": 185,
+        "fp": 55,
+        "tn": 346,
+        "fn": 117,
+        "unknown": 0,
+        "episodes": 6,
+        "events": 3,
+        "delays": [
+          12,
+          3,
+          null
+        ],
+        "threshold": 0.6919344860147971
+      }
+    }
+  }
+]
