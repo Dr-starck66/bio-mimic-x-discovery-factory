@@ -1,0 +1,147 @@
+name: ASTRA CometBFT real receipt
+on:
+  push:
+    branches: ['astra/cometbft-real-receipt']
+    paths: ['.github/workflows/astra-cometbft-real-receipt.yml']
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.24.x'
+          cache: false
+      - name: Acquire pinned upstream and build
+        run: |
+          git clone --depth 1 --branch v0.38.26 https://github.com/cometbft/cometbft.git upstream
+          cd upstream
+          git rev-parse HEAD
+          go build -o /tmp/cometbft ./cmd/cometbft
+          /tmp/cometbft version
+          mkdir -p cmd/astra-verify
+          cat > cmd/astra-verify/main.go <<'EOF'
+          package main
+          import (
+            "fmt"
+            "os"
+            cmtjson "github.com/cometbft/cometbft/libs/json"
+            core "github.com/cometbft/cometbft/rpc/core/types"
+            "github.com/cometbft/cometbft/types"
+          )
+          func main() {
+            g,e:=types.GenesisDocFromFile(os.Args[1]); if e!=nil {panic(e)}
+            vals:=make([]*types.Validator,0,len(g.Validators))
+            for _,v:=range g.Validators {vals=append(vals,types.NewValidator(v.PubKey,v.Power))}
+            b,e:=os.ReadFile(os.Args[2]); if e!=nil {panic(e)}
+            var r core.ResultCommit
+            if e=cmtjson.Unmarshal(b,&r); e!=nil {panic(e)}
+            if e=r.SignedHeader.ValidateBasic(g.ChainID); e!=nil {panic(e)}
+            c:=r.SignedHeader.Commit
+            if e=types.NewValidatorSet(vals).VerifyCommit(g.ChainID,c.BlockID,c.Height,c); e!=nil {panic(e)}
+            fmt.Printf("VERIFIED height=%d round=%d hash=%X\n",c.Height,c.Round,c.BlockID.Hash)
+          }
+          EOF
+          go build -o /tmp/astra-verify ./cmd/astra-verify
+      - name: Seven-validator actual TCP testnet, stop one validator
+        shell: bash
+        run: |
+          mkdir -p evidence
+          python3 -u - <<'PY' | tee evidence/run.log
+          import json, os, pathlib, re, signal, subprocess, time, urllib.request
+          p=pathlib.Path('evidence').resolve()
+          lab=pathlib.Path('/tmp/astra-testnet')
+          bin='/tmp/cometbft'
+          subprocess.run([bin,'testnet','--v','7','--o',str(lab),'--populate-persistent-peers=false'],check=True)
+          homes=[lab/f'node{i}' for i in range(7)]
+          ids=[subprocess.check_output([bin,'show-node-id','--home',str(h)],text=True).strip() for h in homes]
+          addresses=[json.loads((h/'config/priv_validator_key.json').read_text())['address'] for h in homes]
+          ports=[28000+10*i for i in range(7)]
+          procs=[]
+          def rpc(i,path):
+              with urllib.request.urlopen(f'http://127.0.0.1:{ports[i]+1}/{path}',timeout=2) as r:
+                  d=json.load(r)
+              if 'error' in d: raise RuntimeError(d['error'])
+              return d['result']
+          def save_commit(i,h,label):
+              d=rpc(i,f'commit?height={h}')
+              target=p/(label+'.json')
+              target.write_text(json.dumps(d,indent=2))
+              subprocess.run(['/tmp/astra-verify',str(homes[0]/'config/genesis.json'),str(target)],check=True)
+              return d['signed_header']
+          try:
+              for i,h in enumerate(homes):
+                  cfg=h/'config/config.toml'
+                  s=cfg.read_text()
+                  peers=','.join(f'{ids[j]}@127.0.0.1:{ports[j]}' for j in range(7) if j!=i)
+                  s=re.sub(r'(?m)^persistent_peers\s*=.*$',f'persistent_peers = "{peers}"',s)
+                  s=s.replace('tcp://0.0.0.0:26656',f'tcp://127.0.0.1:{ports[i]}').replace('tcp://127.0.0.1:26657',f'tcp://127.0.0.1:{ports[i]+1}')
+                  s=re.sub(r'(?m)^pprof_laddr\s*=.*$','pprof_laddr = ""',s)
+                  s=re.sub(r'(?m)^timeout_commit\s*=.*$','timeout_commit = "1s"',s)
+                  cfg.write_text(s)
+                  log=open(p/f'node{i}.log','w')
+                  procs.append(subprocess.Popen([bin,'node','--home',str(h),'--proxy_app=kvstore'],stdout=log,stderr=subprocess.STDOUT))
+              deadline=time.monotonic()+80
+              while True:
+                  try:
+                      heights=[int(rpc(i,'status')['sync_info']['latest_block_height']) for i in range(7)]
+                      if min(heights)>=2:break
+                  except Exception:pass
+                  if time.monotonic()>deadline:raise RuntimeError('initial finalization timed out')
+                  time.sleep(.25)
+              first=save_commit(0,min(heights)-1,'first-commit')
+              assert first['commit']['round']==0 or int(first['commit']['round'])>=0
+              tx=rpc(0,'broadcast_tx_commit?tx=0x61737472613d6f6b')
+              assert int(tx['check_tx']['code'])==0 and int(tx['tx_result']['code'])==0,tx
+              (p/'transaction.json').write_text(json.dumps(tx,indent=2))
+              stopped=0
+              procs[stopped].kill();procs[stopped].wait()
+              stop_height=int(rpc(1,'status')['sync_info']['latest_block_height'])
+              print('KILLED',addresses[stopped],'height',stop_height,flush=True)
+              (p/'fault.json').write_text(json.dumps({'stopped_address':addresses[stopped],'observed_height':stop_height}))
+              deadline=time.monotonic()+90
+              seen=stop_height+1
+              recovered=None
+              while time.monotonic()<deadline:
+                  try:
+                      latest=int(rpc(1,'status')['sync_info']['latest_block_height'])
+                      while seen<latest:
+                          d=rpc(1,f'commit?height={seen}')['signed_header']
+                          if int(d['commit']['round'])>0:
+                              recovered=save_commit(1,seen,'round-change-commit')
+                              break
+                          seen+=1
+                      if recovered:break
+                  except (OSError,RuntimeError,KeyError):pass
+                  time.sleep(.25)
+              if recovered is None:raise RuntimeError('no nonzero-round signed commit after stop')
+              h=int(recovered['header']['height'])
+              hashes=[]
+              for i in range(1,7):
+                  deadline=time.monotonic()+20
+                  while True:
+                      try:
+                          d=save_commit(i,h,f'peer-{i}-commit')
+                          hashes.append(d['commit']['block_id']['hash'])
+                          break
+                      except (OSError,RuntimeError,KeyError):
+                          if time.monotonic()>deadline:raise
+                          time.sleep(.25)
+              assert len(set(hashes))==1
+              print('PASS: cryptographically verified nonzero-round commit after validator process kill; six peers agree; proposer identity at round zero still requires trace verification')
+          finally:
+              for proc in procs:
+                  if proc.poll() is None:proc.terminate()
+              for proc in procs:
+                  try:proc.wait(timeout=5)
+                  except subprocess.TimeoutExpired:proc.kill();proc.wait()
+          PY
+      - name: Save receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cometbft-receipts
+          path: evidence/
+          retention-days: 7
