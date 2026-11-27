@@ -1,0 +1,38 @@
+{
+  "schema": "astra.biomicx.vva.duration-validation.v1",
+  "created_on": "2026-11-23",
+  "provenance": "Local Python execution in transient container, no CI or remote runner executed",
+  "command": "PYTHONPATH=.:validation python -m unittest -v test_vva_repair_gate validation.test_vva_published_aggregate_bridge validation.test_vva_independent_histology_gate validation.test_vva_duration_registry",
+  "tests_total": 53,
+  "tests_passed": 53,
+  "tests_failed": 0,
+  "log_sha256": "d4b828929b34e61d77021b4761b67882f7a1ded2e0b86e9c7ee878202de4019b",
+  "registry_sha256": "e937460e22af7c291bffb2bbe44ec0681077601560690a0c28c8c5f877dca728",
+  "duration_gate_sha256": "8cb64548615a7c2ce20abdd925960b867304b553e0974719220afe32f1d4de9d",
+  "duration_tests_sha256": "c3f00aee9ad294b598e6772a338dd3bd2745dc1212b95cf858a2ad732381d6c0",
+  "evaluated_independent_study_families": 5,
+  "complete_3_6_12_month_controlled_quantitative_paired_structural_datasets": 0,
+  "original_patient_level_data_analyzed": false,
+  "clinical_regeneration_proven": false,
+  "remote_CI_executed": false,
+  "source_claim_note": "Five selected study families, not an exhaustive systematic review",
+  "status": {
+    "local_software": "PASS",
+    "published_evidence_audit": "PARTIAL",
+    "long_term_structural_regeneration": "UNVERIFIED"
+  },
+  "unresolved": [
+    "No 3,6,12-month paired structural quantitative biopsy series with verified cessation, placebo/sham and patient-level data",
+    "Jacobsen protected patient data by author request",
+    "LIGHT longitudinal epithelial 12-month biopsy not estimable due refusals",
+    "No remote CI / no clinical assay executed"
+  ],
+  "remote_files_verified_exact_text": true,
+  "environment": "Reconstructed repository-compatible offline directory tree; Python unit tests run in working container",
+  "reproducible_audit_sha256": "9f40c8cbc6ecc73453186e8e55a65d0ea4e9a9ef8d43cc0bef767fb2c9ab945c",
+  "download_bundle_sha256": "024b8ff39909f8bfecf71a3ef0733e405e2f0a7eca77eb858308f19e303bf925",
+  "layout_integration_retested": true,
+  "note": "After fixing validation/data fixture path, rerun 53/53 in repository-compatible layout; not a remote CI or real patient-level assay.",
+  "zip_integrity_verified": true,
+  "zip_binary_compiled_files_excluded": true
+}
