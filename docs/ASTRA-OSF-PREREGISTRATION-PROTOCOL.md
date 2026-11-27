@@ -30,3 +30,6 @@ Prefer the OSF Preregistration template. Use an OSF draft first, then human-appr
 
 ## Pilot selection
 Select one new, independently held-out confirmatory experiment after verifying data availability and exposure. Do not repurpose the historical GEO result as a new preregistration. No study-specific threshold or claim is approved by this generic worksheet.
+
+### OSF platform transition — verified 2026-11-27
+New OSF Projects and project-based registrations are discontinued from 2026-11-16; existing projects become read-only on 2027-02-19. Keep working materials in GitHub or authorized storage, create registrations directly from scratch via the OSF Registrations workflow, and do not depend on POST /v2/nodes/ or new project add-ons. Official references: https://help.osf.io/article/759-details-of-osf-projects-transition and https://help.osf.io/article/744-osf-projects-api-impact . No authenticated draft or registration has been created; browser automation refused to start due to insufficient provider balance. Do not incur charges.
