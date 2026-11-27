@@ -1,0 +1,369 @@
+{
+  "source": "Ianmendonca/Bearing-fault-diagnosis-NASA-dataset",
+  "hashes": {
+    "3": [
+      "7e8b8c8e8746c51a0a2039bbfd2a57702707eac9",
+      "ad084c247de67b065bb102690c76d9f68085d2c2",
+      "de67c941abad95d456f4014db58cb573a08526f0",
+      "ad724f70fc37af2ecca2aa72953d70dd406668a6"
+    ]
+  },
+  "settings": {
+    "train": 100,
+    "calibration": 100,
+    "quantile": 0.99,
+    "persistence": 3,
+    "smoothing": 5,
+    "clock": "gaps >15min count 10min; endpoint is test stop",
+    "no_known_failure": "proxy only"
+  },
+  "results": [
+    {
+      "run": 3,
+      "bearing": 1,
+      "failed": false,
+      "n": 6323,
+      "duplicate": 0,
+      "excluded_shutdown": 1,
+      "monitor_hours": 1019.6333333332535,
+      "methods": {
+        "rms": {
+          "threshold": -0.25725645697264016,
+          "episodes": 2,
+          "first_snapshot": 5971,
+          "first_lead_hours": 58.50000000000671,
+          "sustained_snapshot": 6163,
+          "sustained_lead_hours": 26.50000000001205,
+          "alarm_fraction": 0.027773239666721124
+        },
+        "ewma": {
+          "threshold": -0.6328811714809646,
+          "episodes": 2,
+          "first_snapshot": 5971,
+          "first_lead_hours": 58.50000000000671,
+          "sustained_snapshot": 6162,
+          "sustained_lead_hours": 26.666666666678793,
+          "alarm_fraction": 0.02875347165495834
+        },
+        "kurtosis": {
+          "threshold": 0.3426415031794473,
+          "episodes": 1,
+          "first_snapshot": 5971,
+          "first_lead_hours": 58.50000000000671,
+          "sustained_snapshot": null,
+          "sustained_lead_hours": null,
+          "alarm_fraction": 0.0017970919784348963
+        },
+        "multifeature": {
+          "threshold": 4.57974766676237,
+          "episodes": 73,
+          "first_snapshot": 262,
+          "first_lead_hours": 1009.6333333332536,
+          "sustained_snapshot": 6191,
+          "sustained_lead_hours": 21.833333333343262,
+          "alarm_fraction": 0.7255350432935794
+        },
+        "peer_ratio": {
+          "threshold": 1.8260292824714954,
+          "episodes": 1,
+          "first_snapshot": 1589,
+          "first_lead_hours": 788.5833333332585,
+          "sustained_snapshot": null,
+          "sustained_lead_hours": null,
+          "alarm_fraction": 0.000490115994118608
+        },
+        "astra": {
+          "threshold": 1.8260292824714954,
+          "episodes": 137,
+          "first_snapshot": 283,
+          "first_lead_hours": 1006.1333333332536,
+          "sustained_snapshot": 6317,
+          "sustained_lead_hours": 0.8333333333337123,
+          "alarm_fraction": 0.2698905407613135
+        }
+      }
+    },
+    {
+      "run": 3,
+      "bearing": 2,
+      "failed": false,
+      "n": 6323,
+      "duplicate": 0,
+      "excluded_shutdown": 1,
+      "monitor_hours": 1019.6333333332535,
+      "methods": {
+        "rms": {
+          "threshold": -1.5021119263754028,
+          "episodes": 1,
+          "first_snapshot": 6159,
+          "first_lead_hours": 27.16666666667902,
+          "sustained_snapshot": 6159,
+          "sustained_lead_hours": 27.16666666667902,
+          "alarm_fraction": 0.02679300767848391
+        },
+        "ewma": {
+          "threshold": -1.6630407548394472,
+          "episodes": 1,
+          "first_snapshot": 6161,
+          "first_lead_hours": 26.833333333345536,
+          "sustained_snapshot": 6161,
+          "sustained_lead_hours": 26.833333333345536,
+          "alarm_fraction": 0.026466263682404834
+        },
+        "kurtosis": {
+          "threshold": -0.19833431052513284,
+          "episodes": 0,
+          "first_snapshot": null,
+          "first_lead_hours": null,
+          "sustained_snapshot": null,
+          "sustained_lead_hours": null,
+          "alarm_fraction": 0
+        },
+        "multifeature": {
+          "threshold": 3.873476845010727,
+          "episodes": 4,
+          "first_snapshot": 217,
+          "first_lead_hours": 1017.1333333332535,
+          "sustained_snapshot": 6163,
+          "sustained_lead_hours": 26.50000000001205,
+          "alarm_fraction": 0.9939552360725372
+        },
+        "peer_ratio": {
+          "threshold": 0.021701512182799098,
+          "episodes": 10,
+          "first_snapshot": 268,
+          "first_lead_hours": 1008.6333333332536,
+          "sustained_snapshot": null,
+          "sustained_lead_hours": null,
+          "alarm_fraction": 0.009965691880411697
+        },
+        "astra": {
+          "threshold": 1.2505280070519156,
+          "episodes": 37,
+          "first_snapshot": 243,
+          "first_lead_hours": 1012.7999999999203,
+          "sustained_snapshot": 6056,
+          "sustained_lead_hours": 44.33333333334326,
+          "alarm_fraction": 0.9526221205685346
+        }
+      }
+    },
+    {
+      "run": 3,
+      "bearing": 3,
+      "failed": true,
+      "n": 6323,
+      "duplicate": 0,
+      "excluded_shutdown": 1,
+      "monitor_hours": 1019.6333333332535,
+      "methods": {
+        "rms": {
+          "threshold": -0.7884321195213502,
+          "episodes": 86,
+          "first_snapshot": 869,
+          "first_lead_hours": 908.4666666665864,
+          "sustained_snapshot": 5667,
+          "sustained_lead_hours": 109.01666666666188,
+          "alarm_fraction": 0.4507433425910799
+        },
+        "ewma": {
+          "threshold": -0.79900467587444,
+          "episodes": 40,
+          "first_snapshot": 2677,
+          "first_lead_hours": 607.3499999999044,
+          "sustained_snapshot": 5160,
+          "sustained_lead_hours": 193.51666666664266,
+          "alarm_fraction": 0.49272994608724063
+        },
+        "kurtosis": {
+          "threshold": -0.36729027059374314,
+          "episodes": 3,
+          "first_snapshot": 6164,
+          "first_lead_hours": 26.33333333334531,
+          "sustained_snapshot": 6305,
+          "sustained_lead_hours": 2.833333333334622,
+          "alarm_fraction": 0.014049991831400098
+        },
+        "multifeature": {
+          "threshold": 3.583524586627587,
+          "episodes": 142,
+          "first_snapshot": 255,
+          "first_lead_hours": 1010.7999999999203,
+          "sustained_snapshot": 5970,
+          "sustained_lead_hours": 58.666666666673336,
+          "alarm_fraction": 0.26417252082992976
+        },
+        "peer_ratio": {
+          "threshold": 1.4630060731842103,
+          "episodes": 42,
+          "first_snapshot": 242,
+          "first_lead_hours": 1012.9666666665869,
+          "sustained_snapshot": 4845,
+          "sustained_lead_hours": 246.01666666663073,
+          "alarm_fraction": 0.9393889887273321
+        },
+        "astra": {
+          "threshold": 1.8981657467292699,
+          "episodes": 43,
+          "first_snapshot": 245,
+          "first_lead_hours": 1012.4666666665869,
+          "sustained_snapshot": 5677,
+          "sustained_lead_hours": 107.34999999999559,
+          "alarm_fraction": 0.9335075967979088
+        }
+      }
+    },
+    {
+      "run": 3,
+      "bearing": 4,
+      "failed": false,
+      "n": 6323,
+      "duplicate": 0,
+      "excluded_shutdown": 1,
+      "monitor_hours": 1019.6333333332535,
+      "methods": {
+        "rms": {
+          "threshold": -0.39794704381012125,
+          "episodes": 49,
+          "first_snapshot": 2041,
+          "first_lead_hours": 713.2499999999166,
+          "sustained_snapshot": 6031,
+          "sustained_lead_hours": 48.50000000000898,
+          "alarm_fraction": 0.5254043456951478
+        },
+        "ewma": {
+          "threshold": -0.5672864573612286,
+          "episodes": 25,
+          "first_snapshot": 2042,
+          "first_lead_hours": 713.0833333332498,
+          "sustained_snapshot": 4933,
+          "sustained_lead_hours": 231.3499999999674,
+          "alarm_fraction": 0.5605293252736481
+        },
+        "kurtosis": {
+          "threshold": 0.21143079450436178,
+          "episodes": 1,
+          "first_snapshot": 6267,
+          "first_lead_hours": 9.166666666670835,
+          "sustained_snapshot": null,
+          "sustained_lead_hours": null,
+          "alarm_fraction": 0.00032674399607907203
+        },
+        "multifeature": {
+          "threshold": 4.107848883070541,
+          "episodes": 25,
+          "first_snapshot": 255,
+          "first_lead_hours": 1010.7999999999203,
+          "sustained_snapshot": 6148,
+          "sustained_lead_hours": 29.000000000013188,
+          "alarm_fraction": 0.3383434079398791
+        },
+        "peer_ratio": {
+          "threshold": 2.28416658232253,
+          "episodes": 24,
+          "first_snapshot": 522,
+          "first_lead_hours": 966.2999999999199,
+          "sustained_snapshot": 6038,
+          "sustained_lead_hours": 47.33333333334258,
+          "alarm_fraction": 0.7175298153896422
+        },
+        "astra": {
+          "threshold": 2.28416658232253,
+          "episodes": 23,
+          "first_snapshot": 522,
+          "first_lead_hours": 966.2999999999199,
+          "sustained_snapshot": 6017,
+          "sustained_lead_hours": 50.833333333341784,
+          "alarm_fraction": 0.7203071393563143
+        }
+      }
+    }
+  ],
+  "summary": {
+    "rms": {
+      "sustained_4h": 1,
+      "failed_total": 1,
+      "proxy_episodes": 52,
+      "proxy_hours": 3058.8999999997604,
+      "leads": [
+        {
+          "run": 3,
+          "bearing": 3,
+          "first": 908.4666666665864,
+          "sustained": 109.01666666666188
+        }
+      ]
+    },
+    "ewma": {
+      "sustained_4h": 1,
+      "failed_total": 1,
+      "proxy_episodes": 28,
+      "proxy_hours": 3058.8999999997604,
+      "leads": [
+        {
+          "run": 3,
+          "bearing": 3,
+          "first": 607.3499999999044,
+          "sustained": 193.51666666664266
+        }
+      ]
+    },
+    "kurtosis": {
+      "sustained_4h": 0,
+      "failed_total": 1,
+      "proxy_episodes": 2,
+      "proxy_hours": 3058.8999999997604,
+      "leads": [
+        {
+          "run": 3,
+          "bearing": 3,
+          "first": 26.33333333334531,
+          "sustained": 2.833333333334622
+        }
+      ]
+    },
+    "multifeature": {
+      "sustained_4h": 1,
+      "failed_total": 1,
+      "proxy_episodes": 102,
+      "proxy_hours": 3058.8999999997604,
+      "leads": [
+        {
+          "run": 3,
+          "bearing": 3,
+          "first": 1010.7999999999203,
+          "sustained": 58.666666666673336
+        }
+      ]
+    },
+    "peer_ratio": {
+      "sustained_4h": 1,
+      "failed_total": 1,
+      "proxy_episodes": 35,
+      "proxy_hours": 3058.8999999997604,
+      "leads": [
+        {
+          "run": 3,
+          "bearing": 3,
+          "first": 1012.9666666665869,
+          "sustained": 246.01666666663073
+        }
+      ]
+    },
+    "astra": {
+      "sustained_4h": 1,
+      "failed_total": 1,
+      "proxy_episodes": 197,
+      "proxy_hours": 3058.8999999997604,
+      "leads": [
+        {
+          "run": 3,
+          "bearing": 3,
+          "first": 1012.4666666665869,
+          "sustained": 107.34999999999559
+        }
+      ]
+    }
+  },
+  "replay_identical": true
+}
