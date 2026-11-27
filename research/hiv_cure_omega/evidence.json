@@ -1,0 +1,85 @@
+{
+  "schema": "astra-hiv-cure-evidence/1",
+  "as_of": "2026-11-08",
+  "scope": "Public literature review; no clinical intervention, samples, or HIV sequences",
+  "cure_established_for_general_population": false,
+  "studies": [
+    {
+      "id": "RIO-2026",
+      "title": "RIO phase II randomized trial of 3BNC117-LS and 10-1074-LS",
+      "source": "https://pubmed.ncbi.nlm.nih.gov/41674620/",
+      "date": "2026",
+      "type": "randomized_controlled_clinical_trial",
+      "participants": 68,
+      "outcome": "75% no rebound at week 20 versus 11% placebo; 7 participants in treated group with control beyond week 96",
+      "outcome_category": "post_treatment_control",
+      "eradication_demonstrated": false,
+      "limitation": "Selected participants mostly early-treated men; delayed rebound/control is not proof of viral elimination"
+    },
+    {
+      "id": "COMBINATION-2026",
+      "title": "Therapeutic vaccine, TLR9 agonist and broadly neutralizing antibodies",
+      "source": "https://pubmed.ncbi.nlm.nih.gov/40166020/",
+      "date": "2026",
+      "type": "single_arm_pilot",
+      "participants": 10,
+      "outcome": "Seven participants with partial or complete post-intervention control",
+      "outcome_category": "post_treatment_control",
+      "eradication_demonstrated": false,
+      "limitation": "Small uncontrolled study; proof of concept, not sterilizing cure"
+    },
+    {
+      "id": "Q4DDPCR-2026",
+      "title": "Improved four-target intact reservoir measurement",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13035820/",
+      "date": "2026",
+      "type": "laboratory_assay_validation",
+      "participants": null,
+      "outcome": "Intact reservoir quantified in 95% of samples across four cohorts; closer concordance to sequence-confirmed genomes",
+      "outcome_category": "reservoir_measurement",
+      "eradication_demonstrated": false,
+      "limitation": "Currently validated for subtype B; detection from limited samples is not proof of whole-body absence"
+    },
+    {
+      "id": "HSCT-2026",
+      "title": "Kansas City and Essen patients: sustained remission following stem cell transplantation",
+      "source": "https://iasociety.org/blog/aids-2026-key-takeaways",
+      "date": "2026",
+      "type": "exceptional_case_reports",
+      "participants": 2,
+      "outcome": "Sustained antiretroviral-free remission in special cancer-transplant settings",
+      "outcome_category": "exceptional_remission",
+      "eradication_demonstrated": false,
+      "limitation": "High-risk cancer-related transplantation is not an option for routine HIV treatment; remission is not universal eradication"
+    },
+    {
+      "id": "RECOMBINASE-2026",
+      "title": "Designer-recombinase investigational gene-modified stem-cell product",
+      "source": "https://www.nature.com/articles/s41598-026-64038-1",
+      "date": "2026",
+      "type": "preclinical_translational_manufacturing",
+      "participants": null,
+      "outcome": "Manufacturing validated; first-in-human trial in preparation",
+      "outcome_category": "gene_excision_research",
+      "eradication_demonstrated": false,
+      "limitation": "No demonstrated patient HIV cure; tissue delivery, completeness, durability and safety unresolved"
+    },
+    {
+      "id": "A5413-2026",
+      "title": "ACTG A5413 dasatinib reservoir study",
+      "source": "https://actgnetwork.org/article/actg-launches-hiv-cure-study-evaluating-novel-approach-targeting-the-hiv-reservoir/",
+      "date": "2026",
+      "type": "ongoing_randomized_trial",
+      "participants": null,
+      "outcome": "Trial initiated to assess safety and reservoir impact; no result established",
+      "outcome_category": "reservoir_intervention_research",
+      "eradication_demonstrated": false,
+      "limitation": "No trial efficacy outcome yet; dasatinib is not an approved HIV cure"
+    }
+  ],
+  "clinical_safety": {
+    "art_stop_without_specialist_supervised_trial": "PROHIBITED",
+    "no_self_experimentation": true,
+    "no_hiv_sequence_or_wet_lab_instruction": true
+  }
+}
