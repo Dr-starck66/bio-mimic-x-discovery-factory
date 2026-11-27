@@ -1,0 +1,59 @@
+name: ASTRA Archer — verify official UCI CMU archive
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/astra-archer-cmu-official.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  official-archive-hashes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install project requirements for existing verifier
+        run: python -m pip install --disable-pip-version-check --quiet numpy scipy Pillow
+      - name: Download official ZIP and hash-pinned mirror, then verify contents
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p data/cmu-verification reports/factory
+          trap 'code=$?; if [ "$code" -ne 0 ]; then printf "{\"status\":\"FAIL_CLOSED\",\"exit_code\":%s,\"reason\":\"See GitHub Actions log; no ZIP or PGM authenticity claimed\"}\n" "$code" > reports/factory/ARCHER-CMU-OFFICIAL-FETCH-FAILURE.json; fi' EXIT
+          curl --fail --location --show-error --silent --retry 2 --connect-timeout 15 --max-time 120 \
+            --output data/cmu-verification/official-uci.zip \
+            'https://archive.ics.uci.edu/static/public/124/cmu%2Bface%2Bimages.zip'
+          (cd data/cmu-verification && printf '%s  %s\n' \
+            '01a8b6cc58ac2f825f72abd6cf2b393df067c6529d96f7a90b22dede71b142cc' \
+            'official-uci.zip' | sha256sum -c)
+          curl --fail --location --show-error --silent --retry 2 --connect-timeout 15 --max-time 60 \
+            --output data/cmu-verification/faces_4_mirror.tar.gz \
+            'https://raw.githubusercontent.com/efeerenc/face_orientation_585/25984c63f09db08cac5d8ff113bd0963af728406/cmu%2Bface%2Bimages/faces_4.tar.gz'
+          (cd data/cmu-verification && printf '%s  %s\n' \
+            'fee2175af429f964d51d4b13cd7c2c23afbbc309edf8d9b84c975d2c1b41e8f4' \
+            'faces_4_mirror.tar.gz' | sha256sum -c)
+          python -m validation.archer_cmu_official_zip_verifier \
+            --official-zip data/cmu-verification/official-uci.zip \
+            --mirror-tar data/cmu-verification/faces_4_mirror.tar.gz \
+            --out reports/factory/ARCHER-CMU-OFFICIAL-HASH-COMPARISON.json
+          (cd data/cmu-verification && sha256sum official-uci.zip faces_4_mirror.tar.gz) \
+            > reports/factory/ARCHER-CMU-COMPUTED-SHA256.txt
+          sha256sum reports/factory/ARCHER-CMU-OFFICIAL-HASH-COMPARISON.json \
+            > reports/factory/ARCHER-CMU-REPORT-SHA256.txt
+      - name: Upload hashes and reproducibility manifest, never portrait bytes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: astra-archer-cmu-official-uci-verification
+          retention-days: 7
+          if-no-files-found: warn
+          path: |
+            reports/factory/ARCHER-CMU-OFFICIAL-HASH-COMPARISON.json
+            reports/factory/ARCHER-CMU-COMPUTED-SHA256.txt
+            reports/factory/ARCHER-CMU-REPORT-SHA256.txt
+            reports/factory/ARCHER-CMU-OFFICIAL-FETCH-FAILURE.json

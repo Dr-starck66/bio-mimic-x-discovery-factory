@@ -1,0 +1,37 @@
+name: ASTRA LFFD — access public session metadata
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - .github/workflows/astra-lffd-metadata-provenance.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-public-metadata:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - name: Get only officially published XLSX metadata (no face photographs)
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p data/lffd-official-public-metadata
+          for name in Metadata LandMarks_Session1 LandMarks_Session2; do
+            url="https://lffd.eurecom.fr/${name}.xlsx"
+            curl --fail --location --silent --show-error --retry 2 --connect-timeout 12 --max-time 60 \
+              --output "data/lffd-official-public-metadata/${name}.xlsx" "$url"
+            file "data/lffd-official-public-metadata/${name}.xlsx"
+            unzip -t "data/lffd-official-public-metadata/${name}.xlsx" | tail -1
+            test "$(wc -c < "data/lffd-official-public-metadata/${name}.xlsx")" -lt 10000000
+          done
+          (cd data/lffd-official-public-metadata && sha256sum ./*.xlsx > SHA256SUMS.txt)
+      - name: Export short-lived metadata evidence, never face photographs
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: astra-lffd-official-session-metadata
+          retention-days: 1
+          if-no-files-found: error
+          path: data/lffd-official-public-metadata/*
