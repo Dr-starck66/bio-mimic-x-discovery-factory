@@ -1,0 +1,176 @@
+name: ASTRA WAN ML-DSA consensus proof
+on:
+  push:
+    branches: ['astra/cometbft-real-receipt']
+    paths: ['.github/workflows/astra-wan-pq-consensus.yml']
+permissions:
+  contents: read
+  actions: read
+jobs:
+  wan:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-26.04
+            role: A
+          - os: ubuntu-26.04-arm
+            role: B
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 18
+    env:
+      ROLE: ${{ matrix.role }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.26.x'
+          cache: false
+      - name: Acquire pinned upstream and build
+        run: |
+          git clone --depth 1 --branch v0.40.0 https://github.com/cometbft/cometbft.git upstream
+          cd upstream
+          git rev-parse HEAD
+          go build -o /tmp/cometbft ./cmd/cometbft
+          /tmp/cometbft version
+          mkdir -p cmd/astra-verify
+          cat > cmd/astra-verify/main.go <<'EOF'
+          package main
+          import (
+            "fmt"
+            "os"
+            cmtjson "github.com/cometbft/cometbft/libs/json"
+            core "github.com/cometbft/cometbft/rpc/core/types"
+            "github.com/cometbft/cometbft/types"
+          )
+          func main() {
+            g,e:=types.GenesisDocFromFile(os.Args[1]); if e!=nil {panic(e)}
+            vals:=make([]*types.Validator,0,len(g.Validators))
+            for _,v:=range g.Validators {if v.PubKey.Type()!="ml_dsa_65" {panic("non-PQ validator")}; vals=append(vals,types.NewValidator(v.PubKey,v.Power))}
+            b,e:=os.ReadFile(os.Args[2]); if e!=nil {panic(e)}
+            var r core.ResultCommit
+            if e=cmtjson.Unmarshal(b,&r); e!=nil {panic(e)}
+            if e=r.SignedHeader.ValidateBasic(g.ChainID); e!=nil {panic(e)}
+            c:=r.SignedHeader.Commit
+            if e=types.NewValidatorSet(vals).VerifyCommit(g.ChainID,c.BlockID,c.Height,c); e!=nil {panic(e)}
+            for _,s:=range c.Signatures {if s.BlockIDFlag==types.BlockIDFlagCommit && len(s.Signature)!=3309 {panic("unexpected PQ signature length")}}
+            fmt.Printf("VERIFIED ML-DSA-65 height=%d round=%d hash=%X\n",c.Height,c.Round,c.BlockID.Hash)
+          }
+          EOF
+          go build -o /tmp/astra-verify ./cmd/astra-verify
+          mkdir -p cmd/astra-pqkey
+          cat > cmd/astra-pqkey/main.go <<'EOF'
+          package main
+          import (
+            "os"
+            "path/filepath"
+            "github.com/cometbft/cometbft/crypto/mldsa65"
+            "github.com/cometbft/cometbft/privval"
+          )
+          func main() {
+            h:=os.Args[1]
+            k,e:=mldsa65.GenPrivKey(); if e!=nil {panic(e)}
+            pv:=privval.NewFilePV(k,filepath.Join(h,"config","priv_validator_key.json"),filepath.Join(h,"data","priv_validator_state.json"))
+            pv.Save()
+          }
+          EOF
+          go build -o /tmp/astra-pqkey ./cmd/astra-pqkey
+      - name: Restore exact ASTRA v0.5 sources and compile
+        run: |
+          set -euxo pipefail
+          mkdir -p /tmp/astra-app
+          base64 -d research/astra-crypto-consensus/v05-source.tgz.b64 | tar xz -C /tmp/astra-app
+          cp research/astra-crypto-consensus/integration.py /tmp/astra-app/
+          cd /tmp/astra-app
+          sha256sum -c <<'EOF'
+          d8761874d16841b505ce8affa3f2e23fc1efdc78c3ea08ff94eeb66b86df3e87  state.py
+          f2708693f1d78c1c662f27fe062b109b16bb63824bd5fcaf3da477d87991f11b  native.py
+          e572890a9bdb0d1297088ebcb69a86ca969645c85bb5099b47d72bea1308f843  native.c
+          200e9f20869f5aa19e1765fd877587620b30d45a302543f34f784e4026207156  engine.py
+          4fc5b23f1e7df706a8611a394d431226c76b971454e5aa19c7314a2adab7952d  cmd/adapter/main.go
+          EOF
+          openssl version
+          if ! pkg-config --atleast-version=3.5 openssl; then
+            sudo apt-get update
+            sudo apt-get install -y libssl-dev pkg-config
+          fi
+          pkg-config --atleast-version=3.5 openssl
+          cc -O2 -Wall -Wextra -shared -fPIC native.c -o libastra.so $(pkg-config --cflags --libs openssl)
+          python3 -c 'from native import L,Key; print(L.version().decode()); k=Key("ML-DSA-65"); assert k.public().verify(b"check",k.sign(b"check"))'
+          go mod edit -require=github.com/cometbft/cometbft@v0.40.0
+          go build -mod=mod -o /tmp/astra-abci ./cmd/adapter
+      - name: Prepare temporary authenticated WAN test transport
+        run: |
+          set -euxo pipefail
+          mkdir -p /tmp/astra-wan
+          cp research/astra-crypto-consensus/wan{,_bridge}.py /tmp/astra-app/
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('/tmp/astra-app/wan.py')
+          s=p.read_text()
+          a="        k=load(home(i)/'config/priv_validator_key.json')"
+          b="    g['validators']=[m['validator'] for m in members];g['chain_id']=CHAIN;g['app_state']={'astra_roster_sha256':gd}"
+          assert a in s and b in s
+          s=s.replace(a,"        subprocess.run(['/tmp/astra-pqkey',str(home(i))],check=True)\n"+a)
+          s=s.replace(b,b+"\n    g['consensus_params']['validator']['pub_key_types']=['ml_dsa_65']")
+          p.write_text(s)
+          PY
+          python3 -m venv /tmp/astra-venv
+          /tmp/astra-venv/bin/pip install --disable-pip-version-check 'websockets==15.0.1' 'cryptography==45.0.7'
+          echo /tmp/astra-venv/bin >> "$GITHUB_PATH"
+          if [ "$ROLE" = A ]; then
+            curl -fsSL --retry 2 -o /tmp/cloudflared https://github.com/cloudflare/cloudflared/releases/download/2026.11.1/cloudflared-linux-amd64
+            echo "97bb3b02d23a5980fc9c15a1a270e692da1923f103f920d5b16d4931d5ab55e7  /tmp/cloudflared" | sha256sum -c
+            chmod 755 /tmp/cloudflared
+            nohup /tmp/cloudflared tunnel --url http://127.0.0.1:29999 --no-autoupdate > /tmp/astra-wan/tunnel.log 2>&1 &
+            echo $! > /tmp/astra-wan/tunnel.pid
+            for i in $(seq 1 60); do
+              grep -Eo 'https://[a-z0-9-]+\.trycloudflare\.com' /tmp/astra-wan/tunnel.log | head -1 > /tmp/astra-wan/tunnel.url || true
+              if [ -s /tmp/astra-wan/tunnel.url ]; then break; fi
+              sleep 1
+            done
+            test -s /tmp/astra-wan/tunnel.url
+          fi
+          cd /tmp/astra-app
+          /tmp/astra-venv/bin/python -u wan.py prepare
+      - name: Exchange only public validator metadata
+        uses: actions/upload-artifact@v4
+        with:
+          name: wan-metadata-${{ matrix.role }}
+          path: /tmp/astra-wan/public/
+          retention-days: 7
+      - name: Await peer public metadata
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if [ "$ROLE" = A ]; then other=B; else other=A; fi
+          mkdir -p /tmp/astra-wan/other
+          for i in $(seq 1 80); do
+            if gh run download "$GITHUB_RUN_ID" --repo "$GITHUB_REPOSITORY" -n "wan-metadata-$other" -D /tmp/astra-wan/other; then break; fi
+            sleep 3
+          done
+          test -s /tmp/astra-wan/other/members.json
+      - name: Same ASTRA ML-DSA-65 consensus over WAN, no local quorum
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -eo pipefail
+          cd /tmp/astra-app
+          uname -a | tee "$GITHUB_WORKSPACE/evidence/host.txt"
+          python -u wan.py run | tee "$GITHUB_WORKSPACE/evidence/run.log"
+      - name: Stop temporary tunnel
+        if: always()
+        run: |
+          if [ -f /tmp/astra-wan/tunnel.pid ]; then
+            kill "$(cat /tmp/astra-wan/tunnel.pid)" || true
+          fi
+          mkdir -p evidence
+          if [ -f /tmp/astra-wan/tunnel.log ]; then cp /tmp/astra-wan/tunnel.log evidence/tunnel.log; fi
+      - name: Archive public receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: wan-evidence-${{ matrix.role }}
+          path: evidence/
+          retention-days: 7
