@@ -1,0 +1,68 @@
+{
+  "date": "2026-11-28",
+  "source": "https://github.com/Cinnamonness/PanCancerSCAnalysis/tree/main/data",
+  "audit": [
+    {
+      "name": "breast",
+      "sha": "44365d343c91f169e5ee4c4e6286f7695fc3021f",
+      "expectedBytes": 654178,
+      "chars": 654178,
+      "genes": 399,
+      "uniqueGenes": 399,
+      "columns": 155,
+      "uniqueColumns": 155,
+      "invalid": 0,
+      "badShape": 0,
+      "values": 61845,
+      "explicitNormalColumns": 0
+    },
+    {
+      "name": "lung",
+      "sha": "4f595ea0d78f1b35552904c619c325d1e84e232e",
+      "expectedBytes": 4714124,
+      "chars": 4714124,
+      "genes": 1640,
+      "uniqueGenes": 1640,
+      "columns": 162,
+      "uniqueColumns": 162,
+      "invalid": 10717,
+      "badShape": 0,
+      "values": 265680,
+      "explicitNormalColumns": 0
+    },
+    {
+      "name": "ovary",
+      "sha": "45fc54d41a2417e5b764243b5668db385ba9bb84",
+      "expectedBytes": 168011,
+      "chars": 168011,
+      "genes": 400,
+      "uniqueGenes": 400,
+      "columns": 41,
+      "uniqueColumns": 41,
+      "invalid": 0,
+      "badShape": 0,
+      "values": 16400,
+      "explicitNormalColumns": 32
+    },
+    {
+      "name": "pancreas",
+      "sha": "193350babdc3eda2cb46a52d1e5245869344a233",
+      "expectedBytes": 195272,
+      "chars": 195258,
+      "genes": 300,
+      "uniqueGenes": 300,
+      "columns": 64,
+      "uniqueColumns": 64,
+      "invalid": 0,
+      "badShape": 0,
+      "values": 19200,
+      "explicitNormalColumns": 33
+    }
+  ],
+  "limits": [
+    "Derived tables selected for top genes by original analysis; selection bias precludes independent marker discovery or unbiased validation.",
+    "Column count is not donor count. No patient-level pairing or independent replicate structure validated.",
+    "Normal label count is string match only, not a confirmed clinical classification.",
+    "No proof of therapeutic selectivity, no intervention data. Binary hash not independently recomputed."
+  ]
+}
