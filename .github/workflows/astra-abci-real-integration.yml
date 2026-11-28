@@ -1,0 +1,89 @@
+name: ASTRA ABCI real integration
+on:
+  push:
+    branches: ['astra/cometbft-real-receipt']
+    paths: ['.github/workflows/astra-abci-real-integration.yml']
+permissions:
+  contents: read
+jobs:
+  integration:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-26.04, ubuntu-26.04-arm]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.24.x'
+          cache: false
+      - name: Acquire pinned upstream and build
+        run: |
+          git clone --depth 1 --branch v0.38.26 https://github.com/cometbft/cometbft.git upstream
+          cd upstream
+          git rev-parse HEAD
+          go build -o /tmp/cometbft ./cmd/cometbft
+          /tmp/cometbft version
+          mkdir -p cmd/astra-verify
+          cat > cmd/astra-verify/main.go <<'EOF'
+          package main
+          import (
+            "fmt"
+            "os"
+            cmtjson "github.com/cometbft/cometbft/libs/json"
+            core "github.com/cometbft/cometbft/rpc/core/types"
+            "github.com/cometbft/cometbft/types"
+          )
+          func main() {
+            g,e:=types.GenesisDocFromFile(os.Args[1]); if e!=nil {panic(e)}
+            vals:=make([]*types.Validator,0,len(g.Validators))
+            for _,v:=range g.Validators {vals=append(vals,types.NewValidator(v.PubKey,v.Power))}
+            b,e:=os.ReadFile(os.Args[2]); if e!=nil {panic(e)}
+            var r core.ResultCommit
+            if e=cmtjson.Unmarshal(b,&r); e!=nil {panic(e)}
+            if e=r.SignedHeader.ValidateBasic(g.ChainID); e!=nil {panic(e)}
+            c:=r.SignedHeader.Commit
+            if e=types.NewValidatorSet(vals).VerifyCommit(g.ChainID,c.BlockID,c.Height,c); e!=nil {panic(e)}
+            fmt.Printf("VERIFIED height=%d round=%d hash=%X\n",c.Height,c.Round,c.BlockID.Hash)
+          }
+          EOF
+          go build -o /tmp/astra-verify ./cmd/astra-verify
+      - name: Restore exact ASTRA v0.5 sources and compile
+        run: |
+          set -euxo pipefail
+          mkdir -p /tmp/astra-app
+          base64 -d research/astra-crypto-consensus/v05-source.tgz.b64 | tar xz -C /tmp/astra-app
+          cp research/astra-crypto-consensus/integration.py /tmp/astra-app/
+          cd /tmp/astra-app
+          sha256sum -c <<'EOF'
+          d8761874d16841b505ce8affa3f2e23fc1efdc78c3ea08ff94eeb66b86df3e87  state.py
+          f2708693f1d78c1c662f27fe062b109b16bb63824bd5fcaf3da477d87991f11b  native.py
+          e572890a9bdb0d1297088ebcb69a86ca969645c85bb5099b47d72bea1308f843  native.c
+          200e9f20869f5aa19e1765fd877587620b30d45a302543f34f784e4026207156  engine.py
+          4fc5b23f1e7df706a8611a394d431226c76b971454e5aa19c7314a2adab7952d  cmd/adapter/main.go
+          EOF
+          openssl version
+          if ! pkg-config --atleast-version=3.5 openssl; then
+            sudo apt-get update
+            sudo apt-get install -y libssl-dev pkg-config
+          fi
+          pkg-config --atleast-version=3.5 openssl
+          cc -O2 -Wall -Wextra -shared -fPIC native.c -o libastra.so $(pkg-config --cflags --libs openssl)
+          python3 -c 'from native import L,Key; print(L.version().decode()); k=Key("ML-DSA-65"); assert k.public().verify(b"check",k.sign(b"check"))'
+          go build -mod=mod -o /tmp/astra-abci ./cmd/adapter
+      - name: Actual ASTRA post-quantum transactions over ABCI and TCP
+        run: |
+          set -eo pipefail
+          mkdir -p "$GITHUB_WORKSPACE/evidence"
+          cd /tmp/astra-app
+          uname -a | tee "$GITHUB_WORKSPACE/evidence/host.txt"
+          python3 -u integration.py "$GITHUB_WORKSPACE/evidence" | tee "$GITHUB_WORKSPACE/evidence/run.log"
+      - name: Archive public receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: astra-abci-${{ matrix.os }}
+          path: evidence/
+          retention-days: 7
