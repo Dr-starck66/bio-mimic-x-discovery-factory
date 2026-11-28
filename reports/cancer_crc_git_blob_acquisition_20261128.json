@@ -1,0 +1,46 @@
+{
+  "date": "2026-11-28",
+  "source": "https://github.com/NakhlehLab/MaCroDNA/tree/main/CRC_data_analysis/Data",
+  "publication": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10719311/",
+  "originalGEO": "GSE97693",
+  "method": "Read text blobs by exact SHA; split simple CSV, validate dimensions, numeric nonnegative entries and identifier uniqueness, compare gene and barcode sets. No independently recomputed byte-level hash. No clinical or biological efficacy claim.",
+  "matrices": [
+    {
+      "name": "RNA",
+      "sha": "5cc6fc2af00ff3f8706c14312658393ee3a6d03c",
+      "expectedBytes": 13335785,
+      "chars": 13335785,
+      "genes": 2041,
+      "cells": 3246,
+      "uniqueGenes": 2041,
+      "uniqueCells": 3246,
+      "badShape": 0,
+      "invalid": 0,
+      "values": 6625086,
+      "zeros": 4699329
+    },
+    {
+      "name": "CNV",
+      "sha": "c2dd841a97b2a3f4765fee1f258198c356dd8694",
+      "expectedBytes": 3125063,
+      "chars": 3125063,
+      "genes": 2041,
+      "cells": 724,
+      "uniqueGenes": 2041,
+      "uniqueCells": 724,
+      "badShape": 0,
+      "invalid": 0,
+      "values": 1477684,
+      "zeros": 3728
+    }
+  ],
+  "commonGeneNames": 2041,
+  "identicalGeneOrder": true,
+  "overlappingBarcodeStrings": 0,
+  "limitations": [
+    "RNA and DNA assays are not paired by matching barcode strings; no identity inference.",
+    "No verified matched healthy tissue or donor metadata; cannot test selective cancer killing or regeneration hypothesis.",
+    "Published matrices are downstream study data, not original sequencing FASTQs.",
+    "No data copied into Python or user repository; audit only."
+  ]
+}
