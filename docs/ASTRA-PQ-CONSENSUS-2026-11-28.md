@@ -1,0 +1,11 @@
+# ASTRA CRYPTO FEDERATION — native ML-DSA-65 consensus receipt
+Run: https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/46116281263
+Source commit: a5751896632576b049112a115d98765cf66fa650.
+Both jobs 140890733199 (x86) and 140890733431 (ARM) completed successfully.
+CometBFT v0.40.0, ASTRA v0.5 application retained. The test verifier requires ML-DSA-65 validator public keys and 3309-byte commit signatures, then verifies quorum signatures via CometBFT.
+Logs show 23 successful certificate verifications including repeated receipts, identical first block AAE0A4CE7CC72990542F901DC5F23BA826D76DFDCED928061D7B372A798EEE0F and identical block 18 8862CB443E26A2D487FC5B322DD379E31FC861BABF6109158B33589008E5F65A. 12 fictional payments, 2 application revocations, 7 converged state anchors, same ledger projection 6837344065407e450a2ff525ac4b111a60df605049f3d2c1dd88ce940b3b5cec. Four-validator group stopped finalizing during 8-second observation and recovered after reconnection. These are runner-log results; independent archive audit not yet performed in this turn. No nonzero-round commit demonstrated by this particular PQ run.
+Artifacts:
+- A https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/46116281263/artifacts/15251598139 SHA256 32c8fb84a879d2917cd216b07af8b678ec0bfe48eba2ba0ab9ac9285f2793a73
+- B https://github.com/Dr-starck66/bio-mimic-x-discovery-factory/actions/runs/46116281263/artifacts/15251856278 SHA256 a9151d76800f6dd243098deaf3c8b69838a6014f070012a9af3e6240904c1421
+Limitations: same hosted runner provider, shared temporary tunnel, centrally generated application incident keys, no independent institutional custody, no PQ transport claim, no consensus-family revocation or industrial certification. No funds or real bank data. Native ML-DSA consensus does not imply the complete system is quantum-safe. 
+Next: independent replication, separate key custody, route diversity, adversarial controls, 3000 fictional payments and measurement against baseline. Invitation to external researchers is not acceptance or affiliation.
